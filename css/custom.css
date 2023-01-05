@@ -1,9 +1,36 @@
 .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
-    left: -66px !important;
-    /* 默认情况下缩进左侧66px，只留一点箭头部分 */
-  }
+  left: -66px !important;
+  /* 默认情况下缩进左侧66px，只留一点箭头部分 */
+}
   
-  .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
-    left: 0 !important;
-    /* 鼠标悬停是左侧缩进归零，完全显示按钮 */
-  }
+.aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+  left: 0 !important;
+  /* 鼠标悬停是左侧缩进归零，完全显示按钮 */
+}
+
+.aplayer .aplayer-lrc p.aplayer-lrc-current{
+  margin: 5px!important;
+  line-height: 25px!important;
+  height: auto!important;
+  font-weight: 700;
+  font-size: 24px!important;
+  color: #48E3F6;
+  overflow: visible;
+  opacity: 1;
+}
+
+.aplayer .aplayer-lrc p{
+  margin: 5px!important;
+  padding: 0!important;
+  line-height: 18px!important;
+  font-size: 17px!important;
+  color:#777777;
+  transition:all .5s ease-out;
+  opacity: .4;
+  overflow: hidden;
+}
+
+.aplayer .aplayer-lrc{
+  padding: 0!important;
+  height: 50px!important;
+}
