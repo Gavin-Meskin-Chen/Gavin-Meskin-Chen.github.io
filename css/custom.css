@@ -23,6 +23,7 @@
   margin: 5px!important;
   padding: 0!important;
   line-height: 18px!important;
+  font-weight: 500;
   font-size: 17px!important;
   color:#777777;
   transition:all .5s ease-out;
