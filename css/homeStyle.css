@@ -1,0 +1,49 @@
+/* 滚动条样式 */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background-color: rgba(73, 177, 245, 0.2);
+    border-radius: 2em;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: #49b1f5;
+    background-image: -webkit-linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.4) 25%,
+      transparent 25%,
+      transparent 50%,
+      rgba(255, 255, 255, 0.4) 50%,
+      rgba(255, 255, 255, 0.4) 75%,
+      transparent 75%,
+      transparent
+    );
+    border-radius: 2em;
+  }
+  
+  ::-webkit-scrollbar-corner {
+    background-color: transparent;
+  }
+  
+  ::-moz-selection {
+    color: #fff;
+    background-color: #49b1f5;
+  }
+
+:root {
+    --card-bg: rgb(240,240,242);
+    /* --card-box-shadow: 0 1px 5px 1px rgba(7,17,27,0.25); */
+    --card-box-shadow: 0 0 0 0 rgba(7, 17, 27, .25);
+    --card-hover-box-shadow: 0 0 15px 6px rgba(7, 17, 27, .24);
+}
+
+[data-theme='dark'] {
+    --card-bg: rgba(36, 36, 36, 1);
+    --btn-bg: rgba(100, 100, 100, .8);
+    --btn-hover-color: rgba(120, 120, 120, 1);
+    --card-hover-box-shadow: 0 0 15px 6px rgba(240, 240, 240, .24);
+    --search-bg: rgba(36, 36, 36, 1);
+}
