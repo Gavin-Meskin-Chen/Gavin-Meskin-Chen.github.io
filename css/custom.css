@@ -63,11 +63,65 @@
   height: 50px!important;
 }
 
+/* ****************************************************************************** */
+
+
 /* 导航栏微调 */
-.menus_item_child {
+/* .menus_item_child {
   padding: 5px!important;
 }
 
 .menus_item_child li:hover {
   border-radius: 5px!important;
 }
+
+#nav .menus_items {
+  position: absolute !important;
+  width: fit-content !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+}
+
+#nav .menus_items .menus_item:hover .menus_item_child {
+  display: flex !important;
+}
+
+.menus_items .menus_item:nth-child(2) .menus_item_child {
+  left: -80px;
+}
+
+.menus_items .menus_item:nth-child(3) .menus_item_child {
+  left: -80px;
+}
+
+.menus_items .menus_item:nth-child(4) .menus_item_child {
+  left: -40px;
+}
+
+#nav {
+  backdrop-filter: blur(15px);
+}
+
+[data-theme='light'] #page-header.full_page > #nav {
+  background-color: rgba(255,255,255,0.5);
+}
+
+[data-theme='dark'] #page-header.full_page > #nav {
+  background-color: rgba(0,0,0,0.5);
+}
+
+#sidebar #sidebar-menus .menus_items .site-page {
+  border-radius: 0.4em;
+}
+
+#sidebar #sidebar-menus .menus_items .site-page:hover {
+  color: #ffffff;
+}
+
+#nav .menus_items .menus_item .menus_item_child li:hover a {
+  color: #ffffff!important;
+}
+
+#sidebar #sidebar-menus .menus_items .menus_item_child {
+  padding-left: 10%!important;
+} */
