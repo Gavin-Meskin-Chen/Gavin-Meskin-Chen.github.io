@@ -51,6 +51,10 @@
     --text-bg-hover: rgba(50, 150, 250, .9); /*rgba(51, 144, 255, .5)*/
 }
 
+[data-theme='light'] {
+    --font-color: #2e2e2e;
+}
+
 [data-theme='dark'] {
     --gavin-page-bg: rgba(36, 36, 36, 1); /*页码颜色*/
     --gavin-toc-bg: rgba(240, 240, 240, .24); /*目录颜色*//*rgba(51, 144, 255, .3); */

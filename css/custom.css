@@ -63,6 +63,13 @@
   height: 50px!important;
 }
 
+
+/* 魔改播放器 */
+.aplayer.aplayer-narrow .aplayer-body,
+.aplayer.aplayer-narrow .aplayer-pic {
+  height: 66px;
+  width: 66px;
+}
 /* ****************************************************************************** */
 
 
