@@ -361,7 +361,7 @@
     position: absolute;
     top: 65px;
     left: 0;
-    background: var(--anzhiyu-card-bg);
+    background: var(--card-bg);
     border-radius: 12px;
     border: var(--style-border);
     flex-direction: column;
@@ -482,6 +482,11 @@
     color: var(--font-color)!important;
     background-color: rgba(0,0,0,0);
     box-shadow: none;
+  }
+
+  #page-header.nav-fixed #nav {
+    padding-left: 10px;
+    padding-right: 10px;
   }
 
   /* #page-header.nav-fixed #nav #site-name:hover, #page-header.nav-fixed #nav #toggle-menu:hover {

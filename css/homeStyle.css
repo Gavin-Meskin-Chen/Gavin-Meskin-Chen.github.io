@@ -37,7 +37,7 @@
   }
 
 :root {
-    --gavin-box-bg: #3390FF; /*页码颜色*/
+    --gavin-page-bg: #3390FF; /*页码颜色*/
     --gavin-toc-bg: rgba(50, 150, 250, .9); /*目录颜色*//*rgba(51, 144, 255, .9)*/
     --gavin-scrollbar-dark: rgba(73, 177, 245, 1);
     --gavin-scrollbar-light: rgba(255, 255, 255, .4);
@@ -52,7 +52,7 @@
 }
 
 [data-theme='dark'] {
-    --gavin-box-bg: rgba(36, 36, 36, 1); /*页码颜色*/
+    --gavin-page-bg: rgba(36, 36, 36, 1); /*页码颜色*/
     --gavin-toc-bg: rgba(240, 240, 240, .24); /*目录颜色*//*rgba(51, 144, 255, .3); */
     --gavin-scrollbar-dark: #242424;
     --gavin-scrollbar-light: rgba(180, 180, 180, .4);
@@ -116,8 +116,9 @@
   border-radius: 0.4em;
 }
 
+/* 页码 */
 #pagination .page-number.current {
-  background: var(--gavin-box-bg);
+  background: var(--gavin-page-bg);
   color: var(--white);
 }
 

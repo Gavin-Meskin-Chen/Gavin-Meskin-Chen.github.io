@@ -22,10 +22,47 @@ function percent() {
 document.getElementById("page-name").innerText = document.title.split(" | 参星阁")[0];
 
 
+// 深色模式
+function switchDarkMode(){
+  const nowMode = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light'
+  if (nowMode === 'light') {
+    activateDarkMode()
+    saveToLocal.set('theme', 'dark', 2)
+    GLOBAL_CONFIG.Snackbar !== undefined && btf.snackbarShow(GLOBAL_CONFIG.Snackbar.day_to_night)
+  } else {
+    activateLightMode()
+    saveToLocal.set('theme', 'light', 2)
+    GLOBAL_CONFIG.Snackbar !== undefined && btf.snackbarShow(GLOBAL_CONFIG.Snackbar.night_to_day)
+  }
+  // handle some cases
+  typeof utterancesTheme === 'function' && utterancesTheme()
+  typeof changeGiscusTheme === 'function' && changeGiscusTheme()
+  typeof FB === 'object' && window.loadFBComment()
+  typeof runMermaid === 'function' && window.runMermaid()
+  }
+
+
+// 阅读模式
+function switchReadMode() { // read-mode
+  const $body = document.body
+  $body.classList.add('read-mode')
+  const newEle = document.createElement('button')
+  newEle.type = 'button'
+  newEle.className = 'fas fa-sign-out-alt exit-readmode'
+  $body.appendChild(newEle)
+
+  function clickFn () {
+    $body.classList.remove('read-mode')
+    newEle.remove()
+    newEle.removeEventListener('click', clickFn)
+  }
+}
+
+
+// 随机颜色
 function RandomColor(){
     this.r = Math.floor(Math.random()*255);
     this.g = Math.floor(Math.random()*255);
     this.b = Math.floor(Math.random()*255);
     this.color = 'rgba('+ this.r +','+ this.g +','+ this.b +',0.8)';
   }
-
