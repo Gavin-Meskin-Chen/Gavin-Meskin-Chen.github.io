@@ -103,15 +103,6 @@ div#menus {
   padding-right: 10px;
 }
 
-/* 导航栏透明度调节 */
-#page-header.nav-fixed #nav {
-  background-color:rgba(255, 255, 255, 0.5);
-}
-
-[data-theme='dark'] #page-header.nav-fixed > #nav {
-  background-color:rgba(0, 0, 0, 0.5);
-}
-
 /* 导航栏标题样式（nav-fixed下） */
 #page-header.nav-fixed #nav a:hover {
   color: #ffffff;
@@ -219,9 +210,21 @@ ul.menus_item_child {
   transform: translateY(58px) !important;
 }
 
+/* 导航栏透明度调节 */
+#page-header.nav-fixed > #nav {
+  background-color:rgba(255, 255, 255, 0.5);
+}
+
+[data-theme='dark'] #page-header.nav-fixed > #nav {
+  background-color:rgba(0, 0, 0, 0.5);
+}
+
 /* 毛玻璃特效 */
 #nav {
   padding: 0 calc((100% - 1420px) / 2);
+  -webkit-filter: saturate(180%) blur(20px);
+  filter: saturate(180%) blur(20px);
+  /* Warning: Also define the standard property '' for compatibility */
   backdrop-filter: saturate(180%) blur(20px);
 }
 
