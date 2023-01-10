@@ -98,11 +98,6 @@ div#menus {
   box-shadow: none;
 }
 
-#page-header.nav-fixed #nav {
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
 /* 导航栏标题样式（nav-fixed下） */
 #page-header.nav-fixed #nav a:hover {
   color: #ffffff;
@@ -206,27 +201,43 @@ ul.menus_item_child {
   }
 }
 
-.nav-fixed #nav {
-  transform: translateY(58px) !important;
-}
 
 /* 导航栏透明度调节 */
-#page-header.nav-fixed > #nav {
+/* #page-header.nav-fixed #nav {
   background-color:rgba(255, 255, 255, 0.5);
 }
 
-[data-theme='dark'] #page-header.nav-fixed > #nav {
+[data-theme='dark'] #page-header.nav-fixed #nav {
   background-color:rgba(0, 0, 0, 0.5);
 }
+
+#page-header.nav-fixed #nav {
+  padding-left: 10px;
+  padding-right: 10px;
+} */
 
 /* 毛玻璃特效 */
 #nav {
   top: 0;
   padding: 0 calc((100% - 1420px) / 2);
-  -webkit-backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(15px);
   /* Warning: Also define the standard property '' for compatibility */
   backdrop-filter: saturate(180%) contrast(50%) blur(15px);
   /* saturate饱和度 contrast对比度 blur高斯模糊 */
+
+  /* 以下是导航栏新改的 */
+  background-color:rgba(255, 255, 255, 0.5)!important;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/* 导航栏新改的 */
+[data-theme='dark'] #nav {
+  background-color:rgba(0, 0, 0, 0.5)!important;
+}
+
+.nav-fixed #nav {
+  transform: translateY(58px) !important;
 }
 
 #nav a {
