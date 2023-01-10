@@ -66,3 +66,100 @@ function RandomColor(){
     this.b = Math.floor(Math.random()*255);
     this.color = 'rgba('+ this.r +','+ this.g +','+ this.b +',0.8)';
   }
+
+
+
+
+// js
+const eurkon={
+  switchThemeColor:function([e,t,n]){
+      document.documentElement.style.setProperty("--r",e),
+          document.documentElement.style.setProperty("--g",t),
+          document.documentElement.style.setProperty("--b",n),
+          document.documentElement.style.setProperty("--second",.299*e+.587*t+.114*n>=192?"#000":"#FFF"),
+          document.documentElement.style.setProperty("--cover-text",.299*e+.587*t+.114*n>=192?"#4C4948":"#EEE")
+  },
+  getMainColor:function(e="#1677B3"){
+      let t=[
+          parseInt("0x"+e.slice(1,3)),
+          parseInt("0x"+e.slice(3,5)),
+          parseInt("0x"+e.slice(5,7))
+      ];
+      if(document.getElementById("post-cover-img"))
+          try{
+              t=(new ColorThief).getColor(document.getElementById("post-cover-img"))
+          }catch(e){
+              console.log(e)
+          }return t
+  },
+  switchMainColor:function(){
+      let e=[];
+      for(let t=0;t<=20;t++)
+          for(let n=0;n<=20;n++)
+              for(let o=0;o<=20;o++)
+                  e.push(`rgb(${t},${n},${o})`),
+                      e.push(`rgb(${255-t},${255-n},${255-o})`);
+      if(document.getElementById("post-cover-img"))
+          RGBaster.colors(
+              document.getElementById("post-cover-img"),{
+                  paletteSize:30,exclude:e,
+                  success:function(e){
+                      let[t,n,o]=e.dominant.match(/\d+/g);
+                      document.documentElement.style.setProperty("--r",t),
+                          document.documentElement.style.setProperty("--g",n),
+                          document.documentElement.style.setProperty("--b",o),
+                          document.documentElement.style.setProperty("--second",.299*t+.587*n+.114*o>=192?"#000":"#FFF"),
+                          document.documentElement.style.setProperty("--cover-text",.299*t+.587*n+.114*o>=192?"#4C4948":"#EEE")
+                  }
+              }
+          );else{
+              let e="#1677B3",[t,n,o]=[parseInt("0x"+e.slice(1,3)),parseInt("0x"+e.slice(3,5)),parseInt("0x"+e.slice(5,7))];
+              document.documentElement.style.setProperty("--r",t),
+                  document.documentElement.style.setProperty("--g",n),
+                  document.documentElement.style.setProperty("--b",o),
+                  document.documentElement.style.setProperty("--second",.299*t+.587*n+.114*o>=192?"#000":"#FFF"),
+                  document.documentElement.style.setProperty("--cover-text",.299*t+.587*n+.114*o>=192?"#4C4948":"#EEE")
+          }
+  },
+  switchPageTitle:function(){
+      document.getElementById("page-title").style.display="/"===window.location.pathname||/^\/page\/[0-9]+\//.test(window.location.pathname)?"none":"flex",
+          document.querySelector("#page-title>span").innerHTML=GLOBAL_CONFIG_SITE.title
+  },
+  catalogActive:function(){
+      let e=document.getElementById("catalog-list");
+      if(e){
+          e.addEventListener("mousewheel",(
+              function(t){
+                  e.scrollLeft-=t.wheelDelta/2,
+                      t.preventDefault()
+              }
+          ),!1);
+          let t=document.getElementById(decodeURIComponent(window.location.pathname));
+          t?.classList.add("selected"),
+              e.scrollLeft=t.offsetLeft-e.offsetLeft-(e.offsetWidth-t.offsetWidth)/2
+      }
+      document.getElementById(decodeURIComponent(window.location.pathname.slice(1)))?.classList.add("selected")
+  },
+  switchCommentBarrage:function(){
+      let e=window.localStorage.getItem("commentBarrageDisplay");
+      document.getElementById("comment-barrage").style.zIndex="false"===e?"1":"-1001",
+          window.localStorage.setItem("commentBarrageDisplay","false"===e?"undefined":"false",864e5),
+          document.getElementById("menu-barrage")&&(document.querySelector("#menu-barrage>span").innerHTML="false"===e?"隐藏热评":"显示热评"),
+          document.getElementById("barrage-btn")&&("false"===e?document.getElementById("barrage-btn").classList.add("on"):document.getElementById("barrage-btn").classList.remove("on"))
+  },
+  switchRightSide:function(){
+      document.getElementById("rightside")?.classList.toggle("hidden"),
+          document.getElementById("rightside-mask")?.classList.toggle("hidden")
+  },
+  fullScreen:function(){
+      var e=document.documentElement;
+      e.requestFullscreen?e.requestFullscreen():
+          e.mozRequestFullScreen?e.mozRequestFullScreen():
+          e.webkitRequestFullScreen&&e.webkitRequestFullScreen()
+  },
+  exitFullScreen:function(){
+      document.exitFullscreen?document.exitFullscreen():
+          document.mozCancelFullScreen?document.mozCancelFullScreen():
+          document.webkitExitFullscreen&&document.webkitExitFullscreen()
+  }
+};
