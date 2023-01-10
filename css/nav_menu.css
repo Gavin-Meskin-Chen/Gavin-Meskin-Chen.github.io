@@ -222,9 +222,10 @@ ul.menus_item_child {
 /* 毛玻璃特效 */
 #nav {
   padding: 0 calc((100% - 1420px) / 2);
-  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) contrast(50%) blur(15px)!important;
   /* Warning: Also define the standard property '' for compatibility */
-  backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) contrast(50%) blur(15px)!important;
+  /* saturate饱和度 contrast对比度 blur高斯模糊 */
 }
 
 #nav a {
