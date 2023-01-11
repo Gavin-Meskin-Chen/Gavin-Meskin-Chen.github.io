@@ -726,6 +726,62 @@
     background-color: #49b1f5;
   }
 
+/* *******************************************************************散户************************************************************* */
+  
+/* 设置左右padding */
+.layout {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+  
+  /* 设置目录弧度 */
+  #aside-content #card-toc .toc-content .toc-link.active {
+    background: var(--gavin-toc-bg);
+    /* color: #fff; */
+    border-radius: 0.4em;
+  }
+  
+  /* 设置侧边栏卡片的item样式 */
+  .card-archive-list-link, .card-category-list-link{
+    border-radius: 0.4em;
+  }
+  .card-archive-list-link:hover, .card-category-list-link:hover{
+    color: #ffffff!important;
+  }
+  
+  /* Follow Me按钮弧度 */
+  #aside-content .card-info #card-info-btn {
+    border-radius: 0.4em;
+  }
+  
+  /* 首页标签Tag样式 */
+  #aside-content .card-tag-cloud a {
+    margin: 3px 2px 3px 2px;
+    border: 1px solid var(--gavin-item-border);
+    background-color: var(--gavin-item-bg);
+    border-radius: 0.4em;
+    color: var(--gavin-item-border)!important;
+  }
+  
+  #aside-content .card-tag-cloud a:hover {
+    background-color: var(--gavin-item-border);
+    color: #ffffff!important;
+  }
+  
+  /* Tag页标签样式 */
+  .tag-cloud-list a {
+    margin: 5px 5px 5px 5px;
+    border: 1px solid var(--gavin-item-border);
+    background-color: var(--gavin-item-bg);
+    border-radius: 0.4em;
+  }
+  
+  /* 页码 */
+  #pagination .page-number.current {
+    background: var(--gavin-page-bg);
+    color: var(--white);
+  }
+  
   
   /* ***************************************************************颜色************************************************************** */
   :root {
