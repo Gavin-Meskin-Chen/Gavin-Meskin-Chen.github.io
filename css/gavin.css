@@ -9,10 +9,12 @@
   --gavin-scrollbar-light: rgba(255, 255, 255, .4);
   --gavin-item-bg: rgba(73, 177, 245, .1);
   --gavin-item-border: rgba(50, 150, 250, .9);
-  --card-bg: #ffffff;
   --card-box-shadow: 0 0px 7px 1px rgba(7, 17, 27, .25);
   --card-hover-box-shadow: 0 0 15px 6px rgba(7, 17, 27, .24);
   --text-bg-hover: rgba(50, 150, 250, .9);
+  --search-bg: var(var(--gavin-op-5))
+  --rightside-bg: var(--gavin-op-1);
+
   /*rgba(51, 144, 255, .5)*/
 
   /* 以下是安知鱼颜色 */
@@ -48,13 +50,15 @@
 }
 
 [data-theme="light"] {
-  --gavin-glass-bg: rgba(255,255,255,.1);
-  --gavin-glass-3: rgba(255,255,255,.3);
-  --gavin-font-color-7: (0,0,0,.7);
+  --gavin-op-1: rgba(255,255,255,.1);
+  --gavin-op-3: rgba(255,255,255,.3);
+  --gavin-op-5: rgba(255,255,255,.5);
+  --gavin-op-7: rgba(255,255,255,.7);
+  --gavin-op-dis-3: rgba(0,0,0,.3);
   /* --font-color: #2e2e2e; */
   --font-color: rgba(0,0,0,.8);
-  --search-bg: rgba(255,255,255,.5);
-  --rightside-bg: rgba(255,255,255,.1);
+  --card-bg: #ffffff;
+
 
   /* 以下是安知鱼颜色 */
   --anzhiyu-theme: rgba(50, 150, 250, .9);
@@ -86,7 +90,11 @@
 }
 
 [data-theme="dark"] {
-  --gavin-font-color-7: rgba(255,255,255,.7);
+  --gavin-op-1: rgba(0,0,0,.1);
+  --gavin-op-3: rgba(0,0,0,.3);
+  --gavin-op-5: rgba(0,0,0,.5);
+  --gavin-op-7: rgba(0,0,0,.7);
+  --gavin-op-dis-3: rgba(255,255,255,.3);
   --gavin-page-bg: rgba(36, 36, 36, 1);
   /*页码颜色*/
   --gavin-toc-bg: rgba(240, 240, 240, .24);
@@ -96,17 +104,14 @@
   --gavin-scrollbar-light: rgba(180, 180, 180, .4);
   --gavin-item-bg: rgba(240, 240, 240, .2);
   --gavin-item-border: rgba(240, 240, 240, .5);
-  --gavin-glass-bg: rgba(0,0,0,.1);
-  --gavin-glass-3: rgba(0,0,0,.3);
+  --gavin-op-1: rgba(0,0,0,.1);
+  --gavin-op-3: rgba(0,0,0,.3);
   --card-bg: rgba(36, 36, 36, 1);
   --card-box-shadow: 0 0px 7px 1px rgba(240, 240, 240, .25);
   --card-hover-box-shadow: 0 0 15px 6px rgba(240, 240, 240, .24);
   --text-bg-hover: rgba(240, 240, 240, .24);
   --btn-bg: rgba(100, 100, 100, .8);
   --btn-hover-color: rgba(120, 120, 120, 1);
-  --search-bg: rgba(0, 0, 0, .5);
-  --rightside-bg: rgba(0,0,0,.1);
-  /*搜索框颜色*/
 
   /* 以下是安知鱼颜色 */
   --anzhiyu-theme: rgba(240, 240, 240, .24);
@@ -804,7 +809,7 @@ center#name-container {
 
 /* 搜索页面毛玻璃 */
 #search-mask {
-  background-color: var(--gavin-glass-bg);
+  background-color: var(--gavin-op-1);
   -webkit-backdrop-filter: saturate(180%) contrast(50%) blur(10px);
   backdrop-filter: saturate(180%) contrast(50%) blur(10px);
 }
@@ -831,6 +836,9 @@ center#name-container {
   backdrop-filter: saturate(180%) contrast(50%) blur(20px);
 }
 
+#rightside {
+  bottom: 90px;
+}
 /* ***********************************************************控制中心*********************************************************** */
 /* 控制中心按钮样式 */
 .ctrl-button {
@@ -1014,10 +1022,10 @@ center#name-container {
   line-height: 18px !important; */
   font-weight: 700;
   font-size: 17px !important;
-  color: var(--gavin-font-color-7)!important;
-  /* transition: all .5s ease-out;
-  opacity: 1;
-  overflow: hidden; */
+  color: var(--gavin-op-dis-3)!important;
+  /* transition: all .5s ease-out; */
+  opacity: 1!important;
+  /* overflow: hidden; */
 }
 
 .aplayer .aplayer-lrc {
@@ -1025,7 +1033,7 @@ center#name-container {
   height: 50px !important;
   border-radius: 20px;
   border: 10px solid rgba(0,0,0,0);
-  background-color: var(--gavin-glass-bg);
+  background-color: var(--gavin-op-1);
   -webkit-backdrop-filter: saturate(180%) contrast(50%) blur(20px);
   backdrop-filter: saturate(180%) contrast(50%) blur(20px);
 }
@@ -1034,4 +1042,10 @@ center#name-container {
   left: 10%!important;
   width: 80%;
   text-shadow: none!important;
+}
+
+.aplayer.aplayer-fixed .aplayer-list {
+  position: relative;
+  background-color: #ffffff;
+  z-index: 99;
 }
