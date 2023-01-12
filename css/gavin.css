@@ -48,7 +48,13 @@
 }
 
 [data-theme="light"] {
-  --font-color: #2e2e2e;
+  --gavin-glass-bg: rgba(255,255,255,.1);
+  --gavin-glass-3: rgba(255,255,255,.3);
+  --gavin-font-color-7: (0,0,0,.7);
+  /* --font-color: #2e2e2e; */
+  --font-color: rgba(0,0,0,.8);
+  --search-bg: rgba(255,255,255,.5);
+  --rightside-bg: rgba(255,255,255,.1);
 
   /* 以下是安知鱼颜色 */
   --anzhiyu-theme: rgba(50, 150, 250, .9);
@@ -80,6 +86,7 @@
 }
 
 [data-theme="dark"] {
+  --gavin-font-color-7: rgba(255,255,255,.7);
   --gavin-page-bg: rgba(36, 36, 36, 1);
   /*页码颜色*/
   --gavin-toc-bg: rgba(240, 240, 240, .24);
@@ -89,13 +96,16 @@
   --gavin-scrollbar-light: rgba(180, 180, 180, .4);
   --gavin-item-bg: rgba(240, 240, 240, .2);
   --gavin-item-border: rgba(240, 240, 240, .5);
+  --gavin-glass-bg: rgba(0,0,0,.1);
+  --gavin-glass-3: rgba(0,0,0,.3);
   --card-bg: rgba(36, 36, 36, 1);
   --card-box-shadow: 0 0px 7px 1px rgba(240, 240, 240, .25);
   --card-hover-box-shadow: 0 0 15px 6px rgba(240, 240, 240, .24);
   --text-bg-hover: rgba(240, 240, 240, .24);
   --btn-bg: rgba(100, 100, 100, .8);
   --btn-hover-color: rgba(120, 120, 120, 1);
-  --search-bg: rgba(36, 36, 36, 1);
+  --search-bg: rgba(0, 0, 0, .5);
+  --rightside-bg: rgba(0,0,0,.1);
   /*搜索框颜色*/
 
   /* 以下是安知鱼颜色 */
@@ -792,6 +802,34 @@ center#name-container {
   color: var(--white);
 }
 
+/* 搜索页面毛玻璃 */
+#search-mask {
+  background-color: var(--gavin-glass-bg);
+  -webkit-backdrop-filter: saturate(180%) contrast(50%) blur(10px);
+  backdrop-filter: saturate(180%) contrast(50%) blur(10px);
+}
+
+.search-dialog {
+  background: var(--search-bg);
+  -webkit-backdrop-filter: saturate(180%) contrast(50%) blur(20px);
+  backdrop-filter: saturate(180%) contrast(50%) blur(20px);
+}
+
+#algolia-search .search-dialog .ais-SearchBox input {
+  border: 2px solid gray;
+  background-color:rgb(255, 255, 255, 0);
+}
+
+#algolia-search .search-dialog .ais-SearchBox:hover input {
+  border: 2px solid rgba(5,109,232,0.8);
+}
+
+/* 右下角rightside按钮毛玻璃 */
+#rightside > div > button {
+  background-color: var(--rightside-bg);
+  -webkit-backdrop-filter: saturate(180%) contrast(50%) blur(20px);
+  backdrop-filter: saturate(180%) contrast(50%) blur(20px);
+}
 
 /* ***********************************************************控制中心*********************************************************** */
 /* 控制中心按钮样式 */
@@ -912,15 +950,10 @@ center#name-container {
 
 /* ***************以下暂时测试*********** */
 
-/* 以下两段为：控制中心，手机端隐藏，而电脑端显示 */
+/* 以下为：控制中心，手机端隐藏，而电脑端显示 */
 /* #nav.hide-menu .ctrl-button {
   display: none;
-}
-
-#nav .ctrl-button {
-  display: inline-block !important;
 } */
-
 
 /* *****************************************************sidebar侧滑导航栏修改**************************************************************** */
 /* 手机端 侧边导航颜色和圆弧 */
@@ -942,8 +975,10 @@ center#name-container {
   font-size: 1.5rem;
 }
 
+/* 侧边导航毛玻璃 */
 #sidebar #sidebar-menus {
   background: rgba(255,255,255,0.5);
+  -webkit-backdrop-filter: saturate(180%) contrast(50%) blur(20px);
   backdrop-filter: saturate(180%) contrast(50%) blur(10px);
 }
 
@@ -964,27 +999,39 @@ center#name-container {
 .aplayer .aplayer-lrc p.aplayer-lrc-current {
   margin: 5px !important;
   line-height: 25px !important;
-  height: auto !important;
-  font-weight: 700;
+  /* height: auto !important;
+  font-weight: 700; */
   font-size: 24px !important;
-  color: #48E3F6;
-  overflow: visible;
-  opacity: 1;
+  /* color: #48E3F6; */
+  color: var(--font-color)!important;
+  /* overflow: visible;
+  opacity: 1; */
 }
 
 .aplayer .aplayer-lrc p {
-  margin: 5px !important;
+  /* margin: 5px !important;
   padding: 0 !important;
-  line-height: 18px !important;
-  font-weight: 500;
+  line-height: 18px !important; */
+  font-weight: 700;
   font-size: 17px !important;
-  color: #777777;
-  transition: all .5s ease-out;
-  opacity: .4;
-  overflow: hidden;
+  color: var(--gavin-font-color-7)!important;
+  /* transition: all .5s ease-out;
+  opacity: 1;
+  overflow: hidden; */
 }
 
 .aplayer .aplayer-lrc {
   padding: 0 !important;
   height: 50px !important;
+  border-radius: 20px;
+  border: 10px solid rgba(0,0,0,0);
+  background-color: var(--gavin-glass-bg);
+  -webkit-backdrop-filter: saturate(180%) contrast(50%) blur(20px);
+  backdrop-filter: saturate(180%) contrast(50%) blur(20px);
+}
+
+.aplayer.aplayer-fixed .aplayer-lrc {
+  left: 10%!important;
+  width: 80%;
+  text-shadow: none!important;
 }
