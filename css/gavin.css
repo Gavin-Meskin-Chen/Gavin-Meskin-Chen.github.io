@@ -12,7 +12,7 @@
   --card-box-shadow: 0 0px 7px 1px rgba(7, 17, 27, .25);
   --card-hover-box-shadow: 0 0 15px 6px rgba(7, 17, 27, .24);
   --text-bg-hover: rgba(50, 150, 250, .9);
-  --search-bg: var(var(--gavin-op-5))
+  --search-bg: var(--gavin-op-5);
   --rightside-bg: var(--gavin-op-1);
 
   /*rgba(51, 144, 255, .5)*/
@@ -357,16 +357,12 @@ ul.menus_item_child {
   /* saturate饱和度 contrast对比度 blur高斯模糊 */
 
   /* 以下是导航栏新改的 */
-  background-color: rgba(255, 255, 255, 0.5) !important;
+  background-color: var(--gavin-op-5) !important;
   padding-left: 10px;
   padding-right: 10px;
 }
 
 /* 导航栏新改的 */
-[data-theme='dark'] #nav {
-  background-color: rgba(0, 0, 0, 0.5) !important;
-}
-
 .nav-fixed #nav {
   transform: translateY(58px) !important;
 }
