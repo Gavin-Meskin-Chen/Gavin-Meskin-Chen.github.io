@@ -826,7 +826,7 @@ center#name-container {
 }
 
 /* 右下角rightside按钮毛玻璃 */
-#rightside > div > button {
+#rightside > div > button, #rightside > div > a {
   background-color: var(--rightside-bg);
   -webkit-backdrop-filter: saturate(180%) contrast(50%) blur(20px);
   backdrop-filter: saturate(180%) contrast(50%) blur(20px);
