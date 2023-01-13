@@ -982,7 +982,7 @@ center#name-container {
 /* 侧边导航毛玻璃 */
 #sidebar #sidebar-menus {
   background: rgba(255,255,255,0.5);
-  -webkit-backdrop-filter: saturate(180%) contrast(50%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) contrast(50%) blur(10px);
   backdrop-filter: saturate(180%) contrast(50%) blur(10px);
 }
 
@@ -1032,12 +1032,15 @@ center#name-container {
   /* border-image: 0%; */
   /* -webkit-border-image: 0%; */
   background-color: var(--gavin-op-1);
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
   -webkit-backdrop-filter: saturate(180%) contrast(50%) blur(20px);
   backdrop-filter: saturate(180%) contrast(50%) blur(20px);
 }
 
 .aplayer.aplayer-fixed .aplayer-lrc {
-  left: 10%!important;
+  /* calc(10% - 105px): 百分比补上参数 */
+  left: calc(10% - 9px) !important;
   width: 80%;
   text-shadow: none!important;
 }

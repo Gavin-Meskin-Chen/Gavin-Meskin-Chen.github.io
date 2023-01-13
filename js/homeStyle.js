@@ -18,28 +18,46 @@ function percent() {
 
   result <= 99 || (result = 99), (btn.innerHTML = result);
 }
-
 document.getElementById("page-name").innerText = document.title.split(" | 参星阁")[0];
+
+window.onload = judge_System;
+function judge_System(){
+  const now_Mode = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light'
+  var ctrl_Btn1 = document.getElementById("btn1")
+  if (now_Mode === 'light') {
+    ctrl_Btn1.style.backgroundColor = 'rgba(255,255,255,0.3)'
+  } else {
+    ctrl_Btn1.style.backgroundColor = 'rgba(0,55,255,0.9)'
+  }
+  // var ctrl = document.getElementById("controlCenter")
+  // ctrl.onclick = function() {
+  //   ctrl.style.display = 'none'
+  // }
+}
 
 
 // 深色模式
 function switchDarkMode(){
   const nowMode = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light'
+  var btn1 = document.getElementById("btn1")
   if (nowMode === 'light') {
     activateDarkMode()
     saveToLocal.set('theme', 'dark', 2)
     GLOBAL_CONFIG.Snackbar !== undefined && btf.snackbarShow(GLOBAL_CONFIG.Snackbar.day_to_night)
+    btn1.style.backgroundColor = 'rgba(0,55,255,0.9)'
   } else {
     activateLightMode()
     saveToLocal.set('theme', 'light', 2)
     GLOBAL_CONFIG.Snackbar !== undefined && btf.snackbarShow(GLOBAL_CONFIG.Snackbar.night_to_day)
+    btn1.style.backgroundColor = 'rgba(255,255,255,0.3)'
   }
   // handle some cases
   typeof utterancesTheme === 'function' && utterancesTheme()
   typeof changeGiscusTheme === 'function' && changeGiscusTheme()
   typeof FB === 'object' && window.loadFBComment()
   typeof runMermaid === 'function' && window.runMermaid()
-  }
+
+}
 
 
 // 阅读模式
@@ -67,8 +85,14 @@ function RandomColor () {
     this.color = 'rgba('+ this.r +','+ this.g +','+ this.b +',0.8)';
 }
 
-
-
+function controlShowHide() {
+  var ctrl = document.getElementById("controlCenter")
+  if (ctrl.style.display === 'block') {
+    ctrl.style.display = 'none'
+  } else {
+    ctrl.style.display = 'block'
+  }
+}
 
 // js
 // const eurkon={
