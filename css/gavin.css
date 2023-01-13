@@ -1028,7 +1028,9 @@ center#name-container {
   padding: 0 !important;
   height: 50px !important;
   border-radius: 20px;
-  border: 10px solid rgba(0,0,0,0);
+  border: 10px solid #00000000;
+  /* border-image: 0%; */
+  /* -webkit-border-image: 0%; */
   background-color: var(--gavin-op-1);
   -webkit-backdrop-filter: saturate(180%) contrast(50%) blur(20px);
   backdrop-filter: saturate(180%) contrast(50%) blur(20px);
