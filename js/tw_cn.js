@@ -47,14 +47,22 @@ document.addEventListener('DOMContentLoaded', function () {
     if (targetEncoding === 1) {
       currentEncoding = 1
       targetEncoding = 2
-      translateButtonObject.innerHTML = msgToTraditionalChinese
+      // 新增一条按钮颜色
+      document.querySelector("#charItem").classList.remove("on")
+      // translateButtonObject.innerHTML = msgToTraditionalChinese
+      // 以上是原语句，以下是变字
+      // document.getElementById('iconCharMode').innerHTML = msgToTraditionalChinese
       saveToLocal.set(targetEncodingCookie, targetEncoding, 2)
       translateBody()
       if (isSnackbar) btf.snackbarShow(snackbarData.cht_to_chs)
     } else if (targetEncoding === 2) {
       currentEncoding = 2
       targetEncoding = 1
-      translateButtonObject.innerHTML = msgToSimplifiedChinese
+      // 新增一条按钮颜色
+      document.querySelector("#charItem").classList.add("on")
+      // translateButtonObject.innerHTML = msgToSimplifiedChinese
+      // 以上是原语句，以下是变字
+      // document.getElementById('iconCharMode').innerHTML = msgToSimplifiedChinese
       saveToLocal.set(targetEncodingCookie, targetEncoding, 2)
       translateBody()
       if (isSnackbar) btf.snackbarShow(snackbarData.chs_to_cht)
@@ -85,13 +93,21 @@ document.addEventListener('DOMContentLoaded', function () {
     return str
   }
   function translateInitialization () {
-    // translateLink改成了navTranslateBtn
-    translateButtonObject = document.getElementById('navTranslateBtn')
+    // translateLink改成了iconCharMode
+    translateButtonObject = document.getElementById('charSwitchBtn')
     if (translateButtonObject) {
       if (currentEncoding !== targetEncoding) {
         setTimeout(translateBody, translateDelay)
-        if (targetEncoding === 1) translateButtonObject.innerHTML = msgToSimplifiedChinese
-        else translateButtonObject.innerHTML = msgToTraditionalChinese
+        if (targetEncoding === 1) {
+          // translateButtonObject.innerHTML = msgToSimplifiedChinese
+          document.querySelector("#charItem").classList.remove("on")
+        } else {
+          // translateButtonObject.innerHTML = msgToTraditionalChinese
+          document.querySelector("#charItem").classList.add("on")
+        }
+        // 以上是原语句，以下是变字
+        // if (targetEncoding === 1) document.getElementById('iconCharMode').innerHTML = msgToSimplifiedChinese
+        // else document.getElementById('iconCharMode').innerHTML = msgToTraditionalChinese
       }
       translateButtonObject.addEventListener('click', translatePage, false)
     }

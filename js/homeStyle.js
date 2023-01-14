@@ -20,43 +20,84 @@ function percent() {
 }
 document.getElementById("page-name").innerText = document.title.split(" | 参星阁")[0];
 
-window.onload = judge_System;
-function judge_System(){
-  const now_Mode = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light'
-  var ctrl_Btn1 = document.getElementById("btn1")
-  if (now_Mode === 'light') {
-    ctrl_Btn1.style.backgroundColor = 'rgba(255,255,255,0.3)'
-  } else {
-    ctrl_Btn1.style.backgroundColor = 'rgba(0,55,255,0.9)'
-  }
-  // var ctrl = document.getElementById("controlCenter")
-  // ctrl.onclick = function() {
-  //   ctrl.style.display = 'none'
-  // }
+
+// window.onload = function() {
+//   const translate = GLOBAL_CONFIG.translate
+//   const defaultEncoding = translate.defaultEncoding
+//   const msgToTraditionalChinese = translate.msgToTraditionalChinese // 此處可以更改為你想要顯示的文字
+//   const msgToSimplifiedChinese = translate.msgToSimplifiedChinese // 同上，但兩處均不建議更改
+// }
+
+
+var cjw = {
+
+  // 深色模式/浅色模式切换
+  switchDarkMode: function() {
+    const nowMode = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light'
+    if (nowMode === 'light') {
+      activateDarkMode()
+      saveToLocal.set('theme', 'dark', 2)
+      GLOBAL_CONFIG.Snackbar !== undefined && btf.snackbarShow(GLOBAL_CONFIG.Snackbar.day_to_night)
+      // document.querySelector("#iconDarkMode").classList.remove("fa-sun")
+      // document.querySelector("#iconDarkMode").classList.add("fa-moon")
+    } else {
+      activateLightMode()
+      saveToLocal.set('theme', 'light', 2)
+      GLOBAL_CONFIG.Snackbar !== undefined && btf.snackbarShow(GLOBAL_CONFIG.Snackbar.night_to_day)
+      // document.querySelector("#iconDarkMode").classList.remove("fa-moon")
+      // document.querySelector("#iconDarkMode").classList.add("fa-sun")
+    }
+    typeof utterancesTheme === 'function' && utterancesTheme()
+    typeof changeGiscusTheme === 'function' && changeGiscusTheme()
+    typeof FB === 'object' && window.loadFBComment()
+    typeof runMermaid === 'function' && window.runMermaid()  
+  },
+
+  //显示中控台
+  showConsole: function() {
+    document.querySelector("#console").classList.add("show");
+    // cjw.initConsoleState();
+  },
+
+  //隐藏中控台
+  hideConsole: function() {
+    document.querySelector("#console").classList.remove("show");
+  },
+
+  //初始化console图标
+  initConsoleState: function() {
+    //初始化隐藏边栏
+    const $htmlDom = document.documentElement.classList
+    $htmlDom.contains('hide-aside')
+      ? document.querySelector("#consoleHideAside").classList.add("on")
+      : document.querySelector("#consoleHideAside").classList.remove("on")
+  },
 }
+
+
+
 
 
 // 深色模式
 function switchDarkMode(){
   const nowMode = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light'
-  var btn1 = document.getElementById("btn1")
+  // var btn1 = document.getElementById("btn1")
   if (nowMode === 'light') {
     activateDarkMode()
     saveToLocal.set('theme', 'dark', 2)
     GLOBAL_CONFIG.Snackbar !== undefined && btf.snackbarShow(GLOBAL_CONFIG.Snackbar.day_to_night)
-    btn1.style.backgroundColor = 'rgba(0,55,255,0.9)'
+    // btn1.style.backgroundColor = 'rgba(0,55,255,0.9)'
   } else {
     activateLightMode()
     saveToLocal.set('theme', 'light', 2)
     GLOBAL_CONFIG.Snackbar !== undefined && btf.snackbarShow(GLOBAL_CONFIG.Snackbar.night_to_day)
-    btn1.style.backgroundColor = 'rgba(255,255,255,0.3)'
+    // btn1.style.backgroundColor = 'rgba(255,255,255,0.3)'
   }
   // handle some cases
   typeof utterancesTheme === 'function' && utterancesTheme()
   typeof changeGiscusTheme === 'function' && changeGiscusTheme()
   typeof FB === 'object' && window.loadFBComment()
   typeof runMermaid === 'function' && window.runMermaid()
-
 }
 
 
