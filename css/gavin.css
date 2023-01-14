@@ -1145,9 +1145,9 @@ center#name-container {
   color: var(--anzhiyu-white) !important;
 }
 
-#console .console-btn-group .console-btn-item a:hover {
+/* #console .console-btn-group .console-btn-item a:hover {
   background: var(--gavin-op-dis-3) !important;
-}
+} */
 
 #console .console-btn-group .console-btn-item.on a {
   background: rgba(50, 150, 255, 0.9);

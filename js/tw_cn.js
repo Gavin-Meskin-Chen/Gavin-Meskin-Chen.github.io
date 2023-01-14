@@ -98,12 +98,13 @@ document.addEventListener('DOMContentLoaded', function () {
     if (translateButtonObject) {
       if (currentEncoding !== targetEncoding) {
         setTimeout(translateBody, translateDelay)
+        // 以下为图标初始化确认
         if (targetEncoding === 1) {
           // translateButtonObject.innerHTML = msgToSimplifiedChinese
-          document.querySelector("#charItem").classList.remove("on")
+          document.querySelector("#charItem").classList.add("on")
         } else {
           // translateButtonObject.innerHTML = msgToTraditionalChinese
-          document.querySelector("#charItem").classList.add("on")
+          document.querySelector("#charItem").classList.remove("on")
         }
         // 以上是原语句，以下是变字
         // if (targetEncoding === 1) document.getElementById('iconCharMode').innerHTML = msgToSimplifiedChinese

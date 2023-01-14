@@ -21,12 +21,12 @@ function percent() {
 document.getElementById("page-name").innerText = document.title.split(" | 参星阁")[0];
 
 
-// window.onload = function() {
-//   const translate = GLOBAL_CONFIG.translate
-//   const defaultEncoding = translate.defaultEncoding
-//   const msgToTraditionalChinese = translate.msgToTraditionalChinese // 此處可以更改為你想要顯示的文字
-//   const msgToSimplifiedChinese = translate.msgToSimplifiedChinese // 同上，但兩處均不建議更改
-// }
+window.onload = function() {
+  const translate = GLOBAL_CONFIG.translate
+  const defaultEncoding = translate.defaultEncoding
+  const msgToTraditionalChinese = translate.msgToTraditionalChinese // 此處可以更改為你想要顯示的文字
+  const msgToSimplifiedChinese = translate.msgToSimplifiedChinese // 同上，但兩處均不建議更改
+}
 
 
 var cjw = {
@@ -66,11 +66,14 @@ var cjw = {
 
   //初始化console图标
   initConsoleState: function() {
-    //初始化隐藏边栏
-    const $htmlDom = document.documentElement.classList
-    $htmlDom.contains('hide-aside')
-      ? document.querySelector("#consoleHideAside").classList.add("on")
-      : document.querySelector("#consoleHideAside").classList.remove("on")
+    const translate = GLOBAL_CONFIG.translate
+    const defaultEncoding = translate.defaultEncoding // 網站默認語言，1: 繁體中文, 2: 簡體中文
+    let currentEncoding = defaultEncoding
+    if (currentEncoding === 1) {
+      document.querySelector("#charItem").classList.add("on")
+    } else if (currentEncoding === 2) {
+      document.querySelector("#charItem").classList.remove("on")
+    }
   },
 }
 
