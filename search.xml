@@ -4,7 +4,98 @@
   
     
     <entry>
-      <title>博客样式修改篇（一）</title>
+      <title>Note_PCB230115</title>
+      <link href="/post/d041b9a6.html"/>
+      <url>/post/d041b9a6.html</url>
+      
+        <content type="html"><![CDATA[<p>码字中…</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> PCB </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> PCB </tag>
+            
+            <tag> AD </tag>
+            
+            <tag> Allegro </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>深度学习笔记（1）</title>
+      <link href="/post/17173e75.html"/>
+      <url>/post/17173e75.html</url>
+      
+        <content type="html"><![CDATA[<p>码字中…</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 深度学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 深度学习 </tag>
+            
+            <tag> CNN </tag>
+            
+            <tag> Pytorch </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>diary20230115</title>
+      <link href="/post/cef7e835.html"/>
+      <url>/post/cef7e835.html</url>
+      
+        <content type="html"><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">  <script id="hbeData" type="hbeData" data-hmacdigest="940ed31d736d8fa9c47c7b34c604116ccb1866a19a88b6503bb5d69a3e36dc67">ced864f45009da4e5537372f52405f708473ba75d83b81f95087816a05015f6aece397ffddbdc6b5de1ca3d36edb28b8</script>  <div class="hbe hbe-content">    <div class="hbe hbe-input hbe-input-flip">      <input class="hbe hbe-input-field hbe-input-field-flip" type="password" id="hbePass">      <label class="hbe hbe-input-label hbe-input-label-flip" for="hbePass">        <span class="hbe hbe-input-label-content hbe-input-label-content-flip" data-content="您好, 这里需要密码.">您好, 这里需要密码.</span>      </label>    </div>  </div></div><script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      
+      
+      <categories>
+          
+          <category> 日记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Blog </tag>
+            
+            <tag> Hexo </tag>
+            
+            <tag> Butterfly </tag>
+            
+            <tag> 深度学习 </tag>
+            
+            <tag> CNN </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hexo+Butterfly博客搭建记录（二）</title>
       <link href="/post/a5c582fd.html"/>
       <url>/post/a5c582fd.html</url>
       
@@ -19,6 +110,8 @@
       
       
         <tags>
+            
+            <tag> Blog </tag>
             
             <tag> Hexo </tag>
             
@@ -51,11 +144,11 @@
       
         <tags>
             
+            <tag> Blog </tag>
+            
             <tag> Hexo </tag>
             
             <tag> Butterfly </tag>
-            
-            <tag> Blog </tag>
             
             <tag> 图床 </tag>
             

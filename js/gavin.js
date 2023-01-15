@@ -1,3 +1,10 @@
+// $(window).ready(function(){ 
+// 	var userName="后端码匠";
+//   document.querySelector(".aplayer-lrc").classList.add("aplayer-lrc-hide")
+// 	alert(userName);
+// });
+
+
 // window.onload = function() {
 //   document.querySelector(".aplayer-lrc").classList.add("aplayer-lrc-hide")
 // }

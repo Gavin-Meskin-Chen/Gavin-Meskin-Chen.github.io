@@ -1100,8 +1100,8 @@ center#name-container {
   width: 35px;
   height: 35px;
   position: fixed;
-  right: 50px;
-  top: 50px;
+  right: 5%;
+  top: 5%;
   font-size: 35px;
   color: var(--font-color);
   cursor: pointer;
@@ -1184,8 +1184,8 @@ center#name-container {
 .console-head {
   position: fixed;
   display: flex;
-  top: 2.5rem;
-  left: 5rem;
+  top: 3.5%;
+  left: 5%;
   font-size: 1.5rem;
   font-weight: 900;
 }
@@ -1204,7 +1204,7 @@ center#name-container {
 /* ******************************和风天气*************************** */
 .s-sticker {
   font-weight: 600;
-  margin-left: 30px;
+  margin-left: 10px;
 }
 #nav.hide-menu .s-sticker {
   display: none;
