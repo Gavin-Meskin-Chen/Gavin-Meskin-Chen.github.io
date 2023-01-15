@@ -1,3 +1,9 @@
+// window.onload = function() {
+//   document.querySelector(".aplayer-lrc").classList.add("aplayer-lrc-hide")
+// }
+
+
+
 
 // 返回顶部 显示网页阅读进度
 window.onscroll = percent; // 执行函数
@@ -21,12 +27,19 @@ function percent() {
 document.getElementById("page-name").innerText = document.title.split(" | 参星阁")[0];
 
 
-window.onload = function() {
-  const translate = GLOBAL_CONFIG.translate
-  const defaultEncoding = translate.defaultEncoding
-  const msgToTraditionalChinese = translate.msgToTraditionalChinese // 此處可以更改為你想要顯示的文字
-  const msgToSimplifiedChinese = translate.msgToSimplifiedChinese // 同上，但兩處均不建議更改
-}
+// new Vue({
+//   data: function () {
+//       this.$notify({
+//           title: "你已被发现😜",
+//           message: "小伙子,扒源记住要遵循GPL协议!",
+//           position: 'top-left',
+//           offset: 50,
+//           showClose: true,
+//           type: "warning",
+//           duration: 5000
+//       });
+//   }
+// })
 
 
 var cjw = {
@@ -56,7 +69,7 @@ var cjw = {
   //显示中控台
   showConsole: function() {
     document.querySelector("#console").classList.add("show");
-    // cjw.initConsoleState();
+    cjw.initConsoleState();
   },
 
   //隐藏中控台
@@ -64,15 +77,25 @@ var cjw = {
     document.querySelector("#console").classList.remove("show");
   },
 
+  // 歌词显示
+  ircShowHide: function() {
+    const irc = document.querySelector(".aplayer-lrc-hide")
+    if(irc === null) {
+      document.querySelector(".aplayer-lrc").classList.add("aplayer-lrc-hide")
+      document.querySelector("#ircItem").classList.remove("on")
+    } else {
+      document.querySelector(".aplayer-lrc").classList.remove("aplayer-lrc-hide")
+      document.querySelector("#ircItem").classList.add("on")
+    }
+  },
+
   //初始化console图标
   initConsoleState: function() {
-    const translate = GLOBAL_CONFIG.translate
-    const defaultEncoding = translate.defaultEncoding // 網站默認語言，1: 繁體中文, 2: 簡體中文
-    let currentEncoding = defaultEncoding
-    if (currentEncoding === 1) {
-      document.querySelector("#charItem").classList.add("on")
-    } else if (currentEncoding === 2) {
-      document.querySelector("#charItem").classList.remove("on")
+    const irc = document.querySelector(".aplayer-lrc-hide")
+    if (irc === null) {
+      document.querySelector("#ircItem").classList.add("on")
+    } else {
+      document.querySelector("#ircItem").classList.remove("on")
     }
   },
 }

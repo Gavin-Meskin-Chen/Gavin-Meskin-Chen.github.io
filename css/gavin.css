@@ -722,9 +722,9 @@ center#name-container {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--gavin-scrollbar-dark);
-  background-image: -webkit-linear-gradient(45deg,
-      /*倾斜角度*/
+  background-color: #000000;
+  /* background-image: -webkit-linear-gradient(
+      45deg,
       transparent 20%,
       var(--gavin-scrollbar-light) 20%,
       var(--gavin-scrollbar-light) 40%,
@@ -733,7 +733,7 @@ center#name-container {
       var(--gavin-scrollbar-light) 60%,
       var(--gavin-scrollbar-light) 80%,
       transparent 80%,
-      transparent);
+      transparent); */
   border-radius: 2em;
 }
 
@@ -834,9 +834,16 @@ center#name-container {
   backdrop-filter: saturate(180%) contrast(50%) blur(20px);
 }
 
+/* 右下角设置上移 */
 #rightside {
   bottom: 90px;
 }
+
+/* 隐藏底部foot */
+.framework-info {
+  display: none;
+}
+
 /* ***********************************************************控制中心*********************************************************** */
 /* 控制中心按钮样式 */
 .ctrl-button {
@@ -1042,7 +1049,7 @@ center#name-container {
 
 .aplayer.aplayer-fixed .aplayer-lrc {
   /* calc(10% - 105px): 百分比补上参数 */
-  left: calc(10% - 9px) !important;
+  left: calc(10% - 10px) !important;
   width: 80%;
   text-shadow: none!important;
 }
@@ -1053,7 +1060,7 @@ center#name-container {
   z-index: 99;
 }
 
-/* ****************************************新控制中心******************************************** */
+/* ********************************************************新控制中心***************************************************************** */
 /* 控制中心按钮样式 */
 #console-switch {
   display: flex;
@@ -1075,7 +1082,7 @@ center#name-container {
   color: var(--anzhiyu-white) !important;
 }
 
-/* 控制中心界面样式 */
+/* 控制中心界面功能按钮样式 */
 #console {
   display: flex;
   position: fixed;
@@ -1145,6 +1152,7 @@ center#name-container {
   color: var(--anzhiyu-white) !important;
 }
 
+/* hover变色开关 */
 /* #console .console-btn-group .console-btn-item a:hover {
   background: var(--gavin-op-dis-3) !important;
 } */
@@ -1160,13 +1168,13 @@ center#name-container {
 }
 
 #console.show .console-mask {
-  backdrop-filter: saturate(180%) blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 #console .console-mask {
   background: var(--anzhiyu-maskbgdeep);
-  backdrop-filter: saturate(100%) blur(0px);
+  backdrop-filter: blur(0px);
   -webkit-backdrop-filter: blur(0px);
   width: 100vw;
   height: 100vh;
@@ -1181,6 +1189,16 @@ center#name-container {
   transform-style: preserve-3d;
 }
 
+.console-head {
+  position: fixed;
+  display: flex;
+  top: 2.5rem;
+  left: 5rem;
+  font-size: 1.5rem;
+  font-weight: 900;
+}
+
+/* 控制中心音乐播放器样式 */
 
 /* **********************************************8字符************************************************ */
 
@@ -1189,4 +1207,89 @@ center#name-container {
   font-family: "Font Awesome 6 Free";
   font-style: normal;
   line-height: 1;
+}
+
+/* ******************************和风天气*************************** */
+.s-sticker {
+  font-weight: 600;
+  margin-left: 30px;
+}
+#nav.hide-menu .s-sticker {
+  display: none;
+}
+
+/* ******************************文章波浪*************************** */
+.main-hero-waves-area {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: -11px;
+  z-index: 5;
+}
+.waves-area .waves-svg {
+  width: 100%;
+  height: 5rem;
+}
+/* Animation */
+.parallax > use {
+  animation: move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+}
+.parallax > use:nth-child(1) {
+  animation-delay: -2s;
+  animation-duration: 7s;
+  fill: rgba(240,240,242,0.4);
+}
+.parallax > use:nth-child(2) {
+  animation-delay: -3s;
+  animation-duration: 10s;
+  fill: rgba(240,240,242,0.6);
+}
+.parallax > use:nth-child(3) {
+  animation-delay: -4s;
+  animation-duration: 13s;
+  fill: rgba(240,240,242,0.8);
+}
+.parallax > use:nth-child(4) {
+  animation-delay: -5s;
+  animation-duration: 20s;
+  /* fill: #f7f9fe; */
+  fill: rgba(240,240,242,1);
+}
+/* 黑色模式背景 */
+[data-theme="dark"] .parallax > use:nth-child(1) {
+  animation-delay: -2s;
+  animation-duration: 7s;
+  fill: rgba(72,72,72,0.4);
+}
+[data-theme="dark"] .parallax > use:nth-child(2) {
+  animation-delay: -3s;
+  animation-duration: 10s;
+  fill: rgba(72,72,72,0.6);
+}
+[data-theme="dark"] .parallax > use:nth-child(3) {
+  animation-delay: -4s;
+  animation-duration: 13s;
+  fill: rgba(72,72,72,0.8);
+}
+[data-theme="dark"] .parallax > use:nth-child(4) {
+  animation-delay: -5s;
+  animation-duration: 20s;
+  /* fill: #18171d; */
+  fill: rgba(72,72,72,1);
+}
+
+@keyframes move-forever {
+  0% {
+    transform: translate3d(-90px, 0, 0);
+  }
+  100% {
+    transform: translate3d(85px, 0, 0);
+  }
+}
+/*Shrinking for mobile*/
+@media (max-width: 768px) {
+  .waves-area .waves-svg {
+    height: 40px;
+    min-height: 40px;
+  }
 }
