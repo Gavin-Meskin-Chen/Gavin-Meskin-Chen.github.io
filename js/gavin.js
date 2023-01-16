@@ -96,6 +96,10 @@ var cjw = {
     }
   },
 
+  settingsOpen: function() {
+    alert("开发中...敬请期待！")
+  },
+
   //初始化console图标
   initConsoleState: function() {
     const irc = document.querySelector(".aplayer-lrc-hide")

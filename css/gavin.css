@@ -338,6 +338,8 @@ ul.menus_item_child {
 
 #nav .menus_items .menus_item .menus_item_child {
   top: 44px;
+  /* 弧度微调 */
+  border-radius: 8px;
 }
 
 @media screen and (min-width: 768px) {
@@ -524,11 +526,6 @@ center#name-container {
 /* 导航栏搜索图标大小修复 */
 #nav #search-button {
   font-size: 1.3em;
-}
-
-/* 弧度微调 */
-#nav .menus_items .menus_item .menus_item_child {
-  border-radius: 8px;
 }
 
 @media screen and (min-width: 900px) {
@@ -733,7 +730,8 @@ center#name-container {
       var(--gavin-scrollbar-light) 60%,
       var(--gavin-scrollbar-light) 80%,
       transparent 80%,
-      transparent); */
+      transparent
+      ); */
   border-radius: 2em;
 }
 
@@ -1531,4 +1529,188 @@ center#name-container {
   70% {
     transform: scale(1.1);
   }
+}
+
+/* *******************************************外挂标签样式********************************************** */
+/* 文章页H1-H6图标样式效果 */
+/* 控制风车转动速度 4s那里可以自己调节快慢 */
+h1::before,
+h2::before,
+h3::before,
+h4::before,
+h5::before,
+h6::before {
+  -webkit-animation: ccc 4s linear infinite;
+  animation: ccc 4s linear infinite;
+}
+/* 控制风车转动方向 -1turn 为逆时针转动，1turn 为顺时针转动，相同数字部分记得统一修改 */
+@-webkit-keyframes ccc {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(-1turn);
+    transform: rotate(-1turn);
+  }
+}
+@keyframes ccc {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(-1turn);
+    transform: rotate(-1turn);
+  }
+}
+/* 设置风车颜色 */
+#content-inner.layout h1::before {
+  color: #ef50a8;
+  margin-left: -1.55rem;
+  font-size: 1.3rem;
+  margin-top: -0.23rem;
+}
+#content-inner.layout h2::before {
+  color: #fb7061;
+  margin-left: -1.35rem;
+  font-size: 1.1rem;
+  margin-top: -0.12rem;
+}
+#content-inner.layout h3::before {
+  color: #ffbf00;
+  margin-left: -1.22rem;
+  font-size: 0.95rem;
+  margin-top: -0.09rem;
+}
+#content-inner.layout h4::before {
+  color: #a9e000;
+  margin-left: -1.05rem;
+  font-size: 0.8rem;
+  margin-top: -0.09rem;
+}
+#content-inner.layout h5::before {
+  color: #57c850;
+  margin-left: -0.9rem;
+  font-size: 0.7rem;
+  margin-top: 0rem;
+}
+#content-inner.layout h6::before {
+  color: #5ec1e0;
+  margin-left: -0.9rem;
+  font-size: 0.66rem;
+  margin-top: 0rem;
+}
+/* s设置风车hover动效 6s那里可以自己调节快慢*/
+#content-inner.layout h1:hover,
+#content-inner.layout h2:hover,
+#content-inner.layout h3:hover,
+#content-inner.layout h4:hover,
+#content-inner.layout h5:hover,
+#content-inner.layout h6:hover {
+  color: var(--theme-color);
+}
+#content-inner.layout h1:hover::before,
+#content-inner.layout h2:hover::before,
+#content-inner.layout h3:hover::before,
+#content-inner.layout h4:hover::before,
+#content-inner.layout h5:hover::before,
+#content-inner.layout h6:hover::before {
+  color: var(--theme-color);
+  -webkit-animation: ccc 6s linear infinite;
+  animation: ccc 6s linear infinite;
+}
+
+/* link链接样式修改，默认样式太单调了。。。 */
+[data-theme="light"] #article-container a.link-card {
+  background: rgba(0,150,255,0.3);
+  border: 1px solid rgba(0,150,255,0.5);
+}
+
+[data-theme="light"] #article-container a.link-card:hover {
+  background-color: rgba(0, 150, 255, 0.5);
+  box-shadow: 0 2px 8px 0 rgba(0, 150, 255, 0.5);
+}
+
+/* ****************************顶部彩色加载条******************************** */
+.pace {
+  -webkit-pointer-events: none;
+  pointer-events: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  z-index: 2000;
+  position: fixed;
+  margin: auto;
+  top: 4px;
+  left: 0;
+  right: 0;
+  height: 8px;
+  border-radius: 8px;
+  width: 7rem;
+  background: #eaecf2;
+  border: 1px #e3e8f7;
+  overflow: hidden
+}
+
+.pace-inactive .pace-progress {
+  opacity: 0;
+  transition: .3s ease-in
+}
+
+.pace .pace-progress {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  max-width: 200px;
+  position: absolute;
+  z-index: 2000;
+  display: block;
+  top: 0;
+  right: 100%;
+  height: 100%;
+  width: 100%;
+  /* linear-gradient(to right, #3494e6, #ec6ead) */
+  background: linear-gradient(to right, #43cea2, #3866ca);
+  animation: gradient 2s ease infinite;
+  background-size: 200%
+}
+
+.pace.pace-inactive {
+  opacity: 0;
+  transition: .3s;
+  top: -8px
+}
+
+/* **************************文章版权框样式************************** */
+#post .post-copyright {
+  background-color:rgba(70, 160, 250, 0.3);
+  border-radius: 1rem;
+  border-color: rgba(0,50,255,0.3);
+}
+
+#post .post-copyright:hover {
+  border-color: rgba(0,50,255,0.9);
+  -webkit-box-shadow: 0 0 8px 0 rgb(232 237 250 / 60%), 0 0px 4px 0 rgb(232 237 250 / 50%);
+  box-shadow: 0 0 8px 0 rgb(232 237 250 / 60%), 0 0px 4px 0 rgb(232 237 250 / 50%);
+}
+
+#post .post-copyright .post-copyright-info a {
+  color: var(--font-color);
+}
+
+#post .post-copyright .post-copyright-info a:hover {
+  color: rgba(70, 160, 250, 0.9);
+}
+
+/* 打赏 */
+.post-reward .reward-button {
+  border-radius: 0.5rem;
 }
