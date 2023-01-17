@@ -842,6 +842,41 @@ center#name-container {
   display: none;
 }
 
+/* 部分box微调：弧度调整 */
+/* 第一个是相关文章，第二个是上下篇*/
+.relatedPosts>.relatedPosts-list>div, 
+#pagination.pagination-post {
+  border-radius: 0.8rem;
+}
+
+.cardHover, 
+.error404 #error-wrap .error-content, 
+.layout > div:first-child:not(.recent-posts), 
+#recent-posts > .recent-post-item, 
+#aside-content .card-widget, 
+.layout > .recent-posts .pagination > *:not(.space) {
+  border-radius: 0.8rem;
+}
+
+#aside-content .aside-list > .aside-list-item {
+  border-radius: 0.5rem;
+  padding: 0.5rem!important;
+  transition: all 0.4s;
+}
+
+#aside-content .aside-list > .aside-list-item:hover {
+  background-color: var(--text-bg-hover);
+  /* cursor: pointer; */
+  /* padding: 0.6rem 0.7rem!important; */
+}
+
+#aside-content .aside-list > .aside-list-item:hover .content .title, #aside-content .aside-list > .aside-list-item:hover .content time {
+  color: #ffffff;
+}
+
+#aside-content .aside-list > .aside-list-item:not(:last-child) {
+  border-bottom: none;
+}
 /* ***********************************************************控制中心*********************************************************** */
 /* 控制中心按钮样式 */
 .ctrl-button {
@@ -1231,23 +1266,23 @@ center#name-container {
 .parallax > use:nth-child(1) {
   animation-delay: -2s;
   animation-duration: 7s;
-  fill: rgba(240,240,242,0.4);
+  fill: rgba(247,249,254,0.4);
 }
 .parallax > use:nth-child(2) {
   animation-delay: -3s;
   animation-duration: 10s;
-  fill: rgba(240,240,242,0.6);
+  fill: rgba(247,249,254,0.6);
 }
 .parallax > use:nth-child(3) {
   animation-delay: -4s;
   animation-duration: 13s;
-  fill: rgba(240,240,242,0.8);
+  fill: rgba(247,249,254,0.8);
 }
 .parallax > use:nth-child(4) {
   animation-delay: -5s;
   animation-duration: 20s;
   /* fill: #f7f9fe; */
-  fill: rgba(240,240,242,1);
+  fill: rgba(247,249,254,1);
 }
 /* 黑色模式背景 */
 [data-theme="dark"] .parallax > use:nth-child(1) {
@@ -1722,15 +1757,15 @@ h6::before {
 /* *********************************************Twikoo评论******************************************** */
 /* 设置文字内容 :nth-child(1)的作用是选择第几个 */
 .el-input.el-input--small.el-input-group.el-input-group--prepend:nth-child(1):before {
-  content: '输入QQ号会自动获取昵称和头像🐧';
+  content: '输入QQ号会自动获取昵称和头像';
 }
 
 .el-input.el-input--small.el-input-group.el-input-group--prepend:nth-child(2):before {
-  content: '收到回复将会发送到您的邮箱📧';
+  content: '收到回复将会发送到您的邮箱';
 }
 
 .el-input.el-input--small.el-input-group.el-input-group--prepend:nth-child(3):before {
-  content: '可以通过昵称访问您的网站🔗';
+  content: '可以通过昵称访问您的网站';
 }
 
 /* 当用户点击输入框时显示 */
