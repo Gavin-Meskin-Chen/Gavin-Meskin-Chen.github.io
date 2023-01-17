@@ -97,7 +97,6 @@ var cjw = {
   },
 
   settingsOpen: function() {
-    document.querySelector('meting-js').aplayer.skipBack();
     alert("开发中...敬请期待！")
   },
 
