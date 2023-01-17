@@ -1000,11 +1000,12 @@ center#name-container {
 }
 
 .aplayer .aplayer-lrc p.aplayer-lrc-current {
-  margin: 5px !important;
-  line-height: 25px !important;
+  /* margin: 5px !important; */
+  margin: 0.2rem !important;
+  line-height: 1.3rem !important;
   /* height: auto !important;
   font-weight: 700; */
-  font-size: 24px !important;
+  font-size: 1.3rem !important;
   /* color: #48E3F6; */
   color: var(--font-color)!important;
   /* overflow: visible;
@@ -1013,19 +1014,22 @@ center#name-container {
 
 .aplayer .aplayer-lrc p {
   /* margin: 5px !important;
-  padding: 0 !important;
-  line-height: 18px !important; */
+  padding: 0 !important; */
+  line-height: 1.3rem !important;
+  height: 1.4rem!important;
   font-weight: 700;
-  font-size: 17px !important;
+  font-size: 1.3rem !important;
   color: var(--gavin-op-dis-3)!important;
   /* transition: all .5s ease-out; */
   opacity: 1!important;
   /* overflow: hidden; */
 }
 
+/* 歌词框的高度 */
 .aplayer .aplayer-lrc {
   padding: 0 !important;
-  height: 50px !important;
+  /* height: 50px !important; */
+  height: 3rem !important;
   border-radius: 20px;
   border: 10px solid #00000000;
   /* border-image: 0%; */
