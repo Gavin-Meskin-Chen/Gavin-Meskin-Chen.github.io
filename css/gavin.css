@@ -10,7 +10,7 @@
   --gavin-item-bg: rgba(73, 177, 245, .1);
   --gavin-item-border: rgba(50, 150, 250, .9);
   --card-box-shadow: 0 0px 7px 1px rgba(7, 17, 27, .25);
-  --card-hover-box-shadow: 0 0 15px 6px rgba(7, 17, 27, .24);
+  --card-hover-box-shadow: 0 0 8px 2px rgba(7, 17, 27, .24);
   --text-bg-hover: rgba(50, 150, 250, .9);
   --search-bg: var(--gavin-op-5);
   --rightside-bg: var(--gavin-op-1);
@@ -59,6 +59,8 @@
   /* --font-color: #2e2e2e; */
   --font-color: rgba(0,0,0,.8);
   --card-bg: #ffffff;
+  --card-link-bg: rgba(0, 150, 255, .3);
+  --card-link-border: rgba(0, 150, 255, .5);
 
 
   /* 以下是安知鱼颜色 */
@@ -108,12 +110,14 @@
   --gavin-item-border: rgba(240, 240, 240, .5);
   --gavin-op-1: rgba(0,0,0,.1);
   --gavin-op-3: rgba(0,0,0,.3);
-  --card-bg: rgba(36, 36, 36, 1);
+  --card-bg: rgba(29, 30, 34, 1);
   --card-box-shadow: 0 0px 7px 1px rgba(240, 240, 240, .25);
-  --card-hover-box-shadow: 0 0 15px 6px rgba(240, 240, 240, .24);
+  --card-hover-box-shadow: 0 0 8px 2px rgba(240, 240, 240, .24);
   --text-bg-hover: rgba(240, 240, 240, .24);
   --btn-bg: rgba(100, 100, 100, .8);
   --btn-hover-color: rgba(120, 120, 120, 1);
+  --card-link-bg: rgba(240, 240, 240, .45);
+  --card-link-border: rgba(240, 240, 240, .6);
 
   /* 以下是安知鱼颜色 */
   --anzhiyu-theme: rgba(240, 240, 240, .24);
@@ -1288,23 +1292,23 @@ center#name-container {
 [data-theme="dark"] .parallax > use:nth-child(1) {
   animation-delay: -2s;
   animation-duration: 7s;
-  fill: rgba(72,72,72,0.4);
+  fill: rgba(24,23,29,0.4);
 }
 [data-theme="dark"] .parallax > use:nth-child(2) {
   animation-delay: -3s;
   animation-duration: 10s;
-  fill: rgba(72,72,72,0.6);
+  fill: rgba(24,23,29,0.6);
 }
 [data-theme="dark"] .parallax > use:nth-child(3) {
   animation-delay: -4s;
   animation-duration: 13s;
-  fill: rgba(72,72,72,0.8);
+  fill: rgba(24,23,29,0.8);
 }
 [data-theme="dark"] .parallax > use:nth-child(4) {
   animation-delay: -5s;
   animation-duration: 20s;
   /* fill: #18171d; */
-  fill: rgba(72,72,72,1);
+  fill: rgba(24,23,29,1);
 }
 
 @keyframes move-forever {
@@ -1661,14 +1665,14 @@ h6::before {
 }
 
 /* link链接样式修改，默认样式太单调了。。。 */
-[data-theme="light"] #article-container a.link-card {
-  background: rgba(0,150,255,0.3);
-  border: 1px solid rgba(0,150,255,0.5);
+#article-container a.link-card {
+  background: var(--card-link-bg)!important;
+  border: 1px solid var(--card-link-border);
 }
 
-[data-theme="light"] #article-container a.link-card:hover {
-  background-color: rgba(0, 150, 255, 0.5);
-  box-shadow: 0 2px 8px 0 rgba(0, 150, 255, 0.5);
+#article-container a.link-card:hover {
+  background-color: var(--card-link-border)!important;
+  box-shadow: 0 2px 8px 0 var(--card-link-border)!important;
 }
 
 /* ****************************顶部彩色加载条******************************** */
@@ -1733,6 +1737,7 @@ h6::before {
   background-color:rgba(70, 160, 250, 0.3);
   border-radius: 1rem;
   border-color: rgba(0,50,255,0.3);
+  transition: all 0.3s ease-in-out;
 }
 
 #post .post-copyright:hover {
@@ -1807,4 +1812,113 @@ h6::before {
   border-top-color: #444;
   left: 50%;
   transform: translate(-50%, -48px);
+}
+
+/* *******************星空背景**************** */
+/* 背景宇宙星光  */
+#universe{
+  display: block;
+  position: fixed;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  /* 这个是调置顶的优先级的，-1在文章页下面，背景上面，个人推荐这种 */
+  z-index: 0;
+}
+
+.layout {
+  z-index: 1;
+}
+
+/* 网站背景色参考张宏和安知鱼HEO */
+#body-wrap {
+  background: var(--anzhiyu-background);
+}
+
+/* ***************哔哩哔哩bilibili视频适配*************** */
+.aspect-ratio {
+  position: relative;
+  width: 90%;
+  height: auto;
+  padding-bottom: 75%;
+  margin: 3% auto;
+  text-align: center;
+}
+.aspect-ratio iframe {
+  position: absolute;
+  width: 100%;
+  height: 86%;
+  left: 0;
+  top: 0;
+}
+
+/* ****************评论区表情放大预览****************** */
+#owo-big {
+  position: fixed;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  border: 1px #aaa solid;
+  border-radius: 10px;
+  z-index: 9999;
+  display: none;
+  transform: translate(0, -105%);
+  overflow: hidden;
+  animation: owoIn 0.3s cubic-bezier(0.42, 0, 0.3, 1.11);
+}
+
+[data-theme=dark] #owo-big {
+  background-color: #4a4a4a
+}
+
+#owo-big img {
+  width: 100%;
+}
+
+/* 动画效果代码由 Heo：https://blog.zhheo.com/ 提供 */
+@keyframes owoIn {
+  0% {
+      transform: translate(0, -95%);
+      opacity: 0;
+  }
+  100% {
+      transform: translate(0, -105%);
+      opacity: 1;
+  }
+}
+
+/* ***************************宽屏适配************************ */
+/* 全局宽度 */
+.layout {
+  max-width: 1400px;
+}
+
+/* 侧边卡片栏宽度 */
+.aside-content {
+  max-width: 318px;
+  min-width: 300px;
+}
+
+/* 平板尺寸自适应(不启用侧边栏宽度限制) */
+@media screen and (max-width: 900px) {
+  .aside-content {
+    max-width: none !important;
+    padding: 0 5px 0 5px;
+  }
+}
+
+/* 除了首页以外其他页面隐藏卡片，并采用宽屏显示 */
+#archive,
+#page,
+#category,
+#tag {
+  width: 100%;
+}
+.page:not(.page.home) .aside-content {
+  display: none;
 }
