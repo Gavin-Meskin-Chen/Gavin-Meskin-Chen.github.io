@@ -1247,8 +1247,12 @@ center#name-container {
   font-weight: 600;
   margin-left: 10px;
 }
-#nav.hide-menu .s-sticker {
-  display: none;
+
+/* 窄屏不显示天气 */
+@media screen and (max-width: 940px) {
+  #nav .s-sticker {
+    display: none;
+  }
 }
 
 /* ******************************文章波浪*************************** */
@@ -1912,7 +1916,7 @@ h6::before {
   }
 }
 
-/* 除了首页以外其他页面隐藏卡片，并采用宽屏显示 */
+/* 智能区分主页和分页，除了首页以外其他页面隐藏卡片，并采用宽屏显示 */
 #archive,
 #page,
 #category,
@@ -1921,4 +1925,21 @@ h6::before {
 }
 .page:not(.page.home) .aside-content {
   display: none;
+}
+
+/* 友链bug微调 */
+.flink-list-item{
+  width:calc(100% / 4 - 15px)!important;
+}
+
+@media screen and (max-width: 1250px) {
+  .flink-list-item{
+      width:calc(100% / 3 - 15px)!important;
+  }
+}
+
+/* **************************友链样式************************* */
+#article-container .flink .flink-list > .flink-list-item {
+  border: 1px solid rgba(0, 150, 255, .9);
+  background:rgba(0, 150, 255, .3)
 }
