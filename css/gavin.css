@@ -1688,6 +1688,7 @@ h6::before {
 #article-container a.link-card {
   background: var(--card-link-bg)!important;
   border: 1px solid var(--card-link-border);
+  width: 100%;
 }
 
 #article-container a.link-card:hover {
@@ -1878,8 +1879,8 @@ h6::before {
   top: 0;
 }
 
-/* ****************评论区表情放大预览****************** */
-#owo-big {
+/* ****************评论区表情放大预览（没用到）****************** */
+/* #owo-big {
   position: fixed;
   align-items: center;
   background-color: rgb(255, 255, 255);
@@ -1900,7 +1901,6 @@ h6::before {
   width: 100%;
 }
 
-/* 动画效果代码由 Heo：https://blog.zhheo.com/ 提供 */
 @keyframes owoIn {
   0% {
       transform: translate(0, -95%);
@@ -1910,6 +1910,18 @@ h6::before {
       transform: translate(0, -105%);
       opacity: 1;
   }
+} */
+
+/* ***********************双栏显示 npm i hexo-butterfly-article-double-row --save********************** */
+/* 翻页按钮居中 */
+#pagination {
+  width: 100%;
+  margin: auto;
+}
+
+/* 解决第一篇文章不对齐的bug */
+#recent-posts > .recent-post-item:not(:first-child) {
+  margin-top: 1rem;
 }
 
 /* ***************************宽屏适配************************ */
