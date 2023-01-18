@@ -9,8 +9,6 @@
   --gavin-scrollbar-light: rgba(255, 255, 255, .4);
   --gavin-item-bg: rgba(73, 177, 245, .1);
   --gavin-item-border: rgba(50, 150, 250, .9);
-  --card-box-shadow: 0 0px 7px 1px rgba(7, 17, 27, .25);
-  --card-hover-box-shadow: 0 0 8px 2px rgba(7, 17, 27, .24);
   --text-bg-hover: rgba(50, 150, 250, .9);
   --search-bg: var(--gavin-op-5);
   --rightside-bg: var(--gavin-op-1);
@@ -59,6 +57,9 @@
   /* --font-color: #2e2e2e; */
   --font-color: rgba(0,0,0,.8);
   --card-bg: #ffffff;
+  --card-box-shadow: 0 0px 1px 1px rgba(7, 17, 27, .25);
+  /* --card-hover-box-shadow: 0 0 8px 2px rgba(7, 17, 27, .24); */
+  --card-hover-box-shadow: 0 0 1px 1px rgba(0, 100, 255, .95);
   --card-link-bg: rgba(0, 150, 255, .3);
   --card-link-border: rgba(0, 150, 255, .5);
 
@@ -111,8 +112,9 @@
   --gavin-op-1: rgba(0,0,0,.1);
   --gavin-op-3: rgba(0,0,0,.3);
   --card-bg: rgba(29, 30, 34, 1);
-  --card-box-shadow: 0 0px 7px 1px rgba(240, 240, 240, .25);
-  --card-hover-box-shadow: 0 0 8px 2px rgba(240, 240, 240, .24);
+  --card-box-shadow: 0 0px 1px 1px rgba(240, 240, 240, .25);
+  /* --card-hover-box-shadow: 0 0 8px 2px rgba(240, 240, 240, .24); */
+  --card-hover-box-shadow: 0 0 1px 1px rgba(0, 100, 255, .95);
   --text-bg-hover: rgba(240, 240, 240, .24);
   --btn-bg: rgba(100, 100, 100, .8);
   --btn-hover-color: rgba(120, 120, 120, 1);
@@ -368,6 +370,7 @@ ul.menus_item_child {
   background-color: var(--gavin-op-5) !important;
   padding-left: 10px;
   padding-right: 10px;
+  box-shadow: none!important;
 }
 
 /* 导航栏新改的 */
@@ -815,10 +818,23 @@ center#name-container {
 }
 
 .search-dialog {
+  border-radius: 1.2rem;
+  box-shadow: var(--card-box-shadow);
   background: var(--search-bg);
   -webkit-backdrop-filter: saturate(180%) contrast(50%) blur(20px);
   backdrop-filter: saturate(180%) contrast(50%) blur(20px);
 }
+
+@media screen and (max-width: 768px){
+  .search-dialog {
+    border-radius: 0;
+  }
+}
+
+.search-dialog:hover {
+  box-shadow: var(--card-hover-box-shadow);
+}
+
 
 #algolia-search .search-dialog .ais-SearchBox input {
   border: 2px solid gray;
@@ -1899,12 +1915,14 @@ h6::before {
 /* ***************************宽屏适配************************ */
 /* 全局宽度 */
 .layout {
-  max-width: 1400px;
+  max-width: 1600px;
+  /* 1400 */
 }
 
 /* 侧边卡片栏宽度 */
 .aside-content {
-  max-width: 318px;
+  max-width: 388px;
+  /* 318 */
   min-width: 300px;
 }
 

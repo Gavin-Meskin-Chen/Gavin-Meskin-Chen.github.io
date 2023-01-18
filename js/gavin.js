@@ -46,7 +46,7 @@ var ctrl = {
   //显示中控台
   showConsole: function() {
     document.querySelector("#console").classList.add("show");
-    cjw.initConsoleState();
+    ctrl.initConsoleState();
   },
 
   //隐藏中控台
