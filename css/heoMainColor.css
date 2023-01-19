@@ -15,14 +15,12 @@
   --heo-shadow-red: 0 8px 12px -3px #ee7d7936;
   --heo-shadow-green: 0 8px 12px -3px #87ee7936;
   --heo-logo-color: linear-gradient(215deg,#4584ff 30%,#ff7676 70%);
-  --style-border: 1px solid var(--heo-card-border);
-  --style-border-hover: 1px solid var(--heo-theme);
 }
 
-::selection {
+/* ::selection {
   background: var(--heo-fontcolor);
   color: var(--heo-background);
-}
+} */
 
 [data-theme=light] {
   --heo-theme: #425AEF;
@@ -78,11 +76,4 @@
   --heo-shadow-lightblack:0 5px 12px -5px rgba(102, 68, 68, 0.0);
   --heo-shadow-light2black:0 5px 12px -5px rgba(102, 68, 68, 0.0);
   --heo-card-border: #42444a;
-}
-
-@media screen and (max-width: 768px){
-  :root{
-    --style-border: 0px solid var(--heo-card-border);
-    --style-border-hover: 0px solid var(--heo-theme);
-  }
 }
