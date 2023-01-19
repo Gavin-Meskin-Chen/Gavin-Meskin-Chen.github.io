@@ -1973,3 +1973,54 @@ h6::before {
   border: 1px solid rgba(0, 150, 255, .9);
   background:rgba(0, 150, 255, .3)
 }
+
+/* *************************首页轮播图************************** */
+#home_top {
+  margin: 0 auto 0;
+  padding-left: 5%;
+  padding-right: 5%;
+  max-width: 1600px;
+  width: 100%;
+}
+
+#home_top_swiper {
+  height: auto;
+  width: 100%;
+  margin: 1rem auto 0;
+  display: flex!important;
+  justify-content: space-around;
+  flex-direction: row!important;
+}
+
+div#swiper_container, .topGroup .top-group-list-item, #random, .categoryItem, .blog-slider__img img {
+  border-radius: 0.8rem!important;
+}
+
+.blog-slider__img {
+  width: 22rem!important;
+}
+
+div#swiper_container:hover {
+  box-shadow: var(--card-hover-box-shadow);
+}
+
+/* ********************首页标签分类条*********************** */
+#category-bar {
+  width: 100%;
+  border-radius: 0.8rem!important;
+  margin-bottom: 0!important;
+  border: 0!important;
+  box-shadow: var(--card-box-shadow);
+}
+
+#category-bar:hover {
+  box-shadow: var(--card-hover-box-shadow);
+}
+
+#recent-posts {
+  margin-top: 0!important;
+}
+
+.category-bar-item.select {
+  border-radius: 0.5rem!important;
+}
