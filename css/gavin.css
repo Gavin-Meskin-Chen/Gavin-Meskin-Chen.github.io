@@ -717,6 +717,7 @@ center#name-container {
 #body-wrap #page-header:not(.is-top-bar) #nav .back-home-button, 
 #body-wrap #page-header:not(.is-top-bar) #nav .site-page.group, 
 #body-wrap #page-header:not(.is-top-bar) #nav #site-name,
+#body-wrap #page-header:not(.is-top-bar) #nav #toggle-menu a,
 #body-wrap #page-header:not(.is-top-bar) #nav .nav-button a {
   color: rgba(255,255,255,.8)!important;
 }
@@ -1990,7 +1991,7 @@ h6::before {
 /* ***************************宽屏适配************************ */
 /* 全局宽度 */
 .layout {
-  max-width: 1600px;
+  max-width: 1600px!important;
   /* 1400 */
 }
 
@@ -2160,3 +2161,8 @@ html.hide-aside .layout>div:first-child {
   width: 100%;
 }
 
+/* ************************加载动画*************************** */
+.loading-img {
+  background: url(https://i.imgtg.com/2023/01/06/GZRKN.jpg) no-repeat center center;
+  background-size: cover;
+}
