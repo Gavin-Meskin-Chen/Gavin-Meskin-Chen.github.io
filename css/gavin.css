@@ -122,6 +122,7 @@
   --btn-hover-color: rgba(120, 120, 120, 1);
   --card-link-bg: rgba(240, 240, 240, .45);
   --card-link-border: rgba(240, 240, 240, .6);
+  --font-color: rgba(255,255,255,.8);
 
   /* 以下是安知鱼颜色 */
   --anzhiyu-theme: rgba(240, 240, 240, .24);
@@ -355,7 +356,6 @@ ul.menus_item_child {
     color: var(--anzhiyu-white) !important;
     background: var(--anzhiyu-main);
     transition: 0.3s;
-    box-shadow: var(--anzhiyu-shadow-main);
   }
 }
 
@@ -390,7 +390,6 @@ ul.menus_item_child {
   color: var(--anzhiyu-white) !important;
   background: var(--anzhiyu-main);
   transition: 0.3s;
-  box-shadow: var(--anzhiyu-shadow-main);
 }
 
 #menus>div.menus_items>div>a {
@@ -535,12 +534,6 @@ center#name-container {
 /* 导航栏搜索图标大小修复 */
 #nav #search-button {
   font-size: 1.3em;
-}
-
-@media screen and (min-width: 900px) {
-  #nav .back-home-button:hover {
-    box-shadow: var(--anzhiyu-shadow-main);
-  }
 }
 
 /* 左上角6点按钮样式 */
@@ -714,6 +707,28 @@ center#name-container {
   top: 70px;
 }
 
+/* 导航栏置顶后透明 */
+#body-wrap #page-header:not(.is-top-bar) #nav {
+  background: rgb(0 0 0 / 0%)!important;
+  backdrop-filter: none!important;
+}
+
+#body-wrap #page-header:not(.is-top-bar) #nav #he-plugin-simple, 
+#body-wrap #page-header:not(.is-top-bar) #nav .back-home-button, 
+#body-wrap #page-header:not(.is-top-bar) #nav .site-page.group, 
+#body-wrap #page-header:not(.is-top-bar) #nav #site-name,
+#body-wrap #page-header:not(.is-top-bar) #nav .nav-button a {
+  color: rgba(255,255,255,.8)!important;
+}
+
+#body-wrap #nav .back-home-button, 
+#he-plugin-simple {
+  transition: 0.3s;
+}
+
+#page-header.nav-fixed #nav a:hover, #page-header.nav-fixed #nav #site-name:hover, #page-header.nav-fixed #nav #toggle-menu:hover {
+  box-shadow: none;
+}
 
 /* ************************************************************滚动条样式********************************************************** */
 ::-webkit-scrollbar {
