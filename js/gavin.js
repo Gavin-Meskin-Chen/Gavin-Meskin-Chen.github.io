@@ -23,24 +23,24 @@ var ctrl = {
 
   // 深色模式开关
   switchDarkMode: function() {
-    const nowMode = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light'
+    const nowMode = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
     if (nowMode === 'light') {
-      activateDarkMode()
-      saveToLocal.set('theme', 'dark', 2)
-      GLOBAL_CONFIG.Snackbar !== undefined && btf.snackbarShow(GLOBAL_CONFIG.Snackbar.day_to_night)
+      activateDarkMode();
+      saveToLocal.set('theme', 'dark', 2);
+      GLOBAL_CONFIG.Snackbar !== undefined && btf.snackbarShow(GLOBAL_CONFIG.Snackbar.day_to_night);
       // document.querySelector("#iconDarkMode").classList.remove("fa-sun")
       // document.querySelector("#iconDarkMode").classList.add("fa-moon")
     } else {
-      activateLightMode()
-      saveToLocal.set('theme', 'light', 2)
-      GLOBAL_CONFIG.Snackbar !== undefined && btf.snackbarShow(GLOBAL_CONFIG.Snackbar.night_to_day)
+      activateLightMode();
+      saveToLocal.set('theme', 'light', 2);
+      GLOBAL_CONFIG.Snackbar !== undefined && btf.snackbarShow(GLOBAL_CONFIG.Snackbar.night_to_day);
       // document.querySelector("#iconDarkMode").classList.remove("fa-moon")
       // document.querySelector("#iconDarkMode").classList.add("fa-sun")
     }
-    typeof utterancesTheme === 'function' && utterancesTheme()
-    typeof changeGiscusTheme === 'function' && changeGiscusTheme()
-    typeof FB === 'object' && window.loadFBComment()
-    typeof runMermaid === 'function' && window.runMermaid()  
+    typeof utterancesTheme === 'function' && utterancesTheme();
+    typeof changeGiscusTheme === 'function' && changeGiscusTheme();
+    typeof FB === 'object' && window.loadFBComment();
+    typeof runMermaid === 'function' && window.runMermaid();
   },
 
   //显示中控台
@@ -56,42 +56,42 @@ var ctrl = {
 
   // 歌词显示开关
   ircShowHide: function() {
-    const irc = document.querySelector(".aplayer-lrc-hide")
+    const irc = document.querySelector(".aplayer-lrc-hide");
     if(irc === null) {
-      document.querySelector(".aplayer-lrc").classList.add("aplayer-lrc-hide")
-      document.querySelector("#ircItem").classList.remove("on")
+      document.querySelector(".aplayer-lrc").classList.add("aplayer-lrc-hide");
+      document.querySelector("#ircItem").classList.remove("on");
     } else {
-      document.querySelector(".aplayer-lrc").classList.remove("aplayer-lrc-hide")
-      document.querySelector("#ircItem").classList.add("on")
+      document.querySelector(".aplayer-lrc").classList.remove("aplayer-lrc-hide");
+      document.querySelector("#ircItem").classList.add("on");
     }
   },
 
   // 单栏显示开关
   hideAsideBtn: () => {
-    const $htmlDom = document.documentElement.classList
+    const $htmlDom = document.documentElement.classList;
     if ($htmlDom.contains('hide-aside')){
-      saveToLocal.set('aside-status', 'show', 2)
-      document.querySelector("#asideItem").classList.remove("on")
+      saveToLocal.set('aside-status', 'show', 2);
+      document.querySelector("#asideItem").classList.remove("on");
     } else {
-      saveToLocal.set('aside-status', 'hide', 2)
-      document.querySelector("#asideItem").classList.add("on")
+      saveToLocal.set('aside-status', 'hide', 2);
+      document.querySelector("#asideItem").classList.add("on");
     }
-    $htmlDom.toggle('hide-aside')
+    $htmlDom.toggle('hide-aside');
   },
 
   settingsOpen: function() {
-    alert("开发中...敬请期待！")
+    alert("开发中...敬请期待！");
   },
 
   //初始化console图标
   initConsoleState: function() {
-    const irc = document.querySelector(".aplayer-lrc-hide")
+    const irc = document.querySelector(".aplayer-lrc-hide");
     irc === null
       ? document.querySelector("#ircItem").classList.add("on")
-      : document.querySelector("#ircItem").classList.remove("on")
+      : document.querySelector("#ircItem").classList.remove("on");
     saveToLocal.get('aside-status') === 'hide'
       ? document.querySelector("#asideItem").classList.add("on")
-      : document.querySelector("#asideItem").classList.remove("on")
+      : document.querySelector("#asideItem").classList.remove("on");
   }
 
 }
@@ -112,7 +112,7 @@ function owoBig() {
     // 设置ID
     div.id = 'owo-big';
     // 插入盒子
-    body.appendChild(div)
+    body.appendChild(div);
 
     // 构造observer
     let observer = new MutationObserver(mutations => {
@@ -143,7 +143,7 @@ function owoBig() {
                             // 设置盒子样式
                             div.style.cssText = `display:flex; height:${height}px; width:${width}px; left:${left}px; top:${top}px;`;
                             // 在盒子中插入图片
-                            div.innerHTML = `<img src="${e.target.src}">`
+                            div.innerHTML = `<img src="${e.target.src}">`;
                         }, 300);
                     }
                 };
@@ -152,7 +152,7 @@ function owoBig() {
         }
 
     })
-    observer.observe(document.getElementById('post-comment'), { subtree: true, childList: true }) // 监听的 元素 和 配置项
+    observer.observe(document.getElementById('post-comment'), { subtree: true, childList: true }); // 监听的 元素 和 配置项
 }
 
 

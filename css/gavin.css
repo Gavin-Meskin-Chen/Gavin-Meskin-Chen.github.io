@@ -907,6 +907,33 @@ center#name-container {
 #aside-content .aside-list > .aside-list-item .thumbnail > img:hover {
   border-radius: 0.8rem;
 }
+
+/* 首页文章标题加粗 */
+#recent-posts>.recent-post-item>.recent-post-info>.article-title {
+  font-weight: bold;
+}
+
+#aside-content .card-info .author-info__name {
+  font-weight: bold;
+}
+
+.avatar-img img {
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+
+.avatar-img {
+  height: 100px;
+  width: 100px;
+}
+
+#aside-content>.card-info {
+  background: #fff url(https://i.imgtg.com/2023/01/20/SOTIX.webp) top -24% center no-repeat;
+}
+
+[data-theme=dark] #aside-content>.card-info {
+  background: var(--card-bg);
+}
 /* ***********************************************************控制中心*********************************************************** */
 /* 控制中心按钮样式 */
 .ctrl-button {
@@ -1864,7 +1891,7 @@ h6::before {
 }
 
 .layout {
-  z-index: 1;
+  z-index: 0;
 }
 
 /* 网站背景色参考张宏和安知鱼HEO */
@@ -1934,6 +1961,17 @@ h6::before {
   margin-top: 1rem;
 }
 
+/* 颜色更改（标签更改在themes\butterfly\layout\includes\mixins\post-ui.pug中改） */
+.recent-post-item:hover .article-title {
+  color: rgba(5,109,232,0.8)!important;
+}
+
+#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap {
+  color: var(--font-color);
+}
+#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap a {
+  color: var(--font-color);
+}
 /* ***************************宽屏适配************************ */
 /* 全局宽度 */
 .layout {
@@ -1991,7 +2029,7 @@ h6::before {
   padding-right: 5%;
   max-width: 1600px;
   width: 100%;
-  z-index: 1;
+  z-index: 0;
 }
 
 #home_top_swiper {
@@ -2029,6 +2067,15 @@ div#swiper_container:hover {
 .top-group-info a {
   color: var(--font-color);
 }
+
+.topGroup .top-group-list-item {
+  background: var(--card-bg)!important;
+}
+
+.topGroup .top-group-list-item:hover .article-title {
+  color: rgba(5,109,232,0.8)!important;
+}
+
 /* ********************首页标签分类条*********************** */
 #category-bar {
   /* width: 100%; */
@@ -2092,3 +2139,9 @@ div#swiper_container:hover {
   background: var(--heo-secondbg);
   -webkit-mask-image: -webkit-radial-gradient(center, rgb(255, 255, 255), rgb(0, 0, 0));
 }
+
+/* 修复屏幕尺寸缩放bug */
+html.hide-aside .layout>div:first-child {
+  width: 100%;
+}
+
