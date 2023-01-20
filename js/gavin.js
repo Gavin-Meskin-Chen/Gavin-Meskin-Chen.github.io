@@ -86,7 +86,9 @@ var ctrl = {
   //初始化console图标
   initConsoleState: function() {
     const irc = document.querySelector(".aplayer-lrc-hide");
-    irc === null
+    // 防止aplayer崩了，加个判断。
+    const aplayer = document.querySelector(".aplayer-lrc");
+    irc === null && aplayer !=null
       ? document.querySelector("#ircItem").classList.add("on")
       : document.querySelector("#ircItem").classList.remove("on");
     saveToLocal.get('aside-status') === 'hide'
