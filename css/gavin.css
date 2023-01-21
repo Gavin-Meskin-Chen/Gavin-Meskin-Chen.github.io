@@ -781,7 +781,7 @@ center#name-container {
 #aside-content #card-toc .toc-content .toc-link.active {
   background: var(--gavin-toc-bg);
   /* color: #fff; */
-  border-radius: 0.8em;
+  border-radius: 0.4em;
 }
 
 /* 设置侧边栏卡片的item样式 */
@@ -2059,15 +2059,16 @@ h6::before {
 
 div#swiper_container, .topGroup .top-group-list-item, #random, .categoryItem, .blog-slider__img img {
   border-radius: 0.8rem!important;
-  box-shadow: var(--card-box-shadow);
+  border: none!important;
+  box-shadow: var(--card-box-shadow)!important;
 }
 
 .blog-slider__img {
   width: 22rem!important;
 }
 
-div#swiper_container:hover {
-  box-shadow: var(--card-hover-box-shadow);
+div#swiper_container:hover, .topGroup .top-group-list-item:hover {
+  box-shadow: var(--card-hover-box-shadow)!important;
 }
 
 .layout {
@@ -2141,6 +2142,10 @@ div#swiper_container:hover {
   font-weight: bold;
 }
 
+.article-sort-item-img {
+  width: 20%;
+}
+
 .article-sort-item-img img {
   border-radius: 0.8rem;
 }
@@ -2150,7 +2155,8 @@ div#swiper_container:hover {
 
 .article-sort .article-sort-item .article-sort-item-img {
   border-radius: 0.8rem;
-  min-width: 151px;
+  min-width: 80px;
+  max-width: 150px;
   min-height: 80px;
   background: var(--heo-secondbg);
   -webkit-mask-image: -webkit-radial-gradient(center, rgb(255, 255, 255), rgb(0, 0, 0));
@@ -2165,4 +2171,49 @@ html.hide-aside .layout>div:first-child {
 .loading-img {
   background: url(https://i.imgtg.com/2023/01/06/GZRKN.jpg) no-repeat center center;
   background-size: cover;
+}
+
+/* AdsBox隐藏 */
+#adsbox {
+  display: none!important;
+}
+
+/* 51LA隐藏 */
+.la-widget {
+  display: none!important;
+}
+
+/* 影视页 */
+.stars_box {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.stars_box .card_box {
+  --w: calc(16.67% - 13px);
+  width: var(--w) !important;
+  /* height: auto !important; */
+  margin: 0px !important;
+}
+
+@media screen and (max-width: 1100px){
+  .stars_box .card_box {
+      --w: calc(20% - 12px);
+  }
+}
+@media screen and (max-width: 900px){
+  .stars_box .card_box {
+    --w: calc(25% - 12px);
+  }
+}
+@media screen and (max-width: 768px){
+  .stars_box .card_box {
+    --w: calc(33.33% - 10px);
+  }
+}
+@media screen and (max-width: 500px){
+  .stars_box .card_box {
+    --w: calc(50% - 8px);
+  }
 }
