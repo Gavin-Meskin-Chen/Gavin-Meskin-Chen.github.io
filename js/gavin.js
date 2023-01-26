@@ -79,8 +79,10 @@ var ctrl = {
     $htmlDom.toggle('hide-aside');
   },
 
+  
   settingsOpen: function() {
     alert("开发中...敬请期待！");
+    alert("切换成功")
   },
 
   //初始化console图标
