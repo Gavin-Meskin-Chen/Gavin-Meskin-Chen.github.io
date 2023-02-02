@@ -1,14 +1,5 @@
 /* ***************************************************************颜色************************************************************** */
 :root {
-  --gavin-page-bg: #3390FF;
-  /*页码颜色*/
-  --gavin-toc-bg: rgba(50, 150, 250, .9);
-  /*目录颜色*/
-  /*rgba(51, 144, 255, .9)*/
-  --gavin-scrollbar-dark: rgba(73, 177, 245, 1);
-  --gavin-scrollbar-light: rgba(255, 255, 255, .4);
-  --gavin-item-bg: rgba(73, 177, 245, .1);
-  --gavin-item-border: rgba(50, 150, 250, .9);
   --text-bg-hover: rgba(50, 150, 250, .9);
   --search-bg: var(--gavin-op-5);
   --rightside-bg: var(--gavin-op-1);
@@ -55,6 +46,14 @@
   --gavin-op-nav: rgba(255,255,255,.72);
   --gavin-op-dis-3: rgba(0,0,0,.3);
   --gavin-op-dis-7: rgba(0,0,0,.7);
+  --gavin-page-bg: #3390FF;/*页码颜色*/
+  --gavin-toc-bg: rgba(50, 150, 250, .9);/*目录颜色*/
+  /*rgba(51, 144, 255, .9)*/
+  --gavin-scrollbar-dark: rgba(73, 177, 245, 1);
+  --gavin-scrollbar-light: rgba(255, 255, 255, .4);
+  --gavin-item-bg: rgba(73, 177, 245, .1);
+  --gavin-item-border: rgba(50, 150, 250, .9);  
+  --gavin-border-color: rgba(227, 232, 247, 1);
   /* --font-color: #2e2e2e; */
   --font-color: rgba(0,0,0,.8);
   --card-bg: #ffffff;
@@ -103,17 +102,14 @@
   --gavin-op-nav: rgba(0,0,0,.56);
   --gavin-op-dis-3: rgba(255,255,255,.3);
   --gavin-op-dis-7: rgba(255,255,255,.7);
-  --gavin-page-bg: rgba(36, 36, 36, 1);
-  /*页码颜色*/
-  --gavin-toc-bg: rgba(240, 240, 240, .24);
-  /*目录颜色*/
+  --gavin-page-bg: rgba(36, 36, 36, 1);/*页码颜色*/
+  --gavin-toc-bg: rgba(240, 240, 240, .24);/*目录颜色*/
   /*rgba(51, 144, 255, .3); */
   --gavin-scrollbar-dark: #242424;
   --gavin-scrollbar-light: rgba(180, 180, 180, .4);
   --gavin-item-bg: rgba(240, 240, 240, .2);
   --gavin-item-border: rgba(240, 240, 240, .5);
-  --gavin-op-1: rgba(0,0,0,.1);
-  --gavin-op-3: rgba(0,0,0,.3);
+  --gavin-border-color: rgba(66, 68, 74, 1);
   --card-bg: rgba(29, 30, 34, 1);
   /* --card-box-shadow: 0 0px 1px 1px rgba(240, 240, 240, .25); */
   --card-box-shadow: 0 0px 1px 1px rgba(66, 68, 74, 1);
@@ -2070,10 +2066,16 @@ h6::before {
   flex-direction: row!important;
 }
 
-div#swiper_container, .topGroup .top-group-list-item, #random, .categoryItem, .blog-slider__img img {
+div#swiper_container, .topGroup .top-group-list-item, .categoryItem, .blog-slider__img img {
   border-radius: 0.8rem!important;
   border: none!important;
   box-shadow: var(--card-box-shadow)!important;
+}
+
+#random {
+  border-radius: 0.8rem!important;
+  border: 1px solid var(--gavin-border-color)!important;
+  background: var(--card-bg)!important;
 }
 
 .blog-slider__img {
@@ -2099,11 +2101,34 @@ div#swiper_container:hover, .topGroup .top-group-list-item:hover {
 }
 
 .topGroup .top-group-list-item {
+  width: calc(100% / 4 - 0.5rem)!important;
   background: var(--card-bg)!important;
 }
 
 .topGroup .top-group-list-item:hover .article-title {
   color: rgba(5,109,232,0.8)!important;
+}
+
+/* 轮播补充 */
+div#bannerGroup {
+  width: calc(43% - 1rem)!important;
+  margin-right: 1rem!important;
+}
+
+#random #random-banner #skills-style-group-all {
+  position: relative;
+  top: -12.5rem;
+}
+
+@media screen and (max-width: 1300px){
+  #topGroup .topGroup .top-group-list-item {
+    width: calc(100% / 4 - 0.5rem)!important;
+  }
+}
+
+span.top-group-text {
+  background: var(--anzhiyu-theme)!important;
+  color: var(--anzhiyu-white)!important;
 }
 
 /* ********************首页标签分类条*********************** */
