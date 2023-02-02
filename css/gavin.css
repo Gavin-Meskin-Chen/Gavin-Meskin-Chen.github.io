@@ -52,6 +52,7 @@
   --gavin-op-3: rgba(255,255,255,.3);
   --gavin-op-5: rgba(255,255,255,.5);
   --gavin-op-7: rgba(255,255,255,.7);
+  --gavin-op-nav: rgba(255,255,255,.72);
   --gavin-op-dis-3: rgba(0,0,0,.3);
   --gavin-op-dis-7: rgba(0,0,0,.7);
   /* --font-color: #2e2e2e; */
@@ -99,6 +100,7 @@
   --gavin-op-3: rgba(0,0,0,.3);
   --gavin-op-5: rgba(0,0,0,.5);
   --gavin-op-7: rgba(0,0,0,.7);
+  --gavin-op-nav: rgba(0,0,0,.56);
   --gavin-op-dis-3: rgba(255,255,255,.3);
   --gavin-op-dis-7: rgba(255,255,255,.7);
   --gavin-page-bg: rgba(36, 36, 36, 1);
@@ -289,6 +291,7 @@ div#menus {
 }
 
 #site-name {
+  height: 35px;
   padding: 0 8px;
   position: relative;
   display: flex;
@@ -363,16 +366,16 @@ ul.menus_item_child {
 #nav {
   /* top: 0; */
   padding: 0 calc((100% - 1420px) / 2);
-  -webkit-backdrop-filter: saturate(180%) contrast(50%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
   /* Warning: Also define the standard property '' for compatibility */
-  backdrop-filter: saturate(180%) contrast(50%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
   /* saturate饱和度 contrast对比度 blur高斯模糊 */
 
   /* 以下是导航栏新改的 */
-  background-color: var(--gavin-op-5) !important;
+  background-color: var(--gavin-op-nav) !important;
   padding-left: 10px;
   padding-right: 10px;
-  box-shadow: none!important;
+  box-shadow: var(--card-box-shadow)!important;
 }
 
 /* 导航栏新改的 */
@@ -711,6 +714,7 @@ center#name-container {
 #body-wrap #page-header:not(.is-top-bar) #nav {
   background: rgb(0 0 0 / 0%)!important;
   backdrop-filter: none!important;
+  box-shadow: none!important;
 }
 
 #body-wrap #page-header:not(.is-top-bar) #nav #he-plugin-simple, 
@@ -929,6 +933,7 @@ center#name-container {
   font-weight: bold;
 }
 
+/* 侧边栏个人信息卡片 */
 #aside-content .card-info .author-info__name {
   font-weight: bold;
 }
@@ -950,6 +955,14 @@ center#name-container {
 [data-theme=dark] #aside-content>.card-info {
   background: var(--card-bg);
 }
+
+/* 打赏 */
+
+.post-reward .reward-main .reward-all,
+.post-reward .reward-main .reward-all .reward-item img {
+  border-radius: 0.8rem;
+}
+
 /* ***********************************************************控制中心*********************************************************** */
 /* 控制中心按钮样式 */
 .ctrl-button {
@@ -1142,11 +1155,11 @@ center#name-container {
   border: 10px solid #00000000;
   /* border-image: 0%; */
   /* -webkit-border-image: 0%; */
-  background-color: var(--gavin-op-1);
+  background-color: var(--gavin-op-3);
   -webkit-background-clip: border-box;
   background-clip: border-box;
-  -webkit-backdrop-filter: saturate(180%) contrast(50%) blur(20px);
-  backdrop-filter: saturate(180%) contrast(50%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
 }
 
 .aplayer.aplayer-fixed .aplayer-lrc {
@@ -1318,7 +1331,7 @@ center#name-container {
 }
 
 /* 窄屏不显示天气 */
-@media screen and (max-width: 940px) {
+@media screen and (max-width: 900px) {
   #nav .s-sticker {
     display: none;
   }
