@@ -2013,6 +2013,14 @@ h6::before {
   background: var(--gavin-background);
 }
 
+@media screen and (max-width: 768px) {
+  .layout > div:first-child:not(.recent-posts) {
+    padding: 1.5rem 1rem !important;
+    border: 1px solid var(--gavin-border-color);
+    background: var(--card-bg);
+  }
+}
+
 /* ***************哔哩哔哩bilibili视频适配*************** */
 .aspect-ratio {
   position: relative;
