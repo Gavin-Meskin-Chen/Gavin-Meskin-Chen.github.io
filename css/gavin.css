@@ -46,14 +46,16 @@
   --gavin-op-nav: rgba(255,255,255,.72);
   --gavin-op-dis-3: rgba(0,0,0,.3);
   --gavin-op-dis-7: rgba(0,0,0,.7);
-  --gavin-page-bg: #3390FF;/*页码颜色*/
-  --gavin-toc-bg: rgba(50, 150, 250, .9);/*目录颜色*/
-  /*rgba(51, 144, 255, .9)*/
+  --gavin-page-bg: rgb(51,144,255);/*页码颜色*/
+  --gavin-toc-bg: rgba(50, 150, 250, .9);/*目录颜色*//*rgba(51, 144, 255, .9)*/
   --gavin-scrollbar-dark: rgba(73, 177, 245, 1);
   --gavin-scrollbar-light: rgba(255, 255, 255, .4);
-  --gavin-item-bg: rgba(73, 177, 245, .1);
+  --gavin-item-bg: rgba(60, 175, 250, 0.2);
   --gavin-item-border: rgba(50, 150, 250, .9);  
   --gavin-border-color: rgba(227, 232, 247, 1);
+  --gavin-note-font-color: rgb(102, 102, 102);
+  --gavin-hover-font-color: rgba(0, 0, 0, 1);
+  --gavin-background: rgb(247, 249, 254);
   /* --font-color: #2e2e2e; */
   --font-color: rgba(0,0,0,.8);
   --card-bg: #ffffff;
@@ -102,15 +104,17 @@
   --gavin-op-nav: rgba(0,0,0,.56);
   --gavin-op-dis-3: rgba(255,255,255,.3);
   --gavin-op-dis-7: rgba(255,255,255,.7);
-  --gavin-page-bg: rgba(36, 36, 36, 1);/*页码颜色*/
-  --gavin-toc-bg: rgba(240, 240, 240, .24);/*目录颜色*/
-  /*rgba(51, 144, 255, .3); */
+  --gavin-page-bg: rgb(0, 0, 0);/*页码颜色*/
+  --gavin-toc-bg: rgba(240, 240, 240, .24);/*目录颜色*//*rgba(51, 144, 255, .3); */
   --gavin-scrollbar-dark: #242424;
   --gavin-scrollbar-light: rgba(180, 180, 180, .4);
   --gavin-item-bg: rgba(240, 240, 240, .2);
   --gavin-item-border: rgba(240, 240, 240, .5);
   --gavin-border-color: rgba(66, 68, 74, 1);
-  --card-bg: rgba(29, 30, 34, 1);
+  --gavin-note-font-color: rgb(136, 136, 136);
+  --gavin-hover-font-color: rgba(255, 255, 255, .9);
+  --gavin-background: rgb(17, 17, 17);
+  --card-bg: #000000; /*rgba(29, 30, 34, 1);*/
   /* --card-box-shadow: 0 0px 1px 1px rgba(240, 240, 240, .25); */
   --card-box-shadow: 0 0px 1px 1px rgba(66, 68, 74, 1);
   /* --card-hover-box-shadow: 0 0 8px 2px rgba(240, 240, 240, .24); */
@@ -777,11 +781,19 @@ center#name-container {
   padding-right: 5%;
 }
 
-/* 设置目录弧度 */
+/* 设置目录弧度和颜色 */
 #aside-content #card-toc .toc-content .toc-link.active {
   background: var(--gavin-toc-bg);
-  /* color: #fff; */
   border-radius: 0.4em;
+}
+
+#aside-content #card-toc .toc-content .toc-link {
+  border-radius: 0.4em;
+}
+
+#aside-content #card-toc .toc-content .toc-link:hover {
+  background-color: var(--gavin-item-bg);
+  color: var(--font-color);
 }
 
 /* 设置侧边栏卡片的item样式 */
@@ -802,11 +814,13 @@ center#name-container {
 
 /* 首页标签Tag样式 */
 #aside-content .card-tag-cloud a {
+  font-size: 1.2em!important;
   margin: 3px 2px 3px 2px;
-  border: 1px solid var(--gavin-item-border);
+  /* border: 1px solid var(--gavin-item-border); */
   background-color: var(--gavin-item-bg);
   border-radius: 0.4em;
-  color: var(--gavin-item-border) !important;
+  /* color: var(--gavin-item-border) !important; */
+  color: var(--font-color) !important;
 }
 
 #aside-content .card-tag-cloud a:hover {
@@ -814,12 +828,24 @@ center#name-container {
   color: #ffffff !important;
 }
 
+.tag-cloud-list a::before {
+  content: '\f292';
+  top: -0.1em;
+  position: relative;
+  opacity: .6;
+  margin-right: 0.15em;
+  font-size: 80%;
+  font-family: "Font Awesome 6 Free";
+}
+
 /* Tag页标签样式 */
 .tag-cloud-list a {
+  font-size: 1.2em!important;
   margin: 5px 5px 5px 5px;
-  border: 1px solid var(--gavin-item-border);
+  /* border: 1px solid var(--gavin-item-border); */
   background-color: var(--gavin-item-bg);
   border-radius: 0.4em;
+  color: var(--font-color) !important;
 }
 
 /* 页码 */
@@ -875,11 +901,6 @@ center#name-container {
   bottom: 90px;
 }
 
-/* 隐藏底部foot */
-.framework-info {
-  display: none;
-}
-
 /* 部分box微调：弧度调整 */
 /* 第一个是相关文章，第二个是上下篇*/
 .relatedPosts>.relatedPosts-list>div, 
@@ -916,10 +937,7 @@ center#name-container {
   border-bottom: none;
 }
 
-#aside-content .aside-list > .aside-list-item .thumbnail > img {
-  border-radius: 0.8rem;
-}
-
+#aside-content .aside-list > .aside-list-item .thumbnail > img, 
 #aside-content .aside-list > .aside-list-item .thumbnail > img:hover {
   border-radius: 0.8rem;
 }
@@ -952,10 +970,10 @@ center#name-container {
   background: var(--card-bg);
 }
 
-/* 打赏 */
-
-.post-reward .reward-main .reward-all,
-.post-reward .reward-main .reward-all .reward-item img {
+.post-reward .reward-main .reward-all, /* 打赏 */
+.post-reward .reward-main .reward-all .reward-item img, 
+#article-container img /* 文章图片 */
+{
   border-radius: 0.8rem;
 }
 
@@ -1374,23 +1392,23 @@ center#name-container {
 [data-theme="dark"] .parallax > use:nth-child(1) {
   animation-delay: -2s;
   animation-duration: 7s;
-  fill: rgba(24,23,29,0.4);
+  fill: rgba(17,17,17,0.4); /*rgb(24,23,29)*/
 }
 [data-theme="dark"] .parallax > use:nth-child(2) {
   animation-delay: -3s;
   animation-duration: 10s;
-  fill: rgba(24,23,29,0.6);
+  fill: rgba(17,17,17,0.6);
 }
 [data-theme="dark"] .parallax > use:nth-child(3) {
   animation-delay: -4s;
   animation-duration: 13s;
-  fill: rgba(24,23,29,0.8);
+  fill: rgba(17,17,17,0.8);
 }
 [data-theme="dark"] .parallax > use:nth-child(4) {
   animation-delay: -5s;
   animation-duration: 20s;
   /* fill: #18171d; */
-  fill: rgba(24,23,29,1);
+  fill: rgba(17,17,17,1);
 }
 
 @keyframes move-forever {
@@ -1410,7 +1428,60 @@ center#name-container {
 }
 
 /* ***************************************************页脚样式********************************************* */
-#ft {
+
+/* 原装版 */
+#footer {
+  background: var(--card-bg);
+  box-shadow: var(--card-box-shadow)!important;
+}
+
+#footer-wrap,
+#footer-wrap a {
+  color: var(--gavin-note-font-color);
+}
+
+/* 隐藏底部foot */
+/* .framework-info {
+  display: none;
+} */
+
+#footer-wrap a:hover {
+  color: var(--gavin-hover-font-color);
+  text-decoration: none;
+}
+
+/* 自用版 */
+#footer-wrap {
+  padding: 20px 5%;
+  display: flex;
+}
+
+#footer-left {
+  width: 50%;
+  text-align: left;
+}
+
+#footer-right {
+  width: 50%;
+  text-align: right;
+}
+
+@media screen and (max-width: 805px) {
+  #footer-wrap {
+    display: block;
+  }  
+  #footer-left {
+    width: 100%;
+    text-align: left;
+  }
+  #footer-right {
+    width: 100%;
+    text-align: left;
+  }  
+}
+
+/* 猕猴桃版 */
+/* #ft {
   max-width: 1200px;
   margin: 0 auto 12px;
   display: flex;
@@ -1457,7 +1528,6 @@ center#name-container {
   margin-top: 10px;
 }
 
-/* 按钮背景颜色等 */
 .btn-xz {
   display: block;
   background-color: var(--btn-bg);
@@ -1470,7 +1540,7 @@ center#name-container {
 .btn-xz:hover {
   text-decoration: none !important;
 }
-/* 按钮悬浮颜色 */
+
 .btn-xz-box:hover .btn-xz {
   background-color: var(--text-bg-hover);
 }
@@ -1491,7 +1561,7 @@ center#name-container {
   display: inline-block !important;
   width: 50%;
 }
-/* 链接悬浮颜色 */
+
 .ft-links li a:hover {
   text-decoration: none !important;
   color: var(--theme-color) !important;
@@ -1530,7 +1600,7 @@ center#name-container {
   max-height: 80px;
   border-radius: 10px;
 }
-/* 头像悬浮颜色框 */
+
 .ft-item-2 .ft-img-group .img-group-item a img:hover {
   border: 2px solid var(--theme-color);
 }
@@ -1570,7 +1640,6 @@ center#name-container {
   padding: 20px 20px;
 }
 
-/* 页脚心跳动画 */
 #heartbeat {
   color: red;
   animation: iconAnimate 1s ease-in-out infinite;
@@ -1654,7 +1723,7 @@ center#name-container {
   70% {
     transform: scale(1.1);
   }
-}
+} */
 
 /* *******************************************外挂标签样式********************************************** */
 /* 文章页H1-H6图标样式效果 */
@@ -1921,7 +1990,7 @@ h6::before {
 
 /* 网站背景色参考张宏和安知鱼HEO */
 #body-wrap {
-  background: var(--anzhiyu-background);
+  background: var(--gavin-background);
 }
 
 /* ***************哔哩哔哩bilibili视频适配*************** */
@@ -2184,9 +2253,7 @@ span.top-group-text {
   width: 20%;
 }
 
-.article-sort-item-img img {
-  border-radius: 0.8rem;
-}
+.article-sort-item-img img, 
 .article-sort-item-img img:hover {
   border-radius: 0.8rem;
 }
