@@ -1347,7 +1347,7 @@ center#name-container {
 }
 
 /* 窄屏不显示天气 */
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 825px) {
   #nav .s-sticker {
     display: none;
   }
@@ -1986,6 +1986,16 @@ h6::before {
   border-top: 1px solid var(--gavin-border-color);
 }
 
+.tk-expand {
+  border-radius: 0.4rem;
+  border: 1px solid var(--gavin-border-color);
+  background-color: var(--gavin-background);
+}
+
+.tk-expand:hover {
+  background-color: var(--gavin-item-bg);
+}
+
 /* *******************星空背景**************** */
 /* 背景宇宙星光  */
 #universe{
@@ -2349,4 +2359,21 @@ html.hide-aside .layout>div:first-child {
   .stars_box .card_box {
     --w: calc(50% - 8px);
   }
+}
+
+/* 导航栏音乐 */
+#nav-music {
+  width: fit-content;
+  height: fit-content;
+  bottom: 320px;
+  display: flex;
+  align-items: center;
+  z-index: 9;
+  position: relative;
+  background-color: red;
+  cursor: pointer;
+  transition: 0.5s;
+  transform-origin: left bottom;
+  border-radius: 10px;
+  overflow: hidden;
 }
