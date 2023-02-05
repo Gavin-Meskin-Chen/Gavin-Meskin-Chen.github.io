@@ -1,4 +1,49 @@
 /* ***************************************************************颜色************************************************************** */
+/* @font-face {
+  font-family: 'HarmonyOS';	
+  src: url(/font/HarmonyOS_Sans_SC_Regular.woff2);
+  font-weight: bold;
+  font-style: normal;
+  font-display: block;
+} */
+
+@font-face {
+  font-family: 'Jinbu';	
+  src: url(/font/DingTalk_JinBuTi.woff2);
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'xiaozhuan';	
+  src: url(/font/参星阁.woff2);
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+#page-header #site-title {
+  font-family: xiaozhuan;
+  font-weight: 100;
+  font-size: 5em;
+}
+
+@media screen and (min-width: 768px) {
+  #page-header #site-title {
+    font-size: 5em;
+  }
+}
+
+#article-container {
+  font-family: Jinbu;
+  font-size: 1.2rem;
+}
+
+#aside-content .card-info .card-info-data {
+  font-family: Jinbu;
+}
+
 :root {
   --text-bg-hover: rgba(50, 150, 250, .9);
   --search-bg: var(--gavin-op-5);
@@ -431,25 +476,26 @@ ul.menus_item_child {
   opacity: 0;
 }
 
+/* 取消向上按钮 */
 #page-name::before {
-  font-size: 18px;
+  /* font-size: 18px;
   position: absolute;
   width: 100%;
   height: 100%;
   border-radius: 8px;
   color: white !important;
   top: 0;
-  left: 0;
+  left: 0; */
   content: "";
   /* background-color: var(--anzhiyu-theme); */
-  transition: all 0.3s;
+  /* transition: all 0.3s;
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
   -ms-transition: all 0.3s;
   -o-transition: all 0.3s;
-  opacity: 0;
+  opacity: 0; */
   /* box-shadow: 0 0 3px var(--anzhiyu-theme); */
-  line-height: 45px;
+  /* line-height: 45px; */
 }
 
 /*如果垂直位置不居中可以微调此值，也可以删了*/
@@ -474,6 +520,8 @@ ul.menus_item_child {
 #page-name {
   position: relative;
   padding: 10px 30px;
+  font-size: 0.9em;
+  font-weight: 600;
 }
 
 center#name-container {
@@ -979,6 +1027,24 @@ center#name-container {
   border-radius: 0.8rem;
 }
 
+/* 文章页标题显示不全的bug */
+@media screen and (max-width: 900px) {
+  #page-header #post-info {
+    bottom: 70px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #page-header #post-info {
+    bottom: 40px;
+  }
+}
+
+/* 修复全局字体带来的bug */
+#aside-content #card-toc .toc-percentage {
+  font-size: 130%;
+}
+
 /* ***********************************************************控制中心*********************************************************** */
 /* 控制中心按钮样式 */
 .ctrl-button {
@@ -1126,17 +1192,17 @@ center#name-container {
   background: rgba(0,0,0,0.1);
 }
 /* **************************************************************音乐播放器***************************************************************** */
-.aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+meting-js .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
   left: -66px !important;
   /* 默认情况下缩进左侧66px，只留一点箭头部分 */
 }
 
-.aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+meting-js .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
   left: 0 !important;
   /* 鼠标悬停是左侧缩进归零，完全显示按钮 */
 }
 
-.aplayer .aplayer-lrc p.aplayer-lrc-current {
+meting-js .aplayer .aplayer-lrc p.aplayer-lrc-current {
   /* margin: 5px !important; */
   margin: 0.2rem !important;
   line-height: 1.3rem !important;
@@ -1149,7 +1215,7 @@ center#name-container {
   opacity: 1; */
 }
 
-.aplayer .aplayer-lrc p {
+meting-js .aplayer .aplayer-lrc p {
   /* margin: 5px !important;
   padding: 0 !important; */
   line-height: 1.3rem !important;
@@ -1163,7 +1229,7 @@ center#name-container {
 }
 
 /* 歌词框的高度 */
-.aplayer .aplayer-lrc {
+meting-js .aplayer .aplayer-lrc {
   padding: 0 !important;
   /* height: 50px !important; */
   height: 3rem !important;
@@ -1178,14 +1244,14 @@ center#name-container {
   backdrop-filter: saturate(180%) blur(20px);
 }
 
-.aplayer.aplayer-fixed .aplayer-lrc {
+meting-js .aplayer.aplayer-fixed .aplayer-lrc {
   /* calc(10% - 105px): 百分比补上参数 */
   left: calc(10% - 10px) !important;
   width: 80%;
   text-shadow: none!important;
 }
 
-.aplayer.aplayer-fixed .aplayer-list {
+meting-js .aplayer.aplayer-fixed .aplayer-list {
   position: relative;
   background-color: #ffffff;
   z-index: 99;
@@ -1996,6 +2062,10 @@ h6::before {
   background-color: var(--gavin-item-bg);
 }
 
+.tk-meta strong {
+  color: #409eff;
+}
+
 /* *******************星空背景**************** */
 /* 背景宇宙星光  */
 #universe{
@@ -2305,6 +2375,15 @@ span.top-group-text {
   -webkit-mask-image: -webkit-radial-gradient(center, rgb(255, 255, 255), rgb(0, 0, 0));
 }
 
+/* "更多 */
+.category-bar-more {
+  margin-right: 0!important;
+}
+
+.category-bar-items {
+  width: 100%;
+}
+
 /* 修复屏幕尺寸缩放bug */
 html.hide-aside .layout>div:first-child {
   width: 100%;
@@ -2365,12 +2444,12 @@ html.hide-aside .layout>div:first-child {
 #nav-music {
   width: fit-content;
   height: fit-content;
-  bottom: 320px;
+  /* top: 320px; */
   display: flex;
   align-items: center;
   z-index: 9;
   position: relative;
-  background-color: red;
+  /* background-color: red; */
   cursor: pointer;
   transition: 0.5s;
   transform-origin: left bottom;

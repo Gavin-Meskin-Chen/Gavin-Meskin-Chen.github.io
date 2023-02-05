@@ -19,6 +19,14 @@ function percent() {
 }
 document.getElementById("page-name").innerText = document.title.split(" | 参星阁")[0];
 
+var logo = document.createElement("img");
+var site = document.getElementById("site-info");
+var title = document.getElementById("site-title");
+logo.style = "position:relative;left:calc(50% - 75px);width:150px;height:150px";
+logo.src = "https://i.imgtg.com/2023/02/06/0Su3b.png";
+site.insertBefore(logo, title);
+site.style.top = "30%";
+
 var ctrl = {
 
   // 深色模式开关
@@ -56,12 +64,14 @@ var ctrl = {
 
   // 歌词显示开关
   ircShowHide: function() {
-    const irc = document.querySelector(".aplayer-lrc-hide");
+    const irc = document.querySelector(".aplayer > .aplayer-lrc-hide"); //这里防止与音乐页面的控制冲突
     if(irc === null) {
-      document.querySelector(".aplayer-lrc").classList.add("aplayer-lrc-hide");
+      document.querySelector(".aplayer > .aplayer-lrc").classList.add("aplayer-lrc-hide");
+      // document.querySelector(".aplayer-info > .aplayer-lrc").classList.add("aplayer-lrc-hide");
       document.querySelector("#ircItem").classList.remove("on");
     } else {
-      document.querySelector(".aplayer-lrc").classList.remove("aplayer-lrc-hide");
+      document.querySelector(".aplayer > .aplayer-lrc").classList.remove("aplayer-lrc-hide");
+      // document.querySelector(".aplayer-info > .aplayer-lrc").classList.remove("aplayer-lrc-hide");
       document.querySelector("#ircItem").classList.add("on");
     }
   },
@@ -85,11 +95,21 @@ var ctrl = {
     alert("切换成功")
   },
 
+  musicSwitch: function() {
+    document.querySelector("meting-js").aplayer.toggle();
+  },
+  musicForward: function() {
+    document.querySelector("meting-js").aplayer.skipForward();
+  },
+  musicBackward: function() {
+    document.querySelector("meting-js").aplayer.skipBack();
+  },
+
   //初始化console图标
   initConsoleState: function() {
-    const irc = document.querySelector(".aplayer-lrc-hide");
+    const irc = document.querySelector(".aplayer > .aplayer-lrc-hide");
     // 防止aplayer崩了，加个判断。
-    const aplayer = document.querySelector(".aplayer-lrc");
+    const aplayer = document.querySelector(".aplayer > .aplayer-lrc");
     irc === null && aplayer !=null
       ? document.querySelector("#ircItem").classList.add("on")
       : document.querySelector("#ircItem").classList.remove("on");
