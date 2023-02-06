@@ -1,3 +1,10 @@
+// pjax适配
+function whenDOMReady() {
+  // pjax加载完成（切换页面）后需要执行的函数和代码
+  musicState();
+  ctrl;
+}
+
 // 返回顶部 显示网页阅读进度
 window.onscroll = percent; // 执行函数
 // 页面百分比
@@ -19,6 +26,8 @@ function percent() {
 }
 document.getElementById("page-name").innerText = document.title.split(" | 参星阁")[0];
 
+
+// 首页大logo
 var logo = document.createElement("img");
 var site = document.getElementById("site-info");
 var title = document.getElementById("site-title");
@@ -26,6 +35,20 @@ logo.style = "position:relative;left:calc(50% - 75px);width:150px;height:150px";
 logo.src = "https://i.imgtg.com/2023/02/06/0Su3b.png";
 site.insertBefore(logo, title);
 site.style.top = "30%";
+
+
+// 音乐状态检测
+function musicState() {
+  const music_state = document.querySelector("meting-js").aplayer.audio.paused;
+  if (music_state) {
+    document.querySelector("#music-Switch i").classList.remove("fa-pause");
+    document.querySelector("#music-Switch i").classList.add("fa-play");
+  } else {
+    document.querySelector("#music-Switch i").classList.remove("fa-play");
+    document.querySelector("#music-Switch i").classList.add("fa-pause");
+  }
+}
+
 
 var ctrl = {
 
@@ -88,7 +111,6 @@ var ctrl = {
     }
     $htmlDom.toggle('hide-aside');
   },
-
   
   settingsOpen: function() {
     alert("开发中...敬请期待！");
@@ -96,6 +118,14 @@ var ctrl = {
   },
 
   musicSwitch: function() {
+    const music_state = document.querySelector("meting-js").aplayer.audio.paused;
+    if (music_state) {
+      document.querySelector("#music-Switch i").classList.remove("fa-play");
+      document.querySelector("#music-Switch i").classList.add("fa-pause");
+    } else {
+      document.querySelector("#music-Switch i").classList.remove("fa-pause");
+      document.querySelector("#music-Switch i").classList.add("fa-play");
+    }
     document.querySelector("meting-js").aplayer.toggle();
   },
   musicForward: function() {
@@ -103,6 +133,9 @@ var ctrl = {
   },
   musicBackward: function() {
     document.querySelector("meting-js").aplayer.skipBack();
+  },
+  musicMute: function() {
+    document.querySelector("meting-js").aplayer.volume(0.1, true);
   },
 
   //初始化console图标
@@ -119,6 +152,13 @@ var ctrl = {
   }
 
 }
+
+
+whenDOMReady(); // 打开网站先执行一次
+document.addEventListener("pjax:complete", whenDOMReady); // pjax加载完成（切换页面）后再执行一次
+
+// whenDOMReady函数外放一些打开网站之后只需要执行一次的函数和代码，比如一些监听代码。
+// 监听代码只需要执行一次即可，不需要每次加载pjax都执行，会出现一些Bug。至于为什么，我也不知道，可以自己试一下。
 
 
 // ——————————————————————————————————评论表情放大预览————————————————————————————————————————————

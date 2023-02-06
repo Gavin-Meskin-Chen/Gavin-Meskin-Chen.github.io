@@ -1419,6 +1419,11 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
   }
 }
 
+/* 修复窄屏显示但无法选中的bug */
+#he-plugin-simple[data-v-41ba7e2c] {
+  z-index: 1;
+}
+
 /* ******************************文章波浪*************************** */
 .main-hero-waves-area {
   width: 100%;
@@ -2441,20 +2446,24 @@ html.hide-aside .layout>div:first-child {
 }
 
 /* 导航栏音乐 */
+#nav-music-ctrl {
+  display: flex;
+  margin-right: 1rem;
+  z-index: 1; /*修复可以显示但无法选中的bug*/
+}
+
 #music-Switch, #music-Forward, #music-Backward {
-  width: fit-content;
+  /* width: fit-content;
   height: fit-content;
-  /* top: 320px; */
   display: flex;
   align-items: center;
   z-index: 9;
   position: relative;
-  /* background-color: red; */
   cursor: pointer;
   transition: 0.5s;
   transform-origin: left bottom;
   border-radius: 10px;
-  overflow: hidden;
+  overflow: hidden; */
 }
 
 /* 窄屏不显示音乐控制键 */
