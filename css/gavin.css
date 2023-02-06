@@ -771,6 +771,7 @@ center#name-container {
 #body-wrap #page-header:not(.is-top-bar) #nav .back-home-button, 
 #body-wrap #page-header:not(.is-top-bar) #nav .site-page.group, 
 #body-wrap #page-header:not(.is-top-bar) #nav #site-name,
+#body-wrap #page-header:not(.is-top-bar) #nav #page-name,
 #body-wrap #page-header:not(.is-top-bar) #nav #toggle-menu a,
 #body-wrap #page-header:not(.is-top-bar) #nav .nav-button a {
   color: rgba(255,255,255,.8)!important;
