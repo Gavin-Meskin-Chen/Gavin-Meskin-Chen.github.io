@@ -83,13 +83,13 @@ music_volumebar.addEventListener("mousedown", function (event) { //添加监听�
 music_volumebar.addEventListener("touchstart", function (event) { //添加监听事件
   v_bar_bg.style.height = "0.6rem";
   v_bar.style.height = "0.6rem";
-  let x = event.pageX; // 获取按下时鼠标初始位置 // pageX是绝对位置 offsetX是相对位置
-  v_bar.style.width = (0 + event.offsetX) + "px"; // 按下时重新设置进度条
+  let x = event.targetTouches[0].pageX; // 获取按下时鼠标初始位置 // pageX是绝对位置 offsetX是相对位置
+  v_bar.style.width = (0 + event.targetTouches[0].offsetX) + "px"; // 按下时重新设置进度条
   let v_bar_Len = v_bar.offsetWidth; // 获取进度条的初始Width
-  let newVolume = event.offsetX / 176;
+  let newVolume = event.targetTouches[0].offsetX / 176;
   document.querySelector("meting-js").aplayer.volume(newVolume, true); // 更改音量
   document.ontouchmove = function(event) { // 拖动需要写到down里面
-      let diff = x - event.pageX; // 获取移动的距离
+      let diff = x - event.targetTouches[0].pageX; // 获取移动的距离
       let v_bar_Len_New = v_bar_Len - diff; // 计算当前进度条的Width
       if(v_bar_Len_New < 0) { // 当超出进度条范围，控制
         v_bar_Len_New = 0;
@@ -131,14 +131,14 @@ music_progressbar.addEventListener("mousedown", function (event) { //添加监�
 music_progressbar.addEventListener("touchstart", function (event) { //添加监听事件
   p_bar_bg.style.height = "0.6rem";
   p_bar.style.height = "0.6rem";
-  let x = event.pageX; // 获取按下时鼠标初始位置 // pageX是绝对位置 offsetX是相对位置
-  p_bar.style.width = (0 + event.offsetX) + "px"; // 按下时重新设置进度条
+  let x = event.targetTouches[0].pageX; // 获取按下时鼠标初始位置 // pageX是绝对位置 offsetX是相对位置
+  p_bar.style.width = (0 + event.targetTouches[0].offsetX) + "px"; // 按下时重新设置进度条
   let p_bar_Len = p_bar.offsetWidth; // 获取进度条的初始Width
   let allTime = document.querySelector("meting-js").aplayer.audio.duration;
-  let newTime = (event.offsetX / 134) * allTime;
+  let newTime = (event.targetTouches[0].offsetX / 134) * allTime;
   document.querySelector("meting-js").aplayer.seek(newTime); //更改进度
   document.ontouchmove = function(event) { // 拖动需要写到down里面
-      let diff = x - event.pageX; // 获取移动的距离
+      let diff = x - event.targetTouches[0].pageX; // 获取移动的距离
       let p_bar_Len_New = p_bar_Len - diff; // 计算当前进度条的Width
       if(p_bar_Len_New < 0) { // 当超出进度条范围，控制
         p_bar_Len_New = 0;
