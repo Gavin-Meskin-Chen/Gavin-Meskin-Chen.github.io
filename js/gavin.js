@@ -43,9 +43,13 @@ function musicState() {
   if (music_state) {
     document.querySelector("#music-Switch i").classList.remove("fa-pause");
     document.querySelector("#music-Switch i").classList.add("fa-play");
+    document.querySelector("#console #music-ctrl-btn-center i").classList.remove("fa-pause");
+    document.querySelector("#console #music-ctrl-btn-center i").classList.add("fa-play");
   } else {
     document.querySelector("#music-Switch i").classList.remove("fa-play");
     document.querySelector("#music-Switch i").classList.add("fa-pause");
+    document.querySelector("#console #music-ctrl-btn-center i").classList.remove("fa-play");
+    document.querySelector("#console #music-ctrl-btn-center i").classList.add("fa-pause");
   }
 }
 
@@ -114,7 +118,6 @@ var ctrl = {
   
   settingsOpen: function() {
     alert("开发中...敬请期待！");
-    alert("切换成功")
   },
 
   musicSwitch: function() {
@@ -122,9 +125,13 @@ var ctrl = {
     if (music_state) {
       document.querySelector("#music-Switch i").classList.remove("fa-play");
       document.querySelector("#music-Switch i").classList.add("fa-pause");
+      document.querySelector("#console #music-ctrl-btn-center i").classList.remove("fa-play");
+      document.querySelector("#console #music-ctrl-btn-center i").classList.add("fa-pause");
     } else {
       document.querySelector("#music-Switch i").classList.remove("fa-pause");
       document.querySelector("#music-Switch i").classList.add("fa-play");
+      document.querySelector("#console #music-ctrl-btn-center i").classList.remove("fa-pause");
+      document.querySelector("#console #music-ctrl-btn-center i").classList.add("fa-play");
     }
     document.querySelector("meting-js").aplayer.toggle();
   },
@@ -136,6 +143,48 @@ var ctrl = {
   },
   musicMute: function() {
     document.querySelector("meting-js").aplayer.volume(0.1, true);
+  },
+
+  getMusicInfo: function() {
+    var music_id = document.querySelector("meting-js").aplayer.list.index; //当前曲目的id
+    var music_cover = document.querySelector("meting-js").aplayer.list.audios[music_id].cover;
+    var music_author = document.querySelector("meting-js").aplayer.list.audios[music_id].author;
+    var music_title = document.querySelector("meting-js").aplayer.list.audios[music_id].title;
+    
+    // 歌曲信息
+    document.getElementById("console-music-cover").innerHTML = "<img src='" + music_cover + "' style='width:100%;height:100%;border-radius:0.5rem;'>";
+    document.getElementById("console-music-title").innerHTML = music_title;
+    document.getElementById("console-music-anthor").innerHTML = music_author;
+
+    // 当前时间
+    var nowTime = document.querySelector("meting-js").aplayer.audio.currentTime;
+    var now_min = Math.floor(nowTime / 60);
+    var now_sec = Math.floor(nowTime % 60);
+    var nowTimeString = now_min.toString().padStart(2,'0') + ":" + now_sec.toString().padStart(2,'0');
+
+    // 总时间
+    var allTime = document.querySelector("meting-js").aplayer.audio.duration;
+    if(isNaN(allTime)) allTime = 0; //无歌曲时会返回NaN
+    var all_min = Math.floor(allTime / 60);
+    var all_sec = Math.floor(allTime % 60);
+    var allTimeString = all_min.toString().padStart(2,'0') + ":" + all_sec.toString().padStart(2,'0');
+
+    // 剩余时间
+    var leftTime = allTime - nowTime;
+    var left_min = Math.floor(leftTime / 60);
+    var left_sec = Math.floor(leftTime % 60);
+    var leftTimeString = "-" + left_min.toString().padStart(2,'0') + ":" + left_sec.toString().padStart(2,'0');
+
+    // 进度条时间
+    document.getElementById("progress-low-btn").innerHTML = nowTimeString;
+    document.getElementById("progress-high-btn").innerHTML = allTimeString;
+    // 进度条进度
+    document.querySelector("#p_bar").style.width = 8.4 * (nowTime / allTime) + "rem";
+
+    // 当前音量
+    var nowVolume = document.querySelector("meting-js").aplayer.audio.volume;
+    // 音量条进度
+    document.querySelector("#v_bar").style.width = 11 * nowVolume + "rem";
   },
 
   //初始化console图标

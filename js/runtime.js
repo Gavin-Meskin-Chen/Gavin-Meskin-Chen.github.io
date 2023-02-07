@@ -59,6 +59,12 @@ setInterval(() => {
   createtime();
 }, 1000);
 
+setInterval(() => {
+  musicState(); //新增音乐检测
+  ctrl.getMusicInfo();
+}, 500);
+
+
 
 // function whenDOMReady(){
 //   marcus.randomLink()

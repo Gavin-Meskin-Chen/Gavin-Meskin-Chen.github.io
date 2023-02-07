@@ -125,7 +125,7 @@
   --anzhiyu-background: #f7f9fe;
   --anzhiyu-reverse: #000;
   --anzhiyu-maskbg: rgba(255, 255, 255, 0.6);
-  --anzhiyu-maskbgdeep: rgba(255, 255, 255, 0.85);
+  --anzhiyu-maskbgdeep: rgba(255, 255, 255, 0.45);
   --anzhiyu-hovertext: var(--anzhiyu-theme);
   --anzhiyu-ahoverbg: #f7f7fa;
   --anzhiyu-lighttext: var(--anzhiyu-main);
@@ -184,7 +184,7 @@
   --anzhiyu-background: #18171d;
   --anzhiyu-reverse: #fff;
   --anzhiyu-maskbg: rgba(0, 0, 0, 0.6);
-  --anzhiyu-maskbgdeep: rgba(0, 0, 0, 0.85);
+  --anzhiyu-maskbgdeep: rgba(0, 0, 0, 0.45);
   --anzhiyu-hovertext: #0a84ff;
   --anzhiyu-ahoverbg: #fff;
   --anzhiyu-lighttext: #f2b94b;
@@ -1046,6 +1046,11 @@ center#name-container {
   font-size: 130%;
 }
 
+/* 文章封面模糊 */
+#page-header.post-bg::before {
+  backdrop-filter: saturate(180%) blur(20px);
+}
+
 /* ***********************************************************控制中心*********************************************************** */
 /* 控制中心按钮样式 */
 .ctrl-button {
@@ -1316,10 +1321,12 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
 }
 
 #console .console-btn-group {
+  position: relative;
+  left: calc(0% - 5px);
   display: flex;
   margin: 1rem auto 0 auto;
   justify-content: center;
-  width: fit-content;
+  width: 20rem;
 }
 
 #console .console-btn-group .console-btn-item:not(:last-child) {
@@ -1327,8 +1334,8 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
 }
 
 #console .console-btn-group .console-btn-item {
-  width: 60px;
-  height: 60px;
+  width: 4rem;
+  height: 4rem;
   transition: 0.3s;
   cursor: pointer;
 }
@@ -1338,7 +1345,7 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
   height: 100%;
   background: var(--card-bg);
   border: var(--style-border);
-  border-radius: 60px;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1368,6 +1375,7 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
 #console.show .console-mask {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  animation: 0.5s ease 0s 1 normal none running to_show;
 }
 
 #console .console-mask {
@@ -2446,15 +2454,15 @@ html.hide-aside .layout>div:first-child {
   }
 }
 
-/* 导航栏音乐 */
+/* ******************导航栏音乐******************** */
 #nav-music-ctrl {
   display: flex;
   margin-right: 1rem;
   z-index: 1; /*修复可以显示但无法选中的bug*/
 }
 
-#music-Switch, #music-Forward, #music-Backward {
-  /* width: fit-content;
+/* #music-Switch, #music-Forward, #music-Backward {
+  width: fit-content;
   height: fit-content;
   display: flex;
   align-items: center;
@@ -2464,12 +2472,134 @@ html.hide-aside .layout>div:first-child {
   transition: 0.5s;
   transform-origin: left bottom;
   border-radius: 10px;
-  overflow: hidden; */
-}
+  overflow: hidden;
+} */
 
 /* 窄屏不显示音乐控制键 */
 @media screen and (max-width: 850px) {
   #music-Switch, #music-Forward, #music-Backward {
     display: none;
   }
+}
+
+/* *********************控制中心音乐********************* */
+#console .console-music-ctrl-item {
+  position: relative;
+  left: calc(0% - 5px);
+  display: block;
+  margin: 1rem auto 0 auto;
+  width: 18rem;
+  height: 30rem;
+  padding: 1.5rem;
+  border-radius: 2rem;
+  border: var(--style-border);
+  background: var(--card-bg);
+}
+
+/* 封面 */
+#console-music-cover {
+  width: 100%;
+  height: 15rem;
+  background: rgb(50, 150, 250);
+  border-radius: 0.5rem;
+}
+
+/* 曲名和作者 */
+#console-music-title,
+#console-music-anthor {
+  width: 100%;
+  height: 2rem;
+  display: flex;
+  white-space: nowrap;
+  overflow: hidden;
+  align-items: center;
+  /* justify-content: center; */
+}
+
+#console-music-title {
+  padding-top: 0.5rem;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+/* 组件外框 */
+.console-progressbar-div {
+  width: 100%;
+  height: 2rem;
+  display: flex;
+}
+
+#console-music-ctrl-btns {
+  width: 100%;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#music-ctrl-left, #music-ctrl-center, #music-ctrl-right{
+  width: 20%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#music-ctrl-btn-left, #music-ctrl-btn-center, #music-ctrl-btn-right {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 字色和字号 */
+#music-ctrl-btn-left, #music-ctrl-btn-right {
+  font-size: 1.8rem;
+}
+
+.console-music-ctrl-item a {
+  color: var(--font-color); /*#99a9bf*/
+}
+
+#music-ctrl-btn-center {
+  color: var(--anzhiyu-reverse);
+  font-size: 2.4rem;
+}
+
+#music-ctrl-btn-left:hover, #music-ctrl-btn-right:hover {
+  color: var(--anzhiyu-reverse);
+}
+
+/* 进度条和音量条 */
+#progress-low, #progress-high {
+  width: 3rem;
+}
+
+#music-progressbar {
+  width: 9rem;
+}
+
+#volume-low, #volume-high {
+  width: 1.5rem;
+}
+
+#music-volumebar {
+  width: 12rem;
+}
+
+#progress-low, #progress-high, #music-progressbar, 
+#volume-low, #volume-high, #music-volumebar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#p_bar_bg, #v_bar_bg {
+  border-radius: 0.3rem;
+  background-color: rgba(136, 136, 136, 0.5);
+}
+
+#p_bar, #v_bar {
+  border-radius: 0.3rem;
+  background-color: var(--font-color);
 }
