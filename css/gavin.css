@@ -2603,3 +2603,8 @@ html.hide-aside .layout>div:first-child {
   border-radius: 0.3rem;
   background-color: var(--font-color);
 }
+
+/* 控制中心文本不可选中 */
+#console a {
+  user-select: none;
+}
