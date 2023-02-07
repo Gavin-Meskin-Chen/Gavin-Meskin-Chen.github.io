@@ -128,6 +128,7 @@ music_progressbar.addEventListener("mousedown", function (event) { //添加监�
         document.querySelector("meting-js").aplayer.seek(newTime); //更改进度
     }
 });
+// 移动端适配
 music_progressbar.addEventListener("touchstart", function (event) { //添加监听事件
   p_bar_bg.style.height = "0.6rem";
   p_bar.style.height = "0.6rem";
@@ -152,11 +153,11 @@ music_progressbar.addEventListener("touchstart", function (event) { //添加监�
 });
 
 document.onmouseup = function() { //当鼠标弹起的时候，不做任何操作
-    v_bar_bg.style.height = "0.4rem";
-    v_bar.style.height = "0.4rem";
-    p_bar_bg.style.height = "0.4rem";
-    p_bar.style.height = "0.4rem";
-    document.onmousemove = null;
+  v_bar_bg.style.height = "0.4rem";
+  v_bar.style.height = "0.4rem";
+  p_bar_bg.style.height = "0.4rem";
+  p_bar.style.height = "0.4rem";
+  document.onmousemove = null;
 }
 
 document.ontouchend = function() {
