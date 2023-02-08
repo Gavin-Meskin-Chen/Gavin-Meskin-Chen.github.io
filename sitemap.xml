@@ -292,20 +292,6 @@
   </url>
   
   <url>
-    <loc>https://gavin-chen.top/tags/%E8%AF%AD%E5%BD%95/</loc>
-    <lastmod>2023-02-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://gavin-chen.top/tags/%E5%8F%A5%E5%AD%90/</loc>
-    <lastmod>2023-02-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://gavin-chen.top/tags/PCB/</loc>
     <lastmod>2023-02-08</lastmod>
     <changefreq>weekly</changefreq>
@@ -321,6 +307,20 @@
   
   <url>
     <loc>https://gavin-chen.top/tags/Allegro/</loc>
+    <lastmod>2023-02-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://gavin-chen.top/tags/%E8%AF%AD%E5%BD%95/</loc>
+    <lastmod>2023-02-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://gavin-chen.top/tags/%E5%8F%A5%E5%AD%90/</loc>
     <lastmod>2023-02-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -350,14 +350,14 @@
   </url>
   
   <url>
-    <loc>https://gavin-chen.top/categories/Sentence/</loc>
+    <loc>https://gavin-chen.top/categories/PCB/</loc>
     <lastmod>2023-02-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://gavin-chen.top/categories/PCB/</loc>
+    <loc>https://gavin-chen.top/categories/Sentence/</loc>
     <lastmod>2023-02-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

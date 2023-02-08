@@ -65,9 +65,14 @@ function secToTime(s) {
 const music_volumebar = document.getElementById("music-volumebar"); //扩大热区
 const v_bar_bg = document.getElementById("v_bar_bg");
 const v_bar = document.getElementById("v_bar");
+const v_low = document.getElementById("volume-low-btn");
+const v_high = document.getElementById("volume-high-btn");
 music_volumebar.addEventListener("mousedown", function (event) { //添加监听事件
   v_bar_bg.style.height = "0.6rem";
   v_bar.style.height = "0.6rem";
+  v_bar.style.backgroundColor = "var(--anzhiyu-reverse)";
+  v_low.style.color = "var(--anzhiyu-reverse)";
+  v_high.style.color = "var(--anzhiyu-reverse)";
   let x = event.pageX; // 获取按下时鼠标初始位置 // pageX是绝对位置 offsetX是相对位置
   v_bar.style.width = (0 + event.offsetX) + "px"; // 按下时重新设置进度条
   let v_bar_Len = v_bar.offsetWidth; // 获取进度条的初始Width
@@ -90,6 +95,9 @@ music_volumebar.addEventListener("mousedown", function (event) { //添加监听�
 music_volumebar.addEventListener("touchstart", function (event) { //添加监听事件
   v_bar_bg.style.height = "0.6rem";
   v_bar.style.height = "0.6rem";
+  v_bar.style.backgroundColor = "var(--anzhiyu-reverse)";
+  v_low.style.color = "var(--anzhiyu-reverse)";
+  v_high.style.color = "var(--anzhiyu-reverse)";
   let x = event.targetTouches[0].pageX; // 获取按下时鼠标初始位置 // pageX是绝对位置 offsetX是相对位置
   v_bar.style.width = (0 + event.targetTouches[0].offsetX) + "px"; // 按下时重新设置进度条
   let v_bar_Len = v_bar.offsetWidth; // 获取进度条的初始Width
@@ -113,12 +121,17 @@ music_volumebar.addEventListener("touchstart", function (event) { //添加监听
 const music_progressbar = document.getElementById("music-progressbar"); //扩大热区
 const p_bar_bg = document.getElementById("p_bar_bg");
 const p_bar = document.getElementById("p_bar");
+const p_low = document.getElementById("progress-low-btn");
+const p_high = document.getElementById("progress-high-btn");
 var p_bar_Len_New = 0;
 var ctrl_flag = 1;
 var mousemove_flag = 1;
 music_progressbar.addEventListener("mousedown", function (event) { //添加监听事件
   p_bar_bg.style.height = "0.6rem";
   p_bar.style.height = "0.6rem";
+  p_bar.style.backgroundColor = "var(--anzhiyu-reverse)";
+  p_low.style.color = "var(--anzhiyu-reverse)";
+  p_high.style.color = "var(--anzhiyu-reverse)";
   ctrl_flag = 0;
   global_music_flag = 1;
   let x = event.pageX; // 获取按下时鼠标初始位置 // pageX是绝对位置 offsetX是相对位置
@@ -143,6 +156,9 @@ music_progressbar.addEventListener("mousedown", function (event) { //添加监�
 music_progressbar.addEventListener("touchstart", function (event) { //添加监听事件
   p_bar_bg.style.height = "0.6rem";
   p_bar.style.height = "0.6rem";
+  p_bar.style.backgroundColor = "var(--anzhiyu-reverse)";
+  p_low.style.color = "var(--anzhiyu-reverse)";
+  p_high.style.color = "var(--anzhiyu-reverse)";
   ctrl_flag = 0;
   global_music_flag = 1;
   let x = event.targetTouches[0].pageX; // 获取按下时鼠标初始位置 // pageX是绝对位置 offsetX是相对位置
@@ -167,8 +183,14 @@ music_progressbar.addEventListener("touchstart", function (event) { //添加监�
 document.onmouseup = function() { //当鼠标弹起的时候，不做任何操作
   v_bar_bg.style.height = "0.4rem";
   v_bar.style.height = "0.4rem";
+  v_bar.style.backgroundColor = "var(--font-color)";
+  v_low.style.color = "var(--font-color)";
+  v_high.style.color = "var(--font-color)";
   p_bar_bg.style.height = "0.4rem";
   p_bar.style.height = "0.4rem";
+  p_bar.style.backgroundColor = "var(--font-color)";
+  p_low.style.color = "var(--font-color)";
+  p_high.style.color = "var(--font-color)";
   if (ctrl_flag == 0 && mousemove_flag == 0) {
     let all_Time = document.querySelector("meting-js").aplayer.audio.duration;
     let new_Time = (p_bar_Len_New / 134) * all_Time;
@@ -183,8 +205,14 @@ document.onmouseup = function() { //当鼠标弹起的时候，不做任何操�
 document.ontouchend = function() {
   v_bar_bg.style.height = "0.4rem";
   v_bar.style.height = "0.4rem";
+  v_bar.style.backgroundColor = "var(--font-color)";
+  v_low.style.color = "var(--font-color)";
+  v_high.style.color = "var(--font-color)";
   p_bar_bg.style.height = "0.4rem";
   p_bar.style.height = "0.4rem";
+  p_bar.style.backgroundColor = "var(--font-color)";
+  p_low.style.color = "var(--font-color)";
+  p_high.style.color = "var(--font-color)";
   if (ctrl_flag == 0 && mousemove_flag == 0) {
     let all_Time = document.querySelector("meting-js").aplayer.audio.duration;
     let new_Time = (p_bar_Len_New / 134) * all_Time;

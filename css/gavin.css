@@ -1321,8 +1321,6 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
 }
 
 #console .console-btn-group {
-  position: relative;
-  left: calc(0% - 5px);
   display: flex;
   margin: 1rem auto 0 auto;
   justify-content: center;
@@ -2484,8 +2482,6 @@ html.hide-aside .layout>div:first-child {
 
 /* *********************控制中心音乐********************* */
 #console .console-music-ctrl-item {
-  position: relative;
-  left: calc(0% - 5px);
   display: block;
   margin: 1rem auto 0 auto;
   width: 18rem;
@@ -2520,6 +2516,7 @@ html.hide-aside .layout>div:first-child {
   padding-top: 0.5rem;
   font-size: 1.3rem;
   font-weight: bold;
+  color: var(--anzhiyu-reverse);
 }
 
 /* 组件外框 */
