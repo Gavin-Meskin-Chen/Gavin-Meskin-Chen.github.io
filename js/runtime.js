@@ -30,6 +30,7 @@
 //   createtime();
 // }, 1000);
 
+var global_music_flag = 0;
 var now = new Date();
 function createtime() {
   // 当前时间
@@ -61,7 +62,7 @@ setInterval(() => {
 
 setInterval(() => {
   musicState(); //新增音乐检测
-  ctrl.getMusicInfo();
+  if (global_music_flag == 0) ctrl.getMusicInfo();
 }, 500);
 
 
