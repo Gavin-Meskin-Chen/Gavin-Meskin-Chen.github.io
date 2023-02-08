@@ -61,8 +61,7 @@ setInterval(() => {
 }, 1000);
 
 setInterval(() => {
-  musicState(); //新增音乐检测
-  if (global_music_flag == 0) ctrl.getMusicInfo();
+  if (global_music_flag == 0) ctrl.getMusicInfo(); //音乐进度更新
 }, 500);
 
 

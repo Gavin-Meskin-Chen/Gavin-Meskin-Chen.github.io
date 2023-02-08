@@ -1,8 +1,8 @@
 // pjax适配
 function whenDOMReady() {
   // pjax加载完成（切换页面）后需要执行的函数和代码
+  console.log("pjax开启");
   musicState();
-  ctrl;
 }
 
 // 返回顶部 显示网页阅读进度
@@ -21,11 +21,9 @@ function percent() {
       ) - document.documentElement.clientHeight, // 整个网页高度 减去 可视高度
     result = Math.round((a / b) * 100), // 计算百分比
     btn = document.querySelector("#percent"); // 获取图标
-
   result <= 99 || (result = 99), (btn.innerHTML = result);
 }
 document.getElementById("page-name").innerText = document.title.split(" | 参星阁")[0];
-
 
 // 首页大logo
 var logo = document.createElement("img");
@@ -35,7 +33,6 @@ logo.style = "position:relative;left:calc(50% - 75px);width:150px;height:150px";
 logo.src = "https://i.imgtg.com/2023/02/06/0Su3b.png";
 site.insertBefore(logo, title);
 site.style.top = "30%";
-
 
 // 音乐状态检测
 function musicState() {
@@ -60,13 +57,144 @@ function secToTime(s) {
   return t;
 }
 
+var ctrl = {
+
+  // 深色模式开关
+  switchDarkMode: function() {
+    const nowMode = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+    if (nowMode === 'light') {
+      activateDarkMode();
+      saveToLocal.set('theme', 'dark', 2);
+      GLOBAL_CONFIG.Snackbar !== undefined && btf.snackbarShow(GLOBAL_CONFIG.Snackbar.day_to_night);
+      // document.querySelector("#iconDarkMode").classList.remove("fa-sun")
+      // document.querySelector("#iconDarkMode").classList.add("fa-moon")
+    } else {
+      activateLightMode();
+      saveToLocal.set('theme', 'light', 2);
+      GLOBAL_CONFIG.Snackbar !== undefined && btf.snackbarShow(GLOBAL_CONFIG.Snackbar.night_to_day);
+      // document.querySelector("#iconDarkMode").classList.remove("fa-moon")
+      // document.querySelector("#iconDarkMode").classList.add("fa-sun")
+    }
+    typeof utterancesTheme === 'function' && utterancesTheme();
+    typeof changeGiscusTheme === 'function' && changeGiscusTheme();
+    typeof FB === 'object' && window.loadFBComment();
+    typeof runMermaid === 'function' && window.runMermaid();
+  },
+
+  //显示中控台
+  showConsole: function() {
+    document.querySelector("#console").classList.add("show");
+    ctrl.initConsoleState();
+  },
+
+  //隐藏中控台
+  hideConsole: function() {
+    document.querySelector("#console").classList.remove("show");
+  },
+
+  // 歌词显示开关
+  ircShowHide: function() {
+    const irc = document.querySelector(".aplayer > .aplayer-lrc-hide"); //这里防止与音乐页面的控制冲突
+    if(irc === null) {
+      document.querySelector(".aplayer > .aplayer-lrc").classList.add("aplayer-lrc-hide");
+      // document.querySelector(".aplayer-info > .aplayer-lrc").classList.add("aplayer-lrc-hide");
+      document.querySelector("#ircItem").classList.remove("on");
+    } else {
+      document.querySelector(".aplayer > .aplayer-lrc").classList.remove("aplayer-lrc-hide");
+      // document.querySelector(".aplayer-info > .aplayer-lrc").classList.remove("aplayer-lrc-hide");
+      document.querySelector("#ircItem").classList.add("on");
+    }
+  },
+
+  // 单栏显示开关
+  hideAsideBtn: () => {
+    const $htmlDom = document.documentElement.classList;
+    if ($htmlDom.contains('hide-aside')){
+      saveToLocal.set('aside-status', 'show', 2);
+      document.querySelector("#asideItem").classList.remove("on");
+    } else {
+      saveToLocal.set('aside-status', 'hide', 2);
+      document.querySelector("#asideItem").classList.add("on");
+    }
+    $htmlDom.toggle('hide-aside');
+  },
+  
+  settingsOpen: function() {
+    alert("开发中...敬请期待！");
+  },
+
+  musicSwitch: function() {
+    const music_state = document.querySelector("meting-js").aplayer.audio.paused;
+    if (music_state) {
+      document.querySelector("#music-Switch i").classList.remove("fa-play");
+      document.querySelector("#music-Switch i").classList.add("fa-pause");
+      document.querySelector("#console #music-ctrl-btn-center i").classList.remove("fa-play");
+      document.querySelector("#console #music-ctrl-btn-center i").classList.add("fa-pause");
+    } else {
+      document.querySelector("#music-Switch i").classList.remove("fa-pause");
+      document.querySelector("#music-Switch i").classList.add("fa-play");
+      document.querySelector("#console #music-ctrl-btn-center i").classList.remove("fa-pause");
+      document.querySelector("#console #music-ctrl-btn-center i").classList.add("fa-play");
+    }
+    document.querySelector("meting-js").aplayer.toggle();
+  },
+  musicForward: function() {
+    document.querySelector("meting-js").aplayer.skipForward();
+  },
+  musicBackward: function() {
+    document.querySelector("meting-js").aplayer.skipBack();
+  },
+
+  getMusicInfo: function() {
+    var music_id = document.querySelector("meting-js").aplayer.list.index; //当前曲目的id
+    var music_cover = document.querySelector("meting-js").aplayer.list.audios[music_id].cover;
+    var music_author = document.querySelector("meting-js").aplayer.list.audios[music_id].author;
+    var music_title = document.querySelector("meting-js").aplayer.list.audios[music_id].title;
+    // 歌曲信息
+    document.getElementById("console-music-cover").innerHTML = "<img src='" + music_cover + "' style='width:100%;height:100%;border-radius:0.5rem;'>";
+    document.getElementById("console-music-title").innerHTML = music_title;
+    document.getElementById("console-music-anthor").innerHTML = music_author;
+    // 当前时间
+    var nowTime = document.querySelector("meting-js").aplayer.audio.currentTime;
+    if(isNaN(nowTime)) nowTime = 0;
+    var nowTimeString = secToTime(nowTime);
+    // 总时间
+    var allTime = document.querySelector("meting-js").aplayer.audio.duration;
+    if(isNaN(allTime)) allTime = 0; //无歌曲时会返回NaN
+    var allTimeString = secToTime(allTime);
+    // 进度条时间
+    document.getElementById("progress-low-btn").innerHTML = nowTimeString;
+    document.getElementById("progress-high-btn").innerHTML = allTimeString;
+    // 进度条进度
+    document.querySelector("#p_bar").style.width = 8.4 * (nowTime / allTime) + "rem";
+  },
+
+  //初始化console图标
+  initConsoleState: function() {
+    const irc = document.querySelector(".aplayer > .aplayer-lrc-hide");
+    // 防止aplayer崩了，加个判断。
+    const aplayer = document.querySelector(".aplayer > .aplayer-lrc");
+    irc === null && aplayer !=null
+      ? document.querySelector("#ircItem").classList.add("on")
+      : document.querySelector("#ircItem").classList.remove("on");
+    saveToLocal.get('aside-status') === 'hide'
+      ? document.querySelector("#asideItem").classList.add("on")
+      : document.querySelector("#asideItem").classList.remove("on");
+    // 当前音量
+    var nowVolume = document.querySelector("meting-js").aplayer.audio.volume;
+    // 音量条进度
+    document.querySelector("#v_bar").style.width = 11 * nowVolume + "rem";
+  }
+
+}
+
 
 // 音量条监听器
-const music_volumebar = document.getElementById("music-volumebar"); //扩大热区
-const v_bar_bg = document.getElementById("v_bar_bg");
-const v_bar = document.getElementById("v_bar");
-const v_low = document.getElementById("volume-low-btn");
-const v_high = document.getElementById("volume-high-btn");
+var music_volumebar = document.getElementById("music-volumebar"); //扩大热区
+var v_bar_bg = document.getElementById("v_bar_bg");
+var v_bar = document.getElementById("v_bar");
+var v_low = document.getElementById("volume-low-btn");
+var v_high = document.getElementById("volume-high-btn");
 music_volumebar.addEventListener("mousedown", function (event) { //添加监听事件
   v_bar_bg.style.height = "0.6rem";
   v_bar.style.height = "0.6rem";
@@ -118,11 +246,11 @@ music_volumebar.addEventListener("touchstart", function (event) { //添加监听
 });
 
 // 进度条监听器
-const music_progressbar = document.getElementById("music-progressbar"); //扩大热区
-const p_bar_bg = document.getElementById("p_bar_bg");
-const p_bar = document.getElementById("p_bar");
-const p_low = document.getElementById("progress-low-btn");
-const p_high = document.getElementById("progress-high-btn");
+var music_progressbar = document.getElementById("music-progressbar"); //扩大热区
+var p_bar_bg = document.getElementById("p_bar_bg");
+var p_bar = document.getElementById("p_bar");
+var p_low = document.getElementById("progress-low-btn");
+var p_high = document.getElementById("progress-high-btn");
 var p_bar_Len_New = 0;
 var ctrl_flag = 1;
 var mousemove_flag = 1;
@@ -225,155 +353,8 @@ document.ontouchend = function() {
 }
 
 
-
-var ctrl = {
-
-  // 深色模式开关
-  switchDarkMode: function() {
-    const nowMode = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
-    if (nowMode === 'light') {
-      activateDarkMode();
-      saveToLocal.set('theme', 'dark', 2);
-      GLOBAL_CONFIG.Snackbar !== undefined && btf.snackbarShow(GLOBAL_CONFIG.Snackbar.day_to_night);
-      // document.querySelector("#iconDarkMode").classList.remove("fa-sun")
-      // document.querySelector("#iconDarkMode").classList.add("fa-moon")
-    } else {
-      activateLightMode();
-      saveToLocal.set('theme', 'light', 2);
-      GLOBAL_CONFIG.Snackbar !== undefined && btf.snackbarShow(GLOBAL_CONFIG.Snackbar.night_to_day);
-      // document.querySelector("#iconDarkMode").classList.remove("fa-moon")
-      // document.querySelector("#iconDarkMode").classList.add("fa-sun")
-    }
-    typeof utterancesTheme === 'function' && utterancesTheme();
-    typeof changeGiscusTheme === 'function' && changeGiscusTheme();
-    typeof FB === 'object' && window.loadFBComment();
-    typeof runMermaid === 'function' && window.runMermaid();
-  },
-
-  //显示中控台
-  showConsole: function() {
-    document.querySelector("#console").classList.add("show");
-    ctrl.initConsoleState();
-  },
-
-  //隐藏中控台
-  hideConsole: function() {
-    document.querySelector("#console").classList.remove("show");
-  },
-
-  // 歌词显示开关
-  ircShowHide: function() {
-    const irc = document.querySelector(".aplayer > .aplayer-lrc-hide"); //这里防止与音乐页面的控制冲突
-    if(irc === null) {
-      document.querySelector(".aplayer > .aplayer-lrc").classList.add("aplayer-lrc-hide");
-      // document.querySelector(".aplayer-info > .aplayer-lrc").classList.add("aplayer-lrc-hide");
-      document.querySelector("#ircItem").classList.remove("on");
-    } else {
-      document.querySelector(".aplayer > .aplayer-lrc").classList.remove("aplayer-lrc-hide");
-      // document.querySelector(".aplayer-info > .aplayer-lrc").classList.remove("aplayer-lrc-hide");
-      document.querySelector("#ircItem").classList.add("on");
-    }
-  },
-
-  // 单栏显示开关
-  hideAsideBtn: () => {
-    const $htmlDom = document.documentElement.classList;
-    if ($htmlDom.contains('hide-aside')){
-      saveToLocal.set('aside-status', 'show', 2);
-      document.querySelector("#asideItem").classList.remove("on");
-    } else {
-      saveToLocal.set('aside-status', 'hide', 2);
-      document.querySelector("#asideItem").classList.add("on");
-    }
-    $htmlDom.toggle('hide-aside');
-  },
-  
-  settingsOpen: function() {
-    alert("开发中...敬请期待！");
-  },
-
-  musicSwitch: function() {
-    const music_state = document.querySelector("meting-js").aplayer.audio.paused;
-    if (music_state) {
-      document.querySelector("#music-Switch i").classList.remove("fa-play");
-      document.querySelector("#music-Switch i").classList.add("fa-pause");
-      document.querySelector("#console #music-ctrl-btn-center i").classList.remove("fa-play");
-      document.querySelector("#console #music-ctrl-btn-center i").classList.add("fa-pause");
-    } else {
-      document.querySelector("#music-Switch i").classList.remove("fa-pause");
-      document.querySelector("#music-Switch i").classList.add("fa-play");
-      document.querySelector("#console #music-ctrl-btn-center i").classList.remove("fa-pause");
-      document.querySelector("#console #music-ctrl-btn-center i").classList.add("fa-play");
-    }
-    document.querySelector("meting-js").aplayer.toggle();
-  },
-  musicForward: function() {
-    document.querySelector("meting-js").aplayer.skipForward();
-  },
-  musicBackward: function() {
-    document.querySelector("meting-js").aplayer.skipBack();
-  },
-  musicMute: function() {
-    document.querySelector("meting-js").aplayer.volume(0.1, true);
-  },
-
-  getMusicInfo: function() {
-    var music_id = document.querySelector("meting-js").aplayer.list.index; //当前曲目的id
-    var music_cover = document.querySelector("meting-js").aplayer.list.audios[music_id].cover;
-    var music_author = document.querySelector("meting-js").aplayer.list.audios[music_id].author;
-    var music_title = document.querySelector("meting-js").aplayer.list.audios[music_id].title;
-    
-    // 歌曲信息
-    document.getElementById("console-music-cover").innerHTML = "<img src='" + music_cover + "' style='width:100%;height:100%;border-radius:0.5rem;'>";
-    document.getElementById("console-music-title").innerHTML = music_title;
-    document.getElementById("console-music-anthor").innerHTML = music_author;
-
-    // 当前时间
-    var nowTime = document.querySelector("meting-js").aplayer.audio.currentTime;
-    if(isNaN(nowTime)) nowTime = 0;
-    var nowTimeString = secToTime(nowTime);
-
-    // 总时间
-    var allTime = document.querySelector("meting-js").aplayer.audio.duration;
-    if(isNaN(allTime)) allTime = 0; //无歌曲时会返回NaN
-    var allTimeString = secToTime(allTime);
-
-    // 剩余时间
-    var leftTime = allTime - nowTime;
-    if(isNaN(leftTime)) leftTime = 0;
-    var leftTimeString = secToTime(leftTime);
-
-    // 进度条时间
-    document.getElementById("progress-low-btn").innerHTML = nowTimeString;
-    document.getElementById("progress-high-btn").innerHTML = allTimeString;
-    // 进度条进度
-    document.querySelector("#p_bar").style.width = 8.4 * (nowTime / allTime) + "rem";
-  },
-
-  //初始化console图标
-  initConsoleState: function() {
-    const irc = document.querySelector(".aplayer > .aplayer-lrc-hide");
-    // 防止aplayer崩了，加个判断。
-    const aplayer = document.querySelector(".aplayer > .aplayer-lrc");
-    irc === null && aplayer !=null
-      ? document.querySelector("#ircItem").classList.add("on")
-      : document.querySelector("#ircItem").classList.remove("on");
-    saveToLocal.get('aside-status') === 'hide'
-      ? document.querySelector("#asideItem").classList.add("on")
-      : document.querySelector("#asideItem").classList.remove("on");
-    
-    // 当前音量
-    var nowVolume = document.querySelector("meting-js").aplayer.audio.volume;
-    // 音量条进度
-    document.querySelector("#v_bar").style.width = 11 * nowVolume + "rem";
-  }
-
-}
-
-
 whenDOMReady(); // 打开网站先执行一次
 document.addEventListener("pjax:complete", whenDOMReady); // pjax加载完成（切换页面）后再执行一次
-
 // whenDOMReady函数外放一些打开网站之后只需要执行一次的函数和代码，比如一些监听代码。
 // 监听代码只需要执行一次即可，不需要每次加载pjax都执行，会出现一些Bug。至于为什么，我也不知道，可以自己试一下。
 
@@ -435,8 +416,6 @@ function owoBig() {
     })
     observer.observe(document.getElementById('post-comment'), { subtree: true, childList: true }); // 监听的 元素 和 配置项
 }
-
-
 
 
 // ——————————————————————————————————————————————————工具——————————————————————————————————————————
