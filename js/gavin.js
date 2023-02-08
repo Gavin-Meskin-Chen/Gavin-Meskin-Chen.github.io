@@ -51,6 +51,7 @@ function musicState() {
 }
 
 function secToTime(s) {
+  if(isNaN(s)) s = 0;
   var min = Math.floor(s / 60);
   var sec = Math.floor(s % 60);
   var t = min.toString().padStart(2,'0') + ":" + sec.toString().padStart(2,'0');
@@ -153,7 +154,7 @@ var ctrl = {
     // 歌曲信息
     document.getElementById("console-music-cover").innerHTML = "<img src='" + music_cover + "' style='width:100%;height:100%;border-radius:0.5rem;'>";
     document.getElementById("console-music-title").innerHTML = music_title;
-    document.getElementById("console-music-anthor").innerHTML = music_author;
+    document.getElementById("console-music-author").innerHTML = music_author;
     // 当前时间
     var nowTime = document.querySelector("meting-js").aplayer.audio.currentTime;
     if(isNaN(nowTime)) nowTime = 0;
@@ -166,7 +167,14 @@ var ctrl = {
     document.getElementById("progress-low-btn").innerHTML = nowTimeString;
     document.getElementById("progress-high-btn").innerHTML = allTimeString;
     // 进度条进度
-    document.querySelector("#p_bar").style.width = 8.4 * (nowTime / allTime) + "rem";
+    document.querySelector("#p_bar").style.width = document.querySelector("#p_bar_bg").offsetWidth * (nowTime / allTime) + "px";
+
+    // if (document.documentElement.clientWidth < 400) {
+    //   document.querySelector("#console .console-music-ctrl-item").style.width = "90%";
+    // } else {
+    //   document.querySelector("#console .console-music-ctrl-item").style.width = "20rem";
+    // }
+
   },
 
   //初始化console图标
@@ -183,7 +191,7 @@ var ctrl = {
     // 当前音量
     var nowVolume = document.querySelector("meting-js").aplayer.audio.volume;
     // 音量条进度
-    document.querySelector("#v_bar").style.width = 11 * nowVolume + "rem";
+    document.querySelector("#v_bar").style.width = document.querySelector("#v_bar_bg").offsetWidth * nowVolume + "px";
   }
 
 }
@@ -195,52 +203,55 @@ var v_bar_bg = document.getElementById("v_bar_bg");
 var v_bar = document.getElementById("v_bar");
 var v_low = document.getElementById("volume-low-btn");
 var v_high = document.getElementById("volume-high-btn");
+var v_bar_bg_Len = v_bar_bg.offsetWidth; // 获取进度条总长Width
 music_volumebar.addEventListener("mousedown", function (event) { //添加监听事件
   v_bar_bg.style.height = "0.6rem";
-  v_bar.style.height = "0.6rem";
+  // v_bar.style.height = "0.6rem";
   v_bar.style.backgroundColor = "var(--anzhiyu-reverse)";
   v_low.style.color = "var(--anzhiyu-reverse)";
   v_high.style.color = "var(--anzhiyu-reverse)";
   let x = event.pageX; // 获取按下时鼠标初始位置 // pageX是绝对位置 offsetX是相对位置
   v_bar.style.width = (0 + event.offsetX) + "px"; // 按下时重新设置进度条
   let v_bar_Len = v_bar.offsetWidth; // 获取进度条的初始Width
-  let newVolume = event.offsetX / 176;
+  v_bar_bg_Len = v_bar_bg.offsetWidth;
+  let newVolume = event.offsetX / v_bar_bg_Len;
   document.querySelector("meting-js").aplayer.volume(newVolume, true); // 更改音量
   document.onmousemove = function(event) { // 拖动需要写到down里面
     let diff = x - event.pageX; // 获取移动的距离
     let v_bar_Len_New = v_bar_Len - diff; // 计算当前进度条的Width
     if(v_bar_Len_New < 0) { // 当超出进度条范围，控制
       v_bar_Len_New = 0;
-    } else if(v_bar_Len_New > 176) {
-      v_bar_Len_New = 176;
+    } else if(v_bar_Len_New > v_bar_bg_Len) {
+      v_bar_Len_New = v_bar_bg_Len;
     }
     v_bar.style.width = v_bar_Len_New + "px"; // 更改进度条Width
-    newVolume = v_bar_Len_New / 176;
+    newVolume = v_bar_Len_New / v_bar_bg_Len;
     document.querySelector("meting-js").aplayer.volume(newVolume, true); // 更改音量
   }
 });
 // 移动端适配
 music_volumebar.addEventListener("touchstart", function (event) { //添加监听事件
   v_bar_bg.style.height = "0.6rem";
-  v_bar.style.height = "0.6rem";
+  // v_bar.style.height = "0.6rem";
   v_bar.style.backgroundColor = "var(--anzhiyu-reverse)";
   v_low.style.color = "var(--anzhiyu-reverse)";
   v_high.style.color = "var(--anzhiyu-reverse)";
   let x = event.targetTouches[0].pageX; // 获取按下时鼠标初始位置 // pageX是绝对位置 offsetX是相对位置
   v_bar.style.width = (0 + event.targetTouches[0].offsetX) + "px"; // 按下时重新设置进度条
   let v_bar_Len = v_bar.offsetWidth; // 获取进度条的初始Width
-  let newVolume = event.targetTouches[0].offsetX / 176;
+  v_bar_bg_Len = v_bar_bg.offsetWidth;
+  let newVolume = event.targetTouches[0].offsetX / v_bar_bg_Len;
   document.querySelector("meting-js").aplayer.volume(newVolume, true); // 更改音量
   document.ontouchmove = function(event) { // 拖动需要写到down里面
     let diff = x - event.targetTouches[0].pageX; // 获取移动的距离
     let v_bar_Len_New = v_bar_Len - diff; // 计算当前进度条的Width
     if(v_bar_Len_New < 0) { // 当超出进度条范围，控制
       v_bar_Len_New = 0;
-    } else if(v_bar_Len_New > 176) {
-      v_bar_Len_New = 176;
+    } else if(v_bar_Len_New > v_bar_bg_Len) {
+      v_bar_Len_New = v_bar_bg_Len;
     }
     v_bar.style.width = v_bar_Len_New + "px"; // 更改进度条Width
-    newVolume = v_bar_Len_New / 176;
+    newVolume = v_bar_Len_New / v_bar_bg_Len;
     document.querySelector("meting-js").aplayer.volume(newVolume, true); // 更改音量
   }
 });
@@ -252,11 +263,12 @@ var p_bar = document.getElementById("p_bar");
 var p_low = document.getElementById("progress-low-btn");
 var p_high = document.getElementById("progress-high-btn");
 var p_bar_Len_New = 0;
+var p_bar_bg_Len = p_bar_bg.offsetWidth; // 获取进度条总长Width
 var ctrl_flag = 1;
 var mousemove_flag = 1;
 music_progressbar.addEventListener("mousedown", function (event) { //添加监听事件
   p_bar_bg.style.height = "0.6rem";
-  p_bar.style.height = "0.6rem";
+  // p_bar.style.height = "0.6rem";
   p_bar.style.backgroundColor = "var(--anzhiyu-reverse)";
   p_low.style.color = "var(--anzhiyu-reverse)";
   p_high.style.color = "var(--anzhiyu-reverse)";
@@ -265,25 +277,26 @@ music_progressbar.addEventListener("mousedown", function (event) { //添加监�
   let x = event.pageX; // 获取按下时鼠标初始位置 // pageX是绝对位置 offsetX是相对位置
   // p_bar.style.width = (0 + event.offsetX) + "px"; // 按下时重新设置进度条
   let p_bar_Len = p_bar.offsetWidth; // 获取进度条的初始Width
+  p_bar_bg_Len = p_bar_bg.offsetWidth; // 获取进度条总长Width，不知道为什么，第一次获取的值不对，这里还得再更新一次
   document.onmousemove = function(event) { // 拖动需要写到down里面
     let diff = x - event.pageX; // 获取移动的距离
     mousemove_flag = 0;
     p_bar_Len_New = p_bar_Len - diff; // 计算当前进度条的Width
     if(p_bar_Len_New < 0) { // 当超出进度条范围，控制
       p_bar_Len_New = 0;
-    } else if(p_bar_Len_New > 134) {
-      p_bar_Len_New = 134;
+    } else if(p_bar_Len_New > p_bar_bg_Len) {
+      p_bar_Len_New = p_bar_bg_Len;
     }
     p_bar.style.width = p_bar_Len_New + "px"; // 更改进度条Width
     let all_Time = document.querySelector("meting-js").aplayer.audio.duration;
-    let current_time = (p_bar_Len_New / 134) * all_Time;
+    let current_time = (p_bar_Len_New / p_bar_bg_Len) * all_Time;
     document.getElementById("progress-low-btn").innerHTML = secToTime(current_time);
   }
 });
 // 移动端适配
 music_progressbar.addEventListener("touchstart", function (event) { //添加监听事件
   p_bar_bg.style.height = "0.6rem";
-  p_bar.style.height = "0.6rem";
+  // p_bar.style.height = "0.6rem";
   p_bar.style.backgroundColor = "var(--anzhiyu-reverse)";
   p_low.style.color = "var(--anzhiyu-reverse)";
   p_high.style.color = "var(--anzhiyu-reverse)";
@@ -292,36 +305,37 @@ music_progressbar.addEventListener("touchstart", function (event) { //添加监�
   let x = event.targetTouches[0].pageX; // 获取按下时鼠标初始位置 // pageX是绝对位置 offsetX是相对位置
   // p_bar.style.width = (0 + event.targetTouches[0].offsetX) + "px"; // 按下时重新设置进度条
   let p_bar_Len = p_bar.offsetWidth; // 获取进度条的初始Width
+  p_bar_bg_Len = p_bar_bg.offsetWidth; // 获取进度条总长Width，不知道为什么，第一次获取的值不对，这里还得再更新一次
   document.ontouchmove = function(event) { // 拖动需要写到down里面
     let diff = x - event.targetTouches[0].pageX; // 获取移动的距离
     mousemove_flag = 0;
     p_bar_Len_New = p_bar_Len - diff; // 计算当前进度条的Width
     if(p_bar_Len_New < 0) { // 当超出进度条范围，控制
       p_bar_Len_New = 0;
-    } else if(p_bar_Len_New > 134) {
-      p_bar_Len_New = 134;
+    } else if(p_bar_Len_New > p_bar_bg_Len) {
+      p_bar_Len_New = p_bar_bg_Len;
     }
     p_bar.style.width = p_bar_Len_New + "px"; // 更改进度条Width
     let all_Time = document.querySelector("meting-js").aplayer.audio.duration;
-    let current_time = (p_bar_Len_New / 134) * all_Time;
+    let current_time = (p_bar_Len_New / p_bar_bg_Len) * all_Time;
     document.getElementById("progress-low-btn").innerHTML = secToTime(current_time);
   }
 });
 
 document.onmouseup = function() { //当鼠标弹起的时候，不做任何操作
   v_bar_bg.style.height = "0.4rem";
-  v_bar.style.height = "0.4rem";
+  // v_bar.style.height = "0.4rem";
   v_bar.style.backgroundColor = "var(--font-color)";
   v_low.style.color = "var(--font-color)";
   v_high.style.color = "var(--font-color)";
   p_bar_bg.style.height = "0.4rem";
-  p_bar.style.height = "0.4rem";
+  // p_bar.style.height = "0.4rem";
   p_bar.style.backgroundColor = "var(--font-color)";
   p_low.style.color = "var(--font-color)";
   p_high.style.color = "var(--font-color)";
   if (ctrl_flag == 0 && mousemove_flag == 0) {
     let all_Time = document.querySelector("meting-js").aplayer.audio.duration;
-    let new_Time = (p_bar_Len_New / 134) * all_Time;
+    let new_Time = (p_bar_Len_New / p_bar_bg_Len) * all_Time;
     document.querySelector("meting-js").aplayer.seek(new_Time); //更改进度
   }
   global_music_flag = 0;
@@ -332,18 +346,18 @@ document.onmouseup = function() { //当鼠标弹起的时候，不做任何操�
 
 document.ontouchend = function() {
   v_bar_bg.style.height = "0.4rem";
-  v_bar.style.height = "0.4rem";
+  // v_bar.style.height = "0.4rem";
   v_bar.style.backgroundColor = "var(--font-color)";
   v_low.style.color = "var(--font-color)";
   v_high.style.color = "var(--font-color)";
   p_bar_bg.style.height = "0.4rem";
-  p_bar.style.height = "0.4rem";
+  // p_bar.style.height = "0.4rem";
   p_bar.style.backgroundColor = "var(--font-color)";
   p_low.style.color = "var(--font-color)";
   p_high.style.color = "var(--font-color)";
   if (ctrl_flag == 0 && mousemove_flag == 0) {
     let all_Time = document.querySelector("meting-js").aplayer.audio.duration;
-    let new_Time = (p_bar_Len_New / 134) * all_Time;
+    let new_Time = (p_bar_Len_New / p_bar_bg_Len) * all_Time;
     document.querySelector("meting-js").aplayer.seek(new_Time); //更改进度
   }
   global_music_flag = 0;
