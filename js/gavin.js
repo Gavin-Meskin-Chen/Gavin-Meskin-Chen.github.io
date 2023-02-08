@@ -53,6 +53,13 @@ function musicState() {
   }
 }
 
+function secToTime(s) {
+  var min = Math.floor(s / 60);
+  var sec = Math.floor(s % 60);
+  var t = min.toString().padStart(2,'0') + ":" + sec.toString().padStart(2,'0');
+  return t;
+}
+
 
 // 音量条监听器
 const music_volumebar = document.getElementById("music-volumebar"); //扩大热区
@@ -108,16 +115,20 @@ const p_bar_bg = document.getElementById("p_bar_bg");
 const p_bar = document.getElementById("p_bar");
 var p_bar_Len_New = 0;
 var ctrl_flag = 1;
+var mousemove_flag = 1;
 music_progressbar.addEventListener("mousedown", function (event) { //添加监听事件
   p_bar_bg.style.height = "0.6rem";
   p_bar.style.height = "0.6rem";
-  global_music_flag = 1;
   ctrl_flag = 0;
   let x = event.pageX; // 获取按下时鼠标初始位置 // pageX是绝对位置 offsetX是相对位置
-  p_bar.style.width = (0 + event.offsetX) + "px"; // 按下时重新设置进度条
+  // p_bar.style.width = (0 + event.offsetX) + "px"; // 按下时重新设置进度条
   let p_bar_Len = p_bar.offsetWidth; // 获取进度条的初始Width
   document.onmousemove = function(event) { // 拖动需要写到down里面
     let diff = x - event.pageX; // 获取移动的距离
+    if (diff != 0) {
+      mousemove_flag = 0;
+      global_music_flag = 1;
+    }
     p_bar_Len_New = p_bar_Len - diff; // 计算当前进度条的Width
     if(p_bar_Len_New < 0) { // 当超出进度条范围，控制
       p_bar_Len_New = 0;
@@ -125,19 +136,25 @@ music_progressbar.addEventListener("mousedown", function (event) { //添加监�
       p_bar_Len_New = 134;
     }
     p_bar.style.width = p_bar_Len_New + "px"; // 更改进度条Width
+    let all_Time = document.querySelector("meting-js").aplayer.audio.duration;
+    let current_time = (p_bar_Len_New / 134) * all_Time;
+    document.getElementById("progress-low-btn").innerHTML = secToTime(current_time);
   }
 });
 // 移动端适配
 music_progressbar.addEventListener("touchstart", function (event) { //添加监听事件
   p_bar_bg.style.height = "0.6rem";
   p_bar.style.height = "0.6rem";
-  global_music_flag = 1;
   ctrl_flag = 0;
   let x = event.targetTouches[0].pageX; // 获取按下时鼠标初始位置 // pageX是绝对位置 offsetX是相对位置
-  p_bar.style.width = (0 + event.targetTouches[0].offsetX) + "px"; // 按下时重新设置进度条
+  // p_bar.style.width = (0 + event.targetTouches[0].offsetX) + "px"; // 按下时重新设置进度条
   let p_bar_Len = p_bar.offsetWidth; // 获取进度条的初始Width
   document.ontouchmove = function(event) { // 拖动需要写到down里面
     let diff = x - event.targetTouches[0].pageX; // 获取移动的距离
+    if (diff != 0) {
+      mousemove_flag = 0;
+      global_music_flag = 1;
+    }
     p_bar_Len_New = p_bar_Len - diff; // 计算当前进度条的Width
     if(p_bar_Len_New < 0) { // 当超出进度条范围，控制
       p_bar_Len_New = 0;
@@ -145,6 +162,9 @@ music_progressbar.addEventListener("touchstart", function (event) { //添加监�
       p_bar_Len_New = 134;
     }
     p_bar.style.width = p_bar_Len_New + "px"; // 更改进度条Width
+    let all_Time = document.querySelector("meting-js").aplayer.audio.duration;
+    let current_time = (p_bar_Len_New / 134) * all_Time;
+    document.getElementById("progress-low-btn").innerHTML = secToTime(current_time);
   }
 });
 
@@ -153,7 +173,7 @@ document.onmouseup = function() { //当鼠标弹起的时候，不做任何操�
   v_bar.style.height = "0.4rem";
   p_bar_bg.style.height = "0.4rem";
   p_bar.style.height = "0.4rem";
-  if (ctrl_flag == 0) {
+  if (ctrl_flag == 0 && mousemove_flag == 0) {
     let all_Time = document.querySelector("meting-js").aplayer.audio.duration;
     let new_Time = (p_bar_Len_New / 134) * all_Time;
     document.querySelector("meting-js").aplayer.seek(new_Time); //更改进度
@@ -168,7 +188,7 @@ document.ontouchend = function() {
   v_bar.style.height = "0.4rem";
   p_bar_bg.style.height = "0.4rem";
   p_bar.style.height = "0.4rem";
-  if (ctrl_flag == 0) {
+  if (ctrl_flag == 0 && mousemove_flag == 0) {
     let all_Time = document.querySelector("meting-js").aplayer.audio.duration;
     let new_Time = (p_bar_Len_New / 134) * all_Time;
     document.querySelector("meting-js").aplayer.seek(new_Time); //更改进度
@@ -285,23 +305,17 @@ var ctrl = {
     // 当前时间
     var nowTime = document.querySelector("meting-js").aplayer.audio.currentTime;
     if(isNaN(nowTime)) nowTime = 0;
-    var now_min = Math.floor(nowTime / 60);
-    var now_sec = Math.floor(nowTime % 60);
-    var nowTimeString = now_min.toString().padStart(2,'0') + ":" + now_sec.toString().padStart(2,'0');
+    var nowTimeString = secToTime(nowTime);
 
     // 总时间
     var allTime = document.querySelector("meting-js").aplayer.audio.duration;
     if(isNaN(allTime)) allTime = 0; //无歌曲时会返回NaN
-    var all_min = Math.floor(allTime / 60);
-    var all_sec = Math.floor(allTime % 60);
-    var allTimeString = all_min.toString().padStart(2,'0') + ":" + all_sec.toString().padStart(2,'0');
+    var allTimeString = secToTime(allTime);
 
     // 剩余时间
     var leftTime = allTime - nowTime;
     if(isNaN(leftTime)) leftTime = 0;
-    var left_min = Math.floor(leftTime / 60);
-    var left_sec = Math.floor(leftTime % 60);
-    var leftTimeString = "-" + left_min.toString().padStart(2,'0') + ":" + left_sec.toString().padStart(2,'0');
+    var leftTimeString = secToTime(leftTime);
 
     // 进度条时间
     document.getElementById("progress-low-btn").innerHTML = nowTimeString;
