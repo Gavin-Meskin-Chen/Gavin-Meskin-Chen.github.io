@@ -120,15 +120,13 @@ music_progressbar.addEventListener("mousedown", function (event) { //添加监�
   p_bar_bg.style.height = "0.6rem";
   p_bar.style.height = "0.6rem";
   ctrl_flag = 0;
+  global_music_flag = 1;
   let x = event.pageX; // 获取按下时鼠标初始位置 // pageX是绝对位置 offsetX是相对位置
   // p_bar.style.width = (0 + event.offsetX) + "px"; // 按下时重新设置进度条
   let p_bar_Len = p_bar.offsetWidth; // 获取进度条的初始Width
   document.onmousemove = function(event) { // 拖动需要写到down里面
     let diff = x - event.pageX; // 获取移动的距离
-    if (diff != 0) {
-      mousemove_flag = 0;
-      global_music_flag = 1;
-    }
+    mousemove_flag = 0;
     p_bar_Len_New = p_bar_Len - diff; // 计算当前进度条的Width
     if(p_bar_Len_New < 0) { // 当超出进度条范围，控制
       p_bar_Len_New = 0;
@@ -146,15 +144,13 @@ music_progressbar.addEventListener("touchstart", function (event) { //添加监�
   p_bar_bg.style.height = "0.6rem";
   p_bar.style.height = "0.6rem";
   ctrl_flag = 0;
+  global_music_flag = 1;
   let x = event.targetTouches[0].pageX; // 获取按下时鼠标初始位置 // pageX是绝对位置 offsetX是相对位置
   // p_bar.style.width = (0 + event.targetTouches[0].offsetX) + "px"; // 按下时重新设置进度条
   let p_bar_Len = p_bar.offsetWidth; // 获取进度条的初始Width
   document.ontouchmove = function(event) { // 拖动需要写到down里面
     let diff = x - event.targetTouches[0].pageX; // 获取移动的距离
-    if (diff != 0) {
-      mousemove_flag = 0;
-      global_music_flag = 1;
-    }
+    mousemove_flag = 0;
     p_bar_Len_New = p_bar_Len - diff; // 计算当前进度条的Width
     if(p_bar_Len_New < 0) { // 当超出进度条范围，控制
       p_bar_Len_New = 0;
@@ -180,6 +176,7 @@ document.onmouseup = function() { //当鼠标弹起的时候，不做任何操�
   }
   global_music_flag = 0;
   ctrl_flag = 1;
+  mousemove_flag = 1;
   document.onmousemove = null;
 }
 
@@ -195,6 +192,7 @@ document.ontouchend = function() {
   }
   global_music_flag = 0;
   ctrl_flag = 1;
+  mousemove_flag = 1;
   document.ontouchmove = null;
 }
 
