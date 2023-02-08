@@ -2484,8 +2484,8 @@ html.hide-aside .layout>div:first-child {
 #console .console-music-ctrl-item {
   display: block;
   margin: 1rem auto 0 auto;
-  width: 20rem;
-  height: 32rem;
+  width: 18rem;
+  height: 30rem;
   padding: 1.5rem;
   border-radius: 2rem;
   border: var(--style-border);
@@ -2571,13 +2571,13 @@ html.hide-aside .layout>div:first-child {
 }
 
 #progress-low-btn, #progress-high-btn {
-  font-size: 0.5rem;
+  font-size: 0.7rem;
   color: rgba(136,136,136,0.5);
 }
 
 /* 进度条和音量条 */
 #progress-low, #progress-high {
-  width: 3rem;
+  width: 2.5rem;
 }
 
 #music-progressbar {
