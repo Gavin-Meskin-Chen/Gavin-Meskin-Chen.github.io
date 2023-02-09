@@ -168,13 +168,6 @@ var ctrl = {
     document.getElementById("progress-high-btn").innerHTML = allTimeString;
     // 进度条进度
     document.querySelector("#p_bar").style.width = document.querySelector("#p_bar_bg").offsetWidth * (nowTime / allTime) + "px";
-
-    // if (document.documentElement.clientWidth < 400) {
-    //   document.querySelector("#console .console-music-ctrl-item").style.width = "90%";
-    // } else {
-    //   document.querySelector("#console .console-music-ctrl-item").style.width = "20rem";
-    // }
-
   },
 
   //初始化console图标
@@ -188,6 +181,18 @@ var ctrl = {
     saveToLocal.get('aside-status') === 'hide'
       ? document.querySelector("#asideItem").classList.add("on")
       : document.querySelector("#asideItem").classList.remove("on");
+
+    // if (document.documentElement.clientWidth < 400) {
+    //   document.querySelector("#console .console-music-ctrl-item").style.width = "90%";
+    // } else {
+    //   document.querySelector("#console .console-music-ctrl-item").style.width = "20rem";
+    // }
+
+    var console_musicBody = document.querySelector("#console .console-music-ctrl-item"); // 更新控制中心尺寸
+    var console_musicCover = document.getElementById("console-music-cover");
+    console_musicCover.style.height = console_musicCover.offsetWidth + "px";
+    console_musicBody.style.height = (console_musicCover.offsetWidth + 240) + "px"; //(12rem + 1.5rem + 1.5rem) * 16 = 240px
+      
     // 当前音量
     var nowVolume = document.querySelector("meting-js").aplayer.audio.volume;
     // 音量条进度

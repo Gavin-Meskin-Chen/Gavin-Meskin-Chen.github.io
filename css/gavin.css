@@ -1264,6 +1264,38 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
 }
 
 /* ********************************************************新控制中心***************************************************************** */
+
+/* 标头 */
+.console-head {
+  width: 100%;
+  position: fixed;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  top: 2.5%;
+}
+
+.console-head span {
+  position: relative;
+  left: 5%;
+  width: 10rem;
+  font-size: 1.5rem;
+  font-weight: 900;
+}
+
+#console .close-btn {
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  display: flex;
+  right: 5%;
+  font-size: 35px;
+  color: var(--font-color);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+
 /* 控制中心按钮样式 */
 #console-switch {
   display: flex;
@@ -1305,19 +1337,6 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
 #console.show {
   opacity: 1;
   pointer-events: all;
-}
-
-#console .close-btn {
-  width: 35px;
-  height: 35px;
-  position: fixed;
-  right: 5%;
-  top: 5%;
-  font-size: 35px;
-  color: var(--font-color);
-  cursor: pointer;
-  transition: 0.3s;
-  display: flex;
 }
 
 #console .console-btn-group {
@@ -1391,15 +1410,6 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
   backface-visibility: hidden;
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
-}
-
-.console-head {
-  position: fixed;
-  display: flex;
-  top: 3.5%;
-  left: 5%;
-  font-size: 1.5rem;
-  font-weight: 900;
 }
 
 /* 控制中心音乐播放器样式 */
@@ -2486,7 +2496,7 @@ html.hide-aside .layout>div:first-child {
   margin: 1rem auto 0 auto;
   width: 18rem;
   height: 30rem;
-  padding: 1.5rem;
+  padding: 1.3rem;
   border-radius: 2rem;
   border: var(--style-border);
   background: var(--card-bg);
@@ -2495,7 +2505,7 @@ html.hide-aside .layout>div:first-child {
 /* 封面 */
 #console-music-cover {
   width: 100%;
-  height: calc(100% - 12rem);;
+  /* height: calc(100% - 12rem); */
   background: rgb(50, 150, 250);
   border-radius: 0.5rem;
 }
@@ -2614,6 +2624,6 @@ html.hide-aside .layout>div:first-child {
 }
 
 /* 控制中心文本不可选中 */
-#console a {
+#console a, #console span {
   user-select: none;
 }
