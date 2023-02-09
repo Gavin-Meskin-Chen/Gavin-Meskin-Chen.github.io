@@ -2497,7 +2497,7 @@ html.hide-aside .layout>div:first-child {
   width: 18rem;
   height: 30rem;
   padding: 1.3rem;
-  border-radius: 2rem;
+  border-radius: 1.8rem;
   border: var(--style-border);
   background: var(--card-bg);
 }
