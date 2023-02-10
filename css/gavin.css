@@ -2523,7 +2523,7 @@ html.hide-aside .layout>div:first-child {
 #console-music-cover {
   width: 100%;
   /* height: calc(100% - 12rem); */
-  background: rgb(50, 150, 250);
+  /* background: rgba(136, 136, 136, 0.5); */
   border-radius: 0.5rem;
 }
 
