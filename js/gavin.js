@@ -34,7 +34,7 @@ logo.src = "https://i.imgtg.com/2023/02/06/0Su3b.png";
 site.insertBefore(logo, title);
 site.style.top = "30%";
 
-// 音乐状态检测
+// 音乐状态检测（已添加事件监听器，修复点击aplayer后导航栏和控制中心不同步的问题）
 function musicState() {
   const music_state = document.querySelector("meting-js").aplayer.audio.paused;
   if (music_state) {
@@ -91,6 +91,25 @@ var ctrl = {
   //隐藏中控台
   hideConsole: function() {
     document.querySelector("#console").classList.remove("show");
+  },
+
+  consoleBackBtn: function() {
+    var top_item = document.querySelector(".item-show");
+    switch(top_item.id){
+      case '#console-music-item-mini': break;
+      case 'console-music-item-main':
+        ctrl.hideConsole();
+        break;
+      case 'console-music-item-list':
+        top_item.classList.remove("item-show");
+        document.getElementById("console-music-item-main").classList.add("item-show");
+        break;
+      case 'console-music-item-lrc':
+        top_item.classList.remove("item-show");
+        document.getElementById("console-music-item-main").classList.add("item-show");
+        break;
+      default: console.log("异常情况");
+    }
   },
 
   // 歌词显示开关
@@ -192,7 +211,7 @@ var ctrl = {
     var console_musicCover = document.getElementById("console-music-cover");
     console_musicCover.style.height = console_musicCover.offsetWidth + "px";
     console_musicBody.style.height = (console_musicCover.offsetWidth + 240) + "px"; //(12rem + 1.5rem + 1.5rem) * 16 = 240px
-      
+
     // 当前音量
     var nowVolume = document.querySelector("meting-js").aplayer.audio.volume;
     // 音量条进度
@@ -202,6 +221,37 @@ var ctrl = {
 }
 
 
+
+// 歌单列表监听器
+var console_music_list = document.getElementById("console-music-list");
+var music_id = null;
+console_music_list.addEventListener('click',function(e){
+  var ap = document.querySelector("meting-js").aplayer
+  if (e.target && e.target.nodeName.toUpperCase()=="LI") {
+    music_id = parseInt(id_obj.innerHTML);
+    ap.list.switch(music_id - 1);
+    ap.play();
+  } else if (e.target && e.target.nodeName.toUpperCase()=="DIV") {
+    music_id = parseInt(e.target.parentElement.querySelector(".list-music-id").innerHTML);
+    ap.list.switch(music_id - 1);
+    ap.play();
+  } else if (e.target && (e.target.nodeName.toUpperCase()=="A" || e.target.nodeName.toUpperCase()=="I")) {
+    music_id = parseInt(e.target.parentElement.parentElement.querySelector(".list-music-id").innerHTML);
+    ap.list.switch(music_id - 1);
+    ap.play();
+  } else alert("ERROR!")
+},false);
+
+function importMusicList() {
+  var audios = document.querySelector("meting-js").aplayer.list.audios;
+  var list_html;
+  for(var i=0; i<audios.length; i++){
+    list_html = document.getElementById("console-music-list").innerHTML;
+    document.getElementById("console-music-list").innerHTML = list_html+"<li class='music-list-item'><div class='list-music-info1'><a class='list-music-id' data-pjax-state=''>"+(i+1)+"</a><a class='list-music-state' data-pjax-state=''><i class='iconfont icon-waveform'></i></a></div><div class='list-music-info2'><a class='list-music-title' data-pjax-state=''>"+audios[i].title+"</a><a class='list-music-author' data-pjax-state=''> - "+audios[i].author+"</a></div></li>";
+    console.log("第"+(i+1)+"首导入成功！");
+  }
+}
+
 // 音量条监听器
 var music_volumebar = document.getElementById("music-volumebar"); //扩大热区
 var v_bar_bg = document.getElementById("v_bar_bg");
@@ -209,20 +259,20 @@ var v_bar = document.getElementById("v_bar");
 var v_low = document.getElementById("volume-low-btn");
 var v_high = document.getElementById("volume-high-btn");
 var v_bar_bg_Len = v_bar_bg.offsetWidth; // 获取进度条总长Width
-music_volumebar.addEventListener("mousedown", function (event) { //添加监听事件
+music_volumebar.addEventListener("mousedown", function (e) { //添加监听事件
   v_bar_bg.style.height = "0.6rem";
   // v_bar.style.height = "0.6rem";
   v_bar.style.backgroundColor = "var(--anzhiyu-reverse)";
   v_low.style.color = "var(--anzhiyu-reverse)";
   v_high.style.color = "var(--anzhiyu-reverse)";
-  let x = event.pageX; // 获取按下时鼠标初始位置 // pageX是绝对位置 offsetX是相对位置
-  v_bar.style.width = (0 + event.offsetX) + "px"; // 按下时重新设置进度条
+  let x = e.pageX; // 获取按下时鼠标初始位置 // pageX是绝对位置 offsetX是相对位置
+  v_bar.style.width = (0 + e.offsetX) + "px"; // 按下时重新设置进度条
   let v_bar_Len = v_bar.offsetWidth; // 获取进度条的初始Width
   v_bar_bg_Len = v_bar_bg.offsetWidth;
-  let newVolume = event.offsetX / v_bar_bg_Len;
+  let newVolume = e.offsetX / v_bar_bg_Len;
   document.querySelector("meting-js").aplayer.volume(newVolume, true); // 更改音量
-  document.onmousemove = function(event) { // 拖动需要写到down里面
-    let diff = x - event.pageX; // 获取移动的距离
+  document.onmousemove = function(e) { // 拖动需要写到down里面
+    let diff = x - e.pageX; // 获取移动的距离
     let v_bar_Len_New = v_bar_Len - diff; // 计算当前进度条的Width
     if(v_bar_Len_New < 0) { // 当超出进度条范围，控制
       v_bar_Len_New = 0;
@@ -235,20 +285,20 @@ music_volumebar.addEventListener("mousedown", function (event) { //添加监听�
   }
 });
 // 移动端适配
-music_volumebar.addEventListener("touchstart", function (event) { //添加监听事件
+music_volumebar.addEventListener("touchstart", function (e) { //添加监听事件
   v_bar_bg.style.height = "0.6rem";
   // v_bar.style.height = "0.6rem";
   v_bar.style.backgroundColor = "var(--anzhiyu-reverse)";
   v_low.style.color = "var(--anzhiyu-reverse)";
   v_high.style.color = "var(--anzhiyu-reverse)";
-  let x = event.targetTouches[0].pageX; // 获取按下时鼠标初始位置 // pageX是绝对位置 offsetX是相对位置
-  v_bar.style.width = (0 + event.targetTouches[0].offsetX) + "px"; // 按下时重新设置进度条
+  let x = e.targetTouches[0].pageX; // 获取按下时鼠标初始位置 // pageX是绝对位置 offsetX是相对位置
+  v_bar.style.width = (0 + e.targetTouches[0].offsetX) + "px"; // 按下时重新设置进度条
   let v_bar_Len = v_bar.offsetWidth; // 获取进度条的初始Width
   v_bar_bg_Len = v_bar_bg.offsetWidth;
-  let newVolume = event.targetTouches[0].offsetX / v_bar_bg_Len;
+  let newVolume = e.targetTouches[0].offsetX / v_bar_bg_Len;
   document.querySelector("meting-js").aplayer.volume(newVolume, true); // 更改音量
-  document.ontouchmove = function(event) { // 拖动需要写到down里面
-    let diff = x - event.targetTouches[0].pageX; // 获取移动的距离
+  document.ontouchmove = function(e) { // 拖动需要写到down里面
+    let diff = x - e.targetTouches[0].pageX; // 获取移动的距离
     let v_bar_Len_New = v_bar_Len - diff; // 计算当前进度条的Width
     if(v_bar_Len_New < 0) { // 当超出进度条范围，控制
       v_bar_Len_New = 0;
@@ -271,7 +321,7 @@ var p_bar_Len_New = 0;
 var p_bar_bg_Len = p_bar_bg.offsetWidth; // 获取进度条总长Width
 var ctrl_flag = 1;
 var mousemove_flag = 1;
-music_progressbar.addEventListener("mousedown", function (event) { //添加监听事件
+music_progressbar.addEventListener("mousedown", function (e) { //添加监听事件
   p_bar_bg.style.height = "0.6rem";
   // p_bar.style.height = "0.6rem";
   p_bar.style.backgroundColor = "var(--anzhiyu-reverse)";
@@ -279,12 +329,12 @@ music_progressbar.addEventListener("mousedown", function (event) { //添加监�
   p_high.style.color = "var(--anzhiyu-reverse)";
   ctrl_flag = 0;
   global_music_flag = 1;
-  let x = event.pageX; // 获取按下时鼠标初始位置 // pageX是绝对位置 offsetX是相对位置
+  let x = e.pageX; // 获取按下时鼠标初始位置 // pageX是绝对位置 offsetX是相对位置
   // p_bar.style.width = (0 + event.offsetX) + "px"; // 按下时重新设置进度条
   let p_bar_Len = p_bar.offsetWidth; // 获取进度条的初始Width
   p_bar_bg_Len = p_bar_bg.offsetWidth; // 获取进度条总长Width，不知道为什么，第一次获取的值不对，这里还得再更新一次
-  document.onmousemove = function(event) { // 拖动需要写到down里面
-    let diff = x - event.pageX; // 获取移动的距离
+  document.onmousemove = function(e) { // 拖动需要写到down里面
+    let diff = x - e.pageX; // 获取移动的距离
     mousemove_flag = 0;
     p_bar_Len_New = p_bar_Len - diff; // 计算当前进度条的Width
     if(p_bar_Len_New < 0) { // 当超出进度条范围，控制
@@ -299,7 +349,7 @@ music_progressbar.addEventListener("mousedown", function (event) { //添加监�
   }
 });
 // 移动端适配
-music_progressbar.addEventListener("touchstart", function (event) { //添加监听事件
+music_progressbar.addEventListener("touchstart", function (e) { //添加监听事件
   p_bar_bg.style.height = "0.6rem";
   // p_bar.style.height = "0.6rem";
   p_bar.style.backgroundColor = "var(--anzhiyu-reverse)";
@@ -307,12 +357,12 @@ music_progressbar.addEventListener("touchstart", function (event) { //添加监�
   p_high.style.color = "var(--anzhiyu-reverse)";
   ctrl_flag = 0;
   global_music_flag = 1;
-  let x = event.targetTouches[0].pageX; // 获取按下时鼠标初始位置 // pageX是绝对位置 offsetX是相对位置
+  let x = e.targetTouches[0].pageX; // 获取按下时鼠标初始位置 // pageX是绝对位置 offsetX是相对位置
   // p_bar.style.width = (0 + event.targetTouches[0].offsetX) + "px"; // 按下时重新设置进度条
   let p_bar_Len = p_bar.offsetWidth; // 获取进度条的初始Width
   p_bar_bg_Len = p_bar_bg.offsetWidth; // 获取进度条总长Width，不知道为什么，第一次获取的值不对，这里还得再更新一次
-  document.ontouchmove = function(event) { // 拖动需要写到down里面
-    let diff = x - event.targetTouches[0].pageX; // 获取移动的距离
+  document.ontouchmove = function(e) { // 拖动需要写到down里面
+    let diff = x - e.targetTouches[0].pageX; // 获取移动的距离
     mousemove_flag = 0;
     p_bar_Len_New = p_bar_Len - diff; // 计算当前进度条的Width
     if(p_bar_Len_New < 0) { // 当超出进度条范围，控制
@@ -347,7 +397,7 @@ document.onmouseup = function() { //当鼠标弹起的时候，不做任何操�
   ctrl_flag = 1;
   mousemove_flag = 1;
   document.onmousemove = null;
-}
+};
 
 document.ontouchend = function() {
   v_bar_bg.style.height = "0.4rem";
@@ -369,7 +419,14 @@ document.ontouchend = function() {
   ctrl_flag = 1;
   mousemove_flag = 1;
   document.ontouchmove = null;
-}
+};
+
+// 主页/歌单页切换
+var music_list_switch = document.getElementById("music-ctrl-btn-end");
+music_list_switch.addEventListener("click", function(e){
+  document.getElementById("console-music-item-main").classList.remove("item-show");
+  document.getElementById("console-music-item-list").classList.add("item-show");
+});
 
 
 whenDOMReady(); // 打开网站先执行一次

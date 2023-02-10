@@ -31,6 +31,12 @@
 // }, 1000);
 
 var global_music_flag = 0;
+var meting_load = 1;
+var listener = 0;
+var old_music_id = null;
+var now_music_id = null;
+
+
 var now = new Date();
 function createtime() {
   // 当前时间
@@ -61,7 +67,81 @@ setInterval(() => {
 }, 1000);
 
 setInterval(() => {
-  if (global_music_flag == 0) ctrl.getMusicInfo(); //音乐进度更新
+  // 监测aplayer加载完开始注入音乐列表
+  if (document.querySelector("meting-js").aplayer != undefined) meting_load = 0;
+  if (meting_load == 0 && listener == 0) {
+    importMusicList();
+    // 添加音乐开始与暂停监听器
+    var ap = document.querySelector("meting-js").aplayer;
+    ap.on('play',function(){
+      // 更新播放/暂停键
+      document.querySelector("#music-Switch i").classList.remove("fa-play");
+      document.querySelector("#music-Switch i").classList.add("fa-pause");
+      document.querySelector("#console #music-ctrl-btn-center i").classList.remove("fa-play");
+      document.querySelector("#console #music-ctrl-btn-center i").classList.add("fa-pause");
+      // 更新列表标志  
+      old_music_id = now_music_id;
+      now_music_id = ap.list.index;
+      var ids = document.querySelectorAll("#console-music-list .list-music-id");
+      var states = document.querySelectorAll("#console-music-list .list-music-state");
+      for (var i = 0; i < ids.length; i++) {
+        if(parseInt(ids[i].innerHTML) == now_music_id + 1){
+          if (old_music_id != null) {
+            ids[old_music_id].classList.remove("hide");
+            states[old_music_id].classList.remove("show");
+            ids[old_music_id].parentElement.parentElement.style.backgroundColor = "";
+          }
+          ids[now_music_id].classList.add("hide");
+          states[now_music_id].classList.add("show");
+          ids[now_music_id].parentElement.parentElement.style.backgroundColor = "var(--vercel-hover-bg)";
+        }
+      }
+      console.log("曲目开始"+ap.list.index);
+    });
+    ap.on('pause',function(){
+      document.querySelector("#music-Switch i").classList.remove("fa-pause");
+      document.querySelector("#music-Switch i").classList.add("fa-play");
+      document.querySelector("#console #music-ctrl-btn-center i").classList.remove("fa-pause");
+      document.querySelector("#console #music-ctrl-btn-center i").classList.add("fa-play");
+    });
+
+
+    // 循环播放模式
+    var play_mode = document.getElementById("music-ctrl-btn-first");
+    var ap_play_mode = document.querySelector(".aplayer-icon.aplayer-icon-order");
+    var loop_str = '<path d="M0.622 18.334h19.54v7.55l11.052-9.412-11.052-9.413v7.549h-19.54v3.725z"></path>';
+    var random_str = '<path d="M22.667 4l7 6-7 6 7 6-7 6v-4h-3.653l-3.76-3.76 2.827-2.827 2.587 2.587h2v-8h-2l-12 12h-6v-4h4.347l12-12h3.653v-4zM2.667 8h6l3.76 3.76-2.827 2.827-2.587-2.587h-4.347v-4z"></path>';
+    play_mode.addEventListener("click", function(e){
+      var ap_play_mode_str = document.querySelector(".aplayer-icon.aplayer-icon-order svg path").outerHTML;
+      if (ap_play_mode_str == loop_str) {
+        play_mode.querySelector("i").classList.remove("fa-repeat");
+        play_mode.querySelector("i").classList.add("fa-shuffle");
+        ap_play_mode.click();
+      } else if (ap_play_mode_str == random_str) {
+        play_mode.querySelector("i").classList.remove("fa-shuffle");
+        play_mode.querySelector("i").classList.add("fa-repeat");
+        ap_play_mode.click();
+      } else alert("程序错误，请刷新！");
+    });
+    ap_play_mode.addEventListener("click", function(e){
+      var ap_play_mode_str = ap_play_mode.querySelector("svg path").outerHTML;
+      if (ap_play_mode_str == loop_str) {
+        play_mode.querySelector("i").classList.remove("fa-shuffle");
+        play_mode.querySelector("i").classList.add("fa-repeat");
+        console.log("进入顺序播放模式");
+      } else if (ap_play_mode_str == random_str) {
+        play_mode.querySelector("i").classList.remove("fa-repeat");
+        play_mode.querySelector("i").classList.add("fa-shuffle");
+        console.log("进入随机播放模式");
+      } else alert("程序错误，请刷新！");
+    });
+
+
+
+
+    listener = 1;
+  }
+  if (meting_load == 0 && global_music_flag == 0) ctrl.getMusicInfo(); //音乐进度更新
 }, 500);
 
 

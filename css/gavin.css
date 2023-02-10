@@ -104,6 +104,7 @@
   --gavin-border-color: rgb(227, 232, 247);
   --vercel-background: rgb(250, 250, 250);
   --vercel-border-color: rgb(197, 202, 217);
+  --vercel-hover-bg: rgba(234, 234, 234, 1);
   /* --font-color: #2e2e2e; */
   --font-color: rgba(0,0,0,.8);
   --card-bg: #ffffff;
@@ -165,6 +166,7 @@
   --gavin-border-color: rgb(66, 68, 74);
   --vercel-background: rgb(17, 17, 17);
   --vercel-border-color: rgb(66, 68, 74);
+  --vercel-hover-bg: rgba(51, 51, 51, 1);
   --card-bg: #000000; /*rgba(29, 30, 34, 1);*/
   /* --card-box-shadow: 0 0px 1px 1px rgba(240, 240, 240, .25); */
   --card-box-shadow: 0 0px 1px 1px rgba(66, 68, 74, 1);
@@ -1350,6 +1352,10 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
   width: 20rem;
 }
 
+#console .console-btn-group.hide {
+  display: none;
+}
+
 #console .console-btn-group .console-btn-item:not(:last-child) {
   margin-right: 0.5rem;
 }
@@ -2502,11 +2508,15 @@ html.hide-aside .layout>div:first-child {
   border-radius: 1.8rem;
   border: var(--style-border);
   background: var(--card-bg);
+  display: none;
 }
 
 #console-music-item-main {
-  display: block;
   padding: 1.3rem;
+}
+
+#console-music-item-main.item-show {
+  display: block;
 }
 
 /* 封面 */
@@ -2554,7 +2564,7 @@ html.hide-aside .layout>div:first-child {
   justify-content: center;
 }
 
-#music-ctrl-left, #music-ctrl-center, #music-ctrl-right{
+#music-ctrl-first, #music-ctrl-left, #music-ctrl-center, #music-ctrl-right, #music-ctrl-end{
   width: 20%;
   height: 100%;
   display: flex;
@@ -2562,16 +2572,17 @@ html.hide-aside .layout>div:first-child {
   justify-content: center;
 }
 
-#music-ctrl-btn-left, #music-ctrl-btn-center, #music-ctrl-btn-right {
+#music-ctrl-btn-first, #music-ctrl-btn-left, #music-ctrl-btn-center, #music-ctrl-btn-right,#music-ctrl-btn-end {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 
 /* 字色和字号 */
-#music-ctrl-btn-left, #music-ctrl-btn-right {
-  font-size: 1.8rem;
+#music-ctrl-btn-first, #music-ctrl-btn-left, #music-ctrl-btn-right, #music-ctrl-btn-end {
+  font-size: 1.5rem;
 }
 
 .console-music-ctrl-item a {
@@ -2583,7 +2594,7 @@ html.hide-aside .layout>div:first-child {
   font-size: 2.4rem;
 }
 
-#music-ctrl-btn-left:hover, #music-ctrl-btn-right:hover {
+#music-ctrl-btn-first:hover, #music-ctrl-btn-left:hover, #music-ctrl-btn-right:hover, #music-ctrl-btn-end:hover {
   color: var(--anzhiyu-reverse);
 }
 
@@ -2636,17 +2647,18 @@ html.hide-aside .layout>div:first-child {
 }
 
 /* *********************歌单显示********************** */
-#console-music-item-list {
-  display: none;
+#console-music-item-list.item-show {
+  display: block;
 }
 
 .console-list-head {
   width: 100%;
-  height: 3rem;
+  height: 4rem;
   border-top-left-radius: 1.8rem; /*和外弧度保持一致*/
   border-top-right-radius: 1.8rem; /*和外弧度保持一致*/
   border-bottom: 1px solid var(--vercel-border-color);
   background-color: var(--vercel-background);
+  text-align: center;
 }
 
 .console-list-foot {
@@ -2660,8 +2672,8 @@ html.hide-aside .layout>div:first-child {
 
 .console-list-body {
   width: 100%;
-  height: calc(100% - 4.8rem);
-  padding: 0.3rem 0 0.3rem 1.5rem;
+  height: calc(100% - 5.8rem);
+  padding: 0;
 }
 
 #console-music-list {
@@ -2673,18 +2685,74 @@ html.hide-aside .layout>div:first-child {
   overflow-y: auto;
 }
 
-/* 隐藏滚动条 */
-#console-music-list::-webkit-scrollbar {display:none}
-
-#console-music-list li:not(:first-child) {
-  border-top: 1px solid var(--vercel-border-color);
+#console-music-list li {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
 }
 
 #console-music-list li:hover {
-  background-color: blue;
+  background-color: var(--vercel-hover-bg);
+}
+
+/* 隐藏滚动条 */
+#console-music-list::-webkit-scrollbar {display:none}
+
+#console-music-list li:not(:first-child) div.list-music-info2 {
+  border-top: 1px solid var(--vercel-border-color);
+}
+
+div.list-music-info1 {
+  width: 2rem;
+}
+
+div.list-music-info2 {
+  width: calc(100% - 2.5rem);
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+a.list-music-author {
+  color: rgb(136,136,136);
+  font-size: 0.8rem;
+}
+
+a.list-music-id {
+  text-align: center;
+  font-size: 0.8rem;
+  color: rgb(136,136,136);
+  display: block;
+}
+
+a.list-music-id.hide {
+  display: none;
+}
+
+a.list-music-state{
+  display: none;
+  text-align: center;
+}
+
+a.list-music-state.show{
+  display: block;
+}
+
+#console-music-item-list .console-list-head a.headline{
+  display: block;
+  width: 100%;
+  height: 50%;
+  font-weight: bold;
+  padding-top: 0.5rem;
+}
+
+#console-music-item-list .console-list-head a.music-list-title{
+  display: block;
+  width: 100%;
+  height: 50%;
+  font-size: 0.9rem;
 }
 
 /* *********************歌词显示************************ */
-#console-music-item-lrc {
-  display: none;
+#console-music-item-lrc.item-show {
+  display: block;
 }
