@@ -2506,7 +2506,7 @@ html.hide-aside .layout>div:first-child {
 
 /* *********************控制中心音乐********************* */
 /* 隐藏原来的Aplayer */
-meting-js {
+.aplayer-body {
   display: none;
 }
 
