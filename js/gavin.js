@@ -183,6 +183,19 @@ var ctrl = {
         document.querySelector("#p_bar").style.width = document.querySelector("#p_bar_bg").offsetWidth * (nowTime / allTime) + "px";// 进度条进度
     },
 
+    // 歌单切换
+    changeMusicList: function(Music_id, Music_server) {
+        var ap = document.querySelector("meting-js").aplayer;
+        var music_list_url_str = "https://metingjs.gavin-chen.top/api?server=" + Music_server + "&type=playlist" + "&id=" + Music_id;
+        ap.list.clear();
+        fetch(music_list_url_str).then(response => response.json()).then(data => {
+            // 在这里使用返回的JSON数据
+            console.log(data);
+            ap.list.add(data);
+        })
+        .catch(error => console.error(error));
+    },
+
     //初始化console图标
     initConsoleState: function () {
         const irc = document.querySelector(".aplayer > .aplayer-lrc-hide");
