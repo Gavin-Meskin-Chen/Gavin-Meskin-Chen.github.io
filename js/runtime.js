@@ -3,6 +3,8 @@ var meting_load = 1;
 var listener = 0;
 var old_music_id = null;
 var now_music_id = null;
+var newSongsheetLen = 0;
+var t_load;
 
 var now = new Date();
 function createtime() {
@@ -33,19 +35,20 @@ setInterval(() => {
     createtime();
 }, 1000);
 
-// 设置重复执行函数，周期500ms
+// 设置重复执行函数，周期100ms
 setInterval(() => {
     if (document.querySelector("meting-js").aplayer != undefined) meting_load = 0;
     if (meting_load == 0 && listener == 0) {
         // 监测aplayer加载完开始注入音乐列表
-        importMusicList();
+        ctrl.importMusicList();
         // 音乐开始与暂停监听
         var ap = document.querySelector("meting-js").aplayer;
         ap.on('play', function () {
+            ctrl.getMusicInfo();
             document.querySelector("#music-Switch i").classList.remove("fa-play");// 更新播放/暂停键
             document.querySelector("#music-Switch i").classList.add("fa-pause");
-            document.querySelector("#console #music-ctrl-btn-center i").classList.remove("fa-play");
-            document.querySelector("#console #music-ctrl-btn-center i").classList.add("fa-pause");
+            document.querySelector("#music-ctrl-btn-center i").classList.remove("fa-play");
+            document.querySelector("#music-ctrl-btn-center i").classList.add("fa-pause");
             old_music_id = now_music_id;// 更新列表标志
             now_music_id = ap.list.index;
             var ids = document.querySelectorAll("#console-music-list .list-music-id");
@@ -62,13 +65,12 @@ setInterval(() => {
                     ids[now_music_id].parentElement.parentElement.style.backgroundColor = "var(--vercel-hover-bg)";
                 }
             }
-            console.log("曲目开始" + ap.list.index);
         });
         ap.on('pause', function () {
             document.querySelector("#music-Switch i").classList.remove("fa-pause");
             document.querySelector("#music-Switch i").classList.add("fa-play");
-            document.querySelector("#console #music-ctrl-btn-center i").classList.remove("fa-pause");
-            document.querySelector("#console #music-ctrl-btn-center i").classList.add("fa-play");
+            document.querySelector("#music-ctrl-btn-center i").classList.remove("fa-pause");
+            document.querySelector("#music-ctrl-btn-center i").classList.add("fa-play");
         });
         // 播放模式按钮监听（循环 / 随机）
         var play_mode = document.getElementById("music-ctrl-btn-first");
@@ -99,8 +101,29 @@ setInterval(() => {
                 console.log("进入随机播放模式");
             } else alert("程序错误，请刷新！");
         });
+        // 歌单切换监听
+        ap.on("listclear", function(){
+            document.getElementById("console-music-list").innerHTML = "";
+        });
+        ap.on("listadd", function(){
+            var current_len = ap.list.audios.length;
+            t_load = setInterval(() => {
+                current_len = ap.list.audios.length;
+                if (current_len < newSongsheetLen) {
+                    console.log("current_len: " + current_len);
+                } else {
+                    console.log("开始导入")
+                    ctrl.importMusicList();
+                    global_music_flag = 1;
+                    console.log("导入完毕")
+                    clearInterval(t_load);
+                    document.getElementById("console-loading-icon").classList.remove("show");
+                    ctrl.consoleBackBtn();
+                }
+            }, 50);
+        });
         listener = 1;
     };
     //音乐进度更新
-    if (meting_load == 0 && global_music_flag == 0) ctrl.getMusicInfo();
-}, 500);
+    if (meting_load == 0 && global_music_flag == 0) ctrl.refreshProgress();
+}, 100);

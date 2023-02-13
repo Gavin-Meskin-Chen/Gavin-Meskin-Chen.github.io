@@ -1282,7 +1282,7 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
   display: flex;
   /* justify-content: center; */
   align-items: center;
-  top: 2.5%;
+  top: 1rem;
 }
 
 .console-head span {
@@ -1347,10 +1347,13 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
 #console.show {
   opacity: 1;
   pointer-events: all;
+  /* transition: all 0.5s; */
 }
 
 #console .console-btn-group {
   display: flex;
+  position: fixed;
+  top: 34.5rem; /*相对于音乐卡片位置*/
   margin: 1rem auto 0 auto;
   justify-content: center;
   width: 20rem;
@@ -1367,7 +1370,7 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
 #console .console-btn-group .console-btn-item {
   width: 4rem;
   height: 4rem;
-  transition: 0.3s;
+  transition: 0.5s;
   cursor: pointer;
 }
 
@@ -2132,8 +2135,8 @@ h6::before {
 @media screen and (max-width: 768px) {
   .layout > div:first-child:not(.recent-posts) {
     padding: 1.5rem 1rem !important;
-    border: 1px solid var(--gavin-border-color);
-    background: var(--card-bg);
+    /* border: 1px solid var(--gavin-border-color); */
+    background: var(--vercel-background);
   }
 }
 
@@ -2218,7 +2221,7 @@ h6::before {
 }
 
 /* 侧边卡片栏宽度 */
-.aside-content {
+#aside-content {
   max-width: 388px;
   /* 318 */
   min-width: 300px;
@@ -2226,22 +2229,38 @@ h6::before {
 
 /* 平板尺寸自适应(不启用侧边栏宽度限制) */
 @media screen and (max-width: 900px) {
-  .aside-content {
+  #aside-content {
     max-width: none !important;
     padding: 0 5px 0 5px;
   }
 }
 
-/* 智能区分主页和分页，除了首页以外其他页面隐藏卡片，并采用宽屏显示 */
+/* 智能区分主页和分页，除了首页以外其他页面隐藏侧边栏，并采用宽屏显示 */
 #archive,
 #page,
 #category,
 #tag {
   width: 100%;
 }
-.page:not(.page.home) .aside-content {
+.page:not(.page.home) #aside-content {
   display: none;
 }
+
+/* 无侧边栏页，无背景和边框 */
+.page:not(.page.home) #page, .page:not(.page.home) #archive {
+  background: none!important;
+  -webkit-box-shadow: none!important;
+  box-shadow: none!important;
+}
+
+.page:not(.page.home) #page:hover, .page:not(.page.home) #archive:hover {
+  background: none!important;
+  -webkit-box-shadow: none!important;
+  box-shadow: none!important;
+}
+/* div#archive {
+  border: 1px solid var(--gavin-border-color);
+} */
 
 /* 友链bug微调 */
 .flink-list-item{
@@ -2256,8 +2275,9 @@ h6::before {
 
 /* **************************友链样式************************* */
 #article-container .flink .flink-list > .flink-list-item {
-  border: 1px solid rgba(0, 150, 255, .9);
-  background:rgba(0, 150, 255, .3)
+  border: 1px solid var(--vercel-border-color);
+  background: var(--card-bg);
+  /* -webkit-transform: none; */
 }
 
 /* *************************首页轮播图************************** */
@@ -2506,9 +2526,9 @@ html.hide-aside .layout>div:first-child {
 
 /* *********************控制中心音乐********************* */
 /* 隐藏原来的Aplayer */
-.aplayer-body {
+/* .aplayer-body {
   display: none;
-}
+} */
 
 #console .console-music-ctrl-item {
   margin: 1rem auto 0 auto;
@@ -2517,15 +2537,24 @@ html.hide-aside .layout>div:first-child {
   border-radius: 1.8rem;
   border: var(--style-border);
   background: var(--card-bg);
-  display: none;
+  position: fixed;
+  top: 3.5rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.5s;
 }
 
 #console-music-item-main {
   padding: 1.3rem;
 }
 
-#console-music-item-main.item-show {
-  display: block;
+#console-music-item-main.item-show, 
+#console-music-item-list.item-show, 
+#console-music-item-lrc.item-show, 
+#console-songsheet-item-list.item-show {
+  opacity: 1;
+  pointer-events: all;
+  transition: all 0.5s;
 }
 
 /* 封面 */
@@ -2647,6 +2676,7 @@ html.hide-aside .layout>div:first-child {
   height: 100%;
   border-radius: 0.3rem;
   background-color: var(--font-color);
+  transition: background-color 0.5s;
 }
 
 /* 控制中心文本不可选中 */
@@ -2655,10 +2685,6 @@ html.hide-aside .layout>div:first-child {
 }
 
 /* *********************歌单显示********************** */
-#console-music-item-list.item-show {
-  display: block;
-}
-
 .console-list-head {
   width: 100%;
   height: 4rem;
@@ -2666,7 +2692,10 @@ html.hide-aside .layout>div:first-child {
   border-top-right-radius: 1.8rem; /*和外弧度保持一致*/
   border-bottom: 1px solid var(--vercel-border-color);
   background-color: var(--vercel-background);
-  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-flow: column;
+  transition: all 0.5s;
 }
 
 .console-list-foot {
@@ -2676,6 +2705,7 @@ html.hide-aside .layout>div:first-child {
   border-bottom-right-radius: 1.8rem; /*和外弧度保持一致*/
   border-top: 1px solid var(--vercel-border-color);
   background-color: var(--vercel-background);
+  transition: all 0.5s;
 }
 
 .console-list-body {
@@ -2684,7 +2714,7 @@ html.hide-aside .layout>div:first-child {
   padding: 0;
 }
 
-#console-music-list {
+#console-music-list, #console-songsheet-list {
   width: 100%;
   height: 100%;
   margin: 0;
@@ -2745,22 +2775,103 @@ a.list-music-state.show{
   display: block;
 }
 
-#console-music-item-list .console-list-head a.headline{
+.console-list-head a.headline{
   display: block;
-  width: 100%;
   height: 50%;
+  font-size: 1.1rem;
   font-weight: bold;
   padding-top: 0.5rem;
 }
 
-#console-music-item-list .console-list-head a.music-list-title{
+a#music-list-title, a#songsheet-title{
   display: block;
-  width: 100%;
   height: 50%;
   font-size: 0.9rem;
 }
 
-/* *********************歌词显示************************ */
-#console-music-item-lrc.item-show {
-  display: block;
+a#music-list-title {
+  cursor: pointer;
 }
+
+/* *********************歌单列表*********************** */
+#console-songsheet-list li {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+#console-songsheet-list li:last-child {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  height: 3rem;
+}
+
+/* 取消滚动条 */
+#console-songsheet-list::-webkit-scrollbar {display:none}
+
+#console-songsheet-list li:hover {
+  background-color: var(--vercel-hover-bg);
+}
+
+#console-songsheet-list li div.songsheet-info2 {
+  border-bottom: 1px solid var(--vercel-border-color);
+}
+
+.songsheet-info1 {
+  width: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.songsheet-info2 {
+  width: calc(100% - 2.5rem);
+  padding: 1rem 0;
+  white-space: nowrap;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.list-songsheet-cover {
+  height: 4rem;
+  width: 4rem;
+  border-radius: 0.5rem;
+}
+
+.list-songsheet-title {
+  margin-left: 1.5rem;
+}
+
+/* *************加载转圈************* */
+#console-loading-icon {
+  width: 35px;
+  height: 35px;
+  position: fixed;
+  top: 50%;
+  opacity: 0;
+  transition: all 0.1s;
+}
+
+#console-loading-icon.show {
+  opacity: 1;
+  transition: all 0.1s;
+}
+
+/* #console-loading-icon.show :hover .iconfont{
+  transform: rotate(360deg) scale(1.2);
+  -webkit-transform: rotate(360deg) scale(1.2);
+  -moz-transform: rotate(360deg) scale(1.2);
+  -o-transform: rotate(360deg) scale(1.2);
+  -ms-transform: rotate(360deg) scale(1.2);
+} */
+
+
+#console-loading-icon i {
+  font-size: 1.8rem;
+  display: inline-block;
+  /* transition: All 0.5s linear; */
+}
+/* *********************歌词显示************************ */

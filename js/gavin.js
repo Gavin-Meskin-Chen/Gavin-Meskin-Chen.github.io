@@ -40,13 +40,13 @@ function musicState() {
     if (music_state) {
         document.querySelector("#music-Switch i").classList.remove("fa-pause");
         document.querySelector("#music-Switch i").classList.add("fa-play");
-        document.querySelector("#console #music-ctrl-btn-center i").classList.remove("fa-pause");
-        document.querySelector("#console #music-ctrl-btn-center i").classList.add("fa-play");
+        document.querySelector("#music-ctrl-btn-center i").classList.remove("fa-pause");
+        document.querySelector("#music-ctrl-btn-center i").classList.add("fa-play");
     } else {
         document.querySelector("#music-Switch i").classList.remove("fa-play");
         document.querySelector("#music-Switch i").classList.add("fa-pause");
-        document.querySelector("#console #music-ctrl-btn-center i").classList.remove("fa-play");
-        document.querySelector("#console #music-ctrl-btn-center i").classList.add("fa-pause");
+        document.querySelector("#music-ctrl-btn-center i").classList.remove("fa-play");
+        document.querySelector("#music-ctrl-btn-center i").classList.add("fa-pause");
     }
 }
 
@@ -80,12 +80,15 @@ var ctrl = {
 
     // 显示中控台
     showConsole: function () {
+        document.querySelector("#console-music-item-main").classList.add("item-show");
         document.querySelector("#console").classList.add("show");
         ctrl.initConsoleState();
     },
 
     // 隐藏中控台
     hideConsole: function () {
+        var items = document.querySelectorAll(".item-show");
+        for(var i=0; i<items.length; i++) items[i].classList.remove("item-show");
         document.querySelector("#console").classList.remove("show");
     },
 
@@ -94,12 +97,14 @@ var ctrl = {
         var top_item = document.querySelector(".item-show");
         switch (top_item.id) {
             case 'console-music-item-mini': break;
-            case 'console-music-item-main':
-                ctrl.hideConsole();
-                break;
+            case 'console-music-item-main': ctrl.hideConsole(); break;
             case 'console-music-item-list':
                 top_item.classList.remove("item-show");
                 document.getElementById("console-music-item-main").classList.add("item-show");
+                break;
+            case 'console-songsheet-item-list':
+                top_item.classList.remove("item-show");
+                document.getElementById("console-music-item-list").classList.add("item-show");
                 break;
             case 'console-music-item-lrc':
                 top_item.classList.remove("item-show");
@@ -144,23 +149,25 @@ var ctrl = {
         if (music_state) {
             document.querySelector("#music-Switch i").classList.remove("fa-play");
             document.querySelector("#music-Switch i").classList.add("fa-pause");
-            document.querySelector("#console #music-ctrl-btn-center i").classList.remove("fa-play");
-            document.querySelector("#console #music-ctrl-btn-center i").classList.add("fa-pause");
+            document.querySelector("#music-ctrl-btn-center i").classList.remove("fa-play");
+            document.querySelector("#music-ctrl-btn-center i").classList.add("fa-pause");
         } else {
             document.querySelector("#music-Switch i").classList.remove("fa-pause");
             document.querySelector("#music-Switch i").classList.add("fa-play");
-            document.querySelector("#console #music-ctrl-btn-center i").classList.remove("fa-pause");
-            document.querySelector("#console #music-ctrl-btn-center i").classList.add("fa-play");
+            document.querySelector("#music-ctrl-btn-center i").classList.remove("fa-pause");
+            document.querySelector("#music-ctrl-btn-center i").classList.add("fa-play");
         }
         document.querySelector("meting-js").aplayer.toggle();
     },
 
     musicForward: function () {
         document.querySelector("meting-js").aplayer.skipForward();
+        ctrl.getMusicInfo();
     },
 
     musicBackward: function () {
         document.querySelector("meting-js").aplayer.skipBack();
+        ctrl.getMusicInfo();
     },
 
     // 音乐进度更新
@@ -172,6 +179,9 @@ var ctrl = {
         document.getElementById("console-music-cover").innerHTML = "<img src='" + music_cover + "' style='width:100%;height:100%;border-radius:0.5rem;'>";// 歌曲信息
         document.getElementById("console-music-title").innerHTML = music_title;
         document.getElementById("console-music-author").innerHTML = music_author;
+    },
+
+    refreshProgress: function () {
         var nowTime = document.querySelector("meting-js").aplayer.audio.currentTime;// 当前时间
         if (isNaN(nowTime)) nowTime = 0;
         var nowTimeString = secToTime(nowTime);
@@ -183,6 +193,17 @@ var ctrl = {
         document.querySelector("#p_bar").style.width = document.querySelector("#p_bar_bg").offsetWidth * (nowTime / allTime) + "px";// 进度条进度
     },
 
+    // 导入歌单
+    importMusicList: function() {
+        var audios = document.querySelector("meting-js").aplayer.list.audios;
+        var list_html;
+        for (var i = 0; i < audios.length; i++) {
+            list_html = document.getElementById("console-music-list").innerHTML;
+            document.getElementById("console-music-list").innerHTML = list_html + "<li class='music-list-item'><div class='list-music-info1'><a class='list-music-id' data-pjax-state=''>" + (i + 1) + "</a><a class='list-music-state' data-pjax-state=''><i class='iconfont icon-waveform'></i></a></div><div class='list-music-info2'><a class='list-music-title' data-pjax-state=''>" + audios[i].title + "</a><a class='list-music-author' data-pjax-state=''> - " + audios[i].author + "</a></div></li>";
+            // console.log("第" + (i + 1) + "首导入成功！");
+        }
+    },
+
     // 歌单切换
     changeMusicList: function(Music_id, Music_server) {
         var ap = document.querySelector("meting-js").aplayer;
@@ -190,7 +211,8 @@ var ctrl = {
         ap.list.clear();
         fetch(music_list_url_str).then(response => response.json()).then(data => {
             // 在这里使用返回的JSON数据
-            console.log(data);
+            newSongsheetLen = data.length;
+            console.log(newSongsheetLen);
             ap.list.add(data);
         })
         .catch(error => console.error(error));
@@ -209,32 +231,67 @@ var ctrl = {
         var console_musicBody = document.querySelector("#console .console-music-ctrl-item"); // 更新控制中心尺寸
         var console_musicCover = document.getElementById("console-music-cover");
         console_musicCover.style.height = console_musicCover.offsetWidth + "px";
-        console_musicBody.style.height = (console_musicCover.offsetWidth + 240) + "px"; //(12rem + 1.5rem + 1.5rem) * 16 = 240px
+        console_musicBody.style.height = (console_musicCover.offsetWidth + 236) + "px"; //(12rem + 1.3rem + 1.3rem) * 16 = 233.6px
+        ctrl.getMusicInfo();
         var nowVolume = document.querySelector("meting-js").aplayer.audio.volume;// 当前音量
         document.querySelector("#v_bar").style.width = document.querySelector("#v_bar_bg").offsetWidth * nowVolume + "px";// 音量条进度
     }
 
 }
 
-// 导入歌单
-function importMusicList() {
-    var audios = document.querySelector("meting-js").aplayer.list.audios;
-    var list_html;
-    for (var i = 0; i < audios.length; i++) {
-        list_html = document.getElementById("console-music-list").innerHTML;
-        document.getElementById("console-music-list").innerHTML = list_html + "<li class='music-list-item'><div class='list-music-info1'><a class='list-music-id' data-pjax-state=''>" + (i + 1) + "</a><a class='list-music-state' data-pjax-state=''><i class='iconfont icon-waveform'></i></a></div><div class='list-music-info2'><a class='list-music-title' data-pjax-state=''>" + audios[i].title + "</a><a class='list-music-author' data-pjax-state=''> - " + audios[i].author + "</a></div></li>";
-        console.log("第" + (i + 1) + "首导入成功！");
-    }
-}
-
-// 主页/歌单页切换
+// 主页/音乐列表/歌单列表 切换
 var music_list_switch = document.getElementById("music-ctrl-btn-end");
+var music_list_title = document.getElementById("music-list-title");
 music_list_switch.addEventListener("click", function (e) {
     document.getElementById("console-music-item-main").classList.remove("item-show");
     document.getElementById("console-music-item-list").classList.add("item-show");
 });
+music_list_title.addEventListener("click", function (e) {
+    document.getElementById("console-music-item-list").classList.remove("item-show");
+    document.getElementById("console-songsheet-item-list").classList.add("item-show");
+});
 
 // 歌单列表监听器
+var songsheet0 = document.getElementById("songsheet-X");
+var songsheet1 = document.getElementById("songsheet-A");
+var songsheet2 = document.getElementById("songsheet-B");
+var songsheet3 = document.getElementById("songsheet-C");
+var addSongsheet = document.getElementById("songsheet-add");
+songsheet0.addEventListener("click", function (e) {
+    document.getElementById("console-loading-icon").classList.add("show");
+    console.log("正在切换至默认专辑");
+    global_music_flag = 1;
+    ctrl.changeMusicList("8086610771","netease");
+    document.getElementById("music-list-title").innerHTML = "网易云";
+});
+songsheet1.addEventListener("click", function (e) {
+    document.getElementById("console-loading-icon").classList.add("show");
+    console.log("正在切换至纯音乐专辑");
+    global_music_flag = 1;
+    ctrl.changeMusicList("651630118","netease");
+    document.getElementById("music-list-title").innerHTML = "纯音乐";
+});
+songsheet2.addEventListener("click", function (e) {
+    document.getElementById("console-loading-icon").classList.add("show");
+    console.log("正在切换至古风专辑");
+    global_music_flag = 1;
+    ctrl.changeMusicList("5296755943","netease");
+    document.getElementById("music-list-title").innerHTML = "古风";
+});
+songsheet3.addEventListener("click", function (e) {
+    document.getElementById("console-loading-icon").classList.add("show");
+    console.log("正在切换至镜子Vlog专辑");
+    global_music_flag = 1;
+    ctrl.changeMusicList("4932756913","netease");
+    document.getElementById("music-list-title").innerHTML = "镜子Vlog";
+});
+addSongsheet.addEventListener("click", function (e) {
+    console.log("自定义专辑");
+    alert("有空再写...");
+});
+
+
+// 音乐列表监听器
 var console_music_list = document.getElementById("console-music-list");
 var music_id = null;
 console_music_list.addEventListener('click', function (e) {
@@ -243,14 +300,17 @@ console_music_list.addEventListener('click', function (e) {
         music_id = parseInt(e.target.querySelector(".list-music-id").innerHTML);
         ap.list.switch(music_id - 1);
         ap.play();
+        ctrl.getMusicInfo();
     } else if (e.target && e.target.nodeName.toUpperCase() == "DIV") {
         music_id = parseInt(e.target.parentElement.querySelector(".list-music-id").innerHTML);
         ap.list.switch(music_id - 1);
         ap.play();
+        ctrl.getMusicInfo();
     } else if (e.target && (e.target.nodeName.toUpperCase() == "A" || e.target.nodeName.toUpperCase() == "I")) {
         music_id = parseInt(e.target.parentElement.parentElement.querySelector(".list-music-id").innerHTML);
         ap.list.switch(music_id - 1);
         ap.play();
+        ctrl.getMusicInfo();
     } else alert("ERROR!")
 }, false);
 
