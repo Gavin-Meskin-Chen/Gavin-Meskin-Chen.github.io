@@ -2526,9 +2526,9 @@ html.hide-aside .layout>div:first-child {
 
 /* *********************控制中心音乐********************* */
 /* 隐藏原来的Aplayer */
-/* .aplayer-body {
+.aplayer-body {
   display: none;
-} */
+}
 
 #console .console-music-ctrl-item {
   margin: 1rem auto 0 auto;
