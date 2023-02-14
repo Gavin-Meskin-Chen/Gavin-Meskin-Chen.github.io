@@ -89,6 +89,7 @@
   --gavin-op-5: rgba(255,255,255,.5);
   --gavin-op-7: rgba(255,255,255,.7);
   --gavin-op-nav: rgba(255,255,255,.72);
+  --gavin-op-dis-1: rgba(0,0,0,.1);
   --gavin-op-dis-3: rgba(0,0,0,.3);
   --gavin-op-dis-7: rgba(0,0,0,.7);
   --gavin-page-bg: rgb(51,144,255);/*页码颜色*/
@@ -151,6 +152,7 @@
   --gavin-op-5: rgba(0,0,0,.5);
   --gavin-op-7: rgba(0,0,0,.7);
   --gavin-op-nav: rgba(0,0,0,.56);
+  --gavin-op-dis-1: rgba(255,255,255,.1);
   --gavin-op-dis-3: rgba(255,255,255,.3);
   --gavin-op-dis-7: rgba(255,255,255,.7);
   --gavin-page-bg: rgb(0, 0, 0);/*页码颜色*/
@@ -901,8 +903,8 @@ center#name-container {
 
 /* Tag页标签样式 */
 .tag-cloud-list a {
-  font-size: 1.2em!important;
-  margin: 5px 5px 5px 5px;
+  font-size: 2rem!important;
+  margin: 0.5rem;
   /* border: 1px solid var(--gavin-item-border); */
   background-color: var(--gavin-item-bg);
   border-radius: 0.4em;
@@ -1061,6 +1063,9 @@ center#name-container {
   backdrop-filter: saturate(180%) blur(20px);
 }
 
+body div {
+  transition: background-color 0.3s;
+}
 /* ***********************************************************控制中心*********************************************************** */
 /* 控制中心按钮样式 */
 .ctrl-button {
@@ -1289,6 +1294,7 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
   position: relative;
   left: 5%;
   width: 10rem;
+  /* color: white; */
   font-size: 1.5rem;
   font-weight: 900;
 }
@@ -1301,6 +1307,7 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
   right: 5%;
   font-size: 35px;
   color: var(--font-color);
+  /* color: white; */
   cursor: pointer;
   transition: 0.3s;
 }
@@ -1407,13 +1414,13 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
 }
 
 #console.show .console-mask {
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
   animation: 0.5s ease 0s 1 normal none running to_show;
 }
 
 #console .console-mask {
-  background: var(--anzhiyu-maskbgdeep);
+  background: var(--gavin-op-1);
   backdrop-filter: blur(0px);
   -webkit-backdrop-filter: blur(0px);
   width: 100vw;
@@ -2860,18 +2867,8 @@ a#music-list-title {
   transition: all 0.1s;
 }
 
-/* #console-loading-icon.show :hover .iconfont{
-  transform: rotate(360deg) scale(1.2);
-  -webkit-transform: rotate(360deg) scale(1.2);
-  -moz-transform: rotate(360deg) scale(1.2);
-  -o-transform: rotate(360deg) scale(1.2);
-  -ms-transform: rotate(360deg) scale(1.2);
-} */
-
-
 #console-loading-icon i {
   font-size: 1.8rem;
   display: inline-block;
-  /* transition: All 0.5s linear; */
 }
 /* *********************歌词显示************************ */

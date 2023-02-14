@@ -268,22 +268,22 @@ songsheet1.addEventListener("click", function (e) {
     document.getElementById("console-loading-icon").classList.add("show");
     console.log("正在切换至纯音乐专辑");
     global_music_flag = 1;
-    ctrl.changeMusicList("651630118","netease");
+    ctrl.changeMusicList("8167030216","netease");
     document.getElementById("music-list-title").innerHTML = "纯音乐";
 });
 songsheet2.addEventListener("click", function (e) {
     document.getElementById("console-loading-icon").classList.add("show");
-    console.log("正在切换至古风专辑");
+    console.log("正在切换至薛之谦/李荣浩专辑");
     global_music_flag = 1;
-    ctrl.changeMusicList("5296755943","netease");
-    document.getElementById("music-list-title").innerHTML = "古风";
+    ctrl.changeMusicList("8163994837","netease");
+    document.getElementById("music-list-title").innerHTML = "薛之谦/李荣浩";
 });
 songsheet3.addEventListener("click", function (e) {
     document.getElementById("console-loading-icon").classList.add("show");
-    console.log("正在切换至镜子Vlog专辑");
+    console.log("正在切换至古风专辑");
     global_music_flag = 1;
-    ctrl.changeMusicList("4932756913","netease");
-    document.getElementById("music-list-title").innerHTML = "镜子Vlog";
+    ctrl.changeMusicList("8167066222","netease");
+    document.getElementById("music-list-title").innerHTML = "古风";
 });
 addSongsheet.addEventListener("click", function (e) {
     console.log("自定义专辑");
