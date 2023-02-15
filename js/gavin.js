@@ -212,10 +212,16 @@ var ctrl = {
         fetch(music_list_url_str).then(response => response.json()).then(data => {
             // 在这里使用返回的JSON数据
             newSongsheetLen = data.length;
-            console.log(newSongsheetLen);
+            console.log("本专辑有"+newSongsheetLen+"首歌曲");
             ap.list.add(data);
         })
         .catch(error => console.error(error));
+    },
+
+    JayMusicList: function () {
+        var ap = document.querySelector("meting-js").aplayer;
+        ap.list.clear();
+        ap.list.add(JaySongsheet);
     },
 
     //初始化console图标
@@ -256,6 +262,7 @@ var songsheet0 = document.getElementById("songsheet-X");
 var songsheet1 = document.getElementById("songsheet-A");
 var songsheet2 = document.getElementById("songsheet-B");
 var songsheet3 = document.getElementById("songsheet-C");
+var songsheet4 = document.getElementById("songsheet-D");
 var addSongsheet = document.getElementById("songsheet-add");
 songsheet0.addEventListener("click", function (e) {
     document.getElementById("console-loading-icon").classList.add("show");
@@ -273,12 +280,19 @@ songsheet1.addEventListener("click", function (e) {
 });
 songsheet2.addEventListener("click", function (e) {
     document.getElementById("console-loading-icon").classList.add("show");
+    console.log("正在切换至周杰伦专辑");
+    global_music_flag = 1;
+    ctrl.JayMusicList(); // ctrl.changeMusicList("8163994837","netease");
+    document.getElementById("music-list-title").innerHTML = "周杰伦";
+});
+songsheet3.addEventListener("click", function (e) {
+    document.getElementById("console-loading-icon").classList.add("show");
     console.log("正在切换至薛之谦/李荣浩专辑");
     global_music_flag = 1;
     ctrl.changeMusicList("8163994837","netease");
     document.getElementById("music-list-title").innerHTML = "薛之谦/李荣浩";
 });
-songsheet3.addEventListener("click", function (e) {
+songsheet4.addEventListener("click", function (e) {
     document.getElementById("console-loading-icon").classList.add("show");
     console.log("正在切换至古风专辑");
     global_music_flag = 1;
