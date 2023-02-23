@@ -21,7 +21,7 @@ function createtime() {
         asideHour = (now - asideTime) / 1e3 / 60 / 60 - 24 * asideDayNum,
         asideHourNum = Math.floor(asideHour);
     document.getElementById("pBar_year").value = asideDayNum;
-    document.getElementById("p_span_year").innerHTML = "2023已走过: " + asideDay/365*100 + "%";
+    document.getElementById("p_span_year").innerHTML = "2023已走过: " + (asideDay/365*100).toFixed(5) + "%";
 
     1 == String(hnum).length && (hnum = "0" + hnum);
     var minutes = (now - grt) / 1e3 / 60 - 1440 * dnum - 60 * hnum,
