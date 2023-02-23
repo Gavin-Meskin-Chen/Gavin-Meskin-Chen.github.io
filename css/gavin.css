@@ -2171,10 +2171,13 @@ h6::before {
   border-radius: 0.4rem;
   border: 1px solid var(--gavin-border-color);
   background-color: var(--gavin-background);
+  color: var(--gavin-note-font-color);
 }
 
 .tk-expand:hover {
-  background-color: var(--gavin-item-bg);
+  background-color: var(--card-bg)!important;
+  border-color: var(--gavin-border-hover-color);
+  color: var(--gavin-border-hover-color);
 }
 
 .tk-meta strong {
