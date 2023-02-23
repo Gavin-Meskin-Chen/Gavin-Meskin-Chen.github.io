@@ -36,26 +36,36 @@ site.style.top = "30%";
 
 // 音乐状态检测（已添加事件监听器，修复点击aplayer后导航栏和控制中心不同步的问题）
 function musicState() {
-    const music_state = document.querySelector("meting-js").aplayer.audio.paused;
+    var music_state = document.querySelector("meting-js").aplayer.audio.paused;
+    var a = document.querySelector("#music-Switch i");
+    var b = document.querySelector("#music-ctrl-btn-center i");
     if (music_state) {
-        document.querySelector("#music-Switch i").classList.remove("fa-pause");
-        document.querySelector("#music-Switch i").classList.add("fa-play");
-        document.querySelector("#music-ctrl-btn-center i").classList.remove("fa-pause");
-        document.querySelector("#music-ctrl-btn-center i").classList.add("fa-play");
+        a.classList.remove("fa-pause");
+        a.classList.add("fa-play");
+        b.classList.remove("fa-pause");
+        b.classList.add("fa-play");
     } else {
-        document.querySelector("#music-Switch i").classList.remove("fa-play");
-        document.querySelector("#music-Switch i").classList.add("fa-pause");
-        document.querySelector("#music-ctrl-btn-center i").classList.remove("fa-play");
-        document.querySelector("#music-ctrl-btn-center i").classList.add("fa-pause");
+        a.classList.remove("fa-play");
+        a.classList.add("fa-pause");
+        b.classList.remove("fa-play");
+        b.classList.add("fa-pause");
     }
 }
 
-function secToTime(s) {
-    if (isNaN(s)) s = 0;
-    var min = Math.floor(s / 60);
-    var sec = Math.floor(s % 60);
-    var t = min.toString().padStart(2, '0') + ":" + sec.toString().padStart(2, '0');
-    return t;
+var tools = {
+    secToTime: function (s) {
+        if (isNaN(s)) s = 0;
+        var min = Math.floor(s / 60);
+        var sec = Math.floor(s % 60);
+        var t = min.toString().padStart(2, '0') + ":" + sec.toString().padStart(2, '0');
+        return t;
+    },
+
+    randomColor: function () {
+        var colors = ["rgba(0,150,255,.95)", "rgba(0,255,150,.95)", "rgba(255,150,0,.95)", "rgba(255,0,150,.95)", "rgba(150,255,0,.95)", "rgba(150,0,255,.95)"];
+        var n = Math.floor(Math.random() * 6); //随机0-5
+        return colors[n];
+    }
 }
 
 var ctrl = {
@@ -88,7 +98,7 @@ var ctrl = {
     // 隐藏中控台
     hideConsole: function () {
         var items = document.querySelectorAll(".item-show");
-        for(var i=0; i<items.length; i++) items[i].classList.remove("item-show");
+        for (let i = 0; i < items.length; i++) items[i].classList.remove("item-show");
         document.querySelector("#console").classList.remove("show");
     },
 
@@ -116,13 +126,15 @@ var ctrl = {
 
     // 桌面歌词
     ircShowHide: function () {
-        const irc = document.querySelector(".aplayer > .aplayer-lrc-hide"); //这里防止与音乐页面的控制冲突
+        var irc = document.querySelector(".aplayer > .aplayer-lrc-hide"); //这里防止与音乐页面的控制冲突
+        var a = document.querySelector(".aplayer > .aplayer-lrc");
+        var b = document.querySelector("#ircItem");
         if (irc === null) {
-            document.querySelector(".aplayer > .aplayer-lrc").classList.add("aplayer-lrc-hide");
-            document.querySelector("#ircItem").classList.remove("on");
+            a.classList.add("aplayer-lrc-hide");
+            b.classList.remove("on");
         } else {
-            document.querySelector(".aplayer > .aplayer-lrc").classList.remove("aplayer-lrc-hide");
-            document.querySelector("#ircItem").classList.add("on");
+            a.classList.remove("aplayer-lrc-hide");
+            b.classList.add("on");
         }
     },
 
@@ -145,17 +157,19 @@ var ctrl = {
 
     // 导航栏音乐
     musicSwitch: function () {
-        const music_state = document.querySelector("meting-js").aplayer.audio.paused;
+        var music_state = document.querySelector("meting-js").aplayer.audio.paused;
+        var a = document.querySelector("#music-Switch i");
+        var b = document.querySelector("#music-ctrl-btn-center i");
         if (music_state) {
-            document.querySelector("#music-Switch i").classList.remove("fa-play");
-            document.querySelector("#music-Switch i").classList.add("fa-pause");
-            document.querySelector("#music-ctrl-btn-center i").classList.remove("fa-play");
-            document.querySelector("#music-ctrl-btn-center i").classList.add("fa-pause");
+            a.classList.remove("fa-play");
+            a.classList.add("fa-pause");
+            b.classList.remove("fa-play");
+            b.classList.add("fa-pause");
         } else {
-            document.querySelector("#music-Switch i").classList.remove("fa-pause");
-            document.querySelector("#music-Switch i").classList.add("fa-play");
-            document.querySelector("#music-ctrl-btn-center i").classList.remove("fa-pause");
-            document.querySelector("#music-ctrl-btn-center i").classList.add("fa-play");
+            a.classList.remove("fa-pause");
+            a.classList.add("fa-play");
+            b.classList.remove("fa-pause");
+            b.classList.add("fa-play");
         }
         document.querySelector("meting-js").aplayer.toggle();
     },
@@ -184,20 +198,20 @@ var ctrl = {
     refreshProgress: function () {
         var nowTime = document.querySelector("meting-js").aplayer.audio.currentTime;// 当前时间
         if (isNaN(nowTime)) nowTime = 0;
-        var nowTimeString = secToTime(nowTime);
+        var nowTimeString = tools.secToTime(nowTime);
         var allTime = document.querySelector("meting-js").aplayer.audio.duration;// 总时间
         if (isNaN(allTime)) allTime = 0; //无歌曲时会返回NaN
-        var allTimeString = secToTime(allTime);
+        var allTimeString = tools.secToTime(allTime);
         document.getElementById("progress-low-btn").innerHTML = nowTimeString;// 进度条时间
         document.getElementById("progress-high-btn").innerHTML = allTimeString;
         document.querySelector("#p_bar").style.width = document.querySelector("#p_bar_bg").offsetWidth * (nowTime / allTime) + "px";// 进度条进度
     },
 
     // 导入歌单
-    importMusicList: function() {
+    importMusicList: function () {
         var audios = document.querySelector("meting-js").aplayer.list.audios;
         var list_html;
-        for (var i = 0; i < audios.length; i++) {
+        for (let i = 0; i < audios.length; i++) {
             list_html = document.getElementById("console-music-list").innerHTML;
             document.getElementById("console-music-list").innerHTML = list_html + "<li class='music-list-item'><div class='list-music-info1'><a class='list-music-id' data-pjax-state=''>" + (i + 1) + "</a><a class='list-music-state' data-pjax-state=''><i class='iconfont icon-waveform'></i></a></div><div class='list-music-info2'><a class='list-music-title' data-pjax-state=''>" + audios[i].title + "</a><a class='list-music-author' data-pjax-state=''> - " + audios[i].author + "</a></div></li>";
             // console.log("第" + (i + 1) + "首导入成功！");
@@ -205,17 +219,17 @@ var ctrl = {
     },
 
     // 歌单切换
-    changeMusicList: function(Music_id, Music_server) {
+    changeMusicList: function (Music_id, Music_server) {
         var ap = document.querySelector("meting-js").aplayer;
         var music_list_url_str = "https://metingjs.gavin-chen.top/api?server=" + Music_server + "&type=playlist" + "&id=" + Music_id;
         ap.list.clear();
         fetch(music_list_url_str).then(response => response.json()).then(data => {
             // 在这里使用返回的JSON数据
             newSongsheetLen = data.length;
-            console.log("本专辑有"+newSongsheetLen+"首歌曲");
+            console.log("本专辑有" + newSongsheetLen + "首歌曲");
             ap.list.add(data);
         })
-        .catch(error => console.error(error));
+            .catch(error => console.error(error));
     },
 
     JayMusicList: function () {
@@ -226,8 +240,8 @@ var ctrl = {
 
     //初始化console图标
     initConsoleState: function () {
-        const irc = document.querySelector(".aplayer > .aplayer-lrc-hide");
-        const aplayer = document.querySelector(".aplayer > .aplayer-lrc");
+        var irc = document.querySelector(".aplayer > .aplayer-lrc-hide");
+        var aplayer = document.querySelector(".aplayer > .aplayer-lrc");
         irc === null && aplayer != null
             ? document.querySelector("#ircItem").classList.add("on")
             : document.querySelector("#ircItem").classList.remove("on");
@@ -268,35 +282,35 @@ songsheet0.addEventListener("click", function (e) {
     document.getElementById("console-loading-icon").classList.add("show");
     console.log("正在切换至默认专辑");
     global_music_flag = 1;
-    ctrl.changeMusicList("8086610771","netease");
+    ctrl.changeMusicList("8086610771", "netease");
     document.getElementById("music-list-title").innerHTML = "网易云";
 });
 songsheet1.addEventListener("click", function (e) {
     document.getElementById("console-loading-icon").classList.add("show");
     console.log("正在切换至纯音乐专辑");
     global_music_flag = 1;
-    ctrl.changeMusicList("8167030216","netease");
+    ctrl.changeMusicList("8167030216", "netease");
     document.getElementById("music-list-title").innerHTML = "纯音乐";
 });
 songsheet2.addEventListener("click", function (e) {
     document.getElementById("console-loading-icon").classList.add("show");
     console.log("正在切换至周杰伦专辑");
     global_music_flag = 1;
-    ctrl.JayMusicList(); // ctrl.changeMusicList("8163994837","netease");
+    ctrl.JayMusicList();
     document.getElementById("music-list-title").innerHTML = "周杰伦";
 });
 songsheet3.addEventListener("click", function (e) {
     document.getElementById("console-loading-icon").classList.add("show");
     console.log("正在切换至薛之谦/李荣浩专辑");
     global_music_flag = 1;
-    ctrl.changeMusicList("8163994837","netease");
+    ctrl.changeMusicList("8163994837", "netease");
     document.getElementById("music-list-title").innerHTML = "薛之谦/李荣浩";
 });
 songsheet4.addEventListener("click", function (e) {
     document.getElementById("console-loading-icon").classList.add("show");
     console.log("正在切换至古风专辑");
     global_music_flag = 1;
-    ctrl.changeMusicList("8167066222","netease");
+    ctrl.changeMusicList("8167066222", "netease");
     document.getElementById("music-list-title").innerHTML = "古风";
 });
 addSongsheet.addEventListener("click", function (e) {
@@ -327,6 +341,7 @@ console_music_list.addEventListener('click', function (e) {
         ctrl.getMusicInfo();
     } else alert("ERROR!")
 }, false);
+
 
 // 音量条监听器
 var music_volumebar = document.getElementById("music-volumebar"); //扩大热区
@@ -422,7 +437,7 @@ music_progressbar.addEventListener("mousedown", function (e) { //添加监听事
         p_bar.style.width = p_bar_Len_New + "px"; // 更改进度条Width
         let all_Time = document.querySelector("meting-js").aplayer.audio.duration;
         let current_time = (p_bar_Len_New / p_bar_bg_Len) * all_Time;
-        document.getElementById("progress-low-btn").innerHTML = secToTime(current_time);
+        document.getElementById("progress-low-btn").innerHTML = tools.secToTime(current_time);
     }
 });
 
@@ -449,7 +464,7 @@ music_progressbar.addEventListener("touchstart", function (e) { //添加监听�
         p_bar.style.width = p_bar_Len_New + "px"; // 更改进度条Width
         let all_Time = document.querySelector("meting-js").aplayer.audio.duration;
         let current_time = (p_bar_Len_New / p_bar_bg_Len) * all_Time;
-        document.getElementById("progress-low-btn").innerHTML = secToTime(current_time);
+        document.getElementById("progress-low-btn").innerHTML = tools.secToTime(current_time);
     }
 });
 
