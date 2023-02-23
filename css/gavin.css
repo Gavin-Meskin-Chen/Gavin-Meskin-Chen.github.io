@@ -50,6 +50,7 @@
   --rightside-bg: var(--gavin-op-1);
   /* --card-box-shadow: 0 0px 1px 1px rgba(7, 17, 27, .25); */
   --card-box-shadow: 0 0px 1px 1px var(--gavin-border-color);
+  --card-hover-box-shadow: 0 0 1px 1px var(--gavin-border-hover-color);
   --vercel-btn-bg: var(--dis-f-0);
   --vercel-btn-hover-bg: var(--f-0);
   --vercel-btn-border: var(--dis-f-0);
@@ -107,6 +108,7 @@
   --gavin-item-bg: rgba(60, 175, 250, 0.2);
   --gavin-item-border: rgba(50, 150, 250, .9);  
   --gavin-border-color: rgba(227, 232, 247, 1);
+  --gavin-border-hover-color: rgb(0,100,255);
   --gavin-note-font-color: rgb(102, 102, 102);
   --gavin-hover-font-color: rgba(0, 0, 0, 1);
   --gavin-background: rgb(247, 249, 254);
@@ -118,7 +120,6 @@
   --card-bg: #fff;
   --card-link-bg: rgba(0, 150, 255, .3);
   --card-link-border: rgba(0, 150, 255, .5);
-  --card-hover-box-shadow: 0 0 1px 1px rgb(0,100,255);
 
 
   /* 以下是安知鱼颜色 */
@@ -161,13 +162,14 @@
   --gavin-op-dis-1: rgba(255,255,255,.1);
   --gavin-op-dis-3: rgba(255,255,255,.3);
   --gavin-op-dis-7: rgba(255,255,255,.7);
-  --gavin-page-bg: rgb(0, 0, 0);/*页码颜色*/
+  --gavin-page-bg: rgba(255,255,255,0.8);/*页码颜色*/
   --gavin-toc-bg: rgba(240, 240, 240, .24);/*目录颜色*//*rgba(51, 144, 255, .3); */
   --gavin-scrollbar-dark: #242424;
   --gavin-scrollbar-light: rgba(180, 180, 180, .4);
   --gavin-item-bg: rgba(240, 240, 240, .2);
   --gavin-item-border: rgba(240, 240, 240, .5);
   --gavin-border-color: rgba(66, 68, 74, 1);
+  --gavin-border-hover-color: #fff;
   --gavin-note-font-color: rgb(136, 136, 136);
   --gavin-hover-font-color: rgba(255, 255, 255, .9);
   --gavin-background: rgb(17, 17, 17);
@@ -177,10 +179,9 @@
   --card-bg: #000; /*rgba(29, 30, 34, 1);*/
   --text-bg-hover: rgba(240, 240, 240, .24);
   --btn-bg: rgba(100, 100, 100, .8);
-  --btn-hover-color: rgba(120, 120, 120, 1);
+  --btn-hover-color: rgba(80, 80, 80, 1);
   --card-link-bg: rgba(240, 240, 240, .45);
   --card-link-border: rgba(240, 240, 240, .6);
-  --card-hover-box-shadow: 0 0 1px 1px #fff;
   --font-color: rgba(255,255,255,.8);
 
   /* 以下是安知鱼颜色 */
@@ -874,17 +875,20 @@ center#name-container {
 
 /* Follow Me按钮弧度 */
 #aside-content .card-info #card-info-btn {
-  border-radius: 0.4em;
+  border-radius: 0.4rem;
+  border: 1px solid var(--btn-bg);
+}
+
+#aside-content .card-info #card-info-btn:hover {
+  color: #fff;
+  border-color: var(--gavin-border-hover-color);
 }
 
 /* 首页标签Tag样式 */
 #aside-content .card-tag-cloud a {
-  font-size: 1.2em!important;
+  font-size: 1rem!important;
   margin: 3px 2px 3px 2px;
-  /* border: 1px solid var(--gavin-item-border); */
-  background-color: var(--gavin-item-bg);
-  border-radius: 0.4em;
-  /* color: var(--gavin-item-border) !important; */
+  border-radius: 0.4rem;
   color: var(--font-color) !important;
 }
 
@@ -916,7 +920,7 @@ center#name-container {
 /* 页码 */
 #pagination .page-number.current {
   background: var(--gavin-page-bg);
-  color: var(--white);
+  color: var(--f-0);
 }
 
 /* 搜索页面毛玻璃 */
@@ -981,8 +985,7 @@ center#name-container {
 .error404 #error-wrap .error-content, 
 .layout > div:first-child:not(.recent-posts), 
 #recent-posts > .recent-post-item, 
-#aside-content .card-widget, 
-.layout > .recent-posts .pagination > *:not(.space) {
+#aside-content .card-widget {
   border-radius: 0.8rem;
 }
 
@@ -1073,6 +1076,27 @@ center#name-container {
 body div {
   transition: background-color 0.3s;
 }
+
+/* 页码前进后退 */
+a.extend.next {
+  float: right;
+  margin-right: 0px!important;
+}
+
+a.extend.prev {
+  float: left;
+  margin-left: 0px!important;
+}
+
+.layout > .recent-posts .pagination > *:not(.space) {
+  color: var(--font-color);
+}
+
+.layout > .recent-posts .pagination > *:not(.space):hover {
+  background-color: var(--card-bg);
+  color: var(--gavin-border-hover-color);
+}
+
 /* ***********************************************************控制中心*********************************************************** */
 /* 控制中心按钮样式 */
 .ctrl-button {
