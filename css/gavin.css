@@ -1081,11 +1081,25 @@ body div {
 a.extend.next {
   float: right;
   margin-right: 0px!important;
+  color: var(--font-color);
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  box-shadow: var(--card-box-shadow);
+  width: 2.5em;
+  height: 2.5em;
+  line-height: 2.5em;
 }
 
 a.extend.prev {
   float: left;
   margin-left: 0px!important;
+  color: var(--font-color);
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  box-shadow: var(--card-box-shadow);
+  width: 2.5em;
+  height: 2.5em;
+  line-height: 2.5em;
 }
 
 .layout > .recent-posts .pagination > *:not(.space) {
@@ -1097,6 +1111,23 @@ a.extend.prev {
   color: var(--gavin-border-hover-color);
 }
 
+/* 归档页页码 */
+.layout>div:not(.recent-posts) .pagination .page-number {
+  color: var(--font-color);
+  min-width: 2.5em;
+  height: 2.5em;
+  line-height: 2.5em;
+  box-shadow: var(--card-box-shadow);
+  border-radius: 8px;
+  background-color: var(--card-bg);
+}
+
+.layout>div:not(.recent-posts) .pagination .page-number:hover,
+a.extend.next:hover,
+a.extend.prev:hover {
+  color: var(--gavin-border-hover-color);
+  box-shadow: var(--card-hover-box-shadow);
+}
 /* ***********************************************************控制中心*********************************************************** */
 /* 控制中心按钮样式 */
 .ctrl-button {
