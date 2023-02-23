@@ -1129,6 +1129,7 @@ a.extend.prev:hover {
   color: var(--gavin-border-hover-color);
   box-shadow: var(--card-hover-box-shadow);
 }
+
 /* ***********************************************************控制中心*********************************************************** */
 /* 控制中心按钮样式 */
 .ctrl-button {
