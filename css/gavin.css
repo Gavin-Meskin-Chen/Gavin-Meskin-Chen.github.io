@@ -107,7 +107,7 @@
   --gavin-scrollbar-light: rgba(255, 255, 255, .4);
   --gavin-item-bg: rgba(60, 175, 250, 0.2);
   --gavin-item-border: rgba(50, 150, 250, .9);  
-  --gavin-border-color: rgba(227, 232, 247, 1);
+  --gavin-border-color: #ddd; /*rgba(227, 232, 247, 1);*/
   --gavin-border-hover-color: rgb(0,100,255);
   --gavin-note-font-color: rgb(102, 102, 102);
   --gavin-hover-font-color: rgba(0, 0, 0, 1);
@@ -410,6 +410,7 @@ ul.menus_item_child {
   top: 44px;
   /* 弧度微调 */
   border-radius: 8px;
+  border: 1px solid var(--gavin-border-color);
 }
 
 @media screen and (min-width: 768px) {
