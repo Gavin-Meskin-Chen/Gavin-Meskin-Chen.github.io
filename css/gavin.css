@@ -1070,8 +1070,13 @@ center#name-container {
 
 /* 文章封面模糊 */
 #page-header.post-bg::before {
-  backdrop-filter: saturate(180%) blur(20px);
-  background-color: rgba(0, 150, 255, .5);
+  -webkit-backdrop-filter: saturate(180%) blur(50px);
+  backdrop-filter: saturate(180%) blur(50px);
+  background-color: rgba(0, 0, 0, .16);
+}
+
+[data-theme="dark"] #page-header.post-bg::before {
+  background-color: rgba(0, 0, 0, .45);
 }
 
 body div {
