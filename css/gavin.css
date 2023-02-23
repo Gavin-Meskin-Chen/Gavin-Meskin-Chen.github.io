@@ -2582,6 +2582,21 @@ html.hide-aside .layout>div:first-child {
   }
 }
 
+/* *********侧边栏任务进度条*************** */
+progress {
+  border-radius: 1rem;
+}
+
+progress::-webkit-progress-bar {
+  background-color: rgba(136,136,136,.5);
+  border-radius: 1rem;
+}
+
+progress::-webkit-progress-value {
+  background-color: var(--dis-f-0);
+  border-radius: 1rem;
+}
+
 /* ******************导航栏音乐******************** */
 #nav-music-ctrl {
   display: flex;

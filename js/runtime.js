@@ -11,10 +11,18 @@ var now = new Date();
 function createtime() {
     now.setTime(now.getTime() + 1000); // 当前时间
     var grt = new Date("2023/01/04 20:53:58");	// 网站诞生时间
+    var asideTime = new Date("2023/01/01 00:00:00");	// 侧边栏倒计时
     var days = (now - grt) / 1e3 / 60 / 60 / 24,
         dnum = Math.floor(days),
         hours = (now - grt) / 1e3 / 60 / 60 - 24 * dnum,
         hnum = Math.floor(hours);
+    var asideDay = (now - asideTime) / 1e3 / 60 / 60 / 24,
+        asideDayNum = Math.floor(asideDay),
+        asideHour = (now - asideTime) / 1e3 / 60 / 60 - 24 * asideDayNum,
+        asideHourNum = Math.floor(asideHour);
+    document.getElementById("pBar_year").value = asideDayNum;
+    document.getElementById("p_span_year").innerHTML = "2023已走过: " + asideDay/365*100 + "%";
+
     1 == String(hnum).length && (hnum = "0" + hnum);
     var minutes = (now - grt) / 1e3 / 60 - 1440 * dnum - 60 * hnum,
         mnum = Math.floor(minutes);
