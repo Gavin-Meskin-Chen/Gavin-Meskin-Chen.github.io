@@ -224,9 +224,6 @@
 
 /* 这是右上角的进度百分比图标 */
 #nav-totop #percent {
-  font-size: 18px;
-  background: var(--anzhiyu-white);
-  color: var(--anzhiyu-main);
   width: 25px;
   height: 25px;
   border-radius: 35px;
@@ -234,6 +231,13 @@
   justify-content: center;
   align-items: center;
   transition: 0.3s;
+  font-weight: 700;
+}
+
+#nav-totop:hover #percent {
+  opacity: 0;
+  transform: scale(1.5);
+  font-weight: 700;
 }
 
 .nav-fixed #nav-totop #percent,
@@ -252,16 +256,6 @@
   opacity: 0;
   transition: width 0.3s, opacity 0.2s;
   margin-left: 0 !important;
-}
-
-#nav-totop #percent {
-  font-weight: 700;
-}
-
-#nav-totop:hover #percent {
-  opacity: 0;
-  transform: scale(1.5);
-  font-weight: 700;
 }
 
 #page-header #nav #nav-right div {
@@ -318,7 +312,7 @@ div#menus {
 /* 导航栏标题样式（nav-fixed下） */
 #page-header.nav-fixed #nav a:hover {
   color: #ffffff;
-  box-shadow: var(--anzhiyu-shadow-main);
+  /* box-shadow: var(--anzhiyu-shadow-main); */
 }
 
 /* 顶栏修改 */
@@ -415,7 +409,7 @@ ul.menus_item_child {
 
 @media screen and (min-width: 768px) {
   .page .menus_item:hover>a.site-page {
-    color: var(--anzhiyu-white) !important;
+    color: #fff !important;
     background: var(--anzhiyu-main);
     transition: 0.3s;
   }
@@ -453,7 +447,7 @@ header a, header span, header h1, header div, header img {
 
 /* 右侧和导航标题（主页时）图标样式 */
 .page #nav a:hover {
-  color: var(--anzhiyu-white) !important;
+  color: #fff !important;
   background: var(--anzhiyu-main);
   transition: 0.3s;
 }
@@ -608,7 +602,7 @@ center#name-container {
 /* 左上角6点按钮样式 */
 .back-home-button:hover {
   background: var(--anzhiyu-main);
-  color: var(--anzhiyu-white) !important;
+  color: #fff !important;
 }
 
 .back-home-button {
@@ -647,7 +641,6 @@ center#name-container {
   border: var(--style-border);
   flex-direction: column;
   font-size: 12px;
-  color: var(--anzhiyu-secondtext);
   box-shadow: var(--anzhiyu-shadow-border);
   transition: 0s;
   opacity: 0;
@@ -700,7 +693,7 @@ center#name-container {
 .back-home-button .back-menu-list .back-menu-item .back-menu-item-text {
   font-size: var(--global-font-size);
   margin-left: 0.5rem;
-  color: var(--anzhiyu-fontcolor);
+  color: var(--font-color);
   white-space: nowrap;
 }
 
@@ -717,7 +710,7 @@ center#name-container {
   width: 24px;
   height: 24px;
   border-radius: 24px;
-  background: var(--anzhiyu-secondbg);
+  background: var(--f-0);
 }
 
 #page-header #nav .back-home-button {
@@ -732,7 +725,7 @@ center#name-container {
 }
 
 .back-home-button .back-menu-list .back-menu-item:hover .back-menu-item-text {
-  color: var(--anzhiyu-white);
+  color: #fff;
 }
 
 .back-menu-item-icon.loading img {
@@ -1135,127 +1128,11 @@ a.extend.prev:hover {
   box-shadow: var(--card-hover-box-shadow);
 }
 
-/* ***********************************************************控制中心*********************************************************** */
-/* 控制中心按钮样式 */
-.ctrl-button {
-  display: flex;
-  width: 35px;
-  height: 35px;
-  padding: 0;
-  align-items: center;
-  justify-content: center;
-  transition: 0.3s;
-  border-radius: 8px;
-  cursor: pointer;
-  position: relative;
-  /* 控制中心图标位置微调 */
-  margin-left: 0.5em;
-  font-size: 1.4rem;
-}
-
-.ctrl-button:hover {
-  background: var(--anzhiyu-main);
-  color: var(--anzhiyu-white) !important;
-}
-
-.ctrl-button .ctrl-menu-list-groups {
-  position: absolute;
-  top: 65px;
-  /* left: 0; */
-  right: 0;
-  background: var(--card-bg);
-  border-radius: 12px;
-  border: var(--style-border);
-  flex-direction: row;
-  font-size: 12px;
-  color: var(--anzhiyu-secondtext);
-  box-shadow: var(--anzhiyu-shadow-border);
-  transition: 0s;
-  opacity: 0;
-  pointer-events: none;
-  padding-bottom: 5px;
-}
-
-.ctrl-button:hover .ctrl-menu-list-groups {
-  display: flex;
-  opacity: 1;
-  transition: 0.3s;
-  top: 55px;
-  pointer-events: auto;
-  /* left: 0; */
-  right: 0;
-}
-
-.ctrl-button .ctrl-menu-list-group {
-  display: flex;
-  flex-direction: column;
-}
-
-.ctrl-button .ctrl-menu-list {
-  display: flex;
-  flex-direction: column;
-}
-
-.ctrl-button .ctrl-menu-list::before {
-  position: absolute;
-  top: -22px;
-  left: 0px;
-  width: 100%;
-  height: 25px;
-  content: "";
-}
-
-.ctrl-button .ctrl-menu-list-group .ctrl-menu-list-title {
-  margin: 8px 0 0 16px;
-  transition: 0.3s;
-  color: var(--font-color);
-}
-
-.ctrl-button .ctrl-menu-list-group:hover .ctrl-menu-list-title {
-  color: rgb(50, 150, 250);
-}
-
-.ctrl-button .ctrl-menu-list-groups:hover {
-  border: var(--style-border-hover);
-}
-
-.ctrl-button .ctrl-menu-list .ctrl-menu-item {
-  display: flex;
-  align-items: center;
-  margin: 4px 8px;
-  padding: 4px 8px !important;
-  transition: 0.3s;
-  border-radius: 8px;
-  height: 35px;
-}
-
-.ctrl-button .ctrl-menu-list .ctrl-menu-item .ctrl-menu-item-text {
-  font-size: var(--global-font-size);
-  margin-left: 0.5rem;
-  color: var(--anzhiyu-fontcolor);
-  white-space: nowrap;
-}
-
-.ctrl-button .ctrl-menu-list .ctrl-menu-item .ctrl-menu-item-icon {
-  width: 24px;
-  height: 24px;
-  border-radius: 24px;
-  background: var(--anzhiyu-secondbg);
-}
-
-.ctrl-button .ctrl-menu-list .ctrl-menu-item:hover .ctrl-menu-item-text {
-  color: var(--anzhiyu-white);
-}
-
-.ctrl-menu-item-icon.loading img {
-  width: 25px;
-}
-
 /* *****************************************************sidebar侧滑导航栏修改**************************************************************** */
 /* 手机端 侧边导航颜色和圆弧 */
 #sidebar #sidebar-menus .menus_items .site-page:hover {
-  color: var(--anzhiyu-white);
-  border-radius: var(--anzhiyu-border-radius);
+  color: #fff;
+  border-radius: 0.5rem;
 }
 
 /* 侧边导航宽度重设 */
@@ -1400,7 +1277,7 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
 
 #console-switch:hover {
   background: var(--anzhiyu-main);
-  color: var(--anzhiyu-white) !important;
+  color: #fff !important;
 }
 
 /* 控制中心界面功能按钮样式 */
@@ -1464,7 +1341,7 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
 
 [data-theme = dark] a#darkSwitchBtn {
   background: rgba(50, 150, 255, 0.9) !important;
-  color: var(--anzhiyu-white) !important;
+  color: #fff !important;
 }
 
 /* hover变色开关 */
@@ -1474,7 +1351,7 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
 
 #console .console-btn-group .console-btn-item.on a {
   background: rgba(50, 150, 255, 0.9);
-  color: var(--anzhiyu-white);
+  color: #fff;
   transition: 0.3s;
 }
 
@@ -2198,7 +2075,6 @@ h6::before {
   width: 100%;
   height: 100%;
   pointer-events: none;
-  /* 这个是调置顶的优先级的，-1在文章页下面，背景上面，个人推荐这种 */
   z-index: 0;
 }
 
@@ -2447,7 +2323,7 @@ div#bannerGroup {
 
 span.top-group-text {
   background: var(--anzhiyu-theme)!important;
-  color: var(--anzhiyu-white)!important;
+  color: #fff!important;
 }
 
 /* ********************首页标签分类条*********************** */
@@ -2680,7 +2556,7 @@ progress::-webkit-progress-value {
   padding-top: 0.5rem;
   font-size: 1.3rem;
   font-weight: bold;
-  color: var(--anzhiyu-reverse);
+  color: var(--dis-f-0);
 }
 
 #console-music-author {
@@ -2728,12 +2604,12 @@ progress::-webkit-progress-value {
 }
 
 #music-ctrl-btn-center {
-  color: var(--anzhiyu-reverse);
+  color: var(--dis-f-0);
   font-size: 2.4rem;
 }
 
 #music-ctrl-btn-first:hover, #music-ctrl-btn-left:hover, #music-ctrl-btn-right:hover, #music-ctrl-btn-end:hover {
-  color: var(--anzhiyu-reverse);
+  color: var(--dis-f-0);
 }
 
 #progress-low-btn, #progress-high-btn {
@@ -2770,6 +2646,7 @@ progress::-webkit-progress-value {
   height: 0.4rem;
   border-radius: 0.3rem;
   background-color: rgba(136, 136, 136, 0.5);
+  overflow: hidden;
 }
 
 #p_bar, #v_bar {

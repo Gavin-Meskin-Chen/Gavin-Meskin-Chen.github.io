@@ -354,9 +354,9 @@ var v_bar_bg_Len = v_bar_bg.offsetWidth; // 获取进度条总长Width
 // 按键按下
 music_volumebar.addEventListener("mousedown", function (e) { //添加监听事件
     v_bar_bg.style.height = "0.6rem";
-    v_bar.style.backgroundColor = "var(--anzhiyu-reverse)";
-    v_low.style.color = "var(--anzhiyu-reverse)";
-    v_high.style.color = "var(--anzhiyu-reverse)";
+    v_bar.style.backgroundColor = "var(--dis-f-0)";
+    v_low.style.color = "var(--dis-f-0)";
+    v_high.style.color = "var(--dis-f-0)";
     let x = e.pageX; // 获取按下时鼠标初始位置 // pageX是绝对位置 offsetX是相对位置
     v_bar.style.width = (0 + e.offsetX) + "px"; // 按下时重新设置进度条
     let v_bar_Len = v_bar.offsetWidth; // 获取进度条的初始Width
@@ -380,9 +380,9 @@ music_volumebar.addEventListener("mousedown", function (e) { //添加监听事�
 // 触摸按下
 music_volumebar.addEventListener("touchstart", function (e) { //添加监听事件
     v_bar_bg.style.height = "0.6rem";
-    v_bar.style.backgroundColor = "var(--anzhiyu-reverse)";
-    v_low.style.color = "var(--anzhiyu-reverse)";
-    v_high.style.color = "var(--anzhiyu-reverse)";
+    v_bar.style.backgroundColor = "var(--dis-f-0)";
+    v_low.style.color = "var(--dis-f-0)";
+    v_high.style.color = "var(--dis-f-0)";
     let x = e.targetTouches[0].pageX; // 获取按下时鼠标初始位置 // pageX是绝对位置 offsetX是相对位置
     v_bar.style.width = (0 + e.targetTouches[0].offsetX) + "px"; // 按下时重新设置进度条
     let v_bar_Len = v_bar.offsetWidth; // 获取进度条的初始Width
@@ -417,9 +417,9 @@ var mousemove_flag = 1;
 // 按键按下
 music_progressbar.addEventListener("mousedown", function (e) { //添加监听事件
     p_bar_bg.style.height = "0.6rem";
-    p_bar.style.backgroundColor = "var(--anzhiyu-reverse)";
-    p_low.style.color = "var(--anzhiyu-reverse)";
-    p_high.style.color = "var(--anzhiyu-reverse)";
+    p_bar.style.backgroundColor = "var(--dis-f-0)";
+    p_low.style.color = "var(--dis-f-0)";
+    p_high.style.color = "var(--dis-f-0)";
     ctrl_flag = 0;
     global_music_flag = 1;
     let x = e.pageX; // 获取按下时鼠标初始位置 // pageX是绝对位置 offsetX是相对位置
@@ -444,9 +444,9 @@ music_progressbar.addEventListener("mousedown", function (e) { //添加监听事
 // 触摸按下
 music_progressbar.addEventListener("touchstart", function (e) { //添加监听事件
     p_bar_bg.style.height = "0.6rem";
-    p_bar.style.backgroundColor = "var(--anzhiyu-reverse)";
-    p_low.style.color = "var(--anzhiyu-reverse)";
-    p_high.style.color = "var(--anzhiyu-reverse)";
+    p_bar.style.backgroundColor = "var(--dis-f-0)";
+    p_low.style.color = "var(--dis-f-0)";
+    p_high.style.color = "var(--dis-f-0)";
     ctrl_flag = 0;
     global_music_flag = 1;
     let x = e.targetTouches[0].pageX; // 获取按下时鼠标初始位置 // pageX是绝对位置 offsetX是相对位置

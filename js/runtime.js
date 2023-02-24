@@ -21,7 +21,7 @@ function createtime() {
         asideHour = (now - asideTime) / 1e3 / 60 / 60 - 24 * asideDayNum,
         asideHourNum = Math.floor(asideHour);
     document.getElementById("pBar_year").value = asideDayNum;
-    document.getElementById("p_span_year").innerHTML = "2023已走过: " + (asideDay/365*100).toFixed(5) + "%";
+    document.getElementById("p_span_year").innerHTML = "2023已走过: " + (asideDay / 365 * 100).toFixed(5) + "%";
 
     1 == String(hnum).length && (hnum = "0" + hnum);
     var minutes = (now - grt) / 1e3 / 60 - 1440 * dnum - 60 * hnum,
@@ -111,10 +111,10 @@ setInterval(() => {
             } else alert("程序错误，请刷新！");
         });
         // 歌单切换监听
-        ap.on("listclear", function(){
+        ap.on("listclear", function () {
             document.getElementById("console-music-list").innerHTML = "";
         });
-        ap.on("listadd", function(){
+        ap.on("listadd", function () {
             var current_len = ap.list.audios.length;
             t_load = setInterval(() => {
                 current_len = ap.list.audios.length;
