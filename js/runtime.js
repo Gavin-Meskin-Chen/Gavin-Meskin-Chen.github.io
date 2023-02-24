@@ -44,11 +44,12 @@ setInterval(() => {
     createtime();
 }, 1000);
 
-// 设置重复执行函数，周期100ms
+// 设置重复执行函数，周期500ms
 setInterval(() => {
     if (document.querySelector("meting-js").aplayer != undefined) meting_load = 0;
     if (meting_load == 0 && listener == 0) {
         // 监测aplayer加载完开始注入音乐列表
+        console.log("\n %cGC音频控制器 v1.3.2 参星阁出品%c https://gavin-chen.top \n", "color: #fadfa3; background: #030307; padding:5px 0;", "background: #fadfa3; padding:5px 0;")
         ctrl.importMusicList();
         // 音乐开始与暂停监听
         var ap = document.querySelector("meting-js").aplayer;
@@ -135,4 +136,4 @@ setInterval(() => {
     };
     //音乐进度更新
     if (meting_load == 0 && global_music_flag == 0) ctrl.refreshProgress();
-}, 1000);
+}, 500);
