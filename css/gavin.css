@@ -98,6 +98,7 @@
   --gavin-op-5: rgba(255,255,255,.5);
   --gavin-op-7: rgba(255,255,255,.7);
   --gavin-op-nav: rgba(255,255,255,.72);
+  --gavin-op-console: rgba(0,0,0,.18);
   --gavin-op-dis-1: rgba(0,0,0,.1);
   --gavin-op-dis-3: rgba(0,0,0,.3);
   --gavin-op-dis-7: rgba(0,0,0,.7);
@@ -159,6 +160,7 @@
   --gavin-op-5: rgba(0,0,0,.5);
   --gavin-op-7: rgba(0,0,0,.7);
   --gavin-op-nav: rgba(0,0,0,.56);
+  --gavin-op-console: rgba(255,255,255,.18);
   --gavin-op-dis-1: rgba(255,255,255,.1);
   --gavin-op-dis-3: rgba(255,255,255,.3);
   --gavin-op-dis-7: rgba(255,255,255,.7);
@@ -1240,7 +1242,7 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
   position: relative;
   left: 5%;
   width: 10rem;
-  /* color: white; */
+  color: #fff;
   font-size: 1.5rem;
   font-weight: 900;
 }
@@ -1252,8 +1254,7 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
   display: flex;
   right: 5%;
   font-size: 35px;
-  color: var(--font-color);
-  /* color: white; */
+  color: #fff;
   cursor: pointer;
   transition: 0.3s;
 }
@@ -1366,7 +1367,7 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
 }
 
 #console .console-mask {
-  background: var(--gavin-op-1);
+  background: var(--gavin-op-console);
   backdrop-filter: blur(0px);
   -webkit-backdrop-filter: blur(0px);
   width: 100vw;
