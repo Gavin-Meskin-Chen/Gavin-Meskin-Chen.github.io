@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>利用Vercel + OneDrive搭建个人网盘</title>
+      <link href="/post/e87ec7ea.html"/>
+      <url>/post/e87ec7ea.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>基于开源项目 <a href="https://github.com/spencerwooo/onedrive-vercel-index">onedrive-vercel-index</a> ，搭建本博客配套的个人网盘——藏兵谷。<br><img src="https://s2.loli.net/2023/02/25/6tjdMl2kRUxO5DW.webp" alt=""></p><h1 id="为什么"><a href="#为什么" class="headerlink" title="为什么"></a>为什么</h1><p>这个问题得从上一个项目——音乐控制器说起。<br>看过站长介绍应该知道我喜欢听周杰伦的歌，你说我好不容易整了这么多音乐播放器，结果还听不了我喜欢的歌，那不白搭么。由于版权问题，无法在线获取VIP曲目，所以一般采用的方法就是把音乐资源存在自己的服务器上，通过直链在线读取。<br>但是我没有服务器，这就得操作操作了。<br>我先是找了一些百度网盘、阿里网盘等转直链的插件，可插件生成的直链用在aplayer上总是无法读取，pass。接着尝试用gitee做仓储仓库，gitee各种限制，每次上传20个文件，文件大小不超过10M，最后还做不了直链，想来应该是早就禁止了。于是换github建存储仓库，这里上传文件没有什么限制，起初尝试了一下jsDeliver加速，aplayer上无法读取，只好部署到vercel，这次aplayer终于可以读取，就是速度方面实在感人，最重要的是文件管理很不方便，但总算是能听周董啦。后来我在github看到了 <a href="https://github.com/spencerwooo/onedrive-vercel-index">onedrive-vercel-index</a> 这个开源项目，觉得优点还蛮多的，就有了做个人网盘的想法。</p><h1 id="有什么用"><a href="#有什么用" class="headerlink" title="有什么用"></a>有什么用</h1><ol><li>图片只能存图片，那么个人网盘则可以存放网站所需的其他类型的文件，无需花钱购买云服务。</li><li>微软<code>E5账号</code>可免费获得<code>Microsoft 365全家桶</code>，以及<code>OneDrive 5T网盘空间</code>，为期90天。</li><li>搭建个人网盘后，微软会自动帮你续期上条优惠，不用单独配置续期脚本，等于白嫖。</li><li>作为网盘功能也不少，支持直链下载，支持多文件打包下载；支持超多文件格式在线预览，支持多种视频格式在线播放。</li></ol><h1 id="怎么做"><a href="#怎么做" class="headerlink" title="怎么做"></a>怎么做</h1><p>官方手册：<a href="https://ovi.swo.moe/zh/docs/getting-started">https://ovi.swo.moe/zh/docs/getting-started</a><br>关于E5账号：<br><a href="https://zhuanlan.zhihu.com/p/586918075">白嫖微软E5开发者 免费使用Office正版、OneDrive 5T存储空间！</a><br>参考教程：<br><a href="https://blog.qinglin.co/2562.html">利用vercel零成本搭建oneindex网盘</a><br><a href="https://www.iamdt.cn/archives/22/">免费搭建你的OneDrive公共网盘——Vercel特供版</a></p><h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>跟着教程走基本没什么问题，但我用了三天后出现了编号<code>500</code>报错，通过翻阅Discussions，我尝试了删除redis缓存然后重新认证的方法，问题解决。<br>更多问题可在Discussions里找到解决办法。</p><p><strong>目前，参星阁主页和 <a href="https://music.gavin-chen.top">“幻音坊”</a> 皆已添加周董专属歌单，共有经典曲目39首。</strong></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 博客 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> APlayer </tag>
+            
+            <tag> 网盘 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>控制中心 - 音乐控制器（Aplayer伴侣）</title>
       <link href="/post/37b27065.html"/>
       <url>/post/37b27065.html</url>
@@ -20,7 +47,7 @@
       
         <tags>
             
-            <tag> Blog </tag>
+            <tag> APlayer </tag>
             
             <tag> Hexo </tag>
             
@@ -76,7 +103,7 @@
       
         <tags>
             
-            <tag> Blog </tag>
+            <tag> APlayer </tag>
             
             <tag> Hexo </tag>
             
@@ -104,8 +131,6 @@
       
       
         <tags>
-            
-            <tag> Blog </tag>
             
             <tag> Hexo </tag>
             
@@ -246,11 +271,11 @@
       
         <tags>
             
-            <tag> Blog </tag>
-            
             <tag> Hexo </tag>
             
             <tag> Butterfly </tag>
+            
+            <tag> Markdown </tag>
             
         </tags>
       
@@ -275,11 +300,11 @@
       
         <tags>
             
-            <tag> Blog </tag>
-            
             <tag> Hexo </tag>
             
             <tag> Butterfly </tag>
+            
+            <tag> Markdown </tag>
             
         </tags>
       
