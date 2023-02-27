@@ -2006,20 +2006,6 @@ html.hide-aside .layout>div:first-child {
     }
 }
 
-progress {
-    border-radius: 1rem;
-}
-
-progress::-webkit-progress-bar {
-    background-color: rgba(136, 136, 136, .5);
-    border-radius: 1rem;
-}
-
-progress::-webkit-progress-value {
-    background-color: var(--dis-f-0);
-    border-radius: 1rem;
-}
-
 #nav-music-ctrl {
     display: flex;
     margin-right: 1rem;
@@ -2393,17 +2379,16 @@ a#music-list-title {
     display: inline-block;
 }
 
-/* .loading-bg {
-    background: transparent;
-} */
-
-/* ***********侧边栏日历************ */
 .card-widget.card-times .item-headline {
     display: none;
 }
 
 .card-widget.card-times {
     padding: 0.8rem!important;
+}
+
+.card-times a {
+    color: var(--font-color);
 }
 
 .aside-span1 {
@@ -2434,10 +2419,9 @@ a#music-list-title {
     border-radius: 0.5rem;
     padding: 0.5rem;
     font-family: Sans_clock;
-
     display: flex;
     justify-content: center;
-    font-weight: bold;
+    /* font-weight: bold; */
     font-size: 1.3rem;
     line-height: 2rem;
 }
@@ -2500,7 +2484,6 @@ a#music-list-title {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: var(--font-color);
 }
 
 #calendar-main a.now {
@@ -2533,4 +2516,18 @@ a#music-list-title {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+progress {
+    border-radius: 1rem;
+}
+
+progress::-webkit-progress-bar {
+    background-color: rgba(136, 136, 136, .5);
+    border-radius: 1rem;
+}
+
+progress::-webkit-progress-value {
+    background-color: var(--dis-f-0);
+    border-radius: 1rem;
 }

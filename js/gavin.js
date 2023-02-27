@@ -3,7 +3,7 @@ function whenDOMReady() {
     // pjax加载完成（切换页面）后需要执行的函数和代码
     console.log("pjax开启");
     musicState();
-    // cardTimes();
+    cardTimes();
 }
 
 // 返回顶部 显示网页阅读进度
@@ -34,6 +34,87 @@ logo.style = "position:relative;left:calc(50% - 75px);width:150px;height:150px";
 logo.src = "https://i.imgtg.com/2023/02/06/0Su3b.png";
 site.insertBefore(logo, title);
 site.style.top = "30%";
+
+// 侧边栏日历卡片
+function cardTimes() {
+    year = now.getFullYear();
+    month = now.getMonth();
+    week = now.getDay();
+    date = now.getDate();
+    var year_flag = year % 4 == 0 && year % 100 != 0 || year % 400 == 0 ? true : false;
+    switch (week) {
+        case 0: weekStr = "周日"; break;
+        case 1: weekStr = "周一"; break;
+        case 2: weekStr = "周二"; break;
+        case 3: weekStr = "周三"; break;
+        case 4: weekStr = "周四"; break;
+        case 5: weekStr = "周五"; break;
+        case 6: weekStr = "周六"; break;
+        default: console.log("异常情况");
+    }
+    switch (month) {
+        case 0: monthStr = "一月"; dates = 31; break;
+        case 1: monthStr = "二月"; dates = year_flag ? 29 : 28; break;
+        case 2: monthStr = "三月"; dates = 31; break;
+        case 3: monthStr = "四月"; dates = 30; break;
+        case 4: monthStr = "五月"; dates = 31; break;
+        case 5: monthStr = "六月"; dates = 30; break;
+        case 6: monthStr = "七月"; dates = 31; break;
+        case 7: monthStr = "八月"; dates = 31; break;
+        case 8: monthStr = "九月"; dates = 30; break;
+        case 9: monthStr = "十月"; dates = 31; break;
+        case 10: monthStr = "十一月"; dates = 30; break;
+        case 11: monthStr = "十二月"; dates = 31; break;
+        default: console.log("异常情况");
+    }
+    var week_first = (week + 8 - date % 7) % 7;
+    var count_days = "";
+    var count_flag = false;
+    var ds;
+    for (let r = 0; r < 5; r++) {
+        for (let d = 0; d < 7; d++) {
+            ds = document.querySelector(".calendar-r" + r + " .calendar-d" + d + " a"); //日历
+            if(ds){
+                if (r == 0 && d == week_first) {
+                    count_days = 1;
+                    count_flag = true;
+                }
+                ds.innerHTML = count_days;
+                if (count_days == date) {
+                    var dd = document.querySelector("a.now");
+                    if(dd)dd.classList.remove("now");
+                    ds.classList.add("now");
+                };
+                if (count_days > dates) {
+                    count_days = "";
+                    count_flag = false;
+                }
+                if (count_flag) count_days += 1;
+            }
+        }
+    }
+    var lunar = chineseLunar.solarToLunar(new Date(year, month, date));
+    var animalYear = chineseLunar.format(lunar, "A"), //生肖属相
+        ganzhiYear = chineseLunar.format(lunar, "T").slice(0,-1), //天干地支
+        lunarMon = chineseLunar.format(lunar, "M"), //月份
+        lunarDay = chineseLunar.format(lunar, "d"); //日期
+    asideTime = new Date("2023/01/01 00:00:00");	// 侧边栏倒计时
+    asideDay = (now - asideTime) / 1e3 / 60 / 60 / 24;
+    asideDayNum = Math.floor(asideDay);
+    var asideWeekNum = ((week - asideDayNum % 7) >= 0) ? (Math.ceil(asideDayNum / 7)) : (Math.ceil(asideDayNum / 7) + 1);
+    var c_m = document.getElementById("calendar-month");
+    var c_w = document.getElementById("calendar-week");
+    var c_d = document.getElementById("calendar-date");
+    var c_a = document.getElementById("calendar-animal");
+    var c_l = document.getElementById("calendar-lunar");
+    var a_t_l = document.getElementById("aside-time-left");
+    if(c_m)c_m.innerHTML = monthStr; //月份
+    if(c_w)c_w.innerHTML = weekStr; //星期
+    if(c_d)c_d.innerHTML = date; //日期
+    if(c_a)c_a.innerHTML = ganzhiYear + animalYear + "年"; //年份
+    if(c_l)c_l.innerHTML = lunarMon + lunarDay; //农历
+    if(a_t_l)a_t_l.innerHTML = year + "&nbsp;&nbsp;<a style='font-size:1.1rem;font-weight:bold;'>第</a>&nbsp;" + asideWeekNum + "&nbsp;<a style='font-size:1.1rem;font-weight:bold;'>周</a>";
+}
 
 // 音乐状态检测（已添加事件监听器，修复点击aplayer后导航栏和控制中心不同步的问题）
 function musicState() {

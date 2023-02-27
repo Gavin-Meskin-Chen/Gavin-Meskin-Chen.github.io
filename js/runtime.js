@@ -6,95 +6,31 @@ var now_music_id = null;
 var newSongsheetLen = 0;
 var t_load;
 var now = new Date();
+var year, month, week, date, dates, weekStr, monthStr;
+var asideTime, asideDay, asideDayNum;
 
+cardTimes();
 
-// 刷新时间
+// 刷新时钟时间
 function cardRefreshTimes() {
-    // 侧边栏日历卡片
-    var year, month, week, date, dates;
-    year = now.getFullYear();
-    date = now.getDate();
-    var year_flag = year % 4 == 0 && year % 100 != 0 || year % 400 == 0 ? true : false;
-    switch (now.getDay()) {
-        case 0: week = "周日"; break;
-        case 1: week = "周一"; break;
-        case 2: week = "周二"; break;
-        case 3: week = "周三"; break;
-        case 4: week = "周四"; break;
-        case 5: week = "周五"; break;
-        case 6: week = "周六"; break;
-        default: console.log("异常情况");
-    }
-    switch (now.getMonth()) {
-        case 0: month = "一月"; dates = 31; break;
-        case 1: month = "二月"; dates = year_flag ? 29 : 28; break;
-        case 2: month = "三月"; dates = 31; break;
-        case 3: month = "四月"; dates = 30; break;
-        case 4: month = "五月"; dates = 31; break;
-        case 5: month = "六月"; dates = 30; break;
-        case 6: month = "七月"; dates = 31; break;
-        case 7: month = "八月"; dates = 31; break;
-        case 8: month = "九月"; dates = 30; break;
-        case 9: month = "十月"; dates = 31; break;
-        case 10: month = "十一月"; dates = 30; break;
-        case 11: month = "十二月"; dates = 31; break;
-        default: console.log("异常情况");
-    }
-    var c_m = document.getElementById("calendar-month");
-    var c_w = document.getElementById("calendar-week");
-    var c_d = document.getElementById("calendar-date");
-    if(c_m)c_m.innerHTML = month; //月份
-    if(c_w)c_w.innerHTML = week; //星期
-    if(c_d)c_d.innerHTML = date; //日期
-    var week_first = (now.getDay() + 8 - date % 7) % 7;
-    var count_days = "";
-    var count_flag = false;
-    var ds;
-    for (let r = 0; r < 5; r++) {
-        for (let d = 0; d < 7; d++) {
-            ds = document.querySelector(".calendar-r" + r + " .calendar-d" + d + " a"); //日历
-            if(ds){
-                if (r == 0 && d == week_first) {
-                    count_days = 1;
-                    count_flag = true;
-                }
-                ds.innerHTML = count_days;
-                if (count_days == date) {
-                    var dd = document.querySelector("a.now");
-                    if(dd)dd.classList.remove("now");
-                    ds.classList.add("now");
-                };
-                if (count_days > dates) {
-                    count_days = "";
-                    count_flag = false;
-                }
-                if (count_flag) count_days += 1;
-            }
-        }
-    }
-    var lunar = chineseLunar.solarToLunar(new Date(now.getFullYear(), now.getMonth(), now.getDate()));
-    var animalYear = chineseLunar.format(lunar, "A"), //生肖属相
-        ganzhiYear = chineseLunar.format(lunar, "T").slice(0,-1), //天干地支
-        lunarMon = chineseLunar.format(lunar, "M"), //月份
-        lunarDay = chineseLunar.format(lunar, "d"); //日期
-    var asideTime = new Date("2023/01/01 00:00:00");	// 侧边栏倒计时
-    var asideDay = (now - asideTime) / 1e3 / 60 / 60 / 24,
-        asideDayNum = Math.floor(asideDay);
-    var asideWeekNum = ((now.getDay() - asideDayNum % 7) >= 0) ? (Math.ceil(asideDayNum / 7)) : (Math.ceil(asideDayNum / 7) + 1);
-    var c_a = document.getElementById("calendar-animal");
-    var c_l = document.getElementById("calendar-lunar");
-    var a_t_l = document.getElementById("aside-time-left");
     var p_y = document.getElementById("pBar_year");
     var p_s_y = document.getElementById("p_span_year");
     var a_t_r = document.getElementById("aside-time-right");
-    if(c_a)c_a.innerHTML = ganzhiYear + animalYear + "年";
-    if(c_l)c_l.innerHTML = lunarMon + lunarDay;
-    if(a_t_l)a_t_l.innerHTML = year + "年 第" + asideWeekNum + "周";
+    var p_m = document.getElementById("pBar_month");
+    var p_s_m = document.getElementById("p_span_month");
+    var p_w = document.getElementById("pBar_week");
+    var p_s_w = document.getElementById("p_span_week");
+    asideDay = (now - asideTime) / 1e3 / 60 / 60 / 24;
     if(p_y)p_y.value = asideDay;
-    if(p_s_y)p_s_y.innerHTML = "2023已走过: " + (asideDay / 365 * 100).toFixed(5) + "%";
+    if(p_s_y)p_s_y.innerHTML = (asideDay / 365 * 100).toFixed(2) + "%";
     if(a_t_r)a_t_r.innerHTML = now.getHours().toString().padStart(2, '0') + ":" + now.getMinutes().toString().padStart(2, '0') + ":" + now.getSeconds().toString().padStart(2, '0');
+    if(p_m){p_m.value = date; p_m.max = dates;}
+    if(p_s_m)p_s_m.innerHTML = (date / dates * 100).toFixed(2) + "%";
+    if(p_w)p_w.value = week==0 ? 7 : week;
+    if(p_s_w)p_s_w.innerHTML = ((week==0 ? 7 : week) / 7 * 100).toFixed(2) + "%";
 }
 
+// 刷新页脚时间
 function createtime() {
     now.setTime(now.getTime() + 1000); // 当前时间
     var grt = new Date("2023/01/04 20:53:58");	// 网站诞生时间
