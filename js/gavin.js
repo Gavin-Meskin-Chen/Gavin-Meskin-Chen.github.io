@@ -3,6 +3,7 @@ function whenDOMReady() {
     // pjax加载完成（切换页面）后需要执行的函数和代码
     console.log("pjax开启");
     musicState();
+    // cardTimes();
 }
 
 // 返回顶部 显示网页阅读进度

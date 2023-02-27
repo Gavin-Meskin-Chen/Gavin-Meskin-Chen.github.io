@@ -14,6 +14,14 @@
     font-display: block;
 }
 
+@font-face {
+    font-family: 'Sans_clock';
+    src: url(/font/clock.woff2);
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
 #page-header #site-title {
     font-family: xiaozhuan;
     font-weight: 100;
@@ -98,6 +106,7 @@
     --gavin-note-font-color: rgb(102, 102, 102);
     --gavin-hover-font-color: rgba(0, 0, 0, 1);
     --gavin-background: rgb(247, 249, 254);
+    --gavin-widget-bg: rgb(241,241,241);
     --vercel-background: rgb(250, 250, 250);
     --vercel-border-color: rgb(197, 202, 217);
     --vercel-hover-bg: rgba(234, 234, 234, 1);
@@ -155,6 +164,7 @@
     --gavin-note-font-color: rgb(136, 136, 136);
     --gavin-hover-font-color: rgba(255, 255, 255, .9);
     --gavin-background: rgb(17, 17, 17);
+    --gavin-widget-bg: rgb(38,38,38);
     --vercel-background: rgb(17, 17, 17);
     --vercel-border-color: rgb(66, 68, 74);
     --vercel-hover-bg: rgba(51, 51, 51, 1);
@@ -2381,4 +2391,146 @@ a#music-list-title {
 #console-loading-icon i {
     font-size: 1.8rem;
     display: inline-block;
+}
+
+/* .loading-bg {
+    background: transparent;
+} */
+
+/* ***********侧边栏日历************ */
+.card-widget.card-times .item-headline {
+    display: none;
+}
+
+.card-widget.card-times {
+    padding: 0.8rem!important;
+}
+
+.aside-span1 {
+    height: 1rem;
+    display: block;
+    align-items: center;
+    display: flex;
+}
+
+#aside-calendar {
+    height: fit-content;
+    display: flex;
+}
+
+#aside-calendar, #aside-schedule {
+    background: var(--gavin-widget-bg);
+    border-radius: 0.5rem;
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+}
+
+#aside-area-top {
+    display: flex;
+}
+
+#aside-time-right, #aside-time-left {
+    background: var(--gavin-widget-bg);
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    font-family: Sans_clock;
+
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.3rem;
+    line-height: 2rem;
+}
+
+#aside-time-left {
+    width: 64%;
+}
+
+#aside-time-right {
+    width: 36%;
+    margin-left: 0.5rem;
+}
+
+#calendar-area-left {
+    height: 100%;
+    width: 30%;
+}
+
+#calendar-area-right {
+    height: 100%;
+    width: 70%;
+}
+
+#calendar-month, #calendar-week {
+    height: 1.1rem;
+    font-size: 1.1rem;
+    color: rgb(0, 150, 255);
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    align-items: center;
+    display: flex;
+}
+
+#calendar-month {
+    margin-left: calc(7.14% - 0.5rem);
+}
+
+#calendar-date {
+    height: 3rem;
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 1.2rem;
+    align-items: center;
+    display: flex;
+}
+
+#calendar-animal, #calendar-lunar {
+    height: 1.5rem;
+    font-size: 0.9rem;
+    align-items: center;
+    display: flex;
+}
+
+#calendar-main a {
+    height: 1rem;
+    width: 1rem;
+    border-radius: 50%;
+    font-size: 12px;
+    line-height: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--font-color);
+}
+
+#calendar-main a.now {
+    background: rgb(0, 150, 255);
+    color: #fff;
+}
+
+#calendar-main .calendar-rh a {
+    color: var(--gavin-note-font-color);
+}
+
+.calendar-rh,
+.calendar-r0,
+.calendar-r1,
+.calendar-r2,
+.calendar-r3,
+.calendar-r4 {
+    height: 1.2rem;
+    display: flex;
+}
+
+.calendar-d0,
+.calendar-d1,
+.calendar-d2,
+.calendar-d3,
+.calendar-d4,
+.calendar-d5,
+.calendar-d6 {
+    width: 14.28%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

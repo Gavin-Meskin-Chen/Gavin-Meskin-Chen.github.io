@@ -2843,4 +2843,8 @@ a#music-list-title {
   font-size: 1.8rem;
   display: inline-block;
 }
-/* *********************歌词显示************************ */
+
+/* ************加载动画***************** */
+.loading-bg {
+  background: transparent;
+}
