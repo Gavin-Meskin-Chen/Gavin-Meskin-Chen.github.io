@@ -1,57 +1,4 @@
 /* ***************************************************************颜色************************************************************** */
-/* @font-face {
-  font-family: 'HarmonyOS';	
-  src: url(/font/HarmonyOS_Sans_SC_Regular.woff2);
-  font-weight: bold;
-  font-style: normal;
-  font-display: block;
-} */
-
-@font-face {
-  font-family: 'Jinbu';	
-  src: url(/font/DingTalk_JinBuTi.woff2);
-  font-weight: normal;
-  font-style: normal;
-  font-display: block;
-}
-
-@font-face {
-  font-family: 'xiaozhuan';	
-  src: url(/font/参星阁.woff2);
-  font-weight: normal;
-  font-style: normal;
-  font-display: block;
-}
-
-@font-face {
-  font-family: 'Sans_clock';
-  src: url(/font/clock.woff2);
-  font-weight: normal;
-  font-style: normal;
-  font-display: block;
-}
-
-#page-header #site-title {
-  font-family: xiaozhuan;
-  font-weight: 100;
-  font-size: 5em;
-}
-
-@media screen and (max-width: 768px) {
-  #page-header #site-title {
-    font-size: 3.6em;
-  }
-}
-
-#article-container {
-  font-family: Jinbu;
-  font-size: 1.2rem;
-}
-
-#aside-content .card-info .card-info-data {
-  font-family: Jinbu;
-}
-
 :root {
   --text-bg-hover: rgba(50, 150, 250, .9);
   --search-bg: var(--gavin-op-5);
@@ -224,6 +171,52 @@
   --anzhiyu-shadow-lightblack: 0 5px 12px -5px rgba(102, 68, 68, 0);
   --anzhiyu-shadow-light2black: 0 5px 12px -5px rgba(102, 68, 68, 0);
   --anzhiyu-card-border: #42444a;
+}
+
+/* *****************************字体************************************ */
+@font-face {
+  font-family: 'Jinbu';	
+  src: url(/font/DingTalk_JinBuTi.woff2);
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'xiaozhuan';	
+  src: url(/font/参星阁.woff2);
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'Sans_clock';
+  src: url(/font/clock.woff2);
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+#page-header #site-title {
+  font-family: xiaozhuan;
+  font-weight: 100;
+  font-size: 5em;
+}
+
+@media screen and (max-width: 768px) {
+  #page-header #site-title {
+    font-size: 3.6em;
+  }
+}
+
+#article-container {
+  font-family: Jinbu;
+  font-size: 1.2rem;
+}
+
+#aside-content .card-info .card-info-data {
+  font-family: Jinbu;
 }
 
 /* ************************************************************导航栏***************************************************************** */
@@ -2426,6 +2419,12 @@ html.hide-aside .layout>div:first-child {
   background-size: cover;
 }
 
+.loading-bg {
+  background: var(--gavin-op-7);
+  backdrop-filter: blur(12px);
+  transition: 0.3s;
+}
+
 /* AdsBox隐藏 */
 #adsbox {
   display: none!important;
@@ -2443,31 +2442,39 @@ html.hide-aside .layout>div:first-child {
   flex-wrap: wrap;
 }
 
+.card_mask span::-webkit-scrollbar {display:none}
+
 .stars_box .card_box {
-  --w: calc(16.67% - 13px);
+  --w: calc(100% / 6 - 13px);
   width: var(--w) !important;
-  /* height: auto !important; */
+  height: auto !important;
   margin: 0px !important;
+  transition: 0.3s;
 }
 
-@media screen and (max-width: 1100px){
+@media screen and (max-width: 1300px){
   .stars_box .card_box {
-      --w: calc(20% - 12px);
+      --w: calc(100% / 5 - 12px);
   }
 }
-@media screen and (max-width: 900px){
+@media screen and (max-width: 1000px){
   .stars_box .card_box {
-    --w: calc(25% - 12px);
+    --w: calc(100% / 4 - 12px);
   }
 }
-@media screen and (max-width: 768px){
+@media screen and (max-width: 810px){
   .stars_box .card_box {
-    --w: calc(33.33% - 10px);
+    --w: calc(100% / 3 - 10px);
   }
 }
-@media screen and (max-width: 500px){
+@media screen and (max-width: 520px){
   .stars_box .card_box {
-    --w: calc(50% - 8px);
+    --w: calc(100% / 2 - 8px);
+  }
+}
+@media screen and (max-width: 350px){
+  .stars_box .card_box {
+    --w: 100%;
   }
 }
 
@@ -2840,12 +2847,6 @@ a#music-list-title {
   font-size: 1.8rem;
   display: inline-block;
 }
-
-/* ************加载动画***************** */
-
-/* .loading-bg {
-    background: transparent;
-} */
 
 /* ***********侧边栏日历************ */
 .card-widget.card-times .item-headline {

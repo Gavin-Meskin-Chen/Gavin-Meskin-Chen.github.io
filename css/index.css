@@ -4741,6 +4741,7 @@ span.mathjax-overflow {
   padding: 10px;
   color: #fff !important;
   margin: 10px auto;
+  line-height: 2rem;
 }
 .card_box::after {
   content: '';
@@ -4801,10 +4802,12 @@ span.mathjax-overflow {
   left: 0;
   top: 0;
   padding: 20px;
-  background: #333;
+  background: rgba(0,0,0,0.5);
 }
 .card_box .card_mask span {
   display: block;
+  font-size: 1rem;
+  line-height: 1rem;
   height: calc(100% - 40px);
   overflow: auto;
 }
@@ -4825,10 +4828,16 @@ span.mathjax-overflow {
 }
 .card_box .card_content {
   z-index: 1;
+  margin-top: 86%;
 }
 .card_box .card_content span {
   font-size: 18px;
   font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  display: block;
 }
 [data-theme='dark'] .card_box {
   color: #ddd !important;

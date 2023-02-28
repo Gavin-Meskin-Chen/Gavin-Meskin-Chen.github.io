@@ -4,6 +4,7 @@ function whenDOMReady() {
     console.log("pjax开启");
     musicState();
     cardTimes();
+    asideNote();
 }
 
 // 返回顶部 显示网页阅读进度
@@ -74,7 +75,7 @@ function cardTimes() {
     for (let r = 0; r < 5; r++) {
         for (let d = 0; d < 7; d++) {
             ds = document.querySelector(".calendar-r" + r + " .calendar-d" + d + " a"); //日历
-            if(ds){
+            if (ds) {
                 if (r == 0 && d == week_first) {
                     count_days = 1;
                     count_flag = true;
@@ -82,7 +83,7 @@ function cardTimes() {
                 ds.innerHTML = count_days;
                 if (count_days == date) {
                     var dd = document.querySelector("a.now");
-                    if(dd)dd.classList.remove("now");
+                    if (dd) dd.classList.remove("now");
                     ds.classList.add("now");
                 };
                 if (count_days > dates) {
@@ -94,10 +95,10 @@ function cardTimes() {
         }
     }
     var lunar = chineseLunar.solarToLunar(new Date(year, month, date));
-    var animalYear = chineseLunar.format(lunar, "A"), //生肖属相
-        ganzhiYear = chineseLunar.format(lunar, "T").slice(0,-1), //天干地支
-        lunarMon = chineseLunar.format(lunar, "M"), //月份
-        lunarDay = chineseLunar.format(lunar, "d"); //日期
+    animalYear = chineseLunar.format(lunar, "A"); //生肖属相
+    ganzhiYear = chineseLunar.format(lunar, "T").slice(0, -1); //天干地支
+    lunarMon = chineseLunar.format(lunar, "M"); //月份
+    lunarDay = chineseLunar.format(lunar, "d"); //日期
     asideTime = new Date("2023/01/01 00:00:00");	// 侧边栏倒计时
     asideDay = (now - asideTime) / 1e3 / 60 / 60 / 24;
     asideDayNum = Math.floor(asideDay);
@@ -108,12 +109,32 @@ function cardTimes() {
     var c_a = document.getElementById("calendar-animal");
     var c_l = document.getElementById("calendar-lunar");
     var a_t_l = document.getElementById("aside-time-left");
-    if(c_m)c_m.innerHTML = monthStr; //月份
-    if(c_w)c_w.innerHTML = weekStr; //星期
-    if(c_d)c_d.innerHTML = date; //日期
-    if(c_a)c_a.innerHTML = ganzhiYear + animalYear + "年"; //年份
-    if(c_l)c_l.innerHTML = lunarMon + lunarDay; //农历
-    if(a_t_l)a_t_l.innerHTML = year + "&nbsp;&nbsp;<a style='font-size:1.1rem;font-weight:bold;'>第</a>&nbsp;" + asideWeekNum + "&nbsp;<a style='font-size:1.1rem;font-weight:bold;'>周</a>";
+    if (c_m) c_m.innerHTML = monthStr; //月份
+    if (c_w) c_w.innerHTML = weekStr; //星期
+    if (c_d) c_d.innerHTML = date; //日期
+    if (c_a) c_a.innerHTML = ganzhiYear + animalYear + "年"; //年份
+    if (c_l) c_l.innerHTML = lunarMon + lunarDay; //农历
+    if (a_t_l) a_t_l.innerHTML = year + "&nbsp;&nbsp;<a style='font-size:1.1rem;font-weight:bold;'>第</a>&nbsp;" + asideWeekNum + "&nbsp;<a style='font-size:1.1rem;font-weight:bold;'>周</a>";
+}
+
+function asideNote() {
+    var noteCard = document.querySelector(".card-widget.card-announcement");
+    var noteArea = document.querySelector(".card-widget.card-announcement .announcement_content");
+    if (date == dates) {
+        noteCard.style.display = "";
+        noteArea.innerHTML = "<p align='center'>今天月末，做好总结</p>";
+    } else if (date == 1) {
+        noteCard.style.display = "";
+        noteArea.innerHTML = "<p align='center'>今天月初，做好规划</p>";
+    } else {
+        switch (lunarDay) {
+            case "十六":
+                noteCard.style.display = "";
+                noteArea.innerHTML = "<p align='center'>今晚月圆</p>";
+                break;
+            default: noteCard.style.display = "none";
+        }
+    }
 }
 
 // 音乐状态检测（已添加事件监听器，修复点击aplayer后导航栏和控制中心不同步的问题）

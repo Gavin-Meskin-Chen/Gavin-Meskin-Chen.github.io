@@ -8,8 +8,10 @@ var t_load;
 var now = new Date();
 var year, month, week, date, dates, weekStr, monthStr;
 var asideTime, asideDay, asideDayNum;
+var animalYear, ganzhiYear, lunarMon, lunarDay;
 
 cardTimes();
+asideNote();
 
 // 刷新时钟时间
 function cardRefreshTimes() {
