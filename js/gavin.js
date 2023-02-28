@@ -72,26 +72,37 @@ function cardTimes() {
     var count_days = "";
     var count_flag = false;
     var ds;
-    for (let r = 0; r < 5; r++) {
+    var row_h = 7 - week_first; //第一行天数
+    var row_f = (dates - row_h) % 7; //最后一行的天数
+    var rows = row_f == 0 ? Math.floor((dates - row_h) / 7) + 1 : Math.floor((dates - row_h) / 7) + 2;
+    var calendar = document.getElementById("calendar-main");
+    var gap = document.getElementById("calendar-date");
+    switch (rows) {
+        case 4: gap.style.marginBottom = "";break;
+        case 5: gap.style.marginBottom = "1.2rem";break;
+        case 6: gap.style.marginBottom = "2.4rem";break;
+        default: gap.style.marginBottom = "2.4rem";
+    }
+    for (let r = 0; r < rows; r++) {
+        if (calendar.querySelector(".calendar-r" + r) == null) {
+            calendar.innerHTML += "<div class='calendar-r"+r+"'></div>";
+        }
         for (let d = 0; d < 7; d++) {
-            ds = document.querySelector(".calendar-r" + r + " .calendar-d" + d + " a"); //日历
-            if (ds) {
-                if (r == 0 && d == week_first) {
-                    count_days = 1;
-                    count_flag = true;
-                }
-                ds.innerHTML = count_days;
-                if (count_days == date) {
-                    var dd = document.querySelector("a.now");
-                    if (dd) dd.classList.remove("now");
-                    ds.classList.add("now");
-                };
-                if (count_days > dates) {
-                    count_days = "";
-                    count_flag = false;
-                }
-                if (count_flag) count_days += 1;
+            if (r == 0 && d == week_first) { //本月第一天
+                count_days = 1;
+                count_flag = true;
             }
+            if (count_days == date) { //当日日期
+                ds = " class='now'";
+            } else ds = "";
+            if (calendar.querySelector(".calendar-r" + r + " .calendar-d" + d + " a") == null) {
+                calendar.querySelector(".calendar-r"+r).innerHTML += "<div class='calendar-d"+d+"'><a"+ds+">"+count_days+"</a></div>";
+            }
+            if (count_days >= dates) {
+                count_days = "";
+                count_flag = false;
+            }
+            if (count_flag) count_days += 1;
         }
     }
     var lunar = chineseLunar.solarToLunar(new Date(year, month, date));
@@ -111,7 +122,7 @@ function cardTimes() {
     var a_t_l = document.getElementById("aside-time-left");
     if (c_m) c_m.innerHTML = monthStr; //月份
     if (c_w) c_w.innerHTML = weekStr; //星期
-    if (c_d) c_d.innerHTML = date; //日期
+    if (c_d) c_d.innerHTML = date.toString().padStart(2, '0'); //日期
     if (c_a) c_a.innerHTML = ganzhiYear + animalYear + "年"; //年份
     if (c_l) c_l.innerHTML = lunarMon + lunarDay; //农历
     if (a_t_l) a_t_l.innerHTML = year + "&nbsp;&nbsp;<a style='font-size:1.1rem;font-weight:bold;'>第</a>&nbsp;" + asideWeekNum + "&nbsp;<a style='font-size:1.1rem;font-weight:bold;'>周</a>";
@@ -162,6 +173,49 @@ var tools = {
         var sec = Math.floor(s % 60);
         var t = min.toString().padStart(2, '0') + ":" + sec.toString().padStart(2, '0');
         return t;
+    },
+
+    detectBrowser: function () {
+        const userAgent = navigator.userAgent;
+        let browserName, fullVersion, majorVersion;
+        if (/Firefox[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent)) {// 检测Firefox
+            browserName = 'Firefox';
+            fullVersion = RegExp.$1;
+            majorVersion = parseInt(RegExp.$1, 10);
+        } else if (/Edge[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent)) {// 检测Edge
+            browserName = 'Edge (Chromium)';
+            fullVersion = RegExp.$1;
+            majorVersion = parseInt(RegExp.$1, 10);
+        } else if (/Edg[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent)) {// 检测Edge (旧版)
+            browserName = 'Edge';
+            fullVersion = RegExp.$1;
+            majorVersion = parseInt(RegExp.$1, 10);
+        } else if (/OPR[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent)) {// 检测Opera
+            browserName = 'Opera';
+            fullVersion = RegExp.$1;
+            majorVersion = parseInt(RegExp.$1, 10);
+        } else if (/Chrome[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent)) {// 检测Chrome
+            browserName = 'Chrome';
+            fullVersion = RegExp.$1;
+            majorVersion = parseInt(RegExp.$1, 10);
+        } else if (/Safari[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent)) {// 检测Safari
+            browserName = 'Safari';
+            fullVersion = RegExp.$1;
+            majorVersion = parseInt(RegExp.$1, 10);
+        } else if (/MSIE (\d+\.\d+);/.test(userAgent) || /Trident[\/\s](\d+\.\d+)/.test(userAgent)) {// 检测IE
+            browserName = 'Internet Explorer';
+            fullVersion = RegExp.$1;
+            majorVersion = parseInt(RegExp.$1, 10);
+        } else {// 无法检测浏览器
+            browserName = 'Unknown';
+            fullVersion = 'Unknown';
+            majorVersion = 0;
+        }
+        return {
+            name: browserName, //浏览器名称
+            version: fullVersion, //浏览器详细版本号
+            majorVersion: majorVersion //主版本号
+        };
     },
 
     randomColor: function () {
@@ -618,3 +672,36 @@ whenDOMReady(); // 打开网站先执行一次
 document.addEventListener("pjax:complete", whenDOMReady); // pjax加载完成（切换页面）后再执行一次
 // whenDOMReady函数外放一些打开网站之后只需要执行一次的函数和代码，比如一些监听代码。
 // 监听代码只需要执行一次即可，不需要每次加载pjax都执行，会出现一些Bug。至于为什么，我也不知道，可以自己试一下。
+
+// // 申请新浪微博开发者账号，获取app key和app secret
+// var appKey = 'your_app_key';
+// var appSecret = 'your_app_secret';
+
+// // 构造认证URL，引导用户授权
+// var authUrl = 'https://api.weibo.com/oauth2/authorize?client_id=' + appKey + '&redirect_uri=http://localhost&response_type=code';
+// console.log('请访问以下链接进行授权：', authUrl);
+
+// // 获取access token
+// var code = prompt('请将授权后获得的code输入到此处');
+// var tokenUrl = 'https://api.weibo.com/oauth2/access_token?client_id=' + appKey + '&client_secret=' + appSecret + '&grant_type=authorization_code&code=' + code + '&redirect_uri=http://localhost';
+// fetch(tokenUrl)
+//   .then(response => response.json())
+//   .then(data => {
+//     console.log('access token:', data.access_token);
+//     getLatestWeibo(data.access_token);
+//   });
+
+// // 获取最新微博
+// function getLatestWeibo(accessToken) {
+//   var uid = 'your_user_id'; // 新浪微博用户的uid
+//   var apiUrl = 'https://api.weibo.com/2/statuses/user_timeline.json?access_token=' + accessToken + '&uid=' + uid + '&count=1'; // count参数表示获取微博数
+//   fetch(apiUrl)
+//     .then(response => response.json())
+//     .then(data => {
+//       var weibo = data.statuses[0];
+//       console.log('微博内容:', weibo.text);
+//       if (weibo.pic_urls && weibo.pic_urls.length > 0) {
+//         console.log('微博图片:', weibo.pic_urls);
+//       }
+//     });
+// }
