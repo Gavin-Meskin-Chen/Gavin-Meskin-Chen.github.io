@@ -1182,6 +1182,7 @@ a.extend.prev:hover {
 #post .tag_share .post-meta__tags:hover {
   background: rgba(0, 136, 255, 1);
 }
+
 /* *****************************************************sidebar侧滑导航栏修改**************************************************************** */
 /* 手机端 侧边导航颜色和圆弧 */
 #sidebar #sidebar-menus .menus_items .site-page:hover {
@@ -1211,6 +1212,11 @@ a.extend.prev:hover {
 
 [data-theme='dark'] #sidebar #sidebar-menus {
   background: rgba(0, 0, 0, 0.1);
+}
+
+/* 侧滑菜单不显示滚动条 */
+#sidebar-menus::-webkit-scrollbar {
+  display: none
 }
 
 /* **************************************************************音乐播放器***************************************************************** */
