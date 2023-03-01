@@ -2869,8 +2869,11 @@ a#music-list-title {
 #aside-calendar, #aside-schedule {
   background: var(--gavin-widget-bg1);
   border-radius: 0.5rem;
-  margin-top: 0.5rem;
   padding: 0.5rem;
+}
+
+#aside-calendar {
+  margin-top: 0.5rem;
 }
 
 #aside-area-top {

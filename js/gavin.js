@@ -218,6 +218,21 @@ var tools = {
         };
     },
 
+    getMemoryUsage: function() {
+        const memory = performance.memory;
+        const totalMemory = memory.totalJSHeapSize / (1024 * 1024);
+        const usedMemory = memory.usedJSHeapSize / (1024 * 1024);
+        const memoryLimit = memory.jsHeapSizeLimit / (1024 * 1024);
+        console.log(`Total memory: ${totalMemory.toFixed(2)} MB`);
+        console.log(`Used memory: ${usedMemory.toFixed(2)} MB`);
+        console.log(`Memory limit: ${memoryLimit.toFixed(2)} MB`);
+        return {
+            totalM: totalMemory.toFixed(2),
+            usedM: usedMemory.toFixed(2),
+            limitM: memoryLimit.toFixed(2)
+        }
+    },
+
     randomColor: function () {
         var colors = ["rgba(0,150,255,.95)", "rgba(0,255,150,.95)", "rgba(255,150,0,.95)", "rgba(255,0,150,.95)", "rgba(150,255,0,.95)", "rgba(150,0,255,.95)"];
         var n = Math.floor(Math.random() * 6); //随机0-5
