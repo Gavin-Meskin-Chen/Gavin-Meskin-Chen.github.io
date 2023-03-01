@@ -1155,6 +1155,33 @@ a.extend.prev:hover {
   box-shadow: var(--card-hover-box-shadow);
 }
 
+/* 链接样式 */
+#article-container a {
+  color: var(--dis-f-0);
+  font-weight: bold;
+  border-bottom: 2px solid rgba(0, 136, 255, 1);
+}
+
+#article-container a:hover {
+  color: rgba(0, 136, 255, 1);
+  text-decoration: none;
+}
+
+/* 文本选中样式 */
+*::selection {
+  color: white;
+  background: rgb(0, 136, 255);
+}
+
+/* 文章末尾标签 */
+#post .tag_share .post-meta__tags {
+  border-radius: 1rem;
+  height: 1.85rem;
+}
+
+#post .tag_share .post-meta__tags:hover {
+  background: rgba(0, 136, 255, 1);
+}
 /* *****************************************************sidebar侧滑导航栏修改**************************************************************** */
 /* 手机端 侧边导航颜色和圆弧 */
 #sidebar #sidebar-menus .menus_items .site-page:hover {
@@ -2003,14 +2030,16 @@ h6::before {
 /* **************************文章版权框样式************************** */
 #post .post-copyright {
   /* background-color:rgba(70, 160, 250, 0.3); */
-  border-radius: 1rem;
-  border-color: rgba(5, 109, 232, 0.8);
-  /* border-color: var(--gavin-border-color); */
+  background-color:rgba(0, 150, 255, 0.2);
+  border-radius: 0.8rem;
+  /* border-color: rgba(5, 109, 232, 0.8); */
+  border-color: rgba(0, 150, 255, 0.95);
+  overflow: hidden;
   transition: all 0.3s ease-in-out;
 }
 
 #post .post-copyright .post-copyright-meta {
-  color: var(--font-color);
+  color: rgba(0, 136, 255, 1);
 }
 
 #post .post-copyright:hover {
@@ -2019,18 +2048,28 @@ h6::before {
 }
 
 #post .post-copyright .post-copyright-info {
-  color: var(--gavin-note-font-color);
+  color: var(--font-color);
 }
 
 #post .post-copyright .post-copyright-info a {
-  color: var(--gavin-note-font-color);
-  font-weight: bold;
+  color: var(--dis-f-0);
+  /* font-weight: bold; */
   text-decoration: none;
+  border-bottom: 2px solid rgba(0, 136, 255, 1);
 }
 
 #post .post-copyright .post-copyright-info a:hover {
   /* color: rgba(5,109,232,0.8); */
-  color: var(--gavin-hover-font-color);
+  /* color: var(--gavin-hover-font-color); */
+  /* border-bottom: 2px solid rgba(0, 136, 255, 1); */
+  color: rgba(0, 136, 255, 1);
+}
+
+#post .post-copyright:before {
+  color: rgba(0, 136, 255, .2);
+  top: -81px;
+  right: -18px;
+  font-size: 8.1em;
 }
 
 /* 打赏 */
