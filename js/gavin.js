@@ -78,14 +78,14 @@ function cardTimes() {
     var calendar = document.getElementById("calendar-main");
     var gap = document.getElementById("calendar-date");
     switch (rows) {
-        case 4: gap.style.marginBottom = "";break;
-        case 5: gap.style.marginBottom = "1.2rem";break;
-        case 6: gap.style.marginBottom = "2.4rem";break;
+        case 4: gap.style.marginBottom = ""; break;
+        case 5: gap.style.marginBottom = "1.2rem"; break;
+        case 6: gap.style.marginBottom = "2.4rem"; break;
         default: gap.style.marginBottom = "2.4rem";
     }
     for (let r = 0; r < rows; r++) {
         if (calendar.querySelector(".calendar-r" + r) == null) {
-            calendar.innerHTML += "<div class='calendar-r"+r+"'></div>";
+            calendar.innerHTML += "<div class='calendar-r" + r + "'></div>";
         }
         for (let d = 0; d < 7; d++) {
             if (r == 0 && d == week_first) { //本月第一天
@@ -96,7 +96,7 @@ function cardTimes() {
                 ds = " class='now'";
             } else ds = "";
             if (calendar.querySelector(".calendar-r" + r + " .calendar-d" + d + " a") == null) {
-                calendar.querySelector(".calendar-r"+r).innerHTML += "<div class='calendar-d"+d+"'><a"+ds+">"+count_days+"</a></div>";
+                calendar.querySelector(".calendar-r" + r).innerHTML += "<div class='calendar-d" + d + "'><a" + ds + ">" + count_days + "</a></div>";
             }
             if (count_days >= dates) {
                 count_days = "";
@@ -218,7 +218,7 @@ var tools = {
         };
     },
 
-    getMemoryUsage: function() {
+    getMemoryUsage: function () {
         const memory = performance.memory;
         const totalMemory = memory.totalJSHeapSize / (1024 * 1024);
         const usedMemory = memory.usedJSHeapSize / (1024 * 1024);

@@ -23,13 +23,13 @@ function cardRefreshTimes() {
     var p_w = document.getElementById("pBar_week");
     var p_s_w = document.getElementById("p_span_week");
     asideDay = (now - asideTime) / 1e3 / 60 / 60 / 24;
-    if(p_y)p_y.value = asideDay;
-    if(p_s_y)p_s_y.innerHTML = (asideDay / 365 * 100).toFixed(2) + "%";
-    if(a_t_r)a_t_r.innerHTML = now.getHours().toString().padStart(2, '0') + ":" + now.getMinutes().toString().padStart(2, '0') + ":" + now.getSeconds().toString().padStart(2, '0');
-    if(p_m){p_m.value = date; p_m.max = dates;}
-    if(p_s_m)p_s_m.innerHTML = (date / dates * 100).toFixed(2) + "%";
-    if(p_w)p_w.value = week==0 ? 7 : week;
-    if(p_s_w)p_s_w.innerHTML = ((week==0 ? 7 : week) / 7 * 100).toFixed(2) + "%";
+    if (p_y) p_y.value = asideDay;
+    if (p_s_y) p_s_y.innerHTML = (asideDay / 365 * 100).toFixed(2) + "%";
+    if (a_t_r) a_t_r.innerHTML = now.getHours().toString().padStart(2, '0') + ":" + now.getMinutes().toString().padStart(2, '0') + ":" + now.getSeconds().toString().padStart(2, '0');
+    if (p_m) { p_m.value = date; p_m.max = dates; }
+    if (p_s_m) p_s_m.innerHTML = (date / dates * 100).toFixed(2) + "%";
+    if (p_w) p_w.value = week == 0 ? 7 : week;
+    if (p_s_w) p_s_w.innerHTML = ((week == 0 ? 7 : week) / 7 * 100).toFixed(2) + "%";
 }
 
 // 刷新页脚时间
