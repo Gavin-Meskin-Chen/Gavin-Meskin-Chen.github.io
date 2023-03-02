@@ -1219,16 +1219,31 @@ h1,h2,h3,h4,h5,h6 {
   opacity: 1;
 }
 
+/* 字间距 */
 #article-container p, #article-container li {
   letter-spacing: 0.7px;
 }
 
-#article-container ol{
+#article-container ol, #article-container ul{
   padding-inline-start: 1.5rem;
 }
 
+/* 序号 */
 #article-container li::marker {
   color: rgba(0, 136, 255, 1);
+}
+
+/* 引用高亮 */
+#article-container code {
+  background: rgba(255,136,0,1);
+  color: white;
+  border-radius: 4px;
+  font-size: 1rem;
+  margin: 0 4px;
+}
+
+[data-theme="dark"] #article-container code {
+  background: rgba(255,136,0,0.7);
 }
 /* *****************************************************sidebar侧滑导航栏修改**************************************************************** */
 /* 手机端 侧边导航颜色和圆弧 */
