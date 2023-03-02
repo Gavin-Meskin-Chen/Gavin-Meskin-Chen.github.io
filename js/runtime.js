@@ -12,6 +12,7 @@ var animalYear, ganzhiYear, lunarMon, lunarDay;
 
 cardTimes();
 asideNote();
+console.log("\n %cGC音频控制器 v1.3.2 参星阁出品%c https://gavin-chen.top \n", "color: #fadfa3; background: #030307; padding:5px 0;", "background: #fadfa3; padding:5px 0;")
 
 // 刷新时钟时间
 function cardRefreshTimes() {
@@ -64,10 +65,9 @@ setInterval(() => {
 
 // 设置重复执行函数，周期500ms
 setInterval(() => {
-    if (document.querySelector("meting-js").aplayer != undefined) meting_load = 0;
+    if (document.querySelector("meting-js").aplayer != null) meting_load = 0;
     if (meting_load == 0 && listener == 0) {
         // 监测aplayer加载完开始注入音乐列表
-        console.log("\n %cGC音频控制器 v1.3.2 参星阁出品%c https://gavin-chen.top \n", "color: #fadfa3; background: #030307; padding:5px 0;", "background: #fadfa3; padding:5px 0;")
         ctrl.importMusicList();
         // 音乐开始与暂停监听
         var ap = document.querySelector("meting-js").aplayer;
@@ -138,12 +138,12 @@ setInterval(() => {
             t_load = setInterval(() => {
                 current_len = ap.list.audios.length;
                 if (current_len < newSongsheetLen) {
-                    console.log("current_len: " + current_len);
+                    // console.log("current_len: " + current_len);
                 } else {
-                    console.log("开始导入")
+                    // console.log("开始导入")
                     ctrl.importMusicList();
                     global_music_flag = 1;
-                    console.log("导入完毕")
+                    // console.log("导入完毕")
                     clearInterval(t_load);
                     document.getElementById("console-loading-icon").classList.remove("show");
                     ctrl.consoleBackBtn();

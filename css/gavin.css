@@ -184,7 +184,7 @@
 /* *****************************字体************************************ */
 @font-face {
   font-family: 'Jinbu';
-  src: url(/font/DingTalk_JinBuTi.woff2);
+  src: url(/font/jinbu.woff2);
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -219,7 +219,7 @@
 }
 
 #article-container {
-  font-family: Jinbu;
+  /* font-family: Jinbu; */
   font-size: 1.2rem;
 }
 
@@ -1183,6 +1183,53 @@ a.extend.prev:hover {
   background: rgba(0, 136, 255, 1);
 }
 
+/* 文章各级标题样式 */
+h1,h2,h3,h4,h5,h6 {
+  padding-left: 0 !important;
+  color: var(--dis-f-0);
+}
+
+#article-container.post-content h2 {
+  line-height: 1.6rem;
+  font-size: 1.6rem;
+  padding-top: 2rem;
+  border-top: 1px dashed var(--gavin-border-color);
+  margin: 2rem 0;
+}
+
+#article-container.post-content h3 {
+  line-height: 1.4rem;
+  font-size: 1.4rem;
+  margin: 1rem 0;
+}
+
+#article-container .headerlink::before {
+  content: "\f0c1";
+  font-family: "Font Awesome 5 Free";
+}
+
+#article-container .headerlink {
+  float: right;
+  border: none;
+  font-size: 1.2rem;
+  opacity: 0.1;
+}
+
+#article-container .headerlink:hover {
+  opacity: 1;
+}
+
+#article-container p, #article-container li {
+  letter-spacing: 0.7px;
+}
+
+#article-container ol{
+  padding-inline-start: 1.5rem;
+}
+
+#article-container li::marker {
+  color: rgba(0, 136, 255, 1);
+}
 /* *****************************************************sidebar侧滑导航栏修改**************************************************************** */
 /* 手机端 侧边导航颜色和圆弧 */
 #sidebar #sidebar-menus .menus_items .site-page:hover {
@@ -2317,9 +2364,9 @@ h6::before {
   width: 100%;
 }
 
-.page:not(.page.home) #aside-content {
+/* .page:not(.page.home) #aside-content {
   display: none;
-}
+} */
 
 /* 无侧边栏页，无背景和边框 */
 .page:not(.page.home) #page,
