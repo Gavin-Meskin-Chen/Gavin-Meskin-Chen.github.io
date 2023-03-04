@@ -2047,13 +2047,18 @@ h6::before {
 /* *************link链接样式修改，默认样式太单调了************* */
 #article-container a.link-card {
   background: var(--card-link-bg) !important;
-  border: 1px solid var(--card-link-border);
+  border: 1px solid var(--card-link-border)!important;
   width: 100%;
 }
 
 #article-container a.link-card:hover {
+  color: var(--dis-f-0)!important;
   background-color: var(--card-link-border) !important;
   box-shadow: 0 2px 8px 0 var(--card-link-border) !important;
+}
+
+#article-container a.link-card p.url {
+  display: none;
 }
 
 /* ****************************顶部彩色加载条******************************** */
