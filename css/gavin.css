@@ -11,7 +11,9 @@
   --vercel-btn-border: var(--dis-f-0);
 
 
-  /*rgba(51, 144, 255, .5)*/
+  /* HarmonyOS */
+  --hmos-white-snow: #F1F3F5;
+
 
   /* 以下是安知鱼颜色 */
   --anzhiyu-theme-op: #4259ef23;
@@ -84,6 +86,14 @@
   --card-link-border: rgba(0, 150, 255, .5);
 
 
+
+
+  /* HarmonyOS */
+  --hmos-theme: #0A59F7;
+
+
+
+
   /* 以下是安知鱼颜色 */
   --anzhiyu-theme: rgba(50, 150, 250, .9);
   --anzhiyu-theme-op: #000000;
@@ -153,6 +163,15 @@
   --card-link-border: rgba(240, 240, 240, .6);
   --font-color: rgba(255, 255, 255, .8);
 
+
+
+
+  /* HarmonyOS */
+  --hmos-theme: #317AF7;
+
+
+
+
   /* 以下是安知鱼颜色 */
   --anzhiyu-theme: rgba(240, 240, 240, .24);
   --anzhiyu-theme-op: #0084ff23;
@@ -180,7 +199,10 @@
   --anzhiyu-shadow-light2black: 0 5px 12px -5px rgba(102, 68, 68, 0);
   --anzhiyu-card-border: #42444a;
 }
-
+/* border-radius: 0;
+mask-image: paint(smooth-corners);    
+-webkit-mask-image: paint(smooth-corners);
+--smooth-level: 24; */
 /* *****************************字体************************************ */
 @font-face {
   font-family: 'Jinbu';
@@ -1060,13 +1082,9 @@ center#name-container {
   background: var(--card-bg);
 }
 
-.post-reward .reward-main .reward-all,
-/* 打赏 */
+.post-reward .reward-main .reward-all,/* 打赏 */
 .post-reward .reward-main .reward-all .reward-item img,
-#article-container img
-
-/* 文章图片 */
-  {
+#article-container img /* 文章图片 */{
   border-radius: 0.8rem;
 }
 
@@ -1155,14 +1173,14 @@ a.extend.prev:hover {
   box-shadow: var(--card-hover-box-shadow);
 }
 
-/* 链接样式 */
-#article-container a {
+/* 文章页链接样式 */
+#post #article-container a {
   color: var(--dis-f-0);
   font-weight: bold;
   border-bottom: 2px solid rgba(0, 136, 255, 1);
 }
 
-#article-container a:hover {
+#post #article-container a:hover {
   color: rgba(0, 136, 255, 1);
   text-decoration: none;
 }
@@ -1927,7 +1945,7 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
 /* *******************************************外挂标签样式********************************************** */
 /* 文章页H1-H6图标样式效果 */
 /* 控制风车转动速度 4s那里可以自己调节快慢 */
-h1::before,
+/* h1::before,
 h2::before,
 h3::before,
 h4::before,
@@ -1935,10 +1953,10 @@ h5::before,
 h6::before {
   -webkit-animation: ccc 4s linear infinite;
   animation: ccc 4s linear infinite;
-}
+} */
 
 /* 控制风车转动方向 -1turn 为逆时针转动，1turn 为顺时针转动，相同数字部分记得统一修改 */
-@-webkit-keyframes ccc {
+/* @-webkit-keyframes ccc {
   0% {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
@@ -1960,10 +1978,10 @@ h6::before {
     -webkit-transform: rotate(-1turn);
     transform: rotate(-1turn);
   }
-}
+} */
 
 /* 设置风车颜色 */
-#content-inner.layout h1::before {
+/* #content-inner.layout h1::before {
   color: #ef50a8;
   margin-left: -1.55rem;
   font-size: 1.3rem;
@@ -2003,10 +2021,10 @@ h6::before {
   margin-left: -0.9rem;
   font-size: 0.66rem;
   margin-top: 0rem;
-}
+} */
 
 /* s设置风车hover动效 6s那里可以自己调节快慢*/
-#content-inner.layout h1:hover,
+/* #content-inner.layout h1:hover,
 #content-inner.layout h2:hover,
 #content-inner.layout h3:hover,
 #content-inner.layout h4:hover,
@@ -2024,9 +2042,9 @@ h6::before {
   color: var(--theme-color);
   -webkit-animation: ccc 6s linear infinite;
   animation: ccc 6s linear infinite;
-}
+} */
 
-/* link链接样式修改，默认样式太单调了。。。 */
+/* *************link链接样式修改，默认样式太单调了************* */
 #article-container a.link-card {
   background: var(--card-link-bg) !important;
   border: 1px solid var(--card-link-border);
@@ -2379,20 +2397,20 @@ h6::before {
   width: 100%;
 }
 
-/* .page:not(.page.home) #aside-content {
+.page:not(.home) #aside-content {
   display: none;
-} */
+}
 
 /* 无侧边栏页，无背景和边框 */
-.page:not(.page.home) #page,
-.page:not(.page.home) #archive {
+.page:not(.home) #page,
+.page:not(.home) #archive {
   background: none !important;
   -webkit-box-shadow: none !important;
   box-shadow: none !important;
 }
 
-.page:not(.page.home) #page:hover,
-.page:not(.page.home) #archive:hover {
+.page:not(.home) #page:hover,
+.page:not(.home) #archive:hover {
   background: none !important;
   -webkit-box-shadow: none !important;
   box-shadow: none !important;
@@ -2417,7 +2435,7 @@ h6::before {
 #article-container .flink .flink-list>.flink-list-item {
   border: 1px solid var(--vercel-border-color);
   background: var(--card-bg);
-  /* -webkit-transform: none; */
+  border-radius: 0.8rem;
 }
 
 /* *************************首页轮播图************************** */

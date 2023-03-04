@@ -6,7 +6,7 @@ function whenDOMReady() {
     cardTimes();
     asideNote();
 }
-
+if ('paintWorklet' in CSS) {CSS.paintWorklet.addModule('js/paint.js');}
 // 返回顶部 显示网页阅读进度
 window.onscroll = percent; // 执行函数
 // 页面百分比
