@@ -73,7 +73,8 @@
   --gavin-border-hover-color: rgb(0, 100, 255);
   --gavin-note-font-color: rgb(102, 102, 102);
   --gavin-hover-font-color: rgba(0, 0, 0, 1);
-  --gavin-background: rgb(241, 243, 245);/*247,249,254*/
+  --gavin-background: rgb(241, 243, 245);
+  /*247,249,254*/
   --gavin-widget-bg1: rgb(241, 241, 241);
   --gavin-widget-bg2: rgb(223, 223, 223);
   --vercel-background: rgb(250, 250, 250);
@@ -148,9 +149,12 @@
   --gavin-border-hover-color: #fff;
   --gavin-note-font-color: rgb(136, 136, 136);
   --gavin-hover-font-color: rgba(255, 255, 255, .9);
-  --gavin-background: rgb(0, 0, 0);/*17,17,17*/
-  --gavin-widget-bg1: rgb(46,48,51);/*38, 38, 38*/
-  --gavin-widget-bg2: rgb(66,67,70);/*60, 60, 60*/
+  --gavin-background: rgb(0, 0, 0);
+  /*17,17,17*/
+  --gavin-widget-bg1: rgb(46, 48, 51);
+  /*38, 38, 38*/
+  --gavin-widget-bg2: rgb(66, 67, 70);
+  /*60, 60, 60*/
   --vercel-background: rgb(17, 17, 17);
   --vercel-border-color: rgb(66, 68, 74);
   --vercel-hover-bg: rgba(51, 51, 51, 1);
@@ -199,6 +203,7 @@
   --anzhiyu-shadow-light2black: 0 5px 12px -5px rgba(102, 68, 68, 0);
   --anzhiyu-card-border: #42444a;
 }
+
 /* border-radius: 0;
 mask-image: paint(smooth-corners);    
 -webkit-mask-image: paint(smooth-corners);
@@ -1027,6 +1032,12 @@ center#name-container {
   border-radius: 0.8rem;
 }
 
+@media screen and (min-width: 900px) and (max-width: 1050px) {
+  #recent-posts>.recent-post-item {
+    width: 100% !important;
+  }
+}
+
 #aside-content .aside-list>.aside-list-item {
   border-radius: 0.8rem;
   /*0.5rem*/
@@ -1082,9 +1093,13 @@ center#name-container {
   background: var(--card-bg);
 }
 
-.post-reward .reward-main .reward-all,/* 打赏 */
+.post-reward .reward-main .reward-all,
+/* 打赏 */
 .post-reward .reward-main .reward-all .reward-item img,
-#article-container img /* 文章图片 */{
+#article-container img
+
+/* 文章图片 */
+  {
   border-radius: 0.8rem;
 }
 
@@ -1185,6 +1200,21 @@ a.extend.prev:hover {
   text-decoration: none;
 }
 
+/* 文章引用和参考文献样式 */
+#article-container .reference a {
+  font-size: 0.8rem;
+  border: none !important;
+  color: rgb(0, 136, 255) !important;
+}
+
+#article-container .reference-source a {
+  font-size: 1.1rem;
+}
+
+.reference-title{
+  display: none;
+}
+
 /* 文本选中样式 */
 *::selection {
   color: white;
@@ -1202,7 +1232,12 @@ a.extend.prev:hover {
 }
 
 /* 文章各级标题样式 */
-h1,h2,h3,h4,h5,h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   padding-left: 0 !important;
   color: var(--dis-f-0);
 }
@@ -1228,7 +1263,7 @@ h1,h2,h3,h4,h5,h6 {
 
 #article-container .headerlink {
   float: right;
-  border: none!important;
+  border: none !important;
   font-size: 1.2rem;
   opacity: 0.1;
 }
@@ -1238,11 +1273,13 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 /* 字间距 */
-#article-container p, #article-container li {
+#article-container p,
+#article-container li {
   letter-spacing: 0.7px;
 }
 
-#article-container ol, #article-container ul{
+#article-container ol,
+#article-container ul {
   padding-inline-start: 1.5rem;
 }
 
@@ -1253,7 +1290,7 @@ h1,h2,h3,h4,h5,h6 {
 
 /* 引用高亮 */
 #article-container code {
-  background: rgba(255,136,0,1);
+  background: rgba(255, 136, 0, 1);
   color: white;
   border-radius: 4px;
   font-size: 1rem;
@@ -1261,7 +1298,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 [data-theme="dark"] #article-container code {
-  background: rgba(255,136,0,0.7);
+  background: rgba(255, 136, 0, 0.7);
 }
 
 /* 主页侧边栏sticky的bug */
@@ -1274,11 +1311,12 @@ h1,h2,h3,h4,h5,h6 {
   margin-top: 0;
 }
 
-@media screen and (min-width: 900px){
+@media screen and (min-width: 900px) {
   #aside-content {
     padding-right: 20px;
   }
 }
+
 /* *****************************************************sidebar侧滑导航栏修改**************************************************************** */
 /* 手机端 侧边导航颜色和圆弧 */
 #sidebar #sidebar-menus .menus_items .site-page:hover {
@@ -1487,8 +1525,8 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
 #console .console-btn-group .console-btn-item a {
   width: 100%;
   height: 100%;
-  background: var(--card-bg);
-  border: var(--style-border);
+  background: var(--f-0);
+  /* border: var(--style-border); */
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -2063,12 +2101,12 @@ h6::before {
 /* *************link链接样式修改，默认样式太单调了************* */
 #article-container a.link-card {
   background: var(--card-link-bg) !important;
-  border: 1px solid var(--card-link-border)!important;
+  border: 1px solid var(--card-link-border) !important;
   width: 100%;
 }
 
 #article-container a.link-card:hover {
-  color: var(--dis-f-0)!important;
+  color: var(--dis-f-0) !important;
   background-color: var(--card-link-border) !important;
   box-shadow: 0 2px 8px 0 var(--card-link-border) !important;
 }
@@ -2137,7 +2175,7 @@ h6::before {
 /* **************************文章版权框样式************************** */
 #post .post-copyright {
   /* background-color:rgba(70, 160, 250, 0.3); */
-  background-color:rgba(0, 150, 255, 0.2);
+  background-color: rgba(0, 150, 255, 0.2);
   border-radius: 0.8rem;
   /* border-color: rgba(5, 109, 232, 0.8); */
   border-color: rgba(0, 150, 255, 0.95);
@@ -2462,6 +2500,7 @@ h6::before {
 #article-container .flink .flink-list {
   padding: 0;
 }
+
 /* *************************首页轮播图************************** */
 #home_top {
   margin: 0 auto 0;
@@ -2534,8 +2573,8 @@ a:hover {
 
 /* 轮播补充 */
 div#bannerGroup {
-  width: calc(43% - 20px) !important;
-  margin-right: 20px !important;
+  width: calc(43% - 15px) !important;
+  margin-right: 15px !important;
 }
 
 #random #random-banner #skills-style-group-all {
@@ -2570,7 +2609,7 @@ span.top-group-text {
 }
 
 .category-bar-item a {
-  padding: 0.1rem 0.8rem!important;
+  padding: 0.1rem 0.8rem !important;
   line-height: 1.7rem;
   display: flex;
 }
@@ -2756,9 +2795,14 @@ html.hide-aside .layout>div:first-child {
   margin: 1rem auto 0 auto;
   width: 18rem;
   height: 30rem;
-  border-radius: 1.8rem;
-  border: var(--style-border);
-  background: var(--card-bg);
+  /* border-radius: 1.8rem; */
+  border-radius: 0;
+  mask-image: paint(smooth-corners);
+  -webkit-mask-image: paint(smooth-corners);
+  --smooth-level: 40;
+  /*曲率连续圆角*/
+  /* border: var(--style-border); */
+  background: var(--f-0);
   position: fixed;
   top: 3.5rem;
   opacity: 0;
@@ -2782,8 +2826,14 @@ html.hide-aside .layout>div:first-child {
 /* 封面 */
 #console-music-cover {
   width: 100%;
+  overflow: hidden;
   /* height: calc(100% - 12rem); */
-  border-radius: 0.5rem;
+  /* border-radius: 0.5rem; */
+  border-radius: 0;
+  mask-image: paint(smooth-corners);
+  -webkit-mask-image: paint(smooth-corners);
+  --smooth-level: 15;
+  /*曲率连续圆角*/
 }
 
 /* 曲名和作者 */
@@ -3098,7 +3148,13 @@ a#music-list-title {
 .list-songsheet-cover {
   height: 4rem;
   width: 4rem;
-  border-radius: 0.5rem;
+  /* border-radius: 0.5rem; */
+  border-radius: 0;
+  mask-image: paint(smooth-corners);
+  -webkit-mask-image: paint(smooth-corners);
+  --smooth-level: 15;
+  /*曲率连续圆角*/
+
 }
 
 .list-songsheet-title {
@@ -3146,7 +3202,12 @@ a#music-list-title {
 #aside-calendar,
 #aside-schedule {
   background: var(--gavin-widget-bg1);
-  border-radius: 0.5rem;
+  /* border-radius: 0.5rem; */
+  border-radius: 0;
+  mask-image: paint(smooth-corners);
+  -webkit-mask-image: paint(smooth-corners);
+  --smooth-level: 12;
+  /*曲率连续圆角*/
   padding: 0.5rem;
 }
 
@@ -3161,7 +3222,12 @@ a#music-list-title {
 #aside-time-right,
 #aside-time-left {
   background: var(--gavin-widget-bg1);
-  border-radius: 0.5rem;
+  /* border-radius: 0.5rem; */
+  border-radius: 0;
+  mask-image: paint(smooth-corners);
+  -webkit-mask-image: paint(smooth-corners);
+  --smooth-level: 12;
+  /*曲率连续圆角*/
   padding: 0.5rem;
   font-family: Sans_clock;
   display: flex;
@@ -3268,14 +3334,24 @@ a#music-list-title {
 /* 任务进度条 */
 progress::-webkit-progress-bar {
   background-color: var(--gavin-widget-bg2);
-  border-radius: 0.4rem;
+  /* border-radius: 0.4rem; */
+  border-radius: 0;
+  mask-image: paint(smooth-corners);
+  -webkit-mask-image: paint(smooth-corners);
+  --smooth-level: 7;
+  /*曲率连续圆角*/
   padding: 0.2rem;
   transition: 0.3s;
 }
 
 progress::-webkit-progress-value {
   background-color: rgba(0, 150, 255, .75);
-  border-radius: 0.3rem;
+  /* border-radius: 0.3rem; */
+  border-radius: 0;
+  mask-image: paint(smooth-corners);
+  -webkit-mask-image: paint(smooth-corners);
+  --smooth-level: 5;
+  /*曲率连续圆角*/
 }
 
 .aside-span1 {
