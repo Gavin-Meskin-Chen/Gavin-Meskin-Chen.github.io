@@ -1,4 +1,5 @@
-// import { Notification, Button } from '@arco-design/web-react';
+// import { Notification } from '@arco-design/web-vue';
+// let { Notification } = require('@arco-design/web-vue');
 // const { render } = require("react-dom");
 // export default {
 //     setup() {
@@ -466,7 +467,6 @@ var ctrl = {
         var ap = document.querySelector("meting-js").aplayer;
         ap.list.clear();
         ap.list.add(JaySongsheet);
-        tools.showMessage("周杰伦专属歌单导入成功！","success",1);
     },
 
     //初始化console图标
@@ -546,48 +546,7 @@ songsheet4.addEventListener("click", function (e) {
 });
 addSongsheet.addEventListener("click", function (e) {
     console.log("自定义专辑");
-    new Vue({
-        data: function () {
-            // this.$message({
-            //     message: "有空再写吧",
-            //     showClose: true,
-            //     type: "warning",
-            //     duration: 3000
-            // });
-            // this.$prompt('请输入邮箱', '提示', {
-            //     confirmButtonText: '确定',
-            //     cancelButtonText: '取消',
-            //     inputPattern: /[\w!#$%&'*+/=?^_`{|}~-]+(?:\.[\w!#$%&'*+/=?^_`{|}~-]+)*@(?:[\w](?:[\w-]*[\w])?\.)+[\w](?:[\w-]*[\w])?/,
-            //     inputErrorMessage: '邮箱格式不正确'
-            // }).then(({ value }) => {
-            //     this.$message({
-            //         type: 'success',
-            //         message: '你的邮箱是: ' + value
-            //     });
-            // }).catch(() => {
-            //     this.$message({
-            //         type: 'info',
-            //         message: '取消输入'
-            //     });
-            // });
-      
-            this.$notify({
-                title: "阁主令",
-                message: "有空再写吧",
-                position: 'top-right',
-                showClose: true,
-                type: "warning",
-                duration: 3000
-            });
-        }
-    })
-    // render()
-    // Notification.info({
-    //     closable: false,
-    //     title: 'Notification',
-    //     content: 'This is a notification!',
-    // })
-
+    tools.showNote("有空再写吧","warning",3)
 });
 
 
