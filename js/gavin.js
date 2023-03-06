@@ -1,3 +1,17 @@
+// import { Notification, Button } from '@arco-design/web-react';
+// const { render } = require("react-dom");
+// export default {
+//     setup() {
+//       const handleNotification = () => {
+//         Notification.info({
+//           title: 'Notification',
+//           content: 'This is a notification!',
+//         })
+//       }
+  
+//       return { handleNotification }
+//     }
+//   }
 // pjax适配
 function whenDOMReady() {
     // pjax加载完成（切换页面）后需要执行的函数和代码
@@ -5,8 +19,15 @@ function whenDOMReady() {
     musicState();
     cardTimes();
     asideNote();
+    // new Vue().$mount('#app')
 }
+
 if ('paintWorklet' in CSS) {CSS.paintWorklet.addModule('js/paint.js');}
+
+// window.onload = function () {
+//     new Vue().$mount('#app')
+// }
+
 // 返回顶部 显示网页阅读进度
 window.onscroll = percent; // 执行函数
 // 页面百分比
@@ -134,14 +155,17 @@ function asideNote() {
     if (date == dates) {
         noteCard.style.display = "";
         noteArea.innerHTML = "<p align='center'>今天月末，做好总结</p>";
+        tools.showNote("今天月末，做好总结","warning",0)
     } else if (date == 1) {
         noteCard.style.display = "";
         noteArea.innerHTML = "<p align='center'>今天月初，做好规划</p>";
+        tools.showNote("今天月初，做好规划","warning",0)
     } else {
         switch (lunarDay) {
             case "十六":
                 noteCard.style.display = "";
                 noteArea.innerHTML = "<p align='center'>今晚月圆</p>";
+                tools.showNote("今晚月圆","success",0)
                 break;
             default: noteCard.style.display = "none";
         }
@@ -233,6 +257,34 @@ var tools = {
         }
     },
 
+    showNote: function (text, style, delay) {
+        new Vue({
+            data: function () {
+                this.$notify({
+                    title: "阁主令",
+                    message: text,
+                    position: 'top-right',
+                    showClose: true,
+                    type: style,
+                    duration: delay*1000
+                });
+            }
+        })
+    },
+
+    showMessage: function (text, style, delay) {
+        new Vue({
+            data: function () {
+                this.$message({
+                    message: text,
+                    showClose: true,
+                    type: style,
+                    duration: delay*1000
+                });
+            }
+        })
+    },
+
     randomColor: function () {
         var colors = ["rgba(0,150,255,.95)", "rgba(0,255,150,.95)", "rgba(255,150,0,.95)", "rgba(255,0,150,.95)", "rgba(150,255,0,.95)", "rgba(150,0,255,.95)"];
         var n = Math.floor(Math.random() * 6); //随机0-5
@@ -249,10 +301,12 @@ var ctrl = {
             activateDarkMode();
             saveToLocal.set('theme', 'dark', 2);
             GLOBAL_CONFIG.Snackbar !== undefined && btf.snackbarShow(GLOBAL_CONFIG.Snackbar.day_to_night);
+            tools.showMessage("已切换至深色模式","success",1);
         } else {
             activateLightMode();
             saveToLocal.set('theme', 'light', 2);
             GLOBAL_CONFIG.Snackbar !== undefined && btf.snackbarShow(GLOBAL_CONFIG.Snackbar.night_to_day);
+            tools.showMessage("已切换至浅色模式","success",1);
         }
         typeof utterancesTheme === 'function' && utterancesTheme();
         typeof changeGiscusTheme === 'function' && changeGiscusTheme();
@@ -304,9 +358,11 @@ var ctrl = {
         if (irc === null) {
             a.classList.add("aplayer-lrc-hide");
             b.classList.remove("on");
+            tools.showMessage("桌面歌词已关闭","success",1);
         } else {
             a.classList.remove("aplayer-lrc-hide");
             b.classList.add("on");
+            tools.showMessage("桌面歌词已打开","success",1);
         }
     },
 
@@ -316,9 +372,11 @@ var ctrl = {
         if ($htmlDom.contains('hide-aside')) {
             saveToLocal.set('aside-status', 'show', 2);
             document.querySelector("#asideItem").classList.remove("on");
+            tools.showMessage("侧边栏已启用","success",1);
         } else {
             saveToLocal.set('aside-status', 'hide', 2);
             document.querySelector("#asideItem").classList.add("on");
+            tools.showMessage("侧边栏已隐藏","success",1);
         }
         $htmlDom.toggle('hide-aside');
     },
@@ -408,6 +466,7 @@ var ctrl = {
         var ap = document.querySelector("meting-js").aplayer;
         ap.list.clear();
         ap.list.add(JaySongsheet);
+        tools.showMessage("周杰伦专属歌单导入成功！","success",1);
     },
 
     //初始化console图标
@@ -487,7 +546,48 @@ songsheet4.addEventListener("click", function (e) {
 });
 addSongsheet.addEventListener("click", function (e) {
     console.log("自定义专辑");
-    alert("有空再写...");
+    new Vue({
+        data: function () {
+            // this.$message({
+            //     message: "有空再写吧",
+            //     showClose: true,
+            //     type: "warning",
+            //     duration: 3000
+            // });
+            // this.$prompt('请输入邮箱', '提示', {
+            //     confirmButtonText: '确定',
+            //     cancelButtonText: '取消',
+            //     inputPattern: /[\w!#$%&'*+/=?^_`{|}~-]+(?:\.[\w!#$%&'*+/=?^_`{|}~-]+)*@(?:[\w](?:[\w-]*[\w])?\.)+[\w](?:[\w-]*[\w])?/,
+            //     inputErrorMessage: '邮箱格式不正确'
+            // }).then(({ value }) => {
+            //     this.$message({
+            //         type: 'success',
+            //         message: '你的邮箱是: ' + value
+            //     });
+            // }).catch(() => {
+            //     this.$message({
+            //         type: 'info',
+            //         message: '取消输入'
+            //     });
+            // });
+      
+            this.$notify({
+                title: "阁主令",
+                message: "有空再写吧",
+                position: 'top-right',
+                showClose: true,
+                type: "warning",
+                duration: 3000
+            });
+        }
+    })
+    // render()
+    // Notification.info({
+    //     closable: false,
+    //     title: 'Notification',
+    //     content: 'This is a notification!',
+    // })
+
 });
 
 

@@ -460,16 +460,13 @@ ul.menus_item_child {
 /* 毛玻璃特效 */
 #nav {
   /* top: 0; */
-  padding: 0 calc((100% - 1420px) / 2);
+  padding: 0 3.6%;
   -webkit-backdrop-filter: saturate(180%) blur(20px);
   /* Warning: Also define the standard property '' for compatibility */
   backdrop-filter: saturate(180%) blur(20px);
   /* saturate饱和度 contrast对比度 blur高斯模糊 */
-
   /* 以下是导航栏新改的 */
   background-color: var(--gavin-op-nav) !important;
-  padding-left: 10px;
-  padding-right: 10px;
   box-shadow: var(--card-box-shadow) !important;
 }
 
@@ -645,7 +642,7 @@ center#name-container {
   font-size: 1.3em;
 }
 
-/* 左上角6点按钮样式 */
+/* 左上角6点（菜单）按钮样式 */
 .back-home-button:hover {
   background: var(--anzhiyu-main);
   color: #fff !important;
@@ -661,6 +658,7 @@ center#name-container {
   margin-right: 4px;
   transition: 0.3s;
   border-radius: 8px;
+  font-size: 1.8rem;
 }
 
 /* 6点 */
@@ -957,6 +955,12 @@ center#name-container {
   background-color: var(--gavin-item-bg);
   border-radius: 0.4em;
   color: var(--font-color) !important;
+}
+
+@media screen and (max-width: 768px) {
+  .tag-cloud-list a {
+    font-size: 1.3rem;
+  }
 }
 
 /* 页码 */
@@ -1482,7 +1486,7 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
   height: 100vh;
   top: 0;
   left: 0;
-  z-index: 9999;
+  z-index: 999;
   justify-content: center;
   opacity: 0;
   transition: 0.3s ease-out;
@@ -3392,4 +3396,14 @@ progress::-webkit-progress-value {
   width: calc(100% - 3rem);
   align-items: center;
   display: flex;
+}
+
+/* ********通知样式********* */
+.el-notification {
+  border: none!important;
+  background-color: var(--gavin-background)!important;
+}
+
+.el-notification__title, .el-notification__content, .el-notification__closeBtn {
+  color: var(--font-color)!important;
 }

@@ -146,6 +146,7 @@ setInterval(() => {
                     // console.log("导入完毕")
                     clearInterval(t_load);
                     document.getElementById("console-loading-icon").classList.remove("show");
+                    tools.showMessage("歌单导入成功！","success",1);
                     ctrl.consoleBackBtn();
                 }
             }, 50);

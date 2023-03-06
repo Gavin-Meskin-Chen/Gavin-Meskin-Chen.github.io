@@ -54,7 +54,10 @@ document.addEventListener('DOMContentLoaded', function () {
       // document.getElementById('iconCharMode').innerHTML = msgToTraditionalChinese
       saveToLocal.set(targetEncodingCookie, targetEncoding, 2)
       translateBody()
-      if (isSnackbar) btf.snackbarShow(snackbarData.cht_to_chs)
+      if (isSnackbar) {
+        btf.snackbarShow(snackbarData.cht_to_chs)
+      }
+      tools.showMessage("已切换至简体","success",1);
     } else if (targetEncoding === 2) {
       currentEncoding = 2
       targetEncoding = 1
@@ -65,7 +68,10 @@ document.addEventListener('DOMContentLoaded', function () {
       // document.getElementById('iconCharMode').innerHTML = msgToSimplifiedChinese
       saveToLocal.set(targetEncodingCookie, targetEncoding, 2)
       translateBody()
-      if (isSnackbar) btf.snackbarShow(snackbarData.chs_to_cht)
+      if (isSnackbar) {
+        btf.snackbarShow(snackbarData.chs_to_cht)
+      }
+      tools.showMessage("已切換至繁體","success",1);
     }
   }
   function JTPYStr () {
