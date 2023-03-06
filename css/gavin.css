@@ -3399,11 +3399,24 @@ progress::-webkit-progress-value {
 }
 
 /* ********通知样式********* */
-.el-notification {
+/* .el-notification {
   border: none!important;
   background-color: var(--gavin-background)!important;
-}
+} */
 
-.el-notification__title, .el-notification__content, .el-notification__closeBtn {
+/* .el-notification__title, .el-notification__content, .el-notification__closeBtn {
   color: var(--font-color)!important;
+} */
+
+.element-note-bg-success {
+  background-color: rgb(210, 255, 200)!important;
+}
+.element-note-bg-warning {
+  background-color: rgb(255,235,215)!important;
+}
+.element-note-bg-info {
+  background-color: rgb(200, 225, 255)!important;
+}
+.element-note-bg-error {
+  background-color: rgb(255,225,225)!important;
 }

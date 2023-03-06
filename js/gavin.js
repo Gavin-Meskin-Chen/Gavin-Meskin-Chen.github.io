@@ -166,7 +166,7 @@ function asideNote() {
             case "十六":
                 noteCard.style.display = "";
                 noteArea.innerHTML = "<p align='center'>今晚月圆</p>";
-                tools.showNote("今晚月圆","success",0)
+                tools.showNote("今晚月圆","success",5)
                 break;
             default: noteCard.style.display = "none";
         }
@@ -262,10 +262,11 @@ var tools = {
         new Vue({
             data: function () {
                 this.$notify({
-                    title: "阁主令",
+                    title: '阁主令',
                     message: text,
                     position: 'top-right',
                     showClose: true,
+                    customClass: 'element-note-bg-' + style,
                     type: style,
                     duration: delay*1000
                 });
@@ -489,6 +490,10 @@ var ctrl = {
     }
 
 }
+
+document.addEventListener("copy", function() {
+    tools.showMessage("复制成功！转载请注明来源！","success",2);
+})
 
 // 主页/音乐列表/歌单列表 切换
 var music_list_switch = document.getElementById("music-ctrl-btn-end");
