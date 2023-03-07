@@ -2311,8 +2311,8 @@ figure.highlight pre .javascript .function {
 }
 #article-container .flink .flink-list {
   overflow: auto;
-  padding: 10px 10px 0;
-  text-align: center;
+  padding: 10px 10px 20px 20px;
+  text-align: left;
 }
 #article-container .flink .flink-list > .flink-list-item {
   position: relative;
@@ -2379,35 +2379,39 @@ figure.highlight pre .javascript .function {
   width: 60px;
   height: 60px;
   border-radius: 35px;
-  -webkit-transition: width 0.3s ease-out;
-  -moz-transition: width 0.3s ease-out;
-  -o-transition: width 0.3s ease-out;
-  -ms-transition: width 0.3s ease-out;
-  transition: width 0.3s ease-out;
+  -webkit-transition: all 0.6s;
+  -moz-transition: all 0.6s;
+  -o-transition: all 0.6s;
+  -ms-transition: all 0.6s;
+  transition: all 0.6s;
 }
 #article-container .flink .flink-list > .flink-list-item a .flink-item-icon img {
   width: 100%;
   height: 100%;
-  -webkit-transition: filter 375ms ease-in 0.2s, -webkit-transform 0.3s;
-  -moz-transition: filter 375ms ease-in 0.2s, -moz-transform 0.3s;
-  -o-transition: filter 375ms ease-in 0.2s, -o-transform 0.3s;
-  -ms-transition: filter 375ms ease-in 0.2s, -ms-transform 0.3s;
-  transition: filter 375ms ease-in 0.2s, transform 0.3s;
+  -webkit-transition: all 0.675s;
+  -moz-transition: all 0.675s;
+  -o-transition: all 0.675s;
+  -ms-transition: all 0.675s;
+  transition: all 0.675s;
   object-fit: cover;
 }
 #article-container .flink .flink-list > .flink-list-item a .img-alt {
   display: none;
 }
 #article-container .flink .flink-item-name {
-  padding: 16px 10px 0 0;
-  height: 40px;
+  padding: 20px 20px 0 20px;
+  height: 45px;
   font-weight: bold;
-  font-size: 1.43em;
+  font-size: 1.2em;
 }
 #article-container .flink .flink-item-desc {
-  padding: 16px 10px 16px 0;
-  height: 50px;
-  font-size: 0.93em;
+  padding: 0 20px 20px 20px;
+  height: 45px;
+  font-size: 0.9em;
+  opacity: 0.7;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+  filter: alpha(opacity=70);
+  font-weight: bold;
 }
 #article-container .flink .flink-name {
   margin-bottom: 5px;

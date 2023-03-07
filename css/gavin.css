@@ -1,6 +1,5 @@
 /* ***************************************************************颜色************************************************************** */
 :root {
-  --text-bg-hover: rgba(50, 150, 250, .9);
   --search-bg: var(--gavin-op-5);
   --rightside-bg: var(--gavin-op-1);
   /* --card-box-shadow: 0 0px 1px 1px rgba(7, 17, 27, .25); */
@@ -82,6 +81,7 @@
   --vercel-hover-bg: rgba(234, 234, 234, 1);
   /* --font-color: #2e2e2e; */
   --font-color: rgba(0, 0, 0, .8);
+  --text-bg-hover: rgba(0, 150, 255, .9);
   --card-bg: #fff;
   --card-link-bg: rgba(0, 150, 255, .3);
   --card-link-border: rgba(0, 150, 255, .5);
@@ -368,7 +368,7 @@ div#menus {
 
 #nav .menus_items .menus_item .menus_item_child li {
   margin: 6px;
-  border-radius: 5px;
+  border-radius: 9px!important;
   transition: all 0.3s;
   display: inline-block;
   margin: 0 3px;
@@ -445,7 +445,7 @@ ul.menus_item_child {
 #nav .menus_items .menus_item .menus_item_child {
   top: 44px;
   /* 弧度微调 */
-  border-radius: 8px;
+  border-radius: 12px;
   border: 1px solid var(--gavin-border-color);
 }
 
@@ -1268,6 +1268,7 @@ h6 {
 #article-container .headerlink {
   float: right;
   border: none !important;
+  text-decoration: none !important;
   font-size: 1.2rem;
   opacity: 0.1;
 }
@@ -2505,6 +2506,25 @@ h6::before {
   padding: 0;
 }
 
+#article-container .flink .flink-list>.flink-list-item:hover .flink-item-name {
+  color: white;
+  transition: all 0.3s;
+}
+#article-container .flink .flink-list>.flink-list-item:hover .flink-item-desc {
+  color: white;
+  opacity: .7;
+  transition: all 0.3s;
+}
+
+/* #article-container .flink .flink-list>.flink-list-item:hover .flink-item-icon {
+  transition: all 0.6s;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  margin: 0.5rem;
+  min-width: 0px;
+  min-height: 0px;
+} */
 /* *************************首页轮播图************************** */
 #home_top {
   margin: 0 auto 0;
@@ -2670,6 +2690,7 @@ span.top-group-text {
   min-height: 80px;
   background: var(--heo-secondbg);
   -webkit-mask-image: -webkit-radial-gradient(center, rgb(255, 255, 255), rgb(0, 0, 0));
+  mask-image: -webkit-radial-gradient(center, rgb(255, 255, 255), rgb(0, 0, 0));
 }
 
 /* "更多 */
@@ -3399,10 +3420,14 @@ progress::-webkit-progress-value {
 }
 
 /* ********通知样式********* */
-/* .el-notification {
-  border: none!important;
-  background-color: var(--gavin-background)!important;
-} */
+.el-notification {
+  /* border: none!important;
+  background-color: var(--gavin-background)!important; */
+  border-radius: 0;
+  mask-image: paint(smooth-corners);    
+  -webkit-mask-image: paint(smooth-corners);
+  --smooth-level: 16;
+}
 
 /* .el-notification__title, .el-notification__content, .el-notification__closeBtn {
   color: var(--font-color)!important;

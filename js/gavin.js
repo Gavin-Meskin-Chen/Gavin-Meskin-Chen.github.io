@@ -264,7 +264,7 @@ var tools = {
                 this.$notify({
                     title: '阁主令',
                     message: text,
-                    position: 'top-right',
+                    position: 'top-left',
                     showClose: true,
                     customClass: 'element-note-bg-' + style,
                     type: style,
