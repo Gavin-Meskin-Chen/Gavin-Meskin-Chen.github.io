@@ -1712,6 +1712,7 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
 #footer-wrap,
 #footer-wrap a {
   color: var(--gavin-note-font-color);
+  font-weight: bold;
 }
 
 /* 隐藏底部foot */
@@ -2497,9 +2498,13 @@ h6::before {
 
 /* **************************友链样式************************* */
 #article-container .flink .flink-list>.flink-list-item {
-  border: 1px solid var(--vercel-border-color);
+  /* border: 1px solid var(--vercel-border-color); */
   background: var(--card-bg);
-  border-radius: 0.8rem;
+  /* border-radius: 0.8rem; */
+  border-radius: 0;
+  mask-image: paint(smooth-corners);    
+  -webkit-mask-image: paint(smooth-corners);
+  --smooth-level: 24;
 }
 
 #article-container .flink .flink-list {
@@ -2516,15 +2521,12 @@ h6::before {
   transition: all 0.3s;
 }
 
-/* #article-container .flink .flink-list>.flink-list-item:hover .flink-item-icon {
+#article-container .flink .flink-list>.flink-list-item:hover .flink-item-icon {
   transition: all 0.6s;
-  width: 0;
-  height: 0;
   opacity: 0;
-  margin: 0.5rem;
-  min-width: 0px;
-  min-height: 0px;
-} */
+  width: 0;
+  /* height: 0; */
+}
 /* *************************首页轮播图************************** */
 #home_top {
   margin: 0 auto 0;
