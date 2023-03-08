@@ -462,7 +462,7 @@ ul.menus_item_child {
 /* 毛玻璃特效 */
 #nav {
   /* top: 0; */
-  padding: 0 3.6%;
+  padding: 0 4.5%;
   -webkit-backdrop-filter: saturate(180%) blur(20px);
   /* Warning: Also define the standard property '' for compatibility */
   backdrop-filter: saturate(180%) blur(20px);
