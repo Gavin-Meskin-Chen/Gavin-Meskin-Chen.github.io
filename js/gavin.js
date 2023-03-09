@@ -156,11 +156,11 @@ function asideNote() {
     if (date == dates) {
         noteCard.style.display = "";
         noteArea.innerHTML = "<p align='center'>今天月末，做好总结</p>";
-        tools.showNote("今天月末，做好总结","warning",0)
+        tools.showNote("今天月末，做好总结","warning",5)
     } else if (date == 1) {
         noteCard.style.display = "";
         noteArea.innerHTML = "<p align='center'>今天月初，做好规划</p>";
-        tools.showNote("今天月初，做好规划","warning",0)
+        tools.showNote("今天月初，做好规划","warning",5)
     } else {
         switch (lunarDay) {
             case "十六":
@@ -303,12 +303,12 @@ var ctrl = {
             activateDarkMode();
             saveToLocal.set('theme', 'dark', 2);
             GLOBAL_CONFIG.Snackbar !== undefined && btf.snackbarShow(GLOBAL_CONFIG.Snackbar.day_to_night);
-            tools.showMessage("已切换至深色模式","success",1);
+            tools.showMessage("已切换至深色模式","success",2);
         } else {
             activateLightMode();
             saveToLocal.set('theme', 'light', 2);
             GLOBAL_CONFIG.Snackbar !== undefined && btf.snackbarShow(GLOBAL_CONFIG.Snackbar.night_to_day);
-            tools.showMessage("已切换至浅色模式","success",1);
+            tools.showMessage("已切换至浅色模式","success",2);
         }
         typeof utterancesTheme === 'function' && utterancesTheme();
         typeof changeGiscusTheme === 'function' && changeGiscusTheme();
@@ -360,11 +360,11 @@ var ctrl = {
         if (irc === null) {
             a.classList.add("aplayer-lrc-hide");
             b.classList.remove("on");
-            tools.showMessage("桌面歌词已关闭","success",1);
+            tools.showMessage("桌面歌词已关闭","success",2);
         } else {
             a.classList.remove("aplayer-lrc-hide");
             b.classList.add("on");
-            tools.showMessage("桌面歌词已打开","success",1);
+            tools.showMessage("桌面歌词已打开","success",2);
         }
     },
 
@@ -374,11 +374,11 @@ var ctrl = {
         if ($htmlDom.contains('hide-aside')) {
             saveToLocal.set('aside-status', 'show', 2);
             document.querySelector("#asideItem").classList.remove("on");
-            tools.showMessage("侧边栏已启用","success",1);
+            tools.showMessage("侧边栏已启用","success",2);
         } else {
             saveToLocal.set('aside-status', 'hide', 2);
             document.querySelector("#asideItem").classList.add("on");
-            tools.showMessage("侧边栏已隐藏","success",1);
+            tools.showMessage("侧边栏已隐藏","success",2);
         }
         $htmlDom.toggle('hide-aside');
     },

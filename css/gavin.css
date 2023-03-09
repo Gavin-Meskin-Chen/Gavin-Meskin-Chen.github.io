@@ -361,7 +361,7 @@ div#menus {
 
 /* 顶栏修改 */
 #nav .menus_items .menus_item .menus_item_child li a {
-  padding: 2px 16px;
+  padding: 0 16px;
 }
 
 #nav .menus_items .menus_item .menus_item_child li:hover a {
@@ -1558,7 +1558,7 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
 }
 
 #console .console-btn-group i {
-  font-size: 1.8rem;
+  font-size: 2rem;
   display: flex;
   align-items: center;
   /*图标大小*/
@@ -2932,11 +2932,12 @@ html.hide-aside .layout>div:first-child {
 }
 
 /* 字色和字号 */
-#music-ctrl-btn-first,
-#music-ctrl-btn-left,
-#music-ctrl-btn-right,
-#music-ctrl-btn-end {
+#music-ctrl-btn-first i,
+#music-ctrl-btn-left i,
+#music-ctrl-btn-right i,
+#music-ctrl-btn-end i{
   font-size: 1.5rem;
+  font-weight: 900;
 }
 
 .console-music-ctrl-item a {
@@ -3435,14 +3436,14 @@ progress::-webkit-progress-value {
   border-radius: 0;
   mask-image: paint(smooth-corners);    
   -webkit-mask-image: paint(smooth-corners);
-  --smooth-level: 16;
+  --smooth-level: 12;
 }
 
 /* .el-notification__title, .el-notification__content, .el-notification__closeBtn {
   color: var(--font-color)!important;
 } */
 
-.element-note-bg-success {
+/* .element-note-bg-success {
   background-color: rgb(210, 255, 200)!important;
 }
 .element-note-bg-warning {
@@ -3453,4 +3454,4 @@ progress::-webkit-progress-value {
 }
 .element-note-bg-error {
   background-color: rgb(255,225,225)!important;
-}
+} */

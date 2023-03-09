@@ -92,6 +92,8 @@ setInterval(() => {
                     ids[now_music_id].classList.add("hide");
                     states[now_music_id].classList.add("show");
                     ids[now_music_id].parentElement.parentElement.style.backgroundColor = "var(--vercel-hover-bg)";
+                    ids[now_music_id].parentElement.parentElement.classList.add("current-play");
+                    ids[now_music_id].parentElement.parentElement.scrollIntoView({behavior: 'smooth'});
                 }
             }
         });
@@ -103,33 +105,85 @@ setInterval(() => {
         });
         // 播放模式按钮监听（循环 / 随机）
         var play_mode = document.getElementById("music-ctrl-btn-first");
-        var ap_play_mode = document.querySelector(".aplayer-icon.aplayer-icon-order");
-        var loop_str = '<path d="M0.622 18.334h19.54v7.55l11.052-9.412-11.052-9.413v7.549h-19.54v3.725z"></path>';
+        var mode_flag;
+        var mode_id;
+        var ap_order_mode = document.querySelector(".aplayer-icon.aplayer-icon-order");
+        var ap_loop_mode = document.querySelector(".aplayer-icon.aplayer-icon-loop");
+        var order_str = '<path d="M0.622 18.334h19.54v7.55l11.052-9.412-11.052-9.413v7.549h-19.54v3.725z"></path>';
         var random_str = '<path d="M22.667 4l7 6-7 6 7 6-7 6v-4h-3.653l-3.76-3.76 2.827-2.827 2.587 2.587h2v-8h-2l-12 12h-6v-4h4.347l12-12h3.653v-4zM2.667 8h6l3.76 3.76-2.827 2.827-2.587-2.587h-4.347v-4z"></path>';
+        var dis_loop_str = '<path d="M2.667 7.027l1.707-1.693 22.293 22.293-1.693 1.707-4-4h-11.64v4l-5.333-5.333 5.333-5.333v4h8.973l-8.973-8.973v0.973h-2.667v-3.64l-4-4zM22.667 17.333h2.667v5.573l-2.667-2.667v-2.907zM22.667 6.667v-4l5.333 5.333-5.333 5.333v-4h-10.907l-2.667-2.667h13.573z"></path>';
+        var loop_str = '<path d="M9.333 9.333h13.333v4l5.333-5.333-5.333-5.333v4h-16v8h2.667v-5.333zM22.667 22.667h-13.333v-4l-5.333 5.333 5.333 5.333v-4h16v-8h-2.667v5.333z"></path>';
+        var repeat_str = '<path d="M9.333 9.333h13.333v4l5.333-5.333-5.333-5.333v4h-16v8h2.667v-5.333zM22.667 22.667h-13.333v-4l-5.333 5.333 5.333 5.333v-4h16v-8h-2.667v5.333zM17.333 20v-8h-1.333l-2.667 1.333v1.333h2v5.333h2z"></path>';
         play_mode.addEventListener("click", function (e) {
-            var ap_play_mode_str = document.querySelector(".aplayer-icon.aplayer-icon-order svg path").outerHTML;
-            if (ap_play_mode_str == loop_str) {
-                play_mode.querySelector("i").classList.remove("fa-repeat");
-                play_mode.querySelector("i").classList.add("fa-shuffle");
-                ap_play_mode.click();
-            } else if (ap_play_mode_str == random_str) {
-                play_mode.querySelector("i").classList.remove("fa-shuffle");
-                play_mode.querySelector("i").classList.add("fa-repeat");
-                ap_play_mode.click();
-            } else alert("程序错误，请刷新！");
+            var ap_order_mode_str = document.querySelector(".aplayer-icon.aplayer-icon-order svg path").outerHTML;
+            var ap_loop_mode_str = document.querySelector(".aplayer-icon.aplayer-icon-loop svg path").outerHTML;
+            var ap_order_flag = ap_order_mode_str == order_str ? 0 : 1; // ap_order_flag: 0-顺序 1乱序
+            var ap_loop_flag;
+            switch(ap_loop_mode_str) { // ap_loop_flag: 0-不循环 1-循环 2-单曲循环
+                case dis_loop_str: ap_loop_flag=0;break;
+                case loop_str: ap_loop_flag=1;break;
+                case repeat_str: ap_loop_flag=2;break;
+                default: ap_loop_flag = 0;
+            }
+            if (ap_order_flag == 0){ // mode_flag: 0-顺序 1-随机 2-单曲循环
+                switch(ap_loop_flag){
+                    case 0: mode_flag = 0;mode_id = 0;break; // mode_id: 0、3、5无效，1、2、4有效
+                    case 1: mode_flag = 0;mode_id = 1;break;
+                    case 2: mode_flag = 2;mode_id = 2;break;
+                    default: mode_flag = 0;mode_id = 1;
+                }
+            } else {
+                switch(ap_loop_flag){
+                    case 0: mode_flag = 1;mode_id = 3;break;
+                    case 1: mode_flag = 1;mode_id = 4;break;
+                    case 2: mode_flag = 2;mode_id = 5;break;
+                    default: mode_flag = 0;mode_id = 1;
+                }
+            }
+            switch(mode_flag){
+                case 0: // 顺序 -> 随机
+                    play_mode.querySelector("i").classList.remove("icon-loop-play");
+                    play_mode.querySelector("i").classList.add("icon-random-play");
+                    if(mode_id == 0){ // mode_id: 0、3、5无效，1、2、4有效
+                        ap_order_mode.click();ap_loop_mode.click(); // 0,0 -> 1,1
+                    } else ap_order_mode.click(); // 0,1 -> 1,1
+                    tools.showMessage("已切换至随机播放","success",2);
+                    break;
+                case 1: // 随机 -> 单曲循环
+                    play_mode.querySelector("i").classList.remove("icon-random-play");
+                    play_mode.querySelector("i").classList.add("icon-repeat-play");
+                    if(mode_id == 3){ // mode_id: 0、3、5无效，1、2、4有效
+                        ap_order_mode.click();ap_loop_mode.click();ap_loop_mode.click(); // 1,0 -> 0,2
+                    } else {
+                        ap_order_mode.click();ap_loop_mode.click(); // 1,1 -> 0,2
+                    }
+                    tools.showMessage("已切换至单曲循环","success",2);
+                    break;
+                case 2: // 单曲循环 -> 顺序
+                    play_mode.querySelector("i").classList.remove("icon-repeat-play");
+                    play_mode.querySelector("i").classList.add("icon-loop-play");
+                    if(mode_id == 5){ // mode_id: 0、3、5无效，1、2、4有效
+                        ap_order_mode.click();ap_loop_mode.click();ap_loop_mode.click(); // 1,2 -> 0,1
+                    } else {
+                        ap_loop_mode.click();ap_loop_mode.click(); // 0,2 -> 0,1
+                    }
+                    tools.showMessage("已切换至顺序播放","success",2);
+                    break;
+                default: alert("程序错误，请刷新！");
+            }
         });
-        ap_play_mode.addEventListener("click", function (e) {
-            var ap_play_mode_str = ap_play_mode.querySelector("svg path").outerHTML;
-            if (ap_play_mode_str == loop_str) {
-                play_mode.querySelector("i").classList.remove("fa-shuffle");
-                play_mode.querySelector("i").classList.add("fa-repeat");
-                console.log("进入顺序播放模式");
-            } else if (ap_play_mode_str == random_str) {
-                play_mode.querySelector("i").classList.remove("fa-repeat");
-                play_mode.querySelector("i").classList.add("fa-shuffle");
-                console.log("进入随机播放模式");
-            } else alert("程序错误，请刷新！");
-        });
+        // ap_order_mode.addEventListener("click", function (e) {
+        //     var ap_order_mode_str = ap_order_mode.querySelector("svg path").outerHTML;
+        //     if (ap_order_mode_str == order_str) {
+        //         play_mode.querySelector("i").classList.remove("icon-random-play");
+        //         play_mode.querySelector("i").classList.add("icon-loop-play");
+        //         console.log("进入顺序播放模式");
+        //     } else if (ap_order_mode_str == random_str) {
+        //         play_mode.querySelector("i").classList.remove("icon-loop-play");
+        //         play_mode.querySelector("i").classList.add("icon-random-play");
+        //         console.log("进入随机播放模式");
+        //     } else alert("程序错误，请刷新！");
+        // });
         // 歌单切换监听
         ap.on("listclear", function () {
             document.getElementById("console-music-list").innerHTML = "";
