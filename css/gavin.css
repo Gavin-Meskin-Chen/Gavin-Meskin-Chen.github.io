@@ -1459,6 +1459,17 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
   transition: 0.3s;
 }
 
+#console .settings-btn {
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  display: flex;
+  right: calc(5% + 50px);
+  font-size: 35px;
+  color: #fff;
+  cursor: pointer;
+  transition: .3s;
+}
 
 /* 控制中心按钮样式 */
 #console-switch {
@@ -2848,6 +2859,7 @@ html.hide-aside .layout>div:first-child {
   padding: 1.3rem;
 }
 
+#console-settings.item-show,
 #console-music-item-main.item-show,
 #console-music-item-list.item-show,
 #console-music-item-lrc.item-show,
