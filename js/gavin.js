@@ -496,7 +496,7 @@ document.addEventListener("copy", () => {
 });
 var set_music = document.querySelector("#set-switch-music input");
 var mplayer = document.getElementById("mplayer");
-mplayer.style.display = set_music.checked ? "" : "none";
+if(mplayer)mplayer.style.display = set_music.checked ? "" : "none";
 set_music.addEventListener('change',() => {
     mplayer.style.display = set_music.checked ? "" : "none";
 });
