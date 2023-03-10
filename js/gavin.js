@@ -494,12 +494,15 @@ var ctrl = {
 document.addEventListener("copy", () => {
     if(notice_state) tools.showMessage("复制成功！转载请注明来源！","success",2);
 });
-var set_music = document.querySelector("#set-switch-music input");
-var mplayer = document.getElementById("mplayer");
-if(mplayer)mplayer.style.display = set_music.checked ? "" : "none";
-set_music.addEventListener('change',() => {
+window.onload = function(){
+    var set_music = document.querySelector("#set-switch-music input");
+    var mplayer = document.getElementById("mplayer");
     mplayer.style.display = set_music.checked ? "" : "none";
-});
+    set_music.addEventListener('change',() => {
+        mplayer.style.display = set_music.checked ? "" : "none";
+    });
+}
+
 var set_notice = document.querySelector("#set-switch-notice input");
 notice_state = set_notice.checked ? true : false;
 set_notice.addEventListener("change", () => {
