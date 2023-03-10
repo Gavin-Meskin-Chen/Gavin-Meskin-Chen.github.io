@@ -20,6 +20,7 @@ function whenDOMReady() {
     musicState();
     cardTimes();
     asideNote();
+    notice_state = set_notice.checked ? true : false;
     // new Vue().$mount('#app')
 }
 
