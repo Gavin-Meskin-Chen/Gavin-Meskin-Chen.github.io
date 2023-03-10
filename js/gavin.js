@@ -24,7 +24,7 @@ function whenDOMReady() {
 }
 
 if ('paintWorklet' in CSS) {CSS.paintWorklet.addModule('js/paint.js');}
-
+var notice_state = true;
 // window.onload = function () {
 //     new Vue().$mount('#app')
 // }
@@ -156,17 +156,17 @@ function asideNote() {
     if (date == dates) {
         noteCard.style.display = "";
         noteArea.innerHTML = "<p align='center'>今天月末，做好总结</p>";
-        tools.showNote("今天月末，做好总结","warning",5)
+        if(notice_state) tools.showNote("今天月末，做好总结","warning",5)
     } else if (date == 1) {
         noteCard.style.display = "";
         noteArea.innerHTML = "<p align='center'>今天月初，做好规划</p>";
-        tools.showNote("今天月初，做好规划","warning",5)
+        if(notice_state) tools.showNote("今天月初，做好规划","warning",5)
     } else {
         switch (lunarDay) {
             case "十六":
                 noteCard.style.display = "";
                 noteArea.innerHTML = "<p align='center'>今晚月圆</p>";
-                tools.showNote("今晚月圆","success",5)
+                if(notice_state) tools.showNote("今晚月圆","success",5)
                 break;
             default: noteCard.style.display = "none";
         }
@@ -303,12 +303,12 @@ var ctrl = {
             activateDarkMode();
             saveToLocal.set('theme', 'dark', 2);
             GLOBAL_CONFIG.Snackbar !== undefined && btf.snackbarShow(GLOBAL_CONFIG.Snackbar.day_to_night);
-            tools.showMessage("已切换至深色模式","success",2);
+            if(notice_state) tools.showMessage("已切换至深色模式","success",2);
         } else {
             activateLightMode();
             saveToLocal.set('theme', 'light', 2);
             GLOBAL_CONFIG.Snackbar !== undefined && btf.snackbarShow(GLOBAL_CONFIG.Snackbar.night_to_day);
-            tools.showMessage("已切换至浅色模式","success",2);
+            if(notice_state) tools.showMessage("已切换至浅色模式","success",2);
         }
         typeof utterancesTheme === 'function' && utterancesTheme();
         typeof changeGiscusTheme === 'function' && changeGiscusTheme();
@@ -332,23 +332,23 @@ var ctrl = {
 
     // 菜单返回
     consoleBackBtn: function () {
-        var top_item = document.querySelector(".item-show");
-        switch (top_item.id) {
-            case 'console-music-item-mini': break;
-            case 'console-music-item-main': ctrl.hideConsole(); break;
-            case 'console-music-item-list':
-                top_item.classList.remove("item-show");
-                document.getElementById("console-music-item-main").classList.add("item-show");
-                break;
-            case 'console-songsheet-item-list':
-                top_item.classList.remove("item-show");
-                document.getElementById("console-music-item-list").classList.add("item-show");
-                break;
-            case 'console-music-item-lrc':
-                top_item.classList.remove("item-show");
-                document.getElementById("console-music-item-main").classList.add("item-show");
-                break;
-            default: console.log("异常情况");
+        var top_item = document.querySelectorAll(".item-show");
+        if(top_item.length == 1){
+            switch (top_item[0].id) {
+                case 'console-music-item-mini': break;
+                case 'console-music-item-main': ctrl.hideConsole(); break;
+                case 'console-music-item-list':
+                    top_item[0].classList.remove("item-show");
+                    document.getElementById("console-music-item-main").classList.add("item-show");
+                    break;
+                case 'console-songsheet-item-list':
+                    top_item[0].classList.remove("item-show");
+                    document.getElementById("console-music-item-list").classList.add("item-show");
+                    break;
+                default: console.log("异常情况");
+            }
+        } else if(top_item.length == 2){
+            top_item[1].classList.remove("item-show");
         }
     },
 
@@ -360,11 +360,11 @@ var ctrl = {
         if (irc === null) {
             a.classList.add("aplayer-lrc-hide");
             b.classList.remove("on");
-            tools.showMessage("桌面歌词已关闭","success",2);
+            if(notice_state) tools.showMessage("桌面歌词已关闭","success",2);
         } else {
             a.classList.remove("aplayer-lrc-hide");
             b.classList.add("on");
-            tools.showMessage("桌面歌词已打开","success",2);
+            if(notice_state) tools.showMessage("桌面歌词已打开","success",2);
         }
     },
 
@@ -374,11 +374,11 @@ var ctrl = {
         if ($htmlDom.contains('hide-aside')) {
             saveToLocal.set('aside-status', 'show', 2);
             document.querySelector("#asideItem").classList.remove("on");
-            tools.showMessage("侧边栏已启用","success",2);
+            if(notice_state) tools.showMessage("侧边栏已启用","success",2);
         } else {
             saveToLocal.set('aside-status', 'hide', 2);
             document.querySelector("#asideItem").classList.add("on");
-            tools.showMessage("侧边栏已隐藏","success",2);
+            if(notice_state) tools.showMessage("侧边栏已隐藏","success",2);
         }
         $htmlDom.toggle('hide-aside');
     },
@@ -480,7 +480,7 @@ var ctrl = {
         saveToLocal.get('aside-status') === 'hide'
             ? document.querySelector("#asideItem").classList.add("on")
             : document.querySelector("#asideItem").classList.remove("on");
-        var console_musicBody = document.querySelector("#console .console-music-ctrl-item"); // 更新控制中心尺寸
+        var console_musicBody = document.querySelector("#console .console-mainbox"); // 更新控制中心尺寸
         var console_musicCover = document.getElementById("console-music-cover");
         console_musicCover.style.height = console_musicCover.offsetWidth + "px";
         console_musicBody.style.height = (console_musicCover.offsetWidth + 236) + "px"; //(12rem + 1.3rem + 1.3rem) * 16 = 233.6px
@@ -491,20 +491,35 @@ var ctrl = {
 
 }
 
-document.addEventListener("copy", function() {
-    tools.showMessage("复制成功！转载请注明来源！","success",2);
-})
+document.addEventListener("copy", () => {
+    if(notice_state) tools.showMessage("复制成功！转载请注明来源！","success",2);
+});
+var set_music = document.querySelector("#set-switch-music input");
+var mplayer = document.getElementById("mplayer");
+mplayer.style.display = set_music.checked ? "" : "none";
+set_music.addEventListener('change',() => {
+    mplayer.style.display = set_music.checked ? "" : "none";
+});
+var set_notice = document.querySelector("#set-switch-notice input");
+notice_state = set_notice.checked ? true : false;
+set_notice.addEventListener("change", () => {
+    notice_state = set_notice.checked ? true : false;
+});
 
-// 主页/音乐列表/歌单列表 切换
+// 主页/音乐列表/歌单列表/设置 切换
 var music_list_switch = document.getElementById("music-ctrl-btn-end");
 var music_list_title = document.getElementById("music-list-title");
-music_list_switch.addEventListener("click", function (e) {
+var settings_btn = document.querySelector("#console .settings-btn");
+music_list_switch.addEventListener("click", () => {
     document.getElementById("console-music-item-main").classList.remove("item-show");
     document.getElementById("console-music-item-list").classList.add("item-show");
 });
-music_list_title.addEventListener("click", function (e) {
+music_list_title.addEventListener("click", () => {
     document.getElementById("console-music-item-list").classList.remove("item-show");
     document.getElementById("console-songsheet-item-list").classList.add("item-show");
+});
+settings_btn.addEventListener("click", () => {
+    document.getElementById("console-settings").classList.add("item-show");
 });
 
 // 歌单列表监听器
@@ -514,44 +529,44 @@ var songsheet2 = document.getElementById("songsheet-B");
 var songsheet3 = document.getElementById("songsheet-C");
 var songsheet4 = document.getElementById("songsheet-D");
 var addSongsheet = document.getElementById("songsheet-add");
-songsheet0.addEventListener("click", function (e) {
+songsheet0.addEventListener("click", () => {
     document.getElementById("console-loading-icon").classList.add("show");
     console.log("正在切换至默认专辑");
     global_music_flag = 1;
     ctrl.changeMusicList("8086610771", "netease");
     document.getElementById("music-list-title").innerHTML = "网易云";
 });
-songsheet1.addEventListener("click", function (e) {
+songsheet1.addEventListener("click", () => {
     document.getElementById("console-loading-icon").classList.add("show");
     console.log("正在切换至纯音乐专辑");
     global_music_flag = 1;
     ctrl.changeMusicList("8167030216", "netease");
     document.getElementById("music-list-title").innerHTML = "纯音乐";
 });
-songsheet2.addEventListener("click", function (e) {
+songsheet2.addEventListener("click", () => {
     document.getElementById("console-loading-icon").classList.add("show");
     console.log("正在切换至周杰伦专辑");
     global_music_flag = 1;
     ctrl.JayMusicList();
     document.getElementById("music-list-title").innerHTML = "周杰伦";
 });
-songsheet3.addEventListener("click", function (e) {
+songsheet3.addEventListener("click", () => {
     document.getElementById("console-loading-icon").classList.add("show");
     console.log("正在切换至薛之谦/李荣浩专辑");
     global_music_flag = 1;
     ctrl.changeMusicList("8163994837", "netease");
     document.getElementById("music-list-title").innerHTML = "薛之谦/李荣浩";
 });
-songsheet4.addEventListener("click", function (e) {
+songsheet4.addEventListener("click", () => {
     document.getElementById("console-loading-icon").classList.add("show");
     console.log("正在切换至古风专辑");
     global_music_flag = 1;
     ctrl.changeMusicList("8167066222", "netease");
     document.getElementById("music-list-title").innerHTML = "古风";
 });
-addSongsheet.addEventListener("click", function (e) {
+addSongsheet.addEventListener("click", () => {
     console.log("自定义专辑");
-    tools.showNote("有空再写吧","warning",3)
+    if(notice_state) tools.showNote("有空再写吧","warning",3)
 });
 
 

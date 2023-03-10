@@ -101,14 +101,14 @@ document.addEventListener('DOMContentLoaded', function () {
           prevEle.style.opacity = 1
           setTimeout(() => { prevEle.style.opacity = 0 }, 700)
         }
-        tools.showMessage("复制成功！转载请注明来源！","success",2)
+        if(notice_state) tools.showMessage("复制成功！转载请注明来源！","success",2)
       } else {
         if (GLOBAL_CONFIG.Snackbar !== undefined) {
           btf.snackbarShow(GLOBAL_CONFIG.copy.noSupport)
         } else {
           ctx.previousElementSibling.innerText = GLOBAL_CONFIG.copy.noSupport
         }
-        tools.showMessage("Error!复制失败！","error",2)
+        if(notice_state) tools.showMessage("Error!复制失败！","error",2)
       }
     }
 

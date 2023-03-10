@@ -14,7 +14,7 @@ cardTimes();
 asideNote();
 console.log("\n %cGC音频控制器 v1.3.2 参星阁出品%c https://gavin-chen.top \n", "color: #fadfa3; background: #030307; padding:5px 0;", "background: #fadfa3; padding:5px 0;")
 console.log(`Welcome to:\n%c参星阁:%c https://gavin-chen.top%c\nThis site has been running stably for %c${Math.round(((new Date).getTime() - new Date("2023/01/04 20:53:58").getTime()) / 864e5)} %c days`, "border:1px #888 solid;border-right:0;border-radius:5px 0 0 5px;padding: 5px 10px;color:white;background:#4976f5;margin:10px 0", "border:1px #888 solid;border-left:0;border-radius:0 5px 5px 0;padding: 5px 10px;", "", "color:#4976f5", "")
-tools.showNote("欢迎来到参星阁！","success",5);
+if(notice_state) tools.showNote("欢迎来到参星阁！","success",5);
 // 刷新时钟时间
 function cardRefreshTimes() {
     var p_y = document.getElementById("pBar_year");
@@ -147,7 +147,7 @@ setInterval(() => {
                     if(mode_id == 0){ // mode_id: 0、3、5无效，1、2、4有效
                         ap_order_mode.click();ap_loop_mode.click(); // 0,0 -> 1,1
                     } else ap_order_mode.click(); // 0,1 -> 1,1
-                    tools.showMessage("已切换至随机播放","success",2);
+                    if(notice_state) tools.showMessage("已切换至随机播放","success",2);
                     break;
                 case 1: // 随机 -> 单曲循环
                     play_mode.querySelector("i").classList.remove("icon-random-play");
@@ -157,7 +157,7 @@ setInterval(() => {
                     } else {
                         ap_order_mode.click();ap_loop_mode.click(); // 1,1 -> 0,2
                     }
-                    tools.showMessage("已切换至单曲循环","success",2);
+                    if(notice_state) tools.showMessage("已切换至单曲循环","success",2);
                     break;
                 case 2: // 单曲循环 -> 顺序
                     play_mode.querySelector("i").classList.remove("icon-repeat-play");
@@ -167,7 +167,7 @@ setInterval(() => {
                     } else {
                         ap_loop_mode.click();ap_loop_mode.click(); // 0,2 -> 0,1
                     }
-                    tools.showMessage("已切换至顺序播放","success",2);
+                    if(notice_state) tools.showMessage("已切换至顺序播放","success",2);
                     break;
                 default: alert("程序错误，请刷新！");
             }
@@ -201,7 +201,7 @@ setInterval(() => {
                     // console.log("导入完毕")
                     clearInterval(t_load);
                     document.getElementById("console-loading-icon").classList.remove("show");
-                    tools.showMessage("歌单导入成功！","success",1);
+                    if(notice_state) tools.showMessage("歌单导入成功！","success",1);
                     ctrl.consoleBackBtn();
                 }
             }, 50);
