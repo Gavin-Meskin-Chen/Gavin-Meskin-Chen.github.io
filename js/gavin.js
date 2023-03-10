@@ -1,18 +1,3 @@
-// import { Notification } from '@arco-design/web-vue';
-// let { Notification } = require('@arco-design/web-vue');
-// const { render } = require("react-dom");
-// export default {
-//     setup() {
-//       const handleNotification = () => {
-//         Notification.info({
-//           title: 'Notification',
-//           content: 'This is a notification!',
-//         })
-//       }
-  
-//       return { handleNotification }
-//     }
-//   }
 // pjax适配
 function whenDOMReady() {
     // pjax加载完成（切换页面）后需要执行的函数和代码
@@ -20,15 +5,9 @@ function whenDOMReady() {
     musicState();
     cardTimes();
     asideNote();
-    notice_state = set_notice.checked ? true : false;
-    // new Vue().$mount('#app')
 }
 
-if ('paintWorklet' in CSS) {CSS.paintWorklet.addModule('js/paint.js');}
-var notice_state = true;
-// window.onload = function () {
-//     new Vue().$mount('#app')
-// }
+if ('paintWorklet' in CSS) { CSS.paintWorklet.addModule('js/paint.js'); }
 
 // 返回顶部 显示网页阅读进度
 window.onscroll = percent; // 执行函数
@@ -157,17 +136,17 @@ function asideNote() {
     if (date == dates) {
         noteCard.style.display = "";
         noteArea.innerHTML = "<p align='center'>今天月末，做好总结</p>";
-        if(notice_state) tools.showNote("今天月末，做好总结","warning",5)
+        if (set_notice.checked) tools.showNote("今天月末，做好总结", "warning", 5)
     } else if (date == 1) {
         noteCard.style.display = "";
         noteArea.innerHTML = "<p align='center'>今天月初，做好规划</p>";
-        if(notice_state) tools.showNote("今天月初，做好规划","warning",5)
+        if (set_notice.checked) tools.showNote("今天月初，做好规划", "warning", 5)
     } else {
         switch (lunarDay) {
             case "十六":
                 noteCard.style.display = "";
                 noteArea.innerHTML = "<p align='center'>今晚月圆</p>";
-                if(notice_state) tools.showNote("今晚月圆","success",5)
+                if (set_notice.checked) tools.showNote("今晚月圆", "success", 5)
                 break;
             default: noteCard.style.display = "none";
         }
@@ -269,7 +248,7 @@ var tools = {
                     showClose: true,
                     customClass: 'element-note-bg-' + style,
                     type: style,
-                    duration: delay*1000
+                    duration: delay * 1000
                 });
             }
         })
@@ -282,7 +261,7 @@ var tools = {
                     message: text,
                     showClose: true,
                     type: style,
-                    duration: delay*1000
+                    duration: delay * 1000
                 });
             }
         })
@@ -304,12 +283,12 @@ var ctrl = {
             activateDarkMode();
             saveToLocal.set('theme', 'dark', 2);
             GLOBAL_CONFIG.Snackbar !== undefined && btf.snackbarShow(GLOBAL_CONFIG.Snackbar.day_to_night);
-            if(notice_state) tools.showMessage("已切换至深色模式","success",2);
+            if (set_notice.checked) tools.showMessage("已切换至深色模式", "success", 2);
         } else {
             activateLightMode();
             saveToLocal.set('theme', 'light', 2);
             GLOBAL_CONFIG.Snackbar !== undefined && btf.snackbarShow(GLOBAL_CONFIG.Snackbar.night_to_day);
-            if(notice_state) tools.showMessage("已切换至浅色模式","success",2);
+            if (set_notice.checked) tools.showMessage("已切换至浅色模式", "success", 2);
         }
         typeof utterancesTheme === 'function' && utterancesTheme();
         typeof changeGiscusTheme === 'function' && changeGiscusTheme();
@@ -334,7 +313,7 @@ var ctrl = {
     // 菜单返回
     consoleBackBtn: function () {
         var top_item = document.querySelectorAll(".item-show");
-        if(top_item.length == 1){
+        if (top_item.length == 1) {
             switch (top_item[0].id) {
                 case 'console-music-item-mini': break;
                 case 'console-music-item-main': ctrl.hideConsole(); break;
@@ -348,7 +327,7 @@ var ctrl = {
                     break;
                 default: console.log("异常情况");
             }
-        } else if(top_item.length == 2){
+        } else if (top_item.length == 2) {
             top_item[1].classList.remove("item-show");
         }
     },
@@ -361,11 +340,11 @@ var ctrl = {
         if (irc === null) {
             a.classList.add("aplayer-lrc-hide");
             b.classList.remove("on");
-            if(notice_state) tools.showMessage("桌面歌词已关闭","success",2);
+            if (set_notice.checked) tools.showMessage("桌面歌词已关闭", "success", 2);
         } else {
             a.classList.remove("aplayer-lrc-hide");
             b.classList.add("on");
-            if(notice_state) tools.showMessage("桌面歌词已打开","success",2);
+            if (set_notice.checked) tools.showMessage("桌面歌词已打开", "success", 2);
         }
     },
 
@@ -375,11 +354,11 @@ var ctrl = {
         if ($htmlDom.contains('hide-aside')) {
             saveToLocal.set('aside-status', 'show', 2);
             document.querySelector("#asideItem").classList.remove("on");
-            if(notice_state) tools.showMessage("侧边栏已启用","success",2);
+            if (set_notice.checked) tools.showMessage("侧边栏已启用", "success", 2);
         } else {
             saveToLocal.set('aside-status', 'hide', 2);
             document.querySelector("#asideItem").classList.add("on");
-            if(notice_state) tools.showMessage("侧边栏已隐藏","success",2);
+            if (set_notice.checked) tools.showMessage("侧边栏已隐藏", "success", 2);
         }
         $htmlDom.toggle('hide-aside');
     },
@@ -447,7 +426,6 @@ var ctrl = {
         for (let i = 0; i < audios.length; i++) {
             list_html = document.getElementById("console-music-list").innerHTML;
             document.getElementById("console-music-list").innerHTML = list_html + "<li class='music-list-item'><div class='list-music-info1'><a class='list-music-id' data-pjax-state=''>" + (i + 1) + "</a><a class='list-music-state' data-pjax-state=''><i class='iconfont icon-waveform'></i></a></div><div class='list-music-info2'><a class='list-music-title' data-pjax-state=''>" + audios[i].title + "</a><a class='list-music-author' data-pjax-state=''> - " + audios[i].author + "</a></div></li>";
-            // console.log("第" + (i + 1) + "首导入成功！");
         }
     },
 
@@ -493,21 +471,24 @@ var ctrl = {
 }
 
 document.addEventListener("copy", () => {
-    if(notice_state) tools.showMessage("复制成功！转载请注明来源！","success",2);
+    if (set_notice.checked) tools.showMessage("复制成功！转载请注明来源！", "success", 2);
 });
-window.onload = function(){
+window.onload = function () {
     var set_music = document.querySelector("#set-switch-music input");
     var mplayer = document.getElementById("mplayer");
     mplayer.style.display = set_music.checked ? "" : "none";
-    set_music.addEventListener('change',() => {
+    set_music.addEventListener('change', () => {
         mplayer.style.display = set_music.checked ? "" : "none";
     });
+    if (localStorage.getItem('notice_state') != null) {
+        set_notice.checked = localStorage.getItem('notice_state') == 'true' ? true : false;
+    }
+    if (set_notice.checked) tools.showNote("欢迎来到参星阁！", "success", 5);
 }
 
 var set_notice = document.querySelector("#set-switch-notice input");
-notice_state = set_notice.checked ? true : false;
 set_notice.addEventListener("change", () => {
-    notice_state = set_notice.checked ? true : false;
+    set_notice.checked ? localStorage.setItem('notice_state', true) : localStorage.setItem('notice_state', false);
 });
 
 // 主页/音乐列表/歌单列表/设置 切换
@@ -570,7 +551,7 @@ songsheet4.addEventListener("click", () => {
 });
 addSongsheet.addEventListener("click", () => {
     console.log("自定义专辑");
-    if(notice_state) tools.showNote("有空再写吧","warning",3)
+    if (set_notice.checked) tools.showNote("有空再写吧", "warning", 3)
 });
 
 

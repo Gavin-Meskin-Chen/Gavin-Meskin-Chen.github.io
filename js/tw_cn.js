@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function () {
       if (isSnackbar) {
         btf.snackbarShow(snackbarData.cht_to_chs)
       }
-      if(notice_state) tools.showMessage("已切换至简体","success",2);
+      if(set_notice.checked) tools.showMessage("已切换至简体","success",2);
     } else if (targetEncoding === 2) {
       currentEncoding = 2
       targetEncoding = 1
@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function () {
       if (isSnackbar) {
         btf.snackbarShow(snackbarData.chs_to_cht)
       }
-      if(notice_state) tools.showMessage("已切換至繁體","success",2);
+      if(set_notice.checked) tools.showMessage("已切換至繁體","success",2);
     }
   }
   function JTPYStr () {
