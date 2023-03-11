@@ -9,6 +9,55 @@ function whenDOMReady() {
 
 if ('paintWorklet' in CSS) { CSS.paintWorklet.addModule('js/paint.js'); }
 
+window.onload = function () {
+    var set_music = document.querySelector("#set-switch-music input");
+    var mplayer = document.getElementById("mplayer");
+    mplayer.style.display = set_music.checked ? "" : "none";
+    set_music.addEventListener('change', () => {
+        mplayer.style.display = set_music.checked ? "" : "none";
+    });
+    if (localStorage.getItem('notice_state') != null) {
+        set_notice.checked = localStorage.getItem('notice_state') == 'true' ? true : false;
+    }
+    if (localStorage.getItem('lrc_state') != null) {
+        localStorage.getItem('lrc_state') == 'true' ? document.getElementById("ircSwitchBtn").click() : null ;
+    }
+    if (localStorage.getItem('system_theme_state') != null) {
+        set_sys_theme.checked = localStorage.getItem('system_theme_state') == 'true' ? true : false;
+    }
+    if (set_sys_theme.checked) {
+        const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches;
+        if (isLightMode) {
+            activateLightMode();
+            document.querySelector("#set-theme-light input").checked = true;
+            saveToLocal.set('theme', 'light', 2);
+        } else if (isDarkMode) {
+            activateDarkMode();
+            document.querySelector("#set-theme-dark input").checked = true;
+            saveToLocal.set('theme', 'dark', 2);
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+            console.log(`第一回changed to ${e.matches ? "dark" : "light"} mode`);
+            if(e.matches){
+                activateDarkMode();
+                document.querySelector("#set-theme-dark input").checked = true;
+                saveToLocal.set('theme', 'dark', 2);
+            } else {
+                activateLightMode();
+                document.querySelector("#set-theme-light input").checked = true;
+                saveToLocal.set('theme', 'light', 2);
+            }
+        })
+    }
+    if (saveToLocal.get('theme') != null) {
+        saveToLocal.get('theme') == 'light' ? document.querySelector("#set-theme-light input").checked = true : document.querySelector("#set-theme-dark input").checked = true;
+    }
+    if (set_notice.checked) tools.showNote("欢迎来到参星阁！", "success", 5);
+    console.log("\n %cGC音频控制器 v1.3.2 参星阁出品%c https://gavin-chen.top \n", "color: #fadfa3; background: #030307; padding:5px 0;", "background: #fadfa3; padding:5px 0;")
+    console.log(`Welcome to:\n%c参星阁:%c https://gavin-chen.top%c\nThis site has been running stably for %c${Math.round(((new Date).getTime() - new Date("2023/01/04 20:53:58").getTime()) / 864e5)} %c days`, "border:1px #888 solid;border-right:0;border-radius:5px 0 0 5px;padding: 5px 10px;color:white;background:#4976f5;margin:10px 0", "border:1px #888 solid;border-left:0;border-radius:0 5px 5px 0;padding: 5px 10px;", "", "color:#4976f5", "")
+}
+
 // 返回顶部 显示网页阅读进度
 window.onscroll = percent; // 执行函数
 // 页面百分比
@@ -223,6 +272,41 @@ var tools = {
         };
     },
 
+    getOSInfo: function () {
+        let osName = "unknown";
+        let osVersion = "unknown";
+        if (navigator.userAgent.indexOf("Windows") != -1) {
+            osName = "Windows";
+            if (navigator.userAgent.indexOf("Windows NT 10.0") != -1) {
+                osVersion = "10";
+            } else if (navigator.userAgent.indexOf("Windows NT 6.3") != -1) {
+                osVersion = "8.1";
+            } else if (navigator.userAgent.indexOf("Windows NT 6.2") != -1) {
+                osVersion = "8";
+            } else if (navigator.userAgent.indexOf("Windows NT 6.1") != -1) {
+                osVersion = "7";
+            } else if (navigator.userAgent.indexOf("Windows NT 6.0") != -1) {
+                osVersion = "Vista";
+            } else if (navigator.userAgent.indexOf("Windows NT 5.1") != -1) {
+                osVersion = "XP";
+            } else if (navigator.userAgent.indexOf("Windows NT 5.0") != -1) {
+                osVersion = "2000";
+            }
+        } else if (navigator.userAgent.indexOf("Mac OS X") != -1) {
+            osName = "macOS";
+            osVersion = navigator.userAgent.match(/Mac OS X\s([\d_]+)/)[1].replace(/_/g, '.');
+        } else if (navigator.userAgent.indexOf("Linux") != -1) {
+            osName = "Linux";
+        } else if (navigator.userAgent.indexOf("Android") != -1) {
+            osName = "Android";
+            osVersion = navigator.userAgent.match(/Android\s([\d.]+)/)[1];
+        } else if (navigator.userAgent.indexOf("iOS") != -1) {
+            osName = "iOS";
+            osVersion = navigator.userAgent.match(/OS\s([\d_]+)/)[1].replace(/_/g, '.');
+        }
+        return `${osName} ${osVersion}`;
+    },
+
     getMemoryUsage: function () {
         const memory = performance.memory;
         const totalMemory = memory.totalJSHeapSize / (1024 * 1024);
@@ -280,15 +364,17 @@ var ctrl = {
     switchDarkMode: function () {
         const nowMode = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
         if (nowMode === 'light') {
-            activateDarkMode();
-            saveToLocal.set('theme', 'dark', 2);
-            GLOBAL_CONFIG.Snackbar !== undefined && btf.snackbarShow(GLOBAL_CONFIG.Snackbar.day_to_night);
-            if (set_notice.checked) tools.showMessage("已切换至深色模式", "success", 2);
+            // activateDarkMode();
+            // saveToLocal.set('theme', 'dark', 2);
+            // GLOBAL_CONFIG.Snackbar !== undefined && btf.snackbarShow(GLOBAL_CONFIG.Snackbar.day_to_night);
+            document.querySelector("#set-theme-dark").click();
+            // if (set_notice.checked) tools.showMessage("已切换至深色模式", "success", 2);
         } else {
-            activateLightMode();
-            saveToLocal.set('theme', 'light', 2);
-            GLOBAL_CONFIG.Snackbar !== undefined && btf.snackbarShow(GLOBAL_CONFIG.Snackbar.night_to_day);
-            if (set_notice.checked) tools.showMessage("已切换至浅色模式", "success", 2);
+            // activateLightMode();
+            // saveToLocal.set('theme', 'light', 2);
+            // GLOBAL_CONFIG.Snackbar !== undefined && btf.snackbarShow(GLOBAL_CONFIG.Snackbar.night_to_day);
+            document.querySelector("#set-theme-light").click();
+            // if (set_notice.checked) tools.showMessage("已切换至浅色模式", "success", 2);
         }
         typeof utterancesTheme === 'function' && utterancesTheme();
         typeof changeGiscusTheme === 'function' && changeGiscusTheme();
@@ -327,8 +413,12 @@ var ctrl = {
                     break;
                 default: console.log("异常情况");
             }
-        } else if (top_item.length == 2) {
-            top_item[1].classList.remove("item-show");
+        } else {
+            top_item[top_item.length - 1].classList.remove("item-show");
+            // if (top_item.length == 2) {
+            //     document.querySelector("#console .console-btn-group").style.opacity = 1;
+            //     document.querySelector("#console .console-btn-group").style.pointerEvents = 'all';            
+            // }
         }
     },
 
@@ -340,10 +430,12 @@ var ctrl = {
         if (irc === null) {
             a.classList.add("aplayer-lrc-hide");
             b.classList.remove("on");
+            localStorage.setItem('lrc_state',false);
             if (set_notice.checked) tools.showMessage("桌面歌词已关闭", "success", 2);
         } else {
             a.classList.remove("aplayer-lrc-hide");
             b.classList.add("on");
+            localStorage.setItem('lrc_state',true);
             if (set_notice.checked) tools.showMessage("桌面歌词已打开", "success", 2);
         }
     },
@@ -466,6 +558,7 @@ var ctrl = {
         ctrl.getMusicInfo();
         var nowVolume = document.querySelector("meting-js").aplayer.audio.volume;// 当前音量
         document.querySelector("#v_bar").style.width = document.querySelector("#v_bar_bg").offsetWidth * nowVolume + "px";// 音量条进度
+        saveToLocal.get('theme') == 'light' ? document.querySelector("#set-theme-light input").checked = true : document.querySelector("#set-theme-dark input").checked = true;
     }
 
 }
@@ -473,28 +566,50 @@ var ctrl = {
 document.addEventListener("copy", () => {
     if (set_notice.checked) tools.showMessage("复制成功！转载请注明来源！", "success", 2);
 });
-window.onload = function () {
-    var set_music = document.querySelector("#set-switch-music input");
-    var mplayer = document.getElementById("mplayer");
-    mplayer.style.display = set_music.checked ? "" : "none";
-    set_music.addEventListener('change', () => {
-        mplayer.style.display = set_music.checked ? "" : "none";
-    });
-    if (localStorage.getItem('notice_state') != null) {
-        set_notice.checked = localStorage.getItem('notice_state') == 'true' ? true : false;
-    }
-    if (set_notice.checked) tools.showNote("欢迎来到参星阁！", "success", 5);
-}
-
 var set_notice = document.querySelector("#set-switch-notice input");
 set_notice.addEventListener("change", () => {
     set_notice.checked ? localStorage.setItem('notice_state', true) : localStorage.setItem('notice_state', false);
 });
 
+// if(set_sys_theme.checked){
+//     // 
+// } else {
+//     // 
+// }
+// const t = saveToLocal.get('theme')
+// const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+// const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+// const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+// const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+// if (t === undefined) {
+//     if (isLightMode) activateLightMode()
+//     else if (isDarkMode) activateDarkMode()
+//     else if (isNotSpecified || hasNoSupport) {
+//         const now = new Date()
+//         const hour = now.getHours()
+//         const isNight = hour <= 6 || hour >= 18
+//         isNight ? activateDarkMode() : activateLightMode()
+//     }
+//     window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+//         if (saveToLocal.get('theme') === undefined) {
+//             e.matches ? activateDarkMode() : activateLightMode()
+//         }
+//     })
+// } else if (t === 'light') activateLightMode()
+// else activateDarkMode()
+
+
 // 主页/音乐列表/歌单列表/设置 切换
 var music_list_switch = document.getElementById("music-ctrl-btn-end");
 var music_list_title = document.getElementById("music-list-title");
 var settings_btn = document.querySelector("#console .settings-btn");
+var to_display = document.querySelector("#li-set-display .setting-next");
+var to_about = document.querySelector("#li-set-about .setting-next");
+var setting_info1 = document.getElementById("console-setting-info1");
+var setting_title1 = document.querySelector("#console-setting-info1 .setting-title");
+var setting_info2 = document.getElementById("console-setting-info2");
+var setting_title2 = document.querySelector("#console-setting-info2 .setting-title");
 music_list_switch.addEventListener("click", () => {
     document.getElementById("console-music-item-main").classList.remove("item-show");
     document.getElementById("console-music-item-list").classList.add("item-show");
@@ -504,8 +619,86 @@ music_list_title.addEventListener("click", () => {
     document.getElementById("console-songsheet-item-list").classList.add("item-show");
 });
 settings_btn.addEventListener("click", () => {
+    // document.querySelector("#console .console-btn-group").style.opacity = 0;
+    // document.querySelector("#console .console-btn-group").style.pointerEvents = 'none';
     document.getElementById("console-settings").classList.add("item-show");
 });
+to_display.addEventListener("click", () => {
+    setting_title1.innerHTML = "显示与文本";
+    setting_info1.classList.add("item-show");
+});
+to_about.addEventListener("click", () => {
+    setting_title2.innerHTML = "关于本机";
+    if (document.querySelector("#set-theme-dark input").checked) {
+        document.querySelector("#set-sys-logo img").src = "https://i.imgtg.com/2023/03/11/f1olM.webp";
+    } else {
+        document.querySelector("#set-sys-logo img").src = "https://i.imgtg.com/2023/03/11/f15BG.webp";
+    }
+    document.querySelector("#console-setting-info2 .set-box-normal:nth-child(4) .setting-detail").innerHTML = tools.getOSInfo();
+    document.querySelector("#console-setting-info2 .set-box-normal:nth-child(5) .setting-detail").innerHTML = tools.detectBrowser().name + " " + tools.detectBrowser().version;
+    setting_info2.classList.add("item-show");
+});
+
+// 主题色设置
+document.getElementById("set-theme-light").addEventListener("click", () => {
+    document.querySelector("#set-theme-light input").checked = true;
+    activateLightMode();
+    saveToLocal.set('theme', 'light', 2);
+    GLOBAL_CONFIG.Snackbar !== undefined && btf.snackbarShow(GLOBAL_CONFIG.Snackbar.night_to_day);
+    typeof utterancesTheme === 'function' && utterancesTheme();
+    typeof changeGiscusTheme === 'function' && changeGiscusTheme();
+    typeof FB === 'object' && window.loadFBComment();
+    typeof runMermaid === 'function' && window.runMermaid();
+    if (set_notice.checked) tools.showMessage("已切换至浅色模式", "success", 2);
+});
+document.getElementById("set-theme-dark").addEventListener("click", () => {
+    document.querySelector("#set-theme-dark input").checked = true;
+    activateDarkMode();
+    saveToLocal.set('theme', 'dark', 2);
+    GLOBAL_CONFIG.Snackbar !== undefined && btf.snackbarShow(GLOBAL_CONFIG.Snackbar.day_to_night);
+    typeof utterancesTheme === 'function' && utterancesTheme();
+    typeof changeGiscusTheme === 'function' && changeGiscusTheme();
+    typeof FB === 'object' && window.loadFBComment();
+    typeof runMermaid === 'function' && window.runMermaid();
+    if (set_notice.checked) tools.showMessage("已切换至深色模式", "success", 2);
+});
+var set_sys_theme = document.querySelector("#set-switch-systheme input");
+set_sys_theme.addEventListener("change", () => {
+    set_sys_theme.checked ? localStorage.setItem('system_theme_state',true) : localStorage.setItem('system_theme_state',false);
+    if (set_sys_theme.checked) {
+        const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches;
+        if (isLightMode) {
+            activateLightMode();
+            document.querySelector("#set-theme-light input").checked = true;
+            saveToLocal.set('theme', 'light', 2);
+        } else if (isDarkMode) {
+            activateDarkMode();
+            document.querySelector("#set-theme-dark input").checked = true;
+            saveToLocal.set('theme', 'dark', 2);
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+            console.log(`changed to ${e.matches ? "dark" : "light"} mode`);
+            if(e.matches){
+                activateDarkMode();
+                document.querySelector("#set-theme-dark input").checked = true;
+                saveToLocal.set('theme', 'dark', 2);
+            } else {
+                activateLightMode();
+                document.querySelector("#set-theme-light input").checked = true;
+                saveToLocal.set('theme', 'light', 2);
+            }
+        })
+    }
+});
+
+// 字体大小设置
+var set_font_size = document.querySelector("#set-font-size input");
+set_font_size.addEventListener("change", () => {
+// getComputedStyle(document.documentElement).getPropertyValue('--global-font-size')
+    document.documentElement.style.setProperty('--global-font-size',set_font_size.value + 'px');
+});
+
 
 // 歌单列表监听器
 var songsheet0 = document.getElementById("songsheet-X");
