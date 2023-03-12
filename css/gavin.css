@@ -3699,7 +3699,7 @@ progress::-webkit-progress-value {
 }
 
 #set-sys-logo {
-    margin: 10px 0.9rem 0;
+    padding: 10px 0.9rem 0;
     display: flex;
     justify-content: center;
 }

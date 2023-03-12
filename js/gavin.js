@@ -8,6 +8,7 @@ function whenDOMReady() {
 }
 
 if ('paintWorklet' in CSS) { CSS.paintWorklet.addModule('js/paint.js'); }
+const colorSchemeQuery = window.matchMedia('(prefers-color-scheme: dark)');
 
 window.onload = function () {
     var set_music = document.querySelector("#set-switch-music input");
@@ -37,18 +38,19 @@ window.onload = function () {
             document.querySelector("#set-theme-dark input").checked = true;
             saveToLocal.set('theme', 'dark', 2);
         }
-        window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
-            console.log(`第一回changed to ${e.matches ? "dark" : "light"} mode`);
-            if(e.matches){
-                activateDarkMode();
-                document.querySelector("#set-theme-dark input").checked = true;
-                saveToLocal.set('theme', 'dark', 2);
-            } else {
-                activateLightMode();
-                document.querySelector("#set-theme-light input").checked = true;
-                saveToLocal.set('theme', 'light', 2);
-            }
-        })
+        colorSchemeQuery.addListener(ctrl.GlobalTheme);
+        // window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        //     console.log(`第一回changed to ${e.matches ? "dark" : "light"} mode`);
+        //     if(e.matches){
+        //         activateDarkMode();
+        //         document.querySelector("#set-theme-dark input").checked = true;
+        //         saveToLocal.set('theme', 'dark', 2);
+        //     } else {
+        //         activateLightMode();
+        //         document.querySelector("#set-theme-light input").checked = true;
+        //         saveToLocal.set('theme', 'light', 2);
+        //     }
+        // })
     }
     if (saveToLocal.get('theme') != null) {
         saveToLocal.get('theme') == 'light' ? document.querySelector("#set-theme-light input").checked = true : document.querySelector("#set-theme-dark input").checked = true;
@@ -232,6 +234,11 @@ var tools = {
     detectBrowser: function () {
         const userAgent = navigator.userAgent;
         let browserName, fullVersion, majorVersion;
+        function getHard(str) {
+            let str1 = str.substring(str.indexOf("("),str.indexOf(")"));
+            return str1.substring(str1.lastIndexOf(";")+2, str1.length)
+        }
+        let hard = getHard(userAgent);
         if (/Firefox[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent)) {// 检测Firefox
             browserName = 'Firefox';
             fullVersion = RegExp.$1;
@@ -268,7 +275,8 @@ var tools = {
         return {
             name: browserName, //浏览器名称
             version: fullVersion, //浏览器详细版本号
-            majorVersion: majorVersion //主版本号
+            majorVersion: majorVersion, //主版本号
+            hard: hard //硬件平台
         };
     },
 
@@ -295,6 +303,12 @@ var tools = {
         } else if (navigator.userAgent.indexOf("Mac OS X") != -1) {
             osName = "macOS";
             osVersion = navigator.userAgent.match(/Mac OS X\s([\d_]+)/)[1].replace(/_/g, '.');
+        } else if (navigator.userAgent.indexOf("Linux; Android 11") != -1) {
+            osName = "HarmonyOS";
+            osVersion = 2;
+        } else if (navigator.userAgent.indexOf("Linux; Android 12") != -1) {
+            osName = "HarmonyOS";
+            osVersion = 3;
         } else if (navigator.userAgent.indexOf("Linux") != -1) {
             osName = "Linux";
         } else if (navigator.userAgent.indexOf("Android") != -1) {
@@ -359,6 +373,19 @@ var tools = {
 }
 
 var ctrl = {
+
+    GlobalTheme: function(e) {
+        console.log(`changed to ${e.matches ? "dark" : "light"} mode`);
+        if(e.matches){
+            activateDarkMode();
+            document.querySelector("#set-theme-dark input").checked = true;
+            saveToLocal.set('theme', 'dark', 2);
+        } else {
+            activateLightMode();
+            document.querySelector("#set-theme-light input").checked = true;
+            saveToLocal.set('theme', 'light', 2);
+        }
+    },
 
     // 深色模式
     switchDarkMode: function () {
@@ -634,6 +661,7 @@ to_about.addEventListener("click", () => {
     } else {
         document.querySelector("#set-sys-logo img").src = "https://i.imgtg.com/2023/03/11/f15BG.webp";
     }
+    document.querySelector("#console-setting-info2 .set-box-normal:nth-child(3) .setting-detail").innerHTML = tools.detectBrowser().hard;
     document.querySelector("#console-setting-info2 .set-box-normal:nth-child(4) .setting-detail").innerHTML = tools.getOSInfo();
     document.querySelector("#console-setting-info2 .set-box-normal:nth-child(5) .setting-detail").innerHTML = tools.detectBrowser().name + " " + tools.detectBrowser().version;
     setting_info2.classList.add("item-show");
@@ -664,8 +692,8 @@ document.getElementById("set-theme-dark").addEventListener("click", () => {
 });
 var set_sys_theme = document.querySelector("#set-switch-systheme input");
 set_sys_theme.addEventListener("change", () => {
-    set_sys_theme.checked ? localStorage.setItem('system_theme_state',true) : localStorage.setItem('system_theme_state',false);
     if (set_sys_theme.checked) {
+        localStorage.setItem('system_theme_state',true);
         const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
         const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches;
         if (isLightMode) {
@@ -677,18 +705,10 @@ set_sys_theme.addEventListener("change", () => {
             document.querySelector("#set-theme-dark input").checked = true;
             saveToLocal.set('theme', 'dark', 2);
         }
-        window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
-            console.log(`changed to ${e.matches ? "dark" : "light"} mode`);
-            if(e.matches){
-                activateDarkMode();
-                document.querySelector("#set-theme-dark input").checked = true;
-                saveToLocal.set('theme', 'dark', 2);
-            } else {
-                activateLightMode();
-                document.querySelector("#set-theme-light input").checked = true;
-                saveToLocal.set('theme', 'light', 2);
-            }
-        })
+        colorSchemeQuery.addListener(ctrl.GlobalTheme);
+    } else {
+        localStorage.setItem('system_theme_state',false);
+        colorSchemeQuery.removeListener(ctrl.GlobalTheme);
     }
 });
 
