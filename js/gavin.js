@@ -8,7 +8,7 @@ function whenDOMReady() {
 }
 
 if ('paintWorklet' in CSS) { CSS.paintWorklet.addModule('js/paint.js'); }
-const colorSchemeQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
 
 window.onload = function () {
     var set_music = document.querySelector("#set-switch-music input");

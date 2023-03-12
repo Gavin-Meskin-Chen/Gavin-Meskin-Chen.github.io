@@ -9,6 +9,7 @@ var now = new Date();
 var year, month, week, date, dates, weekStr, monthStr;
 var asideTime, asideDay, asideDayNum;
 var animalYear, ganzhiYear, lunarMon, lunarDay;
+const colorSchemeQuery = window.matchMedia('(prefers-color-scheme: dark)');
 
 cardTimes();
 asideNote();
