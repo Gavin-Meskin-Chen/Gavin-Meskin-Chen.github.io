@@ -39,18 +39,6 @@ window.onload = function () {
             saveToLocal.set('theme', 'dark', 2);
         }
         colorSchemeQuery.addListener(ctrl.GlobalTheme);
-        // window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
-        //     console.log(`第一回changed to ${e.matches ? "dark" : "light"} mode`);
-        //     if(e.matches){
-        //         activateDarkMode();
-        //         document.querySelector("#set-theme-dark input").checked = true;
-        //         saveToLocal.set('theme', 'dark', 2);
-        //     } else {
-        //         activateLightMode();
-        //         document.querySelector("#set-theme-light input").checked = true;
-        //         saveToLocal.set('theme', 'light', 2);
-        //     }
-        // })
     }
     if (saveToLocal.get('theme') != null) {
         saveToLocal.get('theme') == 'light' ? document.querySelector("#set-theme-light input").checked = true : document.querySelector("#set-theme-dark input").checked = true;
@@ -391,17 +379,9 @@ var ctrl = {
     switchDarkMode: function () {
         const nowMode = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
         if (nowMode === 'light') {
-            // activateDarkMode();
-            // saveToLocal.set('theme', 'dark', 2);
-            // GLOBAL_CONFIG.Snackbar !== undefined && btf.snackbarShow(GLOBAL_CONFIG.Snackbar.day_to_night);
             document.querySelector("#set-theme-dark").click();
-            // if (set_notice.checked) tools.showMessage("已切换至深色模式", "success", 2);
         } else {
-            // activateLightMode();
-            // saveToLocal.set('theme', 'light', 2);
-            // GLOBAL_CONFIG.Snackbar !== undefined && btf.snackbarShow(GLOBAL_CONFIG.Snackbar.night_to_day);
             document.querySelector("#set-theme-light").click();
-            // if (set_notice.checked) tools.showMessage("已切换至浅色模式", "success", 2);
         }
         typeof utterancesTheme === 'function' && utterancesTheme();
         typeof changeGiscusTheme === 'function' && changeGiscusTheme();
@@ -597,34 +577,6 @@ var set_notice = document.querySelector("#set-switch-notice input");
 set_notice.addEventListener("change", () => {
     set_notice.checked ? localStorage.setItem('notice_state', true) : localStorage.setItem('notice_state', false);
 });
-
-// if(set_sys_theme.checked){
-//     // 
-// } else {
-//     // 
-// }
-// const t = saveToLocal.get('theme')
-// const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
-// const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
-// const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
-// const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
-
-// if (t === undefined) {
-//     if (isLightMode) activateLightMode()
-//     else if (isDarkMode) activateDarkMode()
-//     else if (isNotSpecified || hasNoSupport) {
-//         const now = new Date()
-//         const hour = now.getHours()
-//         const isNight = hour <= 6 || hour >= 18
-//         isNight ? activateDarkMode() : activateLightMode()
-//     }
-//     window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
-//         if (saveToLocal.get('theme') === undefined) {
-//             e.matches ? activateDarkMode() : activateLightMode()
-//         }
-//     })
-// } else if (t === 'light') activateLightMode()
-// else activateDarkMode()
 
 
 // 主页/音乐列表/歌单列表/设置 切换
