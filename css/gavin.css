@@ -260,6 +260,23 @@
     font-family: Jinbu;
 }
 
+.gc-180 {
+    transform: rotate(180deg);
+}
+
+.gc-45 {
+    transform: rotate(45deg);
+}
+
+.fs-1-8 {
+    font-size: 1.8rem;
+    font-weight: 200;
+}
+
+.fs-1-5 {
+    font-size: 1.5rem;
+    font-weight: 200;
+}
 /* ************************************************************导航栏***************************************************************** */
 #nav a:hover {
     background: var(--anzhiyu-main);
@@ -3535,6 +3552,7 @@ progress::-webkit-progress-value {
     height: 3rem;
     display: flex;
     align-items: center;
+    box-sizing: border-box;
 }
 
 /* 取消滚动条 */
