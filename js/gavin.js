@@ -585,10 +585,13 @@ var music_list_title = document.getElementById("music-list-title");
 var settings_btn = document.querySelector("#console .settings-btn");
 var to_display = document.querySelector("#li-set-display .setting-next");
 var to_about = document.querySelector("#li-set-about .setting-next");
+// var to_wallpaper = document.querySelector("#li-set-wallpaper .setting-next");
 var setting_info1 = document.getElementById("console-setting-info1");
 var setting_title1 = document.querySelector("#console-setting-info1 .setting-title");
 var setting_info2 = document.getElementById("console-setting-info2");
 var setting_title2 = document.querySelector("#console-setting-info2 .setting-title");
+// var setting_info3 = document.getElementById("console-setting-info3");
+// var setting_title3 = document.querySelector("#console-setting-info3 .setting-title");
 music_list_switch.addEventListener("click", () => {
     document.getElementById("console-music-item-main").classList.remove("item-show");
     document.getElementById("console-music-item-list").classList.add("item-show");
@@ -603,7 +606,7 @@ settings_btn.addEventListener("click", () => {
     document.getElementById("console-settings").classList.add("item-show");
 });
 to_display.addEventListener("click", () => {
-    setting_title1.innerHTML = "显示与文本";
+    setting_title1.innerHTML = "显示和文本";
     setting_info1.classList.add("item-show");
 });
 to_about.addEventListener("click", () => {
@@ -618,8 +621,12 @@ to_about.addEventListener("click", () => {
     document.querySelector("#console-setting-info2 .set-box-normal:nth-child(5) .setting-detail").innerHTML = tools.detectBrowser().name + " " + tools.detectBrowser().version;
     setting_info2.classList.add("item-show");
 });
+// to_wallpaper.addEventListener("click", () => {
+//     setting_title3.innerHTML = "桌面和壁纸";
+//     setting_info3.classList.add("item-show");
+// });
 
-// 主题色设置
+// 主题设置
 document.getElementById("set-theme-light").addEventListener("click", () => {
     document.querySelector("#set-theme-light input").checked = true;
     activateLightMode();

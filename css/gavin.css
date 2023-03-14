@@ -1345,6 +1345,11 @@ h6 {
     }
 }
 
+/* 代码框的圆角弧度 */
+#article-container figure.highlight {
+    border-radius: 0.8rem;
+}
+
 /* *****************************************************sidebar侧滑导航栏修改**************************************************************** */
 /* 手机端 侧边导航颜色和圆弧 */
 #sidebar #sidebar-menus .menus_items .site-page:hover {
