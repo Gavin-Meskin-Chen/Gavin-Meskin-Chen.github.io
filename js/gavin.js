@@ -1,14 +1,26 @@
-// pjax适配
-function whenDOMReady() {
-    // pjax加载完成（切换页面）后需要执行的函数和代码
-    console.log("pjax开启");
+// // pjax适配
+// function whenDOMReady() {
+//     // pjax加载完成（切换页面）后需要执行的函数和代码
+//     console.log("pjax开启");
+//     musicState();
+//     cardTimes();
+//     asideNote();
+// }
+
+document.addEventListener("DOMContentLoaded", ()=>{
+    console.log("第一次加载完成");
+    if ('paintWorklet' in CSS) { CSS.paintWorklet.addModule('js/paint.js'); }
+    cardTimes();
+    asideNote();
+}); //第一次
+
+document.addEventListener("pjax:complete", ()=>{
+    console.log("pjax加载完成（切换页面）");
+    document.getElementById("page-name").innerText = document.title.split(" | 参星阁")[0];
     musicState();
     cardTimes();
     asideNote();
-}
-
-if ('paintWorklet' in CSS) { CSS.paintWorklet.addModule('js/paint.js'); }
-
+}) // pjax加载完成（切换页面）后再执行一次
 
 window.onload = function () {
     var set_music = document.querySelector("#set-switch-music input");
@@ -67,15 +79,6 @@ function percent() {
     result <= 99 || (result = 99), (btn.innerHTML = result);
 }
 document.getElementById("page-name").innerText = document.title.split(" | 参星阁")[0];
-
-// 首页大logo
-var logo = document.createElement("img");
-var site = document.getElementById("site-info");
-var title = document.getElementById("site-title");
-logo.style = "position:relative;left:calc(50% - 75px);width:150px;height:150px";
-logo.src = "https://i.imgtg.com/2023/02/06/0Su3b.png";
-site.insertBefore(logo, title);
-site.style.top = "30%";
 
 // 侧边栏日历卡片
 function cardTimes() {
@@ -919,8 +922,8 @@ document.ontouchend = function () {
 };
 
 
-whenDOMReady(); // 打开网站先执行一次
-document.addEventListener("pjax:complete", whenDOMReady); // pjax加载完成（切换页面）后再执行一次
+// whenDOMReady(); // 打开网站先执行一次
+// document.addEventListener("pjax:complete", whenDOMReady); // pjax加载完成（切换页面）后再执行一次
 // whenDOMReady函数外放一些打开网站之后只需要执行一次的函数和代码，比如一些监听代码。
 // 监听代码只需要执行一次即可，不需要每次加载pjax都执行，会出现一些Bug。至于为什么，我也不知道，可以自己试一下。
 
