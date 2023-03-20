@@ -9,7 +9,6 @@
 
 document.addEventListener("DOMContentLoaded", ()=>{
     console.log("第一次加载完成");
-    if ('paintWorklet' in CSS) { CSS.paintWorklet.addModule('js/paint.js'); }
     cardTimes();
     asideNote();
 }); //第一次
@@ -21,6 +20,8 @@ document.addEventListener("pjax:complete", ()=>{
     cardTimes();
     asideNote();
 }) // pjax加载完成（切换页面）后再执行一次
+
+if ('paintWorklet' in CSS) { CSS.paintWorklet.addModule('/js/paint.js'); console.log("注册成功");}
 
 window.onload = function () {
     var set_music = document.querySelector("#set-switch-music input");

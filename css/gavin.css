@@ -1519,11 +1519,6 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
     font-size: 1.4rem;
 }
 
-#console-switch:hover {
-    background: var(--anzhiyu-main);
-    color: #fff !important;
-}
-
 /* 控制中心界面功能按钮样式 */
 #console {
     display: flex;
