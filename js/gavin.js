@@ -616,9 +616,9 @@ to_display.addEventListener("click", () => {
 to_about.addEventListener("click", () => {
     setting_title2.innerHTML = "关于本机";
     if (document.querySelector("#set-theme-dark input").checked) {
-        document.querySelector("#set-sys-logo img").src = "https://i.imgtg.com/2023/03/11/f1olM.webp";
+        document.querySelector("#set-sys-logo img").src = "https://blogdrive.gavin-chen.top/api/raw/?path=/Images/f1olM.webp";
     } else {
-        document.querySelector("#set-sys-logo img").src = "https://i.imgtg.com/2023/03/11/f15BG.webp";
+        document.querySelector("#set-sys-logo img").src = "https://blogdrive.gavin-chen.top/api/raw/?path=/Images/f15BG.webp";
     }
     document.querySelector("#console-setting-info2 .set-box-normal:nth-child(3) .setting-detail").innerHTML = tools.detectBrowser().hard;
     document.querySelector("#console-setting-info2 .set-box-normal:nth-child(4) .setting-detail").innerHTML = tools.getOSInfo();

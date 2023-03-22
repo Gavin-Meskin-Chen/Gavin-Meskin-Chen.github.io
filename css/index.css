@@ -7213,7 +7213,7 @@ blockquote.pullquote.right {
     justify-content: center;
     align-items: flex-start;
     flex-direction: column;
-    width: 50%;
+    width: 49%;
     min-height: 450px;
   }
   
