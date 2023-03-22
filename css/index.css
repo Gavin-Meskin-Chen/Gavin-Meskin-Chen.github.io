@@ -2347,6 +2347,10 @@ figure.highlight pre .javascript .function {
   left: 0;
   z-index: -1;
   background: var(--text-bg-hover);
+  border-radius: 0;
+  mask-image: paint(smooth-corners);
+  -webkit-mask-image: paint(smooth-corners);
+  --smooth-level: 24;
   content: '';
   -webkit-transition: -webkit-transform 0.3s ease-out;
   -moz-transition: -moz-transform 0.3s ease-out;
@@ -4614,7 +4618,10 @@ span.mathjax-overflow {
   flex-direction: column;
   background-position: center;
   background-size: cover;
-  border-radius: 12px;
+  border-radius: 0;
+  mask-image: paint(smooth-corners);
+  -webkit-mask-image: paint(smooth-corners);
+  --smooth-level: 18;
   position: relative;
   overflow: hidden;
   padding: 10px;

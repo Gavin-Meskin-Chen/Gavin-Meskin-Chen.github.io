@@ -765,7 +765,7 @@ var v_bar_bg_Len = v_bar_bg.offsetWidth; // 获取进度条总长Width
 
 // 按键按下
 music_volumebar.addEventListener("mousedown", function (e) { //添加监听事件
-    v_bar_bg.style.height = "0.6rem";
+    v_bar_bg.style.height = "0.8rem";
     v_bar.style.backgroundColor = "var(--dis-f-0)";
     v_low.style.color = "var(--dis-f-0)";
     v_high.style.color = "var(--dis-f-0)";
@@ -791,7 +791,7 @@ music_volumebar.addEventListener("mousedown", function (e) { //添加监听事�
 
 // 触摸按下
 music_volumebar.addEventListener("touchstart", function (e) { //添加监听事件
-    v_bar_bg.style.height = "0.6rem";
+    v_bar_bg.style.height = "0.8rem";
     v_bar.style.backgroundColor = "var(--dis-f-0)";
     v_low.style.color = "var(--dis-f-0)";
     v_high.style.color = "var(--dis-f-0)";
@@ -828,7 +828,7 @@ var mousemove_flag = 1;
 
 // 按键按下
 music_progressbar.addEventListener("mousedown", function (e) { //添加监听事件
-    p_bar_bg.style.height = "0.6rem";
+    p_bar_bg.style.height = "0.8rem";
     p_bar.style.backgroundColor = "var(--dis-f-0)";
     p_low.style.color = "var(--dis-f-0)";
     p_high.style.color = "var(--dis-f-0)";
@@ -855,7 +855,7 @@ music_progressbar.addEventListener("mousedown", function (e) { //添加监听事
 
 // 触摸按下
 music_progressbar.addEventListener("touchstart", function (e) { //添加监听事件
-    p_bar_bg.style.height = "0.6rem";
+    p_bar_bg.style.height = "0.8rem";
     p_bar.style.backgroundColor = "var(--dis-f-0)";
     p_low.style.color = "var(--dis-f-0)";
     p_high.style.color = "var(--dis-f-0)";
