@@ -1034,6 +1034,11 @@ center#name-container {
     border: 2px solid #fff;
 }
 
+.search-dialog-title {
+    color: rgb(0,61,255);
+    font-weight: bold;
+}
+
 /* 右下角rightside按钮毛玻璃 */
 #rightside>div>button,
 #rightside>div>a {
@@ -1168,6 +1173,10 @@ center#name-container {
 
 [data-theme="dark"] #page-header.post-bg::before {
     background-color: rgba(0, 0, 0, .45);
+}
+
+#page-header.full_page #site-info {
+    top: 30%;
 }
 
 body div {
@@ -3406,12 +3415,12 @@ a#music-list-title {
 
 #calendar-area-left {
     height: 100%;
-    width: 30%;
+    width: 32%;
 }
 
 #calendar-area-right {
     height: 100%;
-    width: 70%;
+    width: 68%;
 }
 
 #calendar-month,
