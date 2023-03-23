@@ -30,7 +30,7 @@ var logo = document.createElement("img");
 var site = document.getElementById("site-info");
 var title = document.getElementById("site-title");
 logo.style = "position:relative;left:calc(50% - 75px);width:150px;height:150px";
-logo.src = "https://i.imgtg.com/2023/02/06/0Su3b.png";
+logo.src = "http://i.imgtg.com/2023/02/06/0Su3b.png";
 site.insertBefore(logo, title);
 site.style.top = "30%";
 
