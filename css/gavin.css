@@ -2832,7 +2832,7 @@ html.hide-aside .layout>div:first-child {
 
 /* ************************加载动画*************************** */
 .loading-img {
-    background: url(https://blogdrive.gavin-chen.top/api/raw/?path=/Images/GZRKN.jpg) no-repeat center center;
+    background: url(https://gavin-chen.top/img/avatar.webp) no-repeat center center;
     background-size: cover;
 }
 
