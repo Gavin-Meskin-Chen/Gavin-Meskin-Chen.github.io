@@ -3209,6 +3209,7 @@ html.hide-aside .layout>div:first-child {
 
 #console-music-list li:not(:first-child) div.list-music-info2 {
     border-top: 1px solid var(--vercel-border-color);
+    transition: all .5s;
 }
 
 div.list-music-info1 {
@@ -3290,10 +3291,6 @@ a#music-list-title {
     background-color: var(--vercel-hover-bg);
 }
 
-#console-songsheet-list li div.songsheet-info2 {
-    border-bottom: 1px solid var(--vercel-border-color);
-}
-
 .songsheet-info1 {
     width: 2rem;
     display: flex;
@@ -3308,6 +3305,7 @@ a#music-list-title {
     overflow: hidden;
     display: flex;
     align-items: center;
+    border-bottom: 1px solid var(--vercel-border-color);
     transition: all .5s;
 }
 
@@ -3745,6 +3743,7 @@ progress::-webkit-progress-value {
     align-items: center;
     margin: 0 0.9rem;
     border-bottom: 1px solid var(--vercel-border-color);
+    transition: all .5s;
 }
 
 .set-box-medium {
@@ -3761,6 +3760,7 @@ progress::-webkit-progress-value {
     align-items: center;
     margin: 0 0.9rem;
     border-bottom: 1px solid var(--vercel-border-color);
+    transition: all .5s;
 }
 
 #set-theme-light,
