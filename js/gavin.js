@@ -11,6 +11,9 @@ document.addEventListener("DOMContentLoaded", ()=>{
     console.log("第一次加载完成");
     cardTimes();
     asideNote();
+    if(document.documentElement.scrollTop != 0){
+        document.getElementById("page-header").classList.add("is-top-bar")
+    }
 }); //第一次
 
 document.addEventListener("pjax:complete", ()=>{
