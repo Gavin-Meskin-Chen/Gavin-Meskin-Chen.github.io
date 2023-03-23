@@ -2,16 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://gavin-chen.top/photos/index.html</loc>
-    
-    <lastmod>2023-03-23</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://gavin-chen.top/post/37b27065.html</loc>
+    <loc>https://gavin-chen.top/post/cef7e835.html</loc>
     
     <lastmod>2023-03-23</lastmod>
     
@@ -21,15 +12,6 @@
   
   <url>
     <loc>https://gavin-chen.top/html/control.html</loc>
-    
-    <lastmod>2023-03-23</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://gavin-chen.top/post/e87ec7ea.html</loc>
     
     <lastmod>2023-03-23</lastmod>
     
@@ -65,7 +47,25 @@
   </url>
   
   <url>
-    <loc>https://gavin-chen.top/post/cef7e835.html</loc>
+    <loc>https://gavin-chen.top/post/e87ec7ea.html</loc>
+    
+    <lastmod>2023-03-23</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://gavin-chen.top/photos/index.html</loc>
+    
+    <lastmod>2023-03-23</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://gavin-chen.top/post/37b27065.html</loc>
     
     <lastmod>2023-03-23</lastmod>
     
@@ -83,7 +83,7 @@
   </url>
   
   <url>
-    <loc>https://gavin-chen.top/post/a5c582fd.html</loc>
+    <loc>https://gavin-chen.top/post/ac62cfd5.html</loc>
     
     <lastmod>2023-03-23</lastmod>
     
@@ -92,7 +92,7 @@
   </url>
   
   <url>
-    <loc>https://gavin-chen.top/post/ac62cfd5.html</loc>
+    <loc>https://gavin-chen.top/post/a5c582fd.html</loc>
     
     <lastmod>2023-03-23</lastmod>
     
@@ -119,7 +119,7 @@
   </url>
   
   <url>
-    <loc>https://gavin-chen.top/post/cddbd99a.html</loc>
+    <loc>https://gavin-chen.top/post/d041b9a6.html</loc>
     
     <lastmod>2023-03-23</lastmod>
     
@@ -128,7 +128,7 @@
   </url>
   
   <url>
-    <loc>https://gavin-chen.top/post/d041b9a6.html</loc>
+    <loc>https://gavin-chen.top/post/cddbd99a.html</loc>
     
     <lastmod>2023-03-23</lastmod>
     
@@ -351,20 +351,6 @@
   </url>
   
   <url>
-    <loc>https://gavin-chen.top/tags/%E8%AF%AD%E5%BD%95/</loc>
-    <lastmod>2023-03-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://gavin-chen.top/tags/%E5%8F%A5%E5%AD%90/</loc>
-    <lastmod>2023-03-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://gavin-chen.top/tags/PCB/</loc>
     <lastmod>2023-03-23</lastmod>
     <changefreq>weekly</changefreq>
@@ -373,6 +359,20 @@
   
   <url>
     <loc>https://gavin-chen.top/tags/AD/</loc>
+    <lastmod>2023-03-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://gavin-chen.top/tags/%E8%AF%AD%E5%BD%95/</loc>
+    <lastmod>2023-03-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://gavin-chen.top/tags/%E5%8F%A5%E5%AD%90/</loc>
     <lastmod>2023-03-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -402,14 +402,14 @@
   </url>
   
   <url>
-    <loc>https://gavin-chen.top/categories/Sentence/</loc>
+    <loc>https://gavin-chen.top/categories/PCB/</loc>
     <lastmod>2023-03-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://gavin-chen.top/categories/PCB/</loc>
+    <loc>https://gavin-chen.top/categories/Sentence/</loc>
     <lastmod>2023-03-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
