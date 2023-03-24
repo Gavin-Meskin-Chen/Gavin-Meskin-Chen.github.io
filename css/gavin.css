@@ -906,6 +906,9 @@ center#name-container {
 }
 
 /* ******************************************************************微调************************************************************ */
+a {
+    color: var(--font-color);
+}
 
 /* 设置左右padding */
 .layout {
@@ -997,33 +1000,46 @@ center#name-container {
 
 /* 搜索页面毛玻璃 */
 #search-mask {
-    background-color: var(--gavin-op-1);
-    -webkit-backdrop-filter: saturate(180%) contrast(50%) blur(5px);
-    backdrop-filter: saturate(180%) contrast(50%) blur(5px);
+    background-color: var(--gavin-op-dis-1);
+    -webkit-backdrop-filter: blur(7px);
+    backdrop-filter: blur(7px);
 }
 
 .search-dialog {
-    border-radius: 1.2rem;
-    border: 1px solid grey;
+    /* border: 1px solid grey; */
+    /* border-radius: 1.2rem; */
+    border-radius: 0;
+    mask-image: paint(smooth-corners);
+    -webkit-mask-image: paint(smooth-corners);
+    --smooth-level: 24;
     background: var(--search-bg);
-    -webkit-backdrop-filter: saturate(180%) contrast(50%) blur(20px);
-    backdrop-filter: saturate(180%) contrast(50%) blur(20px);
+    -webkit-backdrop-filter: blur(70px);
+    backdrop-filter: blur(70px);
 }
 
 @media screen and (max-width: 768px) {
     .search-dialog {
-        border-radius: 0;
+        /* border-radius: 0; */
+        --smooth-level: 0;
     }
 }
 
-.search-dialog:hover {
+/* .search-dialog:hover {
     box-shadow: var(--card-hover-box-shadow);
-}
+} */
 
 
 #algolia-search .search-dialog .ais-SearchBox input {
-    border: 2px solid gray;
+    border: 2px solid var(--font-color);
     background-color: rgb(255, 255, 255, 0);
+}
+
+.search-dialog .search-nav .search-close-button {
+    color: var(--font-color);
+}
+
+#algolia-search .search-dialog .ais-Pagination .ais-Pagination-item .ais-Pagination-link {
+    border-radius: 4px;
 }
 
 #algolia-search .search-dialog .ais-SearchBox:hover input {
