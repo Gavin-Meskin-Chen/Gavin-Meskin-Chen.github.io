@@ -11,6 +11,8 @@
     --vercel-btn-bg: var(--dis-f-0);
     --vercel-btn-hover-bg: var(--f-0);
     --vercel-btn-border: var(--dis-f-0);
+    --hr-border: rgb(0,136,255);
+    --hr-before-color: rgb(0,136,255);
 
 
     /* HarmonyOS */
@@ -431,7 +433,7 @@ div#menus {
 
 #blog_name #site-name:hover i {
     opacity: 1;
-    transform: scale(1.01);
+    /* transform: scale(1.01); */
     color: white;
 }
 
@@ -788,11 +790,11 @@ center#name-container {
     position: relative;
 }
 
-@media screen and (min-width: 1300px) {
+/* @media screen and (min-width: 1300px) {
     #nav a:hover {
         transform: scale(1.03);
     }
-}
+} */
 
 .back-home-button .back-menu-list .back-menu-item:hover .back-menu-item-text {
     color: #fff;
@@ -3362,9 +3364,9 @@ a#music-list-title {
 }
 
 /* ***********侧边栏日历************ */
-.card-widget.card-times .item-headline {
+/* .card-widget.card-times .item-headline {
     display: none;
-}
+} */
 
 /* .card-widget.card-times {}*/
 .card-widget {

@@ -331,6 +331,19 @@ var tools = {
         }
     },
 
+    getBatteryInfo: function () {
+        if ('getBattery' in navigator) {
+            navigator.getBattery().then(function(battery) {
+                console.log("Battery level: " + battery.level * 100 + "%");
+                console.log("Battery state: " + battery.charging);
+                return {
+                    level: battery.level,
+                    state: battery.charging
+                };
+            });
+        }
+    },
+
     showNote: function (text, style, delay) {
         new Vue({
             data: function () {
