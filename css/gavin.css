@@ -1060,9 +1060,9 @@ a {
 /* 右下角rightside按钮毛玻璃 */
 #rightside>div>button,
 #rightside>div>a {
-    background-color: var(--rightside-bg);
-    -webkit-backdrop-filter: saturate(180%) contrast(50%) blur(20px);
-    backdrop-filter: saturate(180%) contrast(50%) blur(20px);
+    background-color: rgba(136,136,136,.48);
+    /* -webkit-backdrop-filter: saturate(180%) contrast(50%) blur(20px);
+    backdrop-filter: saturate(180%) contrast(50%) blur(20px); */
 }
 
 /* 右下角设置上移 */
@@ -2729,7 +2729,7 @@ div#swiper_container:hover,
 }
 
 a:hover {
-    color: var(--dis-f-0);
+    color: rgb(0,136,255);
 }
 
 /* 轮播补充 */
