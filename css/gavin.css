@@ -489,9 +489,9 @@ ul.menus_item_child {
 #nav {
     /* top: 0; */
     padding: 0 4.5%;
-    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(12px);
     /* Warning: Also define the standard property '' for compatibility */
-    backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(12px);
     /* saturate饱和度 contrast对比度 blur高斯模糊 */
     /* 以下是导航栏新改的 */
     background-color: var(--gavin-op-nav) !important;
