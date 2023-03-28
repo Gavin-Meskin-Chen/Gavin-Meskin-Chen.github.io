@@ -496,6 +496,7 @@ ul.menus_item_child {
     /* 以下是导航栏新改的 */
     background-color: var(--gavin-op-nav) !important;
     box-shadow: var(--card-box-shadow) !important;
+    transform: translateZ(0);
 }
 
 header a,
@@ -846,6 +847,7 @@ center#name-container {
     background: rgb(0 0 0 / 0%) !important;
     backdrop-filter: none !important;
     box-shadow: none !important;
+    transform: translateZ(0);
 }
 
 #body-wrap #page-header:not(.is-top-bar) #nav #he-plugin-simple,
@@ -1005,6 +1007,7 @@ a {
     background-color: var(--gavin-op-dis-1);
     -webkit-backdrop-filter: blur(7px);
     backdrop-filter: blur(7px);
+    transform: translateZ(0);
 }
 
 .search-dialog {
@@ -1017,6 +1020,7 @@ a {
     background: var(--search-bg);
     -webkit-backdrop-filter: blur(70px);
     backdrop-filter: blur(70px);
+    transform: translateZ(0);
 }
 
 @media screen and (max-width: 768px) {
@@ -1187,6 +1191,7 @@ a {
     -webkit-backdrop-filter: saturate(180%) blur(50px);
     backdrop-filter: saturate(180%) blur(50px);
     background-color: rgba(0, 0, 0, .16);
+    transform: translateZ(0);
 }
 
 [data-theme="dark"] #page-header.post-bg::before {
@@ -1441,6 +1446,7 @@ h6 {
     background: rgba(255, 255, 255, 0.5);
     -webkit-backdrop-filter: saturate(180%) contrast(50%) blur(10px);
     backdrop-filter: saturate(180%) contrast(50%) blur(10px);
+    transform: translateZ(0);
 }
 
 [data-theme='dark'] #sidebar #sidebar-menus {
@@ -1507,6 +1513,7 @@ meting-js .aplayer .aplayer-lrc {
     background-clip: border-box;
     -webkit-backdrop-filter: saturate(180%) blur(20px);
     backdrop-filter: saturate(180%) blur(20px);
+    transform: translateZ(0);
 }
 
 meting-js .aplayer.aplayer-fixed .aplayer-lrc {
@@ -1677,6 +1684,7 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
     backdrop-filter: blur(7px);
     -webkit-backdrop-filter: blur(7px);
     animation: 0.5s ease 0s 1 normal none running to_show;
+    transform: translateZ(0);
 }
 
 #console .console-mask {
@@ -1694,6 +1702,7 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
     backface-visibility: hidden;
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
+    transform: translateZ(0);
 }
 
 /* 控制中心音乐播放器样式 */
@@ -2858,6 +2867,7 @@ html.hide-aside .layout>div:first-child {
     background: var(--gavin-op-7);
     backdrop-filter: blur(12px);
     transition: 0.3s;
+    transform: translateZ(0);
 }
 
 /* AdsBox隐藏 */
