@@ -2341,7 +2341,7 @@ figure.highlight pre .javascript .function {
   left: 0;
   z-index: -1;
   background: var(--text-bg-hover);
-  border-radius: 0;
+  border-radius: 20px;
   mask-image: paint(smooth-corners);
   -webkit-mask-image: paint(smooth-corners);
   --smooth-level: 24;
@@ -4612,7 +4612,7 @@ span.mathjax-overflow {
   flex-direction: column;
   background-position: center;
   background-size: cover;
-  border-radius: 0;
+  border-radius: 12px;
   mask-image: paint(smooth-corners);
   -webkit-mask-image: paint(smooth-corners);
   --smooth-level: 18;

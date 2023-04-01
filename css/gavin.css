@@ -1012,8 +1012,8 @@ a {
 
 .search-dialog {
     /* border: 1px solid grey; */
-    /* border-radius: 1.2rem; */
-    border-radius: 0;
+    border-radius: 1.2rem;
+    /* border-radius: 0; */
     mask-image: paint(smooth-corners);
     -webkit-mask-image: paint(smooth-corners);
     --smooth-level: 24;
@@ -1025,7 +1025,7 @@ a {
 
 @media screen and (max-width: 768px) {
     .search-dialog {
-        /* border-radius: 0; */
+        border-radius: 0;
         --smooth-level: 0;
     }
 }
@@ -1078,8 +1078,8 @@ a {
 /* 第一个是相关文章，第二个是上下篇*/
 .relatedPosts>.relatedPosts-list>div,
 #pagination.pagination-post {
-    /* border-radius: 1rem; */
-    border-radius: 0;
+    border-radius: 1rem;
+    /* border-radius: 0; */
     mask-image: paint(smooth-corners);    
     -webkit-mask-image: paint(smooth-corners);
     --smooth-level: 20;
@@ -1090,8 +1090,8 @@ a {
 .layout>div:first-child:not(.recent-posts),
 #recent-posts>.recent-post-item,
 #aside-content .card-widget {
-    /* border-radius: 1rem; */
-    border-radius: 0;
+    border-radius: 1rem;
+    /* border-radius: 0; */
     mask-image: paint(smooth-corners);
     -webkit-mask-image: paint(smooth-corners);
     --smooth-level: 20;
@@ -1390,8 +1390,8 @@ h6 {
 
 /* 代码框的圆角弧度 */
 #article-container figure.highlight {
-    /* border-radius: 1rem; */
-    border-radius: 0;
+    border-radius: 1rem;
+    /* border-radius: 0; */
     mask-image: paint(smooth-corners);
     -webkit-mask-image: paint(smooth-corners);
     --smooth-level: 16;
@@ -1399,7 +1399,8 @@ h6 {
 
 /* 相册弧度 */
 #article-container figure.gallery-group {
-    border-radius: 0;
+    border-radius: 1rem;
+    /* border-radius: 0; */
     mask-image: paint(smooth-corners);
     -webkit-mask-image: paint(smooth-corners);
     --smooth-level: 20;
@@ -1500,8 +1501,8 @@ meting-js .aplayer .aplayer-lrc {
     padding: 0 !important;
     /* height: 50px !important; */
     height: 3rem !important;
-    /* border-radius: 20px; */
-    border-radius: 0;
+    border-radius: 20px;
+    /* border-radius: 0; */
     mask-image: paint(smooth-corners);
     -webkit-mask-image: paint(smooth-corners);
     --smooth-level: 24;
@@ -2625,8 +2626,8 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
 #article-container .flink .flink-list>.flink-list-item {
     /* border: 1px solid var(--vercel-border-color); */
     background: var(--card-bg);
-    /* border-radius: 1rem; */
-    border-radius: 0;
+    border-radius: 1rem;
+    /* border-radius: 0; */
     mask-image: paint(smooth-corners);
     -webkit-mask-image: paint(smooth-corners);
     --smooth-level: 24;
@@ -2766,13 +2767,13 @@ span.top-group-text {
 /* ********************首页标签分类条*********************** */
 #category-bar {
     /* width: 100%; */
-    /* border-radius: 1rem!important; */
+    border-radius: 1rem!important;
     /* margin-bottom: 0!important; */
     /* border: 0!important; */
     box-shadow: var(--card-box-shadow);
     height: 3.2rem;
     align-items: center;
-    border-radius: 0;
+    /* border-radius: 0; */
     mask-image: paint(smooth-corners);
     -webkit-mask-image: paint(smooth-corners);
     --smooth-level: 20;
@@ -2971,8 +2972,8 @@ html.hide-aside .layout>div:first-child {
     margin: 1rem auto 0 auto;
     width: 18rem;
     height: 30rem;
-    /* border-radius: 1.8rem; */
-    border-radius: 0;
+    border-radius: 1.8rem;
+    /* border-radius: 0; */
     mask-image: paint(smooth-corners);
     -webkit-mask-image: paint(smooth-corners);
     --smooth-level: 40;
@@ -3007,8 +3008,8 @@ html.hide-aside .layout>div:first-child {
     width: 100%;
     overflow: hidden;
     /* height: calc(100% - 12rem); */
-    /* border-radius: 0.5rem; */
-    border-radius: 0;
+    border-radius: 0.5rem;
+    /* border-radius: 0; */
     mask-image: paint(smooth-corners);
     -webkit-mask-image: paint(smooth-corners);
     --smooth-level: 15;
@@ -3340,8 +3341,8 @@ a#music-list-title {
 .list-songsheet-cover {
     height: 4rem;
     width: 4rem;
-    /* border-radius: 0.5rem; */
-    border-radius: 0;
+    border-radius: 0.5rem;
+    /* border-radius: 0; */
     mask-image: paint(smooth-corners);
     -webkit-mask-image: paint(smooth-corners);
     --smooth-level: 15;
@@ -3395,8 +3396,8 @@ a#music-list-title {
 #aside-calendar,
 #aside-schedule {
     background: var(--gavin-widget-bg1);
-    /* border-radius: 0.5rem; */
-    border-radius: 0;
+    border-radius: 0.5rem;
+    /* border-radius: 0; */
     mask-image: paint(smooth-corners);
     -webkit-mask-image: paint(smooth-corners);
     --smooth-level: 12;
@@ -3415,8 +3416,8 @@ a#music-list-title {
 #aside-time-right,
 #aside-time-left {
     background: var(--gavin-widget-bg1);
-    /* border-radius: 0.5rem; */
-    border-radius: 0;
+    border-radius: 0.5rem;
+    /* border-radius: 0; */
     mask-image: paint(smooth-corners);
     -webkit-mask-image: paint(smooth-corners);
     --smooth-level: 12;
@@ -3528,8 +3529,8 @@ a#music-list-title {
 /* 任务进度条 */
 progress::-webkit-progress-bar {
     background-color: var(--gavin-widget-bg2);
-    /* border-radius: 0.4rem; */
-    border-radius: 0;
+    border-radius: 0.4rem;
+    /* border-radius: 0; */
     mask-image: paint(smooth-corners);
     -webkit-mask-image: paint(smooth-corners);
     --smooth-level: 7;
@@ -3540,8 +3541,8 @@ progress::-webkit-progress-bar {
 
 progress::-webkit-progress-value {
     background-color: rgba(0, 150, 255, .75);
-    /* border-radius: 0.3rem; */
-    border-radius: 0;
+    border-radius: 0.3rem;
+    /* border-radius: 0; */
     mask-image: paint(smooth-corners);
     -webkit-mask-image: paint(smooth-corners);
     --smooth-level: 5;
@@ -3592,7 +3593,8 @@ progress::-webkit-progress-value {
 .el-notification {
     /* border: none!important;
     background-color: var(--gavin-background)!important; */
-    border-radius: 0;
+    border-radius: 0.5rem;
+    /* border-radius: 0; */
     mask-image: paint(smooth-corners);
     -webkit-mask-image: paint(smooth-corners);
     --smooth-level: 12;
