@@ -22,6 +22,9 @@ document.addEventListener("pjax:complete", ()=>{
     musicState();
     cardTimes();
     asideNote();
+    if(document.documentElement.scrollTop != 0){
+        document.getElementById("page-header").classList.add("is-top-bar")
+    }
 }) // pjax加载完成（切换页面）后再执行一次
 
 if ('paintWorklet' in CSS) { CSS.paintWorklet.addModule('/js/paint.js'); console.log("注册成功");}
