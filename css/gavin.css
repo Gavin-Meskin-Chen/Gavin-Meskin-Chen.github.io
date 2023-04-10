@@ -2764,14 +2764,13 @@ span.top-group-text {
 #category-bar {
     /* width: 100%; */
     /* margin-bottom: 0!important; */
-    /* border: 0!important; */
     box-shadow: var(--card-box-shadow);
     height: 3.2rem;
     align-items: center;
     border-radius: 1rem!important;
-    mask-image: paint(smooth-corners);
+    /* mask-image: paint(smooth-corners);
     -webkit-mask-image: paint(smooth-corners);
-    --smooth-level: 20;
+    --smooth-level: 20; */
 }
 
 #category-bar:hover {
