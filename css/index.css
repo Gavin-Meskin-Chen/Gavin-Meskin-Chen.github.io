@@ -6276,8 +6276,8 @@ blockquote.pullquote.right {
     width: 100%;
     background: var(--anzhiyu-maskbg);
     padding: 0.5rem 2rem;
-    backdrop-filter: saturate(180%) blur(20px);
     -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
     transition: 1s ease-in-out;
     font-size: 20px;
   }

@@ -845,6 +845,7 @@ center#name-container {
 /* 导航栏置顶后透明 */
 #body-wrap #page-header:not(.is-top-bar) #nav {
     background: rgb(0 0 0 / 0%) !important;
+    -webkit-backdrop-filter: none !important;
     backdrop-filter: none !important;
     box-shadow: none !important;
     transform: translateZ(0);
@@ -1682,16 +1683,16 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
 }
 
 #console.show .console-mask {
-    backdrop-filter: blur(7px);
     -webkit-backdrop-filter: blur(7px);
+    backdrop-filter: blur(7px);
     animation: 0.5s ease 0s 1 normal none running to_show;
     transform: translateZ(0);
 }
 
 #console .console-mask {
     background: var(--gavin-op-console);
-    backdrop-filter: blur(0px);
     -webkit-backdrop-filter: blur(0px);
+    backdrop-filter: blur(0px);
     width: 100vw;
     height: 100vh;
     top: 0;
@@ -2677,8 +2678,8 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
 div#swiper_container,
 .topGroup .top-group-list-item,
 .categoryItem{
-    /* border-radius: 1rem !important; */
-    border-radius: 0!important;
+    border-radius: 1rem !important;
+    /* border-radius: 0!important; */
     mask-image: paint(smooth-corners);
     -webkit-mask-image: paint(smooth-corners);
     --smooth-level: 20;
@@ -2692,8 +2693,8 @@ div#swiper_container,
 }
 
 #random {
-    /* border-radius: 1rem !important; */
-    border-radius: 0!important;
+    border-radius: 1rem !important;
+    /* border-radius: 0!important; */
     mask-image: paint(smooth-corners);
     -webkit-mask-image: paint(smooth-corners);
     --smooth-level: 20;
@@ -2866,6 +2867,7 @@ html.hide-aside .layout>div:first-child {
 
 .loading-bg {
     background: var(--gavin-op-7);
+    -webkit-backdrop-filter: blur(12px);
     backdrop-filter: blur(12px);
     transition: 0.3s;
     transform: translateZ(0);
