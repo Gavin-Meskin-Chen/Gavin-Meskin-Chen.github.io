@@ -24,7 +24,7 @@ document.addEventListener("pjax:complete", ()=>{
 
 // ************************************************ 函数部分 **************************************************************
 
-if ('paintWorklet' in CSS) { CSS.paintWorklet.addModule('/js/paint.js'); console.log("注册成功");}
+if ('paintWorklet' in CSS) { CSS.paintWorklet.addModule('/js/paint.js'); }
 
 window.onload = function () {
     var set_music = document.querySelector("#set-switch-music input");
@@ -608,7 +608,7 @@ function categoriesBarActive() {
     }
     var urlinfo = window.location.pathname;
     urlinfo = decodeURIComponent(urlinfo)
-    console.log(urlinfo);
+    // console.log(urlinfo);
     //判断是否是首页
     if (urlinfo == '/') {
         if (document.querySelector('#category-bar')) {
@@ -618,11 +618,11 @@ function categoriesBarActive() {
         // 验证是否是分类链接
         var pattern = /\/categories\/.*?\//;
         var patbool = pattern.test(urlinfo);
-        console.log(patbool);
+        // console.log(patbool);
         // 获取当前的分类
         if (patbool) {
             var valuegroup = urlinfo.split("/");
-            console.log(valuegroup[2]);
+            // console.log(valuegroup[2]);
             // 获取当前分类
             var nowCategorie = valuegroup[2];
             if (document.querySelector('#category-bar')) {

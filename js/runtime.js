@@ -4,7 +4,7 @@ var listener = 0;
 var old_music_id = null;
 var now_music_id = null;
 var newSongsheetLen = 0;
-var t_load;
+var t_load, t_play;
 var now = new Date();
 var year, month, week, date, dates, weekStr, monthStr;
 var asideTime, asideDay, asideDayNum;
@@ -61,7 +61,7 @@ function createtime() {
 setInterval(() => {
     // cardRefreshTimes();
     createtime();
-}, 10000);
+}, 1000);
 
 // 设置重复执行函数，周期500ms
 setInterval(() => {
@@ -208,5 +208,5 @@ setInterval(() => {
         listener = 1;
     };
     //音乐进度更新
-    if (meting_load == 0 && global_music_flag == 0) ctrl.refreshProgress();
+    if (meting_load == 0 && global_music_flag == 0 && document.querySelector("#music-Switch i.fa-pause") != null) ctrl.refreshProgress();
 }, 500);
