@@ -47,14 +47,12 @@ function createtime() {
         snum = Math.round(seconds);
     1 == String(snum).length && (snum = "0" + snum);
     var a_t_r = document.getElementById("aside-time-right");
-    if (a_t_r) a_t_r.innerHTML = now.getHours().toString().padStart(2, '0') + ":" + now.getMinutes().toString().padStart(2, '0');
-    //  + ":" + now.getSeconds().toString().padStart(2, '0');
-    // ${snum} 秒
+    if (a_t_r) a_t_r.innerHTML = now.getHours().toString().padStart(2, '0') + ":" + now.getMinutes().toString().padStart(2, '0') + ":" + now.getSeconds().toString().padStart(2, '0');
     let currentTimeHtml = "";
     (currentTimeHtml =
         hnum < 18 && hnum >= 9
-            ? `<div>参星阁历 ${dnum} 天 ${hnum} 小时 ${mnum} 分</div>`
-            : `<div>参星阁历 ${dnum} 天 ${hnum} 小时 ${mnum} 分</div>`),
+            ? `<div>参星阁历 ${dnum} 天 ${hnum} 小时 ${mnum} 分 ${snum} 秒</div>`
+            : `<div>参星阁历 ${dnum} 天 ${hnum} 小时 ${mnum} 分 ${snum} 秒</div>`),
         document.getElementById("count-time") &&
         (document.getElementById("count-time").innerHTML = currentTimeHtml);
 }
