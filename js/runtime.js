@@ -57,13 +57,13 @@ function createtime() {
 }
 
 // 设置重复执行函数，周期1000ms
-setInterval(() => {
-    cardRefreshTimes();
-    createtime();
-}, 1000);
+// setInterval(() => {
+// }, 1000);
 
 // 设置重复执行函数，周期500ms
 setInterval(() => {
+    cardRefreshTimes();
+    createtime();
     if (document.querySelector("meting-js").aplayer != null) meting_load = 0;
     if (meting_load == 0 && listener == 0) {
         // 监测aplayer加载完开始注入音乐列表
@@ -208,4 +208,4 @@ setInterval(() => {
     };
     //音乐进度更新
     if (meting_load == 0 && global_music_flag == 0) ctrl.refreshProgress();
-}, 500);
+}, 1000);
