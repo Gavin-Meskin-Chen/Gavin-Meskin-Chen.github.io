@@ -4,7 +4,7 @@ var listener = 0;
 var old_music_id = null;
 var now_music_id = null;
 var newSongsheetLen = 0;
-var t_load, t_play;
+var t_load;
 var now = new Date();
 var year, month, week, date, dates, weekStr, monthStr;
 var asideTime, asideDay, asideDayNum;
