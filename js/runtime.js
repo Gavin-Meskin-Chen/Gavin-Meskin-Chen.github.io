@@ -13,11 +13,11 @@ const colorSchemeQuery = window.matchMedia('(prefers-color-scheme: dark)');
 
 cardTimes();
 asideNote();
+cardRefreshTimes();
 // 刷新时钟时间
 function cardRefreshTimes() {
     var p_y = document.getElementById("pBar_year");
     var p_s_y = document.getElementById("p_span_year");
-    var a_t_r = document.getElementById("aside-time-right");
     var p_m = document.getElementById("pBar_month");
     var p_s_m = document.getElementById("p_span_month");
     var p_w = document.getElementById("pBar_week");
@@ -25,7 +25,6 @@ function cardRefreshTimes() {
     asideDay = (now - asideTime) / 1e3 / 60 / 60 / 24;
     if (p_y) p_y.value = asideDay;
     if (p_s_y) p_s_y.innerHTML = (asideDay / 365 * 100).toFixed(2) + "%";
-    if (a_t_r) a_t_r.innerHTML = now.getHours().toString().padStart(2, '0') + ":" + now.getMinutes().toString().padStart(2, '0') + ":" + now.getSeconds().toString().padStart(2, '0');
     if (p_m) { p_m.value = date; p_m.max = dates; }
     if (p_s_m) p_s_m.innerHTML = (date / dates * 100).toFixed(2) + "%";
     if (p_w) p_w.value = week == 0 ? 7 : week;
@@ -47,6 +46,8 @@ function createtime() {
     var seconds = (now - grt) / 1e3 - 86400 * dnum - 3600 * hnum - 60 * mnum,
         snum = Math.round(seconds);
     1 == String(snum).length && (snum = "0" + snum);
+    var a_t_r = document.getElementById("aside-time-right");
+    if (a_t_r) a_t_r.innerHTML = now.getHours().toString().padStart(2, '0') + ":" + now.getMinutes().toString().padStart(2, '0') + ":" + now.getSeconds().toString().padStart(2, '0');
     let currentTimeHtml = "";
     (currentTimeHtml =
         hnum < 18 && hnum >= 9
@@ -57,13 +58,13 @@ function createtime() {
 }
 
 // 设置重复执行函数，周期1000ms
-// setInterval(() => {
-// }, 1000);
+setInterval(() => {
+    // cardRefreshTimes();
+    createtime();
+}, 1000);
 
 // 设置重复执行函数，周期500ms
 setInterval(() => {
-    cardRefreshTimes();
-    createtime();
     if (document.querySelector("meting-js").aplayer != null) meting_load = 0;
     if (meting_load == 0 && listener == 0) {
         // 监测aplayer加载完开始注入音乐列表
@@ -208,4 +209,4 @@ setInterval(() => {
     };
     //音乐进度更新
     if (meting_load == 0 && global_music_flag == 0) ctrl.refreshProgress();
-}, 1000);
+}, 500);
