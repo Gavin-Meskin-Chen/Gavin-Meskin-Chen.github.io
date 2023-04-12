@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
     console.log("第一次加载完成");
     cardTimes();
     asideNote();
+    cardRefreshTimes();
     if(document.documentElement.scrollTop != 0){
         document.getElementById("page-header").classList.add("is-top-bar")
     }
@@ -14,6 +15,7 @@ document.addEventListener("pjax:complete", ()=>{
     musicState();
     cardTimes();
     asideNote();
+    cardRefreshTimes();
     if(document.documentElement.scrollTop != 0){
         document.getElementById("page-header").classList.add("is-top-bar");
     }
