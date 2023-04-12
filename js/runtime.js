@@ -11,9 +11,9 @@ var asideTime, asideDay, asideDayNum;
 var animalYear, ganzhiYear, lunarMon, lunarDay;
 const colorSchemeQuery = window.matchMedia('(prefers-color-scheme: dark)');
 
-cardTimes();
-asideNote();
-cardRefreshTimes();
+// cardTimes();
+// asideNote();
+// cardRefreshTimes();
 // 刷新时钟时间
 function cardRefreshTimes() {
     var p_y = document.getElementById("pBar_year");
