@@ -104,7 +104,7 @@
 
 
     /* 以下是安知鱼颜色 */
-    --anzhiyu-theme: rgba(50, 150, 250, .9);
+    --anzhiyu-theme: rgba(0, 136, 255, .9);
     --anzhiyu-theme-op: #000000;
     /*#4259ef23*/
     --anzhiyu-blue: #3b70fc;
@@ -130,6 +130,8 @@
     --anzhiyu-shadow-lightblack: 0 5px 12px -5px rgba(102, 68, 68, 0);
     --anzhiyu-shadow-light2black: 0 5px 12px -5px rgba(102, 68, 68, 0);
     --anzhiyu-card-border: #c0c6d8;
+
+    --heo-secondbg: #edf0f7;
 }
 
 [data-theme="dark"] {
@@ -213,6 +215,9 @@
     --anzhiyu-shadow-lightblack: 0 5px 12px -5px rgba(102, 68, 68, 0);
     --anzhiyu-shadow-light2black: 0 5px 12px -5px rgba(102, 68, 68, 0);
     --anzhiyu-card-border: #42444a;
+
+
+    --heo-secondbg: #30343f;
 }
 
 /* border-radius: 0;
@@ -220,13 +225,13 @@
   -webkit-mask-image: paint(smooth-corners);
   --smooth-level: 24; */
 /* *****************************字体************************************ */
-@font-face {
+/* @font-face {
     font-family: 'Jinbu';
     src: url(/font/jinbu.woff2);
     font-weight: normal;
     font-style: normal;
     font-display: block;
-}
+} */
 
 @font-face {
     font-family: 'xiaozhuan';
@@ -261,9 +266,9 @@
     font-size: 1.2rem;
 }
 
-#aside-content .card-info .card-info-data {
+/* #aside-content .card-info .card-info-data {
     font-family: Jinbu;
-}
+} */
 
 .gc-180 {
     transform: rotate(180deg);
@@ -874,8 +879,8 @@ center#name-container {
 
 /* ************************************************************滚动条样式********************************************************** */
 ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+    width: 7px;
+    height: 7px;
 }
 
 ::-webkit-scrollbar-track {
@@ -2249,20 +2254,20 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
     z-index: 2000;
     position: fixed;
     margin: auto;
-    top: 4px;
+    top: 9px;
     left: 0;
     right: 0;
     height: 8px;
     border-radius: 8px;
-    width: 7rem;
+    width: 5rem;
     background: #eaecf2;
     border: 1px #e3e8f7;
-    overflow: hidden
+    overflow: hidden;
 }
 
 .pace-inactive .pace-progress {
     opacity: 0;
-    transition: .3s ease-in
+    transition: .3s ease-in;
 }
 
 .pace .pace-progress {
@@ -2285,15 +2290,29 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
     height: 100%;
     width: 100%;
     /* linear-gradient(to right, #3494e6, #ec6ead) */
-    background: linear-gradient(to right, #43cea2, #3866ca);
-    animation: gradient 2s ease infinite;
-    background-size: 200%
+    background: linear-gradient(-45deg, #43cea2, #23a6d5, #0a52ef);
+    animation: gradient 1s ease infinite;
+    background-size: 200%;
 }
 
 .pace.pace-inactive {
     opacity: 0;
     transition: .3s;
     top: -8px
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 /* **************************文章版权框样式************************** */
@@ -2762,25 +2781,81 @@ span.top-group-text {
 
 /* ********************首页标签分类条*********************** */
 #category-bar {
-    /* width: 100%; */
-    /* margin-bottom: 0!important; */
+    padding: 0.4rem 1rem 0.4rem 0.5rem;
+    background: var(--card-bg);
+    display: flex;
+    white-space: nowrap;
+    overflow: hidden;
+    margin-bottom: 0;
+    width: 100%;
     box-shadow: var(--card-box-shadow);
     height: 3.2rem;
     align-items: center;
-    border-radius: 1rem!important;
+    border-radius: 1rem;
     /* mask-image: paint(smooth-corners);
     -webkit-mask-image: paint(smooth-corners);
     --smooth-level: 20; */
 }
 
-#category-bar:hover {
-    box-shadow: var(--card-hover-box-shadow);
+#category #category-bar {
+    padding: 0.4rem 1rem 0.4rem 0.5rem;
+    border: none;
+}
+
+#category a.category-bar-item.select a {
+    display: none;
+}
+
+.category-in-bar {
+    display: flex;
+    white-space: nowrap;
+}
+
+.category-in-bar-tips {
+    margin-right: 1rem;
+    padding: 0.4rem;
+}
+
+.category-bar-items {
+    white-space: nowrap;
+    overflow-x: scroll;
+    display: flex;
+}
+
+.category-bar-items::-webkit-scrollbar {
+    display: none;
 }
 
 .category-bar-item a {
-    padding: 0.1rem 1rem !important;
+    padding: 0.1rem 1rem;
+    margin: 0 0.25rem;
+    font-weight: bold;
+    border-radius: 0.5rem;
+    color: var(--font-color);
     line-height: 1.7rem;
     display: flex;
+}
+
+.category-bar-item:hover a {
+    background: rgba(0, 100, 255, .95);
+    color: #fff;
+}
+
+.category-bar-item.select a {
+    background: rgba(0, 100, 255, .95);
+    color: #fff;
+    border-radius: 0.5rem;
+}
+
+.category-bar-more {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    font-weight: bold;
+    color: var(--font-color)
+}
+
+#category-bar:hover {
+    box-shadow: var(--card-hover-box-shadow);
 }
 
 #recent-posts {

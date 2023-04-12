@@ -1,12 +1,4 @@
-// // pjax适配
-// function whenDOMReady() {
-//     // pjax加载完成（切换页面）后需要执行的函数和代码
-//     console.log("pjax开启");
-//     musicState();
-//     cardTimes();
-//     asideNote();
-// }
-
+// pjax适配
 document.addEventListener("DOMContentLoaded", ()=>{
     console.log("第一次加载完成");
     cardTimes();
@@ -23,12 +15,14 @@ document.addEventListener("pjax:complete", ()=>{
     cardTimes();
     asideNote();
     if(document.documentElement.scrollTop != 0){
-        document.getElementById("page-header").classList.add("is-top-bar")
+        document.getElementById("page-header").classList.add("is-top-bar");
     }
+    categoriesBarActive();
 }) // pjax加载完成（切换页面）后再执行一次
 
-if ('paintWorklet' in CSS) { CSS.paintWorklet.addModule('/js/paint.js'); console.log("注册成功");}
+// ************************************************ 函数部分 **************************************************************
 
+if ('paintWorklet' in CSS) { CSS.paintWorklet.addModule('/js/paint.js'); console.log("注册成功");}
 
 window.onload = function () {
     var set_music = document.querySelector("#set-switch-music input");
@@ -181,6 +175,7 @@ function cardTimes() {
     if (a_t_l) a_t_l.innerHTML = year + "&nbsp;&nbsp;<a style='font-size:1.1rem;font-weight:bold;'>第</a>&nbsp;" + asideWeekNum + "&nbsp;<a style='font-size:1.1rem;font-weight:bold;'>周</a>";
 }
 
+// 侧边公告卡片
 function asideNote() {
     var noteCard = document.querySelector(".card-widget.card-announcement");
     var noteArea = document.querySelector(".card-widget.card-announcement .announcement_content");
@@ -221,6 +216,8 @@ function musicState() {
         b.classList.add("fa-pause");
     }
 }
+
+// ***************************************************** 工具模块 ***************************************************************
 
 var tools = {
     secToTime: function (s) {
@@ -384,6 +381,8 @@ var tools = {
         return colors[n];
     }
 }
+
+// *************************************************** 控制模块 ***************************************************************
 
 var ctrl = {
 
@@ -595,6 +594,94 @@ var ctrl = {
 
 }
 
+// +++++++++++++++++++++++++++ categoryBar分类条（或标签条） +++++++++++++++++++++++++++++++
+
+categoriesBarActive();
+topCategoriesBarScroll();
+
+//分类条
+function categoriesBarActive() {
+    if (document.querySelector('#category-bar')) {
+        $(".category-bar-item").removeClass("select")
+    }
+    var urlinfo = window.location.pathname;
+    urlinfo = decodeURIComponent(urlinfo)
+    console.log(urlinfo);
+    //判断是否是首页
+    if (urlinfo == '/') {
+        if (document.querySelector('#category-bar')) {
+            document.getElementById('首页').classList.add("select")
+        }
+    } else {
+        // 验证是否是分类链接
+        var pattern = /\/categories\/.*?\//;
+        var patbool = pattern.test(urlinfo);
+        console.log(patbool);
+        // 获取当前的分类
+        if (patbool) {
+            var valuegroup = urlinfo.split("/");
+            console.log(valuegroup[2]);
+            // 获取当前分类
+            var nowCategorie = valuegroup[2];
+            if (document.querySelector('#category-bar')) {
+                document.getElementById(nowCategorie).classList.add("select");
+            }
+        }
+    }
+}
+
+// 如果是标签条则启用，同时注释掉分类条
+// tagsBarActive()
+//标签条
+function tagsBarActive() {
+    var urlinfo = window.location.pathname;
+    urlinfo = decodeURIComponent(urlinfo)
+    //console.log(urlinfo);
+    //判断是否是首页
+    if (urlinfo == '/') {
+        if (document.querySelector('#tags-bar')) {
+            document.getElementById('首页').classList.add("select")
+        }
+    } else {
+        // 验证是否是分类链接
+        var pattern = /\/tags\/.*?\//;
+        var patbool = pattern.test(urlinfo);
+        //console.log(patbool);
+        // 获取当前的标签
+        if (patbool) {
+            var valuegroup = urlinfo.split("/");
+            //console.log(valuegroup[2]);
+            // 获取当前分类
+            var nowTag = valuegroup[2];
+            if (document.querySelector('#category-bar')) {
+                document.getElementById(nowTag).classList.add("select");
+            }
+        }
+    }
+}
+
+//鼠标控制横向滚动
+function topCategoriesBarScroll() {
+    if (document.getElementById("category-bar-items")) {
+        let xscroll = document.getElementById("category-bar-items");
+        xscroll.addEventListener("mousewheel", function (e) {
+            //计算鼠标滚轮滚动的距离
+            let v = -e.wheelDelta / 2;
+            xscroll.scrollLeft += v;
+            //阻止浏览器默认方法
+            e.preventDefault();
+        }, false);
+    }
+}
+
+// ******************************************************** 监听器 *******************************************************************
+
+// F12控制台
+document.onkeydown = function (e) {
+    if (123 == e.keyCode || (e.ctrlKey && e.shiftKey && (74 === e.keyCode || 73 === e.keyCode || 67 === e.keyCode)) || (e.ctrlKey && 85 === e.keyCode)) return tools.showNote("开发者模式已打开，请遵循GPL协议","warning",5)
+};
+
+// 复制事件
 document.addEventListener("copy", () => {
     if (set_notice.checked) tools.showMessage("复制成功！转载请注明来源！", "success", 2);
 });
@@ -602,7 +689,6 @@ var set_notice = document.querySelector("#set-switch-notice input");
 set_notice.addEventListener("change", () => {
     set_notice.checked ? localStorage.setItem('notice_state', true) : localStorage.setItem('notice_state', false);
 });
-
 
 // 主页/音乐列表/歌单列表/设置 切换
 var music_list_switch = document.getElementById("music-ctrl-btn-end");
@@ -944,10 +1030,39 @@ document.ontouchend = function () {
 };
 
 
-// whenDOMReady(); // 打开网站先执行一次
-// document.addEventListener("pjax:complete", whenDOMReady); // pjax加载完成（切换页面）后再执行一次
-// whenDOMReady函数外放一些打开网站之后只需要执行一次的函数和代码，比如一些监听代码。
-// 监听代码只需要执行一次即可，不需要每次加载pjax都执行，会出现一些Bug。至于为什么，我也不知道，可以自己试一下。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // // 申请新浪微博开发者账号，获取app key和app secret
 // var appKey = 'your_app_key';
