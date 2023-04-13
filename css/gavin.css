@@ -2439,8 +2439,15 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
     border-top: 1px solid var(--gavin-border-color);
 }
 
+#twikoo .tk-comments-container>.tk-comment {
+    padding: 1rem;
+    background: var(--card-bg);
+    border: 1px solid var(--gavin-border-color);
+    border-radius: 1rem;
+}
+
 .tk-expand {
-    border-radius: 0.4rem;
+    border-radius: 0.6rem;
     border: 1px solid var(--gavin-border-color);
     background-color: var(--gavin-background);
     color: var(--gavin-note-font-color);
