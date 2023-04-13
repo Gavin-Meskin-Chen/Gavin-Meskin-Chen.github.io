@@ -3,7 +3,6 @@
     --gavin-blue1: rgb(0,136,255);
     --gavin-blue2: rgb(0,150,255);
 
-    --search-bg: var(--gavin-op-5);
     --rightside-bg: var(--gavin-op-1);
     /* --card-box-shadow: 0 0px 1px 1px rgba(7, 17, 27, .25); */
     --card-box-shadow: 0 0px 1px 1px var(--gavin-border-color);
@@ -63,6 +62,7 @@
     --gavin-op-dis-1: rgba(0, 0, 0, .1);
     --gavin-op-dis-3: rgba(0, 0, 0, .3);
     --gavin-op-dis-7: rgba(0, 0, 0, .7);
+    --search-bg: rgba(255, 255, 255, .64);
     --gavin-page-bg: rgb(51, 144, 255);
     /*页码颜色*/
     --gavin-toc-bg: rgb(15, 164, 255);
@@ -146,6 +146,7 @@
     --gavin-op-dis-1: rgba(255, 255, 255, .1);
     --gavin-op-dis-3: rgba(255, 255, 255, .3);
     --gavin-op-dis-7: rgba(255, 255, 255, .7);
+    --search-bg: rgba(0, 0, 0, .64);
     --gavin-page-bg: rgba(255, 255, 255, 0.8);
     /*页码颜色*/
     --gavin-toc-bg: rgba(240, 240, 240, .24);
@@ -2765,7 +2766,7 @@ div#bannerGroup {
 
 #random #random-banner #skills-style-group-all {
     position: relative;
-    top: -12.5rem;
+    top: -9rem;
 }
 
 @media screen and (max-width: 1300px) {
