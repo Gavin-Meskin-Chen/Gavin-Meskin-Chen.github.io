@@ -272,20 +272,6 @@
 
   
   <url>
-    <loc>https://gavin-chen.top/tags/APlayer/</loc>
-    <lastmod>2023-04-13</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://gavin-chen.top/tags/%E7%BD%91%E7%9B%98/</loc>
-    <lastmod>2023-04-13</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://gavin-chen.top/tags/%E5%86%AC%E5%A4%A9/</loc>
     <lastmod>2023-04-13</lastmod>
     <changefreq>weekly</changefreq>
@@ -294,6 +280,20 @@
   
   <url>
     <loc>https://gavin-chen.top/tags/%E8%8A%9C%E6%B9%96/</loc>
+    <lastmod>2023-04-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://gavin-chen.top/tags/APlayer/</loc>
+    <lastmod>2023-04-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://gavin-chen.top/tags/%E7%BD%91%E7%9B%98/</loc>
     <lastmod>2023-04-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -372,14 +372,14 @@
 
   
   <url>
-    <loc>https://gavin-chen.top/categories/%E5%8D%9A%E5%AE%A2/</loc>
+    <loc>https://gavin-chen.top/categories/%E6%97%A5%E8%AE%B0/</loc>
     <lastmod>2023-04-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://gavin-chen.top/categories/%E6%97%A5%E8%AE%B0/</loc>
+    <loc>https://gavin-chen.top/categories/%E5%8D%9A%E5%AE%A2/</loc>
     <lastmod>2023-04-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
