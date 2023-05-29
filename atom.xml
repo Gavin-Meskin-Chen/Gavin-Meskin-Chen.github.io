@@ -6,7 +6,7 @@
   <link href="https://gavin-chen.top/atom.xml" rel="self"/>
   
   <link href="https://gavin-chen.top/"/>
-  <updated>2023-03-23T16:17:20.925Z</updated>
+  <updated>2023-05-29T15:13:27.187Z</updated>
   <id>https://gavin-chen.top/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LDO和DCDC</title>
+    <link href="https://gavin-chen.top/post/7c8508a1.html"/>
+    <id>https://gavin-chen.top/post/7c8508a1.html</id>
+    <published>2023-05-29T12:47:38.000Z</published>
+    <updated>2023-05-29T15:13:27.187Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;LDO&quot;&gt;&lt;a href=&quot;#LDO&quot; class=&quot;headerlink&quot; title=&quot;LDO&quot;&gt;&lt;/a&gt;LDO&lt;/h1&gt;&lt;p&gt;LDO（Low-Dropout</summary>
+        
+      
+    
+    
+    
+    <category term="硬件" scheme="https://gavin-chen.top/categories/%E7%A1%AC%E4%BB%B6/"/>
+    
+    
+    <category term="电源" scheme="https://gavin-chen.top/tags/%E7%94%B5%E6%BA%90/"/>
+    
+    <category term="稳压器" scheme="https://gavin-chen.top/tags/%E7%A8%B3%E5%8E%8B%E5%99%A8/"/>
+    
+  </entry>
   
   <entry>
     <title>超级圆角</title>
