@@ -8,7 +8,7 @@
       <link href="/post/7c8508a1.html"/>
       <url>/post/7c8508a1.html</url>
       
-        <content type="html"><![CDATA[<h2 id="LDO"><a href="#LDO" class="headerlink" title="LDO"></a>LDO</h2><p>LDO（Low-Dropout Regulator，低压差稳压器），又称低压差线性稳压器、低压降稳压器，是线性直流稳压器（Linear Regulator）的一种，用途同是提供稳定的直流电压电源。相比于一般线性直流稳压器，低压差稳压器能于更小输出输入电压差的情况下工作。</p><p>常见的LDO器件有很多，比如我们熟悉的1117芯片，它可以把外界的5V输入电压转换成内部其他芯片所需要的3.3V电压。<br>根据制造厂商不同，前缀也不同，常见的就是AMS公司生产的<strong>AMS1117</strong>型号芯片，但是目前山寨较多。根据<a href="https://www.bilibili.com/video/BV1464y1v7Jd/?spm_id_from=333.337.search-card.all.click">工科男孙老师</a>的评测，TI公司的TLV1117性能最佳，长晶的CJT1117性价比最高，山寨的AMS1117不建议使用。</p><p><img src="https://i.imgtg.com/2023/05/29/OoDIBg.webp" alt=""></p><p>在使用方面需要注意的一点是，因为钽电容的寄生电阻较大，陶瓷电容的寄生电阻较小，而1117的稳定工作正是需要寄生电阻，所以在电路中，我们的输出电容尽量使用钽电容，而不要使用陶瓷电容，否则会产生更大的纹波，导致电路的不稳定。</p><blockquote><p>1117的缺点：<br>1.体积太大<br>2.不支持mlcc（Multi-LayerCeramicCapacitor，多层陶瓷电容器）做滤波电容，只支持钽电容<br>3.静态电流过高，一般在mA级别，不适合低功耗场景</p><p>LDO的缺点：<br>在高压差、大电流的情况下很容易发烫。LDO内部相当于有个可调电阻来控制输出的电压，多余的电压由内部可调电阻消耗掉，转换效率会比较低</p></blockquote><p>注意，LDO是特指线性稳压器中损耗电压（drop-out voltage）较小的那一类。像经典的LM7805，只有输入电压在7伏以上的时候才能稳定输出5伏，也就是损耗高达2伏，这种线性稳压器就不是LDO。一般现代化的LDO经常有损耗低到0.2、0.3伏的。</p><h2 id="DCDC"><a href="#DCDC" class="headerlink" title="DCDC"></a>DCDC</h2><p>DC/DC转换器，也叫switching regulator，即开关稳压器，或者叫 <strong>开关电源</strong> 。<br>DC/DC按电压等级变换关系分 <strong>升压电源</strong> 和 <strong>降压电源</strong> 两类，按输入输出关系分 <strong>隔离电源</strong> 和 <strong>无隔离电源</strong> 两类。<br>例如，buck converter只能降压不能升压，boost converter 只能升压不能降压。而buck-boost converter，则能做到既可以降压又可以升压。</p><p>DCDC内部相当于有一个周期性开闭的开关，通过控制开关的时间间隔来控制输出的电压（例如12V转5V的开关电源其PWM高低电平占空比就为5:7），所以发热就会小的多，转换效率也可以达到很高。但由于周期性的开关，所以也会导致输出纹波较大，电源平稳度不太高，而且由于会产生PWM波，其所需要的周边电路也会比LDO器件更加复杂。</p><div class="table-container"><table><thead><tr><th style="text-align:center">LDO</th><th style="text-align:center">DCDC</th></tr></thead><tbody><tr><td style="text-align:center">适合低压差小电流场景</td><td style="text-align:center">适合高压差大电流场景</td></tr><tr><td style="text-align:center">纹波小</td><td style="text-align:center">纹波大</td></tr><tr><td style="text-align:center">效率低</td><td style="text-align:center">效率高</td></tr><tr><td style="text-align:center">发热高</td><td style="text-align:center">发热低</td></tr><tr><td style="text-align:center">成本低</td><td style="text-align:center">成本高</td></tr><tr><td style="text-align:center">周边电路简单</td><td style="text-align:center">周边电路复杂</td></tr><tr><td style="text-align:center">静态功耗低</td><td style="text-align:center">静态功耗高</td></tr></tbody></table></div><p>待续。。。</p>]]></content>
+        <content type="html"><![CDATA[<h2 id="LDO"><a href="#LDO" class="headerlink" title="LDO"></a>LDO</h2><p>LDO（Low-Dropout Regulator，低压差稳压器），又称低压差线性稳压器、低压降稳压器，是线性直流稳压器（Linear Regulator）的一种，用途同是提供稳定的直流电压电源。相比于一般线性直流稳压器，低压差稳压器能于更小输出输入电压差的情况下工作。</p><p>注意，LDO是特指线性稳压器中损耗电压（drop-out voltage）较小的那一类。像经典的LM7805，只有输入电压在7伏以上的时候才能稳定输出5伏，也就是损耗高达2伏，这种线性稳压器就不是LDO。一般现代化的LDO经常有损耗低到0.2、0.3伏的。</p><p>常见的LDO器件有很多，比如我们熟悉的1117芯片，它可以把外界的5V输入电压转换成内部其他芯片所需要的3.3V电压。<br>根据制造厂商不同，前缀也不同，常见的就是AMS公司生产的<strong>AMS1117</strong>型号芯片，但是目前山寨较多。根据<a href="https://www.bilibili.com/video/BV1464y1v7Jd/?spm_id_from=333.337.search-card.all.click">工科男孙老师</a>的评测，TI公司的TLV1117性能最佳，长晶的CJT1117性价比最高，山寨的AMS1117不建议使用。</p><p><img src="https://i.imgtg.com/2023/05/29/OoDIBg.webp" alt=""></p><p>在使用方面需要注意的一点是，因为钽电容的寄生电阻较大，陶瓷电容的寄生电阻较小，而1117的稳定工作正是需要寄生电阻，所以在电路中，我们的输出滤波电容尽量使用钽电容，而不要使用陶瓷电容（mlcc，Multi-LayerCeramicCapacitor），否则会产生更大的纹波，导致电路的不稳定。另外1117还有一些缺点，比如体积太大，还有静态电流过高，一般在mA级别，不适合低功耗场景。</p><blockquote><p>LDO的缺点：<br>在高压差、大电流的情况下很容易发烫。LDO内部相当于有个可调电阻来控制输出的电压，多余的电压由内部可调电阻消耗掉，转换效率会比较低</p></blockquote><h3 id="LDO稳压原理"><a href="#LDO稳压原理" class="headerlink" title="LDO稳压原理"></a>LDO稳压原理</h3><p><img src="https://i.imgtg.com/2023/05/30/OoV9k1.png" alt=""></p><p>LDO内部电路一般包括：基准电压、分压取样电路、误差放大电路、调整电路四个模块。LDO的原理是通过内部的反馈回路来监测输出电压，当输出电压偏离设定值时，控制回路会调整放大器的工作状态，使输出电压回到设定值附近。因此，LDO可以有效地抑制输入电压和负载变化对输出电压的影响，从而提供稳定的电源。</p><h3 id="LDO功耗计算"><a href="#LDO功耗计算" class="headerlink" title="LDO功耗计算"></a>LDO功耗计算</h3><p>LDO消耗的功率可以用如下的公式计算，其中 <script type="math/tex">I_B</script> 是静态电流，一般来说远小于 <script type="math/tex">I_{OUT}</script>，所以可以忽略，LDO功率就近似等于输入输出电压差与输出电流的乘积。</p><script type="math/tex; mode=display">P=(V_{IN}-V_{OUT}) × I_{OUT} + V_{IN}×I_B</script><h3 id="LDO温升计算"><a href="#LDO温升计算" class="headerlink" title="LDO温升计算"></a>LDO温升计算</h3><p>温升计算可以按下面的公式，其中P是LDO消耗的功率，<script type="math/tex">R_{th}</script> 是LDO的热阻，这个参数可以在LDO的规格书中找到，<script type="math/tex">T_a</script> 是环境温度，有了这三个参数，我们就能计算出LDO工作时的温度。</p><script type="math/tex; mode=display">T_j=P×R_{th(j-a)}+T_a</script><h2 id="DCDC"><a href="#DCDC" class="headerlink" title="DCDC"></a>DCDC</h2><p>DC/DC，直流-直流变换器，也叫switching regulator，即开关稳压器，或者叫 <strong>开关电源</strong> 。</p><blockquote><p>SMPS：</p><p>Switching Mode Power Supply，开关模式电源。根据输入及输出电压形式的不同，包括：<br>交流-交流（AC/AC）变换器：变频器、变压器<br>交流-直流（AC/DC）变换器：整流器<br>直流-交流（DC/AC）变换器：逆变器<br>直流-直流（DC/DC）变换器：电压变换器、电流变换器</p></blockquote><p>DC/DC按电压等级变换关系分 <strong>升压电源</strong> 和 <strong>降压电源</strong> 两类，按输入输出关系分 <strong>隔离电源</strong> 和 <strong>无隔离电源</strong> 两类。<br>例如，降压斩波器（Buck Converter）只能降压不能升压，升压斩波器（Boost Converter） 只能升压不能降压。而降压-升压斩波器（Buck-Boost Converter），则能做到既可以降压又可以升压。</p><p>DCDC内部相当于有一个周期性开闭的开关，通过控制开关的时间间隔来控制输出的电压（例如12V转5V的开关电源其PWM高低电平占空比就为5:7），所以发热就会小的多，转换效率也可以达到很高。但由于周期性的开关，所以也会导致输出纹波较大，电源平稳度不太高，而且由于会产生PWM波，其所需要的周边电路也会比LDO器件更加复杂。</p><div class="table-container"><table><thead><tr><th style="text-align:center">LDO</th><th style="text-align:center">DCDC</th></tr></thead><tbody><tr><td style="text-align:center">适合低压差小电流场景</td><td style="text-align:center">适合高压差大电流场景</td></tr><tr><td style="text-align:center">纹波小</td><td style="text-align:center">纹波大</td></tr><tr><td style="text-align:center">效率低</td><td style="text-align:center">效率高</td></tr><tr><td style="text-align:center">发热高</td><td style="text-align:center">发热低</td></tr><tr><td style="text-align:center">成本低</td><td style="text-align:center">成本高</td></tr><tr><td style="text-align:center">周边电路简单</td><td style="text-align:center">周边电路复杂</td></tr><tr><td style="text-align:center">静态功耗低</td><td style="text-align:center">静态功耗高</td></tr></tbody></table></div>]]></content>
       
       
       <categories>
@@ -128,11 +128,11 @@
       
         <tags>
             
+            <tag> APlayer </tag>
+            
             <tag> Hexo </tag>
             
             <tag> Butterfly </tag>
-            
-            <tag> APlayer </tag>
             
         </tags>
       
@@ -184,11 +184,11 @@
       
         <tags>
             
+            <tag> APlayer </tag>
+            
             <tag> Hexo </tag>
             
             <tag> Butterfly </tag>
-            
-            <tag> APlayer </tag>
             
         </tags>
       

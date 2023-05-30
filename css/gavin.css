@@ -1425,6 +1425,11 @@ h6 {
     font-family: "Font Awesome 6 Free";
 }
 
+/* 背景色重复了 */
+#nav .menus_items .menus_item .menus_item_child li:hover {
+    background: none!important;
+}
+
 /* *****************************************************sidebar侧滑导航栏修改**************************************************************** */
 /* 手机端 侧边导航颜色和圆弧 */
 #sidebar #sidebar-menus .menus_items .site-page:hover {
