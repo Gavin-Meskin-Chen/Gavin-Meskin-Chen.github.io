@@ -1378,12 +1378,12 @@ h6 {
 }
 
 /* 主页侧边栏sticky的bug */
-.page.home #aside-content .sticky_layout {
-    padding-top: 20px;
-    top: 60px;
+#aside-content .sticky_layout {
+    margin-top: 20px;
+    top: 80px;
 }
 
-.page.home #aside-content .sticky_layout :first-child {
+#aside-content .sticky_layout :first-child {
     margin-top: 0;
 }
 
