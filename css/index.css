@@ -7384,11 +7384,11 @@ blockquote.pullquote.right {
   background: rgba(0,0,0,0.6);
 }
 #algolia-search .search-dialog .ais-SearchBox input {
-  padding: 5px 14px;
+  padding: 5px 10px;
   width: 100%;
   outline: none;
   border: 2px solid #08f;
-  border-radius: 40px;
+  border-radius: 9px;
   background: var(--search-bg);
   color: var(--search-input-color);
 }
@@ -7398,6 +7398,7 @@ blockquote.pullquote.right {
 }
 #algolia-search .search-dialog .ais-Hits-list a {
   color: var(--search-result-title);
+  font-weight: bold;
 }
 #algolia-search .search-dialog .ais-Hits-list a:hover {
   color: #08f;

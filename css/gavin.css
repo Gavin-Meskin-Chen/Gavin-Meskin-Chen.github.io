@@ -1043,8 +1043,8 @@ a {
 
 
 #algolia-search .search-dialog .ais-SearchBox input {
-    border: 2px solid var(--font-color);
-    background-color: rgb(255, 255, 255, 0);
+    border: 2px solid var(--gavin-op-dis-3);
+    background-color: var(--gavin-op-dis-1);
 }
 
 .search-dialog .search-nav .search-close-button {
@@ -1055,17 +1055,32 @@ a {
     border-radius: 4px;
 }
 
-#algolia-search .search-dialog .ais-SearchBox:hover input {
+#algolia-search .search-dialog .ais-SearchBox input:focus {
     border: 2px solid rgba(5, 109, 232, 0.8);
-}
-
-[data-theme="dark"] #algolia-search .search-dialog .ais-SearchBox:hover input {
-    border: 2px solid #fff;
 }
 
 .search-dialog-title {
     color: rgb(0,61,255);
     font-weight: bold;
+}
+
+#algolia-search .search-dialog .ais-Hits-list a:hover {
+    color: rgb(0,61,255);
+}
+
+#algolia-search .search-dialog .ais-Hits-list mark {
+    color: rgb(0,61,255);
+}
+
+.category-lists ul li, #algolia-search .search-dialog .ais-Hits-list li {
+    border-radius: 0.8rem;
+    background-color: var(--gavin-op-dis-1);
+    margin: 7px 7px 7px 0;
+    padding: 0.12em 0.4em 0.12em 2em!important;
+}
+
+.category-lists ul li:before, #algolia-search .search-dialog .ais-Hits-list li:before {
+    left: 0.67em;
 }
 
 /* 右下角rightside按钮毛玻璃 */
@@ -2769,10 +2784,10 @@ div#swiper_container:hover,
 .topGroup .top-group-list-item:hover .article-title {
     color: var(--dis-f-0) !important;
 }
-
+/* 
 a:hover {
     color: rgb(0,136,255);
-}
+} */
 
 /* 轮播补充 */
 div#bannerGroup {
