@@ -419,6 +419,7 @@ var ctrl = {
     showConsole: function () {
         document.querySelector("#console-music-item-main").classList.add("item-show");
         document.querySelector("#console").classList.add("show");
+        document.body.style.overflow = 'hidden';
         ctrl.initConsoleState();
     },
 
@@ -427,6 +428,7 @@ var ctrl = {
         var items = document.querySelectorAll(".item-show");
         for (let i = 0; i < items.length; i++) items[i].classList.remove("item-show");
         document.querySelector("#console").classList.remove("show");
+        document.body.style.overflow = '';
     },
 
     // 菜单返回
