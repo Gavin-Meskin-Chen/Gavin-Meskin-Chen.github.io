@@ -91,7 +91,7 @@
     --font-color: rgba(0, 0, 0, .7);
     --text-bg-hover: rgba(0, 150, 255, .9);
     --card-bg: #fff;
-    --card-link-bg: rgba(0, 150, 255, .15);
+    --card-link-bg: rgba(0, 150, 255, .1);
     --card-link-border: rgba(0, 150, 255, .3);
 
 
@@ -177,7 +177,7 @@
     --text-bg-hover: rgba(240, 240, 240, .24);
     --btn-bg: rgba(100, 100, 100, .8);
     --btn-hover-color: rgba(80, 80, 80, 1);
-    --card-link-bg: rgba(240, 240, 240, .15);
+    --card-link-bg: rgba(240, 240, 240, .1);
     --card-link-border: rgba(240, 240, 240, .3);
     --font-color: rgba(255, 255, 255, .7);
 
