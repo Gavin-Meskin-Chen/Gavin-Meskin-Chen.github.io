@@ -91,8 +91,8 @@
     --font-color: rgba(0, 0, 0, .7);
     --text-bg-hover: rgba(0, 150, 255, .9);
     --card-bg: #fff;
-    --card-link-bg: rgba(0, 150, 255, .3);
-    --card-link-border: rgba(0, 150, 255, .5);
+    --card-link-bg: rgba(0, 150, 255, .15);
+    --card-link-border: rgba(0, 150, 255, .3);
 
 
 
@@ -177,8 +177,8 @@
     --text-bg-hover: rgba(240, 240, 240, .24);
     --btn-bg: rgba(100, 100, 100, .8);
     --btn-hover-color: rgba(80, 80, 80, 1);
-    --card-link-bg: rgba(240, 240, 240, .45);
-    --card-link-border: rgba(240, 240, 240, .6);
+    --card-link-bg: rgba(240, 240, 240, .15);
+    --card-link-border: rgba(240, 240, 240, .3);
     --font-color: rgba(255, 255, 255, .7);
 
 
@@ -1287,13 +1287,15 @@ a.extend.prev:hover {
 }
 
 /* 文章页链接样式 */
-#post #article-container a {
+#post #article-container a,
+.tk-comment .tk-content a:not(.tk-ruser) {
     color: var(--dis-f-0);
     font-weight: bold;
     border-bottom: 2px solid rgba(0, 136, 255, 1);
 }
 
-#post #article-container a:hover {
+#post #article-container a:hover,
+.tk-comment .tk-content a:not(.tk-ruser):hover {
     color: rgba(0, 136, 255, 1);
     text-decoration: none;
 }
@@ -2258,19 +2260,57 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
 
 /* *************link链接样式修改，默认样式太单调了************* */
 #article-container a.link-card {
-    background: var(--card-link-bg) !important;
+    background-color: var(--card-link-bg) !important;
     border: 1px solid var(--card-link-border) !important;
+    border-radius: 1rem;
+    line-height: normal;
+    display: block;
+    text-align: left;
+    min-width: none;
+    max-width: none;
     width: 100%;
+}
+
+#article-container a.link-card div.left {
+    margin: 0.8rem;
+}
+
+#article-container a.link-card div.left img {
+    border-radius: 12px;
 }
 
 #article-container a.link-card:hover {
     color: var(--dis-f-0) !important;
     background-color: var(--card-link-border) !important;
-    box-shadow: 0 2px 8px 0 var(--card-link-border) !important;
+    /* box-shadow: 0 2px 8px 0 var(--card-link-border) !important; */
+}
+
+#article-container a.link-card:hover p {
+    color: var(--dis-f-0) !important;
 }
 
 #article-container a.link-card p.url {
-    display: none;
+    color: var(--gavin-note-font-color);
+}
+
+#article-container a.link-card p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#article-container a.link-card .main {
+    display:inline-flex;
+    align-items:center;
+    width:100%;
+}
+
+#article-container a.link-card .end p {
+    font-size:12px;
+    line-height:1.2rem;
+    color:var(--gavin-note-font-color);
+    margin:0 0.8rem 0.4rem 0.8rem;
+    border-top:1px solid var(--card-link-border);
 }
 
 /* ****************************顶部彩色加载条******************************** */
@@ -2492,6 +2532,11 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
 }
 
 .tk-meta strong {
+    color: #409eff;
+}
+
+.tk-comment .tk-content a.tk-ruser {
+    font-weight: bold;
     color: #409eff;
 }
 
