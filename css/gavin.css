@@ -720,7 +720,7 @@ center#name-container {
     top: 65px;
     left: 0;
     background: var(--card-bg);
-    border-radius: 12px;
+    border-radius: 0.8rem;
     border: var(--style-border);
     flex-direction: column;
     font-size: 12px;
@@ -2276,7 +2276,7 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
 }
 
 #article-container a.link-card div.left img {
-    border-radius: 12px;
+    border-radius: 0.5rem;
 }
 
 #article-container a.link-card:hover {
@@ -2305,12 +2305,28 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
     width:100%;
 }
 
+#article-container a.link-card .end {
+    border-top: 1px solid var(--card-link-border);
+    margin: 0 0.8rem;
+    display: flex;
+}
+
 #article-container a.link-card .end p {
+    width: 50%;
     font-size:12px;
     line-height:1.2rem;
     color:var(--gavin-note-font-color);
-    margin:0 0.8rem 0.4rem 0.8rem;
-    border-top:1px solid var(--card-link-border);
+    margin:0 0 0.4rem 0;
+}
+
+#article-container a.link-card .end p:last-child {
+    text-align: right;
+}
+
+@media screen and (max-width: 500px) {
+    #article-container a.link-card .end p:last-child {
+        display: none;
+    }
 }
 
 /* ****************************顶部彩色加载条******************************** */
@@ -2499,7 +2515,13 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
 .tk-extra {
     border: 1px solid var(--gavin-border-color);
     padding: 0.4rem;
-    border-radius: 0.4rem;
+    border-radius: 0.5rem;
+    font-size: 12px;
+}
+
+.tk-icon.__comment{
+    height: 12px;
+    width: 12px;
 }
 
 .tk-comment {
@@ -2540,6 +2562,42 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
     color: #409eff;
 }
 
+.tk-replies .tk-content span:first-child {
+    font-size: 12px;
+}
+
+.tk-time {
+    color: var(--gavin-note-font-color);
+    font-size: 12px;
+}
+
+.tk-content p {
+    margin: 0;
+}
+
+.tk-comment .tk-submit .tk-avatar, .tk-replies .tk-avatar {
+    height: 2.1rem;
+    width: 2.1rem;
+}
+
+.tk-comment .tk-submit .tk-avatar .tk-avatar-img, .tk-replies .tk-avatar .tk-avatar-img {
+    height: 2.1rem;
+}
+
+.tk-avatar {
+    border-radius: 50%;
+    margin-right: 0.5rem;
+    border: 1px solid var(--card-link-border);
+}
+
+pre.language-yaml, #post-comment blockquote {
+    background-color: var(--gavin-background);
+    width: fit-content;
+    min-width: 100%;
+    margin: 0;
+    transition: all 0.5s;
+}
+
 /* *******************星空背景**************** */
 /* 背景宇宙星光  */
 #universe {
@@ -2571,6 +2629,11 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
         padding: 1.5rem 1rem !important;
         /* border: 1px solid var(--gavin-border-color); */
         background: var(--vercel-background);
+    }
+
+    #body-wrap:not(.home) .layout {
+        padding-left: 0;
+        padding-right: 0;
     }
 }
 
@@ -2680,7 +2743,10 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
 @media screen and (max-width: 900px) {
     #aside-content {
         max-width: none !important;
-        padding: 0 5px 0 5px;
+    }
+
+    #body-wrap:not(.home) #aside-content {
+        padding: 0 1rem;
     }
 }
 
