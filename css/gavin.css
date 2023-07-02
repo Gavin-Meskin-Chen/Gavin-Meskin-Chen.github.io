@@ -1197,16 +1197,37 @@ a {
 }
 
 /* 文章页标题显示不全的bug */
+
+#post-info .post-title {
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+@media screen and (min-width: 1300px) {
+    #post-info .post-title {
+        font-size: 2.7em;
+    }
+}
+
 @media screen and (max-width: 900px) {
     #page-header #post-info {
-        bottom: 70px;
+        bottom: 100px;
     }
 }
 
 @media screen and (max-width: 768px) {
     #page-header #post-info {
-        bottom: 40px;
+        bottom: 70px;
     }
+
+    #post-info #post-meta > .meta-secondline > span:first-child {
+        display: inline;
+    }
+}
+
+#post-info #post-meta > .meta-firstline,
+#post-info #post-meta > .meta-secondline {
+    display: inline;
 }
 
 /* 修复全局字体带来的bug */
