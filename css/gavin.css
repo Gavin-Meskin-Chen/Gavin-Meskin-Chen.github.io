@@ -1198,6 +1198,15 @@ a {
 
 /* 文章页标题显示不全的bug */
 
+#page-header #post-info {
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    height: calc(100% + 0px);
+    justify-content: center;
+    animation: slide-in 0.6s 0s backwards;
+}
+
 #post-info .post-title {
     font-weight: bold;
     line-height: 1.2;
@@ -1209,17 +1218,14 @@ a {
     }
 }
 
-@media screen and (max-width: 900px) {
-    #page-header #post-info {
-        bottom: 100px;
+@media screen and (max-width: 1300px) {
+    #body-wrap:not(.home) .layout {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
     }
 }
 
-@media screen and (max-width: 768px) {
-    #page-header #post-info {
-        bottom: 70px;
-    }
-
+@media screen and (min-width: 768px) {
     #post-info #post-meta > .meta-secondline > span:first-child {
         display: inline;
     }
@@ -2803,15 +2809,23 @@ pre.language-yaml, #post-comment blockquote {
   } */
 
 /* 友链bug微调 */
-.flink-list-item {
+/* 已经在butterfly.styl文件里更改 */
+
+/* .flink-list-item {
     width: calc(100% / 4 - 15px) !important;
 }
 
-@media screen and (max-width: 1250px) {
+@media screen and (max-width: 1200px) {
     .flink-list-item {
         width: calc(100% / 3 - 15px) !important;
     }
 }
+
+@media screen and (max-width: 900px) {
+    #article-container .flink .flink-list > .flink-list-item {
+        width: calc(50% - 15px) !important;
+    }
+} */
 
 /* **************************友链样式************************* */
 #article-container .flink .flink-list>.flink-list-item {

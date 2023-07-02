@@ -2313,15 +2313,20 @@ figure.highlight pre .javascript .function {
   float: left;
   overflow: hidden;
   margin: 15px 7px;
-  width: calc(100% / 3 - 15px);
+  width: calc(100% / 4 - 15px);
   height: 90px;
   border-radius: 8px;
   line-height: 17px;
   -webkit-transform: translateZ(0);
 }
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1200px) {
   #article-container .flink .flink-list > .flink-list-item {
-    width: calc(50% - 15px) !important;
+    width: calc(100% / 3 - 15px) !important;
+  }
+}
+@media screen and (max-width: 900px) {
+  #article-container .flink .flink-list > .flink-list-item {
+    width: calc(100% / 2 - 15px) !important;
   }
 }
 @media screen and (max-width: 600px) {
