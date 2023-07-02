@@ -1204,17 +1204,20 @@ a {
     flex-direction: column;
     height: calc(100% + 0px);
     justify-content: center;
+    text-align: left;
+    padding: 0 5%;
     animation: slide-in 0.6s 0s backwards;
 }
 
 #post-info .post-title {
     font-weight: bold;
     line-height: 1.2;
+    margin: 1rem 0;
 }
 
 @media screen and (min-width: 1300px) {
     #post-info .post-title {
-        font-size: 2.7em;
+        font-size: 3em;
     }
 }
 
@@ -1234,6 +1237,24 @@ a {
 #post-info #post-meta > .meta-firstline,
 #post-info #post-meta > .meta-secondline {
     display: inline;
+}
+
+a.post-meta-categories {
+    border-radius: 8px;
+    padding: 6px 12px;
+    color: #fff;
+    font-weight: bold;
+    margin-right: 8px;
+    background: rgba(255,255,255,.36);
+}
+
+a.post-meta-categories:hover {
+    color: #000;
+    background: #fff;
+}
+
+#post-info #post-meta-top {
+    font-size: 95%;
 }
 
 /* 修复全局字体带来的bug */
