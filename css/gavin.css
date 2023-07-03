@@ -1228,7 +1228,7 @@ a {
     }
 }
 
-@media screen and (min-width: 768px) {
+/* @media screen and (min-width: 768px) {
     #post-info #post-meta > .meta-secondline > span:first-child {
         display: inline;
     }
@@ -1237,24 +1237,38 @@ a {
 #post-info #post-meta > .meta-firstline,
 #post-info #post-meta > .meta-secondline {
     display: inline;
-}
+} */
 
 a.post-meta-categories {
     border-radius: 8px;
     padding: 6px 12px;
-    color: #fff;
+    color: #000;
     font-weight: bold;
     margin-right: 8px;
-    background: rgba(255,255,255,.36);
+    background: #fff;
 }
 
 a.post-meta-categories:hover {
-    color: #000;
-    background: #fff;
+    color: #fff;
+    background: #000;
 }
 
 #post-info #post-meta-top {
     font-size: 95%;
+}
+
+#post-info #post-meta {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.post-meta-bottom {
+    background-color: rgba(255,255,255,.36);
+    padding: 7px;
+    margin: 3px 6px 3px 0;
+    border-radius: 6px;
+    line-height: 1;
 }
 
 /* 修复全局字体带来的bug */

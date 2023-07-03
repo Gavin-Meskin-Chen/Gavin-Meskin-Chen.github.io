@@ -3612,10 +3612,6 @@ h1.page-title + .tag-cloud-list {
   -ms-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
 }
-#post-info #post-meta a:hover {
-  color: #08f;
-  text-decoration: underline;
-}
 #nav {
   position: absolute;
   top: 0;
