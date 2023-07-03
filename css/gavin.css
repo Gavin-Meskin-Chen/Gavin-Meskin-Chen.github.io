@@ -1291,6 +1291,7 @@ a.post-meta-categories:hover {
 .post-meta-tag-list a {
     margin-right: 6px;
     font-size: 1rem;
+    color: rgba(255,255,255,.7);
 }
 
 .post-meta-tag-list a:hover {
