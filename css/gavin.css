@@ -720,7 +720,7 @@ center#name-container {
     top: 65px;
     left: 0;
     background: var(--card-bg);
-    border-radius: 0.8rem;
+    border-radius: 1rem;
     border: var(--style-border);
     flex-direction: column;
     font-size: 12px;
@@ -1289,8 +1289,8 @@ a.post-meta-categories:hover {
 }
 
 .post-meta-tag-list a {
-    margin-right: 6px;
-    font-size: 1rem;
+    margin-right: 10px;
+    font-size: 1.1rem;
     color: rgba(255,255,255,.7);
 }
 
@@ -1304,6 +1304,20 @@ a.post-meta-categories:hover {
     margin: 3px 6px 3px 0;
     border-radius: 6px;
     line-height: 1;
+}
+
+.post-meta-commentcount {
+    cursor: pointer;
+    transition: all .3s;
+}
+
+.post-meta-commentcount:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+.post-meta-commentcount:hover a {
+    color: #000!important;
 }
 
 /* 修复全局字体带来的bug */
