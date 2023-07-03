@@ -16,19 +16,17 @@ const colorSchemeQuery = window.matchMedia('(prefers-color-scheme: dark)');
 // cardRefreshTimes();
 // 刷新时钟时间
 function cardRefreshTimes() {
-    var p_y = document.getElementById("pBar_year");
-    var p_s_y = document.getElementById("p_span_year");
-    var p_m = document.getElementById("pBar_month");
-    var p_s_m = document.getElementById("p_span_month");
-    var p_w = document.getElementById("pBar_week");
-    var p_s_w = document.getElementById("p_span_week");
-    asideDay = (now - asideTime) / 1e3 / 60 / 60 / 24;
-    if (p_y) p_y.value = asideDay;
-    if (p_s_y) p_s_y.innerHTML = (asideDay / 365 * 100).toFixed(2) + "%";
-    if (p_m) { p_m.value = date; p_m.max = dates; }
-    if (p_s_m) p_s_m.innerHTML = (date / dates * 100).toFixed(2) + "%";
-    if (p_w) p_w.value = week == 0 ? 7 : week;
-    if (p_s_w) p_s_w.innerHTML = ((week == 0 ? 7 : week) / 7 * 100).toFixed(2) + "%";
+    var cardWidgetSchedule = document.getElementById("card-widget-schedule");
+    if (cardWidgetSchedule) {
+        asideDay = (now - asideTime) / 1e3 / 60 / 60 / 24;
+        cardWidgetSchedule.querySelector("#pBar_year").value = asideDay;
+        cardWidgetSchedule.querySelector("#p_span_year").innerHTML = (asideDay / 365 * 100).toFixed(2) + "%";
+        cardWidgetSchedule.querySelector("#pBar_month").value = date;
+        cardWidgetSchedule.querySelector("#pBar_month").max = dates;
+        cardWidgetSchedule.querySelector("#p_span_month").innerHTML = (date / dates * 100).toFixed(2) + "%";
+        cardWidgetSchedule.querySelector("#pBar_week").value = week == 0 ? 7 : week;
+        cardWidgetSchedule.querySelector("#p_span_week").innerHTML = ((week == 0 ? 7 : week) / 7 * 100).toFixed(2) + "%";
+    }
 }
 
 // 刷新页脚时间
