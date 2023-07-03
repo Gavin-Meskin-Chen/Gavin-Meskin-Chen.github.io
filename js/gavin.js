@@ -682,17 +682,6 @@ document.onkeydown = function (e) {
     if (123 == e.keyCode || (e.ctrlKey && e.shiftKey && (74 === e.keyCode || 73 === e.keyCode || 67 === e.keyCode)) || (e.ctrlKey && 85 === e.keyCode)) return tools.showNote("开发者模式已打开，请遵循GPL协议","warning",5)
 };
 
-// 获取 post-meta-bottom 元素
-var postMetaComment = document.querySelector(".post-meta-bottom.post-meta-commentcount");
-if (postMetaComment) {
-    postMetaComment.addEventListener("click", function() {
-        var link = postMetaComment.querySelector("a");
-        if (link) {
-            link.click();
-        }
-    });
-}
-
 // 复制事件
 document.addEventListener("copy", () => {
     if (set_notice.checked) tools.showMessage("复制成功！转载请注明来源！", "success", 2);
