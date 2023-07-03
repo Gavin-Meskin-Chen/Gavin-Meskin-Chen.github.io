@@ -3460,7 +3460,7 @@ h1.page-title + .tag-cloud-list {
 }
 @media screen and (max-width: 768px) {
   #page-header.post-bg {
-    height: 360px;
+    height: 450px;
   }
 }
 #page-header.post-bg:before {
