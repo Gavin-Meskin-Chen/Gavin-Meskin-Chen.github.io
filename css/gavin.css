@@ -1380,6 +1380,13 @@ a.extend.prev {
 
 a.extend {
     position: absolute;
+    color: var(--font-color);
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: var(--card-box-shadow);
+    width: 2.5em;
+    height: 2.5em;
+    line-height: 2.5em;
 }
 
 #pagination .pagination {
