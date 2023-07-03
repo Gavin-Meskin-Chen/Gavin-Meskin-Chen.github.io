@@ -1353,27 +1353,39 @@ body div {
 
 /* 页码前进后退 */
 a.extend.next {
-    float: right;
     margin-right: 0px !important;
+    right: 0;
+    /* float: right;
     color: var(--font-color);
     background-color: var(--card-bg);
     border-radius: 8px;
     box-shadow: var(--card-box-shadow);
     width: 2.5em;
     height: 2.5em;
-    line-height: 2.5em;
+    line-height: 2.5em; */
 }
 
 a.extend.prev {
-    float: left;
     margin-left: 0px !important;
+    left: 0;
+    /* float: left;
     color: var(--font-color);
     background-color: var(--card-bg);
     border-radius: 8px;
     box-shadow: var(--card-box-shadow);
     width: 2.5em;
     height: 2.5em;
-    line-height: 2.5em;
+    line-height: 2.5em; */
+}
+
+a.extend {
+    position: absolute;
+}
+
+#pagination .pagination {
+    position: relative;
+    display: flex;
+    justify-content: center;
 }
 
 .layout>.recent-posts .pagination>*:not(.space) {
