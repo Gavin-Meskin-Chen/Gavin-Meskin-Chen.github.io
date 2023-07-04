@@ -1006,6 +1006,21 @@ a {
     font-family: "Font Awesome 6 Free";
 }
 
+/* 主页文章卡片样式 */
+.article-meta-wrap a.article-meta__tags::before {
+    content: '\f292';
+    top: -0.1em;
+    position: relative;
+    opacity: .6;
+    margin-right: 0.15em;
+    font-size: 80%;
+    font-family: "Font Awesome 6 Free";
+}
+
+.article-meta-wrap a.article-meta__tags:hover {
+    color: var(--dis-f-0)!important;
+}
+
 /* Tag页标签样式 */
 .tag-cloud-list a {
     font-size: 2rem !important;
