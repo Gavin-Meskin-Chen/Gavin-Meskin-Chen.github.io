@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
     cardTimes();
     asideNote();
     cardRefreshTimes();
+    // tools.refreshThemeColor();
     if(document.documentElement.scrollTop != 0){
         document.getElementById("page-header").classList.add("is-top-bar")
     }
@@ -16,6 +17,7 @@ document.addEventListener("pjax:complete", ()=>{
     cardTimes();
     asideNote();
     cardRefreshTimes();
+    // tools.refreshThemeColor();
     if(document.documentElement.scrollTop != 0){
         document.getElementById("page-header").classList.add("is-top-bar");
     }
@@ -378,7 +380,21 @@ var tools = {
         var colors = ["rgba(0,150,255,.95)", "rgba(0,255,150,.95)", "rgba(255,150,0,.95)", "rgba(255,0,150,.95)", "rgba(150,255,0,.95)", "rgba(150,0,255,.95)"];
         var n = Math.floor(Math.random() * 6); //随机0-5
         return colors[n];
+    },
+
+    refreshThemeColor: function () {
+        var cover = document.getElementById("page-header");
+        if (cover) {
+            var apiUrl = cover.style.backgroundImage.slice(5,-2) + "?x-oss-process=image/average-hue";
+            fetch(apiUrl).then(response => response.json()).then(data => {
+                var mainColor = "#"+data.RGB.slice(2,);
+                console.log("主色调为："+mainColor);
+                document.documentElement.style.setProperty('--gavin-main-color', mainColor);
+            })
+                .catch(error => console.error(error));
+        }
     }
+
 }
 
 // *************************************************** 控制模块 ***************************************************************

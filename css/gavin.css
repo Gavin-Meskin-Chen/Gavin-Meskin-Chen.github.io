@@ -2,6 +2,7 @@
 :root {
     --gavin-blue1: rgb(0, 136, 255);
     --gavin-blue2: rgb(0, 150, 255);
+    --gavin-theme-color: rgb(0, 136, 255);
 
     --rightside-bg: var(--gavin-op-1);
     /* --card-box-shadow: 0 0px 1px 1px rgba(7, 17, 27, .25); */
@@ -1206,7 +1207,12 @@ a {
     border-radius: 1rem;
 }
 
-/* 文章页标题显示不全的bug */
+/* 文章页封面 */
+
+/* #body-wrap.post #page-header {
+    -webkit-box-shadow: inset 0 -13vh 100vh 0 var(--gavin-theme-color), inset 20vw 0 100vw 0 var(--gavin-theme-color), inset -11vw 0 100vh 0 var(--gavin-theme-color), inset 0 9vh 100vh 0 var(--gavin-theme-color);
+    box-shadow: inset 0 -13vh 100vh 0 var(--gavin-theme-color), inset 20vw 0 100vw 0 var(--gavin-theme-color), inset -11vw 0 100vh 0 var(--gavin-theme-color), inset 0 9vh 100vh 0 var(--gavin-theme-color);
+} */
 
 #page-header #post-info {
     top: 0;
@@ -1918,6 +1924,7 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
     left: 0;
     bottom: -11px;
     z-index: 5;
+    transition: all .5s;
 }
 
 .waves-area .waves-svg {
@@ -1928,6 +1935,7 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
 /* Animation */
 .parallax>use {
     animation: move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+    transition: fill .3s;
 }
 
 .parallax>use:nth-child(1) {
