@@ -2480,9 +2480,13 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
     text-align: right;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 550px) {
     #article-container a.link-card .end p:last-child {
         display: none;
+    }
+
+    #article-container a.link-card .end p:first-child {
+        width: 100%;
     }
 }
 
