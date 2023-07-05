@@ -2858,6 +2858,7 @@ pre.language-yaml,
 /* 主页文章卡片样式 */
 a.article-meta__tags {
     margin-right: 5px;
+    display: inline-block;
 }
 
 a.article-meta__tags::before {
@@ -2874,21 +2875,28 @@ a.article-meta__tags:hover {
     color: var(--dis-f-0)!important;
 }
 
-#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags:before {
+/* #recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags:before {
     content: none;
     white-space: none;
-}
+} */
 
 .article-meta-time {
     margin-right: 10px;
+    display: inline-block;
 }
 
 #recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .post-meta-date {
-    display: flex;
+    line-height: 1.2rem;
 }
 
 span.article-meta.tags {
-    display: flex;
+    line-height: 1rem;
+    position: absolute;
+    bottom: 1.3rem;
+}
+
+.article-meta-wrap span {
+    margin: 3px 0;
 }
 
 .recent-post-info,
@@ -2901,9 +2909,19 @@ span.article-meta.tags {
     cursor: default!important;
 }
 
+a.article-links {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-radius: 1rem;
+}
+
 #recent-posts > .recent-post-item >.recent-post-info {
     margin-top: 0;
-    padding: 10px 40px;
+    padding: 10px 8%;
+    height: 150px;
 }
 
 #recent-posts>.recent-post-item {
@@ -2927,8 +2945,8 @@ a.article-meta__categories {
 }
 
 a.article-meta__categories:hover {
-    color: var(--dis-f-0);
-    background: var(--f-0);
+    color: var(--f-0);
+    background: var(--dis-f-0);
 }
 
 /* 颜色更改（标签更改在themes\butterfly\layout\includes\mixins\post-ui.pug中改）rgba(5,109,232,0.8) */
