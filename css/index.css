@@ -2540,9 +2540,6 @@ figure.highlight pre .javascript .function {
   color: #858585;
   font-size: 90%;
 }
-#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .post-meta-date {
-  cursor: default;
-}
 #recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap .sticky {
   color: #ff7242;
 }

@@ -1006,21 +1006,6 @@ a {
     font-family: "Font Awesome 6 Free";
 }
 
-/* 主页文章卡片样式 */
-.article-meta-wrap a.article-meta__tags::before {
-    content: '\f292';
-    top: -0.1em;
-    position: relative;
-    opacity: .6;
-    margin-right: 0.15em;
-    font-size: 80%;
-    font-family: "Font Awesome 6 Free";
-}
-
-.article-meta-wrap a.article-meta__tags:hover {
-    color: var(--dis-f-0)!important;
-}
-
 /* Tag页标签样式 */
 .tag-cloud-list a {
     font-size: 2rem !important;
@@ -1183,11 +1168,6 @@ a {
 #aside-content .aside-list>.aside-list-item .thumbnail,
 #aside-content .aside-list>.aside-list-item .thumbnail>img {
     border-radius: 0.64rem;
-}
-
-/* 首页文章标题加粗 */
-#recent-posts>.recent-post-item>.recent-post-info>.article-title {
-    font-weight: bold;
 }
 
 /* 侧边栏个人信息卡片 */
@@ -2870,6 +2850,87 @@ pre.language-yaml,
     margin-top: 1rem;
   } */
 
+/* 首页文章标题加粗 */
+#recent-posts>.recent-post-item>.recent-post-info>.article-title {
+    font-weight: bold;
+}
+
+/* 主页文章卡片样式 */
+a.article-meta__tags {
+    margin-right: 5px;
+}
+
+a.article-meta__tags::before {
+    content: '\f292';
+    top: -0.1em;
+    position: relative;
+    opacity: .6;
+    margin-right: 0.15em;
+    font-size: 80%;
+    font-family: "Font Awesome 6 Free";
+}
+
+a.article-meta__tags:hover {
+    color: var(--dis-f-0)!important;
+}
+
+#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags:before {
+    content: none;
+    white-space: none;
+}
+
+.article-meta-time {
+    margin-right: 10px;
+}
+
+#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .post-meta-date {
+    display: flex;
+}
+
+span.article-meta.tags {
+    display: flex;
+}
+
+.recent-post-info,
+.recent-post-info * {
+    cursor: pointer;
+}
+
+.article-meta-time,
+.article-meta-time *{
+    cursor: default!important;
+}
+
+#recent-posts > .recent-post-item >.recent-post-info {
+    margin-top: 0;
+    padding: 10px 40px;
+}
+
+#recent-posts>.recent-post-item {
+    position: relative;
+}
+
+.article-meta-categories {
+    position: absolute;
+    display: flex;
+    z-index: 1;
+    top: 1rem;
+    left: 1rem;
+}
+
+a.article-meta__categories {
+    backdrop-filter: saturate(360%)  contrast(70%) blur(20px);
+    padding: 6px 12px;
+    line-height: 1rem;
+    color: #fff;
+    border-radius: 7px;
+}
+
+a.article-meta__categories:hover {
+    color: var(--dis-f-0);
+    background: var(--f-0);
+}
+
 /* 颜色更改（标签更改在themes\butterfly\layout\includes\mixins\post-ui.pug中改）rgba(5,109,232,0.8) */
 .recent-post-item:hover .article-title {
     color: var(--gavin-highlight) !important;
@@ -2885,6 +2946,8 @@ pre.language-yaml,
 
 #recent-posts>.recent-post-item>.recent-post-info>.article-meta-wrap {
     color: var(--font-color);
+    display: flex;
+    flex-direction: column;
 }
 
 #recent-posts>.recent-post-item>.recent-post-info>.article-meta-wrap a {
