@@ -1215,6 +1215,10 @@ img#post-cover {
     object-fit: cover;
 }
 
+[data-theme='dark'] img#post-cover {
+    filter: none;
+}
+
 #page-header #post-info {
     top: 0;
     display: flex;
