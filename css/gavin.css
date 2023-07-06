@@ -1183,7 +1183,7 @@ a {
 
 .avatar-img img {
     border-radius: 50%;
-    border: 2px solid #fff;
+    border: 3px solid #fff;
 }
 
 .avatar-img {
@@ -1619,13 +1619,22 @@ h6 {
 /* *****************************************************sidebar侧滑导航栏修改**************************************************************** */
 /* 手机端 侧边导航颜色和圆弧 */
 #sidebar #sidebar-menus .menus_items .site-page:hover {
-    color: #fff;
-    border-radius: 0.5rem;
+    /* color:  */
+    background: var(--gavin-widget-bg2);
+    /* border-radius: 0.5rem; */
+}
+
+#sidebar #sidebar-menus .menus_item > .site-page:not(.hide) {
+    background: var(--gavin-widget-bg2);
+}
+
+#sidebar #sidebar-menus .menus_items .site-page {
+    margin: 2px 0;
 }
 
 /* 侧边导航宽度重设 */
 #sidebar #sidebar-menus {
-    right: -270px;
+    left: -270px;
     width: 270px;
 }
 
@@ -1637,20 +1646,57 @@ h6 {
 }
 
 /* 侧边导航毛玻璃 */
-#sidebar #sidebar-menus {
+/* #sidebar #sidebar-menus {
     background: rgba(255, 255, 255, 0.5);
     -webkit-backdrop-filter: saturate(180%) contrast(50%) blur(10px);
     backdrop-filter: saturate(180%) contrast(50%) blur(10px);
     transform: translateZ(0);
-}
+} */
 
-[data-theme='dark'] #sidebar #sidebar-menus {
+/* [data-theme='dark'] #sidebar #sidebar-menus {
     background: rgba(0, 0, 0, 0.1);
-}
+} */
 
 /* 侧滑菜单不显示滚动条 */
-#sidebar-menus::-webkit-scrollbar {
+#sidebar-menus .menus_items::-webkit-scrollbar {
     display: none
+}
+
+#sidebar #sidebar-menus .menus_items {
+    padding: 10px 0;
+    max-height: calc(100% - 300px);
+    overflow: scroll;
+}
+
+#sidebar-menus .sidebar-head {
+    padding: 20px 10px 10px;
+    background-image: url(https://blog-hexo-img.oss-cn-shanghai.aliyuncs.com/QEhcc.webp);
+    background-size: cover;
+    background-position: center;
+    height: 250px;
+}
+
+.sidebar-head .site-data > a .headline,
+.sidebar-head .site-data > a .length-num {
+    color: #fff;
+    font-weight: bold;
+}
+
+.sidebar-foot {
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    background: var(--f-0);
+    bottom: 0;
+    padding: 5px 15px;
+}
+
+.sidebar-foot .sidebar-weather {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* **************************************************************音乐播放器***************************************************************** */
@@ -3074,6 +3120,7 @@ a.article-meta__categories:hover {
 /* **************************友链样式************************* */
 #article-container .flink .flink-list>.flink-list-item {
     /* border: 1px solid var(--vercel-border-color); */
+    margin: 7px;
     background: var(--card-bg);
     border-radius: 1rem;
     mask-image: paint(smooth-corners);

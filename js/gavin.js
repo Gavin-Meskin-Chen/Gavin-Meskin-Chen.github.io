@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
     cardTimes();
     asideNote();
     cardRefreshTimes();
+    // sidebarWeather();
     // tools.refreshThemeColor();
     if(document.documentElement.scrollTop != 0){
         document.getElementById("page-header").classList.add("is-top-bar")
@@ -17,6 +18,7 @@ document.addEventListener("pjax:complete", ()=>{
     cardTimes();
     asideNote();
     cardRefreshTimes();
+    // sidebarWeather();
     // tools.refreshThemeColor();
     if(document.documentElement.scrollTop != 0){
         document.getElementById("page-header").classList.add("is-top-bar");
@@ -215,6 +217,20 @@ function musicState() {
         a.classList.add("fa-pause");
         b.classList.remove("fa-play");
         b.classList.add("fa-pause");
+    }
+}
+
+function sidebarWeather() {
+    var sidebarWeather = document.querySelector(".sidebar-foot .sidebar-weather");
+    var hf = document.getElementById("he-plugin-simple");
+    if (hf) {
+        var qw = hf.querySelector(".s-sticker-tmp");
+        var cs = hf.querySelector(".s-sticker-city");
+        var kq = hf.querySelector(".s-sticker-qlty");
+        var tq = hf.querySelector(".s-sticker-cond");
+        if (qw && cs && tq && kq) {
+            sidebarWeather.innerHTML = cs.innerHTML + " " + qw.innerHTML + tq.innerHTML + kq.innerHTML;
+        }
     }
 }
 
