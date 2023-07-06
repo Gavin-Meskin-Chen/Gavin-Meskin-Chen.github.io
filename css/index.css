@@ -5921,7 +5921,7 @@ blockquote.pullquote.right {
   #page:has(#about-page) {
     border: 0;
     box-shadow: none !important;
-    padding: 0 !important;
+    /* padding: 0 !important; */
     background: transparent !important;
   }
   
@@ -5938,7 +5938,7 @@ blockquote.pullquote.right {
   }
   
   #web_bg ~ .page:has(#about-page) {
-    background: var(--anzhiyu-background);
+    background: var(--gavin-background);
   }
   
   #about-page .author-box {
@@ -5986,11 +5986,11 @@ blockquote.pullquote.right {
     background: linear-gradient(120deg, #5b27ff 0, #00d4ff 100%);
     background-size: 200%;
     animation: gradient 15s ease infinite;
-    width: 59%;
+    width: calc(60% - 0.5rem);
   }
   
   .author-content-item {
-    width: 49%;
+    /* width: 49%; */
     border-radius: 24px;
     background: var(--anzhiyu-card-bg);
     border: var(--style-border-always);
@@ -6026,7 +6026,7 @@ blockquote.pullquote.right {
     justify-content: center;
     align-items: flex-start;
     flex-direction: column;
-    width: 39%;
+    width: calc(40% - 0.5rem);
   }
   
   .aboutsiteTips h2 {
@@ -6084,8 +6084,8 @@ blockquote.pullquote.right {
   }
   #about-page .about-statistic {
     min-height: 380px;
-    width: 49%;
-    background: url(https://img02.anzhiy.cn/adminuploads/1/2022/09/23/632d634f8376d.jpg) no-repeat top;
+    width: calc(50% - 0.5rem);
+    background: url(https://i.imgtg.com/2023/07/06/OxvyzF.webp) no-repeat top;
     background-size: cover;
     color: var(--anzhiyu-white);
     overflow: hidden;
@@ -6166,11 +6166,11 @@ blockquote.pullquote.right {
     right: 2rem;
   }
   .author-content-item .card-content .banner-button-group .banner-button {
-    height: 40px;
-    width: 124px;
+    height: 36px;
+    width: 100px;
     border-radius: 20px;
     justify-content: center;
-    background: var(--anzhiyu-card-bg);
+    background: var(--gavin-op-5);
     color: var(--font-color);
     display: flex;
     align-items: center;
@@ -6188,8 +6188,8 @@ blockquote.pullquote.right {
   }
   
   .author-content-item .card-content .banner-button-group .banner-button:hover {
-    background: var(--anzhiyu-main);
-    color: var(--anzhiyu-white);
+    background: var(--f-0);
+    color: var(--dis-f-0);
     border-radius: 20px !important;
   }
   .author-content-item.personalities {
@@ -6508,7 +6508,7 @@ blockquote.pullquote.right {
     align-items: flex-start;
     flex-direction: column;
     justify-content: center;
-    width: 39%;
+    width: calc(40% - 0.5rem);
   }
   .author-content-item .author-content-item-tips {
     opacity: 0.8;
@@ -6534,7 +6534,7 @@ blockquote.pullquote.right {
     animation: gradient 15s ease infinite;
     min-height: 200px;
     height: fit-content;
-    width: 59%;
+    width: calc(60% - 0.5rem);
   }
   .author-content-item.buff .card-content {
     display: flex;
@@ -6611,7 +6611,7 @@ blockquote.pullquote.right {
   }
   
   .author-content-item.like-technology {
-    background: url(https://img02.anzhiy.cn/adminuploads/1/2022/09/24/632f0dd8f33c6.webp) no-repeat;
+    background: url(https://i.imgtg.com/2023/07/06/OxvZXD.webp) no-repeat;
     background-size: cover;
     min-height: 230px;
     color: var(--anzhiyu-white);
@@ -6645,12 +6645,12 @@ blockquote.pullquote.right {
     #gitcalendar {
       display: none;
     }
-    [data-theme="dark"] .author-content-item .card-content .banner-button-group .banner-button {
+    /* [data-theme="dark"] .author-content-item .card-content .banner-button-group .banner-button {
       color: var(--anzhiyu-black) !important;
-    }
-    .author-content-item .card-content .banner-button-group .banner-button:hover {
+    } */
+    /* .author-content-item .card-content .banner-button-group .banner-button:hover {
       background: none !important;
-    }
+    } */
     .author-content-item.game-yuanshen .content-bottom {
       padding-bottom: 10px;
     }
@@ -6698,17 +6698,17 @@ blockquote.pullquote.right {
       box-shadow: none !important;
       background: var(--anzhiyu-background);
     }
-    .author-content-item .card-content .banner-button-group .banner-button-text {
+    /* .author-content-item .card-content .banner-button-group .banner-button-text {
       display: none;
-    }
+    } */
     .author-content-item .card-content .banner-button-group {
       right: 1rem;
       bottom: 1rem;
     }
-    .author-content-item .card-content .banner-button-group .banner-button {
+    /* .author-content-item .card-content .banner-button-group .banner-button {
       background: 0 0;
       padding: 0;
-    }
+    } */
     .author-content-item .card-content .banner-button-group .banner-button i {
       margin-right: 0;
       font-size: 1.5rem;
@@ -6781,6 +6781,14 @@ blockquote.pullquote.right {
     font-size: 12px;
     color: var(--anzhiyu-secondtext);
     white-space: nowrap;
+  }
+
+  .author-content-item.like-technology {
+    width: calc(50% - 0.5rem);
+  }
+
+  .author-content-item.like-music {
+    width: calc(50% - 0.5rem);
   }
 .author-content-item.careers {
     min-height: 400px;
@@ -7207,8 +7215,8 @@ blockquote.pullquote.right {
   justify-content: center;
   align-items: flex-start;
   flex-direction: column;
-  width: 49%;
-  min-height: 450px;
+  width: calc(50% - 0.5rem);
+  min-height: 400px;
 }
 
 .author-content-item.skills .skills-style-group {

@@ -1,8 +1,12 @@
 /* ***************************************************************颜色************************************************************** */
 :root {
-    --gavin-blue1: rgb(0, 136, 255);
-    --gavin-blue2: rgb(0, 150, 255);
-    --gavin-theme-color: rgb(0, 136, 255);
+    --gavin-blue1: rgb(0, 150, 255);
+    --gavin-blue2: rgb(0, 136, 255);
+    --gavin-blue3: rgb(0, 100, 255);
+    /* HarmonyOS */
+    --hmos-white-snow: rgb(241, 243, 245);
+
+    --gavin-theme-color: var(--gavin-blue2);
 
     --rightside-bg: var(--gavin-op-1);
     /* --card-box-shadow: 0 0px 1px 1px rgba(7, 17, 27, .25); */
@@ -11,12 +15,10 @@
     --vercel-btn-bg: var(--dis-f-0);
     --vercel-btn-hover-bg: var(--f-0);
     --vercel-btn-border: var(--dis-f-0);
-    --hr-border: rgb(0, 136, 255);
-    --hr-before-color: rgb(0, 136, 255);
+    --hr-border: var(--gavin-blue2);
+    --hr-before-color: var(--gavin-blue2);
 
 
-    /* HarmonyOS */
-    --hmos-white-snow: #F1F3F5;
 
 
     /* 以下是安知鱼颜色 */
@@ -52,21 +54,23 @@
 }
 
 [data-theme="light"] {
-    --dis-f-0: #000;
     --f-0: #fff;
+    --dis-f-0: #000;
     --gavin-op-1: rgba(255, 255, 255, .1);
     --gavin-op-3: rgba(255, 255, 255, .3);
     --gavin-op-5: rgba(255, 255, 255, .5);
     --gavin-op-7: rgba(255, 255, 255, .7);
-    --gavin-op-nav: rgba(255, 255, 255, .72);
-    --gavin-op-console: rgba(0, 0, 0, .18);
     --gavin-op-dis-1: rgba(0, 0, 0, .1);
     --gavin-op-dis-3: rgba(0, 0, 0, .3);
+    --gavin-op-dis-5: rgba(0, 0, 0, .5);
     --gavin-op-dis-7: rgba(0, 0, 0, .7);
+    --gavin-nav-bg: rgba(255, 255, 255, .72);
+    --gavin-console-mask: rgba(0, 0, 0, .18);
+    --gavin-nav-hover: var(--gavin-blue2);
     --search-bg: rgba(255, 255, 255, .64);
-    --gavin-page-bg: rgb(51, 144, 255);
+    --gavin-page-bg: var(--gavin-blue1);
     /*页码颜色*/
-    --gavin-toc-bg: rgb(15, 164, 255);
+    --gavin-toc-bg: var(--gavin-blue1);
     /*目录颜色*/
     /*rgba(51, 144, 255, .9)*/
     --gavin-scrollbar-dark: rgba(73, 177, 245, 1);
@@ -75,14 +79,14 @@
     --gavin-item-border: rgba(50, 150, 250, .9);
     --gavin-border-color: #ddd;
     /*rgba(227, 232, 247, 1);*/
-    --gavin-border-hover-color: rgb(0, 100, 255);
+    --gavin-border-hover-color: var(--gavin-blue3);
     --gavin-note-font-color: rgb(102, 102, 102);
     --gavin-hover-font-color: rgba(0, 0, 0, 1);
     --gavin-background: rgb(241, 243, 245);
     /*247,249,254*/
     --gavin-widget-bg1: rgb(241, 241, 241);
     --gavin-widget-bg2: rgb(223, 223, 223);
-    --gavin-highlight: rgba(0, 136, 255);
+    --gavin-highlight: var(--gavin-blue2);
     --gavin-switch-off: rgb(233, 233, 234);
     --gavin-switch-on: rgb(52, 199, 89);
     --vercel-background: rgb(250, 250, 250);
@@ -90,7 +94,7 @@
     --vercel-hover-bg: rgba(234, 234, 234, 1);
     /* --font-color: #2e2e2e; */
     --font-color: rgba(0, 0, 0, .7);
-    --text-bg-hover: rgba(0, 150, 255, .9);
+    --text-bg-hover: var(--gavin-blue1);
     --card-bg: #fff;
     --card-link-bg: rgba(0, 150, 255, .1);
     --card-link-border: rgba(0, 150, 255, .3);
@@ -136,17 +140,19 @@
 }
 
 [data-theme="dark"] {
-    --dis-f-0: #fff;
     --f-0: #000;
+    --dis-f-0: #fff;
     --gavin-op-1: rgba(0, 0, 0, .1);
     --gavin-op-3: rgba(0, 0, 0, .3);
     --gavin-op-5: rgba(0, 0, 0, .5);
     --gavin-op-7: rgba(0, 0, 0, .7);
-    --gavin-op-nav: rgba(0, 0, 0, .56);
-    --gavin-op-console: rgba(255, 255, 255, .18);
     --gavin-op-dis-1: rgba(255, 255, 255, .1);
     --gavin-op-dis-3: rgba(255, 255, 255, .3);
+    --gavin-op-dis-3: rgba(255, 255, 255, .5);
     --gavin-op-dis-7: rgba(255, 255, 255, .7);
+    --gavin-nav-bg: rgba(0, 0, 0, .56);
+    --gavin-console-mask: rgba(255, 255, 255, .18);
+    --gavin-nav-hover: rgba(240, 240, 240, .24);
     --search-bg: rgba(0, 0, 0, .64);
     --gavin-page-bg: rgba(255, 255, 255, 0.8);
     /*页码颜色*/
@@ -167,7 +173,7 @@
     /*38, 38, 38*/
     --gavin-widget-bg2: rgb(66, 67, 70);
     /*60, 60, 60*/
-    --gavin-highlight: rgba(255, 255, 255);
+    --gavin-highlight: #fff;
     --gavin-switch-off: rgb(57, 57, 61);
     --gavin-switch-on: rgb(48, 209, 88);
     --vercel-background: rgb(17, 17, 17);
@@ -292,7 +298,7 @@
 
 /* ************************************************************导航栏***************************************************************** */
 #nav a:hover {
-    background: var(--anzhiyu-main);
+    background: var(--gavin-nav-hover);
     transition: 0.3s;
 }
 
@@ -498,7 +504,7 @@ ul.menus_item_child {
 @media screen and (min-width: 768px) {
     .page .menus_item:hover>a.site-page {
         color: #fff !important;
-        background: var(--anzhiyu-main);
+        background: var(--gavin-nav-hover);
         transition: 0.3s;
     }
 }
@@ -512,7 +518,7 @@ ul.menus_item_child {
     backdrop-filter: saturate(180%) blur(20px);
     /* saturate饱和度 contrast对比度 blur高斯模糊 */
     /* 以下是导航栏新改的 */
-    background-color: var(--gavin-op-nav) !important;
+    background-color: var(--gavin-nav-bg) !important;
     box-shadow: var(--card-box-shadow) !important;
     transform: translateZ(0);
 }
@@ -538,7 +544,7 @@ header img {
 /* 右侧和导航标题（主页时）图标样式 */
 .page #nav a:hover {
     color: #fff !important;
-    background: var(--anzhiyu-main);
+    background: var(--gavin-nav-hover);
     transition: 0.3s;
 }
 
@@ -691,7 +697,7 @@ center#name-container {
 
 /* 左上角6点（菜单）按钮样式 */
 .back-home-button:hover {
-    background: var(--anzhiyu-main);
+    background: var(--gavin-nav-hover);
     color: #fff !important;
 }
 
@@ -955,7 +961,7 @@ a {
     border-radius: 0.4em;
 }
 
-#aside-content #card-toc .toc-content .toc-link:hover {
+#aside-content #card-toc .toc-content .toc-link:not(.active):hover {
     background-color: var(--gavin-item-bg);
     color: var(--font-color);
 }
@@ -1846,7 +1852,7 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
 }
 
 [data-theme=dark] a#darkSwitchBtn {
-    background: rgba(50, 150, 255, 0.9) !important;
+    background: var(--gavin-blue1) !important;
     color: #fff !important;
 }
 
@@ -1856,7 +1862,7 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
   } */
 
 #console .console-btn-group .console-btn-item.on a {
-    background: rgba(50, 150, 255, 0.9);
+    background: var(--gavin-blue1);
     color: #fff;
     transition: 0.3s;
 }
@@ -1876,7 +1882,7 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
 }
 
 #console .console-mask {
-    background: var(--gavin-op-console);
+    background: var(--gavin-console-mask);
     -webkit-backdrop-filter: blur(0px);
     backdrop-filter: blur(0px);
     width: 100vw;
@@ -2567,7 +2573,7 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
     background-color: rgba(0, 150, 255, 0.2);
     border-radius: 1rem;
     /* border-color: rgba(5, 109, 232, 0.8); */
-    border-color: rgba(0, 150, 255, 0.95);
+    border-color: var(--gavin-blue1);
     overflow: hidden;
     transition: all 0.3s ease-in-out;
 }
@@ -3204,7 +3210,7 @@ div#bannerGroup {
 }
 
 span.top-group-text {
-    background: var(--anzhiyu-theme) !important;
+    background: var(--gavin-nav-hover) !important;
     color: #fff !important;
 }
 
@@ -3268,12 +3274,12 @@ span.top-group-text {
 }
 
 .category-bar-item:hover a {
-    background: rgba(0, 100, 255, .95);
+    background: var(--gavin-blue2);
     color: #fff;
 }
 
 .category-bar-item.select a {
-    background: rgba(0, 100, 255, .95);
+    background: var(--gavin-blue2);
     color: #fff;
     border-radius: 0.5rem;
 }
@@ -3941,7 +3947,7 @@ a#music-list-title {
 #calendar-week {
     height: 1.1rem;
     font-size: 1.1rem;
-    color: rgb(0, 150, 255);
+    color: var(--gavin-blue1);
     font-weight: bold;
     margin-bottom: 0.5rem;
     align-items: center;
@@ -3981,7 +3987,7 @@ a#music-list-title {
 }
 
 #calendar-main a.now {
-    background: rgb(0, 150, 255);
+    background: var(--gavin-blue1);
     color: #fff;
 }
 
