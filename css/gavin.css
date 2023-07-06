@@ -714,6 +714,10 @@ center#name-container {
     font-size: 1.8rem;
 }
 
+#nav.hide-menu .back-home-button {
+    display: none;
+}
+
 /* 6点 */
 .back-home-button:hover .back-menu-list-groups {
     display: flex;
@@ -1641,7 +1645,7 @@ h6 {
 /* 修复侧边导航图标不对齐问题 */
 #nav #toggle-menu {
     padding: 0;
-    margin-left: 0.5em;
+    /* margin-left: 0.5em; */
     font-size: 1.5rem;
 }
 
@@ -1693,11 +1697,15 @@ h6 {
     padding: 5px 15px;
 }
 
-.sidebar-foot .sidebar-weather {
+span.separator {
+    margin: 0 5px;
+}
+
+/* .sidebar-foot .sidebar-weather {
     display: flex;
     align-items: center;
     justify-content: center;
-}
+} */
 
 /* **************************************************************音乐播放器***************************************************************** */
 meting-js .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
