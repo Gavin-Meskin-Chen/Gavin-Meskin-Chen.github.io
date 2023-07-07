@@ -1212,6 +1212,13 @@ a {
     border-radius: 1rem;
 }
 
+/* 文章图片底部注释 */
+.img-alt.is-center {
+    font-size: 13px;
+    line-height: 1;
+    display: block;
+}
+
 /* 文章页封面 */
 
 /* #body-wrap.post #page-header {
@@ -1376,27 +1383,11 @@ body div {
 a.extend.next {
     margin-right: 0px !important;
     right: 0;
-    /* float: right;
-    color: var(--font-color);
-    background-color: var(--card-bg);
-    border-radius: 8px;
-    box-shadow: var(--card-box-shadow);
-    width: 2.5em;
-    height: 2.5em;
-    line-height: 2.5em; */
 }
 
 a.extend.prev {
     margin-left: 0px !important;
     left: 0;
-    /* float: left;
-    color: var(--font-color);
-    background-color: var(--card-bg);
-    border-radius: 8px;
-    box-shadow: var(--card-box-shadow);
-    width: 2.5em;
-    height: 2.5em;
-    line-height: 2.5em; */
 }
 
 a.extend {
@@ -1405,9 +1396,42 @@ a.extend {
     background-color: var(--card-bg);
     border-radius: 8px;
     box-shadow: var(--card-box-shadow);
-    width: 2.5em;
-    height: 2.5em;
-    line-height: 2.5em;
+    width: 5em!important;
+    height: 2.5em!important;
+    line-height: 2.5em!important;
+}
+
+#pagination a.extend.prev .pagination_tips_prev,
+#pagination a.extend.next .pagination_tips_next {
+    display: none;
+}
+
+#pagination a.extend i {
+    display: inline-block;
+}
+
+@media screen and (max-width: 768px) {
+    #pagination a.extend.prev .pagination_tips_prev,
+    #pagination a.extend.next .pagination_tips_next {
+        display: inline-block;
+    }
+
+    #pagination a.extend i,
+    #pagination a.page-number,
+    #pagination span.page-number.current,
+    #pagination span.space {
+        display: none;
+    }
+
+    #pagination a.extend {
+        width: 100%!important;
+        margin: 0;
+        position: relative;
+    }
+
+    #pagination .pagination {
+        gap: 1.2em;
+    }
 }
 
 #pagination .pagination {
@@ -2954,7 +2978,7 @@ pre.language-yaml,
 
 /* 主页文章卡片样式 */
 a.article-meta__tags {
-    margin-right: 5px;
+    margin-right: 7px;
     display: inline-block;
 }
 

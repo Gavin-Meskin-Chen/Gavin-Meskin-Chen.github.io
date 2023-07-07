@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
     asideNote();
     cardRefreshTimes();
     // sidebarWeather();
-    // tools.refreshThemeColor();
+    // ctrl.refreshThemeColor();
     if(document.documentElement.scrollTop != 0){
         document.getElementById("page-header").classList.add("is-top-bar")
     }
@@ -14,16 +14,16 @@ document.addEventListener("DOMContentLoaded", ()=>{
 document.addEventListener("pjax:complete", ()=>{
     console.log("pjax加载完成（切换页面）");
     document.getElementById("page-name").innerText = document.title.split(" | 参星阁")[0];
-    musicState();
     cardTimes();
     asideNote();
     cardRefreshTimes();
     // sidebarWeather();
-    // tools.refreshThemeColor();
+    // ctrl.refreshThemeColor();
     if(document.documentElement.scrollTop != 0){
         document.getElementById("page-header").classList.add("is-top-bar");
     }
     categoriesBarActive();
+    musicState();
 }) // pjax加载完成（切换页面）后再执行一次
 
 // ************************************************ 函数部分 **************************************************************
@@ -396,21 +396,7 @@ var tools = {
         var colors = ["rgba(0,150,255,.95)", "rgba(0,255,150,.95)", "rgba(255,150,0,.95)", "rgba(255,0,150,.95)", "rgba(150,255,0,.95)", "rgba(150,0,255,.95)"];
         var n = Math.floor(Math.random() * 6); //随机0-5
         return colors[n];
-    },
-
-    refreshThemeColor: function () {
-        var cover = document.getElementById("page-header");
-        if (cover) {
-            var apiUrl = cover.style.backgroundImage.slice(5,-2) + "?x-oss-process=image/average-hue";
-            fetch(apiUrl).then(response => response.json()).then(data => {
-                var mainColor = "#"+data.RGB.slice(2,);
-                console.log("主色调为："+mainColor);
-                document.documentElement.style.setProperty('--gavin-main-color', mainColor);
-            })
-                .catch(error => console.error(error));
-        }
     }
-
 }
 
 // *************************************************** 控制模块 ***************************************************************
@@ -623,8 +609,48 @@ var ctrl = {
         var nowVolume = document.querySelector("meting-js").aplayer.audio.volume;// 当前音量
         document.querySelector("#v_bar").style.width = document.querySelector("#v_bar_bg").offsetWidth * nowVolume + "px";// 音量条进度
         saveToLocal.get('theme') == 'light' ? document.querySelector("#set-theme-light input").checked = true : document.querySelector("#set-theme-dark input").checked = true;
-    }
+    },
 
+    // 获取并刷新主题色
+    refreshThemeColor: function () {
+        var cover = document.getElementById("page-header");
+        if (cover) {
+            var apiUrl = cover.style.backgroundImage.slice(5,-2) + "?x-oss-process=image/average-hue";
+            fetch(apiUrl).then(response => response.json()).then(data => {
+                var mainColor = "#"+data.RGB.slice(2,);
+                console.log("主色调为："+mainColor);
+                document.documentElement.style.setProperty('--gavin-main-color', mainColor);
+            })
+                .catch(error => console.error(error));
+        }
+    },
+
+    //侧滑菜单只展开一节
+    sidebarItemsFold: () => {
+        let e = document.querySelectorAll("#sidebar-menus .menus_items .site-page.group");
+        e && e.forEach(t => {
+            t.addEventListener("click", () => {
+                e.forEach(e => {
+                    e != t && e.classList.add("hide")
+                })
+            })
+        })
+    },
+
+    // 页码跳转
+    // pageJumpTo: () => {
+    //     let e = document.querySelector("#pageNumInput input");
+    //     e && (e.addEventListener("input", () => {
+    //         let t = document.querySelectorAll(".page-number")
+    //             , n = t[t.length - 1].innerHTML;
+    //         Number(e.value) > n && (e.value = n),
+    //             Number(e.value) < 1 && (e.value = "")
+    //     }),
+    //         e.addEventListener("keyup", t => {
+    //             "Enter" == t.key && "" != e.value && "0" != e.value && pjax.loadUrl("1" == e.value ? "/" : `/page/${e.value}/`)
+    //         })
+    //     )
+    // }
 }
 
 // +++++++++++++++++++++++++++ categoryBar分类条（或标签条） +++++++++++++++++++++++++++++++
