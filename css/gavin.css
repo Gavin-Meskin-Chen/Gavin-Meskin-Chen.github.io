@@ -1419,6 +1419,7 @@ a.extend {
     #pagination a.extend i,
     #pagination a.page-number,
     #pagination span.page-number.current,
+    #pagination input.toPageInput,
     #pagination span.space {
         display: none;
     }
@@ -1432,6 +1433,12 @@ a.extend {
     #pagination .pagination {
         gap: 1.2em;
     }
+}
+
+input.toPageInput {
+    border: none!important;
+    text-align: center;
+    color: var(--dis-f-0)!important;
 }
 
 #pagination .pagination {

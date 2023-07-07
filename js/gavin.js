@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
     cardTimes();
     asideNote();
     cardRefreshTimes();
+    ctrl.toPageJump();
     // sidebarWeather();
     // ctrl.refreshThemeColor();
     if(document.documentElement.scrollTop != 0){
@@ -17,6 +18,7 @@ document.addEventListener("pjax:complete", ()=>{
     cardTimes();
     asideNote();
     cardRefreshTimes();
+    ctrl.toPageJump();
     // sidebarWeather();
     // ctrl.refreshThemeColor();
     if(document.documentElement.scrollTop != 0){
@@ -638,19 +640,19 @@ var ctrl = {
     },
 
     // 页码跳转
-    // pageJumpTo: () => {
-    //     let e = document.querySelector("#pageNumInput input");
-    //     e && (e.addEventListener("input", () => {
-    //         let t = document.querySelectorAll(".page-number")
-    //             , n = t[t.length - 1].innerHTML;
-    //         Number(e.value) > n && (e.value = n),
-    //             Number(e.value) < 1 && (e.value = "")
-    //     }),
-    //         e.addEventListener("keyup", t => {
-    //             "Enter" == t.key && "" != e.value && "0" != e.value && pjax.loadUrl("1" == e.value ? "/" : `/page/${e.value}/`)
-    //         })
-    //     )
-    // }
+    toPageJump: () => {
+        let e = document.querySelector("#pagination input.toPageInput");
+        e && (e.addEventListener("input", () => {
+            let t = document.querySelectorAll(".page-number")
+                , n = t[t.length - 1].innerHTML;
+            Number(e.value) > n && (e.value = n),
+                Number(e.value) < 1 && (e.value = "")
+        }),
+            e.addEventListener("keyup", t => {
+                "Enter" == t.key && "" != e.value && "0" != e.value && pjax.loadUrl("1" == e.value ? "/" : `/page/${e.value}/#content-inner`)
+            })
+        )
+    }
 }
 
 // +++++++++++++++++++++++++++ categoryBar分类条（或标签条） +++++++++++++++++++++++++++++++
