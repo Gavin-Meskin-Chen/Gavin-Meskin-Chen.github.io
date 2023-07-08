@@ -3767,7 +3767,7 @@ h1.page-title + .tag-cloud-list {
   width: 100%;
   height: 100%;
   position: fixed;
-  background: var(--anzhiyu-card-bg);
+  background: var(--gavin-card-bg);
   z-index: 1001;
   opacity: 1;
   -ms-filter: none;
@@ -5882,9 +5882,9 @@ blockquote.pullquote.right {
 #gitcalendar {
     margin: 0 auto;
     border-radius: 24px;
-    background: var(--anzhiyu-card-bg);
+    background: var(--gavin-card-bg);
     border: var(--style-border-always);
-    box-shadow: var(--anzhiyu-shadow-border);
+    box-shadow: var(--gavin-shadow-border);
     position: relative;
     padding: 1rem 2rem;
     overflow: hidden;
@@ -5936,7 +5936,7 @@ blockquote.pullquote.right {
     background: #6bdf8f;
     position: absolute;
     border-radius: 50%;
-    border: 6px solid var(--anzhiyu-background);
+    border: 6px solid var(--gavin-background);
     top: 50%;
     left: 50%;
     transform: translate(35px, 45px);
@@ -5954,7 +5954,7 @@ blockquote.pullquote.right {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    color: var(--anzhiyu-white);
+    color: #fff;
     background: linear-gradient(120deg, #5b27ff 0, #00d4ff 100%);
     background-size: 200%;
     animation: gradient 15s ease infinite;
@@ -5964,9 +5964,9 @@ blockquote.pullquote.right {
   .author-content-item {
     /* width: 49%; */
     border-radius: 24px;
-    background: var(--anzhiyu-card-bg);
+    background: var(--gavin-card-bg);
     border: var(--style-border-always);
-    box-shadow: var(--anzhiyu-shadow-border);
+    box-shadow: var(--gavin-shadow-border);
     position: relative;
     padding: 1rem 2rem;
     overflow: hidden;
@@ -6059,7 +6059,7 @@ blockquote.pullquote.right {
     width: calc(50% - 0.5rem);
     background: url(https://i.imgtg.com/2023/07/06/OxvyzF.webp) no-repeat top;
     background-size: cover;
-    color: var(--anzhiyu-white);
+    color: #fff;
     overflow: hidden;
   }
   #about-page .about-statistic::after {
@@ -6095,7 +6095,7 @@ blockquote.pullquote.right {
     font-size: 16px;
     border-radius: 15px;
     width: 100%;
-    color: var(--anzhiyu-white);
+    color: #fff;
     display: flex;
     justify-content: space-between;
     flex-direction: row;
@@ -6122,14 +6122,14 @@ blockquote.pullquote.right {
   }
   
   .post-tips {
-    color: var(--anzhiyu-gray);
+    color: #999;
     font-size: 14px;
     position: absolute;
     bottom: 1rem;
     left: 2rem;
   }
   .post-tips a {
-    color: var(--anzhiyu-gray) !important;
+    color: #999 !important;
     border: none !important;
   }
   .author-content-item .card-content .banner-button-group {
@@ -6240,7 +6240,7 @@ blockquote.pullquote.right {
     bottom: 0;
     left: 0;
     width: 100%;
-    background: var(--anzhiyu-maskbg);
+    background: var(--gavin-maskbg);
     padding: 0.5rem 2rem;
     -webkit-backdrop-filter: blur(20px);
     backdrop-filter: blur(20px);
@@ -6296,12 +6296,12 @@ blockquote.pullquote.right {
   }
   
   .post-tips a:hover {
-    color: var(--anzhiyu-main) !important;
+    color: var(--gavin-highlight) !important;
     background: none !important;
   }
   
   .author-content-item.single.reward .reward-list-updateDate {
-    color: var(--anzhiyu-gray);
+    color: #999;
     font-size: 14px;
   }
   
@@ -6501,7 +6501,7 @@ blockquote.pullquote.right {
     flex-direction: column;
     justify-content: center;
     background: linear-gradient(120deg, #ff27e8 0, #ff8000 100%);
-    color: var(--anzhiyu-white);
+    color: #fff;
     background-size: 200%;
     animation: gradient 15s ease infinite;
     min-height: 200px;
@@ -6531,7 +6531,7 @@ blockquote.pullquote.right {
     background-size: cover;
     min-height: 300px;
     overflow: hidden;
-    color: var(--anzhiyu-white);
+    color: #fff;
     width: 59%;
   }
   
@@ -6586,14 +6586,14 @@ blockquote.pullquote.right {
     background: url(https://i.imgtg.com/2023/07/06/OxvZXD.webp) no-repeat;
     background-size: cover;
     min-height: 230px;
-    color: var(--anzhiyu-white);
+    color: #fff;
   }
   
   .author-content-item.like-music {
     background: url(https://p2.music.126.net/Mrg1i7DwcwjWBvQPIMt_Mg==/79164837213438.jpg) no-repeat top;
     background-size: cover;
     min-height: 400px;
-    color: var(--anzhiyu-white);
+    color: #fff;
     overflow: hidden;
   }
   
@@ -6668,7 +6668,7 @@ blockquote.pullquote.right {
       /* border-radius: 0; */
       padding: 0 1rem !important;
       box-shadow: none !important;
-      background: var(--anzhiyu-background);
+      background: var(--gavin-background);
     }
     /* .author-content-item .card-content .banner-button-group .banner-button-text {
       display: none;
@@ -6690,8 +6690,8 @@ blockquote.pullquote.right {
       margin-left: 80px;
     }
     .author-content-item .card-content .banner-button-group .banner-button:hover i {
-      background: var(--anzhiyu-background) !important;
-      color: var(--anzhiyu-theme);
+      background: var(--gavin-background) !important;
+      color: var(--gavin-highlight);
     }
     #selfInfo-content-year {
       width: 90px;
@@ -6722,7 +6722,7 @@ blockquote.pullquote.right {
     border: var(--style-border-always);
     width: calc((100% / 3) - 0.5rem);
     margin: 0 0.25rem 0.5rem 0.25rem;
-    box-shadow: var(--anzhiyu-shadow-border);
+    box-shadow: var(--gavin-shadow-border);
   }
   
   .reward-list-item .reward-list-item-name {
@@ -6751,7 +6751,7 @@ blockquote.pullquote.right {
   
   .reward-list-item .reward-list-item-time {
     font-size: 12px;
-    color: var(--anzhiyu-secondtext);
+    color: var(--gavin-secondtext);
     white-space: nowrap;
   }
 
@@ -6779,7 +6779,7 @@ blockquote.pullquote.right {
     border-radius: 16px;
   }
   .author-content-item.careers .careers-item .name {
-    color: var(--anzhiyu-secondtext);
+    color: var(--gavin-secondtext);
   }
   .author-content-item.careers .careers-item {
     display: flex;
@@ -6792,7 +6792,7 @@ blockquote.pullquote.right {
     border-radius: 16px;
   }
   .author-content-item.careers .careers-item .name {
-    color: var(--anzhiyu-secondtext);
+    color: var(--gavin-secondtext);
   }
   .author-content-item.careers img {
     position: absolute;
@@ -6926,9 +6926,9 @@ blockquote.pullquote.right {
 .hello-about {
     margin: 20px auto;
     border-radius: 24px;
-    background: var(--anzhiyu-card-bg);
+    background: var(--gavin-card-bg);
     border: var(--style-border-always);
-    box-shadow: var(--anzhiyu-shadow-border);
+    box-shadow: var(--gavin-shadow-border);
     position: relative;
     overflow: hidden;
     user-select: none;
@@ -6985,7 +6985,7 @@ blockquote.pullquote.right {
     background: transparent;
   }
   [data-theme="dark"] .hello-about h1 {
-    color: var(--anzhiyu-white);
+    color: #fff;
   }
   
   .hello-about h1 {
@@ -7135,10 +7135,10 @@ blockquote.pullquote.right {
   }
   
   .site-card-group .site-card:hover {
-    border-color: var(--anzhiyu-main) !important;
-    background-color: var(--anzhiyu-main) !important;
-    -webkit-box-shadow: var(--anzhiyu-shadow-theme) !important;
-    box-shadow: var(--anzhiyu-shadow-theme) !important;
+    border-color: var(--gavin-highlight) !important;
+    background-color: var(--gavin-highlight) !important;
+    -webkit-box-shadow: var(--gavin-shadow-theme) !important;
+    box-shadow: var(--gavin-shadow-theme) !important;
   }
   .site-card-group > a:hover .wrapper img {
     -webkit-transform: scale(1.2);
@@ -7219,7 +7219,7 @@ blockquote.pullquote.right {
   color: #fff;
   font-size: 66px;
   font-weight: 700;
-  box-shadow: var(--anzhiyu-shadow-blackdeep);
+  box-shadow: var(--gavin-shadow-blackdeep);
   width: 100px;
   height: 100px;
   border-radius: 25px;
@@ -7256,11 +7256,11 @@ blockquote.pullquote.right {
   align-items: center;
   margin-right: 10px;
   margin-top: 10px;
-  background: var(--anzhiyu-background);
+  background: var(--gavin-background);
   border-radius: 40px;
   padding: 4px 12px 4px 4px;
   border: var(--style-border);
-  box-shadow: var(--anzhiyu-shadow-border);
+  box-shadow: var(--gavin-shadow-border);
 }
 
 .author-content-item.skills .skill-icon {

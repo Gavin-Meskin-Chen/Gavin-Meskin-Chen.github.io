@@ -57,12 +57,12 @@
   
   .category-bar-item:hover a{
     background: rgba(0, 100, 255, .95);
-    color: var(--heo-white);
+    color: #fff;
   }
   
   .category-bar-item.select a {
     background: rgba(0, 100, 255, .95);
-    color: var(--heo-white);
+    color: #fff;
     border-radius: 0.5rem;
   }
   
