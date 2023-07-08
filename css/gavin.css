@@ -26,6 +26,11 @@
     --gavin-theme-op: #4259ef23;
     --gavin-shadow-theme: 0 0px 7px -3px var(--gavin-theme-op);
     --gavin-shadow-blackdeep: 0 2px 16px -3px rgba(0,0,0,0.15);
+    --style-border: 1px solid var(--gavin-card-border);
+    --style-border-hover: 1px solid var(--gavin-blue2);
+    --style-border-dashed: 1px dashed var(--gavin-theme-op);
+    --style-border-avatar: 4px solid var(--gavin-background);
+    --style-border-always: 1px solid var(--gavin-card-border);
     /* --anzhiyu-white: #fff;
     --anzhiyu-black: #000;
     --anzhiyu-none: rgba(0, 0, 0, 0);
@@ -42,12 +47,7 @@
     --anzhiyu-shadow-red: 0 8px 12px -3px #ee7d7936;
     --anzhiyu-shadow-green: 0 8px 12px -3px #87ee7936;
     --anzhiyu-logo-color: linear-gradient(215deg, #4584ff 30%, #ff7676 70%);
-    --style-border: 1px solid var(--anzhiyu-card-border);
     --anzhiyu-blue-main: #3b70fc;
-    --style-border-hover: 1px solid var(--anzhiyu-main);
-    --style-border-dashed: 1px dashed var(--anzhiyu-theme-op);
-    --style-border-avatar: 4px solid var(--anzhiyu-background);
-    --style-border-always: 1px solid var(--anzhiyu-card-border);
     --anzhiyu-white-acrylic1: #fefeff !important;
     --anzhiyu-white-acrylic2: #fcfdff !important;
     --anzhiyu-black-acrylic2: #08080a !important;
@@ -115,6 +115,7 @@
     --gavin-maskbg: rgba(255, 255, 255, 0.6);
     --gavin-maskbgdeep: rgba(255, 255, 255, 0.45);
     --gavin-secondbg: #edf0f7;
+    --gavin-card-border: #c0c6d8;
     /* --anzhiyu-theme: rgba(0, 136, 255, .9);
     --anzhiyu-theme-op: #000000;
     --anzhiyu-blue: #3b70fc;
@@ -134,8 +135,7 @@
     --anzhiyu-secondbg: #edf0f7;
     --anzhiyu-shadow-nav: 0 5px 12px -5px rgba(102, 68, 68, 0.05);
     --anzhiyu-shadow-lightblack: 0 5px 12px -5px rgba(102, 68, 68, 0);
-    --anzhiyu-shadow-light2black: 0 5px 12px -5px rgba(102, 68, 68, 0);
-    --anzhiyu-card-border: #c0c6d8; */
+    --anzhiyu-shadow-light2black: 0 5px 12px -5px rgba(102, 68, 68, 0); */
 
 }
 
@@ -203,6 +203,7 @@
     --gavin-maskbg: rgba(0, 0, 0, 0.6);
     --gavin-maskbgdeep: rgba(0, 0, 0, 0.45);
     --gavin-secondbg: #30343f;
+    --gavin-card-border: #42444a;
     /* --anzhiyu-theme: rgba(240, 240, 240, .24);
     --anzhiyu-theme-op: #0084ff23;
     --anzhiyu-blue: #0084ff;
@@ -222,8 +223,7 @@
     --anzhiyu-secondbg: #30343f;
     --anzhiyu-shadow-nav: 0 5px 20px 0px rgba(28, 28, 28, 0.4);
     --anzhiyu-shadow-lightblack: 0 5px 12px -5px rgba(102, 68, 68, 0);
-    --anzhiyu-shadow-light2black: 0 5px 12px -5px rgba(102, 68, 68, 0);
-    --anzhiyu-card-border: #42444a; */
+    --anzhiyu-shadow-light2black: 0 5px 12px -5px rgba(102, 68, 68, 0); */
 
 
 }
@@ -3328,6 +3328,15 @@ div#bannerGroup {
 span.top-group-text {
     background: var(--gavin-nav-hover) !important;
     color: #fff !important;
+}
+
+a.categoryButton {
+    color: #fff;
+    background: var(--gavin-card-bg);
+}
+
+a.categoryButton:after {
+    background: #fff;
 }
 
 /* ********************首页标签分类条*********************** */
