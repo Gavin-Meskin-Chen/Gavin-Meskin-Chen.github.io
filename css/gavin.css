@@ -257,6 +257,21 @@
     font-display: block;
 }
 
+/* 
+    轮播动效，第一个246px指的是元素视窗宽度，主要是使得移入的起点在视窗最右侧，使得文本完全移出的同时随即开始移入，保证动效的连贯性；
+    第二个100%指的是移出文本元素的宽度，也就是文本需要完全移出。
+    这里translateX里的值都是相对于元素的左端点的相对位移。
+ */
+@keyframes marquee-1 {
+    0% {
+        transform: translateX(246px);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
 #page-header #site-title {
     font-family: xiaozhuan;
     font-weight: 100;
@@ -3650,6 +3665,9 @@ html.hide-aside .layout>div:first-child {
 #console-music-title {
     height: 2.4rem;
     padding-top: 0.5rem;
+}
+
+#console-music-title-text {
     font-size: 1.3rem;
     font-weight: bold;
     color: var(--dis-f-0);
@@ -3873,14 +3891,18 @@ div.list-music-info2 {
     transition: all .5s;
 }
 
+a.list-music-title {
+    font-size: 14px;
+}
+
 a.list-music-author {
     color: rgb(136, 136, 136);
-    font-size: 1rem;
+    font-size: 12px;
 }
 
 a.list-music-id {
     text-align: center;
-    font-size: 1rem;
+    font-size: 10px;
     color: rgb(136, 136, 136);
     display: block;
 }

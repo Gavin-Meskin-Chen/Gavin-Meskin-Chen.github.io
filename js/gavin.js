@@ -29,6 +29,10 @@ document.addEventListener("pjax:complete", ()=>{
 }) // pjax加载完成（切换页面）后再执行一次
 
 // ************************************************ 函数部分 **************************************************************
+const marqueeContainer1 = document.getElementById('console-music-title');
+const marqueeContent1 = document.getElementById('console-music-title-text');
+const marqueeContainer2 = document.getElementById('console-music-author');
+const marqueeContent2 = document.getElementById('console-music-author-text');
 
 if ('paintWorklet' in CSS) { CSS.paintWorklet.addModule('/js/paint.js'); }
 
@@ -540,15 +544,16 @@ var ctrl = {
         ctrl.getMusicInfo();
     },
 
-    // 音乐进度更新
+    // 获取歌曲信息
     getMusicInfo: function () {
         var music_id = document.querySelector("meting-js").aplayer.list.index; //当前曲目的id
         var music_cover = document.querySelector("meting-js").aplayer.list.audios[music_id].cover;
         var music_author = document.querySelector("meting-js").aplayer.list.audios[music_id].author;
         var music_title = document.querySelector("meting-js").aplayer.list.audios[music_id].title;
         document.getElementById("console-music-cover").innerHTML = "<img src='" + music_cover + "' style='width:100%;height:100%;border-radius:0.5rem;'>";// 歌曲信息
-        document.getElementById("console-music-title").innerHTML = music_title;
-        document.getElementById("console-music-author").innerHTML = music_author;
+        document.getElementById("console-music-title-text").innerHTML = music_title;
+        document.getElementById("console-music-author-text").innerHTML = music_author;
+        ctrl.marqueeMusicInfo();
     },
 
     refreshProgress: function () {
@@ -591,6 +596,19 @@ var ctrl = {
         var ap = document.querySelector("meting-js").aplayer;
         ap.list.clear();
         ap.list.add(JaySongsheet);
+    },
+
+    marqueeMusicInfo: function () {
+        if (marqueeContent1.offsetWidth > marqueeContainer1.offsetWidth) {
+            marqueeContent1.style.animation = 'marquee-1 10s linear infinite'
+        } else {
+            marqueeContent1.style.animation = ''
+        }
+        if (marqueeContent2.offsetWidth > marqueeContainer2.offsetWidth) {
+            marqueeContent2.style.animation = 'marquee-1 10s linear infinite'
+        } else {
+            marqueeContent2.style.animation = ''
+        }
     },
 
     //初始化console图标
