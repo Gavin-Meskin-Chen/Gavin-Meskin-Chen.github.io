@@ -1398,11 +1398,13 @@ body div {
 a.extend.next {
     margin-right: 0px !important;
     right: 0;
+    order: 3;
 }
 
 a.extend.prev {
     margin-left: 0px !important;
     left: 0;
+    order: 1;
 }
 
 a.extend {
@@ -1434,7 +1436,7 @@ a.extend {
     #pagination a.extend i,
     #pagination a.page-number,
     #pagination span.page-number.current,
-    #pagination input.toPageInput,
+    /* #pagination input.toPageInput, */
     #pagination span.space {
         display: none;
     }
@@ -1445,8 +1447,12 @@ a.extend {
         position: relative;
     }
 
+    input.toPageInput {
+        width: 100%!important;
+    }
+
     #pagination .pagination {
-        gap: 1.2em;
+        gap: 0.5em;
     }
 }
 
@@ -1454,6 +1460,12 @@ input.toPageInput {
     border: none!important;
     text-align: center;
     color: var(--dis-f-0)!important;
+    order: 2;
+}
+
+input.toPageInput::placeholder {
+    color: var(--gavin-note-font-color);
+    opacity: .7;
 }
 
 #pagination .pagination {

@@ -670,6 +670,16 @@ var ctrl = {
                 "Enter" == t.key && "" != e.value && "0" != e.value && pjax.loadUrl("1" == e.value ? "/" : `/page/${e.value}/#content-inner`)
             })
         )
+    },
+
+    getCurrentPage: () => {
+        var currentPage = document.querySelector(".pagination .page-number.current").innerHTML;
+        if (currentPage) {
+            var toPage = document.querySelector(".pagination .toPageInput");
+            if (toPage) {
+                toPage.placeholder = "第" + currentPage + "页";
+            }
+        }
     }
 }
 
