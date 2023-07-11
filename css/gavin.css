@@ -4197,6 +4197,16 @@ progress::-webkit-progress-value {
     position: absolute;
 }
 
+.aside-span2 {
+    height: 1rem;
+    font-size: 12px;
+    z-index: 1;
+    right: 2rem;
+    align-items: center;
+    display: flex;
+    position: absolute;
+}
+
 #pBar_year,
 #pBar_month,
 #pBar_week {

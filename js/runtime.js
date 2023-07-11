@@ -21,11 +21,14 @@ function cardRefreshTimes() {
         asideDay = (now - asideTime) / 1e3 / 60 / 60 / 24;
         cardWidgetSchedule.querySelector("#pBar_year").value = asideDay;
         cardWidgetSchedule.querySelector("#p_span_year").innerHTML = (asideDay / 365 * 100).toFixed(2) + "%";
+        cardWidgetSchedule.querySelector(".schedule-r0 .schedule-d1 .aside-span2").innerHTML = "还剩" + (365 - asideDay).toFixed(0) + "天";
         cardWidgetSchedule.querySelector("#pBar_month").value = date;
         cardWidgetSchedule.querySelector("#pBar_month").max = dates;
         cardWidgetSchedule.querySelector("#p_span_month").innerHTML = (date / dates * 100).toFixed(2) + "%";
+        cardWidgetSchedule.querySelector(".schedule-r1 .schedule-d1 .aside-span2").innerHTML = "还剩" + (dates - date) + "天";
         cardWidgetSchedule.querySelector("#pBar_week").value = week == 0 ? 7 : week;
         cardWidgetSchedule.querySelector("#p_span_week").innerHTML = ((week == 0 ? 7 : week) / 7 * 100).toFixed(2) + "%";
+        cardWidgetSchedule.querySelector(".schedule-r2 .schedule-d1 .aside-span2").innerHTML = "还剩" + (7 - (week == 0 ? 7 : week)) + "天";
     }
 }
 
