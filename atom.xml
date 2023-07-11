@@ -6,7 +6,7 @@
   <link href="https://gavin-chen.top/atom.xml" rel="self"/>
   
   <link href="https://gavin-chen.top/"/>
-  <updated>2023-07-07T05:23:08.076Z</updated>
+  <updated>2023-07-11T09:35:16.195Z</updated>
   <id>https://gavin-chen.top/</id>
   
   <author>
@@ -17,11 +17,38 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>罗技MX Master 2S鼠标指针失灵问题修复</title>
+    <link href="https://gavin-chen.top/post/2a10698b.html"/>
+    <id>https://gavin-chen.top/post/2a10698b.html</id>
+    <published>2023-07-10T15:17:14.000Z</published>
+    <updated>2023-07-11T09:35:16.195Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;这款罗技的MX Master 2S鼠标是我2020年买的，到现在用了快3年了。它有很多特色的功能，比如按键功能自定义、Logi</summary>
+        
+      
+    
+    
+    
+    <category term="生活" scheme="https://gavin-chen.top/categories/%E7%94%9F%E6%B4%BB/"/>
+    
+    
+    <category term="拆机" scheme="https://gavin-chen.top/tags/%E6%8B%86%E6%9C%BA/"/>
+    
+    <category term="修理" scheme="https://gavin-chen.top/tags/%E4%BF%AE%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
     <title>雾屿蓝</title>
     <link href="https://gavin-chen.top/post/2f20fd25.html"/>
     <id>https://gavin-chen.top/post/2f20fd25.html</id>
     <published>2023-07-07T03:19:21.000Z</published>
-    <updated>2023-07-07T05:23:08.076Z</updated>
+    <updated>2023-07-11T08:57:57.235Z</updated>
     
     
       
@@ -46,7 +73,7 @@
     <link href="https://gavin-chen.top/post/7c8508a1.html"/>
     <id>https://gavin-chen.top/post/7c8508a1.html</id>
     <published>2023-05-29T12:47:38.000Z</published>
-    <updated>2023-07-07T05:26:46.894Z</updated>
+    <updated>2023-07-11T08:59:01.433Z</updated>
     
     
       
@@ -73,7 +100,7 @@
     <link href="https://gavin-chen.top/post/7c589660.html"/>
     <id>https://gavin-chen.top/post/7c589660.html</id>
     <published>2023-03-05T07:33:37.000Z</published>
-    <updated>2023-03-23T16:17:20.925Z</updated>
+    <updated>2023-07-11T08:52:42.576Z</updated>
     
     
       
@@ -100,7 +127,7 @@
     <link href="https://gavin-chen.top/post/8b6f77a8.html"/>
     <id>https://gavin-chen.top/post/8b6f77a8.html</id>
     <published>2023-03-01T10:35:33.000Z</published>
-    <updated>2023-04-10T05:51:10.232Z</updated>
+    <updated>2023-07-11T08:56:35.625Z</updated>
     
     
       
@@ -127,7 +154,7 @@
     <link href="https://gavin-chen.top/post/e87ec7ea.html"/>
     <id>https://gavin-chen.top/post/e87ec7ea.html</id>
     <published>2023-02-25T15:39:27.000Z</published>
-    <updated>2023-04-10T06:19:03.870Z</updated>
+    <updated>2023-07-11T08:54:14.908Z</updated>
     
     
       
@@ -154,7 +181,7 @@
     <link href="https://gavin-chen.top/post/37b27065.html"/>
     <id>https://gavin-chen.top/post/37b27065.html</id>
     <published>2023-02-11T06:09:05.000Z</published>
-    <updated>2023-07-02T15:23:39.992Z</updated>
+    <updated>2023-07-11T08:55:21.051Z</updated>
     
     
       
@@ -183,7 +210,7 @@
     <link href="https://gavin-chen.top/post/cddbd99a.html"/>
     <id>https://gavin-chen.top/post/cddbd99a.html</id>
     <published>2023-01-19T00:15:24.000Z</published>
-    <updated>2023-07-07T03:36:53.296Z</updated>
+    <updated>2023-07-11T08:58:30.400Z</updated>
     
     
       
@@ -212,7 +239,7 @@
     <link href="https://gavin-chen.top/post/32065a76.html"/>
     <id>https://gavin-chen.top/post/32065a76.html</id>
     <published>2023-01-19T00:13:58.000Z</published>
-    <updated>2023-06-30T08:14:35.357Z</updated>
+    <updated>2023-07-11T09:02:11.242Z</updated>
     
     
       
@@ -241,7 +268,7 @@
     <link href="https://gavin-chen.top/post/ac62cfd5.html"/>
     <id>https://gavin-chen.top/post/ac62cfd5.html</id>
     <published>2023-01-16T07:08:24.000Z</published>
-    <updated>2023-07-06T10:57:16.183Z</updated>
+    <updated>2023-07-11T09:01:46.504Z</updated>
     
     
       
@@ -272,7 +299,7 @@
     <link href="https://gavin-chen.top/post/2892eb80.html"/>
     <id>https://gavin-chen.top/post/2892eb80.html</id>
     <published>2023-01-16T00:55:46.000Z</published>
-    <updated>2023-07-07T03:35:55.126Z</updated>
+    <updated>2023-07-11T08:57:25.195Z</updated>
     
     
       
@@ -357,19 +384,17 @@
     <link href="https://gavin-chen.top/post/cef7e835.html"/>
     <id>https://gavin-chen.top/post/cef7e835.html</id>
     <published>2023-01-15T12:44:45.000Z</published>
-    <updated>2023-07-07T05:22:59.344Z</updated>
+    <updated>2023-07-11T09:03:58.013Z</updated>
     
     
     <summary type="html">有东西被加密了, 请输入密码查看.</summary>
     
     
     
-    <category term="日记" scheme="https://gavin-chen.top/categories/%E6%97%A5%E8%AE%B0/"/>
+    <category term="生活" scheme="https://gavin-chen.top/categories/%E7%94%9F%E6%B4%BB/"/>
     
     
-    <category term="冬天" scheme="https://gavin-chen.top/tags/%E5%86%AC%E5%A4%A9/"/>
-    
-    <category term="芜湖" scheme="https://gavin-chen.top/tags/%E8%8A%9C%E6%B9%96/"/>
+    <category term="日记" scheme="https://gavin-chen.top/tags/%E6%97%A5%E8%AE%B0/"/>
     
   </entry>
   
@@ -378,7 +403,7 @@
     <link href="https://gavin-chen.top/post/a5c582fd.html"/>
     <id>https://gavin-chen.top/post/a5c582fd.html</id>
     <published>2023-01-11T01:10:43.000Z</published>
-    <updated>2023-07-06T11:03:08.836Z</updated>
+    <updated>2023-07-11T09:00:55.427Z</updated>
     
     
       
@@ -407,7 +432,7 @@
     <link href="https://gavin-chen.top/post/fb55a1ea.html"/>
     <id>https://gavin-chen.top/post/fb55a1ea.html</id>
     <published>2023-01-07T04:28:47.000Z</published>
-    <updated>2023-07-06T11:03:45.044Z</updated>
+    <updated>2023-07-11T09:00:00.089Z</updated>
     
     
       
