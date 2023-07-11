@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
     asideNote();
     cardRefreshTimes();
     ctrl.toPageJump();
+    ctrl.getCurrentPage()
     // sidebarWeather();
     // ctrl.refreshThemeColor();
     if(document.documentElement.scrollTop != 0){
@@ -19,6 +20,7 @@ document.addEventListener("pjax:complete", ()=>{
     asideNote();
     cardRefreshTimes();
     ctrl.toPageJump();
+    ctrl.getCurrentPage();
     // sidebarWeather();
     // ctrl.refreshThemeColor();
     if(document.documentElement.scrollTop != 0){
@@ -673,11 +675,13 @@ var ctrl = {
     },
 
     getCurrentPage: () => {
-        var currentPage = document.querySelector(".pagination .page-number.current").innerHTML;
-        if (currentPage) {
-            var toPage = document.querySelector(".pagination .toPageInput");
-            if (toPage) {
-                toPage.placeholder = "第" + currentPage + "页";
+        if (window.innerWidth <= 768 && document.querySelector("#body-wrap.page.home")) {
+            var currentPage = document.querySelector(".pagination .page-number.current").innerHTML;
+            if (currentPage) {
+                var toPage = document.querySelector(".pagination .toPageInput");
+                if (toPage) {
+                    toPage.placeholder = "第 " + currentPage + " 页";
+                }
             }
         }
     }

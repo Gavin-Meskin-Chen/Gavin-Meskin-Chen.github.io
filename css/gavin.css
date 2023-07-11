@@ -1452,7 +1452,7 @@ a.extend {
     }
 
     #pagination .pagination {
-        gap: 0.5em;
+        gap: 0.2rem;
     }
 }
 
