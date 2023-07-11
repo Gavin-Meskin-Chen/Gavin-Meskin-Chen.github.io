@@ -2726,7 +2726,7 @@ h1.page-title + .tag-cloud-list {
 #aside-content .aside-list > .aside-list-item .content > .comment {
   color: var(--font-color);
   font-size: 95%;
-  line-height: 1.5;
+  line-height: 1.2;
   -webkit-line-clamp: 2;
 }
 #aside-content .aside-list > .aside-list-item .content > .title:hover,

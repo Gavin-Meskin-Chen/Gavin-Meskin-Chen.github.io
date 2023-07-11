@@ -441,9 +441,9 @@ div#menus {
     top: -19px;
 }
 
-#page-header:not(.nav-visible) #nav .menus_items .menus_item .menus_item_child {
+/* #page-header:not(.nav-visible) #nav .menus_items .menus_item .menus_item_child {
     display: none;
-}
+} */
 
 #site-name,
 .shuoshuo {
@@ -1173,6 +1173,16 @@ a {
     /*0.5rem*/
     padding: 0.5rem !important;
     transition: all 0.3s;
+    position: relative;
+}
+
+a.aside-list-item-head {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 0.88rem;
 }
 
 #aside-content .aside-list>.aside-list-item:hover {
@@ -3510,9 +3520,35 @@ a.categoryButton:after {
     width: 100%;
 }
 
+.article-sort-item:not(.year) {
+    padding: 10px;
+    margin: 10px;
+    border-radius: 1rem;
+    background: var(--card-bg);
+    border: 1px solid var(--gavin-border-color);
+    cursor: pointer;
+}
+
+.article-sort-item:not(.year):hover {
+    border-color: var(--gavin-highlight);
+}
+
+.article-sort-item:not(.year):hover .article-sort-item-title {
+    color: var(--gavin-highlight);
+}
+
+a.article-sort-item-head {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 1rem;
+}
+
 /* 归档页双栏显示 */
 @media screen and (min-width: 768px) {
-    .article-sort-item:not(:first-child) {
+    .article-sort-item:not(.year) {
         width: calc(50% - 20px);
     }
 }

@@ -305,6 +305,7 @@ document.addEventListener('DOMContentLoaded', function () {
           if (currentTop === 0) {
             // $header.classList.remove('nav-fixed', 'nav-visible')
             $header.classList.remove('is-top-bar')
+            $header.classList.add('nav-visible')
           }
           $rightside.style.cssText = "opacity: ''; transform: ''"
         }
