@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>长文本滚动动效</title>
+      <link href="/post/de0459c0.html"/>
+      <url>/post/de0459c0.html</url>
+      
+        <content type="html"><![CDATA[<p>有些地方需要显示完整的文本，但容器的宽度是固定死的，所以就需要滚动显示的功能。由于文本内容长短不一，只有溢出容器宽度的文本需要滚动显示，而短文本则保持静态显示。</p><p>具体框架需要两层结构，一个外层固定视窗，一个内层滚动文本。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;A&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">id</span>=<span class="string">&quot;B&quot;</span>&gt;</span>长长长长长长长长长长长长长长长文本<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p><p>首先确定滚动的路径，要想使得滚动动效无缝衔接，那么就让B从A的右端点出发，向左滚动，直到B的右端点到达A的左端点。通过@keyframes来创建动画的关键帧规则，一般以视窗A的左端点为O点，那么起点位置为A的右端点横坐标A.offsetWidth（实测为200px），终点位置为终止时B的左端点横坐标-B.offsetWidth（即-100%，此处%是相对于B来说）。<br><img src="https://i.imgtg.com/2023/07/12/Ozz4Px.jpg" alt="位移轨迹"><br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@keyframes</span> marquee &#123;</span><br><span class="line">    <span class="number">0%</span> &#123;</span><br><span class="line">        <span class="attribute">transform</span>: <span class="built_in">translateX</span>(<span class="number">200px</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="number">100%</span> &#123;</span><br><span class="line">        <span class="attribute">transform</span>: <span class="built_in">translateX</span>(-<span class="number">100%</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#A</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">    <span class="attribute">white-space</span>: nowrap; <span class="comment">/* 不换行 */</span></span><br><span class="line">    <span class="attribute">overflow</span>: hidden; <span class="comment">/* 溢出部分隐藏 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>通过js判断是否为长文本，长文本则开启滚动显示。这里设置为无限滚动，每次滚动10s。可根据需要控制总滚动时长，也可以替换成注释部分，则为匀速滚动。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> marqueeContainer = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;A&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> marqueeContent = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;B&#x27;</span>);</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">marquee</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (marqueeContent.<span class="property">offsetWidth</span> &gt; marqueeContainer.<span class="property">offsetWidth</span>) &#123;</span><br><span class="line">        <span class="comment">// var speed = marqueeContent.offsetWidth / marqueeContainer.offsetWidth * 5</span></span><br><span class="line">        <span class="comment">// marqueeContent.style.animation = &#x27;marquee &#x27; + speed + &#x27;s linear infinite&#x27;</span></span><br><span class="line">        marqueeContent.<span class="property">style</span>.<span class="property">animation</span> = <span class="string">&#x27;marquee 10s linear infinite&#x27;</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        marqueeContent.<span class="property">style</span>.<span class="property">animation</span> = <span class="string">&#x27;&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 博客 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hexo </tag>
+            
+            <tag> Butterfly </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>罗技MX Master 2S鼠标指针失灵问题修复</title>
       <link href="/post/2a10698b.html"/>
       <url>/post/2a10698b.html</url>

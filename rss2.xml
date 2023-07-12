@@ -9,8 +9,31 @@
     <atom:link href="https://gavin-chen.top/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>南方嘉木的博客</description>
-    <pubDate>Tue, 11 Jul 2023 09:35:16 GMT</pubDate>
+    <pubDate>Wed, 12 Jul 2023 05:49:09 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>长文本滚动动效</title>
+      <link>https://gavin-chen.top/post/de0459c0.html</link>
+      <guid>https://gavin-chen.top/post/de0459c0.html</guid>
+      <pubDate>Wed, 12 Jul 2023 03:01:33 GMT</pubDate>
+      
+      <description>文本溢出视窗时，自动开启滚动显示动效</description>
+      
+      
+      
+      
+      <category domain="https://gavin-chen.top/categories/%E5%8D%9A%E5%AE%A2/">博客</category>
+      
+      
+      <category domain="https://gavin-chen.top/tags/Hexo/">Hexo</category>
+      
+      <category domain="https://gavin-chen.top/tags/Butterfly/">Butterfly</category>
+      
+      
+      <comments>https://gavin-chen.top/post/de0459c0.html#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>罗技MX Master 2S鼠标指针失灵问题修复</title>
@@ -47,13 +70,7 @@
       <guid>https://gavin-chen.top/post/2f20fd25.html</guid>
       <pubDate>Fri, 07 Jul 2023 03:19:21 GMT</pubDate>
       
-        
-        
-          
-          
-      <description>&lt;p&gt;&lt;img src=&quot;https://i.imgtg.com/2023/07/07/OxJTnB.jpg&quot;</description>
-          
-        
+      <description>罗翔老师的哲学感悟</description>
       
       
       
@@ -103,13 +120,7 @@
       <guid>https://gavin-chen.top/post/7c589660.html</guid>
       <pubDate>Sun, 05 Mar 2023 07:33:37 GMT</pubDate>
       
-        
-        
-          
-          
-      <description>&lt;p&gt;在前端设计中，常使用border-radius属性构造圆角矩形，以形成视觉上的美感。在工业设计中，也存在大量圆角过渡设计。在工业设计中，根据两条线连接的方式，划分了G0-G4五个等级&lt;span class=&quot;hidden-anchor&quot;</description>
-          
-        
+      <description>更美观的圆角矩形</description>
       
       
       
@@ -132,13 +143,7 @@
       <guid>https://gavin-chen.top/post/8b6f77a8.html</guid>
       <pubDate>Wed, 01 Mar 2023 10:35:33 GMT</pubDate>
       
-        
-        
-          
-          
-      <description>&lt;h2 id=&quot;预览&quot;&gt;&lt;a href=&quot;#预览&quot; class=&quot;headerlink&quot; title=&quot;预览&quot;&gt;&lt;/a&gt;预览&lt;/h2&gt;&lt;p&gt;侧边栏的开发空间很大，一些使用频率很高的功能可以集成在这里，方便我们的使用。所以我做了一个日历的小组件，样式参考的是TOP</description>
-          
-        
+      <description>让侧边栏更有价值！</description>
       
       
       
@@ -161,13 +166,7 @@
       <guid>https://gavin-chen.top/post/e87ec7ea.html</guid>
       <pubDate>Sat, 25 Feb 2023 15:39:27 GMT</pubDate>
       
-        
-        
-          
-          
-      <description>&lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h2&gt;&lt;p&gt;基于开源项目 &lt;a</description>
-          
-        
+      <description>白嫖E5，免服务器搭建个人网盘，可直链！</description>
       
       
       
@@ -190,13 +189,7 @@
       <guid>https://gavin-chen.top/post/37b27065.html</guid>
       <pubDate>Sat, 11 Feb 2023 06:09:05 GMT</pubDate>
       
-        
-        
-          
-          
-      <description>&lt;h2 id=&quot;构想&quot;&gt;&lt;a href=&quot;#构想&quot; class=&quot;headerlink&quot;</description>
-          
-        
+      <description>扒掉苹果的裤子！超好用超美观的音乐控制器！</description>
       
       
       
@@ -221,15 +214,7 @@
       <guid>https://gavin-chen.top/post/cddbd99a.html</guid>
       <pubDate>Thu, 19 Jan 2023 00:15:24 GMT</pubDate>
       
-        
-        
-          
-          
-      <description>&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;云边有个小卖部，货架上堆着岁月和夕阳，背后就是山。老人靠着躺椅假装睡着，小孩子偷走一块糖。泪水几点钟落地，飞鸟要去向何方。人们聚和离，云朵来又往。讲故事的人，总有一个故事不愿讲。时光飞逝，悄悄话变成纸张。&lt;/p&gt;
-&lt;p</description>
-          
-        
+      <description>云边有个小卖部~</description>
       
       
       
@@ -252,13 +237,7 @@
       <guid>https://gavin-chen.top/post/32065a76.html</guid>
       <pubDate>Thu, 19 Jan 2023 00:13:58 GMT</pubDate>
       
-        
-        
-          
-          
-      <description>&lt;h2 id=&quot;更新记录&quot;&gt;&lt;a href=&quot;#更新记录&quot; class=&quot;headerlink&quot;</description>
-          
-        
+      <description>博客魔改大杂烩</description>
       
       
       
@@ -283,17 +262,7 @@
       <guid>https://gavin-chen.top/post/ac62cfd5.html</guid>
       <pubDate>Mon, 16 Jan 2023 07:08:24 GMT</pubDate>
       
-        
-        
-          
-          
-      <description>&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;这篇主要记录控制中心的进度&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;目前主要参考洪哥的控制台，后面会参考更多人的博客设计，争取能实现更多的功能。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;构想&quot;&gt;&lt;a href=&quot;#构想&quot;</description>
-          
-        
+      <description>控制中心，一个博客网站的灵魂</description>
       
       
       
@@ -316,15 +285,7 @@
       <guid>https://gavin-chen.top/post/2892eb80.html</guid>
       <pubDate>Mon, 16 Jan 2023 00:55:46 GMT</pubDate>
       
-        
-        
-          
-          
-      <description>&lt;h2 id=&quot;序章&quot;&gt;&lt;a href=&quot;#序章&quot; class=&quot;headerlink&quot; title=&quot;序章&quot;&gt;&lt;/a&gt;序章&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;不乱于心，不困于情。不畏将来，不念过往。如此，安好。&lt;/p&gt;
-&lt;p</description>
-          
-        
+      <description>Maybe，I Love You.</description>
       
       
       
@@ -407,7 +368,7 @@
       <guid>https://gavin-chen.top/post/cef7e835.html</guid>
       <pubDate>Sun, 15 Jan 2023 12:44:45 GMT</pubDate>
       
-      <description>有东西被加密了, 请输入密码查看.</description>
+      <description>没啥好看的</description>
       
       
       
@@ -428,13 +389,7 @@
       <guid>https://gavin-chen.top/post/a5c582fd.html</guid>
       <pubDate>Wed, 11 Jan 2023 01:10:43 GMT</pubDate>
       
-        
-        
-          
-          
-      <description>&lt;h2 id=&quot;外挂标签&quot;&gt;&lt;a href=&quot;#外挂标签&quot; class=&quot;headerlink&quot; title=&quot;外挂标签&quot;&gt;&lt;/a&gt;外挂标签&lt;/h2&gt;&lt;h3 id=&quot;配置与使用&quot;&gt;&lt;a href=&quot;#配置与使用&quot; class=&quot;headerlink&quot;</description>
-          
-        
+      <description>按Fomalhaut大佬的教程来，Fomalhaut牛逼！</description>
       
       
       
@@ -459,13 +414,7 @@
       <guid>https://gavin-chen.top/post/fb55a1ea.html</guid>
       <pubDate>Sat, 07 Jan 2023 04:28:47 GMT</pubDate>
       
-        
-        
-          
-          
-      <description>&lt;h2 id=&quot;★头部设置Front-matter&quot;&gt;&lt;a href=&quot;#★头部设置Front-matter&quot; class=&quot;headerlink&quot; title=&quot;★头部设置Front-matter&quot;&gt;&lt;/a&gt;★头部设置Front-matter&lt;/h2&gt;&lt;h3</description>
-          
-        
+      <description>初识Hexo和Butterfly</description>
       
       
       

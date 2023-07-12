@@ -602,12 +602,16 @@ var ctrl = {
 
     marqueeMusicInfo: function () {
         if (marqueeContent1.offsetWidth > marqueeContainer1.offsetWidth) {
-            marqueeContent1.style.animation = 'marquee-1 10s linear infinite'
+            // marqueeContent1.style.animation = 'marquee-1 10s linear infinite'
+            var speed = marqueeContent1.offsetWidth / marqueeContainer1.offsetWidth * 6
+            marqueeContent1.style.animation = 'marquee-1 ' + speed + 's linear infinite'
         } else {
             marqueeContent1.style.animation = ''
         }
         if (marqueeContent2.offsetWidth > marqueeContainer2.offsetWidth) {
-            marqueeContent2.style.animation = 'marquee-1 10s linear infinite'
+            // marqueeContent2.style.animation = 'marquee-1 10s linear infinite'
+            var speed = marqueeContent2.offsetWidth / marqueeContainer2.offsetWidth * 6
+            marqueeContent2.style.animation = 'marquee-1 ' + speed + 's linear infinite'
         } else {
             marqueeContent2.style.animation = ''
         }

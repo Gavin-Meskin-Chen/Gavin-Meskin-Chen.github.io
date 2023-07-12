@@ -6,7 +6,7 @@
   <link href="https://gavin-chen.top/atom.xml" rel="self"/>
   
   <link href="https://gavin-chen.top/"/>
-  <updated>2023-07-11T09:35:16.195Z</updated>
+  <updated>2023-07-12T05:49:09.919Z</updated>
   <id>https://gavin-chen.top/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>长文本滚动动效</title>
+    <link href="https://gavin-chen.top/post/de0459c0.html"/>
+    <id>https://gavin-chen.top/post/de0459c0.html</id>
+    <published>2023-07-12T03:01:33.000Z</published>
+    <updated>2023-07-12T05:49:09.919Z</updated>
+    
+    
+    <summary type="html">文本溢出视窗时，自动开启滚动显示动效</summary>
+    
+    
+    
+    <category term="博客" scheme="https://gavin-chen.top/categories/%E5%8D%9A%E5%AE%A2/"/>
+    
+    
+    <category term="Hexo" scheme="https://gavin-chen.top/tags/Hexo/"/>
+    
+    <category term="Butterfly" scheme="https://gavin-chen.top/tags/Butterfly/"/>
+    
+  </entry>
   
   <entry>
     <title>罗技MX Master 2S鼠标指针失灵问题修复</title>
@@ -48,16 +69,10 @@
     <link href="https://gavin-chen.top/post/2f20fd25.html"/>
     <id>https://gavin-chen.top/post/2f20fd25.html</id>
     <published>2023-07-07T03:19:21.000Z</published>
-    <updated>2023-07-11T08:57:57.235Z</updated>
+    <updated>2023-07-12T03:06:15.426Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://i.imgtg.com/2023/07/07/OxJTnB.jpg&quot;</summary>
-        
-      
+    <summary type="html">罗翔老师的哲学感悟</summary>
     
     
     
@@ -100,16 +115,10 @@
     <link href="https://gavin-chen.top/post/7c589660.html"/>
     <id>https://gavin-chen.top/post/7c589660.html</id>
     <published>2023-03-05T07:33:37.000Z</published>
-    <updated>2023-07-11T08:52:42.576Z</updated>
+    <updated>2023-07-12T03:06:31.469Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;在前端设计中，常使用border-radius属性构造圆角矩形，以形成视觉上的美感。在工业设计中，也存在大量圆角过渡设计。在工业设计中，根据两条线连接的方式，划分了G0-G4五个等级&lt;span class=&quot;hidden-anchor&quot;</summary>
-        
-      
+    <summary type="html">更美观的圆角矩形</summary>
     
     
     
@@ -127,16 +136,10 @@
     <link href="https://gavin-chen.top/post/8b6f77a8.html"/>
     <id>https://gavin-chen.top/post/8b6f77a8.html</id>
     <published>2023-03-01T10:35:33.000Z</published>
-    <updated>2023-07-11T08:56:35.625Z</updated>
+    <updated>2023-07-12T03:06:12.103Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;预览&quot;&gt;&lt;a href=&quot;#预览&quot; class=&quot;headerlink&quot; title=&quot;预览&quot;&gt;&lt;/a&gt;预览&lt;/h2&gt;&lt;p&gt;侧边栏的开发空间很大，一些使用频率很高的功能可以集成在这里，方便我们的使用。所以我做了一个日历的小组件，样式参考的是TOP</summary>
-        
-      
+    <summary type="html">让侧边栏更有价值！</summary>
     
     
     
@@ -154,16 +157,10 @@
     <link href="https://gavin-chen.top/post/e87ec7ea.html"/>
     <id>https://gavin-chen.top/post/e87ec7ea.html</id>
     <published>2023-02-25T15:39:27.000Z</published>
-    <updated>2023-07-11T08:54:14.908Z</updated>
+    <updated>2023-07-12T03:06:28.178Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h2&gt;&lt;p&gt;基于开源项目 &lt;a</summary>
-        
-      
+    <summary type="html">白嫖E5，免服务器搭建个人网盘，可直链！</summary>
     
     
     
@@ -181,16 +178,10 @@
     <link href="https://gavin-chen.top/post/37b27065.html"/>
     <id>https://gavin-chen.top/post/37b27065.html</id>
     <published>2023-02-11T06:09:05.000Z</published>
-    <updated>2023-07-11T08:55:21.051Z</updated>
+    <updated>2023-07-12T03:06:26.262Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;构想&quot;&gt;&lt;a href=&quot;#构想&quot; class=&quot;headerlink&quot;</summary>
-        
-      
+    <summary type="html">扒掉苹果的裤子！超好用超美观的音乐控制器！</summary>
     
     
     
@@ -210,18 +201,10 @@
     <link href="https://gavin-chen.top/post/cddbd99a.html"/>
     <id>https://gavin-chen.top/post/cddbd99a.html</id>
     <published>2023-01-19T00:15:24.000Z</published>
-    <updated>2023-07-11T08:58:30.400Z</updated>
+    <updated>2023-07-12T03:06:16.982Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;云边有个小卖部，货架上堆着岁月和夕阳，背后就是山。老人靠着躺椅假装睡着，小孩子偷走一块糖。泪水几点钟落地，飞鸟要去向何方。人们聚和离，云朵来又往。讲故事的人，总有一个故事不愿讲。时光飞逝，悄悄话变成纸张。&lt;/p&gt;
-&lt;p</summary>
-        
-      
+    <summary type="html">云边有个小卖部~</summary>
     
     
     
@@ -239,16 +222,10 @@
     <link href="https://gavin-chen.top/post/32065a76.html"/>
     <id>https://gavin-chen.top/post/32065a76.html</id>
     <published>2023-01-19T00:13:58.000Z</published>
-    <updated>2023-07-11T09:02:11.242Z</updated>
+    <updated>2023-07-12T03:06:18.899Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;更新记录&quot;&gt;&lt;a href=&quot;#更新记录&quot; class=&quot;headerlink&quot;</summary>
-        
-      
+    <summary type="html">博客魔改大杂烩</summary>
     
     
     
@@ -268,20 +245,10 @@
     <link href="https://gavin-chen.top/post/ac62cfd5.html"/>
     <id>https://gavin-chen.top/post/ac62cfd5.html</id>
     <published>2023-01-16T07:08:24.000Z</published>
-    <updated>2023-07-11T09:01:46.504Z</updated>
+    <updated>2023-07-12T03:06:20.907Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;这篇主要记录控制中心的进度&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;目前主要参考洪哥的控制台，后面会参考更多人的博客设计，争取能实现更多的功能。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;构想&quot;&gt;&lt;a href=&quot;#构想&quot;</summary>
-        
-      
+    <summary type="html">控制中心，一个博客网站的灵魂</summary>
     
     
     
@@ -299,18 +266,10 @@
     <link href="https://gavin-chen.top/post/2892eb80.html"/>
     <id>https://gavin-chen.top/post/2892eb80.html</id>
     <published>2023-01-16T00:55:46.000Z</published>
-    <updated>2023-07-11T08:57:25.195Z</updated>
+    <updated>2023-07-12T03:06:13.934Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;序章&quot;&gt;&lt;a href=&quot;#序章&quot; class=&quot;headerlink&quot; title=&quot;序章&quot;&gt;&lt;/a&gt;序章&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;不乱于心，不困于情。不畏将来，不念过往。如此，安好。&lt;/p&gt;
-&lt;p</summary>
-        
-      
+    <summary type="html">Maybe，I Love You.</summary>
     
     
     
@@ -384,10 +343,10 @@
     <link href="https://gavin-chen.top/post/cef7e835.html"/>
     <id>https://gavin-chen.top/post/cef7e835.html</id>
     <published>2023-01-15T12:44:45.000Z</published>
-    <updated>2023-07-11T09:03:58.013Z</updated>
+    <updated>2023-07-12T03:05:18.703Z</updated>
     
     
-    <summary type="html">有东西被加密了, 请输入密码查看.</summary>
+    <summary type="html">没啥好看的</summary>
     
     
     
@@ -403,16 +362,10 @@
     <link href="https://gavin-chen.top/post/a5c582fd.html"/>
     <id>https://gavin-chen.top/post/a5c582fd.html</id>
     <published>2023-01-11T01:10:43.000Z</published>
-    <updated>2023-07-11T09:00:55.427Z</updated>
+    <updated>2023-07-12T03:06:22.735Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;外挂标签&quot;&gt;&lt;a href=&quot;#外挂标签&quot; class=&quot;headerlink&quot; title=&quot;外挂标签&quot;&gt;&lt;/a&gt;外挂标签&lt;/h2&gt;&lt;h3 id=&quot;配置与使用&quot;&gt;&lt;a href=&quot;#配置与使用&quot; class=&quot;headerlink&quot;</summary>
-        
-      
+    <summary type="html">按Fomalhaut大佬的教程来，Fomalhaut牛逼！</summary>
     
     
     
@@ -432,16 +385,10 @@
     <link href="https://gavin-chen.top/post/fb55a1ea.html"/>
     <id>https://gavin-chen.top/post/fb55a1ea.html</id>
     <published>2023-01-07T04:28:47.000Z</published>
-    <updated>2023-07-11T09:00:00.089Z</updated>
+    <updated>2023-07-12T03:06:24.659Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;★头部设置Front-matter&quot;&gt;&lt;a href=&quot;#★头部设置Front-matter&quot; class=&quot;headerlink&quot; title=&quot;★头部设置Front-matter&quot;&gt;&lt;/a&gt;★头部设置Front-matter&lt;/h2&gt;&lt;h3</summary>
-        
-      
+    <summary type="html">初识Hexo和Butterfly</summary>
     
     
     
