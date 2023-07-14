@@ -6,7 +6,7 @@
   <link href="https://gavin-chen.top/atom.xml" rel="self"/>
   
   <link href="https://gavin-chen.top/"/>
-  <updated>2023-07-12T05:49:09.919Z</updated>
+  <updated>2023-07-14T06:20:50.545Z</updated>
   <id>https://gavin-chen.top/</id>
   
   <author>
@@ -17,11 +17,32 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>利用vercel部署一个简单的后端程序</title>
+    <link href="https://gavin-chen.top/post/27d667eb.html"/>
+    <id>https://gavin-chen.top/post/27d667eb.html</id>
+    <published>2023-07-14T05:09:17.000Z</published>
+    <updated>2023-07-14T06:20:50.545Z</updated>
+    
+    
+    <summary type="html">小白文</summary>
+    
+    
+    
+    <category term="博客" scheme="https://gavin-chen.top/categories/%E5%8D%9A%E5%AE%A2/"/>
+    
+    
+    <category term="Hexo" scheme="https://gavin-chen.top/tags/Hexo/"/>
+    
+    <category term="Butterfly" scheme="https://gavin-chen.top/tags/Butterfly/"/>
+    
+  </entry>
+  
+  <entry>
     <title>长文本滚动动效</title>
     <link href="https://gavin-chen.top/post/de0459c0.html"/>
     <id>https://gavin-chen.top/post/de0459c0.html</id>
     <published>2023-07-12T03:01:33.000Z</published>
-    <updated>2023-07-12T05:49:09.919Z</updated>
+    <updated>2023-07-14T01:38:23.515Z</updated>
     
     
     <summary type="html">文本溢出视窗时，自动开启滚动显示动效</summary>
@@ -42,7 +63,7 @@
     <link href="https://gavin-chen.top/post/2a10698b.html"/>
     <id>https://gavin-chen.top/post/2a10698b.html</id>
     <published>2023-07-10T15:17:14.000Z</published>
-    <updated>2023-07-11T09:35:16.195Z</updated>
+    <updated>2023-07-14T01:34:53.677Z</updated>
     
     
       
@@ -69,7 +90,7 @@
     <link href="https://gavin-chen.top/post/2f20fd25.html"/>
     <id>https://gavin-chen.top/post/2f20fd25.html</id>
     <published>2023-07-07T03:19:21.000Z</published>
-    <updated>2023-07-12T03:06:15.426Z</updated>
+    <updated>2023-07-14T01:35:01.121Z</updated>
     
     
     <summary type="html">罗翔老师的哲学感悟</summary>
@@ -88,7 +109,7 @@
     <link href="https://gavin-chen.top/post/7c8508a1.html"/>
     <id>https://gavin-chen.top/post/7c8508a1.html</id>
     <published>2023-05-29T12:47:38.000Z</published>
-    <updated>2023-07-11T08:59:01.433Z</updated>
+    <updated>2023-07-14T01:34:58.238Z</updated>
     
     
       
@@ -188,11 +209,11 @@
     <category term="博客" scheme="https://gavin-chen.top/categories/%E5%8D%9A%E5%AE%A2/"/>
     
     
-    <category term="APlayer" scheme="https://gavin-chen.top/tags/APlayer/"/>
-    
     <category term="Hexo" scheme="https://gavin-chen.top/tags/Hexo/"/>
     
     <category term="Butterfly" scheme="https://gavin-chen.top/tags/Butterfly/"/>
+    
+    <category term="APlayer" scheme="https://gavin-chen.top/tags/APlayer/"/>
     
   </entry>
   
@@ -232,11 +253,11 @@
     <category term="博客" scheme="https://gavin-chen.top/categories/%E5%8D%9A%E5%AE%A2/"/>
     
     
-    <category term="APlayer" scheme="https://gavin-chen.top/tags/APlayer/"/>
-    
     <category term="Hexo" scheme="https://gavin-chen.top/tags/Hexo/"/>
     
     <category term="Butterfly" scheme="https://gavin-chen.top/tags/Butterfly/"/>
+    
+    <category term="APlayer" scheme="https://gavin-chen.top/tags/APlayer/"/>
     
   </entry>
   

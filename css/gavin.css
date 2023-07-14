@@ -3163,9 +3163,9 @@ a.article-meta__categories:hover {
         max-width: none !important;
     }
 
-    #body-wrap:not(.home) #aside-content {
+    /* #body-wrap:not(.home) #aside-content {
         padding: 0 1rem;
-    }
+    } */
 }
 
 /* 智能区分主页和分页，除了首页以外其他页面隐藏侧边栏，并采用宽屏显示 */

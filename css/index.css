@@ -3368,7 +3368,7 @@ h1.page-title + .tag-cloud-list {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,0.3);
+  background-color: rgba(0,0,0,0.15);
   content: '';
 }
 #page-header.full_page {
@@ -5602,7 +5602,7 @@ blockquote.pullquote.right {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,0.7);
+  background-color: rgba(0,0,0,0.4);
   content: '';
 }
 [data-theme='dark'] #article-container code {
@@ -6092,7 +6092,7 @@ blockquote.pullquote.right {
   #about-page .about-statistic {
     min-height: 380px;
     width: calc(50% - 0.5rem);
-    background: url(https://i.imgtg.com/2023/07/06/OxvyzF.webp) no-repeat top;
+    background: url(https://blog-hexo-img.oss-cn-shanghai.aliyuncs.com/OxvyzF.webp) no-repeat top;
     background-size: cover;
     color: #fff;
     overflow: hidden;
@@ -6618,7 +6618,7 @@ blockquote.pullquote.right {
   }
   
   .author-content-item.like-technology {
-    background: url(https://i.imgtg.com/2023/07/06/OxvZXD.webp) no-repeat;
+    background: url(https://blog-hexo-img.oss-cn-shanghai.aliyuncs.com/OxvZXD.webp) no-repeat;
     background-size: cover;
     min-height: 230px;
     color: #fff;

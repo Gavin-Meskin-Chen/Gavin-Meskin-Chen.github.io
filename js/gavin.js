@@ -35,6 +35,7 @@ const marqueeContainer1 = document.getElementById('console-music-title');
 const marqueeContent1 = document.getElementById('console-music-title-text');
 const marqueeContainer2 = document.getElementById('console-music-author');
 const marqueeContent2 = document.getElementById('console-music-author-text');
+var ipAddress = '';
 
 if ('paintWorklet' in CSS) { CSS.paintWorklet.addModule('/js/paint.js'); }
 
@@ -688,6 +689,32 @@ var ctrl = {
                 }
             }
         }
+    },
+
+    getLocationWeather: () => {
+        fetch('https://api.ipify.org?format=json')
+            .then(response => response.json())
+            .then(data => {
+                ipAddress = data.ip;
+                console.log("IP 地址：" + ipAddress);
+                fetch('https://apis.cansin.top/weather?ip='+ipAddress+'&output=jsonp')
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data);
+                        var day0 = data.weatherJson.daily[0];
+                        var day1 = data.weatherJson.daily[1];
+                        var day2 = data.weatherJson.daily[2];
+                        var district = data.locationJson.result.ad_info.district;
+                        var city = data.locationJson.result.ad_info.city;
+                        var province = data.locationJson.result.ad_info.province;
+                    })
+                    .catch(error => {
+                        console.error('获取天气信息失败:', error);
+                    })
+            })
+            .catch(error => {
+                console.error('获取 IP 地址失败:', error);
+            });
     }
 }
 
