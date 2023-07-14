@@ -2584,6 +2584,10 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
     margin: 0.8rem;
 }
 
+#article-container a.link-card div.right{
+    margin-right: 1.6rem;
+}
+
 #article-container a.link-card div.left img {
     border-radius: 0.5rem;
 }
@@ -2612,6 +2616,7 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
     display: inline-flex;
     align-items: center;
     width: 100%;
+    position: relative;
 }
 
 #article-container a.link-card .end {
@@ -2640,6 +2645,13 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
     #article-container a.link-card .end p:first-child {
         width: 100%;
     }
+}
+
+#article-container a.link-card .main i {
+    color: var(--dis-f-0);
+    font-size: 0.9rem;
+    position: absolute;
+    right: 0.8rem;
 }
 
 /* ****************************顶部彩色加载条******************************** */

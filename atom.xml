@@ -6,7 +6,7 @@
   <link href="https://gavin-chen.top/atom.xml" rel="self"/>
   
   <link href="https://gavin-chen.top/"/>
-  <updated>2023-07-14T06:20:50.545Z</updated>
+  <updated>2023-07-14T06:30:08.686Z</updated>
   <id>https://gavin-chen.top/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://gavin-chen.top/post/27d667eb.html"/>
     <id>https://gavin-chen.top/post/27d667eb.html</id>
     <published>2023-07-14T05:09:17.000Z</published>
-    <updated>2023-07-14T06:20:50.545Z</updated>
+    <updated>2023-07-14T06:30:08.686Z</updated>
     
     
     <summary type="html">小白文</summary>
@@ -209,11 +209,11 @@
     <category term="博客" scheme="https://gavin-chen.top/categories/%E5%8D%9A%E5%AE%A2/"/>
     
     
+    <category term="APlayer" scheme="https://gavin-chen.top/tags/APlayer/"/>
+    
     <category term="Hexo" scheme="https://gavin-chen.top/tags/Hexo/"/>
     
     <category term="Butterfly" scheme="https://gavin-chen.top/tags/Butterfly/"/>
-    
-    <category term="APlayer" scheme="https://gavin-chen.top/tags/APlayer/"/>
     
   </entry>
   
@@ -253,11 +253,11 @@
     <category term="博客" scheme="https://gavin-chen.top/categories/%E5%8D%9A%E5%AE%A2/"/>
     
     
+    <category term="APlayer" scheme="https://gavin-chen.top/tags/APlayer/"/>
+    
     <category term="Hexo" scheme="https://gavin-chen.top/tags/Hexo/"/>
     
     <category term="Butterfly" scheme="https://gavin-chen.top/tags/Butterfly/"/>
-    
-    <category term="APlayer" scheme="https://gavin-chen.top/tags/APlayer/"/>
     
   </entry>
   
