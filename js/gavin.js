@@ -37,7 +37,7 @@ const marqueeContainer2 = document.getElementById('console-music-author');
 const marqueeContent2 = document.getElementById('console-music-author-text');
 var ipAddress = '';
 
-if ('paintWorklet' in CSS) { CSS.paintWorklet.addModule('/js/paint.js'); }
+if ('paintWorklet' in CSS) { CSS.paintWorklet.addModule('https://cdn1.tianli0.top/gh/Gavin-Meskin-Chen/BlogData@main/paint.min.js'); }
 
 window.onload = function () {
     var set_music = document.querySelector("#set-switch-music input");
@@ -77,6 +77,7 @@ window.onload = function () {
     console.log("\n %cGC音频控制器 v1.3.2 参星阁出品%c https://gavin-chen.top \n", "color: #fadfa3; background: #030307; padding:5px 0;", "background: #fadfa3; padding:5px 0;")
     console.log(`Welcome to:\n%c参星阁:%c https://gavin-chen.top%c\nThis site has been running stably for %c${Math.round(((new Date).getTime() - new Date("2023/01/04 20:53:58").getTime()) / 864e5)} %c days`, "border:1px #888 solid;border-right:0;border-radius:5px 0 0 5px;padding: 5px 10px;color:white;background:#4976f5;margin:10px 0", "border:1px #888 solid;border-left:0;border-radius:0 5px 5px 0;padding: 5px 10px;", "", "color:#4976f5", "")
 }
+
 
 // 返回顶部 显示网页阅读进度
 window.onscroll = percent; // 执行函数
@@ -486,16 +487,18 @@ var ctrl = {
         var irc = document.querySelector(".aplayer > .aplayer-lrc-hide"); //这里防止与音乐页面的控制冲突
         var a = document.querySelector(".aplayer > .aplayer-lrc");
         var b = document.querySelector("#ircItem");
-        if (irc === null) {
-            a.classList.add("aplayer-lrc-hide");
-            b.classList.remove("on");
-            localStorage.setItem('lrc_state',false);
-            if (set_notice.checked) tools.showMessage("桌面歌词已关闭", "success", 2);
-        } else {
-            a.classList.remove("aplayer-lrc-hide");
-            b.classList.add("on");
-            localStorage.setItem('lrc_state',true);
-            if (set_notice.checked) tools.showMessage("桌面歌词已打开", "success", 2);
+        if (a && b) {
+            if (irc === null) {
+                a.classList.add("aplayer-lrc-hide");
+                b.classList.remove("on");
+                localStorage.setItem('lrc_state',false);
+                if (set_notice.checked) tools.showMessage("桌面歌词已关闭", "success", 2);
+            } else {
+                a.classList.remove("aplayer-lrc-hide");
+                b.classList.add("on");
+                localStorage.setItem('lrc_state',true);
+                if (set_notice.checked) tools.showMessage("桌面歌词已打开", "success", 2);
+            }
         }
     },
 
