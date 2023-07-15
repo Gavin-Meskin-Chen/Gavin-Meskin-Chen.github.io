@@ -3239,38 +3239,79 @@ a.article-meta__categories:hover {
 } */
 
 /* **************************友链样式************************* */
-#article-container .flink .flink-list>.flink-list-item {
-    /* border: 1px solid var(--vercel-border-color); */
+/* #article-container .flink .flink-list>.flink-list-item {
+    border: 1px solid var(--vercel-border-color);
     margin: 7px;
     background: var(--card-bg);
     border-radius: 1rem;
     mask-image: paint(smooth-corners);
     -webkit-mask-image: paint(smooth-corners);
     --smooth-level: 24;
-}
+} */
 
-#article-container .flink .flink-list {
+/* #article-container .flink .flink-list {
     padding: 0;
-}
+} */
 
-#article-container .flink .flink-list>.flink-list-item:hover .flink-item-name {
+/* #article-container .flink .flink-list > .flink-list-item a {
+    display: flex;
+    height: 100%;
+} */
+
+/* #article-container .flink .flink-list>.flink-list-item .flink-item-name {
+    padding: 0 13px 0 0;
+    height: fit-content;
+    line-height: 1.1;
+} */
+
+/* #article-container .flink .flink-list>.flink-list-item:hover .flink-item-name {
     color: white;
     transition: all 0.3s;
-}
+} */
 
-#article-container .flink .flink-list>.flink-list-item:hover .flink-item-desc {
+/* #article-container .flink .flink-list>.flink-list-item .flink-item-desc {
+    padding: 0 13px 0 0;
+    height: 37px;
+    line-height: 1.1;
+    font-size: 0.85em;
+    display: -webkit-box;
+    white-space: normal!important;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+} */
+
+/* #article-container .flink .flink-list>.flink-list-item:hover .flink-item-desc {
     color: white;
     opacity: .7;
     transition: all 0.3s;
-}
+} */
 
-#article-container .flink .flink-list>.flink-list-item:hover .flink-item-icon {
+/* #article-container .flink .flink-list > .flink-list-item a .flink-item-icon {
+    margin: 13px;
+    width: 64px;
+    height: 64px;
+} */
+
+/* #article-container .flink .flink-list>.flink-list-item:hover .flink-item-icon {
     transition: all 0.6s;
     opacity: 0;
     width: 0;
-    /* height: 0; */
-}
+    margin: 13px 7px 13px 13px;
+    height: 0;
+} */
 
+/* .flink-item-info {
+    width: calc(100% - 75px);
+    transition: all .6s;
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+} */
+
+/* .flink-list-item:hover .flink-item-info {
+    width: 100%;
+    transition: all .6s;
+} */
 /* *************************首页轮播图************************** */
 #home_top {
     margin: 1rem auto 0;
