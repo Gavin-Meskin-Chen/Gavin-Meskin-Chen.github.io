@@ -3192,8 +3192,9 @@ a.article-meta__categories:hover {
     width: 100%;
 }
 
+/* 除了目录，其它都隐藏 */
 @media screen and (max-width: 768px) {
-    #aside-content {
+    #aside-content .card-widget:not(#card-toc) {
         display: none;
     }
 }

@@ -230,20 +230,6 @@ function musicState() {
     }
 }
 
-function sidebarWeather() {
-    var sidebarWeather = document.querySelector(".sidebar-foot .sidebar-weather");
-    var hf = document.getElementById("he-plugin-simple");
-    if (hf) {
-        var qw = hf.querySelector(".s-sticker-tmp");
-        var cs = hf.querySelector(".s-sticker-city");
-        var kq = hf.querySelector(".s-sticker-qlty");
-        var tq = hf.querySelector(".s-sticker-cond");
-        if (qw && cs && tq && kq) {
-            sidebarWeather.innerHTML = cs.innerHTML + " " + qw.innerHTML + tq.innerHTML + kq.innerHTML;
-        }
-    }
-}
-
 // ***************************************************** 工具模块 ***************************************************************
 
 var tools = {
