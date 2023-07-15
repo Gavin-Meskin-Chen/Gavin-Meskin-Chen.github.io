@@ -2840,13 +2840,15 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
 .tk-extra {
     border: 1px solid var(--gavin-border-color);
     padding: 0.3rem;
-    border-radius: 0.3rem;
-    font-size: 0.3rem;
+    border-radius: 0.4rem;
+    font-size: 0.4rem;
 }
 
 .tk-icon.__comment {
-    height: 12px;
-    width: 12px;
+    height: 10px;
+    width: 10px;
+    display: flex;
+    align-items: center;
 }
 
 .tk-comment {
@@ -3513,13 +3515,8 @@ a.categoryButton:after {
     width: 20%;
 }
 
-.article-sort-item-img img,
-.article-sort-item-img img:hover {
-    border-radius: 1rem;
-}
-
 .article-sort .article-sort-item .article-sort-item-img {
-    border-radius: 1rem;
+    border-radius: 0.8rem;
     min-width: 80px;
     max-width: 150px;
     min-height: 80px;
