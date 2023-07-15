@@ -1228,13 +1228,15 @@ a.aside-list-item-head {
     background: var(--card-bg);
 }
 
-.post-reward .reward-main .reward-all,
 /* 打赏 */
+.post-reward .reward-main .reward-all {
+    border-radius: 0.8rem;
+}
+
 .post-reward .reward-main .reward-all .reward-item img,
-#article-container img
 /* 文章图片 */
-    {
-    border-radius: 1rem;
+#article-container img {
+    border-radius: 0.5rem;
 }
 
 /* 文章图片底部注释 */
@@ -1646,10 +1648,10 @@ h6 {
 
 /* 代码框的圆角弧度 */
 #article-container figure.highlight {
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     mask-image: paint(smooth-corners);
     -webkit-mask-image: paint(smooth-corners);
-    --smooth-level: 16;
+    --smooth-level: 12;
 }
 
 /* 相册弧度 */
@@ -2571,7 +2573,7 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
 #article-container a.link-card {
     background-color: var(--card-link-bg) !important;
     border: 1px solid var(--card-link-border) !important;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     line-height: normal;
     display: block;
     text-align: left;

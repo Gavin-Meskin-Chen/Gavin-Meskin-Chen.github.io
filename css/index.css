@@ -2322,13 +2322,13 @@ figure.highlight pre .javascript .function {
   margin: 7px;
   width: calc(100% / 4 - 15px);
   height: 90px;
-  border-radius: 1rem;
+  border-radius: 0.8rem;
   line-height: 17px;
   -webkit-transform: translateZ(0);
   background: var(--card-bg);
   mask-image: paint(smooth-corners);
   -webkit-mask-image: paint(smooth-corners);
-  --smooth-level: 24;
+  --smooth-level: 18;
 }
 @media screen and (max-width: 1200px) {
   #article-container .flink .flink-list > .flink-list-item {
@@ -2392,10 +2392,10 @@ figure.highlight pre .javascript .function {
   left: 0;
   z-index: -1;
   background: var(--text-bg-hover);
-  border-radius: 20px;
+  border-radius: 0.8rem;
   mask-image: paint(smooth-corners);
   -webkit-mask-image: paint(smooth-corners);
-  --smooth-level: 24;
+  --smooth-level: 18;
   content: '';
   -webkit-transition: -webkit-transform 0.3s ease-out;
   -moz-transition: -moz-transform 0.3s ease-out;
