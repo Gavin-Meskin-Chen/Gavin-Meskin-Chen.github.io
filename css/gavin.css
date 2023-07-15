@@ -2890,12 +2890,12 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
 }
 
 .tk-replies .tk-content span:first-child {
-    font-size: 0.5rem;
+    font-size: 12px;
 }
 
 .tk-time {
     color: var(--gavin-note-font-color);
-    font-size: 0.5rem;
+    font-size: 10px;
 }
 
 .tk-content p {
