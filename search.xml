@@ -13,16 +13,14 @@
       
       <categories>
           
-          <category> 博客 </category>
+          <category> Web </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> Hexo </tag>
-            
-            <tag> Butterfly </tag>
+            <tag> node.js </tag>
             
         </tags>
       
@@ -40,16 +38,16 @@
       
       <categories>
           
-          <category> 博客 </category>
+          <category> Web </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> Hexo </tag>
+            <tag> CSS </tag>
             
-            <tag> Butterfly </tag>
+            <tag> JavaScript </tag>
             
         </tags>
       
@@ -74,9 +72,7 @@
       
         <tags>
             
-            <tag> 拆机 </tag>
-            
-            <tag> 修理 </tag>
+            <tag> 数码 </tag>
             
         </tags>
       
@@ -146,16 +142,16 @@
       
       <categories>
           
-          <category> 博客 </category>
+          <category> Web </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> Hexo </tag>
+            <tag> CSS </tag>
             
-            <tag> Butterfly </tag>
+            <tag> JavaScript </tag>
             
         </tags>
       
@@ -263,9 +259,9 @@
       
         <tags>
             
-            <tag> 哲学 </tag>
-            
             <tag> 情感 </tag>
+            
+            <tag> 哲学 </tag>
             
         </tags>
       

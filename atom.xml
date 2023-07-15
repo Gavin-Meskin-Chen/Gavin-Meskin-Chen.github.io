@@ -6,7 +6,7 @@
   <link href="https://gavin-chen.top/atom.xml" rel="self"/>
   
   <link href="https://gavin-chen.top/"/>
-  <updated>2023-07-14T06:30:08.686Z</updated>
+  <updated>2023-07-15T04:49:27.529Z</updated>
   <id>https://gavin-chen.top/</id>
   
   <author>
@@ -21,19 +21,17 @@
     <link href="https://gavin-chen.top/post/27d667eb.html"/>
     <id>https://gavin-chen.top/post/27d667eb.html</id>
     <published>2023-07-14T05:09:17.000Z</published>
-    <updated>2023-07-14T06:30:08.686Z</updated>
+    <updated>2023-07-15T04:49:27.529Z</updated>
     
     
     <summary type="html">小白文</summary>
     
     
     
-    <category term="博客" scheme="https://gavin-chen.top/categories/%E5%8D%9A%E5%AE%A2/"/>
+    <category term="Web" scheme="https://gavin-chen.top/categories/Web/"/>
     
     
-    <category term="Hexo" scheme="https://gavin-chen.top/tags/Hexo/"/>
-    
-    <category term="Butterfly" scheme="https://gavin-chen.top/tags/Butterfly/"/>
+    <category term="node.js" scheme="https://gavin-chen.top/tags/node-js/"/>
     
   </entry>
   
@@ -42,19 +40,19 @@
     <link href="https://gavin-chen.top/post/de0459c0.html"/>
     <id>https://gavin-chen.top/post/de0459c0.html</id>
     <published>2023-07-12T03:01:33.000Z</published>
-    <updated>2023-07-14T01:38:23.515Z</updated>
+    <updated>2023-07-15T04:51:00.327Z</updated>
     
     
     <summary type="html">文本溢出视窗时，自动开启滚动显示动效</summary>
     
     
     
-    <category term="博客" scheme="https://gavin-chen.top/categories/%E5%8D%9A%E5%AE%A2/"/>
+    <category term="Web" scheme="https://gavin-chen.top/categories/Web/"/>
     
     
-    <category term="Hexo" scheme="https://gavin-chen.top/tags/Hexo/"/>
+    <category term="CSS" scheme="https://gavin-chen.top/tags/CSS/"/>
     
-    <category term="Butterfly" scheme="https://gavin-chen.top/tags/Butterfly/"/>
+    <category term="JavaScript" scheme="https://gavin-chen.top/tags/JavaScript/"/>
     
   </entry>
   
@@ -63,7 +61,7 @@
     <link href="https://gavin-chen.top/post/2a10698b.html"/>
     <id>https://gavin-chen.top/post/2a10698b.html</id>
     <published>2023-07-10T15:17:14.000Z</published>
-    <updated>2023-07-14T01:34:53.677Z</updated>
+    <updated>2023-07-15T04:49:21.464Z</updated>
     
     
       
@@ -79,9 +77,7 @@
     <category term="生活" scheme="https://gavin-chen.top/categories/%E7%94%9F%E6%B4%BB/"/>
     
     
-    <category term="拆机" scheme="https://gavin-chen.top/tags/%E6%8B%86%E6%9C%BA/"/>
-    
-    <category term="修理" scheme="https://gavin-chen.top/tags/%E4%BF%AE%E7%90%86/"/>
+    <category term="数码" scheme="https://gavin-chen.top/tags/%E6%95%B0%E7%A0%81/"/>
     
   </entry>
   
@@ -136,19 +132,19 @@
     <link href="https://gavin-chen.top/post/7c589660.html"/>
     <id>https://gavin-chen.top/post/7c589660.html</id>
     <published>2023-03-05T07:33:37.000Z</published>
-    <updated>2023-07-12T03:06:31.469Z</updated>
+    <updated>2023-07-15T04:46:50.587Z</updated>
     
     
     <summary type="html">更美观的圆角矩形</summary>
     
     
     
-    <category term="博客" scheme="https://gavin-chen.top/categories/%E5%8D%9A%E5%AE%A2/"/>
+    <category term="Web" scheme="https://gavin-chen.top/categories/Web/"/>
     
     
-    <category term="Hexo" scheme="https://gavin-chen.top/tags/Hexo/"/>
+    <category term="CSS" scheme="https://gavin-chen.top/tags/CSS/"/>
     
-    <category term="Butterfly" scheme="https://gavin-chen.top/tags/Butterfly/"/>
+    <category term="JavaScript" scheme="https://gavin-chen.top/tags/JavaScript/"/>
     
   </entry>
   
@@ -232,9 +228,9 @@
     <category term="Sentence" scheme="https://gavin-chen.top/categories/Sentence/"/>
     
     
-    <category term="哲学" scheme="https://gavin-chen.top/tags/%E5%93%B2%E5%AD%A6/"/>
-    
     <category term="情感" scheme="https://gavin-chen.top/tags/%E6%83%85%E6%84%9F/"/>
+    
+    <category term="哲学" scheme="https://gavin-chen.top/tags/%E5%93%B2%E5%AD%A6/"/>
     
   </entry>
   

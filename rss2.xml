@@ -9,7 +9,7 @@
     <atom:link href="https://gavin-chen.top/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>南方嘉木的博客</description>
-    <pubDate>Fri, 14 Jul 2023 06:30:08 GMT</pubDate>
+    <pubDate>Sat, 15 Jul 2023 04:49:27 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -23,12 +23,10 @@
       
       
       
-      <category domain="https://gavin-chen.top/categories/%E5%8D%9A%E5%AE%A2/">博客</category>
+      <category domain="https://gavin-chen.top/categories/Web/">Web</category>
       
       
-      <category domain="https://gavin-chen.top/tags/Hexo/">Hexo</category>
-      
-      <category domain="https://gavin-chen.top/tags/Butterfly/">Butterfly</category>
+      <category domain="https://gavin-chen.top/tags/node-js/">node.js</category>
       
       
       <comments>https://gavin-chen.top/post/27d667eb.html#disqus_thread</comments>
@@ -46,12 +44,12 @@
       
       
       
-      <category domain="https://gavin-chen.top/categories/%E5%8D%9A%E5%AE%A2/">博客</category>
+      <category domain="https://gavin-chen.top/categories/Web/">Web</category>
       
       
-      <category domain="https://gavin-chen.top/tags/Hexo/">Hexo</category>
+      <category domain="https://gavin-chen.top/tags/CSS/">CSS</category>
       
-      <category domain="https://gavin-chen.top/tags/Butterfly/">Butterfly</category>
+      <category domain="https://gavin-chen.top/tags/JavaScript/">JavaScript</category>
       
       
       <comments>https://gavin-chen.top/post/de0459c0.html#disqus_thread</comments>
@@ -78,9 +76,7 @@
       <category domain="https://gavin-chen.top/categories/%E7%94%9F%E6%B4%BB/">生活</category>
       
       
-      <category domain="https://gavin-chen.top/tags/%E6%8B%86%E6%9C%BA/">拆机</category>
-      
-      <category domain="https://gavin-chen.top/tags/%E4%BF%AE%E7%90%86/">修理</category>
+      <category domain="https://gavin-chen.top/tags/%E6%95%B0%E7%A0%81/">数码</category>
       
       
       <comments>https://gavin-chen.top/post/2a10698b.html#disqus_thread</comments>
@@ -148,12 +144,12 @@
       
       
       
-      <category domain="https://gavin-chen.top/categories/%E5%8D%9A%E5%AE%A2/">博客</category>
+      <category domain="https://gavin-chen.top/categories/Web/">Web</category>
       
       
-      <category domain="https://gavin-chen.top/tags/Hexo/">Hexo</category>
+      <category domain="https://gavin-chen.top/tags/CSS/">CSS</category>
       
-      <category domain="https://gavin-chen.top/tags/Butterfly/">Butterfly</category>
+      <category domain="https://gavin-chen.top/tags/JavaScript/">JavaScript</category>
       
       
       <comments>https://gavin-chen.top/post/7c589660.html#disqus_thread</comments>
@@ -245,9 +241,9 @@
       <category domain="https://gavin-chen.top/categories/Sentence/">Sentence</category>
       
       
-      <category domain="https://gavin-chen.top/tags/%E5%93%B2%E5%AD%A6/">哲学</category>
-      
       <category domain="https://gavin-chen.top/tags/%E6%83%85%E6%84%9F/">情感</category>
+      
+      <category domain="https://gavin-chen.top/tags/%E5%93%B2%E5%AD%A6/">哲学</category>
       
       
       <comments>https://gavin-chen.top/post/cddbd99a.html#disqus_thread</comments>
