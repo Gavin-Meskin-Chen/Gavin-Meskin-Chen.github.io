@@ -6078,7 +6078,7 @@ blockquote.pullquote.right {
   
   .author-content-item {
     /* width: 49%; */
-    border-radius: 24px;
+    border-radius: 1rem;
     background: var(--gavin-card-bg);
     border: var(--style-border-always);
     box-shadow: var(--gavin-shadow-border);
@@ -6773,9 +6773,9 @@ blockquote.pullquote.right {
     .site-card-group > a {
       width: 100% !important;
     }
-    .post-reward {
+    /* .post-reward {
       display: none;
-    }
+    } */
     .reward-list-item {
       width: 100% !important;
     }

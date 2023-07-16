@@ -412,13 +412,6 @@
   </url>
   
   <url>
-    <loc>https://gavin-chen.top/tags/%E6%83%85%E6%84%9F/</loc>
-    <lastmod>2023-07-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://gavin-chen.top/tags/PCB/</loc>
     <lastmod>2023-07-16</lastmod>
     <changefreq>weekly</changefreq>
@@ -440,7 +433,7 @@
   </url>
   
   <url>
-    <loc>https://gavin-chen.top/tags/node-js/</loc>
+    <loc>https://gavin-chen.top/tags/%E6%83%85%E6%84%9F/</loc>
     <lastmod>2023-07-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -462,6 +455,13 @@
   
   <url>
     <loc>https://gavin-chen.top/tags/JavaScript/</loc>
+    <lastmod>2023-07-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://gavin-chen.top/tags/node-js/</loc>
     <lastmod>2023-07-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -498,14 +498,14 @@
   </url>
   
   <url>
-    <loc>https://gavin-chen.top/categories/Sentence/</loc>
+    <loc>https://gavin-chen.top/categories/PCB/</loc>
     <lastmod>2023-07-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://gavin-chen.top/categories/PCB/</loc>
+    <loc>https://gavin-chen.top/categories/Sentence/</loc>
     <lastmod>2023-07-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

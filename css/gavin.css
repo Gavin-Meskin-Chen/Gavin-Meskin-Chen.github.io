@@ -2899,6 +2899,10 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
     font-size: 12px;
 }
 
+.tk-tag-green, .tk-tag-red, .tk-tag-yellow, .tk-tag-blue {
+    border-radius: 5px;
+}
+
 .tk-time {
     color: var(--gavin-note-font-color);
     font-size: 10px;
