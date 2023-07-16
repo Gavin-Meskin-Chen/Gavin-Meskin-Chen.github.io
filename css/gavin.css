@@ -794,7 +794,7 @@ center#name-container {
 }
 
 .back-home-button .back-menu-list-groups:hover {
-    border: var(--style-border-hover);
+    border: 1px solid var(--gavin-highlight);
 }
 
 .back-home-button .back-menu-list .back-menu-item {
@@ -1139,6 +1139,10 @@ a {
 /* 右下角设置上移 */
 #rightside {
     bottom: 90px;
+}
+
+#rightside > div > button, #rightside > div > a {
+    border-radius: 50%;
 }
 
 /* 部分box微调：弧度调整 */
