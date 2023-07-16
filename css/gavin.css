@@ -3114,8 +3114,8 @@ a.article-links {
     position: absolute;
     display: flex;
     z-index: 1;
-    top: 1rem;
-    left: 1rem;
+    top: 20px;
+    left: 20px;
 }
 
 a.article-meta__categories {
