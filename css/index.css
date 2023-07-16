@@ -2354,7 +2354,7 @@ figure.highlight pre .javascript .function {
   opacity: 0;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   filter: alpha(opacity=0);
-  margin: 13px 7px 13px 13px;
+  margin: 10px;
   width: 0;
 }
 #article-container .flink .flink-list > .flink-list-item:hover .flink-item-info {
@@ -2432,9 +2432,9 @@ figure.highlight pre .javascript .function {
 #article-container .flink .flink-list > .flink-list-item a .flink-item-icon {
   float: left;
   overflow: hidden;
-  margin: 13px;
-  width: 64px;
-  height: 64px;
+  margin: 10px;
+  width: 70px;
+  height: 70px;
   border-radius: 0.8rem;
   -webkit-transition: all 0.6s;
   -moz-transition: all 0.6s;

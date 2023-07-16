@@ -784,13 +784,13 @@ center#name-container {
 }
 
 .back-home-button .back-menu-list-group:hover .back-menu-list-title {
-    color: rgb(50, 150, 250);
+    color: var(--gavin-highlight);
 }
 
 .back-home-button .back-menu-list-group .back-menu-list-title {
     margin: 8px 0 0 16px;
     transition: 0.3s;
-    color: var(--font-color);
+    color: var(--gavin-note-font-color);
 }
 
 .back-home-button .back-menu-list-groups:hover {
