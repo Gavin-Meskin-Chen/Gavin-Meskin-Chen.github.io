@@ -30,8 +30,8 @@ Last Modified time : 20220211 98:00 by https://immmmm.com
   /* 排序按钮 */
   #cf-change{font-size:14px;display:block;padding:12px 0 4px;width:100%;text-align:center;}
   /* 更多按钮 */
-  #cf-more {width:60%;max-width:810px;height:30px;margin:auto;border-radius:12px;font-weight:bolder;text-align:center;display:flex;flex-direction:column;justify-content:space-around;cursor:pointer;transition:0.3s;}
-  #cf-more:hover{width:calc(100% - 20px);background: var(--lmm-hover);color: var(--dis-f-0);}
+  #cf-more {width:60%;/*max-width:810px*/;height:30px;margin:auto;border-radius:50px;font-weight:bolder;text-align:center;display:flex;flex-direction:column;justify-content:space-around;cursor:pointer;transition:0.3s;}
+  #cf-more:hover{width:calc(100% - 20px);background: var(--lmm-hover);color: #fff;}
   #cf-more i.fas::before {content:"∞";}
   /* 主容器 */
   #cf-container {width:100%;/*max-width:900px;*/height:auto;margin:auto;}
