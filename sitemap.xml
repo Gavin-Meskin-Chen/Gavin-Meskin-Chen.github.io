@@ -426,13 +426,6 @@
   </url>
   
   <url>
-    <loc>https://gavin-chen.top/tags/%E6%83%85%E6%84%9F/</loc>
-    <lastmod>2023-07-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://gavin-chen.top/tags/%E5%93%B2%E5%AD%A6/</loc>
     <lastmod>2023-07-17</lastmod>
     <changefreq>weekly</changefreq>
@@ -440,7 +433,7 @@
   </url>
   
   <url>
-    <loc>https://gavin-chen.top/tags/%E6%95%B0%E7%A0%81/</loc>
+    <loc>https://gavin-chen.top/tags/%E6%83%85%E6%84%9F/</loc>
     <lastmod>2023-07-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -462,6 +455,13 @@
   
   <url>
     <loc>https://gavin-chen.top/tags/JavaScript/</loc>
+    <lastmod>2023-07-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://gavin-chen.top/tags/%E6%95%B0%E7%A0%81/</loc>
     <lastmod>2023-07-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
