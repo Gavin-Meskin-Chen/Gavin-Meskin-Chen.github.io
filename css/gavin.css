@@ -2964,9 +2964,13 @@ pre.language-yaml,
     background: var(--gavin-background);
 }
 
+.layout>div:first-child:not(.recent-posts) {
+    padding: 0 40px;
+}
+
 @media screen and (max-width: 768px) {
     .layout>div:first-child:not(.recent-posts) {
-        padding: 1.5rem 1rem !important;
+        /* padding: 1.5rem 1rem !important; */
         /* border: 1px solid var(--gavin-border-color); */
         background: var(--vercel-background);
     }
