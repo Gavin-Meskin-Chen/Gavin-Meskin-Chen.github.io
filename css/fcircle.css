@@ -57,15 +57,15 @@ Last Modified time : 20220211 98:00 by https://immmmm.com
   #cf-overshow{bottom: 0;left:0;opacity: 0;pointer-events:none;transition: all 0.5s ease;z-index: 999;}
   #cf-overlay.cf-show-now{left:0;-webkit-backdrop-filter: blur(7px);backdrop-filter: blur(7px);opacity: 1;transition: all .5s ease;}
   #cf-overshow.cf-show-now{bottom:0;opacity: 1;pointer-events: all;transition: all .5s ease;}
-  .cf-overshow{text-align: center;border-radius: 20px;position: absolute;width: 320px;min-height:170px;left: 50%;top:50%;transform: translate(-50%,-50%);box-shadow: 0 12px 40px rgba(0, 0, 0, 0.093);background: var(--lmm-background);}
+  .cf-overshow{text-align: center;border-radius: 20px;position: absolute;width: 290px;padding:0 10px;min-height:170px;left: 50%;top:50%;transform: translate(-50%,-50%);box-shadow: 0 12px 40px rgba(0, 0, 0, 0.093);background: var(--f-0);border: 1px solid var(--gavin-border-color);}
   .cf-overshow-head:hover img.cf-img-avatar{transform:rotate(360deg);transition:0.8s;}
   .cf-overshow .cf-overshow-head a{color: var(--lmm-hover);display:block;text-align:center;font-weight:bold;margin-top:-5px;padding:5px 8px 5px;}
-  .cf-overshow img.cf-img-avatar{background:#fff;width: 80px;height: 80px;border-radius: 50%!important;margin: -45px auto 0 !important;box-shadow: 0 12px 40px rgb(0 0 0 / 9%);transform:rotate(-360deg);transition:0.8s;}
+  .cf-overshow img.cf-img-avatar{background:#fff;width: 80px;height: 80px;border-radius: 50%!important;margin: 20px auto 0 !important;box-shadow: 0 12px 40px rgb(0 0 0 / 9%);transform:rotate(-360deg);transition:0.3s!important;}
   .cf-overshow p{margin:0.3rem 5px;width:100%;position: relative;}
   .cf-overshow p a.cf-article-title{display:block;text-align:left;position: relative;z-index: 2;font-size:15px;line-height:25px;margin-bottom:15px;letter-spacing: normal;max-height:50px;overflow: hidden;white-space: normal;text-overflow:ellipsis;display:-webkit-box;display:box;-webkit-line-clamp: 1; -webkit-box-orient: vertical;}
   .cf-overshow p span{position: absolute;bottom:-1rem;right:8px;z-index: 1;font-style: italic;font-size:12px;}
   #cf-container .cf-overshow p a:hover{letter-spacing:1px;transition:0.3s;}
-  .cf-overshow .cf-overshow-content{padding:10px 15px 30px;border-bottom-left-radius:20px;border-bottom-right-radius:20px;background: #fff;}
+  .cf-overshow .cf-overshow-content{padding:10px 10px 25px;border-bottom-left-radius:20px;border-bottom-right-radius:20px;/*background: var(--f-0);*/}
   #cf-overshow .cf-overshow-close{position:sticky;display: block;width:100%;height:100%;}
   /* 颜色 */
   .cf-article .cf-article-title:hover{/*letter-spacing:2px;*/color:var(--gavin-highlight)!important;}
@@ -93,6 +93,7 @@ Last Modified time : 20220211 98:00 by https://immmmm.com
   div#cf-container a:hover{text-decoration: none;}
   span.cf-article-author:hover{color: var(--gavin-highlight)!important;}
   div#cf-footer a {color: var(--dis-f-0);}
+  .cf-overshow-head {margin: 0 10px;border-bottom: 1px dashed var(--gavin-note-font-color);}
   /* 移动端适配 */
   @media screen and (max-width:400px) {
     #cf-state {font-size:14px;}

@@ -11,6 +11,15 @@
   </url>
   
   <url>
+    <loc>https://gavin-chen.top/log/index.html</loc>
+    
+    <lastmod>2023-07-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://gavin-chen.top/movies/index.html</loc>
     
     <lastmod>2023-07-17</lastmod>
@@ -39,15 +48,6 @@
   
   <url>
     <loc>https://gavin-chen.top/json/flink.json</loc>
-    
-    <lastmod>2023-07-17</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://gavin-chen.top/log/index.html</loc>
     
     <lastmod>2023-07-17</lastmod>
     
@@ -353,20 +353,6 @@
 
   
   <url>
-    <loc>https://gavin-chen.top/tags/APlayer/</loc>
-    <lastmod>2023-07-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://gavin-chen.top/tags/%E7%BD%91%E7%9B%98/</loc>
-    <lastmod>2023-07-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://gavin-chen.top/tags/Hexo/</loc>
     <lastmod>2023-07-18</lastmod>
     <changefreq>weekly</changefreq>
@@ -381,6 +367,20 @@
   </url>
   
   <url>
+    <loc>https://gavin-chen.top/tags/APlayer/</loc>
+    <lastmod>2023-07-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://gavin-chen.top/tags/%E7%BD%91%E7%9B%98/</loc>
+    <lastmod>2023-07-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://gavin-chen.top/tags/%E6%97%A5%E8%AE%B0/</loc>
     <lastmod>2023-07-18</lastmod>
     <changefreq>weekly</changefreq>
@@ -389,20 +389,6 @@
   
   <url>
     <loc>https://gavin-chen.top/tags/Markdown/</loc>
-    <lastmod>2023-07-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://gavin-chen.top/tags/%E7%94%B5%E6%BA%90/</loc>
-    <lastmod>2023-07-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://gavin-chen.top/tags/%E7%A8%B3%E5%8E%8B%E5%99%A8/</loc>
     <lastmod>2023-07-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -424,6 +410,20 @@
   
   <url>
     <loc>https://gavin-chen.top/tags/Pytorch/</loc>
+    <lastmod>2023-07-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://gavin-chen.top/tags/%E7%94%B5%E6%BA%90/</loc>
+    <lastmod>2023-07-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://gavin-chen.top/tags/%E7%A8%B3%E5%8E%8B%E5%99%A8/</loc>
     <lastmod>2023-07-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -458,6 +458,13 @@
   </url>
   
   <url>
+    <loc>https://gavin-chen.top/tags/node-js/</loc>
+    <lastmod>2023-07-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://gavin-chen.top/tags/%E6%95%B0%E7%A0%81/</loc>
     <lastmod>2023-07-18</lastmod>
     <changefreq>weekly</changefreq>
@@ -473,13 +480,6 @@
   
   <url>
     <loc>https://gavin-chen.top/tags/CSS/</loc>
-    <lastmod>2023-07-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://gavin-chen.top/tags/node-js/</loc>
     <lastmod>2023-07-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -502,14 +502,14 @@
   </url>
   
   <url>
-    <loc>https://gavin-chen.top/categories/%E7%A1%AC%E4%BB%B6/</loc>
+    <loc>https://gavin-chen.top/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2023-07-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://gavin-chen.top/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/</loc>
+    <loc>https://gavin-chen.top/categories/%E7%A1%AC%E4%BB%B6/</loc>
     <lastmod>2023-07-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
