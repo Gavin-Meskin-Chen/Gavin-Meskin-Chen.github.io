@@ -22,11 +22,12 @@ Last Modified time : 20220211 98:00 by https://immmmm.com
     --lmm-floorcolor: #454545;
   }
   /* 基本信息 */
-  #cf-state {font-size:16px;border-radius:0.8rem;box-shadow:none;margin:0 10px 20px;overflow:hidden;display:flex;flex-direction:row;flex-wrap:wrap;padding:8px 0;}
-  .cf-state-data {width:100%;display:flex;}
-  .cf-data-friends,.cf-data-active,.cf-data-article{height:60px;background:transparent;display:flex;flex-direction:column;width:33%;cursor:pointer;}
-  .cf-label {font-size:16px;padding:0 3%;align-self:center;text-align:center;width:100%;height:30px;}
-  .cf-message{align-self:center;text-align:center;padding:0 3%;width:50%;font-size:20px;}
+  #cf-state {font-size:16px;border-radius:0.8rem;border: 1px solid var(--gavin-card-border);box-shadow:none;margin:0 10px 20px;overflow:hidden;display:flex;flex-direction:row;flex-wrap:wrap;padding:8px 0;}
+  .cf-state-data {width:100%;display:flex;justify-content:space-evenly;}
+  .cf-data-friends,.cf-data-active,.cf-data-article{height:60px;background:transparent;display:flex;flex-direction:column;cursor:pointer;font-weight:bold;}
+  .cf-data-friends:hover,.cf-data-active:hover,.cf-data-article:hover{color:var(--lmm-hover);}
+  .cf-label {font-size:16px;padding:0;align-self:center;text-align:center;width:100%;height:30px;}
+  .cf-message{align-self:center;text-align:center;padding:0;width:100%;font-size:20px;}
   /* 排序按钮 */
   #cf-change{font-size:14px;display:block;padding:12px 0 4px;width:100%;text-align:center;}
   /* 更多按钮 */
@@ -36,13 +37,13 @@ Last Modified time : 20220211 98:00 by https://immmmm.com
   /* 主容器 */
   #cf-container {width:100%;/*max-width:900px;*/height:auto;margin:auto;}
   #cf-container a {text-decoration:none;}
-  .cf-article {margin:0 10px 20px;border-radius:0.8rem;font-weight:bolder;overflow:hidden;transition: all ease-out .3s;position: relative;padding:0.5rem 1rem;width:calc(100% / 3 - 20px);float:left;}
-  .cf-article:hover{transition:transform .3s;-webkit-transform:scale(1.3);transform:scale(1.03)}
+  .cf-article {margin:0 10px 20px;border-radius:0.8rem;border: 1px solid var(--gavin-card-border);font-weight:bolder;overflow:hidden;transition: all ease-out .3s;position: relative;padding:0.5rem 1rem;width:calc(100% / 3 - 20px);float:left;}
+  .cf-article:hover{transition:all .3s;-webkit-transform:scale(1.3);transform:scale(1.03);border-color: var(--gavin-highlight);}
   .cf-article-avatar{line-height:35px;}
   .cf-img-avatar {align-self:center;text-align:center;display:inline-block !important;width:22px;height:22px;border-radius:50%!important;margin:0 0 -4px !important;background: #fff;}
   .cf-article-author{line-height: 35px;font-size:14px;font-weight: 400;margin-left:5px;align-self:center;text-align:center;height:40px;white-space:nowrap;overflow:hidden;}
-  .cf-article-floor{position: absolute;top: 0.6rem;right:0.6rem;font-style: italic;font-size: 3rem;line-height: 1.5rem;z-index:1;font-weight: 400;}
-  .cf-article-title{font-weight: 500;position: relative;z-index:2;width:100%;display: block;letter-spacing:1.5px;font-size:18px;align-self:start;text-align:left;line-height:40px;padding:0;margin-bottom:10px;transition:0.3s;overflow:hidden;white-space: nowrap;text-overflow: ellipsis;}
+  .cf-article-floor{position: absolute;top: 0.6rem;right:0.6rem;font-style: italic;font-size: 3rem;line-height: 1.5rem;z-index:1;font-weight: 400;display:none;}
+  .cf-article-title{color: var(--lmm-fontcolor)!important;font-weight: 500;position: relative;z-index:2;width:100%;display: block;letter-spacing:1.5px;font-size:18px;align-self:start;text-align:left;line-height:40px;padding:0;margin-bottom:10px;transition:0.3s;overflow:hidden;white-space: nowrap;text-overflow: ellipsis;}
   .cf-article-time {font-size:14px;text-align:right;float:right;font-weight:400;}
   .cf-time-updated,.cf-time-created {display:inline-block;text-align:left;white-space:nowrap;}
   .cf-time-updated i.fas,.cf-time-created i.far{padding-right:8px;}
@@ -58,16 +59,16 @@ Last Modified time : 20220211 98:00 by https://immmmm.com
   #cf-overshow.cf-show-now{bottom:0;}
   .cf-overshow{text-align: center;border-radius: 20px;position: absolute;width: 320px;min-height:170px;left: 50%;top:50%;transform: translate(-50%,-50%);box-shadow: 0 12px 40px rgba(0, 0, 0, 0.093);background: var(--lmm-background);}
   .cf-overshow-head:hover img.cf-img-avatar{transform:rotate(360deg);transition:0.8s;}
-  .cf-overshow .cf-overshow-head a{color: var(--lmm-hover);display:block;text-align:center;font-weight:bold;margin-top:-5px;padding:5px 8px 5px;text-decoration: none;}
+  .cf-overshow .cf-overshow-head a{color: var(--lmm-hover);display:block;text-align:center;font-weight:bold;margin-top:-5px;padding:5px 8px 5px;}
   .cf-overshow img.cf-img-avatar{background:#fff;width: 80px;height: 80px;border-radius: 50%!important;margin: -45px auto 0 !important;box-shadow: 0 12px 40px rgb(0 0 0 / 9%);transform:rotate(-360deg);transition:0.8s;}
   .cf-overshow p{margin:0.3rem 5px;width:100%;position: relative;}
-  .cf-overshow p a.cf-article-title{text-decoration: none !important;display:block;text-align:left;position: relative;z-index: 2;font-size:15px;line-height:25px;margin-bottom:15px;letter-spacing: normal;max-height:50px;overflow: hidden;white-space: normal;text-overflow:ellipsis;display:-webkit-box;display:box;-webkit-line-clamp: 1; -webkit-box-orient: vertical;}
+  .cf-overshow p a.cf-article-title{display:block;text-align:left;position: relative;z-index: 2;font-size:15px;line-height:25px;margin-bottom:15px;letter-spacing: normal;max-height:50px;overflow: hidden;white-space: normal;text-overflow:ellipsis;display:-webkit-box;display:box;-webkit-line-clamp: 1; -webkit-box-orient: vertical;}
   .cf-overshow p span{position: absolute;bottom:-1rem;right:8px;z-index: 1;font-style: italic;font-size:12px;}
   #cf-container .cf-overshow p a:hover{letter-spacing:1px;transition:0.3s;}
   .cf-overshow .cf-overshow-content{padding:10px 15px 30px;border-bottom-left-radius:20px;border-bottom-right-radius:20px;background: #fff;}
   #cf-overshow .cf-overshow-close{position:sticky;display: block;width:100%;height:100%;}
   /* 颜色 */
-  .cf-article .cf-article-title:hover{letter-spacing:2px;/* color:var(--lmm-hover) !important; */}
+  .cf-article .cf-article-title:hover{/*letter-spacing:2px;*/color:var(--gavin-highlight)!important;}
   /* #cf-more i.fas:hover{color:var(--lmm-hover);} */
   #cf-state,#cf-more {background:var(--lmm-background);color:var(--lmm-fontcolor);}
   #cf-change,.cf-time-updated,.cf-time-created,.cf-article-floor{color:var(--lmm-floorcolor);}
@@ -89,6 +90,8 @@ Last Modified time : 20220211 98:00 by https://immmmm.com
   .dark-theme .cf-article:hover .cf-article-floor,.dark-theme .cf-article:hover .cf-time-created,.dark-theme .cf-article:hover .cf-time-updated,.dark-theme .cf-overshow p span,.theme-dark .cf-article:hover .cf-article-floor,.theme-dark .cf-article:hover .cf-time-created,.theme-dark .cf-article:hover .cf-time-updated,.theme-dark .cf-overshow p span{color: var(--lmm-dark-fontcolor);}
   /* 补充 */
   #cf-container .img-alt.is-center {display: none;}
+  div#cf-container a:hover{text-decoration: none;}
+  span.cf-article-author:hover{color: var(--gavin-highlight)!important;}
   /* 移动端适配 */
   @media screen and (max-width:400px) {
     #cf-state {font-size:14px;}
