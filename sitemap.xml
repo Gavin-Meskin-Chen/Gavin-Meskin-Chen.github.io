@@ -353,14 +353,21 @@
 
   
   <url>
-    <loc>https://gavin-chen.top/tags/APlayer/</loc>
+    <loc>https://gavin-chen.top/tags/Hexo/</loc>
     <lastmod>2023-07-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://gavin-chen.top/tags/%E7%BD%91%E7%9B%98/</loc>
+    <loc>https://gavin-chen.top/tags/Butterfly/</loc>
+    <lastmod>2023-07-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://gavin-chen.top/tags/APlayer/</loc>
     <lastmod>2023-07-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -374,14 +381,7 @@
   </url>
   
   <url>
-    <loc>https://gavin-chen.top/tags/Hexo/</loc>
-    <lastmod>2023-07-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://gavin-chen.top/tags/Butterfly/</loc>
+    <loc>https://gavin-chen.top/tags/%E7%BD%91%E7%9B%98/</loc>
     <lastmod>2023-07-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -444,13 +444,6 @@
   </url>
   
   <url>
-    <loc>https://gavin-chen.top/tags/%E5%93%B2%E5%AD%A6/</loc>
-    <lastmod>2023-07-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://gavin-chen.top/tags/%E6%83%85%E6%84%9F/</loc>
     <lastmod>2023-07-18</lastmod>
     <changefreq>weekly</changefreq>
@@ -458,7 +451,7 @@
   </url>
   
   <url>
-    <loc>https://gavin-chen.top/tags/%E6%95%B0%E7%A0%81/</loc>
+    <loc>https://gavin-chen.top/tags/%E5%93%B2%E5%AD%A6/</loc>
     <lastmod>2023-07-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -466,6 +459,13 @@
   
   <url>
     <loc>https://gavin-chen.top/tags/node-js/</loc>
+    <lastmod>2023-07-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://gavin-chen.top/tags/%E6%95%B0%E7%A0%81/</loc>
     <lastmod>2023-07-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

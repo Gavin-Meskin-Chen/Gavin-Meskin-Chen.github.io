@@ -73,6 +73,8 @@ function loadStatistical(sdata) {
        <span id="cf-version-up" onclick="checkVersion()"></span>
        <span class="cf-data-lastupdated">更新于：${sdata.last_updated_time}</span>
         Powered by <a target="_blank" href="https://github.com/Rock-Candy-Tea/hexo-circle-of-friends" target="_blank">FriendCircle</a>
+        <br>
+        Adapted by <a target="_blank" href="https://gavin-chen.top" target="_blank">南方嘉木</a>
       </div>
       <div id="cf-overlay" class="cf-new-add" onclick="closeShow()"></div>
       <div id="cf-overshow" class="cf-new-add"></div>
