@@ -37,7 +37,7 @@ const marqueeContainer2 = document.getElementById('console-music-author');
 const marqueeContent2 = document.getElementById('console-music-author-text');
 var ipAddress = '';
 
-if ('paintWorklet' in CSS) { CSS.paintWorklet.addModule('https://cdn1.tianli0.top/gh/Gavin-Meskin-Chen/BlogData@main/paint.min.js'); }
+if ('paintWorklet' in CSS) { CSS.paintWorklet.addModule('https://blog-hexo-img.oss-cn-shanghai.aliyuncs.com/blog/paint.min.js'); }
 
 window.onload = function () {
     var set_music = document.querySelector("#set-switch-music input");
