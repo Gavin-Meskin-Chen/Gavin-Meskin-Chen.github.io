@@ -1826,9 +1826,9 @@ meting-js .aplayer .aplayer-lrc p.aplayer-lrc-current {
     font-weight: 700; */
     font-size: 1.3rem !important;
     /* color: #48E3F6; */
-    color: var(--font-color) !important;
-    /* overflow: visible;
-    opacity: 1; */
+    color: var(--dis-f-0) !important;
+    /* overflow: visible; */
+    opacity: .9!important;
 }
 
 meting-js .aplayer .aplayer-lrc p {
@@ -1838,9 +1838,9 @@ meting-js .aplayer .aplayer-lrc p {
     height: 1.4rem !important;
     font-weight: 700;
     font-size: 1.3rem !important;
-    color: var(--gavin-op-dis-3) !important;
+    color: var(--dis-f-0) !important;
     /* transition: all .5s ease-out; */
-    opacity: 1 !important;
+    opacity: .3 !important;
     /* overflow: hidden; */
 }
 

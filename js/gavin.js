@@ -590,6 +590,12 @@ var ctrl = {
         ap.list.add(JaySongsheet);
     },
 
+    JokerMusicList: function () {
+        var ap = document.querySelector("meting-js").aplayer;
+        ap.list.clear();
+        ap.list.add(QianSongsheet);
+    },
+
     marqueeMusicInfo: function () {
         if (marqueeContent1.offsetWidth > marqueeContainer1.offsetWidth) {
             // marqueeContent1.style.animation = 'marquee-1 10s linear infinite'
@@ -935,7 +941,7 @@ songsheet3.addEventListener("click", () => {
     document.getElementById("console-loading-icon").classList.add("show");
     console.log("正在切换至薛之谦/李荣浩专辑");
     global_music_flag = 1;
-    ctrl.changeMusicList("8163994837", "netease");
+    ctrl.JokerMusicList();
     document.getElementById("music-list-title").innerHTML = "薛之谦/李荣浩";
 });
 songsheet4.addEventListener("click", () => {
