@@ -1866,8 +1866,8 @@ meting-js .aplayer .aplayer-lrc {
 
 meting-js .aplayer.aplayer-fixed .aplayer-lrc {
     /* calc(10% - 105px): 百分比补上参数 */
-    left: calc(10% - 10px) !important;
-    width: 80%;
+    left: calc(7% - 10px) !important;
+    width: 86%;
     text-shadow: none !important;
 }
 
