@@ -835,11 +835,11 @@ to_display.addEventListener("click", () => {
 });
 to_about.addEventListener("click", () => {
     setting_title2.innerHTML = "关于本机";
-    if (document.querySelector("#set-theme-dark input").checked) {
-        document.querySelector("#set-sys-logo img").src = "https://blog-hexo-img.oss-cn-shanghai.aliyuncs.com/f1olM.webp";
-    } else {
-        document.querySelector("#set-sys-logo img").src = "https://blog-hexo-img.oss-cn-shanghai.aliyuncs.com/f15BG.webp";
-    }
+    // if (document.querySelector("#set-theme-dark input").checked) {
+    //     document.querySelector("#set-sys-logo img").src = "https://blog-hexo-img.oss-cn-shanghai.aliyuncs.com/f1olM.webp";
+    // } else {
+    //     document.querySelector("#set-sys-logo img").src = "https://blog-hexo-img.oss-cn-shanghai.aliyuncs.com/f15BG.webp";
+    // }
     document.querySelector("#console-setting-info2 .set-box-normal:nth-child(3) .setting-detail").innerHTML = tools.detectBrowser().hard;
     document.querySelector("#console-setting-info2 .set-box-normal:nth-child(4) .setting-detail").innerHTML = tools.getOSInfo();
     document.querySelector("#console-setting-info2 .set-box-normal:nth-child(5) .setting-detail").innerHTML = tools.detectBrowser().name + " " + tools.detectBrowser().version;

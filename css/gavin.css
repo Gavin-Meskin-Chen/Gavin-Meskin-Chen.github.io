@@ -99,6 +99,7 @@
     --card-bg: #fff;
     --card-link-bg: rgba(0, 150, 255, .1);
     --card-link-border: rgba(0, 150, 255, .3);
+    --system-logo: url(https://blog-hexo-img.oss-cn-shanghai.aliyuncs.com/f15BG.webp);
 
 
 
@@ -187,6 +188,7 @@
     --card-link-bg: rgba(240, 240, 240, .1);
     --card-link-border: rgba(240, 240, 240, .3);
     --font-color: rgba(255, 255, 255, .7);
+    --system-logo: url(https://blog-hexo-img.oss-cn-shanghai.aliyuncs.com/f1olM.webp);
 
 
 
@@ -1033,7 +1035,7 @@ a {
 
 /* Tag页标签样式 */
 .tag-cloud-list a {
-    font-size: 2rem !important;
+    font-size: 1.5rem !important;
     margin: 0.5rem;
     /* border: 1px solid var(--gavin-item-border); */
     background-color: var(--gavin-item-bg);
@@ -3460,6 +3462,7 @@ a.categoryButton:after {
     height: 3.2rem;
     align-items: center;
     border-radius: 1rem;
+    transition: .3s;
     /* mask-image: paint(smooth-corners);
     -webkit-mask-image: paint(smooth-corners);
     --smooth-level: 20; */
@@ -4611,14 +4614,18 @@ progress::-webkit-progress-value {
 }
 
 #set-sys-logo {
-    padding: 10px 0.9rem 0;
-    display: flex;
-    justify-content: center;
+    margin: 10px 0.9rem 0;
+    width: calc(100% - 1.8rem);
+    height: 180px;
+    border-radius: 0.8rem;
+    background-position: center;
+    background-size: cover;
+    background-image: var(--system-logo);
 }
-
+/* 
 #set-sys-logo img {
     width: 100%;
-}
+} */
 
 .setting-detail {
     color: var(--gavin-note-font-color) !important;
