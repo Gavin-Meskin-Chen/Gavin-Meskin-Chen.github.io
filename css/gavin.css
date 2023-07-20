@@ -3450,6 +3450,11 @@ a.categoryButton:after {
 }
 
 /* ********************首页标签分类条*********************** */
+#category {
+    background: 0;
+    box-shadow: none;
+}
+
 #category-bar {
     padding: 0.4rem 1rem 0.4rem 0.75rem;
     background: var(--card-bg);
@@ -3475,12 +3480,13 @@ a.categoryButton:after {
 .category-in-bar {
     display: flex;
     white-space: nowrap;
+    padding: 0 0.5rem;
 }
 
-.category-in-bar-tips {
+/* .category-in-bar-tips {
     margin-right: 1rem;
     padding: 0.4rem;
-}
+} */
 
 /* "更多 */
 .category-bar-more {
