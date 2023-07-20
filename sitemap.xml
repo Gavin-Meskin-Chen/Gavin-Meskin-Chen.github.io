@@ -254,7 +254,7 @@
   </url>
   
   <url>
-    <loc>https://gavin-chen.top/post/d041b9a6.html</loc>
+    <loc>https://gavin-chen.top/post/17173e75.html</loc>
     
     <lastmod>2023-03-23</lastmod>
     
@@ -263,7 +263,7 @@
   </url>
   
   <url>
-    <loc>https://gavin-chen.top/post/17173e75.html</loc>
+    <loc>https://gavin-chen.top/post/d041b9a6.html</loc>
     
     <lastmod>2023-03-23</lastmod>
     
@@ -395,20 +395,6 @@
   </url>
   
   <url>
-    <loc>https://gavin-chen.top/tags/PCB/</loc>
-    <lastmod>2023-07-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://gavin-chen.top/tags/AD/</loc>
-    <lastmod>2023-07-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://gavin-chen.top/tags/%E7%94%B5%E6%BA%90/</loc>
     <lastmod>2023-07-20</lastmod>
     <changefreq>weekly</changefreq>
@@ -438,6 +424,20 @@
   
   <url>
     <loc>https://gavin-chen.top/tags/Pytorch/</loc>
+    <lastmod>2023-07-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://gavin-chen.top/tags/PCB/</loc>
+    <lastmod>2023-07-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://gavin-chen.top/tags/AD/</loc>
     <lastmod>2023-07-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -502,13 +502,6 @@
   </url>
   
   <url>
-    <loc>https://gavin-chen.top/categories/PCB/</loc>
-    <lastmod>2023-07-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://gavin-chen.top/categories/%E7%A1%AC%E4%BB%B6/</loc>
     <lastmod>2023-07-20</lastmod>
     <changefreq>weekly</changefreq>
@@ -517,6 +510,13 @@
   
   <url>
     <loc>https://gavin-chen.top/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/</loc>
+    <lastmod>2023-07-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://gavin-chen.top/categories/PCB/</loc>
     <lastmod>2023-07-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
