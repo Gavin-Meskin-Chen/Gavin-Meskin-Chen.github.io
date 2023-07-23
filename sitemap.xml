@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://gavin-chen.top/post/2a10698b.html</loc>
+    
+    <lastmod>2023-07-23</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://gavin-chen.top/post/efb0b0af.html</loc>
     
     <lastmod>2023-07-23</lastmod>
@@ -93,15 +102,6 @@
   
   <url>
     <loc>https://gavin-chen.top/post/de0459c0.html</loc>
-    
-    <lastmod>2023-07-15</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://gavin-chen.top/post/2a10698b.html</loc>
     
     <lastmod>2023-07-15</lastmod>
     
@@ -421,13 +421,6 @@
   </url>
   
   <url>
-    <loc>https://gavin-chen.top/tags/%E6%95%B0%E7%A0%81/</loc>
-    <lastmod>2023-07-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://gavin-chen.top/tags/node-js/</loc>
     <lastmod>2023-07-23</lastmod>
     <changefreq>weekly</changefreq>
@@ -435,7 +428,7 @@
   </url>
   
   <url>
-    <loc>https://gavin-chen.top/tags/CSS/</loc>
+    <loc>https://gavin-chen.top/tags/%E6%95%B0%E7%A0%81/</loc>
     <lastmod>2023-07-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -443,6 +436,13 @@
   
   <url>
     <loc>https://gavin-chen.top/tags/JavaScript/</loc>
+    <lastmod>2023-07-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://gavin-chen.top/tags/CSS/</loc>
     <lastmod>2023-07-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

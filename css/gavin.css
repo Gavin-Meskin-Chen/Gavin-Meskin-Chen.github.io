@@ -2966,9 +2966,9 @@ pre.language-yaml,
     background: var(--gavin-background);
 }
 
-.layout>div:first-child:not(.recent-posts) {
+/* .layout>div:first-child:not(.recent-posts) {
     padding: 0 40px;
-}
+} */
 
 @media screen and (max-width: 768px) {
     .layout>div:first-child:not(.recent-posts) {
@@ -3204,6 +3204,7 @@ a.article-meta__categories:hover {
 #category,
 #tag {
     width: 100%;
+    padding: 0 40px;
 }
 
 /* 除了目录，其它都隐藏 */
