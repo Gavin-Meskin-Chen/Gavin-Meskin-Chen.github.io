@@ -6,7 +6,7 @@
   <link href="https://gavin-chen.top/atom.xml" rel="self"/>
   
   <link href="https://gavin-chen.top/"/>
-  <updated>2023-07-17T04:20:02.100Z</updated>
+  <updated>2023-07-23T15:29:53.076Z</updated>
   <id>https://gavin-chen.top/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>音乐工具相关分享</title>
+    <link href="https://gavin-chen.top/post/efb0b0af.html"/>
+    <id>https://gavin-chen.top/post/efb0b0af.html</id>
+    <published>2023-07-17T05:02:38.000Z</published>
+    <updated>2023-07-23T15:29:53.076Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;YesPlayMusic&quot;&gt;&lt;a href=&quot;#YesPlayMusic&quot; class=&quot;headerlink&quot; title=&quot;YesPlayMusic&quot;&gt;&lt;/a&gt;YesPlayMusic&lt;/h2&gt;&lt;p&gt;我在逛朋友的博客的时候，发现很多人都用过一个叫 &lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="生活" scheme="https://gavin-chen.top/categories/%E7%94%9F%E6%B4%BB/"/>
+    
+    
+    <category term="分享" scheme="https://gavin-chen.top/tags/%E5%88%86%E4%BA%AB/"/>
+    
+  </entry>
   
   <entry>
     <title>利用vercel部署一个简单的后端程序</title>
@@ -50,9 +75,9 @@
     <category term="Web" scheme="https://gavin-chen.top/categories/Web/"/>
     
     
-    <category term="CSS" scheme="https://gavin-chen.top/tags/CSS/"/>
-    
     <category term="JavaScript" scheme="https://gavin-chen.top/tags/JavaScript/"/>
+    
+    <category term="CSS" scheme="https://gavin-chen.top/tags/CSS/"/>
     
   </entry>
   
@@ -142,9 +167,9 @@
     <category term="Web" scheme="https://gavin-chen.top/categories/Web/"/>
     
     
-    <category term="CSS" scheme="https://gavin-chen.top/tags/CSS/"/>
-    
     <category term="JavaScript" scheme="https://gavin-chen.top/tags/JavaScript/"/>
+    
+    <category term="CSS" scheme="https://gavin-chen.top/tags/CSS/"/>
     
   </entry>
   

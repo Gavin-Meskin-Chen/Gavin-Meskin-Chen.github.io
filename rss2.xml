@@ -9,8 +9,35 @@
     <atom:link href="https://gavin-chen.top/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>南方嘉木的博客</description>
-    <pubDate>Mon, 17 Jul 2023 04:20:02 GMT</pubDate>
+    <pubDate>Sun, 23 Jul 2023 15:29:53 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>音乐工具相关分享</title>
+      <link>https://gavin-chen.top/post/efb0b0af.html</link>
+      <guid>https://gavin-chen.top/post/efb0b0af.html</guid>
+      <pubDate>Mon, 17 Jul 2023 05:02:38 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;h2 id=&quot;YesPlayMusic&quot;&gt;&lt;a href=&quot;#YesPlayMusic&quot; class=&quot;headerlink&quot; title=&quot;YesPlayMusic&quot;&gt;&lt;/a&gt;YesPlayMusic&lt;/h2&gt;&lt;p&gt;我在逛朋友的博客的时候，发现很多人都用过一个叫 &lt;a</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://gavin-chen.top/categories/%E7%94%9F%E6%B4%BB/">生活</category>
+      
+      
+      <category domain="https://gavin-chen.top/tags/%E5%88%86%E4%BA%AB/">分享</category>
+      
+      
+      <comments>https://gavin-chen.top/post/efb0b0af.html#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>利用vercel部署一个简单的后端程序</title>
@@ -47,9 +74,9 @@
       <category domain="https://gavin-chen.top/categories/Web/">Web</category>
       
       
-      <category domain="https://gavin-chen.top/tags/CSS/">CSS</category>
-      
       <category domain="https://gavin-chen.top/tags/JavaScript/">JavaScript</category>
+      
+      <category domain="https://gavin-chen.top/tags/CSS/">CSS</category>
       
       
       <comments>https://gavin-chen.top/post/de0459c0.html#disqus_thread</comments>
@@ -147,9 +174,9 @@
       <category domain="https://gavin-chen.top/categories/Web/">Web</category>
       
       
-      <category domain="https://gavin-chen.top/tags/CSS/">CSS</category>
-      
       <category domain="https://gavin-chen.top/tags/JavaScript/">JavaScript</category>
+      
+      <category domain="https://gavin-chen.top/tags/CSS/">CSS</category>
       
       
       <comments>https://gavin-chen.top/post/7c589660.html#disqus_thread</comments>
