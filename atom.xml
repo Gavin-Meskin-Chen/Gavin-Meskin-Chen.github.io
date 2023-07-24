@@ -75,9 +75,9 @@
     <category term="Web" scheme="https://gavin-chen.top/categories/Web/"/>
     
     
-    <category term="JavaScript" scheme="https://gavin-chen.top/tags/JavaScript/"/>
-    
     <category term="CSS" scheme="https://gavin-chen.top/tags/CSS/"/>
+    
+    <category term="JavaScript" scheme="https://gavin-chen.top/tags/JavaScript/"/>
     
   </entry>
   
@@ -167,9 +167,9 @@
     <category term="Web" scheme="https://gavin-chen.top/categories/Web/"/>
     
     
-    <category term="JavaScript" scheme="https://gavin-chen.top/tags/JavaScript/"/>
-    
     <category term="CSS" scheme="https://gavin-chen.top/tags/CSS/"/>
+    
+    <category term="JavaScript" scheme="https://gavin-chen.top/tags/JavaScript/"/>
     
   </entry>
   
@@ -253,9 +253,9 @@
     <category term="Sentence" scheme="https://gavin-chen.top/categories/Sentence/"/>
     
     
-    <category term="情感" scheme="https://gavin-chen.top/tags/%E6%83%85%E6%84%9F/"/>
-    
     <category term="哲学" scheme="https://gavin-chen.top/tags/%E5%93%B2%E5%AD%A6/"/>
+    
+    <category term="情感" scheme="https://gavin-chen.top/tags/%E6%83%85%E6%84%9F/"/>
     
   </entry>
   
@@ -369,7 +369,7 @@
     <link href="https://gavin-chen.top/post/fb55a1ea.html"/>
     <id>https://gavin-chen.top/post/fb55a1ea.html</id>
     <published>2023-01-07T04:28:47.000Z</published>
-    <updated>2023-07-12T03:06:24.659Z</updated>
+    <updated>2023-07-24T08:16:50.191Z</updated>
     
     
     <summary type="html">初识Hexo和Butterfly</summary>
