@@ -1252,6 +1252,10 @@ a.aside-list-item-head {
     display: block;
 }
 
+#content-inner > :not(#post) .img-alt.is-center {
+    display: none;
+}
+
 /* 文章页封面 */
 
 /* #body-wrap.post #page-header {
