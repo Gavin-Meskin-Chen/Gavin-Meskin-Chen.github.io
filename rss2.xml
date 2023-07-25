@@ -9,8 +9,91 @@
     <atom:link href="https://gavin-chen.top/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>南方嘉木的博客</description>
-    <pubDate>Sun, 23 Jul 2023 15:55:34 GMT</pubDate>
+    <pubDate>Tue, 25 Jul 2023 10:27:42 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>mathjax公式不换行问题</title>
+      <link>https://gavin-chen.top/post/a6751e89.html</link>
+      <guid>https://gavin-chen.top/post/a6751e89.html</guid>
+      <pubDate>Tue, 25 Jul 2023 03:52:42 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;很多时候，在 Typora 上展现出来是一种样式，在 hexo 博客上又是另一种样式。&lt;br&gt;这次遇到了 mathjax 公式不换行的问题。通常，在 LaTeX 语法中，用“\\”可以实现换行显示。&lt;/p&gt;
+&lt;figure class=&quot;highlight</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://gavin-chen.top/categories/%E5%8D%9A%E5%AE%A2/">博客</category>
+      
+      
+      <category domain="https://gavin-chen.top/tags/Markdown/">Markdown</category>
+      
+      
+      <comments>https://gavin-chen.top/post/a6751e89.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>数字电子技术基础（2）——逻辑代数基础</title>
+      <link>https://gavin-chen.top/post/8eb385ff.html</link>
+      <guid>https://gavin-chen.top/post/8eb385ff.html</guid>
+      <pubDate>Tue, 25 Jul 2023 01:46:44 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;h2 id=&quot;逻辑运算&quot;&gt;&lt;a href=&quot;#逻辑运算&quot; class=&quot;headerlink&quot; title=&quot;逻辑运算&quot;&gt;&lt;/a&gt;逻辑运算&lt;/h2&gt;&lt;p&gt;基本的逻辑运算包括与、或、非三项，常用的复合逻辑运算有与非、或非、与或非、异或、同或等。&lt;/p&gt;
+&lt;p&gt;&lt;img</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://gavin-chen.top/categories/%E7%A1%AC%E4%BB%B6/">硬件</category>
+      
+      
+      <category domain="https://gavin-chen.top/tags/%E6%95%B0%E7%94%B5/">数电</category>
+      
+      
+      <comments>https://gavin-chen.top/post/8eb385ff.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>数字电子技术基础（1）——数制与码制</title>
+      <link>https://gavin-chen.top/post/ca0077c.html</link>
+      <guid>https://gavin-chen.top/post/ca0077c.html</guid>
+      <pubDate>Mon, 24 Jul 2023 14:37:07 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;h2 id=&quot;数字电路&quot;&gt;&lt;a href=&quot;#数字电路&quot; class=&quot;headerlink&quot;</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://gavin-chen.top/categories/%E7%A1%AC%E4%BB%B6/">硬件</category>
+      
+      
+      <category domain="https://gavin-chen.top/tags/%E6%95%B0%E7%94%B5/">数电</category>
+      
+      
+      <comments>https://gavin-chen.top/post/ca0077c.html#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>音乐工具相关分享</title>
@@ -74,9 +157,9 @@
       <category domain="https://gavin-chen.top/categories/Web/">Web</category>
       
       
-      <category domain="https://gavin-chen.top/tags/JavaScript/">JavaScript</category>
-      
       <category domain="https://gavin-chen.top/tags/CSS/">CSS</category>
+      
+      <category domain="https://gavin-chen.top/tags/JavaScript/">JavaScript</category>
       
       
       <comments>https://gavin-chen.top/post/de0459c0.html#disqus_thread</comments>
@@ -174,9 +257,9 @@
       <category domain="https://gavin-chen.top/categories/Web/">Web</category>
       
       
-      <category domain="https://gavin-chen.top/tags/JavaScript/">JavaScript</category>
-      
       <category domain="https://gavin-chen.top/tags/CSS/">CSS</category>
+      
+      <category domain="https://gavin-chen.top/tags/JavaScript/">JavaScript</category>
       
       
       <comments>https://gavin-chen.top/post/7c589660.html#disqus_thread</comments>

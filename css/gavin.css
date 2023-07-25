@@ -1256,6 +1256,24 @@ a.aside-list-item-head {
     display: none;
 }
 
+/* 公式 */
+span.mathjax-overflow {
+    padding: 0 3px;
+}
+
+mjx-mspace {
+    display: block;
+    height: 0.5rem;
+}
+
+mjx-container[jax="CHTML"][display="true"] {
+    margin: 0 0 0.5em;
+}
+
+mjx-container[jax="CHTML"] {
+    font-size: 110%!important;
+}
+
 /* 文章页封面 */
 
 /* #body-wrap.post #page-header {
@@ -1632,7 +1650,7 @@ h6 {
     background: rgba(255, 136, 0, 1);
     color: white;
     border-radius: 4px;
-    font-size: 1rem;
+    font-size: 1em;
     margin: 0 4px;
 }
 
