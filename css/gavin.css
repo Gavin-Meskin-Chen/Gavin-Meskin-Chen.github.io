@@ -100,6 +100,7 @@
     --card-link-bg: rgba(0, 150, 255, .1);
     --card-link-border: rgba(0, 150, 255, .3);
     --system-logo: url(https://blog-hexo-img.oss-cn-shanghai.aliyuncs.com/f15BG.webp);
+    --gavin-ripple: rgba(255,255,255,.7);
 
 
 
@@ -189,6 +190,7 @@
     --card-link-border: rgba(240, 240, 240, .3);
     --font-color: rgba(255, 255, 255, .7);
     --system-logo: url(https://blog-hexo-img.oss-cn-shanghai.aliyuncs.com/f1olM.webp);
+    --gavin-ripple: rgba(255,255,255,.3);
 
 
 
@@ -273,6 +275,18 @@
         transform: translateX(-100%);
     }
 }
+
+@keyframes rippleAnim {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+  
 
 #page-header #site-title {
     font-family: xiaozhuan;
@@ -1214,6 +1228,15 @@ a.aside-list-item-head {
 /* 侧边栏个人信息卡片 */
 #aside-content .card-info .author-info__name {
     font-weight: bold;
+    position: relative;
+    z-index: 1;
+}
+
+#aside-content .card-info #card-info-btn,
+#aside-content .card-info .card-info-data,
+#aside-content .card-info .author-info__description {
+    position: relative;
+    z-index: 1;  
 }
 
 .avatar-img img {
@@ -1224,6 +1247,41 @@ a.aside-list-item-head {
 .avatar-img {
     height: 100px;
     width: 100px;
+    position: relative;
+    z-index: 1;
+}
+
+.ripples {
+    position: absolute;
+    top: 1rem;
+    left: calc(50% - 50px);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.ripple {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    opacity: 0;
+    background-color: var(--gavin-ripple);
+    animation: rippleAnim 5s infinite ease-out;
+}
+
+.ripple1 {
+    animation-delay: 0s;
+}
+
+.ripple2 {
+    animation-delay: 1s;
+}
+
+.ripple3 {
+    animation-delay: 2s;
 }
 
 #aside-content>.card-info {
