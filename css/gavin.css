@@ -2759,7 +2759,7 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
     border-radius: 8px;
     width: 5rem;
     background: #eaecf2;
-    border: 1px #e3e8f7;
+    border: 1px solid #e3e8f7;
     overflow: hidden;
 }
 

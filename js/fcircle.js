@@ -11,7 +11,7 @@ var fdata = {
     initnumber: 18,  //首次加载文章数
     stepnumber: 12,  //更多加载文章数
     article_sort: 'created', //文章排序 updated or created
-    error_img: 'https://sdn.geekzu.org/avatar/57d8260dfb55501c37dde588e7c3852c'
+    error_img: 'https://i.imgtg.com/2023/07/29/OipIYK.jpg'
 }
 //可通过 var fdataUser 替换默认值
 if (typeof (fdataUser) !== "undefined") {
