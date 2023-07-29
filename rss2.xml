@@ -41,7 +41,7 @@
     </item>
     
     <item>
-      <title>mathjax公式不换行问题</title>
+      <title>关于mathjax公式的一些bug</title>
       <link>https://gavin-chen.top/post/a6751e89.html</link>
       <guid>https://gavin-chen.top/post/a6751e89.html</guid>
       <pubDate>Tue, 25 Jul 2023 03:52:42 GMT</pubDate>
@@ -50,8 +50,8 @@
         
           
           
-      <description>&lt;p&gt;很多时候，在 Typora 上展现出来是一种样式，在 hexo 博客上又是另一种样式。&lt;br&gt;这次遇到了 mathjax 公式不换行的问题。通常，在 LaTeX 语法中，用“\\”可以实现换行显示。&lt;/p&gt;
-&lt;figure class=&quot;highlight</description>
+      <description>&lt;p&gt;很多时候，在 Typora 上展现出来是一种样式，在 hexo 博客上又是另一种样式。&lt;br&gt;这次遇到了 mathjax 公式的一些问题。&lt;/p&gt;
+&lt;h2 id=&quot;无法换行问题&quot;&gt;&lt;a href=&quot;#无法换行问题&quot; class=&quot;headerlink&quot;</description>
           
         
       
