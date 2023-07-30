@@ -1,9 +1,11 @@
 // pjax适配
 document.addEventListener("DOMContentLoaded", ()=>{
     console.log("第一次加载完成");
+    document.getElementById("page-name").innerText = document.title.split(" | 参星阁")[0];
     cardTimes();
     asideNote();
     cardRefreshTimes();
+    percent();
     ctrl.toPageJump();
     ctrl.getCurrentPage()
     // sidebarWeather();
@@ -11,6 +13,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
     if(document.documentElement.scrollTop != 0){
         document.getElementById("page-header").classList.add("is-top-bar")
     }
+    if (document.getElementById('post-comment')) ctrl.owoBig();
 }); //第一次
 
 document.addEventListener("pjax:complete", ()=>{
@@ -26,8 +29,9 @@ document.addEventListener("pjax:complete", ()=>{
     if(document.documentElement.scrollTop != 0){
         document.getElementById("page-header").classList.add("is-top-bar");
     }
+    if (document.getElementById('post-comment')) ctrl.owoBig();
     categoriesBarActive();
-    musicState();
+    ctrl.musicState();
 }) // pjax加载完成（切换页面）后再执行一次
 
 // ************************************************ 函数部分 **************************************************************
@@ -78,9 +82,6 @@ window.onload = function () {
     console.log(`Welcome to:\n%c参星阁:%c https://gavin-chen.top%c\nThis site has been running stably for %c${Math.round(((new Date).getTime() - new Date("2023/01/04 20:53:58").getTime()) / 864e5)} %c days`, "border:1px #888 solid;border-right:0;border-radius:5px 0 0 5px;padding: 5px 10px;color:white;background:#4976f5;margin:10px 0", "border:1px #888 solid;border-left:0;border-radius:0 5px 5px 0;padding: 5px 10px;", "", "color:#4976f5", "")
 }
 
-
-// 返回顶部 显示网页阅读进度
-window.onscroll = percent; // 执行函数
 // 页面百分比
 function percent() {
     let a = document.documentElement.scrollTop || window.pageYOffset, // 卷去高度
@@ -97,7 +98,7 @@ function percent() {
         btn = document.querySelector("#percent"); // 获取图标
     result <= 99 || (result = 99), (btn.innerHTML = result);
 }
-document.getElementById("page-name").innerText = document.title.split(" | 参星阁")[0];
+window.onscroll = percent; // 返回顶部 显示网页阅读进度
 
 // 侧边栏日历卡片
 function cardTimes() {
@@ -212,28 +213,10 @@ function asideNote() {
     }
 }
 
-// 音乐状态检测（已添加事件监听器，修复点击aplayer后导航栏和控制中心不同步的问题）
-function musicState() {
-    var music_state = document.querySelector("meting-js").aplayer.audio.paused;
-    var a = document.querySelector("#music-Switch i");
-    var b = document.querySelector("#music-ctrl-btn-center i");
-    if (music_state) {
-        a.classList.remove("fa-pause");
-        a.classList.add("fa-play");
-        b.classList.remove("fa-pause");
-        b.classList.add("fa-play");
-    } else {
-        a.classList.remove("fa-play");
-        a.classList.add("fa-pause");
-        b.classList.remove("fa-play");
-        b.classList.add("fa-pause");
-    }
-}
-
 // ***************************************************** 工具模块 ***************************************************************
 
 var tools = {
-    secToTime: function (s) {
+    secToTime(s) {
         if (isNaN(s)) s = 0;
         var min = Math.floor(s / 60);
         var sec = Math.floor(s % 60);
@@ -241,7 +224,7 @@ var tools = {
         return t;
     },
 
-    detectBrowser: function () {
+    detectBrowser() {
         const userAgent = navigator.userAgent;
         let browserName, fullVersion, majorVersion;
         function getHard(str) {
@@ -290,7 +273,7 @@ var tools = {
         };
     },
 
-    getOSInfo: function () {
+    getOSInfo() {
         let osName = "unknown";
         let osVersion = "unknown";
         if (navigator.userAgent.indexOf("Windows") != -1) {
@@ -331,7 +314,7 @@ var tools = {
         return `${osName} ${osVersion}`;
     },
 
-    getMemoryUsage: function () {
+    getMemoryUsage() {
         const memory = performance.memory;
         const totalMemory = memory.totalJSHeapSize / (1024 * 1024);
         const usedMemory = memory.usedJSHeapSize / (1024 * 1024);
@@ -346,7 +329,7 @@ var tools = {
         }
     },
 
-    getBatteryInfo: function () {
+    getBatteryInfo() {
         if ('getBattery' in navigator) {
             navigator.getBattery().then(function(battery) {
                 console.log("Battery level: " + battery.level * 100 + "%");
@@ -359,7 +342,7 @@ var tools = {
         }
     },
 
-    showNote: function (text, style, delay) {
+    showNote(text, style, delay) {
         new Vue({
             data: function () {
                 this.$notify({
@@ -375,7 +358,7 @@ var tools = {
         })
     },
 
-    showMessage: function (text, style, delay) {
+    showMessage(text, style, delay) {
         new Vue({
             data: function () {
                 this.$message({
@@ -388,7 +371,7 @@ var tools = {
         })
     },
 
-    randomColor: function () {
+    randomColor() {
         var colors = ["rgba(0,150,255,.95)", "rgba(0,255,150,.95)", "rgba(255,150,0,.95)", "rgba(255,0,150,.95)", "rgba(150,255,0,.95)", "rgba(150,0,255,.95)"];
         var n = Math.floor(Math.random() * 6); //随机0-5
         return colors[n];
@@ -399,7 +382,7 @@ var tools = {
 
 var ctrl = {
 
-    GlobalTheme: function(e) {
+    GlobalTheme(e) {
         console.log(`changed to ${e.matches ? "dark" : "light"} mode`);
         if(e.matches){
             activateDarkMode();
@@ -413,7 +396,7 @@ var ctrl = {
     },
 
     // 深色模式
-    switchDarkMode: function () {
+    switchDarkMode() {
         const nowMode = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
         if (nowMode === 'light') {
             document.querySelector("#set-theme-dark").click();
@@ -427,7 +410,7 @@ var ctrl = {
     },
 
     // 显示中控台
-    showConsole: function () {
+    showConsole() {
         document.querySelector("#console-music-item-main").classList.add("item-show");
         document.querySelector("#console").classList.add("show");
         document.body.style.overflow = 'hidden';
@@ -435,7 +418,7 @@ var ctrl = {
     },
 
     // 隐藏中控台
-    hideConsole: function () {
+    hideConsole() {
         var items = document.querySelectorAll(".item-show");
         for (let i = 0; i < items.length; i++) items[i].classList.remove("item-show");
         document.querySelector("#console").classList.remove("show");
@@ -443,7 +426,7 @@ var ctrl = {
     },
 
     // 菜单返回
-    consoleBackBtn: function () {
+    consoleBackBtn() {
         var top_item = document.querySelectorAll(".item-show");
         if (top_item.length == 1) {
             switch (top_item[0].id) {
@@ -469,7 +452,7 @@ var ctrl = {
     },
 
     // 桌面歌词
-    ircShowHide: function () {
+    ircShowHide() {
         var irc = document.querySelector(".aplayer > .aplayer-lrc-hide"); //这里防止与音乐页面的控制冲突
         var a = document.querySelector(".aplayer > .aplayer-lrc");
         var b = document.querySelector("#ircItem");
@@ -489,7 +472,7 @@ var ctrl = {
     },
 
     // 单栏显示
-    hideAsideBtn: () => {
+    hideAsideBtn() {
         const $htmlDom = document.documentElement.classList;
         if ($htmlDom.contains('hide-aside')) {
             saveToLocal.set('aside-status', 'show', 2);
@@ -503,12 +486,12 @@ var ctrl = {
         $htmlDom.toggle('hide-aside');
     },
 
-    settingsOpen: function () {
+    settingsOpen() {
         alert("开发中...敬请期待！");
     },
 
     // 导航栏音乐
-    musicSwitch: function () {
+    musicSwitch() {
         var music_state = document.querySelector("meting-js").aplayer.audio.paused;
         var a = document.querySelector("#music-Switch i");
         var b = document.querySelector("#music-ctrl-btn-center i");
@@ -526,18 +509,18 @@ var ctrl = {
         document.querySelector("meting-js").aplayer.toggle();
     },
 
-    musicForward: function () {
+    musicForward() {
         document.querySelector("meting-js").aplayer.skipForward();
         ctrl.getMusicInfo();
     },
 
-    musicBackward: function () {
+    musicBackward() {
         document.querySelector("meting-js").aplayer.skipBack();
         ctrl.getMusicInfo();
     },
 
     // 获取歌曲信息
-    getMusicInfo: function () {
+    getMusicInfo() {
         var music_id = document.querySelector("meting-js").aplayer.list.index; //当前曲目的id
         var music_cover = document.querySelector("meting-js").aplayer.list.audios[music_id].cover;
         var music_author = document.querySelector("meting-js").aplayer.list.audios[music_id].author;
@@ -548,7 +531,7 @@ var ctrl = {
         ctrl.marqueeMusicInfo();
     },
 
-    refreshProgress: function () {
+    refreshProgress() {
         var nowTime = document.querySelector("meting-js").aplayer.audio.currentTime;// 当前时间
         if (isNaN(nowTime)) nowTime = 0;
         var nowTimeString = tools.secToTime(nowTime);
@@ -561,7 +544,7 @@ var ctrl = {
     },
 
     // 导入歌单
-    importMusicList: function () {
+    importMusicList() {
         var audios = document.querySelector("meting-js").aplayer.list.audios;
         var list_html;
         for (let i = 0; i < audios.length; i++) {
@@ -571,7 +554,7 @@ var ctrl = {
     },
 
     // 歌单切换
-    changeMusicList: function (Music_id, Music_server) {
+    changeMusicList(Music_id, Music_server) {
         var ap = document.querySelector("meting-js").aplayer;
         var music_list_url_str = "https://metingjs.gavin-chen.top/api?server=" + Music_server + "&type=playlist" + "&id=" + Music_id;
         ap.list.clear();
@@ -584,19 +567,37 @@ var ctrl = {
             .catch(error => console.error(error));
     },
 
-    JayMusicList: function () {
+    JayMusicList() {
         var ap = document.querySelector("meting-js").aplayer;
         ap.list.clear();
         ap.list.add(JaySongsheet);
     },
 
-    JokerMusicList: function () {
+    JokerMusicList() {
         var ap = document.querySelector("meting-js").aplayer;
         ap.list.clear();
         ap.list.add(QianSongsheet);
     },
 
-    marqueeMusicInfo: function () {
+    // 音乐状态检测（已添加事件监听器，修复点击aplayer后导航栏和控制中心不同步的问题）
+    musicState() {
+        var music_state = document.querySelector("meting-js").aplayer.audio.paused;
+        var a = document.querySelector("#music-Switch i");
+        var b = document.querySelector("#music-ctrl-btn-center i");
+        if (music_state) {
+            a.classList.remove("fa-pause");
+            a.classList.add("fa-play");
+            b.classList.remove("fa-pause");
+            b.classList.add("fa-play");
+        } else {
+            a.classList.remove("fa-play");
+            a.classList.add("fa-pause");
+            b.classList.remove("fa-play");
+            b.classList.add("fa-pause");
+        }
+    },
+
+    marqueeMusicInfo() {
         if (marqueeContent1.offsetWidth > marqueeContainer1.offsetWidth) {
             // marqueeContent1.style.animation = 'marquee-1 10s linear infinite'
             var speed = marqueeContent1.offsetWidth / marqueeContainer1.offsetWidth * 6
@@ -614,7 +615,7 @@ var ctrl = {
     },
 
     //初始化console图标
-    initConsoleState: function () {
+    initConsoleState() {
         var irc = document.querySelector(".aplayer > .aplayer-lrc-hide");
         var aplayer = document.querySelector(".aplayer > .aplayer-lrc");
         irc === null && aplayer != null
@@ -634,7 +635,7 @@ var ctrl = {
     },
 
     // 获取并刷新主题色
-    refreshThemeColor: function () {
+    refreshThemeColor() {
         var cover = document.getElementById("page-header");
         if (cover) {
             var apiUrl = cover.style.backgroundImage.slice(5,-2) + "?x-oss-process=image/average-hue";
@@ -648,7 +649,7 @@ var ctrl = {
     },
 
     //侧滑菜单只展开一节
-    sidebarItemsFold: () => {
+    sidebarItemsFold() {
         let e = document.querySelectorAll("#sidebar-menus .menus_items .site-page.group");
         e && e.forEach(t => {
             t.addEventListener("click", () => {
@@ -660,7 +661,7 @@ var ctrl = {
     },
 
     // 页码跳转
-    toPageJump: () => {
+    toPageJump() {
         let e = document.querySelector("#pagination input.toPageInput");
         e && (e.addEventListener("input", () => {
             let t = document.querySelectorAll(".page-number")
@@ -674,7 +675,7 @@ var ctrl = {
         )
     },
 
-    getCurrentPage: () => {
+    getCurrentPage() {
         if (window.innerWidth <= 768 && document.querySelector("#body-wrap.page.home")) {
             var currentPage = document.querySelector(".pagination .page-number.current").innerHTML;
             if (currentPage) {
@@ -686,7 +687,7 @@ var ctrl = {
         }
     },
 
-    getLocationWeather: () => {
+    getLocationWeather() {
         fetch('https://api.ipify.org?format=json')
             .then(response => response.json())
             .then(data => {
@@ -710,6 +711,55 @@ var ctrl = {
             .catch(error => {
                 console.error('获取 IP 地址失败:', error);
             });
+    },
+
+    // 表情放大
+    owoBig() {
+        let flag = 1, // 设置节流阀
+            owo_time = '', // 设置计时器
+            m = 3; // 设置放大倍数
+        // 创建盒子
+        let div = document.createElement('div'),
+            body = document.querySelector('body');
+        // 设置ID
+        div.id = 'owo-big';
+        // 插入盒子
+        body.appendChild(div);
+        // 构造observer
+        let observer = new MutationObserver(mutations => {
+            for (let i = 0; i < mutations.length; i++) {
+                let dom = mutations[i].addedNodes,
+                    owo_body = '';
+                if (dom.length == 2 && dom[1].className == 'OwO-body') owo_body = dom[1];
+                // 如果需要在评论内容中启用此功能请解除下面的注释
+                // else if (dom.length == 1 && dom[0].className == 'tk-comment') owo_body = dom[0];
+                else continue;
+                // 禁用右键（手机端长按会出现右键菜单，为了体验给禁用掉）
+                if (document.body.clientWidth <= 768) owo_body.addEventListener('contextmenu', e => e.preventDefault());
+                // 鼠标移入
+                owo_body.onmouseover = (e) => {
+                        if (flag && e.target.tagName == 'IMG') {
+                            flag = 0;
+                            // 移入300毫秒后显示盒子
+                            owo_time = setTimeout(() => {
+                                let height = e.target.clientHeight * m, // 盒子高 2023-02-16更新
+                                    width = e.target.clientWidth * m, // 盒子宽 2023-02-16更新
+                                    left = (e.x - e.offsetX) - (width - e.target.clientWidth) / 2, // 盒子与屏幕左边距离 2023-02-16更新
+                                    top = e.y - e.offsetY; // 盒子与屏幕顶部距离
+                                if ((left + width) > body.clientWidth) left -= ((left + width) - body.clientWidth + 10); // 右边缘检测，防止超出屏幕
+                                if (left < 0) left = 10; // 左边缘检测，防止超出屏幕
+                                // 设置盒子样式
+                                div.style.cssText = `display:flex; height:${height}px; width:${width}px; left:${left}px; top:${top}px;`;
+                                // 在盒子中插入图片
+                                div.innerHTML = `<img src="${e.target.src}">`
+                            }, 300);
+                        }
+                    };
+                // 鼠标移出隐藏盒子
+                owo_body.onmouseout = () => { div.style.display = 'none', flag = 1, clearTimeout(owo_time); }
+            }
+        })
+        observer.observe(document.getElementById('post-comment'), { subtree: true, childList: true }) // 监听的 元素 和 配置项
     }
 }
 
