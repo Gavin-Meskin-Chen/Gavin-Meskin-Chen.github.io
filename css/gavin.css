@@ -2758,8 +2758,8 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
     height: 8px;
     border-radius: 8px;
     width: 5rem;
-    background: #eaecf2;
-    border: 1px solid #e3e8f7;
+    background: var(--card-bg);
+    border: 1px solid var(--gavin-background);
     overflow: hidden;
 }
 
