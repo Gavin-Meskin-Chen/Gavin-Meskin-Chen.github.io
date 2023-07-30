@@ -394,6 +394,13 @@
   </url>
   
   <url>
+    <loc>https://gavin-chen.top/tags/%E6%97%A5%E8%AE%B0/</loc>
+    <lastmod>2023-07-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://gavin-chen.top/tags/Hexo/</loc>
     <lastmod>2023-07-30</lastmod>
     <changefreq>weekly</changefreq>
@@ -415,7 +422,7 @@
   </url>
   
   <url>
-    <loc>https://gavin-chen.top/tags/%E6%97%A5%E8%AE%B0/</loc>
+    <loc>https://gavin-chen.top/tags/%E6%83%85%E6%84%9F/</loc>
     <lastmod>2023-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -436,13 +443,6 @@
   </url>
   
   <url>
-    <loc>https://gavin-chen.top/tags/%E6%83%85%E6%84%9F/</loc>
-    <lastmod>2023-07-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://gavin-chen.top/tags/%E5%93%B2%E5%AD%A6/</loc>
     <lastmod>2023-07-30</lastmod>
     <changefreq>weekly</changefreq>
@@ -457,14 +457,14 @@
   </url>
   
   <url>
-    <loc>https://gavin-chen.top/tags/node-js/</loc>
+    <loc>https://gavin-chen.top/tags/%E6%95%B0%E7%94%B5/</loc>
     <lastmod>2023-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://gavin-chen.top/tags/%E6%95%B0%E7%94%B5/</loc>
+    <loc>https://gavin-chen.top/tags/node-js/</loc>
     <lastmod>2023-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -508,14 +508,14 @@
   </url>
   
   <url>
-    <loc>https://gavin-chen.top/categories/%E7%A1%AC%E4%BB%B6/</loc>
+    <loc>https://gavin-chen.top/categories/Sentence/</loc>
     <lastmod>2023-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://gavin-chen.top/categories/Sentence/</loc>
+    <loc>https://gavin-chen.top/categories/%E7%A1%AC%E4%BB%B6/</loc>
     <lastmod>2023-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
