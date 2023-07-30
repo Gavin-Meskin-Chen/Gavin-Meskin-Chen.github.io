@@ -4,7 +4,7 @@
  *
  * Do NOT use SRI with dynamically generated files! More information: https://www.jsdelivr.com/using-sri-with-dynamic-files
  */
-#recent-posts {
+ #recent-posts {
     margin-top: -1rem;
     align-content: flex-start;
     display: flex;
@@ -16,12 +16,14 @@
     margin-top: 1rem;
     display: flex;
     height: auto;
-    width: 49%
+    width: calc(50% - 10px)
 }
 
 #recent-posts>.recent-post-item .post_cover {
-    width: 100%;
-    height: 200px
+    width: calc(100% - 20px);
+    height: 200px;
+    margin: 10px 0 0;
+    border-radius: 10px;
 }
 
 #recent-posts>.recent-post-item .post_cover img.post_bg {
@@ -58,7 +60,7 @@
 }
 
 #recent-posts>.recent-post-item>.recent-post-info>.article-title {
-    -webkit-line-clamp: 1;
+    -webkit-line-clamp: 2;
     margin-top: .3rem;
     margin-bottom: .3rem;
     color: var(--text-highlight-color);
@@ -66,12 +68,13 @@
     line-height: 1.4
 }
 
-#recent-posts>.recent-post-item>.recent-post-info>.article-meta-wrap {
+/* #recent-posts>.recent-post-item>.recent-post-info>.article-meta-wrap {
     margin-bottom: 1rem
-}
+} */
 
 @media screen and (max-width:768px) {
     #recent-posts>.recent-post-item {
         width: 100%
     }
-}/*# sourceMappingURL=/sm/e91ff0653b41f1a04bad468b2ce1ff01d74e03c84bcb9d3f61b29394112373c4.map */
+}
+/*# sourceMappingURL=/sm/e91ff0653b41f1a04bad468b2ce1ff01d74e03c84bcb9d3f61b29394112373c4.map */
