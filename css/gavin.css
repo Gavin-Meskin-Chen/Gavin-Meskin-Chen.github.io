@@ -3871,7 +3871,7 @@ html.hide-aside .layout>div:first-child {
 }
 
 #console-music-item-main {
-    transform: scale(0.9) translateY(-60px);
+    transform: scale(0.9) translateY(-50px);
 }
 
 #console-music-item-main.item-show {
