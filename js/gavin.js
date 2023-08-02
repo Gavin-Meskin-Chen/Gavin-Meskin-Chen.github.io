@@ -873,11 +873,11 @@ var setting_title2 = document.querySelector("#console-setting-info2 .setting-tit
 // var setting_info3 = document.getElementById("console-setting-info3");
 // var setting_title3 = document.querySelector("#console-setting-info3 .setting-title");
 music_list_switch.addEventListener("click", () => {
-    document.getElementById("console-music-item-main").classList.remove("item-show");
+    // document.getElementById("console-music-item-main").classList.remove("item-show");
     document.getElementById("console-music-item-list").classList.add("item-show");
 });
 music_list_title.addEventListener("click", () => {
-    document.getElementById("console-music-item-list").classList.remove("item-show");
+    // document.getElementById("console-music-item-list").classList.remove("item-show");
     document.getElementById("console-songsheet-item-list").classList.add("item-show");
 });
 settings_btn.addEventListener("click", () => {

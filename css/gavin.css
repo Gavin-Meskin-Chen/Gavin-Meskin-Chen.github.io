@@ -1964,9 +1964,17 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
     width: 100%;
     position: fixed;
     display: flex;
+    opacity: 0;
     /* justify-content: center; */
     align-items: center;
     top: 1rem;
+    transform: translateY(-15px);
+    transition: 0.5s ease;
+}
+
+#console.show .console-head {
+    opacity: 1;
+    transform: translateY(0px);
 }
 
 .console-head span {
@@ -2034,15 +2042,15 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
     left: 0;
     z-index: 999;
     justify-content: center;
-    opacity: 0;
-    transition: 0.3s ease-out;
+    /* opacity: 0; */
+    transition: 0.5s ease;
     flex-direction: column;
     align-items: center;
     pointer-events: none;
 }
 
 #console.show {
-    opacity: 1;
+    /* opacity: 1; */
     pointer-events: all;
     /* transition: all 0.5s; */
 }
@@ -2053,23 +2061,36 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
     top: 34.5rem;
     /*相对于音乐卡片位置*/
     margin: 1rem auto 0 auto;
-    justify-content: center;
-    width: 20rem;
+    /* justify-content: center;
+    width: 20rem; */
+    justify-content: space-between;
+    width: 18rem;
+    opacity: 0;
+    transition: .5s ease;
+}
+
+#console.show .console-btn-group {
+    opacity: 1;
 }
 
 #console .console-btn-group.hide {
     display: none;
 }
 
-#console .console-btn-group .console-btn-item:not(:last-child) {
+/* #console .console-btn-group .console-btn-item:not(:last-child) {
     margin-right: 0.5rem;
-}
+} */
 
 #console .console-btn-group .console-btn-item {
     width: 4rem;
     height: 4rem;
-    transition: 0.5s;
+    transition: 0.5s ease;
     cursor: pointer;
+    transform: scale(0.6) translateY(-100px);
+}
+
+#console.show .console-btn-group .console-btn-item{
+    transform: scale(1) translateY(0px);
 }
 
 #console .console-btn-group .console-btn-item a {
@@ -2111,7 +2132,8 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
 #console.show .console-mask {
     -webkit-backdrop-filter: blur(7px);
     backdrop-filter: blur(7px);
-    animation: 0.5s ease 0s 1 normal none running to_show;
+    opacity: 1;
+    /* animation: 0.5s ease 0s 1 normal none running to_show; */
     transform: translateZ(0);
 }
 
@@ -2125,7 +2147,8 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
     left: 0;
     position: absolute;
     z-index: -1;
-    transition: 0.3s;
+    opacity: 0;
+    transition: 0.5s ease;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     -webkit-transform-style: preserve-3d;
@@ -3840,11 +3863,19 @@ html.hide-aside .layout>div:first-child {
     top: 3.5rem;
     opacity: 0;
     pointer-events: none;
-    transition: all 0.5s;
+    transition: all 0.5s ease;
 }
 
 #console-music-item-main {
     padding: 1.3rem;
+}
+
+#console-music-item-main {
+    transform: scale(0.9) translateY(-60px);
+}
+
+#console-music-item-main.item-show {
+    transform: scale(1) translateY(0px);
 }
 
 #console-settings.item-show,
@@ -3856,7 +3887,7 @@ html.hide-aside .layout>div:first-child {
 #console-songsheet-item-list.item-show {
     opacity: 1;
     pointer-events: all;
-    transition: all 0.5s;
+    transition: all 0.5s ease;
 }
 
 /* 封面 */
@@ -4222,6 +4253,7 @@ a#music-list-title {
     position: fixed;
     top: 50%;
     opacity: 0;
+    pointer-events: none;
     transition: all 0.1s;
 }
 
