@@ -94,7 +94,7 @@
     --vercel-border-color: rgb(197, 202, 217);
     --vercel-hover-bg: rgba(234, 234, 234, 1);
     /* --font-color: #2e2e2e; */
-    --font-color: rgba(0, 0, 0, .7);
+    --font-color: rgba(0, 0, 0, .8);
     --text-bg-hover: var(--gavin-blue1);
     --card-bg: #fff;
     --card-link-bg: rgba(0, 150, 255, .1);
@@ -188,7 +188,7 @@
     --btn-hover-color: rgba(80, 80, 80, 1);
     --card-link-bg: rgba(240, 240, 240, .1);
     --card-link-border: rgba(240, 240, 240, .3);
-    --font-color: rgba(255, 255, 255, .7);
+    --font-color: rgba(255, 255, 255, .8);
     --system-logo: url(https://blog-hexo-img.oss-cn-shanghai.aliyuncs.com/f1olM.webp);
     --gavin-ripple: rgba(255,255,255,.3);
 
@@ -302,7 +302,7 @@
 
 #article-container {
     /* font-family: Jinbu; */
-    font-size: 1.2rem;
+    font-size: 1.1rem;
 }
 
 /* #aside-content .card-info .card-info-data {
@@ -1004,7 +1004,7 @@ a {
 /* 设置侧边栏卡片的item样式 */
 .card-archive-list-link,
 .card-category-list-link {
-    border-radius: 0.4em;
+    border-radius: 0.5rem;
 }
 
 .card-archive-list-link:hover,
@@ -1016,7 +1016,7 @@ a {
 #aside-content .card-info #card-info-btn {
     border-radius: 0.4rem;
     border: 1px solid var(--btn-bg);
-    margin: 10px 5% 0;
+    margin: 10px 7% 0;
 }
 
 #aside-content .card-info #card-info-btn:hover {
@@ -1659,8 +1659,8 @@ h6 {
 #article-container.post-content h2 {
     line-height: 1.6rem;
     font-size: 1.6rem;
-    padding-top: 2rem;
-    border-top: 1px dashed var(--gavin-border-color);
+    padding-bottom: 1rem;
+    border-bottom: 1px dashed var(--gavin-border-color);
     margin: 2rem 0;
 }
 
@@ -3282,8 +3282,8 @@ a.article-meta__categories:hover {
 
 /* 侧边卡片栏宽度 */
 #aside-content {
-    max-width: 388px;
-    /* 318 */
+    max-width: 320px;
+    /* 318, 388 */
     min-width: 300px;
 }
 
@@ -4274,7 +4274,11 @@ a#music-list-title {
 
 /* .card-widget.card-times {}*/
 .card-widget {
-    padding: 1rem !important;
+    padding: 10px !important;
+}
+
+.card-widget.card-info {
+    padding-top: 1rem!important;
 }
 
 .card-times a {
@@ -4452,7 +4456,7 @@ progress::-webkit-progress-value {
     height: 1rem;
     font-size: 12px;
     z-index: 1;
-    right: 2rem;
+    right: 1.8rem;
     align-items: center;
     display: flex;
     position: absolute;
@@ -4461,7 +4465,7 @@ progress::-webkit-progress-value {
 #pBar_year,
 #pBar_month,
 #pBar_week {
-    width: calc(100% - 6rem);
+    width: calc(100% - 4.8rem);
     border-radius: 0.4rem;
     height: 1.6rem;
     position: absolute;
@@ -4476,7 +4480,8 @@ progress::-webkit-progress-value {
 }
 
 .schedule-d0 {
-    width: 3rem;
+    /* width: 3rem; */
+    margin-right: 0.5rem;
     align-items: center;
     justify-content: center;
     display: flex;
