@@ -68,7 +68,6 @@
     --gavin-nav-bg: rgba(255, 255, 255, .72);
     --gavin-console-mask: rgba(0, 0, 0, .18);
     --gavin-nav-hover: var(--gavin-blue2);
-    --search-bg: rgba(255, 255, 255, .64);
     --gavin-page-bg: var(--gavin-blue1);
     /*页码颜色*/
     --gavin-toc-bg: var(--gavin-blue1);
@@ -95,6 +94,7 @@
     --vercel-hover-bg: rgba(234, 234, 234, 1);
     /* --font-color: #2e2e2e; */
     --font-color: rgba(0, 0, 0, .8);
+    --search-bg: rgba(255, 255, 255, .64);
     --text-bg-hover: var(--gavin-blue1);
     --card-bg: #fff;
     --card-link-bg: rgba(0, 150, 255, .1);
@@ -155,7 +155,6 @@
     --gavin-nav-bg: rgba(0, 0, 0, .56);
     --gavin-console-mask: rgba(255, 255, 255, .18);
     --gavin-nav-hover: rgba(240, 240, 240, .24);
-    --search-bg: rgba(0, 0, 0, .64);
     --gavin-page-bg: rgba(255, 255, 255, 0.8);
     /*页码颜色*/
     --gavin-toc-bg: rgba(240, 240, 240, .24);
@@ -189,6 +188,7 @@
     --card-link-bg: rgba(240, 240, 240, .1);
     --card-link-border: rgba(240, 240, 240, .3);
     --font-color: rgba(255, 255, 255, .8);
+    --search-bg: rgba(0, 0, 0, .64);
     --system-logo: url(https://blog-hexo-img.oss-cn-shanghai.aliyuncs.com/f1olM.webp);
     --gavin-ripple: rgba(255,255,255,.3);
 
@@ -286,7 +286,14 @@
         opacity: 0;
     }
 }
-  
+
+hr {
+    border: 1px dashed var(--dis-f-0);
+}
+
+hr::before {
+    content: "";
+}
 
 #page-header #site-title {
     font-family: xiaozhuan;
@@ -294,15 +301,19 @@
     font-size: 5em;
 }
 
+#article-container {
+    /* font-family: Jinbu; */
+    font-size: 1.1rem;
+}
+
 @media screen and (max-width: 768px) {
     #page-header #site-title {
         font-size: 3.6em;
     }
-}
 
-#article-container {
-    /* font-family: Jinbu; */
-    font-size: 1.1rem;
+    #article-container {
+        font-size: 1rem;
+    }
 }
 
 /* #aside-content .card-info .card-info-data {
@@ -1115,20 +1126,25 @@ a {
 }
 
 #algolia-search .search-dialog .ais-SearchBox input:focus {
-    border: 2px solid rgba(5, 109, 232, 0.8);
+    border: 2px solid var(--dis-f-0);
+}
+
+#algolia-search .search-dialog .ais-SearchBox input::placeholder {
+    color: var(--gavin-note-font-color);
+    font-size: 0.9rem;
 }
 
 .search-dialog-title {
-    color: rgb(0, 61, 255);
+    color: var(--dis-f-0);
     font-weight: bold;
 }
 
 #algolia-search .search-dialog .ais-Hits-list a:hover {
-    color: rgb(0, 61, 255);
+    color: var(--gavin-blue3);
 }
 
 #algolia-search .search-dialog .ais-Hits-list mark {
-    color: rgb(0, 61, 255);
+    color: var(--gavin-blue3);
 }
 
 .category-lists ul li,
@@ -1691,6 +1707,7 @@ h6 {
 #article-container p,
 #article-container li {
     letter-spacing: 0.7px;
+    line-height: 1.7;
 }
 
 #article-container ol,
