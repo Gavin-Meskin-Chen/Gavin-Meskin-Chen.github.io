@@ -3341,6 +3341,8 @@ a.article-meta__categories:hover {
 
 /* 无侧边栏页，无背景和边框 */
 .page:not(.home) #page,
+.page:not(.home) #category,
+.page:not(.home) #tag,
 .page:not(.home) #archive {
     background: none !important;
     -webkit-box-shadow: none !important;
@@ -3572,11 +3574,6 @@ a.categoryButton:after {
 }
 
 /* ********************首页标签分类条*********************** */
-#category {
-    background: 0;
-    box-shadow: none;
-}
-
 #category-bar {
     padding: 0.4rem 1rem 0.4rem 0.75rem;
     background: var(--card-bg);
