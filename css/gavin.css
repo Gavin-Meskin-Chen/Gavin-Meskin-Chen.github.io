@@ -1151,7 +1151,7 @@ a {
 #algolia-search .search-dialog .ais-Hits-list li {
     border-radius: 0.8rem;
     background-color: var(--gavin-op-dis-1);
-    margin: 7px 7px 7px 0;
+    margin: 7px 0;
     padding: 0.12em 0.4em 0.12em 2em !important;
 }
 
@@ -1159,6 +1159,16 @@ a {
 #algolia-search .search-dialog .ais-Hits-list li:before {
     left: 0.67em;
 }
+
+#algolia-hits > div::-webkit-scrollbar {
+    display: none
+}
+
+#algolia-hits>div {
+    -webkit-mask-image: linear-gradient(0deg, transparent, #fff 7px, #fff calc(100% - 7px), transparent);
+    mask-image: linear-gradient(0deg, transparent, #fff 7px, #fff calc(100% - 7px), transparent);
+}
+
 
 /* 右下角rightside按钮毛玻璃 */
 #rightside>div>button,
@@ -2864,6 +2874,11 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
     transition: all 0.3s ease-in-out;
 }
 
+.post-copyright > div {
+    z-index: 1;
+    position: relative;
+}
+
 #post .post-copyright .post-copyright-meta {
     color: rgba(0, 136, 255, 1);
 }
@@ -2986,7 +3001,7 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
 
 #twikoo .tk-comments-container>.tk-comment {
     padding: 1rem;
-    background: var(--card-bg);
+    background: var(--vercel-background);
     border: 1px solid var(--gavin-border-color);
     border-radius: 1rem;
 }
@@ -3045,6 +3060,11 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
     height: 2.1rem;
 }
 
+.tk-replies:not(.tk-replies-expand) {
+    -webkit-mask-image: linear-gradient( 0deg, transparent, #fff 200px );
+    mask-image: linear-gradient( 0deg, transparent, #fff 200px );
+}
+
 .tk-avatar {
     border-radius: 50%;
     margin-right: 0.5rem;
@@ -3091,11 +3111,11 @@ pre.language-yaml,
 } */
 
 @media screen and (max-width: 768px) {
-    .layout>div:first-child:not(.recent-posts) {
+    /* .layout>div:first-child:not(.recent-posts) { */
         /* padding: 1.5rem 1rem !important; */
         /* border: 1px solid var(--gavin-border-color); */
-        background: var(--vercel-background);
-    }
+        /* background: var(--vercel-background); */
+    /* } */
 
     #body-wrap:not(.home) .layout {
         padding-left: 0;
