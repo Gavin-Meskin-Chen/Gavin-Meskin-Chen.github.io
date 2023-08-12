@@ -77,7 +77,7 @@ Last Modified time : 20220211 98:00 by https://immmmm.com
   #cf-change span:hover{color:var(--gavin-highlight);cursor:pointer;}
   #cf-change .cf-change-now{color:var(--gavin-highlight);font-weight:800;}
   .cf-overshow p a:hover{color:var(--lmm-hover) !important;}
-  .cf-overshow p span{color:var(--lmm-floorcolor)}
+  .cf-overshow p span{color:var(--gavin-note-font-color)}
   /* 暗色主题 */
   .dark-theme #cf-overlay,.theme-dark #cf-overlay{background-color: rgba(59, 61, 66, 0.42);}
   .dark-theme .cf-overshow,.theme-dark .cf-overshow{background: #292a2d;}
@@ -106,6 +106,9 @@ Last Modified time : 20220211 98:00 by https://immmmm.com
     color: var(--lmm-fontcolor);
     font-size: 1.1rem;
     height: fit-content;
+}
+.cf-overshow > .cf-overshow-content > p {
+  margin: 0 0 2rem!important;
 }
   /* 移动端适配 */
   @media screen and (max-width:1200px) {

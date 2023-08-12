@@ -2973,13 +2973,37 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
     transform: translate(-50%, -48px);
 }
 
-/* 评论区样式 */
+/* 评论样式 */
 /* .tk-content {
     background: var(--gavin-item-bg);
     border-radius: 1rem;
     padding: 0.5rem 1rem 0 1rem;
   } */
 
+/* 评论框 */
+.twikoo .el-input__inner:focus, .twikoo .el-textarea__inner:focus {
+    border-color: var(--dis-f-0);
+}
+
+.twikoo .el-input__inner::placeholder, .twikoo .el-textarea__inner::placeholder {
+    color: var(--gavin-note-font-color);
+}
+
+.twikoo .el-input__inner, .twikoo .el-textarea__inner,
+.tk-preview-container {
+    background-color: rgba(144,147,153,0.08);
+}
+
+.twikoo .el-input-group__append, .twikoo .el-input-group__prepend {
+    background-color: rgba(144,147,153,0.16);
+}
+
+.twikoo .el-textarea__inner,
+.tk-preview-container {
+    border-radius: 10px;
+}
+
+/* 评论区 */
 .tk-extra {
     border: 1px solid var(--gavin-border-color);
     padding: 0.3rem;
