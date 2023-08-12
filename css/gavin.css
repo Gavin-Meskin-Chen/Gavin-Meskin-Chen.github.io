@@ -3400,6 +3400,11 @@ a.article-meta__categories:hover {
     box-shadow: none !important;
 }
 
+.flink-desc {
+    margin: 0 0 1rem;
+    line-height: 1;
+}
+
 /* div#archive {
     border: 1px solid var(--gavin-border-color);
   } */
@@ -3731,7 +3736,7 @@ a.categoryButton:after {
     border-left: none;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    gap: 20px;
 }
 
 /* 标题加粗 */
@@ -3760,7 +3765,7 @@ a.categoryButton:after {
 
 .article-sort-item:not(.year) {
     padding: 10px;
-    margin: 10px 0;
+    /* margin: 10px 0; */
     border-radius: 1rem;
     background: var(--card-bg);
     border: 1px solid var(--gavin-border-color);
