@@ -37,7 +37,7 @@ Last Modified time : 20220211 98:00 by https://immmmm.com
   /* 主容器 */
   #cf-container {width:100%;/*max-width:900px;*/height:auto;margin:auto;display:flex;flex-wrap:wrap;justify-content:space-between;}
   #cf-container a {text-decoration:none;}
-  .cf-article {margin:0 10px 20px;border-radius:0.8rem;border: 1px solid var(--gavin-card-border);font-weight:bolder;overflow:hidden;transition: all ease-out .3s;position: relative;padding:0.5rem 1rem;width:calc(100% / 3 - 40px / 3);float:left;}
+  .cf-article {margin:0 0 20px;border-radius:0.8rem;border: 1px solid var(--gavin-card-border);font-weight:bolder;overflow:hidden;transition: all ease-out .3s;position: relative;padding:0.5rem 1rem;width:calc(100% / 3 - 40px / 3);float:left;}
   .cf-article:hover{transition:all .3s;/*-webkit-transform:scale(1.03);transform:scale(1.03);*/border-color: var(--gavin-highlight);}
   .cf-article-avatar{line-height:35px;}
   .cf-img-avatar {align-self:center;text-align:center;display:inline-block !important;width:22px;height:22px;border-radius:50%!important;margin:0 0 -4px !important;background: #fff;}
@@ -117,12 +117,12 @@ Last Modified time : 20220211 98:00 by https://immmmm.com
   @media screen and (max-width:850px) {
     .cf-article{width: 100%!important;}
   }
-  /* @media screen and (max-width:500px) {
-    #cf-state {font-size:14px;margin: 0 0 20px;}
-    .cf-article{margin: 0 0 20px;width: 100%!important;}
-    #cf-more:hover{width: 100%!important;}
-    .cf-article-time i{display:none;}
-  } */
+  @media screen and (max-width:500px) {
+    /* #cf-state {font-size:14px;margin: 0 0 20px;} */
+    /* .cf-article{margin: 0 0 20px;width: 100%!important;} */
+    #cf-more{width: 100%!important;}
+    /* .cf-article-time i{display:none;} */
+  }
   @media screen and (max-width:300px) {
     #cf-state,.cf-article-time{display:none;}
   }

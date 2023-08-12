@@ -2168,6 +2168,7 @@ figure.highlight pre .javascript .function {
 }
 .category-lists .category-list {
   margin-bottom: 0;
+  padding-inline-start: 0;
 }
 .category-lists .category-list a {
   color: var(--font-color);
