@@ -4844,7 +4844,7 @@ progress::-webkit-progress-value {
 
 #head-cover {
     width: 100%;
-    height: 300px;
+    height: 350px;
     margin: 0 0 20px;
     border-radius: 1.5rem;
     mask-image: paint(smooth-corners);
@@ -4852,6 +4852,16 @@ progress::-webkit-progress-value {
     --smooth-level: 30;
     overflow: hidden;
     position: relative;
+}
+
+#head-cover::after {
+    box-shadow: 0 0 160px 10px #1c1c1c inset;
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
 }
 
 .head-cover-img {
@@ -4869,6 +4879,7 @@ progress::-webkit-progress-value {
     font-weight: bold;
     line-height: 1.2;
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 1;
 }
 
 .head-cover-descr {
@@ -4880,12 +4891,18 @@ progress::-webkit-progress-value {
     background-color: var(--gavin-op-dis-1);
     padding: 4px 8px;
     border-radius: 8px;
+    -webkit-backdrop-filter: blur(5px);
     backdrop-filter: blur(5px);
+    max-width: calc(100% - 50px);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    z-index: 1;
 }
 
 @media screen and (max-width: 1000px) {
     #head-cover {
-        height: 250px;
+        height: 300px;
         border-radius: 1.2rem;
         --smooth-level: 27;
     }
@@ -4903,9 +4920,13 @@ progress::-webkit-progress-value {
 
 @media screen and (max-width: 768px) {
     #head-cover {
-        height: 200px;
+        height: 250px;
         border-radius: 1rem;
         --smooth-level: 24;
+    }
+
+    #head-cover::after {
+        box-shadow: 0 0 80px 10px #1c1c1c inset;
     }
 
     .head-cover-title {
@@ -4922,8 +4943,8 @@ progress::-webkit-progress-value {
 
 @media screen and (max-width: 500px) {
     #head-cover {
-        height: 150px;
-        --smooth-level: 32;
+        height: 200px;
+        --smooth-level: 20;
     }
 
     .head-cover-title {

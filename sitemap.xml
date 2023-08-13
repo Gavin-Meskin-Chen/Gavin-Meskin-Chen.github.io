@@ -2,25 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://gavin-chen.top/log/index.html</loc>
-    
-    <lastmod>2023-08-13</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://gavin-chen.top/about/index.html</loc>
-    
-    <lastmod>2023-08-13</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://gavin-chen.top/categories/index.html</loc>
+    <loc>https://gavin-chen.top/link/index.html</loc>
     
     <lastmod>2023-08-13</lastmod>
     
@@ -47,7 +29,7 @@
   </url>
   
   <url>
-    <loc>https://gavin-chen.top/resource/index.html</loc>
+    <loc>https://gavin-chen.top/secret/index.html</loc>
     
     <lastmod>2023-08-13</lastmod>
     
@@ -56,7 +38,7 @@
   </url>
   
   <url>
-    <loc>https://gavin-chen.top/secret/index.html</loc>
+    <loc>https://gavin-chen.top/resource/index.html</loc>
     
     <lastmod>2023-08-13</lastmod>
     
@@ -74,6 +56,15 @@
   </url>
   
   <url>
+    <loc>https://gavin-chen.top/movies/index.html</loc>
+    
+    <lastmod>2023-08-13</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://gavin-chen.top/messageboard/index.html</loc>
     
     <lastmod>2023-08-13</lastmod>
@@ -83,7 +74,7 @@
   </url>
   
   <url>
-    <loc>https://gavin-chen.top/link/index.html</loc>
+    <loc>https://gavin-chen.top/log/index.html</loc>
     
     <lastmod>2023-08-13</lastmod>
     
@@ -101,7 +92,16 @@
   </url>
   
   <url>
-    <loc>https://gavin-chen.top/movies/index.html</loc>
+    <loc>https://gavin-chen.top/categories/index.html</loc>
+    
+    <lastmod>2023-08-13</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://gavin-chen.top/about/index.html</loc>
     
     <lastmod>2023-08-13</lastmod>
     
@@ -403,13 +403,6 @@
   </url>
   
   <url>
-    <loc>https://gavin-chen.top/tags/%E6%97%A5%E8%AE%B0/</loc>
-    <lastmod>2023-08-13</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://gavin-chen.top/tags/Hexo/</loc>
     <lastmod>2023-08-13</lastmod>
     <changefreq>weekly</changefreq>
@@ -418,6 +411,13 @@
   
   <url>
     <loc>https://gavin-chen.top/tags/Butterfly/</loc>
+    <lastmod>2023-08-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://gavin-chen.top/tags/%E6%97%A5%E8%AE%B0/</loc>
     <lastmod>2023-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
