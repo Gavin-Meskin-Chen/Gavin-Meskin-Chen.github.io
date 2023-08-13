@@ -259,9 +259,11 @@ document.addEventListener('DOMContentLoaded', function () {
   const scrollFn = function () {
     const $rightside = document.getElementById('rightside')
     const innerHeight = window.innerHeight + 56
-
+    const scrollHeight = document.body.scrollHeight + 400
+    // console.log("document.body.scrollHeight: " + scrollHeight)
+    // console.log("window.innerHeight: " + (innerHeight - 56))
     // 當滾動條小于 56 的時候
-    if (document.body.scrollHeight <= innerHeight) {
+    if (scrollHeight <= innerHeight) {
       $rightside.style.cssText = 'opacity: 1; transform: translateX(-58px)'
       return
     }
@@ -310,13 +312,12 @@ document.addEventListener('DOMContentLoaded', function () {
           $rightside.style.cssText = "opacity: ''; transform: ''"
         }
 
-        if (document.body.scrollHeight <= innerHeight) {
+        if (scrollHeight <= innerHeight) {
           $rightside.style.cssText = 'opacity: 1; transform: translateX(-58px)'
         }
       }, 200)
-    
-    window.scrollCollect = scrollTask
 
+    window.scrollCollect = scrollTask
     window.addEventListener('scroll', scrollCollect)
   }
 
