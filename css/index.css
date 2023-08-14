@@ -4807,6 +4807,7 @@ span.mathjax-overflow {
   -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
   display: block;
+  text-shadow: 0 0 5px rgba(0,0,0,0.5);
 }
 [data-theme='dark'] .card_box {
   color: #ddd !important;

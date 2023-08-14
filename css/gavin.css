@@ -4877,7 +4877,7 @@ progress::-webkit-progress-value {
     color: #fff;
     font-size: 2.5rem;
     font-weight: bold;
-    line-height: 1.2;
+    line-height: 1;
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     z-index: 1;
 }
@@ -4926,7 +4926,7 @@ progress::-webkit-progress-value {
     }
 
     #head-cover::after {
-        box-shadow: 0 0 80px 10px #1c1c1c inset;
+        box-shadow: 0 0 80px 5px #1c1c1c inset;
     }
 
     .head-cover-title {
