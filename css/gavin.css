@@ -820,9 +820,9 @@ center#name-container {
     color: var(--gavin-note-font-color);
 }
 
-.back-home-button .back-menu-list-groups:hover {
+/* .back-home-button .back-menu-list-groups:hover {
     border: 1px solid var(--gavin-highlight);
-}
+} */
 
 .back-home-button .back-menu-list .back-menu-item {
     display: flex;
@@ -1222,6 +1222,12 @@ a {
     /* mask-image: paint(smooth-corners);
     -webkit-mask-image: paint(smooth-corners);
     --smooth-level: 20; */
+}
+
+#aside-content .card-widget:hover,
+.layout > div:first-child:not(.recent-posts):hover {
+    -webkit-box-shadow: var(--card-box-shadow);
+    box-shadow: var(--card-box-shadow);
 }
 
 @media screen and (min-width: 900px) and (max-width: 1050px) {
@@ -3027,8 +3033,13 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
 .tk-extra {
     border: 1px solid var(--gavin-border-color);
     padding: 0.3rem;
+    margin: 0.25rem 0.25rem 0 0;
     border-radius: 0.4rem;
     font-size: 0.4rem;
+}
+
+.tk-extras {
+    margin: 5px 0 0;
 }
 
 .tk-icon.__comment {
@@ -3705,9 +3716,9 @@ a.categoryButton:after {
     color: var(--font-color)
 }
 
-#category-bar:hover {
+/* #category-bar:hover {
     box-shadow: var(--card-hover-box-shadow);
-}
+} */
 
 #recent-posts {
     margin-top: 0 !important;
