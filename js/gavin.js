@@ -570,12 +570,14 @@ var ctrl = {
     JayMusicList() {
         var ap = document.querySelector("meting-js").aplayer;
         ap.list.clear();
+        console.log("本专辑有" + JaySongsheet.length + "首歌曲");
         ap.list.add(JaySongsheet);
     },
 
     JokerMusicList() {
         var ap = document.querySelector("meting-js").aplayer;
         ap.list.clear();
+        console.log("本专辑有" + QianSongsheet.length + "首歌曲");
         ap.list.add(QianSongsheet);
     },
 
@@ -891,11 +893,6 @@ to_display.addEventListener("click", () => {
 });
 to_about.addEventListener("click", () => {
     setting_title2.innerHTML = "关于本机";
-    // if (document.querySelector("#set-theme-dark input").checked) {
-    //     document.querySelector("#set-sys-logo img").src = "https://blog-hexo-img.oss-cn-shanghai.aliyuncs.com/f1olM.webp";
-    // } else {
-    //     document.querySelector("#set-sys-logo img").src = "https://blog-hexo-img.oss-cn-shanghai.aliyuncs.com/f15BG.webp";
-    // }
     document.querySelector("#console-setting-info2 .set-box-normal:nth-child(3) .setting-detail").innerHTML = tools.detectBrowser().hard;
     document.querySelector("#console-setting-info2 .set-box-normal:nth-child(4) .setting-detail").innerHTML = tools.getOSInfo();
     document.querySelector("#console-setting-info2 .set-box-normal:nth-child(5) .setting-detail").innerHTML = tools.detectBrowser().name + " " + tools.detectBrowser().version;
@@ -960,47 +957,75 @@ set_font_size.addEventListener("change", () => {
 
 
 // 歌单列表监听器
-var songsheet0 = document.getElementById("songsheet-X");
-var songsheet1 = document.getElementById("songsheet-A");
-var songsheet2 = document.getElementById("songsheet-B");
-var songsheet3 = document.getElementById("songsheet-C");
-var songsheet4 = document.getElementById("songsheet-D");
+// var songsheet1 = document.getElementById("songsheet-1");
+// var songsheet2 = document.getElementById("songsheet-2");
+// var songsheet3 = document.getElementById("songsheet-3");
+// var songsheet4 = document.getElementById("songsheet-4");
+// var songsheet5 = document.getElementById("songsheet-5");
+// var songsheet6 = document.getElementById("songsheet-6");
+// songsheet1.addEventListener("click", () => {
+//     document.getElementById("console-loading-icon").classList.add("show");
+//     console.log("正在切换至周杰伦专辑");
+//     global_music_flag = 1;
+//     ctrl.JayMusicList();
+//     document.getElementById("music-list-title").innerHTML = "周杰伦";
+// });
+// songsheet2.addEventListener("click", () => {
+//     document.getElementById("console-loading-icon").classList.add("show");
+//     console.log("正在切换至薛之谦/李荣浩专辑");
+//     global_music_flag = 1;
+//     ctrl.JokerMusicList();
+//     document.getElementById("music-list-title").innerHTML = "薛之谦/李荣浩";
+// });
+// songsheet3.addEventListener("click", () => {
+//     document.getElementById("console-loading-icon").classList.add("show");
+//     console.log("正在切换至纯音乐专辑");
+//     global_music_flag = 1;
+//     ctrl.changeMusicList("8167030216", "netease");
+//     document.getElementById("music-list-title").innerHTML = "纯音乐";
+// });
+// songsheet4.addEventListener("click", () => {
+//     document.getElementById("console-loading-icon").classList.add("show");
+//     console.log("正在切换至外语专辑");
+//     global_music_flag = 1;
+//     ctrl.changeMusicList("8658340188", "netease");
+//     document.getElementById("music-list-title").innerHTML = "外语";
+// });
+// songsheet5.addEventListener("click", () => {
+//     document.getElementById("console-loading-icon").classList.add("show");
+//     console.log("正在切换至古风专辑");
+//     global_music_flag = 1;
+//     ctrl.changeMusicList("8167066222", "netease");
+//     document.getElementById("music-list-title").innerHTML = "古风";
+// });
+// songsheet6.addEventListener("click", () => {
+//     document.getElementById("console-loading-icon").classList.add("show");
+//     console.log("正在切换至幻音坊专辑");
+//     global_music_flag = 1;
+//     ctrl.changeMusicList("8086610771", "netease");
+//     document.getElementById("music-list-title").innerHTML = "幻音坊";
+// });
+// 简化后代码
+const songsheets = [
+    { id: "songsheet-1", text: "周杰伦", flag: 1, func: () => ctrl.JayMusicList() },
+    { id: "songsheet-2", text: "薛之谦/李荣浩", flag: 1, func: () => ctrl.JokerMusicList() },
+    { id: "songsheet-3", text: "纯音乐", flag: 1, func: () => ctrl.changeMusicList("8167030216", "netease") },
+    { id: "songsheet-4", text: "外语", flag: 1, func: () => ctrl.changeMusicList("8658340188", "netease") },
+    { id: "songsheet-5", text: "古风", flag: 1, func: () => ctrl.changeMusicList("8167066222", "netease") },
+    { id: "songsheet-6", text: "默认歌单", flag: 1, func: () => ctrl.changeMusicList("8086610771", "netease") }
+];
+songsheets.forEach((songsheet, index) => {
+    const element = document.getElementById(songsheet.id);
+    element.addEventListener("click", () => {
+        document.getElementById("console-loading-icon").classList.add("show");
+        console.log(`正在切换至${songsheet.text}专辑`);
+        global_music_flag = songsheet.flag;
+        songsheet.func();
+        document.getElementById("music-list-title").innerHTML = songsheet.text;
+    });
+});
+
 var addSongsheet = document.getElementById("songsheet-add");
-songsheet0.addEventListener("click", () => {
-    document.getElementById("console-loading-icon").classList.add("show");
-    console.log("正在切换至默认专辑");
-    global_music_flag = 1;
-    ctrl.changeMusicList("8086610771", "netease");
-    document.getElementById("music-list-title").innerHTML = "网易云";
-});
-songsheet1.addEventListener("click", () => {
-    document.getElementById("console-loading-icon").classList.add("show");
-    console.log("正在切换至纯音乐专辑");
-    global_music_flag = 1;
-    ctrl.changeMusicList("8167030216", "netease");
-    document.getElementById("music-list-title").innerHTML = "纯音乐";
-});
-songsheet2.addEventListener("click", () => {
-    document.getElementById("console-loading-icon").classList.add("show");
-    console.log("正在切换至周杰伦专辑");
-    global_music_flag = 1;
-    ctrl.JayMusicList();
-    document.getElementById("music-list-title").innerHTML = "周杰伦";
-});
-songsheet3.addEventListener("click", () => {
-    document.getElementById("console-loading-icon").classList.add("show");
-    console.log("正在切换至薛之谦/李荣浩专辑");
-    global_music_flag = 1;
-    ctrl.JokerMusicList();
-    document.getElementById("music-list-title").innerHTML = "薛之谦/李荣浩";
-});
-songsheet4.addEventListener("click", () => {
-    document.getElementById("console-loading-icon").classList.add("show");
-    console.log("正在切换至古风专辑");
-    global_music_flag = 1;
-    ctrl.changeMusicList("8167066222", "netease");
-    document.getElementById("music-list-title").innerHTML = "古风";
-});
 addSongsheet.addEventListener("click", () => {
     console.log("自定义专辑");
     if (set_notice.checked) tools.showNote("有空再写吧", "warning", 3)

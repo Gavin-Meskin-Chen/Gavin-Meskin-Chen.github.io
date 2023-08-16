@@ -89,6 +89,7 @@
     --gavin-highlight: var(--gavin-blue2);
     --gavin-switch-off: rgb(233, 233, 234);
     --gavin-switch-on: rgb(52, 199, 89);
+    --gavin-ripple: rgba(255,255,255,.7);
     --vercel-background: rgb(250, 250, 250);
     --vercel-border-color: rgb(197, 202, 217);
     --vercel-hover-bg: rgba(234, 234, 234, 1);
@@ -100,8 +101,8 @@
     --card-link-bg: rgba(0, 150, 255, .1);
     --card-link-border: rgba(0, 150, 255, .3);
     --system-logo: url(https://blog-hexo-img.oss-cn-shanghai.aliyuncs.com/f15BG.webp);
-    --gavin-ripple: rgba(255,255,255,.7);
-
+    --hl-bg: rgb(44, 48, 54);
+    --hlnumber-bg: rgb(44, 48, 54);
 
 
 
@@ -150,7 +151,7 @@
     --gavin-op-7: rgba(0, 0, 0, .7);
     --gavin-op-dis-1: rgba(255, 255, 255, .1);
     --gavin-op-dis-3: rgba(255, 255, 255, .3);
-    --gavin-op-dis-3: rgba(255, 255, 255, .5);
+    --gavin-op-dis-5: rgba(255, 255, 255, .5);
     --gavin-op-dis-7: rgba(255, 255, 255, .7);
     --gavin-nav-bg: rgba(0, 0, 0, .56);
     --gavin-console-mask: rgba(255, 255, 255, .18);
@@ -177,6 +178,7 @@
     --gavin-highlight: #fff;
     --gavin-switch-off: rgb(57, 57, 61);
     --gavin-switch-on: rgb(48, 209, 88);
+    --gavin-ripple: rgba(255,255,255,.3);
     --vercel-background: rgb(17, 17, 17);
     --vercel-border-color: rgb(66, 68, 74);
     --vercel-hover-bg: rgba(51, 51, 51, 1);
@@ -190,8 +192,8 @@
     --font-color: rgba(255, 255, 255, .8);
     --search-bg: rgba(0, 0, 0, .64);
     --system-logo: url(https://blog-hexo-img.oss-cn-shanghai.aliyuncs.com/f1olM.webp);
-    --gavin-ripple: rgba(255,255,255,.3);
-
+    --hl-bg: rgb(40, 44, 48);
+    --hlnumber-bg: rgb(40, 44, 48);
 
 
 
@@ -1341,14 +1343,16 @@ a.aside-list-item-head {
 }
 
 /* 打赏 */
-.post-reward .reward-main .reward-all {
-    border-radius: 0.8rem;
+.post-reward .reward-main .reward-all .reward-item img {
+    border-radius: 0.5rem;
+    border: 1px solid var(--gavin-border-color);
 }
 
-.post-reward .reward-main .reward-all .reward-item img,
 /* 文章图片 */
-#article-container img {
-    border-radius: 0.5rem;
+#article-container img,
+.post-reward .reward-main .reward-all {
+    border-radius: 0.8rem;
+    border: 1px solid var(--gavin-border-color);
 }
 
 /* 文章图片底部注释 */
@@ -1369,7 +1373,7 @@ span.mathjax-overflow {
 
 mjx-mspace {
     display: block;
-    height: 0.5rem;
+    height: 4px;
 }
 
 mjx-container[jax="CHTML"][display="true"] {
@@ -3070,6 +3074,7 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
     border: 1px solid var(--gavin-border-color);
     background-color: var(--gavin-background);
     color: var(--gavin-note-font-color);
+    margin-top: 5px;
 }
 
 .tk-expand:hover {
@@ -3181,7 +3186,7 @@ pre.language-yaml,
 /* ***************哔哩哔哩bilibili视频适配*************** */
 .aspect-ratio {
     position: relative;
-    width: 90%;
+    width: 100%;
     height: auto;
     padding-bottom: 75%;
     margin: 3% auto;
@@ -3191,9 +3196,11 @@ pre.language-yaml,
 .aspect-ratio iframe {
     position: absolute;
     width: 100%;
-    height: 86%;
+    height: 100%;
     left: 0;
     top: 0;
+    border-radius: 1rem;
+    border: 1px solid var(--gavin-border-color);
 }
 
 /* ****************评论区表情放大预览（没用到）****************** */

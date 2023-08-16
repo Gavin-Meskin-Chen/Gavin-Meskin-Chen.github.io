@@ -199,6 +199,7 @@ setInterval(() => {
                     ctrl.importMusicList();
                     global_music_flag = 1;
                     // console.log("导入完毕")
+                    newSongsheetLen = 0;
                     clearInterval(t_load);
                     document.getElementById("console-loading-icon").classList.remove("show");
                     if (set_notice.checked) tools.showMessage("歌单导入成功！", "success", 1);
