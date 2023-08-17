@@ -577,7 +577,7 @@ header img {
 
 /* 导航栏新改的 */
 .nav-fixed #nav {
-    transform: translateY(58px) !important;
+    transform: translateY(100%) !important;
 }
 
 #nav a {
@@ -755,7 +755,7 @@ center#name-container {
     margin-right: 4px;
     transition: 0.3s;
     border-radius: 8px;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
 }
 
 #nav.hide-menu .back-home-button {
@@ -1348,11 +1348,14 @@ a.aside-list-item-head {
     border: 1px solid var(--gavin-border-color);
 }
 
-/* 文章图片 */
-#article-container img,
 .post-reward .reward-main .reward-all {
     border-radius: 0.8rem;
     border: 1px solid var(--gavin-border-color);
+}
+
+/* 文章图片 */
+#article-container img {
+    border-radius: 0.8rem;
 }
 
 /* 文章图片底部注释 */
@@ -1762,7 +1765,8 @@ h6 {
 
 /* 引用高亮 */
 #article-container code {
-    background: rgba(255, 136, 0, 1);
+    /* background: rgba(255, 136, 0, 1); */
+    background: var(--gavin-blue1);
     color: white;
     border-radius: 4px;
     font-size: 1em;
@@ -1770,7 +1774,8 @@ h6 {
 }
 
 [data-theme="dark"] #article-container code {
-    background: rgba(255, 136, 0, 0.7);
+    /* background: rgba(255, 136, 0, 0.7); */
+    background: var(--gavin-blue2);
 }
 
 /* 主页侧边栏sticky的bug */

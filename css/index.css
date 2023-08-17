@@ -2458,12 +2458,6 @@ figure.highlight pre .javascript .function {
   width: 100%;
   height: 100%;
   margin: 0;
-  border-radius: 0.8rem;
-  -webkit-transition: all 0.675s;
-  -moz-transition: all 0.675s;
-  -o-transition: all 0.675s;
-  -ms-transition: all 0.675s;
-  transition: all 0.675s;
   object-fit: cover;
 }
 #article-container .flink .flink-list > .flink-list-item a .img-alt {
