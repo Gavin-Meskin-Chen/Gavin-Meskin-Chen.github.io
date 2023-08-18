@@ -6,7 +6,7 @@
   <link href="https://gavin-chen.top/atom.xml" rel="self"/>
   
   <link href="https://gavin-chen.top/"/>
-  <updated>2023-08-18T03:00:17.924Z</updated>
+  <updated>2023-08-18T12:53:16.295Z</updated>
   <id>https://gavin-chen.top/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>数字电子技术基础（4）——触发器</title>
+    <link href="https://gavin-chen.top/post/603cec67.html"/>
+    <id>https://gavin-chen.top/post/603cec67.html</id>
+    <published>2023-08-18T05:46:18.000Z</published>
+    <updated>2023-08-18T12:53:16.295Z</updated>
+    
+    <content type="html"><![CDATA[<p>数字系统中常用触发器作为存储单元，它是构成时序逻辑电路的基本逻辑器件，根据逻辑功能的不同，触发器可分为 RS 触发器、D 触发器、JK 触发器、T 触发器和 T&#39;触发器等。根据结构形式不同，又可分为基本 RS 触发器、同步触发器、主从触发器和边沿触发器等。</p><h2 id="SR-锁存器"><a href="#SR-锁存器" class="headerlink" title="SR 锁存器"></a>SR 锁存器</h2><p>SR 锁存器，有的教材也叫基本 RS 触发器，有与非门构成的也有或非门构成的。</p><ul><li>或非门构成的 SR 锁存器</li></ul><p><img src="https://blog-hexo-img.oss-cn-shanghai.aliyuncs.com/202308181548885.webp" alt="电路结构与图形符号"></p><div class="table-container"><table><thead><tr><th style="text-align:center"><script type="math/tex">S_D</script></th><th style="text-align:center"><script type="math/tex">R_D</script></th><th style="text-align:center"><script type="math/tex">Q^*</script></th></tr></thead><tbody><tr><td style="text-align:center">0</td><td style="text-align:center">0</td><td style="text-align:center">Q</td></tr><tr><td style="text-align:center">0</td><td style="text-align:center">1</td><td style="text-align:center">0</td></tr><tr><td style="text-align:center">1</td><td style="text-align:center">0</td><td style="text-align:center">1</td></tr><tr><td style="text-align:center">1</td><td style="text-align:center">1</td><td style="text-align:center">Q=Q&#39;=0</td></tr></tbody></table></div><div class="note primary no-icon flat"><p>[<span class='p blue'>注</span>]: 当<script type="math/tex">S_D</script>和<script type="math/tex">R_D</script>同时由 1 变为 0 ，<script type="math/tex">Q^*</script>状态不定</p></div><div class="note info modern"><p>状态方程：</p><script type="math/tex; mode=display">Q^*=S+\overline{R}Q \\\overline{S}+\overline{R}=1</script></div><ul><li>与非门构成的 SR 锁存器</li></ul><p><img src="https://blog-hexo-img.oss-cn-shanghai.aliyuncs.com/202308181623497.webp" alt="电路结构与图形符号"></p><div class="table-container"><table><thead><tr><th style="text-align:center"><script type="math/tex">S_D'</script></th><th style="text-align:center"><script type="math/tex">R_D'</script></th><th style="text-align:center"><script type="math/tex">Q^*</script></th></tr></thead><tbody><tr><td style="text-align:center">1</td><td style="text-align:center">1</td><td style="text-align:center">Q</td></tr><tr><td style="text-align:center">1</td><td style="text-align:center">0</td><td style="text-align:center">0</td></tr><tr><td style="text-align:center">0</td><td style="text-align:center">1</td><td style="text-align:center">1</td></tr><tr><td style="text-align:center">0</td><td style="text-align:center">0</td><td style="text-align:center">Q=Q&#39;=1</td></tr></tbody></table></div><div class="note primary no-icon flat"><p>[<span class='p blue'>注</span>]: 当<script type="math/tex">S_D</script>和<script type="math/tex">R_D</script>同时由 0 变为 1 ，<script type="math/tex">Q^*</script>状态不定</p></div><div class="note info modern"><p>状态方程：</p><script type="math/tex; mode=display">Q^*=S+\overline{R}Q \\SR=0</script></div><p>状态不定部分的波形图可以用阴影部分代替。</p><h2 id="同步触发器"><a href="#同步触发器" class="headerlink" title="同步触发器"></a>同步触发器</h2><p>SR 锁存器的状态直接受输入信号控制，而一般将有时钟信号控制的锁存器叫做触发器。</p><div class="note primary modern"><p>同步 = 电平触发</p></div><div class="note primary modern"><p>电平触发，即电平为 1 期间，输入信号每次变化都将引起输出变化，发生多次翻转，这种现象也称<code>空翻</code>现象。所以这种器件的抗干扰能力还是比较低。</p></div><h3 id="同步-RS-触发器"><a href="#同步-RS-触发器" class="headerlink" title="同步 RS 触发器"></a>同步 RS 触发器</h3><p>同步触发器即由电平触发的触发器，所以有的教材也称同步 RS 触发器为电平触发 SR 触发器或门控 SR 锁存器。</p><p><img src="https://blog-hexo-img.oss-cn-shanghai.aliyuncs.com/202308181720130.webp" alt="同步RS触发器"></p><div class="table-container"><table><thead><tr><th style="text-align:center">S</th><th style="text-align:center">R</th><th style="text-align:center"><script type="math/tex">Q^*</script></th></tr></thead><tbody><tr><td style="text-align:center">0</td><td style="text-align:center">0</td><td style="text-align:center">Q</td></tr><tr><td style="text-align:center">0</td><td style="text-align:center">1</td><td style="text-align:center">0</td></tr><tr><td style="text-align:center">1</td><td style="text-align:center">0</td><td style="text-align:center">1</td></tr><tr><td style="text-align:center">1</td><td style="text-align:center">1</td><td style="text-align:center">Q=Q&#39;=1</td></tr></tbody></table></div><div class="note primary no-icon flat"><p>[<span class='p blue'>注</span>]: 当<script type="math/tex">S_D</script>和<script type="math/tex">R_D</script>同时由 1 变为 0 ，<script type="math/tex">Q^*</script>状态不定</p></div><div class="note info modern"><p>状态方程：</p><script type="math/tex; mode=display">Q^*=S+\overline{R}Q \\RS=0</script></div><p>还有一种具有异步置 1 和置 0 功能的同步 RS 触发器，当有置数信号的时候，无论时钟信号如何，触发器将立即置数，所以有个下标 D，也称直接置数。</p><p><img src="https://blog-hexo-img.oss-cn-shanghai.aliyuncs.com/202308181739299.webp" alt="具有异步置1和置0功能的同步 RS 触发器"></p><h3 id="同步-D-触发器"><a href="#同步-D-触发器" class="headerlink" title="同步 D 触发器"></a>同步 D 触发器</h3><p>将同步 RS 触发器的 S 端和 R 端用非门连接在一起，形成新的 D 端，那么这就变成了同步 D 触发器。</p><p><img src="https://blog-hexo-img.oss-cn-shanghai.aliyuncs.com/202308181742966.webp" alt="同步D触发器"></p><div class="table-container"><table><thead><tr><th style="text-align:center">D</th><th style="text-align:center"><script type="math/tex">Q^*</script></th></tr></thead><tbody><tr><td style="text-align:center">0</td><td style="text-align:center">0</td></tr><tr><td style="text-align:center">1</td><td style="text-align:center">1</td></tr></tbody></table></div><div class="note info modern"><p>状态方程：</p><script type="math/tex; mode=display">Q^*=D</script></div><h3 id="同步-JK-触发器"><a href="#同步-JK-触发器" class="headerlink" title="同步 JK 触发器"></a>同步 JK 触发器</h3><p>将同步 RS 触发器的 Q&#39;端接到 S 端与非门的输入，Q 端接到 R 端与非门的输入，原来的 S 端变成 J 端，原来的 R 端变成 K 端，那么这就变成了同步 JK 触发器。</p><p><img src="https://blog-hexo-img.oss-cn-shanghai.aliyuncs.com/202308181751534.webp" alt="同步 JK 触发器"></p><div class="table-container"><table><thead><tr><th style="text-align:center">J</th><th style="text-align:center">K</th><th style="text-align:center"><script type="math/tex">Q^*</script></th></tr></thead><tbody><tr><td style="text-align:center">0</td><td style="text-align:center">0</td><td style="text-align:center">Q</td></tr><tr><td style="text-align:center">0</td><td style="text-align:center">1</td><td style="text-align:center">0</td></tr><tr><td style="text-align:center">1</td><td style="text-align:center">0</td><td style="text-align:center">1</td></tr><tr><td style="text-align:center">1</td><td style="text-align:center">1</td><td style="text-align:center"><script type="math/tex">\overline{Q}</script></td></tr></tbody></table></div><div class="note info modern"><p>状态方程：</p><script type="math/tex; mode=display">Q^*=J\overline{Q}+\overline{K}Q</script></div><h3 id="同步-T-触发器"><a href="#同步-T-触发器" class="headerlink" title="同步 T 触发器"></a>同步 T 触发器</h3><p><img src="https://blog-hexo-img.oss-cn-shanghai.aliyuncs.com/202308181813260.webp" alt="同步 T 触发器"></p><div class="table-container"><table><thead><tr><th style="text-align:center">T</th><th style="text-align:center"><script type="math/tex">Q^*</script></th></tr></thead><tbody><tr><td style="text-align:center">0</td><td style="text-align:center">Q</td></tr><tr><td style="text-align:center">1</td><td style="text-align:center"><script type="math/tex">\overline{Q}</script></td></tr></tbody></table></div><div class="note info modern"><p>状态方程：</p><script type="math/tex; mode=display">Q^* = T\overline{Q}+\overline{T}Q = T \oplus Q</script></div><h2 id="主从触发器"><a href="#主从触发器" class="headerlink" title="主从触发器"></a>主从触发器</h2><div class="note primary modern"><p>主从 = 脉冲触发</p></div><h3 id="主从-RS-触发器"><a href="#主从-RS-触发器" class="headerlink" title="主从 RS 触发器"></a>主从 RS 触发器</h3><p><img src="https://blog-hexo-img.oss-cn-shanghai.aliyuncs.com/202308181949178.webp" alt="主从 RS 触发器"></p><p>主从 RS 触发器的逻辑功能与同步 RS 触发器一致，故功能表、状态方程略。</p><div class="note primary modern"><p>主从 RS 触发器克服了 CP=1 期间触发器输出状态可能多次翻转，即“空翻”的问题。但同时还是受 RS = 0 条件的约束。</p></div><p>在绘制波形图时，注意要先绘制主触发器的输出波形<script type="math/tex">Q_主</script>，然后再绘制最终输出波形Q，一般来说，Q与<script type="math/tex">Q_主</script>相似且比<script type="math/tex">Q_主</script>晚半个时钟周期。例如下图：</p><p><img src="https://blog-hexo-img.oss-cn-shanghai.aliyuncs.com/202308182029874.webp" alt=""></p><h3 id="主从-JK-触发器"><a href="#主从-JK-触发器" class="headerlink" title="主从 JK 触发器"></a>主从 JK 触发器</h3><p><img src="https://blog-hexo-img.oss-cn-shanghai.aliyuncs.com/202308182012403.webp" alt="主从 JK 触发器"></p><p>主从 JK 触发器也是在主从 RS 触发器的基础上引入 Q 和 Q&#39;两条反馈线转变而来。主从 JK 触发器的逻辑功能与同步 JK 触发器一致，故功能表、状态方程略。</p><div class="note primary modern"><p>与主从 RS 触发器一样，主从 JK 触发器同样可以防止触发器在 CP 作用期间可能发生多次翻转的现象，即不会出现空翻现象。</p><p>但它同时却出现了新的<code>一次翻转</code>现象。即在 CP = 1 期间,无论 J、K 变化多少次,只要其变化引起主触发器翻转了一次，在此 CP = 1 期间就不再变化了。这时，对应于 CP 下降沿的从触发器状态就既不由 CP 下降沿前的 JK 状态决定,也不由 CP 上升沿前的 J、K 状态决定，而是由引起主触发器这次变化的 J、K 状态所决定。因此，在时钟脉冲下降沿到达时，触发器接收这一时刻主触发器的状态，并发生状态转移。状态转移的结果就有可能与 JK 触发器的状态方程描述的转移结果不一致。</p></div><p>在绘制波形图时，一定要注意“一次翻转”特性，可以先（也可以不）绘制主触发器的输出波形<script type="math/tex">Q_主</script>，然后再绘制最终输出波形Q，这里，Q和<script type="math/tex">Q_主</script>就不一定相似了。例如下图：</p><p><img src="https://blog-hexo-img.oss-cn-shanghai.aliyuncs.com/202308182029598.webp" alt=""></p><h2 id="边沿触发器"><a href="#边沿触发器" class="headerlink" title="边沿触发器"></a>边沿触发器</h2><p>边沿触发器的输出仅在上升沿或下降沿的时刻发生变化，而在此之前和之后输入状态的变化对触发器的次态没有影响，因此其抗干扰能力比较强。</p><p>边沿触发器的符号特点是在时钟输入端有一个小三角，端口有小圆圈为下降沿触发，否则为上升沿触发。</p><p><img src="https://blog-hexo-img.oss-cn-shanghai.aliyuncs.com/202308182045486.webp" alt="下降沿触发的 JK 触发器"></p><p><img src="https://blog-hexo-img.oss-cn-shanghai.aliyuncs.com/202308182046429.webp" alt="示例波形图"></p><h2 id="触发器之间的转换"><a href="#触发器之间的转换" class="headerlink" title="触发器之间的转换"></a>触发器之间的转换</h2><p><img src="https://blog-hexo-img.oss-cn-shanghai.aliyuncs.com/202308182049657.webp" alt="触发器的转换（1）"></p><p><img src="https://blog-hexo-img.oss-cn-shanghai.aliyuncs.com/202308182050244.webp" alt="触发器的转换（2）"></p>]]></content>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;数字系统中常用触发器作为存储单元，它是构成时序逻辑电路的基本逻辑器件，根据逻辑功能的不同，触发器可分为 RS 触发器、D 触发器、JK 触发器、T 触发器和</summary>
+        
+      
+    
+    
+    
+    <category term="硬件" scheme="https://gavin-chen.top/categories/%E7%A1%AC%E4%BB%B6/"/>
+    
+    
+    <category term="数电" scheme="https://gavin-chen.top/tags/%E6%95%B0%E7%94%B5/"/>
+    
+  </entry>
   
   <entry>
     <title>数字电子技术基础（3）——组合逻辑电路</title>
@@ -483,27 +510,6 @@
     
     
     <category term="情感" scheme="https://gavin-chen.top/tags/%E6%83%85%E6%84%9F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>日记230115</title>
-    <link href="https://gavin-chen.top/post/cef7e835.html"/>
-    <id>https://gavin-chen.top/post/cef7e835.html</id>
-    <published>2023-01-15T12:44:45.000Z</published>
-    <updated>2023-07-17T04:12:58.161Z</updated>
-    
-    <content type="html"><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">  <script id="hbeData" type="hbeData" data-hmacdigest="bc9adde8f9c56539a5ee6ddc5109c27f7897564b9c6ddabe6e74d93bdcd62c92">ced864f45009da4e5537372f52405f70c8914908c756e5c427cffe3c015e5c1032b7fd5fae419487b086f168697ca31399435efffdf602f6d2eb0354fca93622e2180aebd68238415959a682b7459c39a99b7583fcb592e5312d327ab63e0f90e17b94d159e6b49ca79ffd3737239e463863ebdab09dd988a276cf231e4e08d707e3de40f491a5d9532aa9bea319d228f0455e415f60b8c817147fafa101275b53c3ec0637cddc979a4b1783f66f72ce66ed9ef6b7458e596f13454d516e9badab86d53657dfff1fd6c5f108c0963d15763441314ea99102589d423df1f1560fb613e4ff8a0831e2f44e488c8e7f19bbd364da30a725355b3fbc7b5747ae027a68a2e8d1dcf1d0b57b6a914484a8261a6fe5b333e3eb410532c77aa954670601c08d976f8c958e9e464c4f332158b48bc72199b81661c0e2305a780a39210de88f10340ab7b44a6acf65d10e5987a544c68ac2dcd4283d8b64fb1c0809208070d8829a8a7b50bb92e30820ee180dd3fd8fd2c124fd08baffba2b3b36b3305b761fbae5a885ef3fb84d1900fcaa2153c0f05b625713126e26f1bf79ce65d734555e3ff141f56734e9428015105d6abd9619c86c2cc4de828e5ae174376138d381890d26ecd01350f55d3de989b9eee1a8cc1ea4e3dcaca15952a62a76d223521bc5048e7a5ac48ae8987a6651184302cc16a963753f97429f15ee2167788f2392ee9d76f3cc341bcb20cc964ffc278b5bceb7a77cce32e6dc2bdecf0575bf4d929091028f0109c0bf2212b5fe54bf48e2b605d386915ddeda0a5c6b76d6b1386344b9657d4131b285489937a9cbb2ec9ec7346f3a00b6ec98a3dfc71407c91548118ffa646e89468c45deb0cf93336420b965bac5fdce9e722aa866aa7c53314f9b86de134eee842c9db9cedb571712b0f11c382cef2ddab345b202586eba74d4</script>  <div class="hbe hbe-content">    <div class="hbe hbe-input hbe-input-flip">      <input class="hbe hbe-input-field hbe-input-field-flip" type="password" id="hbePass">      <label class="hbe hbe-input-label hbe-input-label-flip" for="hbePass">        <span class="hbe hbe-input-label-content hbe-input-label-content-flip" data-content="您好, 这里需要密码.">您好, 这里需要密码.</span>      </label>    </div>  </div></div><script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
-    
-    
-    <summary type="html">没啥好看的</summary>
-    
-    
-    
-    <category term="生活" scheme="https://gavin-chen.top/categories/%E7%94%9F%E6%B4%BB/"/>
-    
-    
-    <category term="日记" scheme="https://gavin-chen.top/tags/%E6%97%A5%E8%AE%B0/"/>
     
   </entry>
   
