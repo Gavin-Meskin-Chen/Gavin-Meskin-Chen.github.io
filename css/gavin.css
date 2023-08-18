@@ -1372,6 +1372,7 @@ a.aside-list-item-head {
 /* 公式 */
 span.mathjax-overflow {
     padding: 0 3px;
+    overflow: hidden;
 }
 
 mjx-mspace {
@@ -1726,7 +1727,7 @@ h6 {
 #article-container.post-content h3 {
     line-height: 1.4rem;
     font-size: 1.4rem;
-    margin: 1rem 0;
+    margin: 1.5rem 0;
 }
 
 #article-container .headerlink::before {
