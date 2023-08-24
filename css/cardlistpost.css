@@ -31,9 +31,9 @@
     height: 100%
 }
 
-#recent-posts>.recent-post-item>.recent-post-info>.content {
+/* #recent-posts>.recent-post-item>.recent-post-info>.content {
     display: none
-}
+} */
 
 #recent-posts>.recent-post-item {
     -webkit-flex-direction: column;
@@ -61,11 +61,11 @@
 
 #recent-posts>.recent-post-item>.recent-post-info>.article-title {
     -webkit-line-clamp: 2;
-    margin-top: .3rem;
-    margin-bottom: .3rem;
+    /* margin-top: .3rem;
+    margin-bottom: .3rem; */
     color: var(--text-highlight-color);
     font-size: 1.2em;
-    line-height: 1.4
+    line-height: 1.3
 }
 
 /* #recent-posts>.recent-post-item>.recent-post-info>.article-meta-wrap {
