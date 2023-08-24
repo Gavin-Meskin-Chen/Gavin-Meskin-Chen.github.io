@@ -186,7 +186,7 @@
     /*rgba(29, 30, 34, 1);*/
     --text-bg-hover: rgba(240, 240, 240, .24);
     --btn-bg: rgba(100, 100, 100, .8);
-    --btn-hover-color: #fff;
+    --btn-hover-color: rgb(80,80,80);
     --card-link-bg: rgba(240, 240, 240, .1);
     --card-link-border: rgba(240, 240, 240, .3);
     --font-color: rgba(255, 255, 255, .8);
@@ -1049,7 +1049,7 @@ a {
 }
 
 #aside-content .card-info #card-info-btn:hover {
-    color: var(--f-0);
+    color: #fff;
     border-color: var(--gavin-border-hover-color);
 }
 
