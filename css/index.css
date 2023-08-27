@@ -2334,13 +2334,11 @@ figure.highlight pre .javascript .function {
   overflow: hidden;
   width: calc(100% / 4 - 60px / 4);
   height: 90px;
-  border-radius: 0.8rem;
+  border-radius: 1rem;
+  border: 1px solid var(--gavin-border-color);
   line-height: 17px;
   -webkit-transform: translateZ(0);
   background: var(--card-bg);
-  mask-image: paint(smooth-corners);
-  -webkit-mask-image: paint(smooth-corners);
-  --smooth-level: 18;
 }
 @media screen and (max-width: 1200px) {
   #article-container .flink .flink-list > .flink-list-item {

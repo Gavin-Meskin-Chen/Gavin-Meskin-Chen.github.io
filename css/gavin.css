@@ -4922,9 +4922,10 @@ progress::-webkit-progress-value {
     width: 100%;
     height: 350px;
     margin: 0 0 20px;
+    border: 1px solid var(--gavin-border-color);
     border-radius: 1.5rem;
-    mask-image: paint(smooth-corners);
-    -webkit-mask-image: paint(smooth-corners);
+    /* mask-image: paint(smooth-corners);
+    -webkit-mask-image: paint(smooth-corners); */
     --smooth-level: 30;
     overflow: hidden;
     position: relative;
