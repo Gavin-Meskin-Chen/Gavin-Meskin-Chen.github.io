@@ -76,7 +76,7 @@ Last Modified time : 20220211 98:00 by https://immmmm.com
   .cf-article {background:var(--lmm-background);}
   #cf-change span:hover{color:var(--gavin-highlight);cursor:pointer;}
   #cf-change .cf-change-now{color:var(--gavin-highlight);font-weight:800;}
-  .cf-overshow p a:hover{color:var(--gavin-highlight)!important;text-decoration:none!important;}
+  .cf-overshow p a:hover{color:var(--gavin-blue2)!important;text-decoration:none!important;}
   .cf-overshow p span{color:var(--gavin-note-font-color)}
   /* 暗色主题 */
   .dark-theme #cf-overlay,.theme-dark #cf-overlay{background-color: rgba(59, 61, 66, 0.42);}
@@ -110,19 +110,27 @@ Last Modified time : 20220211 98:00 by https://immmmm.com
 .cf-overshow > .cf-overshow-content > p {
   margin: 0 0 2rem!important;
 }
-  /* 移动端适配 */
-  @media screen and (max-width:1200px) {
-    .cf-article{width: calc(100% / 2 - 20px / 2)!important;}
-  }  
-  @media screen and (max-width:850px) {
-    .cf-article{width: 100%!important;}
-  }
-  @media screen and (max-width:500px) {
-    /* #cf-state {font-size:14px;margin: 0 0 20px;} */
-    /* .cf-article{margin: 0 0 20px;width: 100%!important;} */
-    #cf-more{width: 100%!important;}
-    /* .cf-article-time i{display:none;} */
-  }
-  @media screen and (max-width:300px) {
-    #cf-state,.cf-article-time{display:none;}
-  }
+.cf-overshow .cf-overshow-head a:hover {
+  text-decoration: none!important;
+  color: var(--gavin-blue2)!important;
+}
+#cf-footer a:hover {
+  text-decoration: none;
+  color: var(--gavin-blue2);
+}
+/* 移动端适配 */
+@media screen and (max-width:1200px) {
+  .cf-article{width: calc(100% / 2 - 20px / 2)!important;}
+}  
+@media screen and (max-width:850px) {
+  .cf-article{width: 100%!important;}
+}
+@media screen and (max-width:500px) {
+  /* #cf-state {font-size:14px;margin: 0 0 20px;} */
+  /* .cf-article{margin: 0 0 20px;width: 100%!important;} */
+  #cf-more{width: 100%!important;}
+  /* .cf-article-time i{display:none;} */
+}
+@media screen and (max-width:300px) {
+  #cf-state,.cf-article-time{display:none;}
+}
