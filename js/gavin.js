@@ -689,6 +689,26 @@ var ctrl = {
         }
     },
 
+    scrollCategoryBarToRight() {
+        var e = document.getElementById("category-bar-items")
+          , t = document.querySelector(".category-bar-more");
+        function o() {
+            t.style.transform = Math.ceil(e.scrollLeft) + Math.ceil(e.clientWidth) >= Math.ceil(e.scrollWidth) ? "rotate(180deg)" : ""
+        }
+        e.addEventListener("scroll", o);
+        var n = Math.ceil(e.clientWidth);
+        e && (Math.ceil(e.scrollLeft) + Math.ceil(e.clientWidth) >= Math.ceil(e.scrollWidth) ? (e.scroll({
+            left: 0,
+            behavior: "smooth"
+        }),
+        t.style.transform = "",
+        e.removeEventListener("scroll", o)) : (e.scrollBy({
+            left: n,
+            behavior: "smooth"
+        }),
+        t.style.transform = ""))
+    },
+
     getLocationWeather() {
         fetch('https://api.ipify.org?format=json')
             .then(response => response.json())
@@ -768,7 +788,7 @@ var ctrl = {
 // +++++++++++++++++++++++++++ categoryBar分类条（或标签条） +++++++++++++++++++++++++++++++
 
 categoriesBarActive();
-topCategoriesBarScroll();
+// topCategoriesBarScroll();
 
 //分类条
 function categoriesBarActive() {

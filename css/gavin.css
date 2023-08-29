@@ -3737,9 +3737,9 @@ a.categoryButton:after {
 } */
 
 /* "更多 */
-.category-bar-more {
+/* .category-bar-more {
     margin-right: 0 !important;
-}
+} */
 
 .category-bar-items {
     white-space: nowrap;
@@ -3776,9 +3776,10 @@ a.categoryButton:after {
 
 .category-bar-more {
     margin-left: 1rem;
-    margin-right: 1rem;
+    /* margin-right: 1rem; */
     font-weight: bold;
-    color: var(--font-color)
+    color: var(--font-color);
+    cursor: pointer;
 }
 
 /* #category-bar:hover {

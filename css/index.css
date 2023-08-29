@@ -2312,7 +2312,7 @@ figure.highlight pre .javascript .function {
 }
 #article-container .flink .flink-list {
   overflow: auto;
-  padding: 0;
+  padding: 5px 0;
   text-align: left;
   display: -webkit-box;
   display: -moz-box;
