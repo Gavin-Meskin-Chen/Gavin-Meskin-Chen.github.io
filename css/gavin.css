@@ -3704,7 +3704,7 @@ a.categoryButton:after {
 
 /* ********************首页标签分类条*********************** */
 #category-bar {
-    padding: 0.4rem 1rem 0.4rem 0.75rem;
+    padding: 0.4rem 1rem 0.4rem 10px;
     background: var(--card-bg);
     display: flex;
     white-space: nowrap;
@@ -3754,7 +3754,7 @@ a.categoryButton:after {
 }
 
 .category-bar-item a {
-    padding: 0.1rem 0.7rem;
+    padding: 0.1rem 0.5rem;
     margin: 0 0.5rem 0 0;
     font-weight: bold;
     border-radius: 0.5rem;

@@ -7450,7 +7450,7 @@ blockquote.pullquote.right {
   }
 }
 .search-dialog hr {
-  margin: 20px auto;
+  margin: 13px auto;
 }
 .search-dialog .search-nav {
   margin: 0 0 14px;
@@ -7499,6 +7499,8 @@ blockquote.pullquote.right {
 #algolia-search .search-dialog .ais-Hits-list a {
   color: var(--search-result-title);
   font-weight: bold;
+  display: inline-block;
+  line-height: 1.5;
 }
 #algolia-search .search-dialog .ais-Hits-list a:hover {
   color: #08f;
@@ -7511,9 +7513,10 @@ blockquote.pullquote.right {
 #algolia-search .search-dialog .algolia-hit-item-content {
   margin: 0 0 8px;
   word-break: break-all;
+  line-height: 1.5;
 }
 #algolia-search .search-dialog .ais-Pagination {
-  margin: 20px 0 0;
+  margin: 10px 0 0;
   padding: 0;
   text-align: center;
 }
@@ -7521,6 +7524,7 @@ blockquote.pullquote.right {
   margin: 0;
   padding: 0;
   list-style: none;
+  line-height: 1;
 }
 #algolia-search .search-dialog .ais-Pagination .ais-Pagination-item {
   display: inline;
@@ -7552,19 +7556,51 @@ blockquote.pullquote.right {
 }
 @media screen and (min-width: 768px) {
   #algolia-search .search-dialog #algolia-hits > div {
-    max-height: calc(80vh - 240px);
+    max-height: calc(80vh - 230px);
   }
 }
 @media screen and (max-width: 768px) {
   #algolia-search .search-dialog #algolia-hits > div {
-    height: calc(100vh - 260px);
+    height: calc(100vh - 230px);
   }
+}
+#algolia-search .search-dialog #algolia-info {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -o-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 #algolia-search .search-dialog #algolia-info div {
   display: inline;
 }
+#algolia-search .search-dialog #algolia-info .ais-Stats-text {
+  display: block;
+  color: var(--gavin-note-font-color);
+  line-height: 1.3;
+  font-size: 14px;
+}
 #algolia-search .search-dialog #algolia-info .algolia-poweredBy {
-  float: right;
+  -webkit-box-pack: right;
+  -moz-box-pack: right;
+  -o-box-pack: right;
+  -ms-flex-pack: right;
+  -webkit-justify-content: right;
+  justify-content: right;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  height: 25px;
 }
 @media screen and (max-width: 768px) {
   .apple #algolia-search #algolia-hits > div {
