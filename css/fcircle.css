@@ -70,10 +70,10 @@ Last Modified time : 20220211 98:00 by https://immmmm.com
   /* 颜色 */
   .cf-article .cf-article-title:hover{/*letter-spacing:2px;*/color:var(--gavin-highlight)!important;}
   /* #cf-more i.fas:hover{color:var(--lmm-hover);} */
-  #cf-state,#cf-more {background:var(--lmm-background);color:var(--lmm-fontcolor);}
+  #cf-state,#cf-more {background:var(--card-bg);color:var(--lmm-fontcolor);}
   #cf-change,.cf-time-updated,.cf-time-created,.cf-article-floor{color:var(--lmm-floorcolor);}
   .cf-article-author,.cf-article a.cf-article-title,/*.cf-article:hover .cf-article-floor,*/.cf-article:hover .cf-time-created,.cf-article:hover .cf-time-updated{color:var(--lmm-fontcolor);}
-  .cf-article {background:var(--lmm-background);}
+  .cf-article {background:var(--card-bg);}
   #cf-change span:hover{color:var(--gavin-highlight);cursor:pointer;}
   #cf-change .cf-change-now{color:var(--gavin-highlight);font-weight:800;}
   .cf-overshow p a:hover{color:var(--gavin-blue2)!important;text-decoration:none!important;}
