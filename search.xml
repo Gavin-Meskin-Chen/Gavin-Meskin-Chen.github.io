@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>关于博客页码模块的设计</title>
+      <link href="/post/241391f0.html"/>
+      <url>/post/241391f0.html</url>
+      
+        <content type="html"><![CDATA[<p>之前看大家都增加了页码跳转功能，觉得很实用，就抄了过来，顺带把页码的样式整个优化了一下。以前的页码样式一直是butterfly默认的，当时文章少，页码就一个，所以也没觉得不适，但如果后面页数多了，肯定会导致手机端显示错位的问题。就像这样：</p><p><img src="https://blog-hexo-img.oss-cn-shanghai.aliyuncs.com/202308301955073.webp" alt="旧款页码"></p><p>所以重新设计一个页码样式是很有必要的。</p><p>首先看一下别人的优秀设计。第一个是 <a href="https://blog.zhheo.com">@张洪</a> 的博客，洪哥不愧是设计大佬，交互动画和细节处理都是我友链的博客里做的最好的。下图为电脑端的页码样式，该有的功能基本上都有，“上一页”、“下一页”和页码跳转这三个按钮单独设计了优美的交互动画。页码跳转基本结构是一个输入框加一个确认按钮，洪哥将确认按钮覆盖在输入框上方，巧妙的将它们整合成了一个模块，只有当光标移动到模块上方时，输入框才会展开，这样设计既美观又节省了空间。另外，页码跳转功能的逻辑设计考虑的很周全，只支持输入有效范围内的整数，对于超出范围的数会强制转换为最大值，而对于自然数以外的其它字符，则无法输入。输入完页码后，可以通过确认按钮完成跳转，也可以通过回车键完成跳转。</p><p><img src="https://blog-hexo-img.oss-cn-shanghai.aliyuncs.com/202308302009407.webp" alt="HEO的页码样式（电脑端）"></p><p>至于手机端的适配，洪哥选择的方案是舍去低频的部件，只保留高频的“上一页”和“下一页”按钮，避免了手机端显示过于臃肿的现象，使得整体效果更加美观。</p><p><img src="https://blog-hexo-img.oss-cn-shanghai.aliyuncs.com/202308302034681.webp" alt="HEO的页码样式（手机端）"></p><p>第二个是 <a href="https://www.qcqx.cn">@轻笑</a> 的博客，他的手机端和电脑端样式基本一样，都支持页码跳转，因为取消了“上一页”和“下一页”按钮，且缩小了按钮尺寸，所以也不会出现错位的现象，不失为一种好方案。在页码跳转的逻辑功能方面，只支持通过点击跳转按钮完成跳转，不支持回车键跳转，另外对于超出有效范围的页码也没有进行强制转换（实际逻辑上是强制跳转到最后一页，只是前端显示没有做限制）。</p><p><img src="https://blog-hexo-img.oss-cn-shanghai.aliyuncs.com/202308302039884.webp" alt="轻笑的页码样式"></p><p>最后看的是 <a href="https://blog.leonus.cn">@Leonus</a> 的博客，他的整体样式跟洪哥差不多，逻辑功能也一样，但砍掉了“上一页”、“下一页”和页码跳转三个按钮的交互动画，砍掉了页码跳转的确认按钮，只保留了回车键跳转，这样整体看起来简洁很多，也更契合他的主题。移动端的适配也是采取的跟洪哥一样的方案，只保留“上一页”和“下一页”按钮。</p><p>综合考虑下来决定采用 Leonus 的方案，毕竟我的博客主题也是跟他的更契合。</p><p><img src="https://blog-hexo-img.oss-cn-shanghai.aliyuncs.com/202308302110040.webp" alt="新版本页码样式（电脑端）"></p><p>电脑端的样式跟 Leonus 的一样，但手机端我还是希望保留页码跳转等功能，所以我在 Leonus 结构的基础上稍微做了下调整，在仅增加一个按钮的情况下，使其既保留了页码跳转的功能，又保留了当前页码显示功能。</p><p><img src="https://blog-hexo-img.oss-cn-shanghai.aliyuncs.com/202308302117244.webp" alt="新版本页码样式（手机端）"></p><p>首先通过<code>order</code>属性将页码输入框移至中间显示，然后通过 js 读取当前页码使其通过页码输入框的<code>placeholder</code>显示出来，这样，就使其同时具备了页码显示和页码跳转的功能。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 博客 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hexo </tag>
+            
+            <tag> Butterfly </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>数字电子技术基础（4）——触发器</title>
       <link href="/post/603cec67.html"/>
       <url>/post/603cec67.html</url>
@@ -434,9 +461,9 @@
       
         <tags>
             
-            <tag> 哲学 </tag>
-            
             <tag> 情感 </tag>
+            
+            <tag> 哲学 </tag>
             
         </tags>
       
