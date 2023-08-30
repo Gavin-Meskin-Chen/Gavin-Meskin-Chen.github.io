@@ -2366,6 +2366,7 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
 /* 自用版 */
 #footer-wrap {
     padding: 20px 5%;
+    font-size: 14px;
     display: flex;
 }
 
@@ -2379,9 +2380,10 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
     text-align: right;
 }
 
-@media screen and (max-width: 805px) {
+@media screen and (max-width: 768px) {
     #footer-wrap {
         display: block;
+        font-size: 12px;
     }
 
     #footer-left {
@@ -3068,7 +3070,8 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
 @media screen and (min-width: 768px) {
     #body-wrap:not(.post) #twikoo .tk-comments-container>.tk-comment {
         padding: 1rem;
-        background: var(--vercel-background);
+        /* background: var(--vercel-background); */
+        background: var(--card-bg);
         border: 1px solid var(--gavin-border-color);
         border-radius: 1rem;
     }
