@@ -3805,6 +3805,7 @@ a.categoryButton:after {
     border-radius: 1rem;
     background-color: var(--card-bg);
     padding: 6px;
+    margin: 0 0 10px;
 }
 
 #tag-bar-items .tag-bar-item {
@@ -3814,8 +3815,7 @@ a.categoryButton:after {
 
 #tag-bar-items .tag-bar-item a {
     display: block;
-    padding: 3px 8px;
-    font-weight: bold;
+    padding: 1.5px 8px;
     border-radius: 8px;
     color: var(--font-color);
     line-height: 1.7rem;
@@ -3847,10 +3847,10 @@ a.categoryButton:after {
 }
 
 .article-sort-title {
-    margin-left: 0;
+    margin: 10px 0 0;
     padding-left: 0;
     padding-bottom: 0;
-    font-size: 2rem;
+    font-size: 1.7rem;
     font-weight: bold;
 }
 
