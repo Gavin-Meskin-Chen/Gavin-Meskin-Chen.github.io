@@ -665,6 +665,16 @@ var ctrl = {
     // 页码跳转
     toPageJump() {
         let e = document.querySelector("#pagination input.toPageInput");
+        function k(v) {
+            if (document.querySelector("#body-wrap.page.home")) return ["/", `/page/${v}/#content-inner`]
+            else if (document.getElementById("tag")) {
+                var j = document.querySelector(".article-sort-title").innerText.slice(5)
+                return [`/tags/${j}/`, `/tags/${j}/page/${v}/`]
+            } else if (document.getElementById("category")) {
+                var j = document.querySelector(".article-sort-title").innerText.slice(5)
+                return [`/categories/${j}/`, `/categories/${j}/page/${v}/`]
+            } else if (document.getElementById("archive")) return ["/archives/", `/archives/page/${v}/`]
+        }
         e && (e.addEventListener("input", () => {
             let t = document.querySelectorAll(".page-number")
                 , n = t[t.length - 1].innerHTML;
@@ -672,13 +682,13 @@ var ctrl = {
                 Number(e.value) < 1 && (e.value = "")
         }),
             e.addEventListener("keyup", t => {
-                "Enter" == t.key && "" != e.value && "0" != e.value && pjax.loadUrl("1" == e.value ? "/" : `/page/${e.value}/#content-inner`)
+                "Enter" == t.key && "" != e.value && "0" != e.value && pjax.loadUrl("1" == e.value ? k(e.value)[0] : k(e.value)[1])
             })
         )
     },
 
     getCurrentPage() {
-        if (window.innerWidth <= 768 && document.querySelector("#body-wrap.page.home")) {
+        if (window.innerWidth <= 768 && (document.querySelector("#body-wrap.page.home") || document.getElementById("tag") || document.getElementById("category") || document.getElementById("archive"))) {
             var currentPage = document.querySelector(".pagination .page-number.current").innerHTML;
             if (currentPage) {
                 var toPage = document.querySelector(".pagination .toPageInput");
@@ -789,6 +799,23 @@ var ctrl = {
 
 categoriesBarActive();
 // topCategoriesBarScroll();
+var categoryBarItems = document.getElementById("category-bar-items");
+function categoryBarMask() {
+    var x = Math.ceil(categoryBarItems.scrollLeft)
+      , y = Math.ceil(categoryBarItems.clientWidth)
+      , z = Math.ceil(categoryBarItems.scrollWidth);
+    if (x == 0 && z <= y) {
+        categoryBarItems.style.webkitMaskImage = ""
+    } else if (x == 0 && z > y) {
+        categoryBarItems.style.webkitMaskImage = "linear-gradient(-90deg,transparent,#fff 10px)"
+    } else if (x > 0 && x + y < z) {
+        categoryBarItems.style.webkitMaskImage = "linear-gradient(90deg,transparent,#fff 10px,#fff calc(100% - 10px),transparent)"
+    } else if (x > 0 && x + y >= z) {
+        categoryBarItems.style.webkitMaskImage = "linear-gradient(90deg,transparent,#fff 10px)"
+    }
+}
+categoryBarMask();
+categoryBarItems.addEventListener("scroll", categoryBarMask);
 
 //分类条
 function categoriesBarActive() {
