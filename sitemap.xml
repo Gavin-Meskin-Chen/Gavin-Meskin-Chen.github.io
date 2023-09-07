@@ -430,13 +430,6 @@
   </url>
   
   <url>
-    <loc>https://gavin-chen.top/tags/%E6%97%A5%E8%AE%B0/</loc>
-    <lastmod>2023-09-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://gavin-chen.top/tags/Hexo/</loc>
     <lastmod>2023-09-07</lastmod>
     <changefreq>weekly</changefreq>
@@ -445,6 +438,13 @@
   
   <url>
     <loc>https://gavin-chen.top/tags/Butterfly/</loc>
+    <lastmod>2023-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://gavin-chen.top/tags/%E6%97%A5%E8%AE%B0/</loc>
     <lastmod>2023-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -507,13 +507,6 @@
   </url>
   
   <url>
-    <loc>https://gavin-chen.top/tags/CSS/</loc>
-    <lastmod>2023-09-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://gavin-chen.top/tags/%E6%95%B0%E7%A0%81/</loc>
     <lastmod>2023-09-07</lastmod>
     <changefreq>weekly</changefreq>
@@ -522,6 +515,13 @@
   
   <url>
     <loc>https://gavin-chen.top/tags/JavaScript/</loc>
+    <lastmod>2023-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://gavin-chen.top/tags/CSS/</loc>
     <lastmod>2023-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
