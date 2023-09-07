@@ -3800,6 +3800,48 @@ a.categoryButton:after {
     box-shadow: var(--card-hover-box-shadow);
 } */
 
+#tag-bar {
+    border: 1px solid var(--gavin-border-color);
+    border-radius: 1rem;
+    background-color: var(--card-bg);
+    padding: 6px;
+}
+
+#tag-bar-items .tag-bar-item {
+    display: inline-block;
+    margin: 4px;
+}
+
+#tag-bar-items .tag-bar-item a {
+    display: block;
+    padding: 3px 8px;
+    font-weight: bold;
+    border-radius: 8px;
+    color: var(--font-color);
+    line-height: 1.7rem;
+    background: var(--gavin-widget-bg1);
+}
+
+#tag-bar-items a:hover {
+    background: var(--gavin-widget-bg2);
+}
+
+#tag-bar-items a::before {
+    content: '\f292';
+    top: -0.1em;
+    position: relative;
+    opacity: .6;
+    margin-right: 0.1em;
+    font-size: 80%;
+    font-family: "Font Awesome 6 Free";
+}
+
+#tag-bar-items .tag-bar-item.select a {
+    background: var(--gavin-blue2);
+    color: #fff;
+    border-radius: 0.5rem;
+}
+
 #recent-posts {
     margin-top: 0 !important;
 }

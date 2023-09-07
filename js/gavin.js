@@ -30,7 +30,11 @@ document.addEventListener("pjax:complete", ()=>{
         document.getElementById("page-header").classList.add("is-top-bar");
     }
     if (document.getElementById('post-comment')) ctrl.owoBig();
-    categoriesBarActive();
+    if (document.getElementById("category-bar-items")) {
+        categoriesBarActive();
+        categoryBarMask();
+    }
+    tagsBarActive();
     ctrl.musicState();
 }) // pjax加载完成（切换页面）后再执行一次
 
@@ -796,11 +800,14 @@ var ctrl = {
 }
 
 // +++++++++++++++++++++++++++ categoryBar分类条（或标签条） +++++++++++++++++++++++++++++++
+if (document.getElementById("category-bar-items")) {
+    categoriesBarActive();
+    // topCategoriesBarScroll();
+    categoryBarMask();
+}
 
-categoriesBarActive();
-// topCategoriesBarScroll();
-var categoryBarItems = document.getElementById("category-bar-items");
 function categoryBarMask() {
+    var categoryBarItems = document.getElementById("category-bar-items");
     var x = Math.ceil(categoryBarItems.scrollLeft)
       , y = Math.ceil(categoryBarItems.clientWidth)
       , z = Math.ceil(categoryBarItems.scrollWidth);
@@ -813,9 +820,8 @@ function categoryBarMask() {
     } else if (x > 0 && x + y >= z) {
         categoryBarItems.style.webkitMaskImage = "linear-gradient(90deg,transparent,#fff 10px)"
     }
+    categoryBarItems.addEventListener("scroll", categoryBarMask);
 }
-categoryBarMask();
-categoryBarItems.addEventListener("scroll", categoryBarMask);
 
 //分类条
 function categoriesBarActive() {
@@ -852,6 +858,15 @@ function categoriesBarActive() {
 // tagsBarActive()
 //标签条
 function tagsBarActive() {
+    if (document.getElementById("tag-bar-items")) {
+        var j = document.querySelector(".article-sort-title").innerText.slice(5);
+        document.getElementById(j).classList.add("select");
+    }    
+}
+
+tagsBarActive();
+
+function tagsBarActive_0() {
     var urlinfo = window.location.pathname;
     urlinfo = decodeURIComponent(urlinfo)
     //console.log(urlinfo);
