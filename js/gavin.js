@@ -724,8 +724,15 @@ var ctrl = {
     },
 
     scrollTagBarToEnd() {
-        var e = document.getElementById("category-bar-items")
-          , t = document.querySelector(".category-bar-more");
+        var e = document.getElementById("tag-bar-items")
+          , t = document.querySelector(".tag-bar-more i");
+        if (t.style.transform == "rotate(180deg)") {
+            e.style.maxHeight = "151px";
+            t.style.transform = ""
+        } else {
+            e.style.maxHeight = "fit-content"
+            t.style.transform = "rotate(180deg)"
+        }
     },
 
     getLocationWeather() {

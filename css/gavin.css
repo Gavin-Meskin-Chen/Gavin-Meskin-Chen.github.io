@@ -3816,8 +3816,9 @@ a.categoryButton:after {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-    max-height: 151.2px;
+    max-height: 151px;
     overflow-y: scroll;
+    transition: .3s ease-out;
 }
 
 #tag-bar-items::-webkit-scrollbar {
@@ -3866,9 +3867,14 @@ a.categoryButton:after {
     display: flex;
     justify-content: center;
     margin: 10px 0 0;
-    background: var(--gavin-op-dis-1);
+    background: var(--gavin-widget-bg1);
     border-radius: 8px;
     padding: 5px 0;
+}
+
+.tag-bar-more:hover {
+    background: var(--gavin-widget-bg2);
+    color: var(--dis-f-0);
 }
 
 #recent-posts {
