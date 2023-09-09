@@ -814,11 +814,11 @@ function categoryBarMask() {
     if (x == 0 && z <= y) {
         categoryBarItems.style.webkitMaskImage = ""
     } else if (x == 0 && z > y) {
-        categoryBarItems.style.webkitMaskImage = "linear-gradient(-90deg,transparent,#fff 10px)"
+        categoryBarItems.style.webkitMaskImage = "linear-gradient(-90deg,transparent,#fff 20px)"
     } else if (x > 0 && x + y < z) {
-        categoryBarItems.style.webkitMaskImage = "linear-gradient(90deg,transparent,#fff 10px,#fff calc(100% - 10px),transparent)"
+        categoryBarItems.style.webkitMaskImage = "linear-gradient(90deg,transparent,#fff 20px,#fff calc(100% - 20px),transparent)"
     } else if (x > 0 && x + y >= z) {
-        categoryBarItems.style.webkitMaskImage = "linear-gradient(90deg,transparent,#fff 10px)"
+        categoryBarItems.style.webkitMaskImage = "linear-gradient(90deg,transparent,#fff 20px)"
     }
     categoryBarItems.addEventListener("scroll", categoryBarMask);
 }
