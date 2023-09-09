@@ -723,6 +723,11 @@ var ctrl = {
         t.style.transform = ""))
     },
 
+    scrollTagBarToEnd() {
+        var e = document.getElementById("category-bar-items")
+          , t = document.querySelector(".category-bar-more");
+    },
+
     getLocationWeather() {
         fetch('https://api.ipify.org?format=json')
             .then(response => response.json())

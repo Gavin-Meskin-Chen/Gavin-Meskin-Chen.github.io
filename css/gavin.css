@@ -3861,6 +3861,16 @@ a.categoryButton:after {
     border-radius: 0.5rem;
 }
 
+.tag-bar-more {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 10px 0 0;
+    background: var(--gavin-op-dis-1);
+    border-radius: 8px;
+    padding: 5px 0;
+}
+
 #recent-posts {
     margin-top: 0 !important;
 }
