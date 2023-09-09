@@ -3816,9 +3816,9 @@ a.categoryButton:after {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-    max-height: 151px;
+    max-height: 111px;
     overflow-y: scroll;
-    transition: .3s ease-out;
+    transition: all 0.3s ease-in-out;
 }
 
 #tag-bar-items::-webkit-scrollbar {
@@ -3870,6 +3870,10 @@ a.categoryButton:after {
     background: var(--gavin-widget-bg1);
     border-radius: 8px;
     padding: 5px 0;
+}
+
+.tag-bar-more i {
+    transition: all 0.3s ease-in-out;
 }
 
 .tag-bar-more:hover {
@@ -4331,6 +4335,7 @@ html.hide-aside .layout>div:first-child {
 .console-list-body {
     width: 100%;
     height: calc(100% - 5.8rem);
+    overflow: hidden;
     padding: 0;
 }
 

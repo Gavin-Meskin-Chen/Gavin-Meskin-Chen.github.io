@@ -727,10 +727,10 @@ var ctrl = {
         var e = document.getElementById("tag-bar-items")
           , t = document.querySelector(".tag-bar-more i");
         if (t.style.transform == "rotate(180deg)") {
-            e.style.maxHeight = "151px";
+            e.style.maxHeight = "111px";
             t.style.transform = ""
         } else {
-            e.style.maxHeight = "fit-content"
+            e.style.maxHeight = "calc(100vh - 155px)"
             t.style.transform = "rotate(180deg)"
         }
     },
