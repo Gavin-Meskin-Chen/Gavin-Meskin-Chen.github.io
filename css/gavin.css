@@ -3816,9 +3816,15 @@ a.categoryButton:after {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-    max-height: 111px;
+    max-height: 32px;
     overflow-y: scroll;
     transition: all 0.3s ease-in-out;
+}
+
+@media screen and (max-width: 768px) {
+    #tag-bar-items {
+        max-height: 111px;
+    }
 }
 
 #tag-bar-items::-webkit-scrollbar {
