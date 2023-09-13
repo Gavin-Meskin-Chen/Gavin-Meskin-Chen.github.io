@@ -2176,7 +2176,7 @@ figure.highlight pre .javascript .function {
   color: #08f;
 }
 .category-lists .category-list .category-list-count {
-  margin-left: 8px;
+  margin-left: 4px;
   color: #858585;
 }
 .category-lists .category-list .category-list-count:before {

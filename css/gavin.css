@@ -1083,20 +1083,49 @@ a {
     font-family: "Font Awesome 6 Free";
 }
 
-/* Tag页标签样式 */
+/* Tag页、Category页标签样式 */
 .tag-cloud-list a {
     font-size: 1.5rem !important;
     margin: 0.5rem;
     /* border: 1px solid var(--gavin-item-border); */
     background-color: var(--gavin-item-bg);
-    border-radius: 0.4em;
+    border-radius: 10px;
     color: var(--font-color) !important;
+}
+
+.category-lists ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.category-lists ul li {
+    border-radius: 10px;
+    background-color: var(--gavin-op-dis-1);
+    margin: 0;
+    padding: 0.12em 0.67em 0.12em 2em !important;
+    display: flex;
+    align-items: center;
+}
+
+.category-lists ul li:before {
+    left: 0.67em;
+    top: calc(50% - 0.43em);
+}
+
+.category-lists .category-list a {
+    font-size: 1.4rem
 }
 
 @media screen and (max-width: 768px) {
     .tag-cloud-list a {
         font-size: 1.3rem!important;
     }
+
+    .category-lists .category-list a {
+        font-size: 1.2rem;
+    }    
 }
 
 /* 搜索页面毛玻璃 */
@@ -1166,7 +1195,6 @@ a {
     color: var(--gavin-blue3);
 }
 
-.category-lists ul li,
 #algolia-search .search-dialog .ais-Hits-list li {
     border-radius: 0.8rem;
     background-color: var(--gavin-op-dis-1);
@@ -1174,7 +1202,6 @@ a {
     padding: 0.12em 0.4em 0.12em 2em !important;
 }
 
-.category-lists ul li:before,
 #algolia-search .search-dialog .ais-Hits-list li:before {
     left: 0.67em;
 }
@@ -3039,10 +3066,10 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
     background-color: rgba(144,147,153,0.16);
 }
 
-.twikoo .el-textarea__inner,
+/* .twikoo .el-textarea__inner,
 .tk-preview-container {
     border-radius: 10px;
-}
+} */
 
 /* 评论区 */
 .tk-extra {
@@ -3753,6 +3780,7 @@ a.categoryButton:after {
     display: flex;
     width: 100%;
     border-radius: 0.5rem;
+    gap: 7px;
 }
 
 .category-bar-items::-webkit-scrollbar {
@@ -3769,9 +3797,9 @@ a.categoryButton:after {
     background: var(--gavin-widget-bg1);
 }
 
-.category-bar-item:not(:last-child) a {
+/* .category-bar-item:not(:last-child) a {
     margin: 0 7px 0 0;
-}
+} */
 
 .category-bar-item:hover a {
     background: var(--gavin-widget-bg2);
@@ -3872,7 +3900,7 @@ a.categoryButton:after {
     width: 100%;
     display: flex;
     justify-content: center;
-    margin: 10px 0 0;
+    margin: 8px 0 0;
     background: var(--gavin-widget-bg1);
     border-radius: 8px;
     padding: 5px 0;
