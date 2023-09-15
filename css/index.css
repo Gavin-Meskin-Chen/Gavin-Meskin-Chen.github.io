@@ -4437,7 +4437,9 @@ h1.page-title + .tag-cloud-list {
   display: none;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.8);
+  background: rgba(0,0,0,0.6);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
 }
 #sidebar #sidebar-menus {
   position: fixed;
@@ -4800,6 +4802,24 @@ span.mathjax-overflow {
   text-overflow: ellipsis;
   display: block;
   text-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+.card_box .card_content > div {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-pack: justify;
+  -moz-box-pack: justify;
+  -o-box-pack: justify;
+  -ms-flex-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+.card_box .card_content > div span {
+  font-weight: 500;
+  font-size: 1rem;
 }
 [data-theme='dark'] .card_box {
   color: #ddd !important;

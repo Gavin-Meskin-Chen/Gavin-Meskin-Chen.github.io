@@ -550,6 +550,9 @@ ul.menus_item_child {
     /* 弧度微调 */
     border-radius: 12px;
     border: 1px solid var(--gavin-border-color);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+    background: var(--gavin-nav-bg);
 }
 
 @media screen and (min-width: 768px) {
@@ -564,14 +567,26 @@ ul.menus_item_child {
 #nav {
     /* top: 0; */
     padding: 0 4.5%;
-    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    /* -webkit-backdrop-filter: saturate(180%) blur(20px); */
     /* Warning: Also define the standard property '' for compatibility */
-    backdrop-filter: saturate(180%) blur(20px);
+    /* backdrop-filter: saturate(180%) blur(20px); */
     /* saturate饱和度 contrast对比度 blur高斯模糊 */
     /* 以下是导航栏新改的 */
     background-color: var(--gavin-nav-bg) !important;
     box-shadow: var(--card-box-shadow) !important;
     transform: translateZ(0);
+}
+
+#nav::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
 }
 
 header a,
@@ -788,7 +803,7 @@ center#name-container {
     position: absolute;
     top: 65px;
     left: 0;
-    background: var(--card-bg);
+    background: var(--gavin-nav-bg);
     border-radius: 12px;
     border: var(--style-border);
     flex-direction: column;
@@ -798,6 +813,8 @@ center#name-container {
     opacity: 0;
     pointer-events: none;
     padding-bottom: 5px;
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
 }
 
 .back-home-button .back-menu-list-group {
@@ -924,10 +941,13 @@ center#name-container {
 /* 导航栏置顶后透明 */
 #body-wrap #page-header:not(.is-top-bar) #nav {
     background: rgb(0 0 0 / 0%) !important;
-    -webkit-backdrop-filter: none !important;
-    backdrop-filter: none !important;
     box-shadow: none !important;
     transform: translateZ(0);
+}
+
+#body-wrap #page-header:not(.is-top-bar) #nav::before {
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
 }
 
 /* #body-wrap #page-header:not(.is-top-bar) #nav #he-plugin-simple,
@@ -3261,18 +3281,14 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
 #owo-big {
     position: fixed;
     align-items: center;
-    background-color: rgb(255, 255, 255);
-    border: 1px #aaa solid;
+    background-color: var(--f-0);
+    border: 1px var(--gavin-border-color) solid;
     border-radius: 10px;
     z-index: 9999;
     display: none;
     transform: translate(0, -105%);
     overflow: hidden;
     animation: owoIn 0.3s cubic-bezier(0.42, 0, 0.3, 1.11);
-}
-
-[data-theme=dark] #owo-big {
-    background-color: #4a4a4a
 }
 
 #owo-big img {
@@ -3289,6 +3305,12 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
         transform: translate(0, -105%);
         opacity: 1;
     }
+}
+
+.OwO .OwO-body {
+    background-color: var(--gavin-op-1)!important;
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
 }
 
 /* ***********************双栏显示 npm i hexo-butterfly-article-double-row --save********************** */
