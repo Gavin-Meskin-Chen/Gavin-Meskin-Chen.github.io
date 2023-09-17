@@ -743,6 +743,18 @@ var ctrl = {
         }
     },
 
+    foldSavedArticles(event) {
+        var a = document.getElementById("cf-saved-post")
+        var b = event.target.parentElement.querySelector("i");
+        if (b.style.transform == "rotate(180deg)") {
+            a.style.maxHeight = "240px"
+            b.style.transform = ""
+        } else {
+            a.style.maxHeight = typeof savedArticlesIndex != 'undefined' ? (savedArticlesIndex.length * 130 - 20) + "px" : "fit-content"
+            b.style.transform = "rotate(180deg)"
+        }
+    },
+
     getLocationWeather() {
         fetch('https://api.ipify.org?format=json')
             .then(response => response.json())
@@ -874,10 +886,8 @@ var ctrl = {
             : "https://apis.cansin.top/subscribe?key=" + key + "&index=" + article_index + "&title=" + article_title + "&link=" + article_link + "&author=" + article_author + "&avatar=" + article_avatar + "&time=" + article_time;
         var inputBox = document.querySelector("#fcircleInputBox .inputBox");
         var noteBox = document.querySelector("#fcircleInputBox .noteBox");
-        // var tips = noteBox.querySelector(".tips");
         inputBox.classList.add("hide");
         noteBox.classList.remove("hide");
-        // tips.innerText = "请稍候 ...";
         fetch(url)
             .then(response => response.json())
             .then(data => {

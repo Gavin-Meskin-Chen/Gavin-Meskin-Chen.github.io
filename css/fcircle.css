@@ -309,12 +309,16 @@ Last Modified time : 20220211 98:00 by https://immmmm.com
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+  max-height: 240px;
+  overflow: hidden;
+  transition: .3s ease-in-out;
 }
 #我的收藏 {
   display: flex;
   align-items: center;
 }
-#我的收藏 .refresh {
+#我的收藏 .refresh,
+#我的收藏 .fold {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -322,18 +326,28 @@ Last Modified time : 20220211 98:00 by https://immmmm.com
   width: 36px;
   height: 36px;
   position: absolute;
-  right: 0;
   cursor: pointer;
   color: var(--font-color);
-  background-color: var(--gavin-widget-bg1);
+  border: 1px solid var(--gavin-border-color);
+  background-color: var(--card-bg);
   transition: .3s;
 }
-#我的收藏 .refresh:hover {
+#我的收藏 .refresh {
+  right: 48px;
+}
+#我的收藏 .fold {
+  right: 0;
+}
+#我的收藏 .refresh:hover,
+#我的收藏 .fold:hover {
   background-color: var(--gavin-widget-bg2);
   transition: .3s;
 }
 #我的收藏 .refresh i {
-  font-size: 22px;
+  font-size: 20px;
+}
+#我的收藏 .fold i {
+  font-size: 12px;
 }
 /* 移动端适配 */
 @media screen and (max-width:1200px) {

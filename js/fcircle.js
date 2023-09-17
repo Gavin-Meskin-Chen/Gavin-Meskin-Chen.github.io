@@ -8,8 +8,8 @@ var fdata = {
     jsonurl: '',
     apiurl: '',
     apipublieurl: 'https://fcircle-pub.rct.cool/', //默认公共库
-    initnumber: 12,  //首次加载文章数
-    stepnumber: 6,  //更多加载文章数
+    initnumber: 24,  //首次加载文章数
+    stepnumber: 12,  //更多加载文章数
     article_sort: 'created', //文章排序 updated or created
     error_img: 'https://blog-hexo-img.oss-cn-shanghai.aliyuncs.com/error-img.webp'
 }
