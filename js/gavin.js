@@ -1,5 +1,5 @@
 // pjax适配
-document.addEventListener("DOMContentLoaded", ()=>{
+document.addEventListener("DOMContentLoaded", () => {
     console.log("第一次加载完成");
     document.getElementById("page-name").innerText = document.title.split(" | 参星阁")[0];
     cardTimes();
@@ -10,13 +10,13 @@ document.addEventListener("DOMContentLoaded", ()=>{
     ctrl.getCurrentPage()
     // sidebarWeather();
     // ctrl.refreshThemeColor();
-    if(document.documentElement.scrollTop != 0){
+    if (document.documentElement.scrollTop != 0) {
         document.getElementById("page-header").classList.add("is-top-bar")
     }
     if (document.getElementById('post-comment')) ctrl.owoBig();
 }); //第一次
 
-document.addEventListener("pjax:complete", ()=>{
+document.addEventListener("pjax:complete", () => {
     console.log("pjax加载完成（切换页面）");
     document.getElementById("page-name").innerText = document.title.split(" | 参星阁")[0];
     cardTimes();
@@ -26,7 +26,7 @@ document.addEventListener("pjax:complete", ()=>{
     ctrl.getCurrentPage();
     // sidebarWeather();
     // ctrl.refreshThemeColor();
-    if(document.documentElement.scrollTop != 0){
+    if (document.documentElement.scrollTop != 0) {
         document.getElementById("page-header").classList.add("is-top-bar");
     }
     if (document.getElementById('post-comment')) ctrl.owoBig();
@@ -44,6 +44,14 @@ const marqueeContent1 = document.getElementById('console-music-title-text');
 const marqueeContainer2 = document.getElementById('console-music-author');
 const marqueeContent2 = document.getElementById('console-music-author-text');
 var ipAddress = '';
+var article_index = '',
+    article_title = '',
+    article_link = '',
+    article_author = '',
+    article_avatar = '',
+    article_time = '',
+    article_pwd = '';
+
 
 if ('paintWorklet' in CSS) { CSS.paintWorklet.addModule('/js/paint.min.js'); }
 
@@ -58,7 +66,7 @@ window.onload = function () {
         set_notice.checked = localStorage.getItem('notice_state') == 'true' ? true : false;
     }
     if (localStorage.getItem('lrc_state') != null) {
-        localStorage.getItem('lrc_state') == 'true' ? document.getElementById("ircSwitchBtn").click() : null ;
+        localStorage.getItem('lrc_state') == 'true' ? document.getElementById("ircSwitchBtn").click() : null;
     }
     if (localStorage.getItem('system_theme_state') != null) {
         set_sys_theme.checked = localStorage.getItem('system_theme_state') == 'true' ? true : false;
@@ -232,8 +240,8 @@ var tools = {
         const userAgent = navigator.userAgent;
         let browserName, fullVersion, majorVersion;
         function getHard(str) {
-            let str1 = str.substring(str.indexOf("("),str.indexOf(")"));
-            return str1.substring(str1.lastIndexOf(";")+2, str1.length)
+            let str1 = str.substring(str.indexOf("("), str.indexOf(")"));
+            return str1.substring(str1.lastIndexOf(";") + 2, str1.length)
         }
         let hard = getHard(userAgent);
         if (/Firefox[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent)) {// 检测Firefox
@@ -335,7 +343,7 @@ var tools = {
 
     getBatteryInfo() {
         if ('getBattery' in navigator) {
-            navigator.getBattery().then(function(battery) {
+            navigator.getBattery().then(function (battery) {
                 console.log("Battery level: " + battery.level * 100 + "%");
                 console.log("Battery state: " + battery.charging);
                 return {
@@ -388,7 +396,7 @@ var ctrl = {
 
     GlobalTheme(e) {
         console.log(`changed to ${e.matches ? "dark" : "light"} mode`);
-        if(e.matches){
+        if (e.matches) {
             activateDarkMode();
             document.querySelector("#set-theme-dark input").checked = true;
             saveToLocal.set('theme', 'dark', 2);
@@ -464,12 +472,12 @@ var ctrl = {
             if (irc === null) {
                 a.classList.add("aplayer-lrc-hide");
                 b.classList.remove("on");
-                localStorage.setItem('lrc_state',false);
+                localStorage.setItem('lrc_state', false);
                 if (set_notice.checked) tools.showMessage("桌面歌词已关闭", "success", 2);
             } else {
                 a.classList.remove("aplayer-lrc-hide");
                 b.classList.add("on");
-                localStorage.setItem('lrc_state',true);
+                localStorage.setItem('lrc_state', true);
                 if (set_notice.checked) tools.showMessage("桌面歌词已打开", "success", 2);
             }
         }
@@ -644,10 +652,10 @@ var ctrl = {
     refreshThemeColor() {
         var cover = document.getElementById("page-header");
         if (cover) {
-            var apiUrl = cover.style.backgroundImage.slice(5,-2) + "?x-oss-process=image/average-hue";
+            var apiUrl = cover.style.backgroundImage.slice(5, -2) + "?x-oss-process=image/average-hue";
             fetch(apiUrl).then(response => response.json()).then(data => {
-                var mainColor = "#"+data.RGB.slice(2,);
-                console.log("主色调为："+mainColor);
+                var mainColor = "#" + data.RGB.slice(2,);
+                console.log("主色调为：" + mainColor);
                 document.documentElement.style.setProperty('--gavin-main-color', mainColor);
             })
                 .catch(error => console.error(error));
@@ -705,7 +713,7 @@ var ctrl = {
 
     scrollCategoryBarToRight() {
         var e = document.getElementById("category-bar-items")
-          , t = document.querySelector(".category-bar-more");
+            , t = document.querySelector(".category-bar-more");
         function o() {
             t.style.transform = Math.ceil(e.scrollLeft) + Math.ceil(e.clientWidth) >= Math.ceil(e.scrollWidth) ? "rotate(180deg)" : ""
         }
@@ -715,17 +723,17 @@ var ctrl = {
             left: 0,
             behavior: "smooth"
         }),
-        t.style.transform = "",
-        e.removeEventListener("scroll", o)) : (e.scrollBy({
-            left: n,
-            behavior: "smooth"
-        }),
-        t.style.transform = ""))
+            t.style.transform = "",
+            e.removeEventListener("scroll", o)) : (e.scrollBy({
+                left: n,
+                behavior: "smooth"
+            }),
+                t.style.transform = ""))
     },
 
     scrollTagBarToEnd() {
         var e = document.getElementById("tag-bar-items")
-          , t = document.querySelector(".tag-bar-more i");
+            , t = document.querySelector(".tag-bar-more i");
         if (t.style.transform == "rotate(180deg)") {
             e.style.maxHeight = window.innerWidth <= 768 ? "111px" : "32px";
             t.style.transform = ""
@@ -741,7 +749,7 @@ var ctrl = {
             .then(data => {
                 ipAddress = data.ip;
                 console.log("IP 地址：" + ipAddress);
-                fetch('https://apis.cansin.top/weather?ip='+ipAddress+'&output=jsonp')
+                fetch('https://apis.cansin.top/weather?ip=' + ipAddress + '&output=jsonp')
                     .then(response => response.json())
                     .then(data => {
                         console.log(data);
@@ -786,28 +794,191 @@ var ctrl = {
                 if (document.body.clientWidth <= 768) owo_body.addEventListener('contextmenu', e => e.preventDefault());
                 // 鼠标移入
                 owo_body.onmouseover = (e) => {
-                        if (flag && e.target.tagName == 'IMG') {
-                            flag = 0;
-                            // 移入300毫秒后显示盒子
-                            owo_time = setTimeout(() => {
-                                let height = e.target.clientHeight * m, // 盒子高 2023-02-16更新
-                                    width = e.target.clientWidth * m, // 盒子宽 2023-02-16更新
-                                    left = (e.x - e.offsetX) - (width - e.target.clientWidth) / 2, // 盒子与屏幕左边距离 2023-02-16更新
-                                    top = e.y - e.offsetY; // 盒子与屏幕顶部距离
-                                if ((left + width) > body.clientWidth) left -= ((left + width) - body.clientWidth + 10); // 右边缘检测，防止超出屏幕
-                                if (left < 0) left = 10; // 左边缘检测，防止超出屏幕
-                                // 设置盒子样式
-                                div.style.cssText = `display:flex; height:${height}px; width:${width}px; left:${left}px; top:${top}px;`;
-                                // 在盒子中插入图片
-                                div.innerHTML = `<img src="${e.target.src}">`
-                            }, 300);
-                        }
-                    };
+                    if (flag && e.target.tagName == 'IMG') {
+                        flag = 0;
+                        // 移入300毫秒后显示盒子
+                        owo_time = setTimeout(() => {
+                            let height = e.target.clientHeight * m, // 盒子高 2023-02-16更新
+                                width = e.target.clientWidth * m, // 盒子宽 2023-02-16更新
+                                left = (e.x - e.offsetX) - (width - e.target.clientWidth) / 2, // 盒子与屏幕左边距离 2023-02-16更新
+                                top = e.y - e.offsetY; // 盒子与屏幕顶部距离
+                            if ((left + width) > body.clientWidth) left -= ((left + width) - body.clientWidth + 10); // 右边缘检测，防止超出屏幕
+                            if (left < 0) left = 10; // 左边缘检测，防止超出屏幕
+                            // 设置盒子样式
+                            div.style.cssText = `display:flex; height:${height}px; width:${width}px; left:${left}px; top:${top}px;`;
+                            // 在盒子中插入图片
+                            div.innerHTML = `<img src="${e.target.src}">`
+                        }, 300);
+                    }
+                };
                 // 鼠标移出隐藏盒子
                 owo_body.onmouseout = () => { div.style.display = 'none', flag = 1, clearTimeout(owo_time); }
             }
         })
         observer.observe(document.getElementById('post-comment'), { subtree: true, childList: true }) // 监听的 元素 和 配置项
+    },
+
+    switchSecretInput(event) {
+        const a = document.getElementById("fcircleInputBox");
+        const b = a.querySelector(".input-password");
+        const f = a.querySelector(".content-body .title");
+        function c(e) { article_pwd = e.target.value; }
+        if (a.classList.contains("open")) {
+            a.classList.remove("open");
+            b.removeEventListener('input', c);
+            article_index = '';
+            article_title = '';
+            article_link = '';
+            article_author = '';
+            article_avatar = '';
+            article_time = '';
+        } else {
+            a.classList.add("open");
+            b.addEventListener('input', c);
+            var d = '';
+            if (event.target.nodeName.toUpperCase() == "A") {
+                if (event.target.classList.contains("saved")) {
+                    sendMode = 1;
+                    f.innerHTML = "移出收藏";
+                } else {
+                    sendMode = 0;
+                    f.innerHTML = "添加收藏";
+                }
+                d = event.target.parentElement.querySelector(".cf-article-title");
+                article_author = event.target.parentElement.querySelector(".cf-article-avatar .cf-article-author").innerText;
+                article_avatar = event.target.parentElement.querySelector(".cf-article-avatar .cf-img-avatar").src;
+                article_time = event.target.parentElement.querySelector(".cf-article-time .cf-time-created").innerText;
+            } else if (event.target.nodeName.toUpperCase() == "I") {
+                if (event.target.parentElement.classList.contains("saved")) {
+                    sendMode = 1;
+                    f.innerHTML = "移出收藏";
+                } else {
+                    sendMode = 0;
+                    f.innerHTML = "添加收藏";
+                }
+                d = event.target.parentElement.parentElement.querySelector(".cf-article-title");
+                article_author = event.target.parentElement.parentElement.querySelector(".cf-article-avatar .cf-article-author").innerText;
+                article_avatar = event.target.parentElement.parentElement.querySelector(".cf-article-avatar .cf-img-avatar").src;
+                article_time = event.target.parentElement.parentElement.querySelector(".cf-article-time .cf-time-created").innerText;
+            }
+            article_title = d.innerText;
+            article_link = d.getAttribute("href");
+            article_index = "cf-" + CryptoJS.MD5(article_link).toString();
+        }
+    },
+
+    sendSubscribeInfo() {
+        var key = CryptoJS.SHA256(article_pwd);
+        var url = sendMode == 1
+            ? "https://apis.cansin.top/delsavedtitles?key=" + key + "&index=" + article_index
+            : "https://apis.cansin.top/subscribe?key=" + key + "&index=" + article_index + "&title=" + article_title + "&link=" + article_link + "&author=" + article_author + "&avatar=" + article_avatar + "&time=" + article_time;
+        var inputBox = document.querySelector("#fcircleInputBox .inputBox");
+        var noteBox = document.querySelector("#fcircleInputBox .noteBox");
+        // var tips = noteBox.querySelector(".tips");
+        inputBox.classList.add("hide");
+        noteBox.classList.remove("hide");
+        // tips.innerText = "请稍候 ...";
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                if (data.code == 200) {
+                    // console.log(data.message);
+                    var a = document.querySelector("#cf-saved-post ." + article_index);
+                    if (a) { a.outerHTML = ""; }
+                    var b = document.querySelector("." + article_index + " .cf-star");
+                    b.classList.contains("saved") ? b.classList.remove("saved") : b.classList.add("saved");
+                    if (sendMode == 0) {
+                        var container = `
+                            <div class="cf-article ${article_index}">
+                                <a class="cf-article-title" href="${article_link}" target="_blank" rel="noopener nofollow" data-title="${article_title}">${article_title}</a>
+                                <a class="cf-star saved" onclick="ctrl.switchSecretInput(event)"><i class="fa-regular fa-star"></i></a>
+                                <div class="cf-article-avatar no-lightbox flink-item-icon">
+                                    <img class="cf-img-avatar avatar" src="${article_avatar}" alt="avatar" onerror="this.src=''; this.onerror = null;">
+                                    <span class="cf-article-author">${article_author}</span>
+                                </div>
+                                <span class="cf-article-time">
+                                    <span class="cf-time-created">${article_time}</span>
+                                </span>
+                            </div>
+                            `;
+                        document.getElementById("cf-saved-post").insertAdjacentHTML('beforeend', container);
+                    }
+                    tools.showMessage(data.message, "success", 2);
+                    localStorage.removeItem('savedArticles');
+                    inputBox.classList.remove("hide");
+                    noteBox.classList.add("hide");
+                    document.querySelector("#fcircleInputBox .btn.close").click();
+                } else {
+                    // console.log(data.message);
+                    tools.showMessage(data.message, "error", 2);
+                    inputBox.classList.remove("hide");
+                    noteBox.classList.add("hide");
+                    document.querySelector("#fcircleInputBox .btn.close").click();
+                }
+            })
+            .catch(error => {
+                console.error('收藏失败:', error);
+                alert('收藏失败');
+            })
+    },
+
+    getAllSavedArticles() {
+        var savedArticles = localStorage.getItem("savedArticles");
+        if (savedArticles != null) {
+            console.log("内存读取成功：");
+            console.log(JSON.parse(savedArticles));
+            ctrl.addArticleCard(JSON.parse(savedArticles));
+        } else {
+            fetch("https://apis.cansin.top/getsavedtitles?mode=all&column=&value=&output=jsonp")
+                .then(response => response.json())
+                .then(data => {
+                    if (data.code == 200) {
+                        console.log('获取收藏夹成功');
+                        savedArticles = data.content;
+                        localStorage.setItem("savedArticles", JSON.stringify(savedArticles));
+                        console.log(savedArticles);
+                        var savedArticlesIndex = savedArticles.map(item => item.index);
+                        console.log(savedArticlesIndex);
+                        ctrl.checkStared(savedArticlesIndex);
+                        ctrl.addArticleCard(savedArticles);
+                    } else {
+                        console.log('获取收藏夹失败')
+                    }
+                })
+                .catch(error => {
+                    console.error('获取收藏夹失败', error);
+                })
+        }
+    },
+
+    checkStared(s) {
+        for (let i = 0; i < s.length; i++) {
+            var j = document.querySelector("#cf-container ." + s[i] + " .cf-star");
+            if (j) {
+                j.classList.contains("saved") ? null : j.classList.add("saved");
+            }
+        }
+    },
+
+    addArticleCard(a) {
+        var container = '';
+        for (let i=0; i<a.length; i++) {
+            var item = a[i];
+            container += `
+            <div class="cf-article ${item.index}">
+                <a class="cf-article-title" href="${item.link}" target="_blank" rel="noopener nofollow" data-title="${item.title}">${item.title}</a>
+                <a class="cf-star saved" onclick="ctrl.switchSecretInput(event)"><i class="fa-regular fa-star"></i></a>
+                <div class="cf-article-avatar no-lightbox flink-item-icon">
+                    <img class="cf-img-avatar avatar" src="${item.avatar}" alt="avatar" onerror="this.src=''; this.onerror = null;">
+                    <span class="cf-article-author">${item.author}</span>
+                </div>
+                <span class="cf-article-time">
+                    <span class="cf-time-created">${item.time}</span>
+                </span>
+            </div>
+            `;
+        }
+        document.getElementById("cf-saved-post").insertAdjacentHTML('beforeend', container);
     }
 }
 
@@ -821,8 +992,8 @@ if (document.getElementById("category-bar-items")) {
 function categoryBarMask() {
     var categoryBarItems = document.getElementById("category-bar-items");
     var x = Math.ceil(categoryBarItems.scrollLeft)
-      , y = Math.ceil(categoryBarItems.clientWidth)
-      , z = Math.ceil(categoryBarItems.scrollWidth);
+        , y = Math.ceil(categoryBarItems.clientWidth)
+        , z = Math.ceil(categoryBarItems.scrollWidth);
     if (x == 0 && z <= y) {
         categoryBarItems.style.webkitMaskImage = ""
     } else if (x == 0 && z > y) {
@@ -873,7 +1044,7 @@ function tagsBarActive() {
     if (document.getElementById("tag-bar-items")) {
         var j = document.querySelector(".article-sort-title").innerText.slice(5);
         document.getElementById(j).classList.add("select");
-    }    
+    }
 }
 
 tagsBarActive();
@@ -923,7 +1094,7 @@ function topCategoriesBarScroll() {
 
 // F12控制台
 document.onkeydown = function (e) {
-    if (123 == e.keyCode || (e.ctrlKey && e.shiftKey && (74 === e.keyCode || 73 === e.keyCode || 67 === e.keyCode)) || (e.ctrlKey && 85 === e.keyCode)) return tools.showNote("开发者模式已打开，请遵循GPL协议","warning",5)
+    if (123 == e.keyCode || (e.ctrlKey && e.shiftKey && (74 === e.keyCode || 73 === e.keyCode || 67 === e.keyCode)) || (e.ctrlKey && 85 === e.keyCode)) return tools.showNote("开发者模式已打开，请遵循GPL协议", "warning", 5)
 };
 
 // 复制事件
@@ -1003,7 +1174,7 @@ document.getElementById("set-theme-dark").addEventListener("click", () => {
 var set_sys_theme = document.querySelector("#set-switch-systheme input");
 set_sys_theme.addEventListener("change", () => {
     if (set_sys_theme.checked) {
-        localStorage.setItem('system_theme_state',true);
+        localStorage.setItem('system_theme_state', true);
         const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
         const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches;
         if (isLightMode) {
@@ -1017,7 +1188,7 @@ set_sys_theme.addEventListener("change", () => {
         }
         colorSchemeQuery.addListener(ctrl.GlobalTheme);
     } else {
-        localStorage.setItem('system_theme_state',false);
+        localStorage.setItem('system_theme_state', false);
         colorSchemeQuery.removeListener(ctrl.GlobalTheme);
     }
 });
@@ -1025,8 +1196,8 @@ set_sys_theme.addEventListener("change", () => {
 // 字体大小设置
 var set_font_size = document.querySelector("#set-font-size input");
 set_font_size.addEventListener("change", () => {
-// getComputedStyle(document.documentElement).getPropertyValue('--global-font-size')
-    document.documentElement.style.setProperty('--global-font-size',set_font_size.value + 'px');
+    // getComputedStyle(document.documentElement).getPropertyValue('--global-font-size')
+    document.documentElement.style.setProperty('--global-font-size', set_font_size.value + 'px');
 });
 
 

@@ -313,6 +313,8 @@ hr::before {
 #article-container {
     /* font-family: Jinbu; */
     font-size: 1.1rem;
+    display: flex;
+    flex-direction: column;
 }
 
 @media screen and (max-width: 768px) {

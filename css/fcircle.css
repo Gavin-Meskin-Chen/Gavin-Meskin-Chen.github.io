@@ -15,11 +15,13 @@ Last Modified time : 20220211 98:00 by https://immmmm.com
     --lmm-fontcolor: #363636;
     --lmm-background: #fff;
     --lmm-floorcolor: #a9a9b3;
+    --gavin-bg-3: rgb(248,248,248);
   }
   [data-theme=dark] {
     --lmm-fontcolor: #a9a9b3;
     --lmm-background: #202224;
     --lmm-floorcolor: #454545;
+    --gavin-bg-3: rgb(7,7,7);
   }
   /* 基本信息 */
   #cf-state {font-size:16px;border-radius:0.8rem;border: 1px solid var(--gavin-card-border);box-shadow:none;margin:0 0 20px;overflow:hidden;display:flex;flex-direction:row;flex-wrap:wrap;padding:8px 0;}
@@ -37,14 +39,14 @@ Last Modified time : 20220211 98:00 by https://immmmm.com
   /* 主容器 */
   #cf-container {width:100%;/*max-width:900px;*/height:auto;margin:auto;display:flex;flex-wrap:wrap;gap:20px;}
   #cf-container a {text-decoration:none;}
-  .cf-article {/*margin:0 0 20px;*/border-radius:0.8rem;border: 1px solid var(--gavin-card-border);font-weight:bolder;overflow:hidden;transition: all ease-out .3s;position: relative;padding:0.5rem 1rem;width:calc(100% / 3 - 40px / 3);float:left;}
+  .cf-article {/*margin:0 0 20px;*/border-radius:0.8rem;border: 1px solid var(--gavin-card-border);font-weight:bolder;overflow:hidden;transition: all ease-out .3s;position: relative;padding:0.5rem 1rem;width:calc(100% / 3 - 40px / 3);float:left;height: 110px;}
   .cf-article:hover{transition:all .3s;/*-webkit-transform:scale(1.03);transform:scale(1.03);*/border-color: var(--gavin-highlight);}
-  .cf-article-avatar{line-height:35px;}
+  .cf-article-avatar{display:flex;align-items:center;position:absolute;bottom:8px;left:15px;}
   .cf-img-avatar {align-self:center;text-align:center;display:inline-block !important;width:22px;height:22px;border-radius:50%!important;margin:0 0 -4px !important;background: #fff;}
   .cf-article-author{line-height: 35px;font-size:14px;font-weight: 400;margin-left:5px;align-self:center;text-align:center;height:40px;white-space:nowrap;overflow:hidden;}
-  .cf-article-floor{position: absolute;top: 0.6rem;right:0.6rem;font-style: italic;font-size: 3rem;line-height: 1.5rem;z-index:1;font-weight: 400;display:none;}
-  .cf-article-title{color: var(--lmm-fontcolor)!important;font-weight: 500;position: relative;z-index:2;width:100%;display: block;/*letter-spacing:1.5px;*/font-size:18px;align-self:start;text-align:left;line-height:40px;padding:0;margin-bottom:10px;transition:0.3s;overflow:hidden;white-space: nowrap;text-overflow: ellipsis;}
-  .cf-article-time {font-size:14px;text-align:right;float:right;font-weight:400;}
+  /* .cf-article-floor{position: absolute;top: 0.6rem;right:0.6rem;font-style: italic;font-size: 3rem;line-height: 1.5rem;z-index:1;font-weight: 400;display:none;} */
+  .cf-article-title{color: var(--lmm-fontcolor)!important;font-weight: 500;position: relative;z-index:2;width:fit-content;max-width:calc(100% - 30px);display: -webkit-box;/*letter-spacing:1.5px;*/font-size:18px;align-self:start;text-align:left;line-height:1.3;padding:0;margin:5px 0;transition:0.3s;overflow:hidden;/*white-space: nowrap;text-overflow: ellipsis;*/-webkit-box-orient:vertical;-webkit-line-clamp:2;}
+  .cf-article-time {font-size:14px;text-align:right;float:right;font-weight:400;position:absolute;right:17px;bottom:17px;line-height:1;}
   .cf-time-updated,.cf-time-created {display:inline-block;text-align:left;white-space:nowrap;}
   .cf-time-updated i.fas,.cf-time-created i.far{padding-right:8px;}
   .cf-article-time i:before {margin-right:5px;}
@@ -90,7 +92,7 @@ Last Modified time : 20220211 98:00 by https://immmmm.com
   .dark-theme .cf-article:hover .cf-article-floor,.dark-theme .cf-article:hover .cf-time-created,.dark-theme .cf-article:hover .cf-time-updated,.dark-theme .cf-overshow p span,.theme-dark .cf-article:hover .cf-article-floor,.theme-dark .cf-article:hover .cf-time-created,.theme-dark .cf-article:hover .cf-time-updated,.theme-dark .cf-overshow p span{color: var(--lmm-dark-fontcolor);}
   /* 补充 */
   #cf-container .img-alt.is-center {display: none;}
-  div#cf-container a:hover{text-decoration: none;}
+  #article-container a:hover{text-decoration: none;}
   span.cf-article-author:hover{color: var(--gavin-highlight)!important;}
   div#cf-footer a {color: var(--dis-f-0);}
   .cf-overshow-head {margin: 0 10px;border-bottom: 1px dashed var(--gavin-note-font-color);}
@@ -117,6 +119,196 @@ Last Modified time : 20220211 98:00 by https://immmmm.com
 #cf-footer a:hover {
   text-decoration: none;
   color: var(--gavin-blue2);
+}
+.cf-star {
+  color: var(--lmm-fontcolor)!important;
+  width: 35px;
+  height: 35px;
+  font-size: 18px;
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.cf-star:hover {
+  color: var(--gavin-highlight)!important;
+}
+.cf-star.saved i {
+  font-weight: 900;
+  color: orange;
+}
+/* 密码输入框 */
+#fcircleInputBox {
+  display: flex;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  justify-content: center;
+  transition: .5s ease;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none;
+}
+#fcircleInputBox.open {
+  pointer-events: all;
+}
+#fcircleInputBox.open .inputBox.hide,
+.inputBox {
+  width: 300px;
+  height: 200px;
+  background: var(--gavin-bg-3);
+  border: 1px solid var(--gavin-border-color);
+  border-radius: 18px;
+  overflow: hidden;
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  transition: .5s ease;
+}
+#fcircleInputBox.open .inputBox{
+  opacity: 1;
+  pointer-events: all;
+  transition: .5s ease;
+}
+.content-body {
+  width: 100%;
+  height: 145px;
+  padding: 20px;
+  position: relative;
+}
+.content-body span.title {
+  display: block;
+  width: 100%;
+  font-size: 1.2rem;
+  font-weight: bold;
+  line-height: 1.3;
+  text-align: center;
+  margin: 0 0 8px;
+}
+.content-body span.tips {
+  display: block;
+  width: 100%;
+  font-size: 0.85rem;
+  line-height: 1.3;
+  text-align: center;
+  color: var(--gavin-note-font-color);
+}
+.content-body input.input-password {
+  display: block;
+  line-height: 1.3;
+  width: 260px;
+  border-radius: 6px;
+  height: 35px;
+  position: absolute;
+  bottom: 10px;
+  left: 20px;
+  padding: 4px 8px;
+  color: var(--font-color);
+  background: var(--f-0);
+  border: 1px solid var(--gavin-border-color);
+}
+.content-body input.input-password:focus {
+  outline: none;
+}
+.content-body input.input-password::placeholder {
+  color: var(--gavin-note-font-color);
+}
+.content-bottom {
+  width: 100%;
+  height: 55px;
+  border-top: 1px solid var(--gavin-border-color);
+  display: flex;
+}
+.content-bottom .btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 1px;
+  font-size: 1.1rem;
+  color: var(--gavin-blue2);
+  cursor: pointer;
+  /* background: none;
+  border: none; */
+}
+.content-bottom .btn:first-child {
+  border-right: 1px solid var(--gavin-border-color);
+}
+.content-bottom .btn:hover {
+  background-color: var(--gavin-op-dis-1);
+}
+.inputBoxMask {
+  background: var(--gavin-console-mask);
+  -webkit-backdrop-filter: blur(0);
+  backdrop-filter: blur(0);
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+  transition: .5s ease;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  transform: translateZ(0);
+}
+#fcircleInputBox.open .inputBoxMask {
+  -webkit-backdrop-filter: blur(7px);
+  backdrop-filter: blur(7px);
+  opacity: 1;
+  transform: translateZ(0);
+}
+#fcircleInputBox .noteBox {
+  width: 150px;
+  height: 150px;
+  background: var(--gavin-bg-3);
+  border: 1px solid var(--gavin-border-color);
+  border-radius: 15px;
+  overflow: hidden;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  pointer-events: none;
+  transition: .5s ease;
+}
+#fcircleInputBox .noteBox.hide {
+  opacity: 0;
+  transition: .5s ease;
+}
+#fcircleInputBox .noteBox .icon {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 20px;
+  color: var(--font-color);
+  font-size: 48px;
+}
+#fcircleInputBox .noteBox .tips {
+  position: absolute;
+  bottom: 27px;
+  line-height: 1.3;
+  font-size: 1rem;
+  color: var(--font-color);
+  text-align: center;
+}
+#cf-saved-post {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 /* 移动端适配 */
 @media screen and (max-width:1200px) {

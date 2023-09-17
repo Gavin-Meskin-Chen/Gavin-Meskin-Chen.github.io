@@ -86,7 +86,7 @@ function loadStatistical(sdata) {
         container.insertAdjacentHTML('afterend', loadMoreBtn);
     }
 }
-// 打印文章内容 cf-article
+// 打印文章内容 cf-article          <span class="cf-article-floor">${item.floor}</span>
 function loadArticleItem(datalist, start, end) {
     var articleItem = '';
     var articleNum = article_num;
@@ -95,22 +95,24 @@ function loadArticleItem(datalist, start, end) {
     if (start < articleNum) {
         for (var i = start; i < endFor; i++) {
             var item = datalist[i];
+            var id = "cf-" + CryptoJS.MD5(item.link).toString();
             articleItem += `
-        <div class="cf-article">
-          <a class="cf-article-title" href="${item.link}" target="_blank" rel="noopener nofollow" data-title="${item.title}">${item.title}</a>
-          <span class="cf-article-floor">${item.floor}</span>
-          <div class="cf-article-avatar no-lightbox flink-item-icon">
-            <img class="cf-img-avatar avatar" src="${item.avatar}" alt="avatar" onerror="this.src='${fdata.error_img}'; this.onerror = null;">
-            <a onclick="openMeShow(event)" data-link="${item.link}" class="" target="_blank" rel="noopener nofollow" href="javascript:;"><span class="cf-article-author">${item.author}</span></a>
+        <div class="cf-article ${id}">
+            <a class="cf-article-title" href="${item.link}" target="_blank" rel="noopener nofollow" data-title="${item.title}">${item.title}</a>
+            <a class="cf-star" onclick="ctrl.switchSecretInput(event)"><i class="fa-regular fa-star"></i></a>
+            <div class="cf-article-avatar no-lightbox flink-item-icon">
+                <img class="cf-img-avatar avatar" src="${item.avatar}" alt="avatar" onerror="this.src='${fdata.error_img}'; this.onerror = null;">
+                <a onclick="openMeShow(event)" data-link="${item.link}" class="" target="_blank" rel="noopener nofollow" href="javascript:;"><span class="cf-article-author">${item.author}</span></a>
+            </div>
             <span class="cf-article-time">
-              <span class="cf-time-created" style="${sortNow == 'created' ? '' : 'display:none'}">${item.created}</span>
-              <span class="cf-time-updated" style="${sortNow == 'updated' ? '' : 'display:none'}">${item.updated}</span>
+                <span class="cf-time-created" style="${sortNow == 'created' ? '' : 'display:none'}">${item.created}</span>
+                <span class="cf-time-updated" style="${sortNow == 'updated' ? '' : 'display:none'}">${item.updated}</span>
             </span>
-          </div>
         </div>
         `;
         }
         container.insertAdjacentHTML('beforeend', articleItem);
+        if (savedArticlesIndex != null) {checkStared(savedArticlesIndex);}
         // 预载下一页文章
         fetchNextArticle()
     } else {
@@ -162,28 +164,31 @@ function fetchNextArticle() {
         document.getElementById('cf-more').outerHTML = `<div id="cf-more" class="cf-new-add" onclick="loadNoArticle()"><small>一切皆有尽头！</small></div>`
     }
 }
-// 显示下一页文章，从本地缓存 nextArticle 中获取
+// 显示下一页文章，从本地缓存 nextArticle 中获取          <span class="cf-article-floor">${item.floor}</span>
+
 function loadNextArticle() {
     var nextArticle = JSON.parse(localStorage.getItem("nextArticle"));
     var articleItem = ""
     for (var i = 0; i < nextArticle.length; i++) {
         var item = nextArticle[i];
+        var id = "cf-" + CryptoJS.MD5(item.link).toString();
         articleItem += `
-        <div class="cf-article">
-          <a class="cf-article-title" href="${item.link}" target="_blank" rel="noopener nofollow" data-title="${item.title}">${item.title}</a>
-          <span class="cf-article-floor">${item.floor}</span>
-          <div class="cf-article-avatar no-lightbox flink-item-icon">
-            <img class="cf-img-avatar avatar" src="${item.avatar}" alt="avatar" onerror="this.src='${fdata.error_img}'; this.onerror = null;">
-            <a onclick="openMeShow(event)" data-link="${item.link}" class="" target="_blank" rel="noopener nofollow" href="javascript:;"><span class="cf-article-author">${item.author}</span></a>
+        <div class="cf-article ${id}">
+            <a class="cf-article-title" href="${item.link}" target="_blank" rel="noopener nofollow" data-title="${item.title}">${item.title}</a>
+            <a class="cf-star" onclick="ctrl.switchSecretInput(event)"><i class="fa-regular fa-star"></i></a>
+            <div class="cf-article-avatar no-lightbox flink-item-icon">
+                <img class="cf-img-avatar avatar" src="${item.avatar}" alt="avatar" onerror="this.src='${fdata.error_img}'; this.onerror = null;">
+                <a onclick="openMeShow(event)" data-link="${item.link}" class="" target="_blank" rel="noopener nofollow" href="javascript:;"><span class="cf-article-author">${item.author}</span></a>
+            </div>
             <span class="cf-article-time">
-              <span class="cf-time-created" style="${sortNow == 'created' ? '' : 'display:none'}">${item.created}</span>
-              <span class="cf-time-updated" style="${sortNow == 'updated' ? '' : 'display:none'}">${item.updated}</span>
+                <span class="cf-time-created" style="${sortNow == 'created' ? '' : 'display:none'}">${item.created}</span>
+                <span class="cf-time-updated" style="${sortNow == 'updated' ? '' : 'display:none'}">${item.updated}</span>
             </span>
-          </div>
         </div>
         `;
     }
     container.insertAdjacentHTML('beforeend', articleItem);
+    if (savedArticlesIndex != null) {checkStared(savedArticlesIndex);}
     // 同时预载下一页文章
     fetchNextArticle()
 }
