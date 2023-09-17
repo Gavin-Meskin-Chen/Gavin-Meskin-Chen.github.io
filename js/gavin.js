@@ -886,7 +886,8 @@ var ctrl = {
                     var a = document.querySelector("#cf-saved-post ." + article_index);
                     if (a) { a.outerHTML = ""; }
                     var b = document.querySelector("." + article_index + " .cf-star");
-                    b.classList.contains("saved") ? b.classList.remove("saved") : b.classList.add("saved");
+                    if (typeof savedArticlesIndex != 'undefined') savedArticlesIndex = savedArticlesIndex.filter(element => element !== article_index);
+                    if (b) {b.classList.contains("saved") ? b.classList.remove("saved") : b.classList.add("saved");}
                     if (sendMode == 0) {
                         var container = `
                             <div class="cf-article ${article_index}">
@@ -918,77 +919,76 @@ var ctrl = {
             })
             .catch(error => {
                 console.error('收藏失败:', error);
-                alert('收藏失败');
             })
-    },
-
-    getAllSavedArticles() {
-        var savedArticlesIndex;
-        var catchNowTime = Date.now();
-        var updateTime = localStorage.getItem("updateTime");
-        updateTime == null || catchNowTime - updateTime < 10000 ? null : localStorage.removeItem("savedArticles");
-        var savedArticles = localStorage.getItem("savedArticles");
-        if (savedArticles != null) {
-            console.log("内存读取成功：");
-            var savedArticlesJson = JSON.parse(savedArticles)
-            console.log(savedArticlesJson);
-            addArticleCard(savedArticlesJson);
-            savedArticlesIndex = savedArticlesJson.map(item => item.index);
-            // console.log(savedArticlesIndex);
-            // checkStared(savedArticlesIndex);
-        } else {
-            fetch("https://apis.cansin.top/getsavedtitles?mode=all&column=&value=&output=jsonp")
-                .then(response => response.json())
-                .then(data => {
-                    if (data.code == 200) {
-                        console.log('获取收藏夹成功');
-                        savedArticles = data.content;
-                        localStorage.setItem("updateTime", catchNowTime);
-                        localStorage.setItem("savedArticles", JSON.stringify(savedArticles));
-                        console.log(savedArticles);
-                        addArticleCard(savedArticles);
-                        savedArticlesIndex = savedArticles.map(item => item.index);
-                        console.log(savedArticlesIndex);
-                        checkStared(savedArticlesIndex);
-                    } else {
-                        console.log('获取收藏夹失败')
-                    }
-                })
-                .catch(error => {
-                    console.error('获取收藏夹失败', error);
-                })
-        }
-    },
-
-    checkStared(s) {
-        for (let i = 0; i < s.length; i++) {
-            var j = document.querySelector("#cf-container ." + s[i] + " .cf-star");
-            if (j) {
-                j.classList.contains("saved") ? null : j.classList.add("saved");
-            }
-        }
-    },
-
-    addArticleCard(a) {
-        var container = '';
-        for (let i=0; i<a.length; i++) {
-            var item = a[i];
-            container += `
-            <div class="cf-article ${item.index}">
-                <a class="cf-article-title" href="${item.link}" target="_blank" rel="noopener nofollow" data-title="${item.title}">${item.title}</a>
-                <a class="cf-star saved" onclick="ctrl.switchSecretInput(event)"><i class="fa-regular fa-star"></i></a>
-                <div class="cf-article-avatar no-lightbox flink-item-icon">
-                    <img class="cf-img-avatar avatar" src="${item.avatar}" alt="avatar" onerror="this.src=''; this.onerror = null;">
-                    <a class="" target="_blank" rel="noopener nofollow"><span class="cf-article-author">${item.author}</span></a>
-                </div>
-                <span class="cf-article-time">
-                    <span class="cf-time-created">${item.time}</span>
-                </span>
-            </div>
-            `;
-        }
-        document.getElementById("cf-saved-post").insertAdjacentHTML('beforeend', container);
     }
+
+    // getAllSavedArticles() {
+    //     var savedArticlesIndex;
+    //     var catchNowTime = Date.now();
+    //     var updateTime = localStorage.getItem("updateTime");
+    //     updateTime == null || catchNowTime - updateTime < 10000 ? null : localStorage.removeItem("savedArticles");
+    //     var savedArticles = localStorage.getItem("savedArticles");
+    //     if (savedArticles != null) {
+    //         console.log("内存读取成功：");
+    //         var savedArticlesJson = JSON.parse(savedArticles)
+    //         console.log(savedArticlesJson);
+    //         addArticleCard(savedArticlesJson);
+    //         savedArticlesIndex = savedArticlesJson.map(item => item.index);
+    //         // console.log(savedArticlesIndex);
+    //         // checkStared(savedArticlesIndex);
+    //     } else {
+    //         fetch("https://apis.cansin.top/getsavedtitles?mode=all&column=&value=&output=jsonp")
+    //             .then(response => response.json())
+    //             .then(data => {
+    //                 if (data.code == 200) {
+    //                     console.log('获取收藏夹成功');
+    //                     savedArticles = data.content;
+    //                     localStorage.setItem("updateTime", catchNowTime);
+    //                     localStorage.setItem("savedArticles", JSON.stringify(savedArticles));
+    //                     console.log(savedArticles);
+    //                     addArticleCard(savedArticles);
+    //                     savedArticlesIndex = savedArticles.map(item => item.index);
+    //                     console.log(savedArticlesIndex);
+    //                     checkStared(savedArticlesIndex);
+    //                 } else {
+    //                     console.log('获取收藏夹失败')
+    //                 }
+    //             })
+    //             .catch(error => {
+    //                 console.error('获取收藏夹失败', error);
+    //             })
+    //     }
+    // },
+
+    // checkStared(s) {
+    //     for (let i = 0; i < s.length; i++) {
+    //         var j = document.querySelector("#cf-container ." + s[i] + " .cf-star");
+    //         if (j) {
+    //             j.classList.contains("saved") ? null : j.classList.add("saved");
+    //         }
+    //     }
+    // },
+
+    // addArticleCard(a) {
+    //     var container = '';
+    //     for (let i=0; i<a.length; i++) {
+    //         var item = a[i];
+    //         container += `
+    //         <div class="cf-article ${item.index}">
+    //             <a class="cf-article-title" href="${item.link}" target="_blank" rel="noopener nofollow" data-title="${item.title}">${item.title}</a>
+    //             <a class="cf-star saved" onclick="ctrl.switchSecretInput(event)"><i class="fa-regular fa-star"></i></a>
+    //             <div class="cf-article-avatar no-lightbox flink-item-icon">
+    //                 <img class="cf-img-avatar avatar" src="${item.avatar}" alt="avatar" onerror="this.src=''; this.onerror = null;">
+    //                 <a class="" target="_blank" rel="noopener nofollow"><span class="cf-article-author">${item.author}</span></a>
+    //             </div>
+    //             <span class="cf-article-time">
+    //                 <span class="cf-time-created">${item.time}</span>
+    //             </span>
+    //         </div>
+    //         `;
+    //     }
+    //     document.getElementById("cf-saved-post").insertAdjacentHTML('beforeend', container);
+    // }
 }
 
 // +++++++++++++++++++++++++++ categoryBar分类条（或标签条） +++++++++++++++++++++++++++++++

@@ -8,8 +8,8 @@ var fdata = {
     jsonurl: '',
     apiurl: '',
     apipublieurl: 'https://fcircle-pub.rct.cool/', //默认公共库
-    initnumber: 30,  //首次加载文章数
-    stepnumber: 18,  //更多加载文章数
+    initnumber: 12,  //首次加载文章数
+    stepnumber: 6,  //更多加载文章数
     article_sort: 'created', //文章排序 updated or created
     error_img: 'https://blog-hexo-img.oss-cn-shanghai.aliyuncs.com/error-img.webp'
 }
@@ -112,7 +112,6 @@ function loadArticleItem(datalist, start, end) {
         `;
         }
         container.insertAdjacentHTML('beforeend', articleItem);
-        console.log(savedArticlesIndex);
         if (savedArticlesIndex != null) {checkStared(savedArticlesIndex);}
         // 预载下一页文章
         fetchNextArticle()
@@ -144,7 +143,7 @@ function loadFcircleShow(userinfo, articledata) {
 
 // 预载下一页文章，存为本地数据 nextArticle
 function fetchNextArticle() {
-    var start = document.getElementsByClassName('cf-article').length
+    var start = document.querySelectorAll('#cf-container .cf-article').length
     var end = start + fdata.stepnumber
     var articleNum = article_num;
     if (end > articleNum) {
@@ -189,7 +188,6 @@ function loadNextArticle() {
         `;
     }
     container.insertAdjacentHTML('beforeend', articleItem);
-    console.log(savedArticlesIndex);
     if (savedArticlesIndex != null) {checkStared(savedArticlesIndex);}
     // 同时预载下一页文章
     fetchNextArticle()
