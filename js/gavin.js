@@ -894,7 +894,7 @@ var ctrl = {
                                 <a class="cf-star saved" onclick="ctrl.switchSecretInput(event)"><i class="fa-regular fa-star"></i></a>
                                 <div class="cf-article-avatar no-lightbox flink-item-icon">
                                     <img class="cf-img-avatar avatar" src="${article_avatar}" alt="avatar" onerror="this.src=''; this.onerror = null;">
-                                    <span class="cf-article-author">${article_author}</span>
+                                    <a class="" target="_blank" rel="noopener nofollow"><span class="cf-article-author">${article_author}</span></a>
                                 </div>
                                 <span class="cf-article-time">
                                     <span class="cf-time-created">${article_time}</span>
@@ -904,7 +904,7 @@ var ctrl = {
                         document.getElementById("cf-saved-post").insertAdjacentHTML('beforeend', container);
                     }
                     tools.showMessage(data.message, "success", 2);
-                    localStorage.removeItem('savedArticles');
+                    localStorage.removeItem("savedArticles");
                     inputBox.classList.remove("hide");
                     noteBox.classList.add("hide");
                     document.querySelector("#fcircleInputBox .btn.close").click();
@@ -923,11 +923,19 @@ var ctrl = {
     },
 
     getAllSavedArticles() {
+        var savedArticlesIndex;
+        var catchNowTime = Date.now();
+        var updateTime = localStorage.getItem("updateTime");
+        updateTime == null || catchNowTime - updateTime < 10000 ? null : localStorage.removeItem("savedArticles");
         var savedArticles = localStorage.getItem("savedArticles");
         if (savedArticles != null) {
             console.log("内存读取成功：");
-            console.log(JSON.parse(savedArticles));
-            ctrl.addArticleCard(JSON.parse(savedArticles));
+            var savedArticlesJson = JSON.parse(savedArticles)
+            console.log(savedArticlesJson);
+            addArticleCard(savedArticlesJson);
+            savedArticlesIndex = savedArticlesJson.map(item => item.index);
+            // console.log(savedArticlesIndex);
+            // checkStared(savedArticlesIndex);
         } else {
             fetch("https://apis.cansin.top/getsavedtitles?mode=all&column=&value=&output=jsonp")
                 .then(response => response.json())
@@ -935,12 +943,13 @@ var ctrl = {
                     if (data.code == 200) {
                         console.log('获取收藏夹成功');
                         savedArticles = data.content;
+                        localStorage.setItem("updateTime", catchNowTime);
                         localStorage.setItem("savedArticles", JSON.stringify(savedArticles));
                         console.log(savedArticles);
-                        var savedArticlesIndex = savedArticles.map(item => item.index);
+                        addArticleCard(savedArticles);
+                        savedArticlesIndex = savedArticles.map(item => item.index);
                         console.log(savedArticlesIndex);
-                        ctrl.checkStared(savedArticlesIndex);
-                        ctrl.addArticleCard(savedArticles);
+                        checkStared(savedArticlesIndex);
                     } else {
                         console.log('获取收藏夹失败')
                     }
@@ -970,7 +979,7 @@ var ctrl = {
                 <a class="cf-star saved" onclick="ctrl.switchSecretInput(event)"><i class="fa-regular fa-star"></i></a>
                 <div class="cf-article-avatar no-lightbox flink-item-icon">
                     <img class="cf-img-avatar avatar" src="${item.avatar}" alt="avatar" onerror="this.src=''; this.onerror = null;">
-                    <span class="cf-article-author">${item.author}</span>
+                    <a class="" target="_blank" rel="noopener nofollow"><span class="cf-article-author">${item.author}</span></a>
                 </div>
                 <span class="cf-article-time">
                     <span class="cf-time-created">${item.time}</span>

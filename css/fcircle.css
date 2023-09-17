@@ -310,6 +310,31 @@ Last Modified time : 20220211 98:00 by https://immmmm.com
   flex-wrap: wrap;
   gap: 20px;
 }
+#我的收藏 {
+  display: flex;
+  align-items: center;
+}
+#我的收藏 .refresh {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  width: 36px;
+  height: 36px;
+  position: absolute;
+  right: 0;
+  cursor: pointer;
+  color: var(--font-color);
+  background-color: var(--gavin-widget-bg1);
+  transition: .3s;
+}
+#我的收藏 .refresh:hover {
+  background-color: var(--gavin-widget-bg2);
+  transition: .3s;
+}
+#我的收藏 .refresh i {
+  font-size: 22px;
+}
 /* 移动端适配 */
 @media screen and (max-width:1200px) {
   .cf-article{width: calc(100% / 2 - 20px / 2)!important;}

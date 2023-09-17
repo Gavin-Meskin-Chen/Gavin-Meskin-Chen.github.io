@@ -112,6 +112,7 @@ function loadArticleItem(datalist, start, end) {
         `;
         }
         container.insertAdjacentHTML('beforeend', articleItem);
+        console.log(savedArticlesIndex);
         if (savedArticlesIndex != null) {checkStared(savedArticlesIndex);}
         // 预载下一页文章
         fetchNextArticle()
@@ -188,6 +189,7 @@ function loadNextArticle() {
         `;
     }
     container.insertAdjacentHTML('beforeend', articleItem);
+    console.log(savedArticlesIndex);
     if (savedArticlesIndex != null) {checkStared(savedArticlesIndex);}
     // 同时预载下一页文章
     fetchNextArticle()
