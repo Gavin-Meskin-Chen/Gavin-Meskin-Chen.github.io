@@ -678,14 +678,16 @@ var ctrl = {
     toPageJump() {
         let e = document.querySelector("#pagination input.toPageInput");
         function k(v) {
-            if (document.querySelector("#body-wrap.page.home")) return ["/", `/page/${v}/#content-inner`]
-            else if (document.getElementById("tag")) {
-                var j = document.querySelector(".article-sort-title").innerText.slice(5)
-                return [`/tags/${j}/`, `/tags/${j}/page/${v}/`]
-            } else if (document.getElementById("category")) {
-                var j = document.querySelector(".article-sort-title").innerText.slice(5)
-                return [`/categories/${j}/`, `/categories/${j}/page/${v}/`]
-            } else if (document.getElementById("archive")) return ["/archives/", `/archives/page/${v}/`]
+            var p = window.location.pathname,
+                i = [],
+                c = -1;
+            while ((c = p.indexOf('/', c + 1)) !== -1) i.push(c) // i是所有/的索引
+            var l = i.length
+            if (l == 1 || p.substring(1, i[l-2]) == "page") return ["/#content-inner", `/page/${v}/#content-inner`]
+            else if (l >= 4 && p.substring(i[l-3]+1, i[l-2]) == "page") {
+                var j = p.substring(0, i[l-3]+1)
+                return [`${j}`, `${j}page/${v}/`]
+            } else return [`${p}`, `${p}page/${v}/`]
         }
         e && (e.addEventListener("input", () => {
             let t = document.querySelectorAll(".page-number")
@@ -740,18 +742,6 @@ var ctrl = {
         } else {
             e.style.maxHeight = "calc(100vh - 155px)"
             t.style.transform = "rotate(180deg)"
-        }
-    },
-
-    foldSavedArticles(event) {
-        var a = document.getElementById("cf-saved-post")
-        var b = event.target.parentElement.querySelector("i");
-        if (b.style.transform == "rotate(180deg)") {
-            a.style.maxHeight = "240px"
-            b.style.transform = ""
-        } else {
-            a.style.maxHeight = typeof savedArticlesIndex != 'undefined' ? (savedArticlesIndex.length * 130 - 20) + "px" : "fit-content"
-            b.style.transform = "rotate(180deg)"
         }
     },
 
@@ -828,108 +818,6 @@ var ctrl = {
             }
         })
         observer.observe(document.getElementById('post-comment'), { subtree: true, childList: true }) // 监听的 元素 和 配置项
-    },
-
-    switchSecretInput(event) {
-        const a = document.getElementById("fcircleInputBox");
-        const b = a.querySelector(".input-password");
-        const f = a.querySelector(".content-body .title");
-        function c(e) { article_pwd = e.target.value; }
-        if (a.classList.contains("open")) {
-            a.classList.remove("open");
-            b.removeEventListener('input', c);
-            article_index = '';
-            article_title = '';
-            article_link = '';
-            article_author = '';
-            article_avatar = '';
-            article_time = '';
-        } else {
-            a.classList.add("open");
-            b.addEventListener('input', c);
-            var d = '';
-            if (event.target.nodeName.toUpperCase() == "A") {
-                if (event.target.classList.contains("saved")) {
-                    sendMode = 1;
-                    f.innerHTML = "移出收藏";
-                } else {
-                    sendMode = 0;
-                    f.innerHTML = "添加收藏";
-                }
-                d = event.target.parentElement.querySelector(".cf-article-title");
-                article_author = event.target.parentElement.querySelector(".cf-article-avatar .cf-article-author").innerText;
-                article_avatar = event.target.parentElement.querySelector(".cf-article-avatar .cf-img-avatar").src;
-                article_time = event.target.parentElement.querySelector(".cf-article-time .cf-time-created").innerText;
-            } else if (event.target.nodeName.toUpperCase() == "I") {
-                if (event.target.parentElement.classList.contains("saved")) {
-                    sendMode = 1;
-                    f.innerHTML = "移出收藏";
-                } else {
-                    sendMode = 0;
-                    f.innerHTML = "添加收藏";
-                }
-                d = event.target.parentElement.parentElement.querySelector(".cf-article-title");
-                article_author = event.target.parentElement.parentElement.querySelector(".cf-article-avatar .cf-article-author").innerText;
-                article_avatar = event.target.parentElement.parentElement.querySelector(".cf-article-avatar .cf-img-avatar").src;
-                article_time = event.target.parentElement.parentElement.querySelector(".cf-article-time .cf-time-created").innerText;
-            }
-            article_title = d.innerText;
-            article_link = d.getAttribute("href");
-            article_index = "cf-" + CryptoJS.MD5(article_link).toString();
-        }
-    },
-
-    sendSubscribeInfo() {
-        var key = CryptoJS.SHA256(article_pwd);
-        var url = sendMode == 1
-            ? "https://apis.cansin.top/delsavedtitles?key=" + key + "&index=" + article_index
-            : "https://apis.cansin.top/subscribe?key=" + key + "&index=" + article_index + "&title=" + article_title + "&link=" + article_link + "&author=" + article_author + "&avatar=" + article_avatar + "&time=" + article_time;
-        var inputBox = document.querySelector("#fcircleInputBox .inputBox");
-        var noteBox = document.querySelector("#fcircleInputBox .noteBox");
-        inputBox.classList.add("hide");
-        noteBox.classList.remove("hide");
-        fetch(url)
-            .then(response => response.json())
-            .then(data => {
-                if (data.code == 200) {
-                    // console.log(data.message);
-                    var a = document.querySelector("#cf-saved-post ." + article_index);
-                    if (a) { a.outerHTML = ""; }
-                    var b = document.querySelector("." + article_index + " .cf-star");
-                    if (typeof savedArticlesIndex != 'undefined') savedArticlesIndex = savedArticlesIndex.filter(element => element !== article_index);
-                    if (b) {b.classList.contains("saved") ? b.classList.remove("saved") : b.classList.add("saved");}
-                    if (sendMode == 0) {
-                        var container = `
-                            <div class="cf-article ${article_index}">
-                                <a class="cf-article-title" href="${article_link}" target="_blank" rel="noopener nofollow" data-title="${article_title}">${article_title}</a>
-                                <a class="cf-star saved" onclick="ctrl.switchSecretInput(event)"><i class="fa-regular fa-star"></i></a>
-                                <div class="cf-article-avatar no-lightbox flink-item-icon">
-                                    <img class="cf-img-avatar avatar" src="${article_avatar}" alt="avatar" onerror="this.src=''; this.onerror = null;">
-                                    <a class="" target="_blank" rel="noopener nofollow"><span class="cf-article-author">${article_author}</span></a>
-                                </div>
-                                <span class="cf-article-time">
-                                    <span class="cf-time-created">${article_time}</span>
-                                </span>
-                            </div>
-                            `;
-                        document.getElementById("cf-saved-post").insertAdjacentHTML('beforeend', container);
-                    }
-                    tools.showMessage(data.message, "success", 2);
-                    localStorage.removeItem("savedArticles");
-                    inputBox.classList.remove("hide");
-                    noteBox.classList.add("hide");
-                    document.querySelector("#fcircleInputBox .btn.close").click();
-                } else {
-                    // console.log(data.message);
-                    tools.showMessage(data.message, "error", 2);
-                    inputBox.classList.remove("hide");
-                    noteBox.classList.add("hide");
-                    document.querySelector("#fcircleInputBox .btn.close").click();
-                }
-            })
-            .catch(error => {
-                console.error('收藏失败:', error);
-            })
     }
 }
 
