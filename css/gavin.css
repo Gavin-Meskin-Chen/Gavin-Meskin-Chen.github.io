@@ -3312,6 +3312,9 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
 }
 
 .OwO .OwO-body {
+    top: unset;
+    bottom: 2.2em;
+    left: -10px;
     background-color: var(--gavin-op-1)!important;
     -webkit-backdrop-filter: saturate(180%) blur(20px);
     backdrop-filter: saturate(180%) blur(20px);
