@@ -3004,8 +3004,10 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
 }
 
 /* 打赏 */
-.post-reward .reward-button {
+.post-reward .reward-button,
+.post-reward .like-button {
     border-radius: 0.5rem;
+    width: 100px;
 }
 
 /* *********************************************Twikoo评论******************************************** */

@@ -4286,21 +4286,63 @@ h1.page-title + .tag-cloud-list {
   width: 100%;
   text-align: center;
   pointer-events: none;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -o-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  gap: 10px;
 }
 .post-reward > * {
   pointer-events: auto;
 }
+.post-reward .like-button {
+  display: inline-block;
+  padding: 4px 12px;
+  background: #f00;
+  color: rgba(255,255,255,0.8);
+  cursor: pointer;
+  pointer-events: all;
+}
+.post-reward .like-button:not(.loading):hover {
+  background: #ff5a5a;
+}
+.post-reward .like-button.loading {
+  cursor: default;
+  pointer-events: none;
+}
+.post-reward .like-button.loading .like-count {
+  display: none;
+}
+.post-reward .like-button.loading .load {
+  display: inline-block;
+}
+.post-reward .like-button .like-count {
+  width: 20px;
+  display: inline-block;
+}
+.post-reward .like-button .load {
+  width: 20px;
+  display: none;
+}
 .post-reward .reward-button {
   display: inline-block;
-  padding: 4px 24px;
-  background: var(--btn-bg);
-  color: var(--btn-color);
+  padding: 4px 12px;
+  background: var(--gavin-blue3);
+  color: rgba(255,255,255,0.8);
   cursor: pointer;
 }
-.post-reward:hover .reward-button {
-  background: var(--btn-hover-color);
+.post-reward .reward-button:hover {
+  background: var(--gavin-blue1);
 }
-.post-reward:hover > .reward-main {
+.post-reward .reward-button:hover > .reward-main {
   display: block;
 }
 .post-reward .reward-main {
@@ -4309,7 +4351,7 @@ h1.page-title + .tag-cloud-list {
   left: 0;
   z-index: 100;
   display: none;
-  padding: 0 0 15px;
+  padding: 0 0 10px;
   width: 100%;
 }
 .post-reward .reward-main .reward-all {
@@ -4321,10 +4363,10 @@ h1.page-title + .tag-cloud-list {
 }
 .post-reward .reward-main .reward-all:before {
   position: absolute;
-  bottom: -10px;
+  bottom: 0;
   left: 0;
   width: 100%;
-  height: 20px;
+  height: 10px;
   content: '';
 }
 .post-reward .reward-main .reward-all:after {
@@ -4347,11 +4389,13 @@ h1.page-title + .tag-cloud-list {
   vertical-align: top;
 }
 .post-reward .reward-main .reward-all .reward-item img {
-  width: 130px;
-  height: 130px;
+  width: 110px;
+  height: 110px;
 }
 .post-reward .reward-main .reward-all .reward-item .post-qr-code-desc {
-  width: 130px;
+  width: 110px;
+  line-height: 1;
+  font-size: 90%;
   color: #858585;
 }
 #rightside {

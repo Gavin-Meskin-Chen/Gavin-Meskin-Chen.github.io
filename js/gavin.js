@@ -6,8 +6,10 @@ document.addEventListener("DOMContentLoaded", () => {
     asideNote();
     cardRefreshTimes();
     percent();
+    tools.getIp();
     ctrl.toPageJump();
-    ctrl.getCurrentPage()
+    ctrl.getCurrentPage();
+    ctrl.refreshLikeCount();
     // sidebarWeather();
     // ctrl.refreshThemeColor();
     if (document.documentElement.scrollTop != 0) {
@@ -24,6 +26,7 @@ document.addEventListener("pjax:complete", () => {
     cardRefreshTimes();
     ctrl.toPageJump();
     ctrl.getCurrentPage();
+    ctrl.refreshLikeCount();
     // sidebarWeather();
     // ctrl.refreshThemeColor();
     if (document.documentElement.scrollTop != 0) {
@@ -352,6 +355,18 @@ var tools = {
                 };
             });
         }
+    },
+
+    getIp() {
+        fetch('https://api.ipify.org?format=json')
+            .then(response => response.json())
+            .then(data => {
+                ipAddress = data.ip;
+                console.log("您的 IP 地址：" + ipAddress);
+            })
+            .catch(error => {
+                console.error('获取 IP 地址失败:', error);
+            });
     },
 
     showNote(text, style, delay) {
@@ -743,6 +758,52 @@ var ctrl = {
             e.style.maxHeight = "calc(100vh - 155px)"
             t.style.transform = "rotate(180deg)"
         }
+    },
+
+    refreshLikeCount() {
+        var p = window.location.pathname
+        var q = p.substring(1,5)
+        if (q == 'post') {
+            var i = p.substring(6,14)
+            fetch(`https://apis.cansin.top/likecount?mode=get&id=${i}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.code == 200) {
+                        var likeCount = data.content[0].count
+                        document.querySelector(".post-reward .like-button .like-count").innerText = likeCount
+                    } else console.log(data.message)
+                })
+                .catch(error => {
+                    console.error('获取点赞信息失败:', error)
+                })
+        }
+    },
+
+    sendArticleLike() {
+        var a = document.querySelector(".post-reward .like-button")
+        var i = window.location.pathname.substring(6,14)
+        a.classList.add("loading")
+        fetch(`https://apis.cansin.top/likecount?mode=add&id=${i}&ip=${ipAddress}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.code == 200) {
+                    var likeCount = data.content[0].count
+                    a.querySelector(".like-count").innerText = likeCount
+                    a.classList.remove("loading")
+                    tools.showMessage("感谢您的认可！", "success", 2)
+                } else if(data.code == 205) {
+                    a.classList.remove("loading")
+                    tools.showMessage(data.message, "warning", 2)
+                } else {
+                    a.classList.remove("loading")
+                    console.log(data.message)
+                    tools.showMessage(data.message, "error", 2)
+                }
+            })
+            .catch(error => {
+                console.error('获取点赞信息失败:', error)
+                a.classList.remove("loading")
+            })
     },
 
     getLocationWeather() {
