@@ -362,7 +362,7 @@ var tools = {
             .then(response => response.json())
             .then(data => {
                 ipAddress = data.ip;
-                console.log("您的 IP 地址：" + ipAddress);
+                console.log('您的 IP 地址：' + ipAddress);
             })
             .catch(error => {
                 console.error('获取 IP 地址失败:', error);
