@@ -4739,10 +4739,8 @@ span.mathjax-overflow {
   flex-direction: column;
   background-position: center;
   background-size: cover;
-  border-radius: 12px;
-  mask-image: paint(smooth-corners);
-  -webkit-mask-image: paint(smooth-corners);
-  --smooth-level: 18;
+  border-radius: 13px;
+  border: 1px solid var(--gavin-border-color);
   position: relative;
   overflow: hidden;
   padding: 10px;

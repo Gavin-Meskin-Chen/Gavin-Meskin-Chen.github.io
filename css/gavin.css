@@ -1672,6 +1672,10 @@ input.toPageInput {
     order: 2;
 }
 
+input.toPageInput:focus {
+    outline: none;
+}
+
 input.toPageInput::placeholder {
     color: var(--gavin-note-font-color);
     opacity: .7;

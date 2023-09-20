@@ -47,14 +47,6 @@ const marqueeContent1 = document.getElementById('console-music-title-text');
 const marqueeContainer2 = document.getElementById('console-music-author');
 const marqueeContent2 = document.getElementById('console-music-author-text');
 var ipAddress = '';
-var article_index = '',
-    article_title = '',
-    article_link = '',
-    article_author = '',
-    article_avatar = '',
-    article_time = '',
-    article_pwd = '';
-
 
 if ('paintWorklet' in CSS) { CSS.paintWorklet.addModule('/js/paint.min.js'); }
 
