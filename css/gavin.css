@@ -4560,6 +4560,9 @@ a#music-list-title {
     height: 35px;
     position: fixed;
     top: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     opacity: 0;
     pointer-events: none;
     transition: all 0.1s;
