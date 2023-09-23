@@ -298,6 +298,10 @@ Last Modified time : 20220211 98:00 by https://immmmm.com
   color: var(--font-color);
   font-size: 48px;
 }
+#fcircleInputBox .noteBox .icon .spinner {
+  --spinner-w: 5px;
+  width: 48px;
+}
 #fcircleInputBox .noteBox .tips {
   position: absolute;
   bottom: 27px;
