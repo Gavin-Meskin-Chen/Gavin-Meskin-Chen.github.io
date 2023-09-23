@@ -2334,7 +2334,7 @@ figure.highlight pre .javascript .function {
   overflow: hidden;
   width: calc(100% / 4 - 60px / 4);
   height: 90px;
-  border-radius: 1rem;
+  border-radius: 13px;
   border: 1px solid var(--gavin-border-color);
   line-height: 17px;
   -webkit-transform: translateZ(0);
@@ -4224,22 +4224,22 @@ h1.page-title + .tag-cloud-list {
   position: relative;
   display: inline-block;
   overflow: hidden;
-  margin: 3px;
-  width: calc(33.333% - 6px);
+  margin: 5px;
+  width: calc(33.333% - 10px);
   height: 200px;
   background: #000;
   vertical-align: bottom;
 }
 @media screen and (max-width: 768px) {
   .relatedPosts > .relatedPosts-list > div {
-    margin: 2px;
-    width: calc(50% - 4px);
+    margin: 5px;
+    width: calc(50% - 10px);
     height: 150px;
   }
 }
 @media screen and (max-width: 600px) {
   .relatedPosts > .relatedPosts-list > div {
-    width: calc(100% - 4px);
+    width: calc(100% - 10px);
   }
 }
 .relatedPosts > .relatedPosts-list .content {
@@ -4799,9 +4799,9 @@ span.mathjax-overflow {
 }
 .card_box .card_mask a {
   text-align: center;
-  background: #fff;
-  color: #333 !important;
-  border-radius: 5px;
+  background: var(--gavin-op-dis-7);
+  color: #000 !important;
+  border-radius: 6px;
   position: absolute;
   width: calc(100% - 40px);
   bottom: 20px;
@@ -4810,7 +4810,7 @@ span.mathjax-overflow {
 .card_box .card_mask a:hover {
   text-decoration: none !important;
   color: #fff !important;
-  background: #49b1f5;
+  background: var(--gavin-blue3);
 }
 .card_box .card_content {
   z-index: 1;
@@ -6836,6 +6836,7 @@ blockquote.pullquote.right {
     .layout > div:first-child:not(.recent-posts) {
       /* border-radius: 0; */
       padding: 0 1rem !important;
+      border: none!important;
       box-shadow: none !important;
       background: var(--gavin-background);
     }

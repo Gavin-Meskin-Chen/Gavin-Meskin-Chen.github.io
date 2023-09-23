@@ -544,7 +544,7 @@ var ctrl = {
         var music_cover = document.querySelector("meting-js").aplayer.list.audios[music_id].cover;
         var music_author = document.querySelector("meting-js").aplayer.list.audios[music_id].author;
         var music_title = document.querySelector("meting-js").aplayer.list.audios[music_id].title;
-        document.getElementById("console-music-cover").innerHTML = "<img src='" + music_cover + "' style='width:100%;height:100%;border-radius:0.5rem;'>";// 歌曲信息
+        document.getElementById("console-music-cover").innerHTML = "<img src='" + music_cover + "' style='width:100%;height:100%;border-radius:8px;'>";// 歌曲信息
         document.getElementById("console-music-title-text").innerHTML = music_title;
         document.getElementById("console-music-author-text").innerHTML = music_author;
         ctrl.marqueeMusicInfo();
@@ -1094,55 +1094,6 @@ set_font_size.addEventListener("change", () => {
 
 
 // 歌单列表监听器
-// var songsheet1 = document.getElementById("songsheet-1");
-// var songsheet2 = document.getElementById("songsheet-2");
-// var songsheet3 = document.getElementById("songsheet-3");
-// var songsheet4 = document.getElementById("songsheet-4");
-// var songsheet5 = document.getElementById("songsheet-5");
-// var songsheet6 = document.getElementById("songsheet-6");
-// songsheet1.addEventListener("click", () => {
-//     document.getElementById("console-loading-icon").classList.add("show");
-//     console.log("正在切换至周杰伦专辑");
-//     global_music_flag = 1;
-//     ctrl.JayMusicList();
-//     document.getElementById("music-list-title").innerHTML = "周杰伦";
-// });
-// songsheet2.addEventListener("click", () => {
-//     document.getElementById("console-loading-icon").classList.add("show");
-//     console.log("正在切换至薛之谦/李荣浩专辑");
-//     global_music_flag = 1;
-//     ctrl.JokerMusicList();
-//     document.getElementById("music-list-title").innerHTML = "薛之谦/李荣浩";
-// });
-// songsheet3.addEventListener("click", () => {
-//     document.getElementById("console-loading-icon").classList.add("show");
-//     console.log("正在切换至纯音乐专辑");
-//     global_music_flag = 1;
-//     ctrl.changeMusicList("8167030216", "netease");
-//     document.getElementById("music-list-title").innerHTML = "纯音乐";
-// });
-// songsheet4.addEventListener("click", () => {
-//     document.getElementById("console-loading-icon").classList.add("show");
-//     console.log("正在切换至外语专辑");
-//     global_music_flag = 1;
-//     ctrl.changeMusicList("8658340188", "netease");
-//     document.getElementById("music-list-title").innerHTML = "外语";
-// });
-// songsheet5.addEventListener("click", () => {
-//     document.getElementById("console-loading-icon").classList.add("show");
-//     console.log("正在切换至古风专辑");
-//     global_music_flag = 1;
-//     ctrl.changeMusicList("8167066222", "netease");
-//     document.getElementById("music-list-title").innerHTML = "古风";
-// });
-// songsheet6.addEventListener("click", () => {
-//     document.getElementById("console-loading-icon").classList.add("show");
-//     console.log("正在切换至幻音坊专辑");
-//     global_music_flag = 1;
-//     ctrl.changeMusicList("8086610771", "netease");
-//     document.getElementById("music-list-title").innerHTML = "幻音坊";
-// });
-// 简化后代码
 const songsheets = [
     { id: "songsheet-1", text: "周杰伦", flag: 1, func: () => ctrl.JayMusicList() },
     { id: "songsheet-2", text: "薛之谦/李荣浩", flag: 1, func: () => ctrl.JokerMusicList() },

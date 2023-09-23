@@ -24,7 +24,7 @@ Last Modified time : 20220211 98:00 by https://immmmm.com
     --gavin-bg-3: rgb(7,7,7);
   }
   /* 基本信息 */
-  #cf-state {font-size:16px;border-radius:0.8rem;border: 1px solid var(--gavin-card-border);box-shadow:none;margin:0 0 20px;overflow:hidden;display:flex;flex-direction:row;flex-wrap:wrap;padding:8px 0;}
+  #cf-state {font-size:16px;border-radius:13px;border: 1px solid var(--gavin-card-border);box-shadow:none;margin:0 0 20px;overflow:hidden;display:flex;flex-direction:row;flex-wrap:wrap;padding:8px 0;}
   .cf-state-data {width:100%;display:flex;justify-content:space-evenly;}
   .cf-data-friends,.cf-data-active,.cf-data-article{height:60px;background:transparent;display:flex;flex-direction:column;cursor:pointer;font-weight:bold;}
   .cf-data-friends:hover,.cf-data-active:hover,.cf-data-article:hover{color:var(--gavin-highlight);}
@@ -39,7 +39,7 @@ Last Modified time : 20220211 98:00 by https://immmmm.com
   /* 主容器 */
   #cf-container {width:100%;/*max-width:900px;*/height:auto;margin:auto;display:flex;flex-wrap:wrap;gap:20px;}
   #cf-container a {text-decoration:none;}
-  .cf-article {/*margin:0 0 20px;*/border-radius:0.8rem;border: 1px solid var(--gavin-card-border);font-weight:bolder;overflow:hidden;transition: all ease-out .3s;position: relative;padding:0.5rem 1rem;width:calc(100% / 3 - 40px / 3);float:left;height: 110px;}
+  .cf-article {/*margin:0 0 20px;*/border-radius:13px;border: 1px solid var(--gavin-card-border);font-weight:bolder;overflow:hidden;transition: all ease-out .3s;position: relative;padding:8px 15px;width:calc(100% / 3 - 40px / 3);float:left;height: 110px;}
   .cf-article:hover{transition:all .3s;/*-webkit-transform:scale(1.03);transform:scale(1.03);*/border-color: var(--gavin-highlight);}
   .cf-article-avatar{display:flex;align-items:center;position:absolute;bottom:8px;left:15px;}
   .cf-img-avatar {align-self:center;text-align:center;display:inline-block !important;width:22px;height:22px;border-radius:50%!important;margin:0 0 -4px !important;background: #fff;}
@@ -59,7 +59,7 @@ Last Modified time : 20220211 98:00 by https://immmmm.com
   #cf-overshow{bottom: 0;left:0;opacity: 0;pointer-events:none;transition: all 0.5s ease;z-index: 999;}
   #cf-overlay.cf-show-now{left:0;-webkit-backdrop-filter: blur(7px);backdrop-filter: blur(7px);opacity: 1;transition: all .5s ease;}
   #cf-overshow.cf-show-now{bottom:0;opacity: 1;pointer-events: all;transition: all .5s ease;}
-  .cf-overshow{text-align: center;border-radius: 1rem;position: absolute;width: 290px;padding:0 10px;min-height:170px;left: 50%;top:50%;transform: translate(-50%,-50%);box-shadow: 0 12px 40px rgba(0, 0, 0, 0.093);background: var(--f-0);border: 1px solid var(--gavin-border-color);}
+  .cf-overshow{text-align: center;border-radius: 1rem;position: absolute;width: 290px;padding:0 10px 20px;min-height:170px;left: 50%;top:50%;transform: translate(-50%,-50%);box-shadow: 0 12px 40px rgba(0, 0, 0, 0.093);background: var(--f-0);border: 1px solid var(--gavin-border-color);}
   .cf-overshow-head:hover img.cf-img-avatar{transform:rotate(360deg);transition:0.8s;}
   .cf-overshow .cf-overshow-head a{color:var(--dis-f-0)!important;display:block;text-align:center;font-weight:bold;margin-top:-5px;padding:5px 8px 5px;}
   .cf-overshow img.cf-img-avatar{background:#fff;width: 80px;height: 80px;border-radius: 50%!important;margin: 20px auto 0 !important;box-shadow: 0 12px 40px rgb(0 0 0 / 9%);transform:rotate(-360deg);transition:0.3s!important;}
@@ -67,7 +67,8 @@ Last Modified time : 20220211 98:00 by https://immmmm.com
   .cf-overshow p a.cf-article-title{display:block;text-align:left;position: relative;z-index: 2;font-size:15px;font-weight:600;line-height:25px;margin-bottom:15px;letter-spacing: normal;max-height:50px;overflow: hidden;white-space: normal;text-overflow:ellipsis;display:-webkit-box;display:box;-webkit-line-clamp: 1; -webkit-box-orient: vertical;}
   .cf-overshow p span{position: absolute;bottom:-1rem;right:8px;z-index: 1;font-style: italic;font-size:12px;}
   #cf-container .cf-overshow p a:hover{letter-spacing:1px;transition:0.3s;}
-  .cf-overshow .cf-overshow-content{padding:10px 10px 25px;border-bottom-left-radius:20px;border-bottom-right-radius:20px;/*background: var(--f-0);*/}
+  .cf-overshow .cf-overshow-content{padding:0 10px;margin:10px 0 0;max-height:360px;overflow-y:auto;-webkit-mask-image:linear-gradient(0deg,transparent,#fff 20px,#fff calc(100% - 10px),transparent);mask-image:linear-gradient(0deg,transparent,#fff 20px,#fff calc(100% - 10px),transparent);/*border-bottom-left-radius:20px;border-bottom-right-radius:20px;background: var(--f-0);*/}
+  .cf-overshow .cf-overshow-content::-webkit-scrollbar{display: none}
   #cf-overshow .cf-overshow-close{position:sticky;display: block;width:100%;height:100%;}
   /* 颜色 */
   .cf-article .cf-article-title:hover{/*letter-spacing:2px;*/color:var(--gavin-highlight)!important;}
