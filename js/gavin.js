@@ -876,8 +876,9 @@ var ctrl = {
     },
 
     coverFlow() {
-        var p = window.location.pathname.substring(1,7)
-        if (p == 'movies') {
+        var p = window.location.pathname
+        var q = p != '/' ? p.match(/\/([^/]+)\//)[1] : ''
+        if (q == 'movies') {
             var a = document.getElementById('head-cover')
             var b = a.querySelector('.head-cover-img')
             // const w0 = 2485;
@@ -886,11 +887,16 @@ var ctrl = {
             // var h1 = a.clientHeight
             // var w = h1 / h0 * w0
             // var t = (w - w1) / 5
-            if (!b.style.objectPosition) b.style.objectPosition = 'calc(50% - 75px)'
+            if (!b.style.objectPosition) b.style.objectPosition = 'calc(50% - 75px) center'
             if (!b.style.filter) b.style.filter = 'blur(1.5px) brightness(0.7)'
             if (!b.style.transform) b.style.transform = 'rotate(-15deg) scale(2)'
             if (!b.style.animation) b.style.animation = 'coverFlow ' + 30 + 's infinite linear'
+        } else if (q == 'about') {
+            var b = document.querySelector('#head-cover .head-cover-img')
+            if (!b.style.objectPosition) b.style.objectPosition = 'center top'
         }
+        // 快速申请友链
+        // document.querySelector('#twikoo .tk-comments > .tk-submit .el-textarea textarea').value = '```YML\n- name: \n  link: \n  avatar: \n  descr: \n  siteshot: \n```'
     }
 }
 
