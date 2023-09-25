@@ -880,15 +880,16 @@ var ctrl = {
         if (p == 'movies') {
             var a = document.getElementById('head-cover')
             var b = a.querySelector('.head-cover-img')
-            const w0 = 2485;
-            const h0 = 600;
-            var w1 = a.clientWidth
-            var h1 = a.clientHeight
-            var w = h1 / h0 * w0
-            var t = (w - w1) / 5
+            // const w0 = 2485;
+            // const h0 = 600;
+            // var w1 = a.clientWidth
+            // var h1 = a.clientHeight
+            // var w = h1 / h0 * w0
+            // var t = (w - w1) / 5
+            if (!b.style.objectPosition) b.style.objectPosition = 'calc(50% - 75px)'
             if (!b.style.filter) b.style.filter = 'blur(1.5px) brightness(0.7)'
-            if (!b.style.transform) b.style.transform = 'translate3d(0, 0, 0) rotate(-15deg) scale(2)'
-            if (!b.style.animation) b.style.animation = 'coverFlow ' + t + 's infinite linear'
+            if (!b.style.transform) b.style.transform = 'rotate(-15deg) scale(2)'
+            if (!b.style.animation) b.style.animation = 'coverFlow ' + 30 + 's infinite linear'
         }
     }
 }
