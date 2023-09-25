@@ -893,10 +893,14 @@ var ctrl = {
             if (!b.style.animation) b.style.animation = 'coverFlow ' + 30 + 's infinite linear'
         } else if (q == 'about') {
             var b = document.querySelector('#head-cover .head-cover-img')
-            if (!b.style.objectPosition) b.style.objectPosition = 'center top'
+            if (!b.style.objectPosition) b.style.objectPosition = 'center 20%'
+        } else if (q == 'link') {
+            document.querySelector('#post-comment .comment-head').insertAdjacentHTML('beforeend', '<a class="apply-for-flink" onclick="ctrl.applyForFlink()">申请友链</a>')
         }
-        // 快速申请友链
-        // document.querySelector('#twikoo .tk-comments > .tk-submit .el-textarea textarea').value = '```YML\n- name: \n  link: \n  avatar: \n  descr: \n  siteshot: \n```'
+    },
+
+    applyForFlink() {// 快速申请友链
+        document.querySelector('#twikoo .tk-comments > .tk-submit .el-textarea textarea').value = '```YML\n- name: \n  link: \n  avatar: \n  descr: \n  siteshot: \n```'
     }
 }
 

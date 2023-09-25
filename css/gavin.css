@@ -5457,3 +5457,23 @@ progress::-webkit-progress-value {
         bottom: 20px;
     }
 }
+
+#post-comment .comment-head {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#post-comment .apply-for-flink {
+    border: 1px dashed var(--gavin-note-font-color);
+    padding: 0 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all .3s;
+}
+
+#post-comment .apply-for-flink:hover {
+    border-color: var(--gavin-highlight);
+    color: var(--gavin-highlight);
+}
