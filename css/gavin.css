@@ -61,6 +61,7 @@
     --gavin-op-3: rgba(255, 255, 255, .3);
     --gavin-op-5: rgba(255, 255, 255, .5);
     --gavin-op-7: rgba(255, 255, 255, .7);
+    --gavin-op-dis-15: rgba(0, 0, 0, .15);
     --gavin-op-dis-1: rgba(0, 0, 0, .1);
     --gavin-op-dis-2: rgba(0, 0, 0, .2);
     --gavin-op-dis-3: rgba(0, 0, 0, .3);
@@ -152,6 +153,7 @@
     --gavin-op-3: rgba(0, 0, 0, .3);
     --gavin-op-5: rgba(0, 0, 0, .5);
     --gavin-op-7: rgba(0, 0, 0, .7);
+    --gavin-op-dis-15: rgba(255, 255, 255, .15);
     --gavin-op-dis-1: rgba(255, 255, 255, .1);
     --gavin-op-dis-2: rgba(255, 255, 255, .2);
     --gavin-op-dis-3: rgba(255, 255, 255, .3);
@@ -1213,10 +1215,10 @@ a {
 
 .search-dialog {
     /* border: 1px solid grey; */
-    border-radius: 1.2rem;
+    border-radius: 13px;
     mask-image: paint(smooth-corners);
     -webkit-mask-image: paint(smooth-corners);
-    --smooth-level: 24;
+    --smooth-level: 16;
     background: var(--search-bg);
     -webkit-backdrop-filter: blur(70px);
     backdrop-filter: blur(70px);
@@ -1236,8 +1238,11 @@ a {
 
 
 #algolia-search .search-dialog .ais-SearchBox input {
-    border: 2px solid var(--gavin-op-dis-3);
+    border: 1px solid var(--gavin-op-dis-5);
     background-color: var(--gavin-op-dis-1);
+    border-radius: 6px;
+    color: var(--font-color);
+    line-height: 1.3;
 }
 
 .search-dialog .search-nav .search-close-button {
@@ -1249,12 +1254,17 @@ a {
 }
 
 #algolia-search .search-dialog .ais-SearchBox input:focus {
-    border: 2px solid var(--dis-f-0);
+    /* border-color: var(--font-color); */
+    background-color: var(--gavin-op-dis-15);
 }
 
 #algolia-search .search-dialog .ais-SearchBox input::placeholder {
     color: var(--gavin-note-font-color);
     font-size: 0.9rem;
+}
+
+.search-dialog hr {
+    border-color: var(--font-color);
 }
 
 .search-dialog-title {
@@ -1271,7 +1281,7 @@ a {
 }
 
 #algolia-search .search-dialog .ais-Hits-list li {
-    border-radius: 0.8rem;
+    border-radius: 8px;
     background-color: var(--gavin-op-dis-1);
     margin: 7px 0;
     padding: 0.12em 0.4em 0.12em 2em !important;
@@ -3206,7 +3216,7 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
     left: 0;
     top: 0;
     height: 100%;
-    border-radius: 5px 0 0 5px;
+    border-radius: 6px 0 0 6px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -3312,7 +3322,7 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
     padding: 4px;
     margin: 4px 4px 0 0;
     border-radius: 5px;
-    font-size: 7px;
+    font-size: 8px;
 }
 
 @media screen and (max-width: 768px) {
@@ -3549,6 +3559,15 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
     background-color: var(--gavin-op-1) !important;
     -webkit-backdrop-filter: saturate(180%) blur(20px);
     backdrop-filter: saturate(180%) blur(20px);
+    border-radius: 8px;
+}
+
+.OwO .OwO-body .OwO-items {
+    margin: 8px;
+}
+
+.OwO .OwO-body .OwO-items::-webkit-scrollbar-thumb {
+    border-radius: 4px;
 }
 
 /* ***********************双栏显示 npm i hexo-butterfly-article-double-row --save********************** */
