@@ -1215,10 +1215,10 @@ a {
 
 .search-dialog {
     /* border: 1px solid grey; */
-    border-radius: 15px;
+    border-radius: 16px;
     mask-image: paint(smooth-corners);
     -webkit-mask-image: paint(smooth-corners);
-    --smooth-level: 18;
+    --smooth-level: 20;
     background: var(--search-bg);
     -webkit-backdrop-filter: blur(70px);
     backdrop-filter: blur(70px);
