@@ -4296,7 +4296,7 @@ h1.page-title + .tag-cloud-list {
   background: #ff5a5a;
 }
 .post-reward .like-button.loading {
-  cursor: not-allowed;
+  background: #ff5a5a;
   pointer-events: none;
 }
 .post-reward .like-button.loading .like-count {
