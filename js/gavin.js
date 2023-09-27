@@ -225,6 +225,32 @@ function asideNote() {
 // ***************************************************** 工具模块 ***************************************************************
 
 var tools = {
+    f1(a,b,c) {
+        return !(b && c) && !a * 1
+    },
+    f2(a,b,c) {
+        return a && !b || !a && !c && b * 1
+    },
+    f3(a,b,c) {
+        return !c * 1
+    },
+    Fun(a,b,c) {
+        return [f1(a,b,c), f2(a,b,c), f3(a,b,c)]
+    },
+    Funs() {
+        return [
+            Fun(0,0,0),
+            Fun(0,0,1),
+            Fun(0,1,0),
+            Fun(0,1,1),
+            Fun(1,0,0),
+            Fun(1,0,1),
+            Fun(1,1,0),
+            Fun(1,1,1)
+        ]
+    },
+
+
     secToTime(s) {
         if (isNaN(s)) s = 0;
         var min = Math.floor(s / 60);
@@ -900,7 +926,10 @@ var ctrl = {
     },
 
     applyForFlink() {// 快速申请友链
-        document.querySelector('#twikoo .tk-comments > .tk-submit .el-textarea textarea').value = '```YML\n- name: \n  link: \n  avatar: \n  descr: \n  siteshot: \n```'
+        var a = document.querySelector('#twikoo .tk-comments > .tk-submit .el-textarea textarea')
+        a.value = '```YML\n- name: \n  link: \n  avatar: \n  descr: \n  siteshot: \n```'
+        a.style.height = '159px'
+        // a.parentElement.querySelector('.el-input__count').innerHTML = '62/1000'
     }
 }
 

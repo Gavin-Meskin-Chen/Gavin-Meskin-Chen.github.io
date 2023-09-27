@@ -309,15 +309,19 @@
     0% {
         object-position: calc(50% - 75px);
     }
-    25%{
+
+    25% {
         object-position: 50%;
     }
+
     50% {
         object-position: calc(50% + 75px);
     }
+
     75% {
         object-position: 50%;
     }
+
     100% {
         object-position: calc(50% - 75px);
     }
@@ -1942,18 +1946,18 @@ h6 {
 }
 
 .hbe-input {
-    min-width: unset!important;
-    margin: 1em 0!important;
-    width: 100%!important;
+    min-width: unset !important;
+    margin: 1em 0 !important;
+    width: 100% !important;
 }
 
 .hbe-input-field-flip {
-    border-radius: 10px!important;
-    background: var(--gavin-widget-bg2)!important;
+    border-radius: 10px !important;
+    background: var(--gavin-widget-bg2) !important;
 }
 
 .hbe-input-label-flip {
-    bottom: 3.8em!important;
+    bottom: 3.8em !important;
 }
 
 /* 相册弧度 */
@@ -3270,8 +3274,13 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
     padding: 0 10px;
 }
 
-.tk-admin-close {
+/* 官方已修复 */
+/* .tk-admin-close {
     position: absolute;
+} */
+
+.twikoo input::placeholder {
+    color: rgb(144, 147, 153) !important;
 }
 
 .tk-login,
@@ -5065,6 +5074,20 @@ progress::-webkit-progress-value {
     --smooth-level: 12;
 }
 
+@media screen and (max-width: 362px) {
+    .el-notification {
+        min-width: unset;
+        width: calc(100% - 32px);
+    }
+}
+
+@media screen and (max-width: 475px) {
+    .el-message {
+        min-width: unset;
+        width: 80vw;
+    }
+}
+
 /* .el-notification__title, .el-notification__content, .el-notification__closeBtn {
     color: var(--font-color)!important;
   } */
@@ -5426,7 +5449,7 @@ progress::-webkit-progress-value {
     }
 
     #head-cover::after {
-        box-shadow: 0 0 80px 5px rgba(0,0,0,.25) inset;
+        box-shadow: 0 0 80px 5px rgba(0, 0, 0, .25) inset;
     }
 
     .head-cover-title {
