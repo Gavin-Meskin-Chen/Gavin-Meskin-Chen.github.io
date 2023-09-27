@@ -801,29 +801,31 @@ var ctrl = {
 
     sendArticleLike() {
         var a = document.querySelector(".post-reward .like-button")
-        var i = window.location.pathname.substring(6,14)
-        a.classList.add("loading")
-        fetch(`https://apis.cansin.top/likecount?mode=add&id=${i}&ip=${ipAddress}`)
-            .then(response => response.json())
-            .then(data => {
-                if (data.code == 200) {
-                    var likeCount = data.content[0].count
-                    a.querySelector(".like-count").innerText = likeCount
+        if (!a.classList.contains("loading")) {
+            var i = window.location.pathname.substring(6,14)
+            a.classList.add("loading")
+            fetch(`https://apis.cansin.top/likecount?mode=add&id=${i}&ip=${ipAddress}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.code == 200) {
+                        var likeCount = data.content[0].count
+                        a.querySelector(".like-count").innerText = likeCount
+                        a.classList.remove("loading")
+                        tools.showMessage("感谢您的认可！", "success", 2)
+                    } else if(data.code == 205) {
+                        a.classList.remove("loading")
+                        tools.showMessage(data.message, "warning", 2)
+                    } else {
+                        a.classList.remove("loading")
+                        console.log(data.message)
+                        tools.showMessage(data.message, "error", 2)
+                    }
+                })
+                .catch(error => {
+                    console.error('获取点赞信息失败:', error)
                     a.classList.remove("loading")
-                    tools.showMessage("感谢您的认可！", "success", 2)
-                } else if(data.code == 205) {
-                    a.classList.remove("loading")
-                    tools.showMessage(data.message, "warning", 2)
-                } else {
-                    a.classList.remove("loading")
-                    console.log(data.message)
-                    tools.showMessage(data.message, "error", 2)
-                }
-            })
-            .catch(error => {
-                console.error('获取点赞信息失败:', error)
-                a.classList.remove("loading")
-            })
+                })
+        }
     },
 
     getLocationWeather() {
