@@ -20,6 +20,14 @@
 
 
 
+    --twitter-btn: rgb(29, 155, 240);
+    --twitter-btn-hover: rgba(29, 155, 240, 0.1);
+    --twitter-font-size0: 20px;
+    --twitter-font-size1: 16px;
+    --twitter-font-size2: 15px;
+    --twitter-font-size3: 13px;
+
+
 
     /* 以下是安知鱼颜色 */
     --gavin-shadow-border: 0 8px 16px -4px #2c2d300c;
@@ -112,6 +120,17 @@
 
     /* HarmonyOS */
     --hmos-theme: #0A59F7;
+
+
+    --twitter-border: rgb(239, 243, 244);
+    --twitter-item-bg: rgb(247, 249, 249);
+    --twitter-shadow: rgba(101, 119, 134, 0.2) 0px 0px 15px, rgba(101, 119, 134, 0.15) 0px 0px 3px 1px;
+    --twitter-text-note: rgb(83, 100, 113);
+    --twitter-text: rgb(15,20,25);
+    --twitter-btn-bg: rgb(15, 20, 25);
+    --twitter-btn-hover: rgba(15, 20, 25, 0.1);
+    --twitter-item-hover: rgba(0, 0, 0, 0.03);
+    --twitter-item-active: rgba(0, 0, 0, 0.07);
 
 
 
@@ -209,6 +228,36 @@
     /* HarmonyOS */
     --hmos-theme: #317AF7;
 
+    --twitter-border: rgb(47, 51, 54);
+    --twitter-item-bg: rgb(22, 24, 28);
+    --twitter-shadow: rgba(255, 255, 255, 0.2) 0px 0px 15px, rgba(255, 255, 255, 0.15) 0px 0px 3px 1px;
+    --twitter-text-note: rgb(113, 118, 123);
+    --twitter-text: rgb(231, 233, 234);
+    --twitter-btn-bg: rgb(239, 243, 244);
+    --twitter-btn-hover: rgba(231, 233, 234, 0.1);
+    --twitter-item-hover: rgba(255, 255, 255, 0.03);
+    --twitter-item-active: rgba(255, 255, 255, 0.07);
+
+
+    --supb-border: #2e2e2e;
+    --supb-bg: #1c1c1c;
+    --supb-bg2: hsla(0,0%,100%,.026);
+
+
+
+    --gh-bg-1: var(--light-grad-pink-blue, radial-gradient(ellipse at 40% 0%, #bf398910 0, transparent 75%), radial-gradient(ellipse at 60% 0%, #096bde10 0, transparent 75%));
+
+    --gh-dark-1: rgb(1,4,9);
+    --gh-dark-2: rgb(13,17,23);
+    --gh-dark-3: rgb(22,27,34);
+    --gh-dark-4: rgb(33,38,45);
+    --gh-dark-5: rgb(41,47,54);
+    --gh-dark-6: rgb(48,54,61);
+    --gh-dark-7: rgb(63,67,75);
+
+    --gh-text-1: rgb(230,237,243);
+    --gh-text-2: rgb(110,118,129);
+    --gh-text-3: rgb(125,133,144);
 
 
 
@@ -1242,11 +1291,15 @@ a {
 
 
 #algolia-search .search-dialog .ais-SearchBox input {
-    border: 1px solid var(--gavin-op-dis-5);
+    /* border: 1px solid var(--gavin-op-dis-5); */
+    border: unset;
     background-color: var(--gavin-op-dis-1);
-    border-radius: 6px;
+    /* border-radius: 6px; */
+    border-radius: 8px;
+    padding: 5px 12px;
     color: var(--font-color);
     line-height: 1.3;
+    height: 36px;
 }
 
 .search-dialog .search-nav .search-close-button {
@@ -1264,15 +1317,16 @@ a {
 
 #algolia-search .search-dialog .ais-SearchBox input::placeholder {
     color: var(--gavin-note-font-color);
-    font-size: 0.9rem;
+    /* font-size: 0.9rem; */
 }
 
 .search-dialog hr {
     border-color: var(--font-color);
+    border-width: 0;
 }
 
 .search-dialog-title {
-    color: var(--dis-f-0);
+    color: var(--font-color);
     font-weight: bold;
 }
 
@@ -3114,6 +3168,7 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
 .post-reward .like-button {
     border-radius: 8px;
     width: 100px;
+    user-select: none;
 }
 
 /* *********************************************Twikoo评论******************************************** */

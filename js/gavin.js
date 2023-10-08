@@ -785,7 +785,7 @@ var ctrl = {
         var q = p.substring(1,5)
         if (q == 'post') {
             var i = p.substring(6,14)
-            fetch(`https://apis.cansin.top/likecount?mode=get&id=${i}`)
+            fetch(`https://apis.gavin-chen.top/likecount?mode=get&id=${i}`)
                 .then(response => response.json())
                 .then(data => {
                     if (data.code == 200) {
@@ -804,7 +804,7 @@ var ctrl = {
         if (!a.classList.contains("loading")) {
             var i = window.location.pathname.substring(6,14)
             a.classList.add("loading")
-            fetch(`https://apis.cansin.top/likecount?mode=add&id=${i}&ip=${ipAddress}`)
+            fetch(`https://apis.gavin-chen.top/likecount?mode=add&id=${i}&ip=${ipAddress}`)
                 .then(response => response.json())
                 .then(data => {
                     if (data.code == 200) {
@@ -834,7 +834,7 @@ var ctrl = {
             .then(data => {
                 ipAddress = data.ip;
                 console.log("IP 地址：" + ipAddress);
-                fetch('https://apis.cansin.top/weather?ip=' + ipAddress + '&output=jsonp')
+                fetch('https://apis.gavin-chen.top/weather?ip=' + ipAddress + '&output=jsonp')
                     .then(response => response.json())
                     .then(data => {
                         console.log(data);
