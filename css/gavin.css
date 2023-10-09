@@ -2202,12 +2202,12 @@ meting-js .aplayer .aplayer-lrc p {
 meting-js .aplayer .aplayer-lrc {
     padding: 0 !important;
     /* height: 50px !important; */
-    height: 3rem !important;
+    height: calc(3rem + 20px) !important;
     border-radius: 20px;
     mask-image: paint(smooth-corners);
     -webkit-mask-image: paint(smooth-corners);
     --smooth-level: 24;
-    border: 10px solid #00000000;
+    /* border: 10px solid #00000000; */
     /* border-image: 0%; */
     /* -webkit-border-image: 0%; */
     background-color: var(--gavin-op-3);
@@ -2218,10 +2218,16 @@ meting-js .aplayer .aplayer-lrc {
     transform: translateZ(0);
 }
 
+meting-js .aplayer .aplayer-lrc .aplayer-lrc-box {
+    margin: 10px;
+    height: 3rem;
+    overflow: hidden;
+}
+
 meting-js .aplayer.aplayer-fixed .aplayer-lrc {
     /* calc(10% - 105px): 百分比补上参数 */
-    left: calc(7% - 10px) !important;
-    width: 86%;
+    left: 5% !important;
+    width: 90%;
     text-shadow: none !important;
 }
 
