@@ -596,7 +596,7 @@ var ctrl = {
         var list_html;
         for (let i = 0; i < audios.length; i++) {
             list_html = document.getElementById("console-music-list").innerHTML;
-            document.getElementById("console-music-list").innerHTML = list_html + "<li class='music-list-item'><div class='list-music-info1'><a class='list-music-id' data-pjax-state=''>" + (i + 1) + "</a><a class='list-music-state' data-pjax-state=''><i class='iconfont icon-waveform'></i></a></div><div class='list-music-info2'><a class='list-music-title' data-pjax-state=''>" + audios[i].title + "</a><a class='list-music-author' data-pjax-state=''> - " + audios[i].author + "</a></div></li>";
+            document.getElementById("console-music-list").innerHTML = list_html + "<li class='music-list-item'><div class='list-music-info1'><a class='list-music-id' data-pjax-state=''>" + (i + 1) + "</a><a class='list-music-state' data-pjax-state=''><i class='iconfont icon-waveform'></i></a></div><div class='list-music-info2'><a class='list-music-title' data-pjax-state=''>" + audios[i].title + "</a><a class='list-music-author' data-pjax-state=''>&nbsp;-&nbsp;" + audios[i].author + "</a></div></li>";
         }
     },
 
@@ -1063,8 +1063,8 @@ set_notice.addEventListener("change", () => {
 var music_list_switch = document.getElementById("music-ctrl-btn-end");
 var music_list_title = document.getElementById("music-list-title");
 var settings_btn = document.querySelector("#console .settings-btn");
-var to_display = document.querySelector("#li-set-display .setting-next");
-var to_about = document.querySelector("#li-set-about .setting-next");
+var to_display = document.querySelector("#li-set-display");
+var to_about = document.querySelector("#li-set-about");
 // var to_wallpaper = document.querySelector("#li-set-wallpaper .setting-next");
 var setting_info1 = document.getElementById("console-setting-info1");
 var setting_title1 = document.querySelector("#console-setting-info1 .setting-title");

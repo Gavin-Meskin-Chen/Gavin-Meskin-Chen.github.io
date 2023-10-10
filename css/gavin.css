@@ -321,6 +321,23 @@
     font-display: block;
 }
 
+@font-face {
+    font-family: 'webfont';
+    src: url(/font/webfont.woff2);
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+/* 在线链接服务仅供平台体验和调试使用，平台不承诺服务的稳定性，企业客户需下载字体包自行发布使用并做好备份。 */
+@font-face {
+    font-family: "logo";
+    font-weight: 400;
+    src: url("//at.alicdn.com/wf/webfont/Bq3pwkkdaCYJ/SLY5QZPrtKs4.woff2") format("woff2"),
+        url("//at.alicdn.com/wf/webfont/Bq3pwkkdaCYJ/bDtLnBjA4DJt.woff") format("woff");
+    font-display: swap;
+}
+
 /* 
     轮播动效，第一个246px指的是元素视窗宽度，主要是使得移入的起点在视窗最右侧，使得文本完全移出的同时随即开始移入，保证动效的连贯性；
     第二个100%指的是移出文本元素的宽度，也就是文本需要完全移出。
@@ -538,6 +555,15 @@ div#menus {
 
 #nav #site-name {
     text-shadow: none;
+    font-weight: 500;
+}
+
+#nav #site-name .title {
+    font-family: 'logo';
+    font-size: 27px;
+    letter-spacing: -1px;
+    opacity: 1;
+    transition: 0.2s ease-out;
 }
 
 #nav *::after {
@@ -589,7 +615,7 @@ div#menus {
 
 #site-name {
     height: 35px;
-    padding: 0 8px;
+    padding: 0 5px;
     position: relative;
     display: flex;
     align-items: center;
@@ -600,6 +626,7 @@ div#menus {
 #blog_name #site-name i {
     opacity: 0;
     position: absolute;
+    transition: 0.2s ease-out;
 }
 
 #blog_name #site-name:hover .title {
@@ -2215,7 +2242,7 @@ meting-js .aplayer .aplayer-lrc {
     background-clip: border-box;
     -webkit-backdrop-filter: saturate(180%) blur(20px);
     backdrop-filter: saturate(180%) blur(20px);
-    transform: translateZ(0);
+    /* transform: translateZ(0); */
 }
 
 meting-js .aplayer .aplayer-lrc .aplayer-lrc-box {
@@ -4141,7 +4168,6 @@ a.categoryButton:after {
 
 .category-bar-item a {
     padding: 1.5px 8px;
-    font-weight: bold;
     border-radius: 8px;
     color: var(--font-color);
     line-height: 1.7rem;
@@ -4303,7 +4329,7 @@ a.categoryButton:after {
 
 /* 标题加粗 */
 .article-sort-item-title {
-    font-weight: bold;
+    /* font-weight: bold; */
     line-height: 1.2;
 }
 
@@ -4477,7 +4503,7 @@ html.hide-aside .layout>div:first-child {
 #console .console-mainbox {
     margin: 1rem auto 0 auto;
     width: 18rem;
-    height: 30rem;
+    height: 482px;
     border-radius: 1.8rem;
     mask-image: paint(smooth-corners);
     -webkit-mask-image: paint(smooth-corners);
@@ -4486,17 +4512,19 @@ html.hide-aside .layout>div:first-child {
     /* border: var(--style-border); */
     background: var(--f-0);
     position: fixed;
+    overflow: hidden;
     top: 3.5rem;
     opacity: 0;
     pointer-events: none;
     transition: all 0.5s ease;
 }
 
-#console-music-item-main {
-    padding: 1.3rem;
+#console .console-mainbox:not(#console-music-item-main) {
+    background: var(--vercel-background);
 }
 
 #console-music-item-main {
+    padding: 1.3rem;
     transform: scale(0.9) translateY(-50px);
 }
 
@@ -4693,12 +4721,12 @@ html.hide-aside .layout>div:first-child {
 .console-list-head {
     width: 100%;
     height: 4rem;
-    border-top-left-radius: 1.8rem;
+    /* border-top-left-radius: 1.8rem; */
     /*和外弧度保持一致*/
-    border-top-right-radius: 1.8rem;
+    /* border-top-right-radius: 1.8rem; */
     /*和外弧度保持一致*/
     border-bottom: 1px solid var(--vercel-border-color);
-    background-color: var(--vercel-background);
+    /* background-color: var(--vercel-background); */
     display: flex;
     align-items: center;
     flex-flow: column;
@@ -4709,18 +4737,19 @@ html.hide-aside .layout>div:first-child {
     width: 100%;
     height: 1.8rem;
     /*和外弧度保持一致*/
-    border-bottom-left-radius: 1.8rem;
+    /* border-bottom-left-radius: 1.8rem; */
     /*和外弧度保持一致*/
-    border-bottom-right-radius: 1.8rem;
+    /* border-bottom-right-radius: 1.8rem; */
     /*和外弧度保持一致*/
     border-top: 1px solid var(--vercel-border-color);
-    background-color: var(--vercel-background);
+    /* background-color: var(--vercel-background); */
     transition: all 0.5s;
 }
 
 .console-list-body {
     width: 100%;
     height: calc(100% - 5.8rem);
+    background: var(--f-0);
     overflow: hidden;
     padding: 0;
 }
@@ -4763,23 +4792,25 @@ div.list-music-info1 {
 
 div.list-music-info2 {
     width: calc(100% - 2.5rem);
+    display: flex;
+    align-items: center;
     white-space: nowrap;
     overflow: hidden;
     transition: all .5s;
 }
 
 a.list-music-title {
-    font-size: 14px;
+    font-size: 0.875em;
 }
 
 a.list-music-author {
     color: rgb(136, 136, 136);
-    font-size: 12px;
+    font-size: 0.7em;
 }
 
 a.list-music-id {
     text-align: center;
-    font-size: 10px;
+    font-size: 0.5em;
     color: rgb(136, 136, 136);
     display: block;
 }
@@ -4799,18 +4830,26 @@ a.list-music-state.show {
 
 .console-list-head a.headline {
     display: block;
-    height: 50%;
+    /* height: 50%; */
     font-size: 1.1rem;
     font-weight: bold;
-    padding-top: 0.5rem;
+    padding-top: 16px;
+    line-height: 1;
 }
 
-a#music-list-title,
+.console-list-head a.footline {
+    display: block;
+    margin-top: 8px;
+    line-height: 1;
+    font-size: 0.875rem;
+}
+
+/* a#music-list-title,
 a#songsheet-title {
     display: block;
     height: 50%;
     font-size: 0.9rem;
-}
+} */
 
 a#music-list-title {
     cursor: pointer;
@@ -4849,7 +4888,7 @@ a#music-list-title {
 
 .songsheet-info2 {
     width: calc(100% - 2.5rem);
-    padding: 1rem 0;
+    padding: 0.75rem 0;
     white-space: nowrap;
     overflow: hidden;
     display: flex;
@@ -4864,7 +4903,7 @@ a#music-list-title {
     border-radius: 8px;
     mask-image: paint(smooth-corners);
     -webkit-mask-image: paint(smooth-corners);
-    --smooth-level: 15;
+    --smooth-level: 12;
     /*曲率连续圆角*/
 
 }
@@ -5221,6 +5260,11 @@ progress::-webkit-progress-value {
     box-sizing: border-box;
 }
 
+#li-set-display:hover, #li-set-about:hover {
+    cursor: pointer;
+    background: var(--vercel-hover-bg);
+}
+
 /* 取消滚动条 */
 #console-settings-list::-webkit-scrollbar {
     display: none
@@ -5307,7 +5351,6 @@ progress::-webkit-progress-value {
 
 .setting-next {
     width: 30%;
-    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: right;
