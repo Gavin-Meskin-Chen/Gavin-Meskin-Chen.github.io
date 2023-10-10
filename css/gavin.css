@@ -563,7 +563,7 @@ div#menus {
     font-size: 27px;
     letter-spacing: -1px;
     opacity: 1;
-    transition: 0.2s ease-out;
+    /* transition: 0.2s ease-out; */
 }
 
 #nav *::after {
@@ -626,7 +626,7 @@ div#menus {
 #blog_name #site-name i {
     opacity: 0;
     position: absolute;
-    transition: 0.2s ease-out;
+    /* transition: 0.2s ease-out; */
 }
 
 #blog_name #site-name:hover .title {

@@ -74,7 +74,7 @@ Last Modified time : 20220211 98:00 by https://immmmm.com
   .cf-article .cf-article-title:hover{/*letter-spacing:2px;*/color:var(--gavin-highlight)!important;}
   /* #cf-more i.fas:hover{color:var(--lmm-hover);} */
   #cf-state,#cf-more {background:var(--card-bg);color:var(--lmm-fontcolor);}
-  #cf-change,.cf-time-updated,.cf-time-created,.cf-article-floor{color:var(--lmm-floorcolor);}
+  #cf-change,.cf-time-updated,.cf-time-created,.cf-article-floor{color:var(--gavin-note-font-color);}
   .cf-article-author,.cf-article a.cf-article-title,/*.cf-article:hover .cf-article-floor,*/.cf-article:hover .cf-time-created,.cf-article:hover .cf-time-updated{color:var(--lmm-fontcolor);}
   .cf-article {background:var(--card-bg);}
   #cf-change span:hover{color:var(--gavin-highlight);cursor:pointer;}
@@ -347,6 +347,7 @@ Last Modified time : 20220211 98:00 by https://immmmm.com
 #我的收藏 .refresh:hover,
 #我的收藏 .fold:hover {
   background-color: var(--gavin-widget-bg2);
+  border-color: var(--gavin-op-dis-1);
   transition: .3s;
 }
 #我的收藏 .refresh i {
