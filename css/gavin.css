@@ -469,12 +469,11 @@ hr::before {
     background: var(--gavin-nav-hover);
     transition: 0.3s;
 }
-
+/* 
 #nav-totop:hover .totopbtn i {
     opacity: 1;
 }
 
-/* 这是右上角的进度百分比图标 */
 #nav-totop #percent {
     width: 25px;
     height: 25px;
@@ -510,11 +509,6 @@ hr::before {
     margin-left: 0 !important;
 }
 
-#page-header #nav #nav-right div {
-    margin-left: 0.5rem;
-    padding: 0;
-}
-
 #nav-totop {
     display: flex;
     width: 35px;
@@ -527,6 +521,11 @@ hr::before {
     #nav-totop {
         display: none;
     }
+} */
+
+#page-header #nav #nav-right div {
+    margin-left: 0.5rem;
+    padding: 0;
 }
 
 .nav-button {
@@ -1161,6 +1160,58 @@ center#name-container {
     background-color: #49b1f5;
 } */
 
+/* ********侧边栏添加滚动进度百分比*********** */
+
+#rightside>div>button,
+#rightside>div>a {
+    /* background-color: rgba(136, 136, 136, .48); */
+    border: 1px solid var(--gavin-border-color);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+}
+
+#rightside {
+    bottom: 90px;
+    right: -68px;
+}
+
+@media screen and (max-width: 900px) {
+    #rightside {
+        right: -78px;
+    }
+
+    #rightside>div>button,
+    #rightside>div>a {
+        width: 35px;
+        height: 35px;
+        margin-bottom: 5px;
+    }
+}
+
+#go-up i {
+    opacity: 0;
+    position: absolute;
+    transform: translateZ(-10px);
+    transition: opacity .3s, transform .3s;
+}
+
+#percent {
+    opacity: 1;
+    font-weight: bold;
+    transform: translateZ(10px) scale(1);
+    transition: opacity .3s, transform .3s;
+}
+
+#go-up:hover i {
+    opacity: 1;
+    transform: translateZ(10px);
+}
+
+#go-up:hover #percent {
+    opacity: 0;
+    transform: translateZ(-10px) scale(0);
+}
+
 /* ******************************************************************微调************************************************************ */
 a {
     color: var(--font-color);
@@ -1383,25 +1434,6 @@ a {
 #algolia-hits>div {
     -webkit-mask-image: linear-gradient(0deg, transparent, #fff 7px, #fff calc(100% - 7px), transparent);
     mask-image: linear-gradient(0deg, transparent, #fff 7px, #fff calc(100% - 7px), transparent);
-}
-
-
-/* 右下角rightside按钮毛玻璃 */
-#rightside>div>button,
-#rightside>div>a {
-    background-color: rgba(136, 136, 136, .48);
-    /* -webkit-backdrop-filter: saturate(180%) contrast(50%) blur(20px);
-    backdrop-filter: saturate(180%) contrast(50%) blur(20px); */
-}
-
-/* 右下角设置上移 */
-#rightside {
-    bottom: 90px;
-}
-
-#rightside>div>button,
-#rightside>div>a {
-    border-radius: 50%;
 }
 
 /* 部分box微调：弧度调整 */

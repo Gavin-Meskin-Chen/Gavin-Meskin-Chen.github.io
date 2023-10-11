@@ -264,7 +264,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // console.log("window.innerHeight: " + (innerHeight - 56))
     // 當滾動條小于 56 的時候
     if (scrollHeight <= innerHeight) {
-      $rightside.style.cssText = 'opacity: 1; transform: translateX(-58px)'
+      $rightside.style.cssText = 'opacity: 1; transform: translateX(-88px)'
       return
     }
 
@@ -301,7 +301,7 @@ document.addEventListener('DOMContentLoaded', function () {
           }
           $header.classList.add('nav-fixed')
           if (window.getComputedStyle($rightside).getPropertyValue('opacity') === '0') {
-            $rightside.style.cssText = 'opacity: 1; transform: translateX(-58px)'
+            $rightside.style.cssText = 'opacity: 1; transform: translateX(-88px)'
           }
         } else {
           if (currentTop === 0) {
@@ -313,7 +313,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         if (scrollHeight <= innerHeight) {
-          $rightside.style.cssText = 'opacity: 1; transform: translateX(-58px)'
+          $rightside.style.cssText = 'opacity: 1; transform: translateX(-88px)'
         }
       }, 200)
 

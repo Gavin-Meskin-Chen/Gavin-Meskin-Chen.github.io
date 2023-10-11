@@ -4381,7 +4381,7 @@ h1.page-title + .tag-cloud-list {
 }
 #rightside {
   position: fixed;
-  right: -48px;
+  right: -38px;
   bottom: 40px;
   z-index: 100;
   opacity: 0;
@@ -4428,27 +4428,50 @@ h1.page-title + .tag-cloud-list {
 }
 #rightside > div > button,
 #rightside > div > a {
-  display: block;
-  margin-bottom: 5px;
-  width: 35px;
-  height: 35px;
-  border-radius: 5px;
-  background-color: var(--btn-bg);
-  color: var(--btn-color);
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -o-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -o-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  margin-bottom: 8px;
+  width: 40px;
+  height: 40px;
+  border-radius: 45px;
+  background-color: var(--gavin-nav-bg);
+  color: var(--font-color);
   text-align: center;
   font-size: 16px;
-  line-height: 35px;
+  line-height: 40px;
 }
 #rightside > div > button:hover,
 #rightside > div > a:hover {
-  background-color: var(--btn-hover-color);
+  background-color: var(--gavin-nav-hover);
+  color: #fff;
 }
 #rightside #mobile-toc-button {
   display: none;
 }
 @media screen and (max-width: 900px) {
   #rightside #mobile-toc-button {
-    display: block;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: box;
+    display: flex;
   }
 }
 @media screen and (max-width: 900px) {
