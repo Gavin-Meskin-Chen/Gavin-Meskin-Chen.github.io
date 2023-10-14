@@ -1185,10 +1185,10 @@ a {
     padding-left: 5%;
     padding-right: 5%;
 }
-
+/* 
 .page.home .layout {
     padding-top: 80px;
-}
+} */
 
 /* 设置目录弧度和颜色 */
 #aside-content #card-toc .toc-content .toc-link.active {
