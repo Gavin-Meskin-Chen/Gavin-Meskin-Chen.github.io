@@ -105,7 +105,19 @@ function percent() {
             ) - document.documentElement.clientHeight, // 整个网页高度 减去 可视高度
         result = Math.round((a / b) * 100), // 计算百分比
         btn = document.getElementById("percent"); // 获取图标
+        // opacity = Math.floor(a) / document.documentElement.clientHeight;
     result <= 99 || (result = 99), (btn.innerHTML = result);
+    // let h = document.documentElement.clientHeight;
+    // if (document.getElementById('body-wrap').classList.contains('home')) {
+    //     if(!document.getElementById('page-header').classList.contains('nav-visible') && a > 50 && a < h / 2){
+    //         btf.scrollToDest(document.getElementById('content-inner').offsetTop, 300)
+    //     }else if(document.getElementById('page-header').classList.contains('nav-visible') && a < h - 50 && a >= h / 2){
+    //         btf.scrollToDest(document.getElementById('body-wrap').offsetTop, 300)
+    //     }
+    // }
+    // document.documentElement.getAttribute('data-theme') === 'dark' ? 
+    //     document.documentElement.style.setProperty('--web-bg', 'rgba(0,0,0,' + (opacity * 0.75 + 0.25) + ')') : 
+    //     document.documentElement.style.setProperty('--web-bg', 'rgba(241,243,245,' + opacity + ')');
 }
 window.onscroll = percent; // 返回顶部 显示网页阅读进度
 
@@ -916,7 +928,7 @@ var ctrl = {
             // var w = h1 / h0 * w0
             // var t = (w - w1) / 5
             if (!b.style.objectPosition) b.style.objectPosition = 'calc(50% - 75px) center'
-            if (!b.style.filter) b.style.filter = 'blur(1.5px) brightness(0.7)'
+            if (!b.style.filter) b.style.filter = document.documentElement.getAttribute('data-theme') === 'dark' ? 'blur(1.5px) brightness(0.7)' : 'blur(1.5px)'
             if (!b.style.transform) b.style.transform = 'rotate(-15deg) scale(2)'
             if (!b.style.animation) b.style.animation = 'coverFlow ' + 30 + 's infinite linear'
         } else if (q == 'about') {

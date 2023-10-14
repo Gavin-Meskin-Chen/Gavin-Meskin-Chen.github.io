@@ -113,6 +113,7 @@
     --card-link-bg: rgba(0, 150, 255, .1);
     --card-link-border: rgba(0, 150, 255, .3);
     --system-logo: url(https://blog-hexo-img.oss-cn-shanghai.aliyuncs.com/f15BG.webp);
+    --web-bg: rgba(241, 243, 245, 0);
     --hl-bg: rgb(44, 48, 54);
     --hlnumber-bg: rgb(44, 48, 54);
 
@@ -126,7 +127,7 @@
     --twitter-item-bg: rgb(247, 249, 249);
     --twitter-shadow: rgba(101, 119, 134, 0.2) 0px 0px 15px, rgba(101, 119, 134, 0.15) 0px 0px 3px 1px;
     --twitter-text-note: rgb(83, 100, 113);
-    --twitter-text: rgb(15,20,25);
+    --twitter-text: rgb(15, 20, 25);
     --twitter-btn-bg: rgb(15, 20, 25);
     --twitter-btn-hover: rgba(15, 20, 25, 0.1);
     --twitter-item-hover: rgba(0, 0, 0, 0.03);
@@ -220,6 +221,7 @@
     --font-color: rgba(255, 255, 255, .8);
     --search-bg: rgba(0, 0, 0, .64);
     --system-logo: url(https://blog-hexo-img.oss-cn-shanghai.aliyuncs.com/f1olM.webp);
+    --web-bg: rgba(0, 0, 0, 0.25);
     --hl-bg: rgb(40, 44, 48);
     --hlnumber-bg: rgb(40, 44, 48);
 
@@ -241,23 +243,23 @@
 
     --supb-border: #2e2e2e;
     --supb-bg: #1c1c1c;
-    --supb-bg2: hsla(0,0%,100%,.026);
+    --supb-bg2: hsla(0, 0%, 100%, .026);
 
 
 
     --gh-bg-1: var(--light-grad-pink-blue, radial-gradient(ellipse at 40% 0%, #bf398910 0, transparent 75%), radial-gradient(ellipse at 60% 0%, #096bde10 0, transparent 75%));
 
-    --gh-dark-1: rgb(1,4,9);
-    --gh-dark-2: rgb(13,17,23);
-    --gh-dark-3: rgb(22,27,34);
-    --gh-dark-4: rgb(33,38,45);
-    --gh-dark-5: rgb(41,47,54);
-    --gh-dark-6: rgb(48,54,61);
-    --gh-dark-7: rgb(63,67,75);
+    --gh-dark-1: rgb(1, 4, 9);
+    --gh-dark-2: rgb(13, 17, 23);
+    --gh-dark-3: rgb(22, 27, 34);
+    --gh-dark-4: rgb(33, 38, 45);
+    --gh-dark-5: rgb(41, 47, 54);
+    --gh-dark-6: rgb(48, 54, 61);
+    --gh-dark-7: rgb(63, 67, 75);
 
-    --gh-text-1: rgb(230,237,243);
-    --gh-text-2: rgb(110,118,129);
-    --gh-text-3: rgb(125,133,144);
+    --gh-text-1: rgb(230, 237, 243);
+    --gh-text-2: rgb(110, 118, 129);
+    --gh-text-3: rgb(125, 133, 144);
 
 
 
@@ -296,47 +298,6 @@
   mask-image: paint(smooth-corners);    
   -webkit-mask-image: paint(smooth-corners);
   --smooth-level: 24; */
-/* *****************************字体************************************ */
-/* @font-face {
-    font-family: 'Jinbu';
-    src: url(/font/jinbu.woff2);
-    font-weight: normal;
-    font-style: normal;
-    font-display: block;
-} */
-
-@font-face {
-    font-family: 'xiaozhuan';
-    src: url(/font/参星阁.woff2);
-    font-weight: normal;
-    font-style: normal;
-    font-display: block;
-}
-
-@font-face {
-    font-family: 'Sans_clock';
-    src: url(/font/clock.woff2);
-    font-weight: normal;
-    font-style: normal;
-    font-display: block;
-}
-
-@font-face {
-    font-family: 'webfont';
-    src: url(/font/webfont.woff2);
-    font-weight: normal;
-    font-style: normal;
-    font-display: block;
-}
-
-/* 在线链接服务仅供平台体验和调试使用，平台不承诺服务的稳定性，企业客户需下载字体包自行发布使用并做好备份。 */
-@font-face {
-    font-family: "logo";
-    font-weight: 400;
-    src: url("//at.alicdn.com/wf/webfont/Bq3pwkkdaCYJ/SLY5QZPrtKs4.woff2") format("woff2"),
-        url("//at.alicdn.com/wf/webfont/Bq3pwkkdaCYJ/bDtLnBjA4DJt.woff") format("woff");
-    font-display: swap;
-}
 
 /* 
     轮播动效，第一个246px指的是元素视窗宽度，主要是使得移入的起点在视窗最右侧，使得文本完全移出的同时随即开始移入，保证动效的连贯性；
@@ -469,6 +430,7 @@ hr::before {
     background: var(--gavin-nav-hover);
     transition: 0.3s;
 }
+
 /* 
 #nav-totop:hover .totopbtn i {
     opacity: 1;
@@ -1162,12 +1124,13 @@ center#name-container {
 
 /* ********侧边栏添加滚动进度百分比*********** */
 
-#rightside>div>button,
-#rightside>div>a {
+#rightside > div > button,
+#rightside > div > a {
     /* background-color: rgba(136, 136, 136, .48); */
     border: 1px solid var(--gavin-border-color);
     -webkit-backdrop-filter: saturate(180%) blur(20px);
     backdrop-filter: saturate(180%) blur(20px);
+    box-shadow: 0 0 12px 0 var(--gavin-op-dis-15);
 }
 
 #rightside {
@@ -1180,8 +1143,8 @@ center#name-container {
         right: -78px;
     }
 
-    #rightside>div>button,
-    #rightside>div>a {
+    #rightside > div > button,
+    #rightside > div > a {
         width: 35px;
         height: 35px;
         margin-bottom: 5px;
@@ -1221,6 +1184,10 @@ a {
 .layout {
     padding-left: 5%;
     padding-right: 5%;
+}
+
+.page.home .layout {
+    padding-top: 80px;
 }
 
 /* 设置目录弧度和颜色 */
@@ -1277,7 +1244,7 @@ a {
 }
 
 #aside-content .card-tag-cloud a:hover {
-    background-color: var(--gavin-item-border);
+    background-color: var(--text-bg-hover);
     color: #ffffff !important;
 }
 
@@ -1635,9 +1602,9 @@ mjx-container[jax="CHTML"] {
     box-shadow: inset 0 -13vh 100vh 0 var(--gavin-theme-color), inset 20vw 0 100vw 0 var(--gavin-theme-color), inset -11vw 0 100vh 0 var(--gavin-theme-color), inset 0 9vh 100vh 0 var(--gavin-theme-color);
 } */
 
-#page-header {
+/* #page-header {
     background-color: var(--gavin-background);
-}
+} */
 
 img#post-cover {
     width: 100%;
@@ -1789,7 +1756,7 @@ a.post-meta-categories:hover {
 }
 
 body div {
-    transition: background-color 0.3s;
+    transition: background-color 0.5s;
 }
 
 /* 页码前进后退 */
@@ -1913,7 +1880,7 @@ input.toPageInput::placeholder {
 /* 文章页链接样式 */
 #post #article-container a,
 .tk-comment .tk-content a:not(.tk-ruser) {
-    color: var(--dis-f-0);
+    /* color: var(--dis-f-0); */
     font-weight: bold;
     border-bottom: 2px solid rgba(0, 136, 255, 1);
 }
@@ -3608,10 +3575,9 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
     z-index: 0;
 }
 
-/* 网站背景色参考张宏和安知鱼HEO */
-#body-wrap {
+/* #body-wrap {
     background: var(--gavin-background);
-}
+} */
 
 /* .layout>div:first-child:not(.recent-posts) {
     padding: 0 40px;
@@ -4854,6 +4820,7 @@ a.list-music-id.hide {
 a.list-music-state {
     display: none;
     text-align: center;
+    line-height: 1;
 }
 
 a.list-music-state.show {
@@ -5021,7 +4988,6 @@ a#music-list-title {
     --smooth-level: 10;
     /*曲率连续圆角*/
     padding: 8px;
-    font-family: Sans_clock;
     display: flex;
     justify-content: center;
     /* font-weight: bold; */
@@ -5292,7 +5258,8 @@ progress::-webkit-progress-value {
     box-sizing: border-box;
 }
 
-#li-set-display:hover, #li-set-about:hover {
+#li-set-display:hover,
+#li-set-about:hover {
     cursor: pointer;
     background: var(--vercel-hover-bg);
 }
@@ -5482,6 +5449,62 @@ progress::-webkit-progress-value {
     justify-content: right;
 }
 
+#li-set-login {
+    height: 4rem !important;
+    background: var(--gavin-widget-bg1);
+    margin: 10px 0.8rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: .5s;
+}
+
+#li-set-login .login-avatar {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background: var(--gavin-op-dis-1);
+    margin-left: 0.8rem;
+}
+
+#li-set-login .login-info {
+    height: 3rem;
+    padding: 0 0.8rem;
+    line-height: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#li-set-login .login-info .name {
+    font-size: 18px;
+    transition: .5s;
+}
+
+#li-set-login .login-info .desc {
+    font-size: 13px;
+    color: var(--gavin-op-dis-6);
+    margin-top: 4px;
+    transition: .5s;
+}
+
+#li-set-login .quit {
+    position: absolute;
+    right: 1.6rem;
+    border-radius: 6px;
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gavin-op-dis-1);
+    opacity: 0;
+    pointer-events: none;
+}
+
+#li-set-login .quit:hover {
+    background: var(--gavin-op-dis-2);
+}
 
 /* ****************************************************一图流设计********************************************************* */
 #page-site-info {
@@ -5655,3 +5678,29 @@ progress::-webkit-progress-value {
     border-color: var(--gavin-highlight);
     color: var(--gavin-highlight);
 }
+
+/* 主页背景 */
+/* .page.home #post-cover {
+    display: none;
+}
+
+#page-header::before {
+    background: transparent !important;
+}
+
+#web_bg::after {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: rgba(0,0,0,0.15);
+    content: '';
+}
+
+#web_bg::before {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: var(--web-bg)!important;
+    content: '';
+} */
