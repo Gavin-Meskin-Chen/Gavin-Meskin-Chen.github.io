@@ -24,7 +24,7 @@ Last Modified time : 20220211 98:00 by https://immmmm.com
     --gavin-bg-3: rgb(7,7,7);
   }
   /* 基本信息 */
-  #cf-state {font-size:16px;border-radius:13px;border: 1px solid var(--gavin-card-border);box-shadow:none;margin:0 0 20px;overflow:hidden;display:flex;flex-direction:row;flex-wrap:wrap;padding:8px 0;}
+  #cf-state {font-size:16px;border-radius:13px;border: 1px solid var(--gavin-card-border);box-shadow:var(--gavin-shadow-1);margin:0 0 20px;overflow:hidden;display:flex;flex-direction:row;flex-wrap:wrap;padding:8px 0;}
   .cf-state-data {width:100%;display:flex;justify-content:space-evenly;}
   .cf-data-friends,.cf-data-active,.cf-data-article{height:60px;background:transparent;display:flex;flex-direction:column;cursor:pointer;font-weight:bold;}
   .cf-data-friends:hover,.cf-data-active:hover,.cf-data-article:hover{color:var(--gavin-highlight);}
@@ -76,7 +76,7 @@ Last Modified time : 20220211 98:00 by https://immmmm.com
   #cf-state,#cf-more {background:var(--card-bg);color:var(--lmm-fontcolor);}
   #cf-change,.cf-time-updated,.cf-time-created,.cf-article-floor{color:var(--gavin-note-font-color);}
   .cf-article-author,.cf-article a.cf-article-title,/*.cf-article:hover .cf-article-floor,*/.cf-article:hover .cf-time-created,.cf-article:hover .cf-time-updated{color:var(--lmm-fontcolor);}
-  .cf-article {background:var(--card-bg);}
+  .cf-article {background:var(--card-bg);box-shadow: var(--gavin-shadow-1);}
   #cf-change span:hover{color:var(--gavin-highlight);cursor:pointer;}
   #cf-change .cf-change-now{color:var(--gavin-highlight);font-weight:800;}
   .cf-overshow p a:hover{color:var(--gavin-blue2)!important;text-decoration:none!important;}
@@ -315,9 +315,10 @@ Last Modified time : 20220211 98:00 by https://immmmm.com
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  max-height: 240px;
+  max-height: 260px;
   overflow: hidden;
   transition: .3s ease-in-out;
+  padding-bottom: 10px;
 }
 #我的收藏 {
   display: flex;
@@ -335,6 +336,7 @@ Last Modified time : 20220211 98:00 by https://immmmm.com
   cursor: pointer;
   color: var(--font-color);
   border: 1px solid var(--gavin-border-color);
+  box-shadow: var(--gavin-shadow-1);
   background-color: var(--card-bg);
   transition: .3s;
 }
