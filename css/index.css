@@ -4825,8 +4825,9 @@ span.mathjax-overflow {
 }
 .card_box .card_mask a {
   text-align: center;
-  background: var(--gavin-op-dis-7);
-  color: var(--f-0) !important;
+  background: #eee;
+  color: #000 !important;
+  font-size: 15px;
   border-radius: 6px;
   position: absolute;
   width: calc(100% - 40px);
