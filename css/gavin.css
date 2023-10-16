@@ -204,9 +204,9 @@
     /* --gavin-background: rgb(0, 0, 0); */
     --gavin-background: rgb(21, 22, 23);
     /*17,17,17*/
-    --gavin-widget-bg1: rgb(42, 45, 48);
+    --gavin-widget-bg1: rgb(45, 46, 48);
     /*38, 38, 38; rgb(46, 48, 51)*/
-    --gavin-widget-bg2: rgb(58, 60, 62);
+    --gavin-widget-bg2: rgb(60, 61, 63);
     /*60, 60, 60; rgb(66, 67, 70)*/
     --gavin-highlight: #fff;
     --gavin-highlight-op: #ffffff23;

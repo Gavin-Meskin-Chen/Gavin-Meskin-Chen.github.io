@@ -4745,7 +4745,7 @@ span.mathjax-overflow {
   border: 1px solid var(--gavin-border-color);
   position: relative;
   overflow: hidden;
-  padding: 10px;
+  padding: 10px 13px;
   color: #fff !important;
   margin: 10px auto;
   line-height: 2rem;
@@ -4757,7 +4757,7 @@ span.mathjax-overflow {
   width: 100%;
   left: 0;
   top: 0;
-  background: rgba(0,0,0,0.1);
+  background: rgba(0,0,0,0.2);
   -webkit-transition: 0.5s;
   -moz-transition: 0.5s;
   -o-transition: 0.5s;
@@ -4808,15 +4808,20 @@ span.mathjax-overflow {
   height: 100%;
   left: 0;
   top: 0;
-  padding: 20px;
-  background: rgba(0,0,0,0.5);
+  padding: 15px;
+  -webkit-backdrop-filter: blur(7px);
+  backdrop-filter: blur(7px);
+  background: rgba(0,0,0,0.1);
 }
 .card_box .card_mask span {
   display: block;
-  font-size: 1rem;
-  line-height: 1rem;
-  height: calc(100% - 40px);
+  font-size: 15px;
+  line-height: 1.2;
+  height: calc(100% - 45px);
+  padding: 5px 0;
   overflow: auto;
+  -webkit-mask-image: linear-gradient(0deg, transparent, #fff 8px, #fff calc(100% - 8px), transparent);
+  mask-image: linear-gradient(0deg, transparent, #fff 8px, #fff calc(100% - 8px), transparent);
 }
 .card_box .card_mask a {
   text-align: center;
