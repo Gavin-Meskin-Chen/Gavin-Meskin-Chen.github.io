@@ -110,7 +110,7 @@
     --vercel-border-color: rgb(197, 202, 217);
     --vercel-hover-bg: rgba(234, 234, 234, 1);
     /* --font-color: #2e2e2e; */
-    --font-color: rgba(0, 0, 0, .8);
+    --font-color: rgb(45, 45, 45);
     --search-bg: rgba(255, 255, 255, .64);
     --text-bg-hover: var(--gavin-blue1);
     --card-bg: #fff;
@@ -220,20 +220,20 @@
     --vercel-border-color: rgb(66, 68, 74);
     --vercel-hover-bg: rgba(51, 51, 51, 1);
     /* --card-bg: rgb(21,23,25); */
-    --card-bg: rgb(27,28,30);
+    --card-bg: rgb(27, 28, 30);
     /*rgba(29, 30, 34, 1);*/
     --text-bg-hover: rgba(240, 240, 240, .24);
     --btn-bg: rgba(100, 100, 100, .8);
     --btn-hover-color: rgb(80, 80, 80);
     --card-link-bg: rgba(240, 240, 240, .1);
     --card-link-border: rgba(240, 240, 240, .3);
-    --font-color: rgba(255, 255, 255, .8);
+    --font-color: rgb(210, 210, 210);
     --search-bg: rgba(0, 0, 0, .64);
     --system-logo: url(https://blog-hexo-img.oss-cn-shanghai.aliyuncs.com/f1olM.webp);
     --web-bg: rgba(0, 0, 0, 0.25);
     --hl-bg: rgb(40, 44, 48);
     --hlnumber-bg: rgb(40, 44, 48);
-    --hltools-bg: rgb(36,37,38);
+    --hltools-bg: rgb(36, 37, 38);
 
 
 
@@ -527,13 +527,13 @@ div#menus {
 #nav #site-name {
     text-shadow: none;
     font-weight: 500;
+    line-height: 1;
 }
 
 #nav #site-name .title {
     font-family: 'logo';
     font-size: 27px;
     letter-spacing: -1px;
-    line-height: 1;
     opacity: 1;
     /* transition: 0.2s ease-out; */
 }
@@ -909,7 +909,7 @@ center#name-container {
     border: var(--style-border);
     flex-direction: column;
     font-size: 12px;
-    box-shadow: 0 8px 16px -4px #2c2d300c;
+    box-shadow: var(--gavin-shadow-1);
     transition: 0s;
     opacity: 0;
     pointer-events: none;
@@ -1135,8 +1135,8 @@ center#name-container {
 
 /* ********侧边栏添加滚动进度百分比*********** */
 
-#rightside > div > button,
-#rightside > div > a {
+#rightside>div>button,
+#rightside>div>a {
     /* background-color: rgba(136, 136, 136, .48); */
     border: 1px solid var(--gavin-border-color);
     -webkit-backdrop-filter: saturate(180%) blur(20px);
@@ -1154,8 +1154,8 @@ center#name-container {
         right: -78px;
     }
 
-    #rightside > div > button,
-    #rightside > div > a {
+    #rightside>div>button,
+    #rightside>div>a {
         width: 35px;
         height: 35px;
         margin-bottom: 5px;
@@ -1196,6 +1196,7 @@ a {
     padding-left: 5%;
     padding-right: 5%;
 }
+
 /* 
 .page.home .layout {
     padding-top: 80px;
@@ -4375,6 +4376,7 @@ a.categoryButton:after {
 
 .article-sort-item:not(.year):hover {
     border-color: var(--gavin-highlight);
+    box-shadow: 0 4px 12px -3px var(--gavin-highlight-op);
 }
 
 .article-sort-item:not(.year):hover .article-sort-item-title {
