@@ -98,6 +98,7 @@
     --gavin-background: rgb(247, 248, 250);
     --gavin-widget-bg1: rgb(242, 243, 245);
     --gavin-widget-bg2: rgb(227, 228, 230);
+    --gavin-widget-bg3: rgb(206, 207, 209);
     --gavin-highlight: #0088FF;
     --gavin-highlight-op: #0088FF23;
     --gavin-switch-off: rgb(233, 233, 234);
@@ -207,6 +208,7 @@
     --gavin-widget-bg1: rgb(45, 46, 48);
     /*38, 38, 38; rgb(46, 48, 51)*/
     --gavin-widget-bg2: rgb(60, 61, 63);
+    --gavin-widget-bg3: rgb(70, 71, 73);
     /*60, 60, 60; rgb(66, 67, 70)*/
     --gavin-highlight: #fff;
     --gavin-highlight-op: #ffffff23;
@@ -3332,7 +3334,8 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
 
 .twikoo .el-input-group__append,
 .twikoo .el-input-group__prepend {
-    background-color: var(--gavin-op-dis-2);
+    background-color: var(--gavin-widget-bg3);
+    border-right: 1px solid rgba(144,147,153,0.31);
 }
 
 .twikoo .el-input-group {
