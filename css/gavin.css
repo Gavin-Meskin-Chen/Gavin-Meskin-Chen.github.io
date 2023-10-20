@@ -4605,8 +4605,9 @@ html.hide-aside .layout>div:first-child {
 }
 
 #console-music-title {
-    height: 40px;
+    height: 44px;
     padding-top: 14px;
+    margin-bottom: -4px;
 }
 
 #console-music-title-text {
