@@ -4582,11 +4582,11 @@ html.hide-aside .layout>div:first-child {
 }
 
 #console-music-item-main .cover-shadow {
-    width: 230px;
-    height: 230px;
+    width: 234px;
+    height: 234px;
     position: absolute;
     top: 44px;
-    left: 30px;
+    left: 28px;
     border-radius: 4px;
     overflow: hidden;
     -webkit-filter: blur(12px) opacity(.6);
