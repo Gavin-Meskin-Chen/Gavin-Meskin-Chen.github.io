@@ -584,7 +584,8 @@ var ctrl = {
         var music_cover = document.querySelector("meting-js").aplayer.list.audios[music_id].cover;
         var music_author = document.querySelector("meting-js").aplayer.list.audios[music_id].author;
         var music_title = document.querySelector("meting-js").aplayer.list.audios[music_id].title;
-        document.getElementById("console-music-cover").innerHTML = "<img src='" + music_cover + "' style='width:100%;height:100%;border-radius:8px;'>";// 歌曲信息
+        document.getElementById("console-music-cover").innerHTML = "<img src='" + music_cover + "'>";// 歌曲信息
+        document.querySelector("#console-music-item-main .cover-shadow").style.background =  "url('" + music_cover + "') center center / 100% 100% no-repeat";
         document.getElementById("console-music-title-text").innerHTML = music_title;
         document.getElementById("console-music-author-text").innerHTML = music_author;
         ctrl.marqueeMusicInfo();
@@ -685,10 +686,10 @@ var ctrl = {
         saveToLocal.get('aside-status') === 'hide'
             ? document.querySelector("#asideItem").classList.add("on")
             : document.querySelector("#asideItem").classList.remove("on");
-        var console_musicBody = document.querySelector("#console .console-mainbox"); // 更新控制中心尺寸
-        var console_musicCover = document.getElementById("console-music-cover");
-        console_musicCover.style.height = console_musicCover.offsetWidth + "px";
-        console_musicBody.style.height = (console_musicCover.offsetWidth + 236) + "px"; //(12rem + 1.3rem + 1.3rem) * 16 = 233.6px
+        // var console_musicBody = document.querySelector("#console .console-mainbox"); // 更新控制中心尺寸
+        // var console_musicCover = document.getElementById("console-music-cover");
+        // console_musicCover.style.height = console_musicCover.offsetWidth + "px";
+        // console_musicBody.style.height = (console_musicCover.offsetWidth + 236) + "px"; //(12rem + 1.3rem + 1.3rem) * 16 = 233.6px
         ctrl.getMusicInfo();
         var nowVolume = document.querySelector("meting-js").aplayer.audio.volume;// 当前音量
         document.querySelector("#v_bar").style.width = document.querySelector("#v_bar_bg").offsetWidth * nowVolume + "px";// 音量条进度
@@ -1087,6 +1088,7 @@ var setting_title2 = document.querySelector("#console-setting-info2 .setting-tit
 music_list_switch.addEventListener("click", () => {
     // document.getElementById("console-music-item-main").classList.remove("item-show");
     document.getElementById("console-music-item-list").classList.add("item-show");
+    // if (document.querySelector('li.music-list-item.current-play')) {document.querySelector('li.music-list-item.current-play').scrollIntoView({ behavior: 'smooth' });}
 });
 music_list_title.addEventListener("click", () => {
     // document.getElementById("console-music-item-list").classList.remove("item-show");

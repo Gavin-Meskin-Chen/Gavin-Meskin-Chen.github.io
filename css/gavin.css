@@ -4177,10 +4177,10 @@ a.categoryButton:after {
 }
 
 .category-bar-item a {
-    padding: 1.5px 8px;
+    padding: 6px 8px;
     border-radius: 8px;
     color: var(--font-color);
-    line-height: 1.7rem;
+    line-height: 1;
     display: flex;
     background: var(--gavin-widget-bg1);
 }
@@ -4521,9 +4521,9 @@ html.hide-aside .layout>div:first-child {
 
 #console .console-mainbox {
     margin: 1rem auto 0 auto;
-    width: 18rem;
-    height: 482px;
-    border-radius: 1.8rem;
+    width: 290px;
+    height: 485px;
+    border-radius: 30px;
     mask-image: paint(smooth-corners);
     -webkit-mask-image: paint(smooth-corners);
     --smooth-level: 40;
@@ -4543,7 +4543,7 @@ html.hide-aside .layout>div:first-child {
 }
 
 #console-music-item-main {
-    padding: 1.3rem;
+    padding: 20px;
     transform: scale(0.9) translateY(-50px);
 }
 
@@ -4565,14 +4565,31 @@ html.hide-aside .layout>div:first-child {
 
 /* 封面 */
 #console-music-cover {
-    width: 100%;
+    width: 250px;
+    height: 250px;
     overflow: hidden;
-    /* height: calc(100% - 12rem); */
-    border-radius: 8px;
+    background-color: var(--gavin-widget-bg2);
+    border-radius: 10px;
     mask-image: paint(smooth-corners);
     -webkit-mask-image: paint(smooth-corners);
-    --smooth-level: 15;
+    --smooth-level: 13;
     /*曲率连续圆角*/
+}
+
+#console-music-cover img {
+    width: 100%;
+    height: 100%;
+}
+
+#console-music-item-main .cover-shadow {
+    width: 230px;
+    height: 230px;
+    position: absolute;
+    top: 44px;
+    left: 30px;
+    border-radius: 4px;
+    overflow: hidden;
+    filter: blur(12px) opacity(.6);
 }
 
 /* 曲名和作者 */
@@ -4583,11 +4600,12 @@ html.hide-aside .layout>div:first-child {
     white-space: nowrap;
     overflow: hidden;
     align-items: center;
+    line-height: 1.3;
 }
 
 #console-music-title {
-    height: 2.4rem;
-    padding-top: 0.5rem;
+    height: 40px;
+    padding-top: 18px;
 }
 
 #console-music-title-text {
@@ -4597,19 +4615,19 @@ html.hide-aside .layout>div:first-child {
 }
 
 #console-music-author {
-    height: 1.6rem;
+    height: 25px;
 }
 
 /* 组件外框 */
 .console-progressbar-div {
     width: 100%;
-    height: 2rem;
+    height: 30px;
     display: flex;
 }
 
 #console-music-ctrl-btns {
     width: 100%;
-    height: 4rem;
+    height: 65px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -4667,7 +4685,7 @@ html.hide-aside .layout>div:first-child {
 
 #progress-low-btn,
 #progress-high-btn {
-    font-size: 0.7rem;
+    font-size: 11px;
     color: rgba(136, 136, 136, 0.5);
 }
 
@@ -4739,38 +4757,30 @@ html.hide-aside .layout>div:first-child {
 /* *********************歌单显示********************** */
 .console-list-head {
     width: 100%;
-    height: 4rem;
-    /* border-top-left-radius: 1.8rem; */
-    /*和外弧度保持一致*/
-    /* border-top-right-radius: 1.8rem; */
-    /*和外弧度保持一致*/
-    border-bottom: 1px solid var(--vercel-border-color);
-    /* background-color: var(--vercel-background); */
+    height: 60px;
+    /* border-bottom: 1px solid var(--vercel-border-color); */
     display: flex;
     align-items: center;
     flex-flow: column;
     transition: all 0.5s;
 }
 
-.console-list-foot {
+/* .console-list-foot {
     width: 100%;
     height: 1.8rem;
-    /*和外弧度保持一致*/
-    /* border-bottom-left-radius: 1.8rem; */
-    /*和外弧度保持一致*/
-    /* border-bottom-right-radius: 1.8rem; */
-    /*和外弧度保持一致*/
     border-top: 1px solid var(--vercel-border-color);
-    /* background-color: var(--vercel-background); */
     transition: all 0.5s;
-}
+} */
 
 .console-list-body {
     width: 100%;
-    height: calc(100% - 5.8rem);
+    height: calc(100% - 90px);
     background: var(--f-0);
     overflow: hidden;
     padding: 0;
+    border-top: 1px solid var(--vercel-border-color);
+    border-bottom: 1px solid var(--vercel-border-color);
+    transition: .5s;
 }
 
 #console-settings-list,
@@ -4806,11 +4816,11 @@ html.hide-aside .layout>div:first-child {
 }
 
 div.list-music-info1 {
-    width: 2rem;
+    width: 35px;
 }
 
 div.list-music-info2 {
-    width: calc(100% - 2.5rem);
+    width: calc(100% - 45px);
     display: flex;
     align-items: center;
     white-space: nowrap;
@@ -4848,18 +4858,23 @@ a.list-music-state.show {
     display: block;
 }
 
+li.music-list-item.current-play {
+    background-color: var(--vercel-hover-bg);
+    transition: .5s;
+}
+
 .console-list-head a.headline {
     display: block;
     /* height: 50%; */
     font-size: 1.1rem;
     font-weight: bold;
-    padding-top: 16px;
+    padding-top: 15px;
     line-height: 1;
 }
 
 .console-list-head a.footline {
     display: block;
-    margin-top: 8px;
+    margin-top: 5px;
     line-height: 1;
     font-size: 0.875rem;
 }
@@ -4900,15 +4915,15 @@ a#music-list-title {
 }
 
 .songsheet-info1 {
-    width: 2rem;
+    width: 35px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .songsheet-info2 {
-    width: calc(100% - 2.5rem);
-    padding: 0.75rem 0;
+    width: calc(100% - 45px);
+    padding: 12px 0;
     white-space: nowrap;
     overflow: hidden;
     display: flex;
@@ -4918,8 +4933,8 @@ a#music-list-title {
 }
 
 .list-songsheet-cover {
-    height: 4rem;
-    width: 4rem;
+    height: 60px;
+    width: 60px;
     border-radius: 8px;
     mask-image: paint(smooth-corners);
     -webkit-mask-image: paint(smooth-corners);
@@ -5273,7 +5288,7 @@ progress::-webkit-progress-value {
 
 /* ********************设置界面******************** */
 #console-settings-list li {
-    height: 3rem;
+    height: 50px;
     display: flex;
     align-items: center;
     box-sizing: border-box;
@@ -5290,13 +5305,9 @@ progress::-webkit-progress-value {
     display: none
 }
 
-#console-settings-list li div.setting-info2 {
-    border-bottom: 1px solid var(--vercel-border-color);
-}
-
 .setting-info1 {
     height: 100%;
-    width: 3.6rem;
+    width: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -5304,18 +5315,20 @@ progress::-webkit-progress-value {
 
 .setting-info2 {
     height: 100%;
-    width: calc(100% - 4.5rem);
-    padding: 1rem 0;
+    width: calc(100% - 75px);
+    /* padding: 1rem 0; */
     white-space: nowrap;
     overflow: hidden;
     display: flex;
     align-items: center;
+    border-bottom: 1px solid var(--vercel-border-color);
+    transition: .5s;
 }
 
 #console-settings-list .setting-icon {
     border-radius: 6px;
-    height: 2rem;
-    width: 2rem;
+    height: 30px;
+    width: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -5381,10 +5394,10 @@ progress::-webkit-progress-value {
 }
 
 .set-box-normal {
-    height: 3rem;
+    height: 45px;
     display: flex;
     align-items: center;
-    margin: 0 0.9rem;
+    margin: 0 15px;
     border-bottom: 1px solid var(--vercel-border-color);
     transition: all .5s;
 }
@@ -5393,7 +5406,7 @@ progress::-webkit-progress-value {
     height: fit-content;
     display: block;
     align-items: center;
-    margin: 0 0.9rem;
+    margin: 0 15px;
     /* border-bottom: 1px solid var(--vercel-border-color); */
 }
 
@@ -5401,7 +5414,7 @@ progress::-webkit-progress-value {
     height: fit-content;
     display: flex;
     align-items: center;
-    margin: 0 0.9rem;
+    margin: 0 15px;
     border-bottom: 1px solid var(--vercel-border-color);
     transition: all .5s;
 }
@@ -5419,7 +5432,12 @@ progress::-webkit-progress-value {
 #set-theme-light img,
 #set-theme-dark img {
     width: 100%;
-    border-radius: 0.4rem;
+    border-radius: 6px;
+}
+
+#set-theme-light text,
+#set-theme-dark text {
+    font-size: 15px;
 }
 
 .gavin-slider {
@@ -5448,10 +5466,10 @@ progress::-webkit-progress-value {
 }
 
 #set-sys-logo {
-    margin: 10px 0.9rem 0;
-    width: calc(100% - 1.8rem);
+    margin: 10px 15px 0;
+    width: calc(100% - 30px);
     height: 180px;
-    border-radius: 0.8rem;
+    border-radius: 12px;
     background-position: center;
     background-size: cover;
     background-image: var(--system-logo);
@@ -5468,6 +5486,7 @@ progress::-webkit-progress-value {
     display: flex;
     align-items: center;
     justify-content: right;
+    font-size: 15px;
 }
 
 #li-set-login {

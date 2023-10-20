@@ -87,11 +87,10 @@ setInterval(() => {
                     if (old_music_id != null) {
                         ids[old_music_id].classList.remove("hide");
                         states[old_music_id].classList.remove("show");
-                        ids[old_music_id].parentElement.parentElement.style.backgroundColor = "";
+                        ids[old_music_id].parentElement.parentElement.classList.remove("current-play");
                     }
                     ids[now_music_id].classList.add("hide");
                     states[now_music_id].classList.add("show");
-                    ids[now_music_id].parentElement.parentElement.style.backgroundColor = "var(--vercel-hover-bg)";
                     ids[now_music_id].parentElement.parentElement.classList.add("current-play");
                     ids[now_music_id].parentElement.parentElement.scrollIntoView({ behavior: 'smooth' });
                 }
