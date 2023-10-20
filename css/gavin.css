@@ -4582,15 +4582,15 @@ html.hide-aside .layout>div:first-child {
 }
 
 #console-music-item-main .cover-shadow {
-    width: 234px;
-    height: 234px;
+    width: 250px;
+    height: 250px;
     position: absolute;
-    top: 40px;
-    left: 28px;
+    top: 30px;
     border-radius: 4px;
-    overflow: hidden;
     -webkit-filter: blur(12px) opacity(.6);
-    filter: blur(12px) opacity(.6);
+    filter: blur(16px) opacity(.56);
+    transform: scale(.92,.96);
+    z-index: -1;
 }
 
 /* 曲名和作者 */
