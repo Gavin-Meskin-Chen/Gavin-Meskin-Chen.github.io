@@ -4589,6 +4589,7 @@ html.hide-aside .layout>div:first-child {
     left: 30px;
     border-radius: 4px;
     overflow: hidden;
+    -webkit-filter: blur(12px) opacity(.6);
     filter: blur(12px) opacity(.6);
 }
 
