@@ -1063,6 +1063,7 @@ center#name-container {
 #body-wrap #page-header:not(.is-top-bar) #nav .nav-button a {
     color: rgba(255, 255, 255, .8) !important;
 } */
+
 #body-wrap.home #page-header:not(.is-top-bar) #nav #he-plugin-simple,
 #body-wrap.home #page-header:not(.is-top-bar) #nav .back-home-button,
 #body-wrap.home #page-header:not(.is-top-bar) #nav .site-page.group,
@@ -1089,6 +1090,39 @@ center#name-container {
 #page-header.nav-fixed #nav #site-name:hover,
 #page-header.nav-fixed #nav #toggle-menu:hover {
     box-shadow: none;
+}
+
+/* 导航栏帧率显示 */
+#fps-box {
+    position: absolute;
+    left: 15px;
+    display: flex;
+    z-index: 9999;
+    flex-direction: column;
+}
+
+@media screen and (max-width: 850px) {
+    #fps-box {
+        left: calc(4.5% + 130px);
+    }
+}
+
+#fps-box span {
+    line-height: 1;
+    font-size: 12px;
+    transition: .3s;
+}
+
+#fps-box .fps-text {
+    color: var(--gavin-op-dis-4);
+}
+
+#body-wrap.home #page-header:not(.is-top-bar) #nav #fps-box {
+    color: rgba(255,255,255,.8);
+}
+
+#body-wrap.home #page-header:not(.is-top-bar) #nav #fps-box .fps-text {
+    color: rgba(255,255,255,.4);
 }
 
 /* ************************************************************滚动条样式********************************************************** */
@@ -2218,17 +2252,17 @@ span.separator {
 } */
 
 /* **************************************************************音乐播放器***************************************************************** */
-meting-js .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+.global-music .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
     left: -66px !important;
     /* 默认情况下缩进左侧66px，只留一点箭头部分 */
 }
 
-meting-js .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+.global-music .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
     left: 0 !important;
     /* 鼠标悬停是左侧缩进归零，完全显示按钮 */
 }
 
-meting-js .aplayer .aplayer-lrc p.aplayer-lrc-current {
+.global-music .aplayer .aplayer-lrc p.aplayer-lrc-current {
     /* margin: 5px !important; */
     margin: 0.2rem !important;
     line-height: 1.3rem !important;
@@ -2241,7 +2275,7 @@ meting-js .aplayer .aplayer-lrc p.aplayer-lrc-current {
     opacity: .9 !important;
 }
 
-meting-js .aplayer .aplayer-lrc p {
+.global-music .aplayer .aplayer-lrc p {
     /* margin: 5px !important;
     padding: 0 !important; */
     line-height: 1.3rem !important;
@@ -2255,7 +2289,7 @@ meting-js .aplayer .aplayer-lrc p {
 }
 
 /* 歌词框的高度 */
-meting-js .aplayer .aplayer-lrc {
+.global-music .aplayer .aplayer-lrc {
     padding: 0 !important;
     /* height: 50px !important; */
     height: calc(3rem + 20px) !important;
@@ -2274,20 +2308,20 @@ meting-js .aplayer .aplayer-lrc {
     /* transform: translateZ(0); */
 }
 
-meting-js .aplayer .aplayer-lrc .aplayer-lrc-box {
+.global-music .aplayer .aplayer-lrc .aplayer-lrc-box {
     margin: 10px;
     height: 3rem;
     overflow: hidden;
 }
 
-meting-js .aplayer.aplayer-fixed .aplayer-lrc {
+.global-music .aplayer.aplayer-fixed .aplayer-lrc {
     /* calc(10% - 105px): 百分比补上参数 */
     left: 5% !important;
     width: 90%;
     text-shadow: none !important;
 }
 
-meting-js .aplayer.aplayer-fixed .aplayer-list {
+.global-music .aplayer.aplayer-fixed .aplayer-list {
     position: relative;
     background-color: #ffffff;
     z-index: 99;
@@ -2400,7 +2434,7 @@ meting-js .aplayer.aplayer-fixed .aplayer-list {
     /* justify-content: center;
     width: 20rem; */
     justify-content: space-between;
-    width: 18rem;
+    width: 290px;
     opacity: 0;
     transition: .5s ease;
 }
@@ -4515,7 +4549,7 @@ html.hide-aside .layout>div:first-child {
 
 /* *********************控制中心音乐********************* */
 /* 隐藏原来的Aplayer */
-.aplayer-body {
+.global-music .aplayer-body {
     display: none;
 }
 

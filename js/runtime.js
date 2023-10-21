@@ -66,12 +66,12 @@ setInterval(() => {
 
 // 设置重复执行函数，周期500ms
 setInterval(() => {
-    if (document.querySelector("meting-js").aplayer != null) meting_load = 0;
+    if (document.querySelector("meting-js.global-music").aplayer != null) meting_load = 0;
     if (meting_load == 0 && listener == 0) {
         // 监测aplayer加载完开始注入音乐列表
         ctrl.importMusicList();
         // 音乐开始与暂停监听
-        var ap = document.querySelector("meting-js").aplayer;
+        var ap = document.querySelector("meting-js.global-music").aplayer;
         ap.on('play', function () {
             ctrl.getMusicInfo();
             document.querySelector("#music-Switch i").classList.remove("fa-play");// 更新播放/暂停键
