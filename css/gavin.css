@@ -1117,8 +1117,8 @@ center#name-container {
     color: var(--font-color);
 }
 
-#body-wrap.home #page-header:not(.is-top-bar) #nav #fps-box,
-#body-wrap.post #page-header:not(.is-top-bar) #nav #fps-box {
+#body-wrap.home #page-header:not(.is-top-bar) #nav #fps-box span,
+#body-wrap.post #page-header:not(.is-top-bar) #nav #fps-box span {
     color: rgba(255,255,255,.5);
 }
 
