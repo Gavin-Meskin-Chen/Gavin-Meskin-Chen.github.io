@@ -1108,22 +1108,23 @@ center#name-container {
 
 #fps-box span {
     line-height: 1;
-    font-size: 12px;
+    font-size: 11px;
+    color: var(--gavin-op-dis-5);
     transition: .3s;
 }
 
 #fps-box .fps-text {
-    color: var(--gavin-op-dis-4);
+    color: var(--font-color);
 }
 
 #body-wrap.home #page-header:not(.is-top-bar) #nav #fps-box,
 #body-wrap.post #page-header:not(.is-top-bar) #nav #fps-box {
-    color: rgba(255,255,255,.8);
+    color: rgba(255,255,255,.5);
 }
 
 #body-wrap.home #page-header:not(.is-top-bar) #nav #fps-box .fps-text,
 #body-wrap.post #page-header:not(.is-top-bar) #nav #fps-box .fps-text {
-    color: rgba(255,255,255,.4);
+    color: rgba(255,255,255,.8);
 }
 
 /* ************************************************************滚动条样式********************************************************** */
