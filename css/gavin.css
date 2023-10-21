@@ -1116,11 +1116,13 @@ center#name-container {
     color: var(--gavin-op-dis-4);
 }
 
-#body-wrap.home #page-header:not(.is-top-bar) #nav #fps-box {
+#body-wrap.home #page-header:not(.is-top-bar) #nav #fps-box,
+#body-wrap.post #page-header:not(.is-top-bar) #nav #fps-box {
     color: rgba(255,255,255,.8);
 }
 
-#body-wrap.home #page-header:not(.is-top-bar) #nav #fps-box .fps-text {
+#body-wrap.home #page-header:not(.is-top-bar) #nav #fps-box .fps-text,
+#body-wrap.post #page-header:not(.is-top-bar) #nav #fps-box .fps-text {
     color: rgba(255,255,255,.4);
 }
 
