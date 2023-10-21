@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("page-header").classList.add("is-top-bar")
     }
     if (document.getElementById('post-comment')) ctrl.owoBig();
-    if (set_fps.checked == true || localStorage.getItem('fps_state') == 'true') {
+    if (set_fps.checked || localStorage.getItem('fps_state') === 'true') {
         tools.updateFPS();
         document.getElementById("fps-box").style.display = 'flex';
     }
@@ -45,7 +45,7 @@ document.addEventListener("pjax:complete", () => {
     }
     tagsBarActive();
     ctrl.musicState();
-    if (set_fps.checked == true || localStorage.getItem('fps_state') == 'true') {
+    if (set_fps.checked || localStorage.getItem('fps_state') === 'true') {
         document.getElementById("fps-box").style.display = 'flex';
     }
 }) // pjax加载完成（切换页面）后再执行一次
@@ -74,7 +74,6 @@ window.onload = function () {
     }
     if (localStorage.getItem('fps_state') != null) {
         set_fps.checked = localStorage.getItem('fps_state') == 'true' ? true : false;
-        // document.getElementById("fps-box").style.display = localStorage.getItem('fps_state') == 'true' ? 'flex' : 'none';
     }
     if (localStorage.getItem('lrc_state') != null) {
         localStorage.getItem('lrc_state') == 'true' ? document.getElementById("ircSwitchBtn").click() : null;
