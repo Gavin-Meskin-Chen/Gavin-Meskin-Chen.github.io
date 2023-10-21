@@ -1096,7 +1096,7 @@ center#name-container {
 #fps-box {
     position: absolute;
     left: 15px;
-    display: flex;
+    display: none;
     flex-direction: column;
 }
 
