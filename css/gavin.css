@@ -1186,9 +1186,21 @@ center#name-container {
     box-shadow: var(--gavin-shadow-3);
 }
 
+#rightside > div > button:active, #rightside > div > a:active {
+    background-color: var(--gavin-nav-hover);
+    color: #fff;
+}
+
 #rightside {
     bottom: 90px;
     right: -68px;
+}
+
+@media screen and (min-width: 900px) {
+    #rightside > div > button:hover, #rightside > div > a:hover {
+        background-color: var(--gavin-nav-hover);
+        color: #fff;    
+    }
 }
 
 @media screen and (max-width: 900px) {
@@ -4657,6 +4669,11 @@ html.hide-aside .layout>div:first-child {
     height: 25px;
 }
 
+#console-music-author-text {
+    font-size: 15px;
+    color: var(--gavin-op-dis-6);
+}
+
 /* 组件外框 */
 .console-progressbar-div {
     width: 100%;
@@ -4700,7 +4717,7 @@ html.hide-aside .layout>div:first-child {
 /* 字色和字号 */
 .console-music-ctrl-btn:not(#music-ctrl-btn-center) i {
     font-size: 20px;
-    /* font-weight: 900; */
+    font-weight: 900;
 }
 
 .console-mainbox a {
@@ -4715,7 +4732,16 @@ html.hide-aside .layout>div:first-child {
 
 .console-music-ctrl-btn:hover {
     color: var(--dis-f-0);
+}
+
+.console-music-ctrl-btn:active {
     background: var(--gavin-widget-bg1);
+}
+
+@media screen and (min-width: 768px) {
+    .console-music-ctrl-btn:hover {
+        background: var(--gavin-widget-bg1);
+    }
 }
 
 #progress-low-btn,
