@@ -63,6 +63,8 @@
 }
 
 [data-theme="light"] {
+    --op: 255,255,255;
+    --op-dis: 0,0,0;
     --f-0: #fff;
     --dis-f-0: #000;
     --gavin-op-1: rgba(255, 255, 255, .1);
@@ -172,6 +174,8 @@
 }
 
 [data-theme="dark"] {
+    --op: 0,0,0;
+    --op-dis: 255,255,255;
     --f-0: #000;
     --dis-f-0: #fff;
     --gavin-op-1: rgba(0, 0, 0, .1);
@@ -188,7 +192,7 @@
     --gavin-op-dis-7: rgba(255, 255, 255, .7);
     --gavin-nav-bg: rgba(0, 0, 0, .56);
     --gavin-console-mask: rgba(255, 255, 255, .18);
-    --gavin-nav-hover: rgba(240, 240, 240, .24);
+    --gavin-nav-hover: rgba(255, 255, 255, .13);
     --gavin-page-bg: rgba(255, 255, 255, 0.8);
     /*页码颜色*/
     --gavin-toc-bg: rgba(240, 240, 240, .24);
@@ -1025,7 +1029,7 @@ center#name-container {
 }
 
 #page-header #nav .nav-button {
-    margin-left: 0.5rem;
+    margin-left: 4px;
     padding: 0;
 }
 
@@ -1391,10 +1395,8 @@ a {
 
 
 #algolia-search .search-dialog .ais-SearchBox input {
-    /* border: 1px solid var(--gavin-op-dis-5); */
     border: unset;
-    background-color: var(--gavin-op-dis-1);
-    /* border-radius: 6px; */
+    background-color: rgba(var(--op-dis), .06);
     border-radius: 8px;
     padding: 5px 12px;
     color: var(--font-color);
@@ -1411,8 +1413,7 @@ a {
 }
 
 #algolia-search .search-dialog .ais-SearchBox input:focus {
-    /* border-color: var(--font-color); */
-    background-color: var(--gavin-op-dis-15);
+    background-color: rgba(var(--op-dis), .08);
 }
 
 #algolia-search .search-dialog .ais-SearchBox input::placeholder {
@@ -2168,7 +2169,7 @@ h6 {
 /* 修复侧边导航图标不对齐问题 */
 #nav #toggle-menu {
     padding: 0;
-    /* margin-left: 0.5em; */
+    margin-right: 4px;
     font-size: 1.5rem;
 }
 
@@ -4520,7 +4521,7 @@ html.hide-aside .layout>div:first-child {
 /* ******************导航栏音乐******************** */
 #nav-music-ctrl {
     display: flex;
-    margin-right: 1rem;
+    margin-right: 8px;
     z-index: 1;
     /*修复可以显示但无法选中的bug*/
 }
@@ -4683,25 +4684,23 @@ html.hide-aside .layout>div:first-child {
     justify-content: center;
 }
 
-#music-ctrl-btn-first,
-#music-ctrl-btn-left,
-#music-ctrl-btn-center,
-#music-ctrl-btn-right,
-#music-ctrl-btn-end {
+.console-music-ctrl-btn {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    transform: scale(1.1);
+    transition: .5s ease;
 }
 
 /* 字色和字号 */
-#music-ctrl-btn-first i,
-#music-ctrl-btn-left i,
-#music-ctrl-btn-right i,
-#music-ctrl-btn-end i {
-    font-size: 1.5rem;
-    font-weight: 900;
+.console-music-ctrl-btn:not(#music-ctrl-btn-center) i {
+    font-size: 20px;
+    /* font-weight: 900; */
 }
 
 .console-mainbox a {
@@ -4711,14 +4710,12 @@ html.hide-aside .layout>div:first-child {
 
 #music-ctrl-btn-center {
     color: var(--dis-f-0);
-    font-size: 2.4rem;
+    font-size: 26px;
 }
 
-#music-ctrl-btn-first:hover,
-#music-ctrl-btn-left:hover,
-#music-ctrl-btn-right:hover,
-#music-ctrl-btn-end:hover {
+.console-music-ctrl-btn:hover {
     color: var(--dis-f-0);
+    background: var(--gavin-widget-bg1);
 }
 
 #progress-low-btn,

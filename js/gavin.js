@@ -250,31 +250,6 @@ function asideNote() {
 // ***************************************************** 工具模块 ***************************************************************
 
 var tools = {
-    f1(a,b,c) {
-        return !(b && c) && !a * 1
-    },
-    f2(a,b,c) {
-        return a && !b || !a && !c && b * 1
-    },
-    f3(a,b,c) {
-        return !c * 1
-    },
-    Fun(a,b,c) {
-        return [f1(a,b,c), f2(a,b,c), f3(a,b,c)]
-    },
-    Funs() {
-        return [
-            Fun(0,0,0),
-            Fun(0,0,1),
-            Fun(0,1,0),
-            Fun(0,1,1),
-            Fun(1,0,0),
-            Fun(1,0,1),
-            Fun(1,1,0),
-            Fun(1,1,1)
-        ]
-    },
-
 
     secToTime(s) {
         if (isNaN(s)) s = 0;
