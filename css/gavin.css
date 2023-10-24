@@ -5809,7 +5809,7 @@ progress::-webkit-progress-value {
     height: 100vh;
     top: 0;
     left: 0;
-    z-index: 999;
+    z-index: 979;
     justify-content: center;
     transition: 0.5s ease;
     flex-direction: column;
@@ -5923,7 +5923,7 @@ progress::-webkit-progress-value {
 }
 
 #apps .app-icon:hover {
-    transform: scale(0.95);
+    transform: scale(0.92);
 }
 
 #apps .app-name {
@@ -5939,6 +5939,7 @@ progress::-webkit-progress-value {
     position: absolute;
     width: 100%;
     height: 100%;
+    cursor: pointer;
     top: 0;
     left: 0;
     z-index: 1;
@@ -5984,6 +5985,124 @@ progress::-webkit-progress-value {
     #apps .apps-content {
         column-gap: calc((75vw - 70px * 3) / 2);
     }
+}
+
+.winbox {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.wb-full {
+    display: none;
+}
+
+.wb-body {
+    background: var(--gavin-background);
+}
+
+.encryption .inner,
+.encryption .outer {
+    margin: 30px 0 0 20px;
+    width: calc(100% - 40px);
+    padding: 10px;
+    font-size: 15px;
+    border-radius: 6px;
+    color: var(--font-color);
+    border: 1px solid var(--gavin-border-color);
+    background: var(--gavin-widget-bg1);
+    resize: vertical;
+    transition: background .5s, color .5s;
+}
+
+.encryption .outer {
+    margin: 10px 0 0 20px;
+}
+
+.encryption .outer.lock {
+    background: var(--gavin-widget-bg2);
+    cursor: no-drop;
+}
+
+.encryption .inner:focus,
+.encryption .outer:focus {
+    outline: 7px solid rgba(0,136,255,.16);
+    border-color: rgba(0,136,255,1);
+}
+
+.encryption .btn-items {
+    margin: 10px 0 0 20px;
+    width: calc(100% - 40px);
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.encryption .select-item {
+    border-radius: 6px;
+    height: 35px;
+    padding: 0 6px;
+    line-height: 1.3;
+    font-size: 14px;
+    color: var(--font-color);
+    border: 1px solid var(--gavin-border-color);
+    background: var(--gavin-widget-bg1);
+    transition: background .5s, color .5s;
+}
+
+.encryption .select-item:focus {
+    outline: 7px solid rgba(0,136,255,.16);
+    border-color: rgba(0,136,255,1);
+}
+
+.encryption .btns {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-right: 0;
+}
+
+.encryption .btns .btn {
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 14px;
+    line-height: 1.3;
+    height: 35px;
+    width: 60px;
+    transition: .5s;
+}
+
+.btns .btn.blue {
+    color: rgba(0,136,255,1);
+    border: 1px solid rgba(0,136,255,1);
+    background: rgba(0,136,255,.16);
+}
+
+.btns .btn.blue:hover {
+    color: #fff;
+    background: rgba(0,136,255,1);
+}
+
+.btns .btn.green {
+    color: rgba(103,194,58,1);
+    border: 1px solid rgba(103,194,58,1);
+    background: rgba(103,194,58,.16);
+}
+
+.btns .btn.green:hover {
+    color: #fff;
+    background: rgba(103,194,58,1);
+}
+
+.btns .btn.red {
+    color: rgba(245,108,108,1);
+    border: 1px solid rgba(245,108,108,1);
+    background: rgba(245,108,108,.16);
+}
+
+.btns .btn.red:hover {
+    color: #fff;
+    background: rgba(245,108,108,1);
 }
 
 .sidebar-apps {
@@ -6035,4 +6154,8 @@ progress::-webkit-progress-value {
     font-size: 12px;
     color: #fff;
     margin-left: 4px;
+}
+
+.sidebar-weather i {
+    padding-bottom: 2px;
 }

@@ -59,6 +59,7 @@ var ipAddress = '';
 var frameCount = 0;
 var startTime = performance.now();
 let animationId;
+var winbox = '';
 
 if ('paintWorklet' in CSS) { CSS.paintWorklet.addModule('/js/paint.min.js'); }
 
@@ -965,7 +966,107 @@ var ctrl = {
         document.querySelector('.sidebar-weather .city').innerHTML = document.querySelector('.s-sticker-city ').innerHTML
         document.querySelector('.sidebar-weather .condition').innerHTML = document.querySelector('.s-sticker-cond ').innerHTML;
         document.querySelector('.sidebar-weather .temperature').innerHTML = document.querySelector('.s-sticker-tmp').innerHTML
+    },
+
+    toggleWinbox(app) {
+        if (document.getElementById('winboxForApps')) winbox.toggleClass('hide');
+        else ctrl.createWinboxForApps(app);
+    },
+
+    resizeWinbox() {
+        let box = document.getElementById('winboxForApps');
+        if (!box || box.classList.contains('min') || box.classList.contains('max')) return // 2023-02-10更新
+        var offsetWid = document.documentElement.clientWidth;
+        if (offsetWid <= 768) {
+            winbox.resize(offsetWid * 0.95 + "px", "80%").move("center", "center");
+        } else {
+            winbox.resize(offsetWid * 0.6 + "px", "70%").move("center", "center");
+        }
+    },
+
+    createWinboxForApps(app) {
+        var title = '',
+            className = '',
+            html = '';
+        switch (app) {
+            case "encryption": 
+                title = '参星阁 - 加密工具';
+                className = 'encryption';
+                html=`
+                    <textarea autocomplete="off" rows="6" placeholder="请输入或者粘贴需要处理的文本" class="inner" style="min-height: 32.6px;"></textarea>
+                    <textarea autocomplete="off" rows="6" placeholder="处理结果" class="outer lock" style="min-height: 32.6px;" disabled="disabled"></textarea>
+                    <div class="btn-items">
+                        <select class="select-item">
+                            <option class="opt" value="MD5Encode">MD5编码</option>
+                            <option class="opt" value="SHA1Encode">SHA1编码</option>
+                            <option class="opt" value="SHA3Encode">SHA3编码</option>
+                            <option class="opt" value="SHA256Encode">SHA256编码</option>
+                            <option class="opt" value="SHA512Encode">SHA512编码</option>
+                        </select>
+                        <div class="btns">
+                            <button class="btn blue" type="button" onclick="ctrl.transcode()">转码</button>
+                            <button class="btn green" type="button" onclick="ctrl.copyTranscode()">复制</button>
+                            <button class="btn red" type="button" onclick="ctrl.clearTranscode()">清空</button>
+                        </div>
+                    </div>
+                    <script type="text/javascript" src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/crypto-js/4.1.1/crypto-js.min.js"></script>
+                    `;
+                break;
+            default:
+                title = '参星阁 - App';
+                className = '';
+                html = '暂无应用程序';
+        }
+        let div = document.createElement('div');
+        document.body.appendChild(div);
+        winbox = WinBox({
+            id: 'winboxForApps',
+            class: className,
+            index: 989,
+            title: title,
+            x: "center",
+            y: "center",
+            minwidth: '300px',
+            height: "60%",
+            background: '#000',
+            onmaximize: () => { div.innerHTML = `<style>body::-webkit-scrollbar {display: none;}div#winboxForApps {width: 100% !important;}</style>` },
+            onrestore: () => { div.innerHTML = '' }
+        });
+        ctrl.resizeWinbox();
+        window.addEventListener('resize', ctrl.resizeWinbox);
+        winbox.body.innerHTML = html;
+        ctrl.hideAPPs();
+    },
+
+    copyTranscode() {
+        document.querySelector('.encryption .outer').select();
+        document.execCommand('copy');
+    },
+
+    clearTranscode() {
+        var outer = document.querySelector('.encryption .outer');
+        document.querySelector('.encryption .inner').value = '';
+        outer.value = '';
+        outer.disabled = true;
+        outer.classList.add('lock');
+    },
+
+    transcode() {
+        var item = document.querySelector(".encryption .select-item").value,
+            textIn = document.querySelector('.encryption .inner'),
+            textOut = document.querySelector('.encryption .outer');
+        switch (item) {
+            case "MD5Encode": textOut.value = CryptoJS.MD5(textIn.value).toString();break;
+            case "SHA1Encode": textOut.value = CryptoJS.SHA1(textIn.value).toString();break;
+            case "SHA3Encode": textOut.value = CryptoJS.SHA3(textIn.value).toString();break;
+            case "SHA256Encode": textOut.value = CryptoJS.SHA256(textIn.value).toString();break;
+            case "SHA512Encode": textOut.value = CryptoJS.SHA512(textIn.value).toString();break;
+            default: ;
+        }
+        document.querySelector('.encryption .outer').disabled = false;
+        document.querySelector('.encryption .outer').classList.remove('lock');
     }
+
 }
 
 // +++++++++++++++++++++++++++ categoryBar分类条（或标签条） +++++++++++++++++++++++++++++++
