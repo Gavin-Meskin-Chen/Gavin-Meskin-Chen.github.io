@@ -76,7 +76,7 @@ window.onload = function () {
         set_fps.checked = localStorage.getItem('fps_state') == 'true' ? true : false;
     }
     if (localStorage.getItem('lrc_state') != null) {
-        localStorage.getItem('lrc_state') == 'true' ? document.getElementById("ircSwitchBtn").click() : null;
+        localStorage.getItem('lrc_state') == 'true' ? document.getElementById("lrcSwitchBtn").click() : null;
     }
     if (localStorage.getItem('system_theme_state') != null) {
         set_sys_theme.checked = localStorage.getItem('system_theme_state') == 'true' ? true : false;
@@ -460,9 +460,9 @@ var ctrl = {
     switchDarkMode() {
         const nowMode = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
         if (nowMode === 'light') {
-            document.querySelector("#set-theme-dark").click();
+            document.getElementById("set-theme-dark").click();
         } else {
-            document.querySelector("#set-theme-light").click();
+            document.getElementById("set-theme-light").click();
         }
         typeof utterancesTheme === 'function' && utterancesTheme();
         typeof changeGiscusTheme === 'function' && changeGiscusTheme();
@@ -472,8 +472,8 @@ var ctrl = {
 
     // 显示中控台
     showConsole() {
-        document.querySelector("#console-music-item-main").classList.add("item-show");
-        document.querySelector("#console").classList.add("show");
+        document.getElementById("console-music-item-main").classList.add("item-show");
+        document.getElementById("console").classList.add("show");
         document.body.style.overflow = 'hidden';
         ctrl.initConsoleState();
     },
@@ -482,7 +482,7 @@ var ctrl = {
     hideConsole() {
         var items = document.querySelectorAll(".item-show");
         for (let i = 0; i < items.length; i++) items[i].classList.remove("item-show");
-        document.querySelector("#console").classList.remove("show");
+        document.getElementById("console").classList.remove("show");
         document.body.style.overflow = '';
     },
 
@@ -513,12 +513,12 @@ var ctrl = {
     },
 
     // 桌面歌词
-    ircShowHide() {
-        var irc = document.querySelector(".aplayer > .aplayer-lrc-hide"); //这里防止与音乐页面的控制冲突
+    lrcShowHide() {
+        var lrc = document.querySelector(".aplayer > .aplayer-lrc-hide"); //这里防止与音乐页面的控制冲突
         var a = document.querySelector(".aplayer > .aplayer-lrc");
-        var b = document.querySelector("#ircItem");
+        var b = document.getElementById("lrcItem");
         if (a && b) {
-            if (irc === null) {
+            if (lrc === null) {
                 a.classList.add("aplayer-lrc-hide");
                 b.classList.remove("on");
                 localStorage.setItem('lrc_state', false);
@@ -537,11 +537,11 @@ var ctrl = {
         const $htmlDom = document.documentElement.classList;
         if ($htmlDom.contains('hide-aside')) {
             saveToLocal.set('aside-status', 'show', 2);
-            document.querySelector("#asideItem").classList.remove("on");
+            document.getElementById("asideItem").classList.remove("on");
             if (set_notice.checked) tools.showMessage("侧边栏已启用", "success", 2);
         } else {
             saveToLocal.set('aside-status', 'hide', 2);
-            document.querySelector("#asideItem").classList.add("on");
+            document.getElementById("asideItem").classList.add("on");
             if (set_notice.checked) tools.showMessage("侧边栏已隐藏", "success", 2);
         }
         $htmlDom.toggle('hide-aside');
@@ -602,7 +602,7 @@ var ctrl = {
         var allTimeString = tools.secToTime(allTime);
         document.getElementById("progress-low-btn").innerHTML = nowTimeString;// 进度条时间
         document.getElementById("progress-high-btn").innerHTML = allTimeString;
-        document.querySelector("#p_bar").style.width = document.querySelector("#p_bar_bg").offsetWidth * (nowTime / allTime) + "px";// 进度条进度
+        document.getElementById("p_bar").style.width = document.getElementById("p_bar_bg").offsetWidth * (nowTime / allTime) + "px";// 进度条进度
     },
 
     // 导入歌单
@@ -680,21 +680,21 @@ var ctrl = {
 
     // 初始化console图标
     initConsoleState() {
-        var irc = document.querySelector(".aplayer > .aplayer-lrc-hide");
+        var lrc = document.querySelector(".aplayer > .aplayer-lrc-hide");
         var aplayer = document.querySelector(".aplayer > .aplayer-lrc");
-        irc === null && aplayer != null
-            ? document.querySelector("#ircItem").classList.add("on")
-            : document.querySelector("#ircItem").classList.remove("on");
+        lrc === null && aplayer != null
+            ? document.getElementById("lrcItem").classList.add("on")
+            : document.getElementById("lrcItem").classList.remove("on");
         saveToLocal.get('aside-status') === 'hide'
-            ? document.querySelector("#asideItem").classList.add("on")
-            : document.querySelector("#asideItem").classList.remove("on");
+            ? document.getElementById("asideItem").classList.add("on")
+            : document.getElementById("asideItem").classList.remove("on");
         // var console_musicBody = document.querySelector("#console .console-mainbox"); // 更新控制中心尺寸
         // var console_musicCover = document.getElementById("console-music-cover");
         // console_musicCover.style.height = console_musicCover.offsetWidth + "px";
         // console_musicBody.style.height = (console_musicCover.offsetWidth + 236) + "px"; //(12rem + 1.3rem + 1.3rem) * 16 = 233.6px
         ctrl.getMusicInfo();
         var nowVolume = document.querySelector("meting-js.global-music").aplayer.audio.volume;// 当前音量
-        document.querySelector("#v_bar").style.width = document.querySelector("#v_bar_bg").offsetWidth * nowVolume + "px";// 音量条进度
+        document.getElementById("v_bar").style.width = document.getElementById("v_bar_bg").offsetWidth * nowVolume + "px";// 音量条进度
         saveToLocal.get('theme') == 'light' ? document.querySelector("#set-theme-light input").checked = true : document.querySelector("#set-theme-dark input").checked = true;
     },
 
@@ -947,6 +947,24 @@ var ctrl = {
         a.value = '```YML\n- name: \n  link: \n  avatar: \n  descr: \n  siteshot: \n```'
         a.style.height = '159px'
         // a.parentElement.querySelector('.el-input__count').innerHTML = '62/1000'
+    },
+
+    // 显示应用中心
+    showAPPs() {
+        document.getElementById("apps").classList.add("show");
+        document.body.style.overflow = 'hidden';
+    },
+
+    // 隐藏应用中心
+    hideAPPs() {
+        document.getElementById("apps").classList.remove("show");
+        document.body.style.overflow = '';
+    },
+
+    sidebarWeather() {
+        document.querySelector('.sidebar-weather .city').innerHTML = document.querySelector('.s-sticker-city ').innerHTML
+        document.querySelector('.sidebar-weather .condition').innerHTML = document.querySelector('.s-sticker-cond ').innerHTML;
+        document.querySelector('.sidebar-weather .temperature').innerHTML = document.querySelector('.s-sticker-tmp').innerHTML
     }
 }
 
@@ -1080,8 +1098,8 @@ set_notice.addEventListener("change", () => {
 var music_list_switch = document.getElementById("music-ctrl-btn-end");
 var music_list_title = document.getElementById("music-list-title");
 var settings_btn = document.querySelector("#console .settings-btn");
-var to_display = document.querySelector("#li-set-display");
-var to_about = document.querySelector("#li-set-about");
+var to_display = document.getElementById("li-set-display");
+var to_about = document.getElementById("li-set-about");
 // var to_wallpaper = document.querySelector("#li-set-wallpaper .setting-next");
 var setting_info1 = document.getElementById("console-setting-info1");
 var setting_title1 = document.querySelector("#console-setting-info1 .setting-title");

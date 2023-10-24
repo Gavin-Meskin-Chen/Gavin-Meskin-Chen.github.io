@@ -4454,6 +4454,11 @@ h1.page-title + .tag-cloud-list {
   font-size: 16px;
   line-height: 40px;
 }
+#rightside > div > button:hover,
+#rightside > div > a:hover {
+  background-color: var(--gavin-nav-hover);
+  color: #fff;
+}
 #rightside #mobile-toc-button {
   display: none;
 }
@@ -6333,7 +6338,7 @@ blockquote.pullquote.right {
     width: 100px;
     border-radius: 20px;
     justify-content: center;
-    background: var(--gavin-op-5);
+    background: rgba(var(--op), .5);
     color: var(--font-color);
     display: flex;
     align-items: center;
