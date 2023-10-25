@@ -5990,7 +5990,7 @@ progress::-webkit-progress-value {
 .winbox {
     border-radius: 8px;
     overflow: hidden;
-    outline: 1px solid var(--gavin-border-color);
+    outline: 1px solid #29516C;
 }
 
 .wb-full {
