@@ -1042,6 +1042,10 @@ var ctrl = {
                     `;
                 document.head.appendChild(Object.assign(document.createElement("script"), { src: "https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/crypto-js/4.1.1/crypto-js.min.js", id: "crypto-js" }));
                 break;
+            case "transColor": 
+                title = '参星阁 - 色值转换器';
+                className = 'transColor';
+                html = ``;
             default:
                 title = '参星阁 - App';
                 className = '';
@@ -1058,7 +1062,7 @@ var ctrl = {
             y: "center",
             minwidth: '300px',
             height: "60%",
-            background: '#000',
+            background: '#29516C',
             onmaximize: () => { div.innerHTML = `<style>body::-webkit-scrollbar {display: none;}div#winboxForApps {width: 100% !important;}</style>` },
             onrestore: () => { div.innerHTML = '' }
         });

@@ -5990,6 +5990,7 @@ progress::-webkit-progress-value {
 .winbox {
     border-radius: 8px;
     overflow: hidden;
+    outline: 1px solid var(--gavin-border-color);
 }
 
 .wb-full {
@@ -5997,13 +5998,14 @@ progress::-webkit-progress-value {
 }
 
 .wb-body {
-    background: var(--gavin-background);
+    padding: 20px;
+    background: var(--card-bg);
 }
 
 .encryption .inner,
 .encryption .outer {
-    margin: 20px 0 0 20px;
-    width: calc(100% - 40px);
+    margin: 20px 0 0;
+    width: 100%;
     padding: 10px;
     font-size: 15px;
     border-radius: 6px;
@@ -6015,7 +6017,7 @@ progress::-webkit-progress-value {
 }
 
 .encryption .outer {
-    margin: 10px 0 0 20px;
+    margin: 10px 0 0;
 }
 
 .encryption .outer.lock {
@@ -6030,8 +6032,7 @@ progress::-webkit-progress-value {
 }
 
 .encryption .select-items {
-    margin: 20px 0 0 20px;
-    width: calc(100% - 40px);
+    width: 100%;
     gap: 10px;
     display: flex;
     align-items: center;
@@ -6065,9 +6066,8 @@ progress::-webkit-progress-value {
 }
 
 .encryption .btns {
-    margin: 10px 0 0 20px;
-    width: calc(100% - 40px);
-    height: 40px;
+    margin: 10px 0 0;
+    width: 100%;
     display: flex;
     align-items: center;
     gap: 10px;
