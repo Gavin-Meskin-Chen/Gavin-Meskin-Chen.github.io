@@ -993,24 +993,54 @@ var ctrl = {
                 title = '参星阁 - 加密工具';
                 className = 'encryption';
                 html=`
+                    <div class="select-items">
+                        <select class="select-item type">
+                            <option class="opt" value="MD5">MD5</option>
+                            <option class="opt" value="SHA1">SHA1</option>
+                            <option class="opt" value="SHA3">SHA3</option>
+                            <option class="opt" value="SHA224">SHA224</option>
+                            <option class="opt" value="SHA256">SHA256</option>
+                            <option class="opt" value="SHA384">SHA384</option>
+                            <option class="opt" value="SHA512">SHA512</option>
+                            <option class="opt" value="RIPEMD160">RIPEMD160</option>
+                            <option class="opt" value="AESEncode">AES加密</option>
+                            <option class="opt" value="AESDecode">AES解密</option>
+                        </select>
+                        <select class="select-item code">
+                            <option class="opt" value="Hex">Hex</option>
+                            <option class="opt" value="Base64">Base64</option>
+                        </select>
+                        <select class="select-item case">
+                            <option class="opt" value="Lower">小写</option>
+                            <option class="opt" value="Upper">大写</option>
+                        </select>
+                        <select class="select-item mode hide">
+                            <option class="opt" value="CBC">CBC</option>
+                            <option class="opt" value="CFB">CFB</option>
+                            <option class="opt" value="CTR">CTR</option>
+                            <option class="opt" value="OFB">OFB</option>
+                            <option class="opt" value="ECB">ECB</option>
+                        </select>
+                        <select class="select-item pad hide">
+                            <option class="opt" value="Pkcs7">Pkcs7</option>
+                            <option class="opt" value="Iso97971">Iso97971</option>
+                            <option class="opt" value="Iso10126">Iso10126</option>
+                            <option class="opt" value="AnsiX923">AnsiX923</option>
+                            <option class="opt" value="ZeroPadding">ZeroPadding</option>
+                            <option class="opt" value="NoPadding">NoPadding</option>
+                        </select>
+                        <input type="text" class="select-item key hide" placeholder="密钥">
+                        <input type="text" class="select-item iv hide" placeholder="偏移量">
+                    </div>
                     <textarea autocomplete="off" rows="6" placeholder="请输入或者粘贴需要处理的文本" class="inner" style="min-height: 32.6px;"></textarea>
                     <textarea autocomplete="off" rows="6" placeholder="处理结果" class="outer lock" style="min-height: 32.6px;" disabled="disabled"></textarea>
-                    <div class="btn-items">
-                        <select class="select-item">
-                            <option class="opt" value="MD5Encode">MD5编码</option>
-                            <option class="opt" value="SHA1Encode">SHA1编码</option>
-                            <option class="opt" value="SHA3Encode">SHA3编码</option>
-                            <option class="opt" value="SHA256Encode">SHA256编码</option>
-                            <option class="opt" value="SHA512Encode">SHA512编码</option>
-                        </select>
-                        <div class="btns">
-                            <button class="btn blue" type="button" onclick="ctrl.transcode()">转码</button>
-                            <button class="btn green" type="button" onclick="ctrl.copyTranscode()">复制</button>
-                            <button class="btn red" type="button" onclick="ctrl.clearTranscode()">清空</button>
-                        </div>
+                    <div class="btns">
+                        <button class="btn blue" type="button" onclick="transcode()">转码</button>
+                        <button class="btn green" type="button" onclick="copyTranscode()">复制</button>
+                        <button class="btn red" type="button" onclick="clearTranscode()">清空</button>
                     </div>
-                    <script type="text/javascript" src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/crypto-js/4.1.1/crypto-js.min.js"></script>
                     `;
+                document.head.appendChild(Object.assign(document.createElement("script"), { src: "https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/crypto-js/4.1.1/crypto-js.min.js", id: "crypto-js" }));
                 break;
             default:
                 title = '参星阁 - App';
@@ -1035,38 +1065,15 @@ var ctrl = {
         ctrl.resizeWinbox();
         window.addEventListener('resize', ctrl.resizeWinbox);
         winbox.body.innerHTML = html;
+        document.head.appendChild(Object.assign(document.createElement("script"), { src: "/js/" + className + ".js", id: "appScript" }));
+        document.querySelector('.wb-header .wb-close').addEventListener('click', ()=>{
+            var script = document.getElementById('appScript');
+            if (script) document.head.removeChild(script);
+            var script1 = document.getElementById('crypto-js');
+            if (script1) document.head.removeChild(script1);
+        })
         ctrl.hideAPPs();
-    },
-
-    copyTranscode() {
-        document.querySelector('.encryption .outer').select();
-        document.execCommand('copy');
-    },
-
-    clearTranscode() {
-        var outer = document.querySelector('.encryption .outer');
-        document.querySelector('.encryption .inner').value = '';
-        outer.value = '';
-        outer.disabled = true;
-        outer.classList.add('lock');
-    },
-
-    transcode() {
-        var item = document.querySelector(".encryption .select-item").value,
-            textIn = document.querySelector('.encryption .inner'),
-            textOut = document.querySelector('.encryption .outer');
-        switch (item) {
-            case "MD5Encode": textOut.value = CryptoJS.MD5(textIn.value).toString();break;
-            case "SHA1Encode": textOut.value = CryptoJS.SHA1(textIn.value).toString();break;
-            case "SHA3Encode": textOut.value = CryptoJS.SHA3(textIn.value).toString();break;
-            case "SHA256Encode": textOut.value = CryptoJS.SHA256(textIn.value).toString();break;
-            case "SHA512Encode": textOut.value = CryptoJS.SHA512(textIn.value).toString();break;
-            default: ;
-        }
-        document.querySelector('.encryption .outer').disabled = false;
-        document.querySelector('.encryption .outer').classList.remove('lock');
     }
-
 }
 
 // +++++++++++++++++++++++++++ categoryBar分类条（或标签条） +++++++++++++++++++++++++++++++
