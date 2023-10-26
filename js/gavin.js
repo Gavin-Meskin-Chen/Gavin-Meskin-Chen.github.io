@@ -65,10 +65,31 @@ if ('paintWorklet' in CSS) { CSS.paintWorklet.addModule('/js/paint.min.js'); }
 
 window.onload = function () {
     var set_music = document.querySelector("#set-switch-music input");
-    var mplayer = document.getElementById("mplayer");
-    mplayer.style.display = set_music.checked ? "" : "none";
+    function dodododoooAdd() {
+        var link = document.createElement('link');
+        link.id = 'dodododooocss';
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://dodododooo.com/mplayer2/remote/css/app-mplayer.css';
+        var head = document.head || document.getElementsByTagName('head')[0];
+        head.appendChild(link);
+        var script = document.createElement('script');
+        script.id = 'dodododooojs';
+        script.type = 'text/javascript';
+        script.src = 'https://dodododooo.com/mplayer2/remote/js/app-mplayer.js';
+        document.body.appendChild(script);
+    }
+    function dodododoooDel() {
+        var link = document.getElementById('dodododooocss');
+        if (link) document.head.removeChild(link);
+        var script1 = document.getElementById('dodododooojs');
+        if (script1) document.body.removeChild(script1);
+        var script2 = document.getElementById('mplayer');
+        if (script2) document.body.removeChild(script2);
+    }
+    if (set_music.checked) dodododoooAdd();
     set_music.addEventListener('change', () => {
-        mplayer.style.display = set_music.checked ? "" : "none";
+        set_music.checked ? dodododoooAdd() : dodododoooDel();
     });
     if (localStorage.getItem('notice_state') != null) {
         set_notice.checked = localStorage.getItem('notice_state') == 'true' ? true : false;
@@ -975,7 +996,7 @@ var ctrl = {
 
     resizeWinbox() {
         let box = document.getElementById('winboxForApps');
-        if (!box || box.classList.contains('min') || box.classList.contains('max')) return // 2023-02-10更新
+        if (!box || box.classList.contains('min') || box.classList.contains('max')) return
         var offsetWid = document.documentElement.clientWidth;
         if (offsetWid <= 768) {
             winbox.resize(offsetWid * 0.95 + "px", "80%").move("center", "center");
@@ -1046,6 +1067,7 @@ var ctrl = {
                 title = '参星阁 - 色值转换器';
                 className = 'transColor';
                 html = ``;
+                break;
             default:
                 title = '参星阁 - App';
                 className = '';
@@ -1423,7 +1445,7 @@ music_volumebar.addEventListener("touchstart", function (e) { //添加监听事�
         newVolume = v_bar_Len_New / v_bar_bg_Len;
         document.querySelector("meting-js.global-music").aplayer.volume(newVolume, true); // 更改音量
     }
-});
+}, { passive: true });
 
 // 进度条监听器
 var music_progressbar = document.getElementById("music-progressbar"); //扩大热区
@@ -1488,7 +1510,7 @@ music_progressbar.addEventListener("touchstart", function (e) { //添加监听�
         let current_time = (p_bar_Len_New / p_bar_bg_Len) * all_Time;
         document.getElementById("progress-low-btn").innerHTML = tools.secToTime(current_time);
     }
-});
+}, { passive: true });
 
 // 按键抬起
 document.onmouseup = function () { //当鼠标弹起的时候，不做任何操作
