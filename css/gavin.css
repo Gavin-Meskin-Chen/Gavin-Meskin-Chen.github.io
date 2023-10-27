@@ -3032,6 +3032,10 @@ span.separator {
     width: 100%;
 }
 
+[data-theme="dark"] #article-container a.link-card {
+    filter: unset;
+}
+
 #article-container a.link-card div.left {
     margin: 0.8rem;
 }
@@ -3809,7 +3813,7 @@ a.article-meta__categories {
     line-height: 1;
     /* color: #fff; */
     color: var(--dis-f-0);
-    background: var(--f-0);
+    background: var(--card-bg);
     border-radius: 6px;
 }
 
