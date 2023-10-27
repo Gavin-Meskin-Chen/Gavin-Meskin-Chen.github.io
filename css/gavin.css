@@ -3118,12 +3118,12 @@ span.separator {
     z-index: 2000;
     position: fixed;
     margin: auto;
-    top: 9px;
+    top: 8px;
     left: 0;
     right: 0;
-    height: 8px;
+    height: 6px;
     border-radius: 8px;
-    width: 5rem;
+    width: 80px;
     background: var(--card-bg);
     border: 1px solid var(--gavin-background);
     overflow: hidden;
