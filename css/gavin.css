@@ -655,9 +655,10 @@ ul.menus_item_child {
     /* 弧度微调 */
     border-radius: 12px;
     border: 1px solid var(--gavin-border-color);
-    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    /* -webkit-backdrop-filter: saturate(180%) blur(20px);
     backdrop-filter: saturate(180%) blur(20px);
-    background: var(--gavin-nav-bg);
+    background: var(--gavin-nav-bg); */
+    background: var(--card-bg);
 }
 
 @media screen and (min-width: 768px) {
@@ -677,14 +678,15 @@ ul.menus_item_child {
     /* backdrop-filter: saturate(180%) blur(20px); */
     /* saturate饱和度 contrast对比度 blur高斯模糊 */
     /* 以下是导航栏新改的 */
-    background-color: var(--gavin-nav-bg) !important;
+    background-color: var(--card-bg) !important;
+    /* background-color: var(--gavin-nav-bg) !important; */
     border-bottom: 1px solid var(--gavin-border-color);
     /* box-shadow: var(--card-box-shadow) !important; */
     box-shadow: unset !important;
     transform: translateZ(0);
 }
 
-#nav::before {
+/* #nav::before {
     content: "";
     width: 100%;
     height: 100%;
@@ -694,7 +696,7 @@ ul.menus_item_child {
     z-index: -1;
     -webkit-backdrop-filter: saturate(180%) blur(20px);
     backdrop-filter: saturate(180%) blur(20px);
-}
+} */
 
 header a,
 header span,
@@ -1176,20 +1178,6 @@ center#name-container {
 } */
 
 /* ********侧边栏添加滚动进度百分比*********** */
-
-#rightside>div>button,
-#rightside>div>a {
-    /* background-color: rgba(136, 136, 136, .48); */
-    border: 1px solid var(--gavin-border-color);
-    -webkit-backdrop-filter: saturate(180%) blur(20px);
-    backdrop-filter: saturate(180%) blur(20px);
-    box-shadow: var(--gavin-shadow-3);
-}
-
-#rightside {
-    bottom: 90px;
-    right: -68px;
-}
 
 @media screen and (max-width: 900px) {
     #rightside {
@@ -2570,20 +2558,20 @@ span.separator {
 
 .waves-area .waves-svg {
     width: 100%;
-    height: 5rem;
+    height: 60px;
 }
 
 /* Animation */
 .parallax>use {
-    animation: move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
-    transition: fill .3s;
+    animation: move-forever 30s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+    transition: fill .5s;
 }
 
 .parallax>use:nth-child(1) {
     animation-delay: -2s;
     animation-duration: 7s;
     fill: var(--gavin-background);
-    opacity: .4;
+    opacity: .5;
 }
 
 .parallax>use:nth-child(2) {
@@ -2597,7 +2585,7 @@ span.separator {
     animation-delay: -4s;
     animation-duration: 13s;
     fill: var(--gavin-background);
-    opacity: .8;
+    opacity: .7;
 }
 
 .parallax>use:nth-child(4) {
@@ -3814,12 +3802,14 @@ a.article-links {
 }
 
 a.article-meta__categories {
-    -webkit-backdrop-filter: saturate(360%) contrast(70%) blur(20px);
-    backdrop-filter: saturate(360%) contrast(70%) blur(20px);
+    /* -webkit-backdrop-filter: saturate(360%) contrast(70%) blur(20px);
+    backdrop-filter: saturate(360%) contrast(70%) blur(20px); */
     padding: 6px 8px;
     font-size: 14px;
     line-height: 1;
-    color: #fff;
+    /* color: #fff; */
+    color: var(--dis-f-0);
+    background: var(--f-0);
     border-radius: 6px;
 }
 
