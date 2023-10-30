@@ -1070,7 +1070,7 @@ var ctrl = {
                     <div class='color-selections'>
                         <div>
                         </div>
-                    </div>    
+                    </div>
                 `;
                 break;
             default:
