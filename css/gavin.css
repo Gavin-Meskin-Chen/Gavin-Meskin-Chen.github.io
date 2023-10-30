@@ -63,8 +63,8 @@
 }
 
 [data-theme="light"] {
-    --op: 255,255,255;
-    --op-dis: 0,0,0;
+    --op: 255, 255, 255;
+    --op-dis: 0, 0, 0;
     --f-0: #fff;
     --dis-f-0: #000;
     --gavin-op-1: rgba(255, 255, 255, .1);
@@ -174,8 +174,8 @@
 }
 
 [data-theme="dark"] {
-    --op: 0,0,0;
-    --op-dis: 255,255,255;
+    --op: 0, 0, 0;
+    --op-dis: 255, 255, 255;
     --f-0: #000;
     --dis-f-0: #fff;
     --gavin-op-1: rgba(0, 0, 0, .1);
@@ -1125,12 +1125,12 @@ center#name-container {
 
 #body-wrap.home #page-header:not(.is-top-bar) #nav #fps-box span,
 #body-wrap.post #page-header:not(.is-top-bar) #nav #fps-box span {
-    color: rgba(255,255,255,.5);
+    color: rgba(255, 255, 255, .5);
 }
 
 #body-wrap.home #page-header:not(.is-top-bar) #nav #fps-box .fps-text,
 #body-wrap.post #page-header:not(.is-top-bar) #nav #fps-box .fps-text {
-    color: rgba(255,255,255,.8);
+    color: rgba(255, 255, 255, .8);
 }
 
 /* ************************************************************滚动条样式********************************************************** */
@@ -1219,12 +1219,6 @@ center#name-container {
 /* ******************************************************************微调************************************************************ */
 a {
     color: var(--font-color);
-}
-
-/* 设置左右padding */
-.layout {
-    padding-left: 5%;
-    padding-right: 5%;
 }
 
 /* 
@@ -1486,12 +1480,6 @@ a {
     box-shadow: var(--gavin-shadow-1);
 }
 
-@media screen and (min-width: 900px) and (max-width: 1050px) {
-    #recent-posts>.recent-post-item {
-        width: 100% !important;
-    }
-}
-
 #aside-content .aside-list>.aside-list-item {
     border-radius: 10px;
     /*0.5rem*/
@@ -1689,13 +1677,6 @@ img#post-cover {
 @media screen and (max-width: 450px) {
     #post-info .post-title {
         font-size: 1.88em;
-    }
-}
-
-@media screen and (max-width: 1300px) {
-    #body-wrap:not(.home) .layout {
-        padding-left: 1.5rem;
-        padding-right: 1.5rem;
     }
 }
 
@@ -3364,7 +3345,7 @@ span.separator {
 .twikoo .el-input-group__append,
 .twikoo .el-input-group__prepend {
     background-color: var(--gavin-widget-bg3);
-    border-right: 1px solid rgba(144,147,153,0.31);
+    border-right: 1px solid rgba(144, 147, 153, 0.31);
 }
 
 .twikoo .el-input-group {
@@ -3611,10 +3592,6 @@ span.separator {
     z-index: 0;
 }
 
-.layout {
-    z-index: 0;
-}
-
 #body-wrap {
     background: var(--gavin-background);
 }
@@ -3622,19 +3599,6 @@ span.separator {
 /* .layout>div:first-child:not(.recent-posts) {
     padding: 0 40px;
 } */
-
-@media screen and (max-width: 768px) {
-    /* .layout>div:first-child:not(.recent-posts) { */
-    /* padding: 1.5rem 1rem !important; */
-    /* border: 1px solid var(--gavin-border-color); */
-    /* background: var(--vercel-background); */
-    /* } */
-
-    #body-wrap:not(.home) .layout {
-        padding-left: 0;
-        padding-right: 0;
-    }
-}
 
 /* ***************哔哩哔哩bilibili视频适配*************** */
 .aspect-ratio {
@@ -3712,6 +3676,57 @@ span.separator {
     margin: auto;
 }
 
+#recent-posts {
+    margin-top: 0;
+    align-content: flex-start;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between
+}
+
+#recent-posts>.recent-post-item {
+    margin-top: 1rem;
+    position: relative;
+    display: flex;
+    height: auto;
+    width: calc(50% - 10px);
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column
+}
+
+@media screen and (min-width: 900px) and (max-width: 1050px) {
+    #recent-posts>.recent-post-item {
+        width: 100% !important;
+    }
+}
+
+@media screen and (max-width:768px) {
+    #recent-posts>.recent-post-item {
+        width: 100%
+    }
+}
+
+#recent-posts>.recent-post-item .post_cover {
+    width: calc(100% - 20px);
+    height: 200px;
+    margin: 10px 0 0;
+    border-radius: 9px;
+}
+
+#recent-posts>.recent-post-item .post_cover img.post_bg {
+    width: 100%;
+    height: 100%
+}
+
+#recent-posts>.recent-post-item .left_radius {
+    border-radius: 8px 8px 0 0
+}
+
+#recent-posts>.recent-post-item .right_radius {
+    border-radius: 8px 8px 0 0
+}
+
 /* 解决第一篇文章不对齐的bug */
 /* #recent-posts>.recent-post-item:not(:first-child) {
     margin-top: 1rem;
@@ -3719,6 +3734,10 @@ span.separator {
 
 /* 首页文章标题加粗 */
 #recent-posts>.recent-post-item>.recent-post-info>.article-title {
+    -webkit-line-clamp: 2;
+    color: var(--text-highlight-color);
+    font-size: 1.2em;
+    line-height: 1.3;
     font-weight: bold;
 }
 
@@ -3784,17 +3803,14 @@ a.article-links {
     bottom: 0;
     left: 0;
     z-index: 1;
-    border-radius: 1rem;
+    border-radius: 13px;
 }
 
 #recent-posts>.recent-post-item>.recent-post-info {
     margin-top: 0;
     padding: 10px 7%;
     height: 150px;
-}
-
-#recent-posts>.recent-post-item {
-    position: relative;
+    width: 100% !important;
 }
 
 .article-meta-categories {
@@ -3853,8 +3869,8 @@ a.article-meta__categories:hover {
     display: flex;
     align-items: center;
     padding: 16px calc(7% - 10px) 4px;
-    border-end-end-radius: 10px;
-    border-end-start-radius: 10px;
+    border-end-end-radius: 9px;
+    border-end-start-radius: 9px;
     color: #fff;
     background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, .8) 100%);
 }
@@ -3881,10 +3897,31 @@ a.article-meta__categories:hover {
 }
 
 /* ***************************宽屏适配************************ */
-/* 全局宽度 */
+/* 全局宽度、左右padding */
 .layout {
+    padding-left: 5%;
+    padding-right: 5%;
     max-width: 1600px !important;
-    /* 1400 */
+}
+
+@media screen and (max-width: 1300px) {
+    #body-wrap:not(.home) .layout {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    /* .layout>div:first-child:not(.recent-posts) { */
+    /* padding: 1.5rem 1rem !important; */
+    /* border: 1px solid var(--gavin-border-color); */
+    /* background: var(--vercel-background); */
+    /* } */
+
+    #body-wrap:not(.home) .layout {
+        padding-left: 0;
+        padding-right: 0;
+    }
 }
 
 /* 侧边卡片栏宽度 */
@@ -4340,10 +4377,6 @@ a.categoryButton:after {
     color: var(--dis-f-0);
 }
 
-#recent-posts {
-    margin-top: 0 !important;
-}
-
 .article-sort-title {
     margin: 10px 0 0;
     padding-left: 0;
@@ -4620,7 +4653,7 @@ html.hide-aside .layout>div:first-child {
     border-radius: 4px;
     -webkit-filter: blur(12px) opacity(.6);
     filter: blur(16px) opacity(.56);
-    transform: scale(.92,.96);
+    transform: scale(.92, .96);
     z-index: -1;
 }
 
@@ -5909,7 +5942,7 @@ progress::-webkit-progress-value {
     position: relative;
     background-color: #fff;
     border-radius: 9px;
-    mask-image: paint(smooth-corners);    
+    mask-image: paint(smooth-corners);
     -webkit-mask-image: paint(smooth-corners);
     --smooth-level: 13;
     transform: scale(1);
@@ -6021,8 +6054,8 @@ progress::-webkit-progress-value {
 
 .encryption .inner:focus,
 .encryption .outer:focus {
-    outline: 7px solid rgba(0,136,255,.16);
-    border-color: rgba(0,136,255,1);
+    outline: 7px solid rgba(0, 136, 255, .16);
+    border-color: rgba(0, 136, 255, 1);
 }
 
 .encryption .select-items {
@@ -6055,8 +6088,8 @@ progress::-webkit-progress-value {
 }
 
 .encryption .select-item:focus {
-    outline: 7px solid rgba(0,136,255,.16);
-    border-color: rgba(0,136,255,1);
+    outline: 7px solid rgba(0, 136, 255, .16);
+    border-color: rgba(0, 136, 255, 1);
 }
 
 .encryption .btns {
@@ -6066,7 +6099,7 @@ progress::-webkit-progress-value {
     align-items: center;
     gap: 10px;
     margin-right: 0;
-    filter: brightness(1)!important;
+    filter: brightness(1) !important;
 }
 
 .encryption .btns .btn {
@@ -6079,33 +6112,33 @@ progress::-webkit-progress-value {
 }
 
 .btns .btn.blue {
-    color: rgba(0,136,255,1);
-    background: rgba(0,136,255,.24);
+    color: rgba(0, 136, 255, 1);
+    background: rgba(0, 136, 255, .24);
 }
 
 .btns .btn.blue:hover {
     color: #fff;
-    background: rgba(0,136,255,1);
+    background: rgba(0, 136, 255, 1);
 }
 
 .btns .btn.green {
-    color: rgba(103,194,58,1);
-    background: rgba(103,194,58,.24);
+    color: rgba(103, 194, 58, 1);
+    background: rgba(103, 194, 58, .24);
 }
 
 .btns .btn.green:hover {
     color: #fff;
-    background: rgba(103,194,58,1);
+    background: rgba(103, 194, 58, 1);
 }
 
 .btns .btn.red {
-    color: rgba(245,108,108,1);
-    background: rgba(245,108,108,.24);
+    color: rgba(245, 108, 108, 1);
+    background: rgba(245, 108, 108, .24);
 }
 
 .btns .btn.red:hover {
     color: #fff;
-    background: rgba(245,108,108,1);
+    background: rgba(245, 108, 108, 1);
 }
 
 .sidebar-apps {
@@ -6124,7 +6157,7 @@ progress::-webkit-progress-value {
 }
 
 .sidebar-apps:hover {
-    background: rgba(255,255,255,.2);
+    background: rgba(255, 255, 255, .2);
 }
 
 .sidebar-weather {

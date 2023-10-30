@@ -1066,7 +1066,12 @@ var ctrl = {
             case "transColor": 
                 title = '参星阁 - 色值转换器';
                 className = 'transColor';
-                html = ``;
+                html = `
+                    <div class='color-selections'>
+                        <div>
+                        </div>
+                    </div>    
+                `;
                 break;
             default:
                 title = '参星阁 - App';
