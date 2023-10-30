@@ -80,7 +80,7 @@
     --gavin-op-dis-6: rgba(0, 0, 0, .6);
     --gavin-op-dis-7: rgba(0, 0, 0, .7);
     --gavin-nav-bg: rgba(255, 255, 255, .72);
-    --gavin-console-mask: rgba(0, 0, 0, .18);
+    --gavin-mask: rgba(0, 0, 0, .18);
     --gavin-nav-hover: var(--gavin-blue2);
     --gavin-page-bg: var(--gavin-blue1);
     /*页码颜色*/
@@ -191,7 +191,7 @@
     --gavin-op-dis-6: rgba(255, 255, 255, .6);
     --gavin-op-dis-7: rgba(255, 255, 255, .7);
     --gavin-nav-bg: rgba(0, 0, 0, .56);
-    --gavin-console-mask: rgba(255, 255, 255, .18);
+    --gavin-mask: rgba(255, 255, 255, .18);
     --gavin-nav-hover: rgba(255, 255, 255, .13);
     --gavin-page-bg: rgba(255, 255, 255, 0.8);
     /*页码颜色*/
@@ -386,6 +386,118 @@
             #0000 calc(100% - var(--spinner-w)),
             #000 0);
     animation: spinner 1.5s infinite linear;
+}
+
+/* ******************通用CSS库******************** */
+.eject {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    transition: 0.5s ease;
+    flex-direction: column;
+    pointer-events: none;
+}
+
+.eject.show {
+    pointer-events: all;
+}
+
+.eject-mask {
+    background: var(--gavin-mask);
+    -webkit-backdrop-filter: blur(0px);
+    backdrop-filter: blur(0px);
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    transition: 0.5s ease;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    transform: translateZ(0);
+}
+
+.show .eject-mask {
+    -webkit-backdrop-filter: blur(7px);
+    backdrop-filter: blur(7px);
+    opacity: 1;
+    transform: translateZ(0);
+}
+
+.eject-head {
+    position: absolute;
+    top: 30px;
+    left: 5%;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    opacity: 0;
+    transform: translateY(-15px);
+    transition: .5s ease;
+}
+
+.show .eject-head {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.eject-head > span {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+    transition: 0.5s;
+}
+
+.eject-head-btns {
+    gap: 15px;
+}
+
+.eject-head .settings-btn,
+.eject-head .close-btn {
+    width: 35px;
+    height: 35px;
+    color: #fff;
+    cursor: pointer;
+    transition: color 0.5s;
+}
+
+.eject-head .settings-btn i,
+.eject-head .close-btn i {
+    line-height: 1;
+    font-size: 35px;
+}
+
+@media screen and (max-width: 768px) {
+    .eject-head {
+        top: 15px;
+        left: 20px;
+        width: calc(100% - 40px);
+    }
+    .eject-head > span {
+        font-size: 22px;
+    }
+    .eject-head .settings-btn,
+    .eject-head .close-btn {
+        width: 32px;
+        height: 32px;
+    }
+    .eject-head .settings-btn i,
+    .eject-head .close-btn i {
+        font-size: 32px;
+    }
+}
+
+.center-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 hr {
@@ -2300,64 +2412,6 @@ span.separator {
 }
 
 /* ********************************************************新控制中心***************************************************************** */
-
-/* 标头 */
-.console-head {
-    width: 100%;
-    position: fixed;
-    display: flex;
-    opacity: 0;
-    /* justify-content: center; */
-    align-items: center;
-    top: 1rem;
-    transform: translateY(-15px);
-    transition: 0.5s ease;
-}
-
-#console.show .console-head {
-    opacity: 1;
-    transform: translateY(0px);
-}
-
-.console-head span {
-    position: relative;
-    left: 5%;
-    width: 10rem;
-    color: #fff;
-    font-size: 1.5rem;
-    font-weight: 900;
-}
-
-#console .close-btn {
-    width: 35px;
-    height: 35px;
-    position: absolute;
-    display: flex;
-    right: 5%;
-    font-size: 35px;
-    color: #fff;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-#console .settings-btn {
-    width: 35px;
-    height: 35px;
-    position: absolute;
-    display: flex;
-    right: calc(5% + 50px);
-    font-size: 35px;
-    color: #fff;
-    cursor: pointer;
-    transition: .3s;
-}
-
-#console .close-btn i,
-#console .settings-btn i {
-    line-height: 1;
-    font-size: 35px;
-}
-
 /* 控制中心按钮样式 */
 #console-switch {
     display: flex;
@@ -2376,25 +2430,7 @@ span.separator {
 
 /* 控制中心界面功能按钮样式 */
 #console {
-    display: flex;
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    top: 0;
-    left: 0;
     z-index: 999;
-    justify-content: center;
-    /* opacity: 0; */
-    transition: 0.5s ease;
-    flex-direction: column;
-    align-items: center;
-    pointer-events: none;
-}
-
-#console.show {
-    /* opacity: 1; */
-    pointer-events: all;
-    /* transition: all 0.5s; */
 }
 
 #console .console-btn-group {
@@ -2469,33 +2505,6 @@ span.separator {
     display: flex;
     align-items: center;
     /*图标大小*/
-}
-
-#console.show .console-mask {
-    -webkit-backdrop-filter: blur(7px);
-    backdrop-filter: blur(7px);
-    opacity: 1;
-    /* animation: 0.5s ease 0s 1 normal none running to_show; */
-    transform: translateZ(0);
-}
-
-#console .console-mask {
-    background: var(--gavin-console-mask);
-    -webkit-backdrop-filter: blur(0px);
-    backdrop-filter: blur(0px);
-    width: 100vw;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    position: absolute;
-    z-index: -1;
-    opacity: 0;
-    transition: 0.5s ease;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    -webkit-transform-style: preserve-3d;
-    transform-style: preserve-3d;
-    transform: translateZ(0);
 }
 
 /* 控制中心音乐播放器样式 */
@@ -5830,84 +5839,7 @@ progress::-webkit-progress-value {
 /* **************************************应用软件******************************** */
 
 #apps {
-    display: flex;
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    top: 0;
-    left: 0;
     z-index: 979;
-    justify-content: center;
-    transition: 0.5s ease;
-    flex-direction: column;
-    align-items: center;
-    pointer-events: none;
-}
-
-#apps.show {
-    pointer-events: all;
-}
-
-#apps.show .apps-mask {
-    -webkit-backdrop-filter: blur(7px);
-    backdrop-filter: blur(7px);
-    opacity: 1;
-    transform: translateZ(0);
-}
-
-#apps .apps-mask {
-    background: var(--gavin-console-mask);
-    -webkit-backdrop-filter: blur(0px);
-    backdrop-filter: blur(0px);
-    width: 100vw;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    position: absolute;
-    z-index: -1;
-    opacity: 0;
-    transition: 0.5s ease;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    -webkit-transform-style: preserve-3d;
-    transform-style: preserve-3d;
-    transform: translateZ(0);
-}
-
-#apps .apps-head {
-    position: absolute;
-    top: 30px;
-    left: 5%;
-    width: 90%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    opacity: 0;
-    transform: translateY(-15px);
-    transition: .5s ease;
-}
-
-#apps.show .apps-head {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-#apps .apps-head span {
-    font-size: 22px;
-    font-weight: bold;
-    color: #fff;
-    transition: 0.5s;
-}
-
-#apps .apps-head .close-btn {
-    width: 32px;
-    height: 32px;
-    display: flex;
-    font-size: 32px;
-    line-height: 1;
-    color: #fff;
-    cursor: pointer;
-    transition: 0.5s;
 }
 
 #apps .apps-content {
@@ -5989,12 +5921,6 @@ progress::-webkit-progress-value {
 }
 
 @media screen and (max-width: 768px) {
-    #apps .apps-head {
-        top: 15px;
-        left: 20px;
-        width: calc(100% - 40px);
-    }
-
     #apps .apps-content {
         width: 75vw;
         row-gap: 5px;

@@ -143,24 +143,9 @@ Last Modified time : 20220211 98:00 by https://immmmm.com
 }
 /* 密码输入框 */
 #fcircleInputBox {
-  display: flex;
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  top: 0;
-  left: 0;
   z-index: 999;
-  justify-content: center;
-  transition: .5s ease;
-  flex-direction: column;
-  align-items: center;
-  pointer-events: none;
 }
-#fcircleInputBox.open {
-  pointer-events: all;
-}
-#fcircleInputBox.open .inputBox.hide,
-.inputBox {
+#fcircleInputBox .inputBox {
   width: 300px;
   height: 200px;
   background: var(--gavin-bg-3);
@@ -172,7 +157,7 @@ Last Modified time : 20220211 98:00 by https://immmmm.com
   pointer-events: none;
   transition: .5s ease;
 }
-#fcircleInputBox.open .inputBox{
+#fcircleInputBox.show .inputBox:not(.hide) {
   opacity: 1;
   pointer-events: all;
   user-select: none;
@@ -244,30 +229,6 @@ Last Modified time : 20220211 98:00 by https://immmmm.com
 }
 .content-bottom .btn:hover {
   background-color: rgba(var(--op-dis), .1);
-}
-.inputBoxMask {
-  background: var(--gavin-console-mask);
-  -webkit-backdrop-filter: blur(0);
-  backdrop-filter: blur(0);
-  width: 100vw;
-  height: 100vh;
-  top: 0;
-  left: 0;
-  position: absolute;
-  z-index: -1;
-  opacity: 0;
-  transition: .5s ease;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  -webkit-transform-style: preserve-3d;
-  transform-style: preserve-3d;
-  transform: translateZ(0);
-}
-#fcircleInputBox.open .inputBoxMask {
-  -webkit-backdrop-filter: blur(7px);
-  backdrop-filter: blur(7px);
-  opacity: 1;
-  transform: translateZ(0);
 }
 #fcircleInputBox .noteBox {
   width: 150px;
