@@ -3737,8 +3737,6 @@ h1.page-title + .tag-cloud-list {
   color: var(--white);
 }
 #nav #site-name {
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.15);
-  font-weight: bold;
   cursor: pointer;
 }
 #nav .menus_items {
@@ -4451,7 +4449,7 @@ h1.page-title + .tag-cloud-list {
   border: 1px solid var(--gavin-border-color);
   -webkit-box-shadow: var(--gavin-shadow-3);
   box-shadow: var(--gavin-shadow-3);
-  background-color: var(--f-0);
+  background-color: var(--card-bg);
   color: var(--dis-f-0);
   text-align: center;
   font-size: 16px;
