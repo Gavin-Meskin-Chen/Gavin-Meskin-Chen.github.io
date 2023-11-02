@@ -1533,32 +1533,16 @@ a {
     --smooth-level: 14;
 }
 
-.cardHover,
-.error404 #error-wrap .error-content,
-.layout>div:first-child:not(.recent-posts),
-#recent-posts>.recent-post-item,
-#aside-content .card-widget {
-    /* box-shadow: none; */
-    box-shadow: var(--gavin-shadow-1);
-    border: 1px solid var(--gavin-border-color);
-    border-radius: 13px;
-    /* mask-image: paint(smooth-corners);
-    -webkit-mask-image: paint(smooth-corners);
-    --smooth-level: 20; */
-}
-
 .cardHover:hover,
 .error404 #error-wrap .error-content:hover,
 #recent-posts>.recent-post-item:hover,
 .layout>.recent-posts .pagination>*:not(.space):hover {
-    /* box-shadow: none; */
     box-shadow: 0 8px 12px -3px var(--gavin-highlight-op);
     border-color: var(--gavin-highlight);
 }
 
 #aside-content .card-widget:hover,
 .layout>div:first-child:not(.recent-posts):hover {
-    /* box-shadow: none; */
     box-shadow: var(--gavin-shadow-1);
 }
 

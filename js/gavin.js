@@ -61,7 +61,7 @@ var startTime = performance.now();
 let animationId;
 var winbox = '';
 
-if ('paintWorklet' in CSS) { CSS.paintWorklet.addModule('/js/paint.min.js'); }
+if ('paintWorklet' in CSS) { CSS.paintWorklet.addModule('https://cdn.cbd.int/cansin-blogdata@latest/js/paint.min.js'); }
 
 window.onload = function () {
     var set_music = document.querySelector("#set-switch-music input");
@@ -606,8 +606,10 @@ var ctrl = {
     getMusicInfo() {
         var music_id = document.querySelector("meting-js.global-music").aplayer.list.index; // 当前曲目的id
         var music_cover = document.querySelector("meting-js.global-music").aplayer.list.audios[music_id].cover;
-        var music_author = document.querySelector("meting-js.global-music").aplayer.list.audios[music_id].author;
-        var music_title = document.querySelector("meting-js.global-music").aplayer.list.audios[music_id].title;
+        // var music_author = document.querySelector("meting-js.global-music").aplayer.list.audios[music_id].author;
+        var music_author = document.querySelector("meting-js.global-music").aplayer.list.audios[music_id].artist;
+        // var music_title = document.querySelector("meting-js.global-music").aplayer.list.audios[music_id].title;
+        var music_title = document.querySelector("meting-js.global-music").aplayer.list.audios[music_id].name;
         document.getElementById("console-music-cover").innerHTML = "<img src='" + music_cover + "'>";// 歌曲信息
         document.querySelector("#console-music-item-main .cover-shadow").style.background =  "url('" + music_cover + "') center center / 100% 100% no-repeat";
         document.getElementById("console-music-title-text").innerHTML = music_title;
@@ -633,7 +635,8 @@ var ctrl = {
         var list_html;
         for (let i = 0; i < audios.length; i++) {
             list_html = document.getElementById("console-music-list").innerHTML;
-            document.getElementById("console-music-list").innerHTML = list_html + "<li class='music-list-item'><div class='list-music-info1'><a class='list-music-id' data-pjax-state=''>" + (i + 1) + "</a><a class='list-music-state' data-pjax-state=''><i class='iconfont icon-waveform'></i></a></div><div class='list-music-info2'><a class='list-music-title' data-pjax-state=''>" + audios[i].title + "</a><a class='list-music-author' data-pjax-state=''>&nbsp;-&nbsp;" + audios[i].author + "</a></div></li>";
+            // document.getElementById("console-music-list").innerHTML = list_html + "<li class='music-list-item'><div class='list-music-info1'><a class='list-music-id' data-pjax-state=''>" + (i + 1) + "</a><a class='list-music-state' data-pjax-state=''><i class='iconfont icon-waveform'></i></a></div><div class='list-music-info2'><a class='list-music-title' data-pjax-state=''>" + audios[i].title + "</a><a class='list-music-author' data-pjax-state=''>&nbsp;-&nbsp;" + audios[i].author + "</a></div></li>";
+            document.getElementById("console-music-list").innerHTML = list_html + "<li class='music-list-item'><div class='list-music-info1'><a class='list-music-id' data-pjax-state=''>" + (i + 1) + "</a><a class='list-music-state' data-pjax-state=''><i class='iconfont icon-waveform'></i></a></div><div class='list-music-info2'><a class='list-music-title' data-pjax-state=''>" + audios[i].name + "</a><a class='list-music-author' data-pjax-state=''>&nbsp;-&nbsp;" + audios[i].artist + "</a></div></li>";
         }
     },
 
@@ -1096,7 +1099,7 @@ var ctrl = {
         ctrl.resizeWinbox();
         window.addEventListener('resize', ctrl.resizeWinbox);
         winbox.body.innerHTML = html;
-        document.head.appendChild(Object.assign(document.createElement("script"), { src: "/js/" + className + ".js", id: "appScript" }));
+        document.head.appendChild(Object.assign(document.createElement("script"), { src: "https://cdn.cbd.int/cansin-blogdata@latest/js/" + className + ".js", id: "appScript" }));
         document.querySelector('.wb-header .wb-close').addEventListener('click', ()=>{
             var script = document.getElementById('appScript');
             if (script) document.head.removeChild(script);
