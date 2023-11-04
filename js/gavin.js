@@ -1099,12 +1099,14 @@ var ctrl = {
         ctrl.resizeWinbox();
         window.addEventListener('resize', ctrl.resizeWinbox);
         winbox.body.innerHTML = html;
-        document.head.appendChild(Object.assign(document.createElement("script"), { src: "https://cdn.cbd.int/cansin-blogdata@latest/js/" + className + ".js", id: "appScript" }));
+        document.head.appendChild(Object.assign(document.createElement("script"), { src: "https://cdn.cbd.int/cansin-blogdata@latest/js/" + className + ".min.js", id: "appScript" }));
         document.querySelector('.wb-header .wb-close').addEventListener('click', ()=>{
             var script = document.getElementById('appScript');
             if (script) document.head.removeChild(script);
             var script1 = document.getElementById('crypto-js');
             if (script1) document.head.removeChild(script1);
+            // document.getElementById('appScript')?.remove();
+            // document.getElementById('crypto-js')?.remove();
         })
         ctrl.hideAPPs();
     }

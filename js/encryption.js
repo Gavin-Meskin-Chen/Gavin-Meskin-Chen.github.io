@@ -18,26 +18,26 @@ textOut.addEventListener("input", ()=>{
 })
 _type.addEventListener('change', ()=>{
     if (_type.value == 'AESEncode') {
-        _case.classList.contains('hide') ? null : _case.classList.add('hide'); // 隐藏 大小写
-        _code.classList.contains('hide') ? _code.classList.remove('hide') : null; // 显示
-        _mode.classList.contains('hide') ? _mode.classList.remove('hide') : null;
-        _pad.classList.contains('hide') ? _pad.classList.remove('hide') : null;
-        _key.classList.contains('hide') ? _key.classList.remove('hide') : null;
-        _iv.classList.contains('hide') ? _iv.classList.remove('hide') : null;
+        _case.classList.add('hide'); // 隐藏 大小写
+        _code.classList.remove('hide'); // 显示
+        _mode.classList.remove('hide');
+        _pad.classList.remove('hide');
+        _key.classList.remove('hide');
+        _iv.classList.remove('hide');
     } else if (_type.value == 'AESDecode') {
-        _code.classList.contains('hide') ? null : _code.classList.add('hide'); // 隐藏 编码、大小写
-        _case.classList.contains('hide') ? null : _case.classList.add('hide');
-        _mode.classList.contains('hide') ? _mode.classList.remove('hide') : null; // 显示
-        _pad.classList.contains('hide') ? _pad.classList.remove('hide') : null;
-        _key.classList.contains('hide') ? _key.classList.remove('hide') : null;
-        _iv.classList.contains('hide') ? _iv.classList.remove('hide') : null;
+        _code.classList.add('hide'); // 隐藏 编码、大小写
+        _case.classList.add('hide');
+        _mode.classList.remove('hide'); // 显示
+        _pad.classList.remove('hide');
+        _key.classList.remove('hide');
+        _iv.classList.remove('hide');
     } else {
-        _code.classList.contains('hide') ? _code.classList.remove('hide') : null; // 显示
-        _case.classList.contains('hide') ? _case.classList.remove('hide') : null;
-        _mode.classList.contains('hide') ? null : _mode.classList.add('hide'); // 隐藏
-        _pad.classList.contains('hide') ? null : _pad.classList.add('hide');
-        _key.classList.contains('hide') ? null : _key.classList.add('hide');
-        _iv.classList.contains('hide') ? null : _iv.classList.add('hide');
+        _code.classList.remove('hide'); // 显示
+        _case.classList.remove('hide');
+        _mode.classList.add('hide'); // 隐藏
+        _pad.classList.add('hide');
+        _key.classList.add('hide');
+        _iv.classList.add('hide');
     }
 })
 _mode.addEventListener('change', ()=>{
