@@ -4285,7 +4285,7 @@ h1.page-title + .tag-cloud-list {
   display: inline-block;
   padding: 4px 12px;
   background: #f00;
-  color: rgba(255,255,255,0.8);
+  color: #d2d2d2;
   cursor: pointer;
   pointer-events: all;
 }
@@ -4314,7 +4314,7 @@ h1.page-title + .tag-cloud-list {
   display: inline-block;
   padding: 4px 12px;
   background: var(--gavin-blue3);
-  color: rgba(255,255,255,0.8);
+  color: #d2d2d2;
   cursor: pointer;
 }
 .post-reward .reward-button:hover {
