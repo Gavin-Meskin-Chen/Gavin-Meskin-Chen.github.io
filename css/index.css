@@ -314,7 +314,7 @@ hr:before,
 .list-beauty li:hover:before,
 .category-lists ul li:hover:before,
 #algolia-search .search-dialog .ais-Hits-list li:hover:before {
-  border-color: var(--pseudo-hover);
+  border-color: var(--gavin-highlight);
 }
 .list-beauty li:before,
 .category-lists ul li:before,
@@ -324,7 +324,7 @@ hr:before,
   left: 0;
   width: 0.43em;
   height: 0.43em;
-  border: 0.215em solid #08f;
+  border: 0.215em solid var(--gavin-highlight-op);
   border-radius: 0.43em;
   background: transparent;
   content: '';
@@ -2174,7 +2174,7 @@ figure.highlight pre .javascript .function {
   color: var(--font-color);
 }
 .category-lists .category-list a:hover {
-  color: #08f;
+  color: var(--gavin-highlight);
 }
 .category-lists .category-list .category-list-count {
   margin-left: 4px;
@@ -2364,7 +2364,7 @@ figure.highlight pre .javascript .function {
   }
 }
 #article-container .flink .flink-list > .flink-list-item:hover {
-  background: var(--text-bg-hover);
+  background: var(--gavin-nav-hover);
 }
 #article-container .flink .flink-list > .flink-list-item:hover .flink-item-icon {
   border-color: rgba(255,255,255,0.6);
@@ -2649,7 +2649,7 @@ figure.highlight pre .javascript .function {
   transition: all 0.3s;
 }
 .tag-cloud-list a:hover {
-  color: #08f !important;
+  color: var(--gavin-highlight) !important;
   -webkit-transform: translateY(-4px);
   -moz-transform: translateY(-4px);
   -o-transform: translateY(-4px);
@@ -2764,12 +2764,31 @@ h1.page-title + .tag-cloud-list {
     transition: top 0.3s;
   }
 }
+#aside-content .card-tag-cloud {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-lines: multiple;
+  -moz-box-lines: multiple;
+  -o-box-lines: multiple;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  gap: 2px;
+}
 #aside-content .card-tag-cloud a {
   display: inline-block;
-  padding: 0 4px;
+  font-size: 1rem !important;
+  padding: 0 6px;
+  border-radius: 0.4rem;
+  color: var(--font-color) !important;
 }
 #aside-content .card-tag-cloud a:hover {
-  color: #08f !important;
+  background-color: var(--gavin-nav-hover);
+  color: #fff !important;
 }
 #aside-content .aside-list > span {
   display: block;
@@ -2860,6 +2879,7 @@ h1.page-title + .tag-cloud-list {
   -ms-flex-direction: row;
   flex-direction: row;
   padding: 3px 10px;
+  border-radius: 8px;
   color: var(--font-color);
   -webkit-transition: all 0.4s;
   -moz-transition: all 0.4s;
@@ -2870,7 +2890,8 @@ h1.page-title + .tag-cloud-list {
 #aside-content .card-archives ul.card-archive-list > .card-archive-list-item a:hover,
 #aside-content .card-categories ul.card-category-list > .card-category-list-item a:hover {
   padding: 3px 17px;
-  background-color: var(--text-bg-hover);
+  background-color: var(--gavin-nav-hover);
+  color: #fff;
 }
 #aside-content .card-archives ul.card-archive-list > .card-archive-list-item a span:first-child,
 #aside-content .card-categories ul.card-category-list > .card-category-list-item a span:first-child {
@@ -3087,7 +3108,7 @@ h1.page-title + .tag-cloud-list {
   transition: all 0.3s;
 }
 .site-data > a:hover div {
-  color: #08f !important;
+  color: var(--gavin-highlight) !important;
 }
 .site-data > a .headline {
   color: var(--font-color);
@@ -4115,11 +4136,13 @@ h1.page-title + .tag-cloud-list {
 #post .tag_share .post-meta__tags {
   display: inline-block;
   margin: 8px 8px 8px 0;
+  height: 1.85rem;
   padding: 0 12px;
   width: fit-content;
-  border: 1px solid #08f;
-  border-radius: 12px;
-  color: #08f;
+  border: 1px solid var(--gavin-border-color);
+  background: var(--gavin-widget-bg1);
+  border-radius: 1rem;
+  color: var(--font-color);
   font-size: 0.85em;
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
@@ -4128,8 +4151,9 @@ h1.page-title + .tag-cloud-list {
   transition: all 0.2s ease-in-out;
 }
 #post .tag_share .post-meta__tags:hover {
-  background: #08f;
-  color: var(--white);
+  background: var(--gavin-highlight);
+  color: var(--f-0);
+  border-color: var(--gavin-highlight);
 }
 #post .tag_share .post_share {
   display: inline-block;
@@ -4838,8 +4862,8 @@ span.mathjax-overflow {
 }
 .card_box .card_mask a:hover {
   text-decoration: none !important;
-  color: #fff !important;
-  background: var(--gavin-blue3);
+  color: var(--f-0) !important;
+  background: var(--gavin-highlight);
 }
 .card_box .card_content {
   z-index: 1;
@@ -7544,7 +7568,7 @@ blockquote.pullquote.right {
   transition: color 0.2s ease-in-out;
 }
 .search-dialog .search-nav .search-close-button:hover {
-  color: #08f;
+  color: var(--gavin-highlight);
 }
 #search-mask {
   position: fixed;

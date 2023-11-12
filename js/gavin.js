@@ -103,6 +103,9 @@ window.onload = function () {
     if (localStorage.getItem('system_theme_state') != null) {
         set_sys_theme.checked = localStorage.getItem('system_theme_state') == 'true' ? true : false;
     }
+    if (localStorage.getItem('theme-color') != null) {
+        ctrl.changeThemeColor(localStorage.getItem('theme-color'))
+    }
     if (set_sys_theme.checked) {
         const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
         const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches;
@@ -972,6 +975,18 @@ var ctrl = {
         a.value = '```YML\n- name: \n  link: \n  avatar: \n  descr: \n  siteshot: \n```'
         a.style.height = '159px'
         // a.parentElement.querySelector('.el-input__count').innerHTML = '62/1000'
+    },
+
+    changeThemeColor(i) {
+        var colors = [['0,100,255','0,150,255'], ['129,78,250', '0,234,208'], ['66,90,239', '255,190,0']]
+        var a = document.querySelector('.setting-right .checked')
+        if (a) a.classList.remove('checked')
+        document.querySelector('.setting-right .theme-color-'+i).classList.add('checked')
+        document.documentElement.style.setProperty('--gavin-theme-color-light', colors[i-1][0]);
+        document.documentElement.style.setProperty('--gavin-theme-color-dark', colors[i-1][1]);
+        localStorage.setItem('theme-color', i);
+        // localStorage.setItem('theme-color-light', '129,78,250');
+        // localStorage.setItem('theme-color-dark', '0,234,208');
     },
 
     // 显示应用中心
