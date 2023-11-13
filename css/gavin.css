@@ -9,6 +9,8 @@
     /* --gavin-theme-color: var(--gavin-blue2); */
     --gavin-highlight: rgb(var(--gavin-theme-color));
     --gavin-highlight-op: rgb(var(--gavin-theme-color),.18);
+    --gavin-highlight-op-1: rgb(var(--gavin-theme-color),.1);
+    --gavin-highlight-op-6: rgb(var(--gavin-theme-color),.6);
     --gavin-theme-color-light: 0, 100, 255;
     --gavin-theme-color-dark: 0, 150, 255;
 
@@ -205,7 +207,7 @@
     --gavin-mask: rgba(255, 255, 255, .18);
     --gavin-page-bg: rgba(255, 255, 255, 0.8);
     /*页码颜色*/
-    --gavin-toc-bg: rgba(240, 240, 240, .24);
+    --gavin-toc-bg: rgba(255, 255, 255, .15);
     /*目录颜色*/
     /*rgba(51, 144, 255, .3); */
     --gavin-scrollbar-dark: #242424;
@@ -2634,7 +2636,7 @@ span.separator {
   } */
 
 #footer-wrap a:hover {
-    color: var(--gavin-hover-font-color);
+    color: var(--gavin-highlight);
     text-decoration: none;
 }
 
@@ -3645,6 +3647,27 @@ span.separator {
 .tk-actions {
     margin-left: 0;
     font-size: 12px;
+}
+
+.twikoo .el-button--primary.is-disabled, .twikoo .el-button--primary.is-disabled:active, .twikoo .el-button--primary.is-disabled:focus, .twikoo .el-button--primary.is-disabled:hover {
+    color: rgba(var(--op-dis),.6);
+    background-color: var(--gavin-highlight-op);
+}
+
+.el-button--primary {
+    background-color: rgba(var(--gavin-theme-color),.6);
+    border-color: rgba(var(--gavin-theme-color),.6);
+}
+
+.el-button--primary:focus, .el-button--primary:hover {
+    background: rgba(var(--gavin-theme-color),1);
+    border-color: rgba(var(--gavin-theme-color),1);
+}
+
+.twikoo .el-button:not(.el-button--primary):not(.el-button--text):active, .twikoo .el-button:not(.el-button--primary):not(.el-button--text):focus, .twikoo .el-button:not(.el-button--primary):not(.el-button--text):hover {
+    color: rgba(var(--gavin-theme-color),1);
+    background-color: rgba(var(--gavin-theme-color),.1);
+    border-color: rgba(var(--gavin-theme-color),1);
 }
 
 #post-comment pre,

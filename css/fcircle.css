@@ -40,7 +40,7 @@ Last Modified time : 20220211 98:00 by https://immmmm.com
   #cf-container {width:100%;/*max-width:900px;*/height:auto;margin:auto;display:flex;flex-wrap:wrap;gap:20px;}
   #cf-container a {text-decoration:none;}
   .cf-article {/*margin:0 0 20px;*/border-radius:13px;border: 1px solid var(--gavin-card-border);font-weight:bolder;overflow:hidden;transition: all ease-out .3s;position: relative;padding:8px 15px;width:calc(100% / 3 - 40px / 3);float:left;height: 110px;}
-  .cf-article:hover{transition:all .3s;/*-webkit-transform:scale(1.03);transform:scale(1.03);*/border-color: var(--gavin-highlight);}
+  .cf-article:hover{transition:all .3s;/*-webkit-transform:scale(1.03);transform:scale(1.03);*/border-color: var(--gavin-highlight);background:rgba(var(--gavin-theme-color),.1);}
   .cf-article-avatar{display:flex;align-items:center;position:absolute;bottom:8px;left:15px;}
   .cf-img-avatar {align-self:center;text-align:center;display:inline-block !important;width:22px;height:22px;border-radius:50%!important;margin:0 0 -4px !important;background: #fff;}
   .cf-article-author{line-height: 35px;font-size:14px;font-weight: 400;margin-left:5px;align-self:center;text-align:center;height:40px;white-space:nowrap;overflow:hidden;}
@@ -79,7 +79,7 @@ Last Modified time : 20220211 98:00 by https://immmmm.com
   .cf-article {background:var(--card-bg);box-shadow: var(--gavin-shadow-1);}
   #cf-change span:hover{color:var(--gavin-highlight);cursor:pointer;}
   #cf-change .cf-change-now{color:var(--gavin-highlight);font-weight:800;}
-  .cf-overshow p a:hover{color:var(--gavin-blue2)!important;text-decoration:none!important;}
+  .cf-overshow p a:hover{color:var(--gavin-highlight)!important;text-decoration:none!important;}
   .cf-overshow p span{color:var(--gavin-note-font-color)}
   /* 暗色主题 */
   .dark-theme #cf-overlay,.theme-dark #cf-overlay{background-color: rgba(59, 61, 66, 0.42);}
@@ -115,11 +115,11 @@ Last Modified time : 20220211 98:00 by https://immmmm.com
 }
 .cf-overshow .cf-overshow-head a:hover {
   text-decoration: none!important;
-  color: var(--gavin-blue2)!important;
+  color: var(--gavin-highlight)!important;
 }
 #cf-footer a:hover {
   text-decoration: none;
-  color: var(--gavin-blue2);
+  color: var(--gavin-highlight);
 }
 .cf-star {
   color: var(--lmm-fontcolor)!important;
@@ -309,8 +309,8 @@ Last Modified time : 20220211 98:00 by https://immmmm.com
 }
 #我的收藏 .refresh:hover,
 #我的收藏 .fold:hover {
-  background-color: var(--gavin-widget-bg2);
-  border-color: rgba(var(--op-dis), .1);
+  color: var(--gavin-highlight);
+  border-color: var(--gavin-highlight);
   transition: .3s;
 }
 #我的收藏 .refresh i {
