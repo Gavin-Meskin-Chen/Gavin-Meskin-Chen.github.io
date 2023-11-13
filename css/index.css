@@ -4152,7 +4152,7 @@ h1.page-title + .tag-cloud-list {
   transition: all 0.2s ease-in-out;
 }
 #post .tag_share .post-meta__tags:hover {
-  background: var(--gavin-highlight-op-6);
+  background: var(--gavin-nav-hover);
   color: #fff;
   border-color: var(--gavin-highlight);
 }
@@ -4484,6 +4484,9 @@ h1.page-title + .tag-cloud-list {
 #rightside > div > button:hover,
 #rightside > div > a:hover {
   background-color: var(--gavin-highlight);
+  border-color: var(--gavin-highlight);
+  -webkit-box-shadow: 0 0 16px -4px var(--gavin-highlight-op);
+  box-shadow: 0 0 16px -4px var(--gavin-highlight-op);
   color: var(--f-0);
 }
 #rightside #mobile-toc-button {
@@ -4863,8 +4866,8 @@ span.mathjax-overflow {
 }
 .card_box .card_mask a:hover {
   text-decoration: none !important;
-  color: var(--f-0) !important;
-  background: var(--gavin-highlight);
+  color: #fff !important;
+  background: var(--gavin-nav-hover);
 }
 .card_box .card_content {
   z-index: 1;

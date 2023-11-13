@@ -1798,8 +1798,8 @@ span.post-meta-categories {
 }
 
 a.post-meta-categories:hover {
-    color: #fff;
-    background: #000;
+    color: var(--f-0);
+    background: var(--gavin-highlight);
 }
 
 #post-info #post-meta-top {
@@ -1851,8 +1851,8 @@ a.post-meta-categories:hover {
 }
 
 .post-meta-commentcount:hover {
-    background-color: #fff;
-    color: #000 !important;
+    background-color: var(--gavin-nav-hover);
+    color: #fff !important;
 }
 
 /* 修复全局字体带来的bug */
@@ -1988,9 +1988,9 @@ input.toPageInput::placeholder {
 }
 
 #pagination .page-number.current {
-    background: var(--gavin-highlight) !important;
+    background: var(--gavin-highlight-op-6) !important;
     border-color: var(--gavin-highlight);
-    color: var(--f-0)!important;
+    color: #fff!important;
 }
 
 #pagination .pagination>* {
@@ -2546,6 +2546,15 @@ span.separator {
 #he-plugin-simple a:hover {
     background: unset!important;
     background-color: unset!important;
+}
+
+#he-plugin-simple > div:last-child > div {
+    top: 60px!important;
+}
+
+.wv-top-select, button.wv-top-button {
+    border-radius: 6px!important;
+    height: 2.5em!important;
 }
 
 /* ******************************文章波浪*************************** */
@@ -3308,7 +3317,9 @@ span.separator {
 /* 评论框 */
 .twikoo .el-input__inner:focus,
 .twikoo .el-textarea__inner:focus {
-    border-color: rgba(144, 147, 153, 1);
+    border-color: var(--gavin-highlight);
+    outline: 4px solid var(--gavin-highlight-op);
+    /* border-color: rgba(144, 147, 153, 1); */
     background: rgba(144, 147, 153, 0.16);
 }
 
@@ -5933,7 +5944,7 @@ progress::-webkit-progress-value {
 #post-comment .apply-for-flink {
     border: 1px dashed var(--gavin-note-font-color);
     padding: 0 10px;
-    border-radius: 6px;
+    border-radius: 20px;
     cursor: pointer;
     transition: all .3s;
 }
