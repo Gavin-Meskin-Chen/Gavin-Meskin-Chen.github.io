@@ -202,7 +202,7 @@
     --gavin-op-dis-6: rgba(255, 255, 255, .6);
     --gavin-op-dis-7: rgba(255, 255, 255, .7);
     --gavin-nav-bg: rgba(0, 0, 0, .56);
-    --gavin-nav-hover: rgba(255, 255, 255, .15);
+    --gavin-nav-hover: var(--gavin-highlight-op-6);
     /* --gavin-nav-hover: #00EAD0; */
     --gavin-mask: rgba(255, 255, 255, .18);
     --gavin-page-bg: rgba(255, 255, 255, 0.8);
@@ -1351,7 +1351,7 @@ a {
 
 /* 设置目录弧度和颜色 */
 #aside-content #card-toc .toc-content .toc-link.active {
-    background: var(--gavin-toc-bg);
+    background: var(--gavin-nav-hover);
     border-radius: 0.4em;
 }
 

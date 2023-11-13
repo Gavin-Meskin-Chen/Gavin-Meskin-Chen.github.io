@@ -4152,7 +4152,7 @@ h1.page-title + .tag-cloud-list {
   transition: all 0.2s ease-in-out;
 }
 #post .tag_share .post-meta__tags:hover {
-  background: var(--gavin-highlight-op-1);
+  background: var(--gavin-highlight-op-6);
   color: #fff;
   border-color: var(--gavin-highlight);
 }
