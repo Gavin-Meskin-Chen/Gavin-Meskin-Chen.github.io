@@ -1988,7 +1988,7 @@ input.toPageInput::placeholder {
 }
 
 #pagination .page-number.current {
-    background: var(--gavin-highlight-op-6) !important;
+    background: var(--gavin-nav-hover) !important;
     border-color: var(--gavin-highlight);
     color: #fff!important;
 }
@@ -3197,10 +3197,12 @@ span.separator {
 /* **************************文章版权框样式************************** */
 #post .post-copyright {
     /* background-color:rgba(70, 160, 250, 0.3); */
-    background-color: rgba(0, 150, 255, 0.2);
+    /* background-color: rgba(0, 150, 255, 0.2); */
+    background-color: var(--gavin-widget-bg1);
     border-radius: 12px;
     /* border-color: rgba(5, 109, 232, 0.8); */
-    border-color: var(--gavin-blue1);
+    /* border-color: var(--gavin-blue1); */
+    border-color: var(--gavin-border-color);
     overflow: hidden;
     transition: all 0.3s ease-in-out;
 }
@@ -3211,7 +3213,8 @@ span.separator {
 }
 
 #post .post-copyright .post-copyright-meta {
-    color: var(--gavin-blue2);
+    /* color: var(--gavin-blue2); */
+    color: var(--dis-f-0);
 }
 
 #post .post-copyright:hover {
@@ -3227,18 +3230,19 @@ span.separator {
     color: var(--dis-f-0);
     /* font-weight: bold; */
     text-decoration: none;
-    border-bottom: 2px solid var(--gavin-blue2);
+    border-bottom: 2px solid var(--gavin-highlight);
 }
 
 #post .post-copyright .post-copyright-info a:hover {
     /* color: rgba(5,109,232,0.8); */
     /* color: var(--gavin-hover-font-color); */
     /* border-bottom: 2px solid rgba(0, 136, 255, 1); */
-    color: var(--gavin-blue2);
+    color: var(--gavin-highlight);
 }
 
 #post .post-copyright:before {
-    color: rgba(0, 136, 255, .2);
+    /* color: rgba(0, 136, 255, .2); */
+    color: var(--gavin-highlight-op-1);
     top: -81px;
     right: -18px;
     font-size: 8.1em;
@@ -3320,7 +3324,8 @@ span.separator {
     border-color: var(--gavin-highlight);
     outline: 4px solid var(--gavin-highlight-op);
     /* border-color: rgba(144, 147, 153, 1); */
-    background: rgba(144, 147, 153, 0.16);
+    /* background: rgba(144, 147, 153, 0.16); */
+    /* background: rgba(var(--gavin-theme-color), 0.04); */
 }
 
 .twikoo .el-input__inner::placeholder,

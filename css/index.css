@@ -4485,8 +4485,8 @@ h1.page-title + .tag-cloud-list {
 #rightside > div > a:hover {
   background-color: var(--gavin-highlight);
   border-color: var(--gavin-highlight);
-  -webkit-box-shadow: 0 0 16px -4px var(--gavin-highlight-op);
-  box-shadow: 0 0 16px -4px var(--gavin-highlight-op);
+  -webkit-box-shadow: 0 0 16px -4px var(--gavin-highlight);
+  box-shadow: 0 0 16px -4px var(--gavin-highlight);
   color: var(--f-0);
 }
 #rightside #mobile-toc-button {
