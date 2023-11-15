@@ -4741,6 +4741,7 @@ html.hide-aside .layout>div:first-child {
 #console-settings.item-show,
 #console-setting-info1.item-show,
 #console-setting-info2.item-show,
+#console-setting-info3.item-show,
 #console-music-item-main.item-show,
 #console-music-item-list.item-show,
 #console-music-item-lrc.item-show,
@@ -5176,6 +5177,29 @@ a#music-list-title {
     display: inline-block; */
 }
 
+.gavin-textarea {
+    margin: 5px 0 0;
+    width: 100%;
+    padding: 10px;
+    font-size: 15px;
+    border-radius: 6px;
+    color: var(--font-color);
+    border: 1px solid var(--gavin-border-color);
+    background: var(--gavin-widget-bg1);
+    resize: vertical;
+    transition: background .5s,color .5s;
+}
+
+.gavin-textarea:focus {
+    outline: 4px solid rgba(0,136,255,.3);
+    border-color: var(--gavin-blue2);
+}
+
+/* .gavin-textarea.lock {
+    background: var(--gavin-widget-bg2);
+    cursor: no-drop;
+} */
+
 /* ***********侧边栏日历************ */
 /* .card-widget.card-times .item-headline {
     display: none;
@@ -5498,6 +5522,7 @@ progress::-webkit-progress-value {
 }
 
 #li-set-display:hover,
+#li-set-tools:hover,
 #li-set-about:hover {
     cursor: pointer;
     background: var(--vercel-hover-bg);
@@ -5548,6 +5573,10 @@ progress::-webkit-progress-value {
 
 #li-set-display .setting-icon {
     background-color: rgb(90, 168, 85);
+}
+
+#li-set-tools .setting-icon {
+    background-color: rgb(255, 149, 0);
 }
 
 #li-set-about .setting-icon {
@@ -6174,8 +6203,8 @@ progress::-webkit-progress-value {
 
 .encryption .inner:focus,
 .encryption .outer:focus {
-    outline: 7px solid rgba(0, 136, 255, .16);
-    border-color: var(--gavin-blue2);
+    outline: 6px solid var(--gavin-highlight-op);
+    border-color: var(--gavin-highlight);
 }
 
 .encryption .select-items {
@@ -6208,8 +6237,8 @@ progress::-webkit-progress-value {
 }
 
 .encryption .select-item:focus {
-    outline: 7px solid rgba(0, 136, 255, .16);
-    border-color: var(--gavin-blue2);
+    outline: 6px solid var(--gavin-highlight-op);
+    border-color: var(--gavin-highlight);
 }
 
 .encryption .btns {

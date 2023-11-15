@@ -980,6 +980,7 @@ var ctrl = {
         // a.parentElement.querySelector('.el-input__count').innerHTML = '62/1000'
     },
 
+    // 更改主题色
     changeThemeColor(i) {
         var colors = [['0,100,255','0,150,255'], ['129,78,250', '0,234,208'], ['66,90,239', '255,190,0']]
         var a = document.querySelector('.setting-right .checked')
@@ -992,6 +993,7 @@ var ctrl = {
         // localStorage.setItem('theme-color-dark', '0,234,208');
     },
 
+    // 更改侧边栏位置
     asideContentDirection() {
         var style = document.getElementById('asideContentDirection')
         if (style) {
@@ -1010,6 +1012,23 @@ var ctrl = {
             document.querySelector('#set-aside-direction .left').classList.remove('active')
             document.querySelector('#set-aside-direction .right').classList.add('active')
             localStorage.setItem('aside-direction', 'right')
+        }
+    },
+
+    // 运行JavaScript调试
+    jsDebug(event) {
+        if (event.key === 'Enter' && !event.shiftKey) {
+            event.preventDefault(); // 阻止换行
+            a();
+        }
+        function a() {
+            var code = document.getElementById("jsDebugInput").value;
+            try {
+                var result = eval(code);
+                document.getElementById("jsDebugOutput").value = result;
+            } catch (error) {
+                document.getElementById("jsDebugOutput").value = "运行出错：" + error;
+            }
         }
     },
 
@@ -1282,14 +1301,15 @@ var music_list_switch = document.getElementById("music-ctrl-btn-end");
 var music_list_title = document.getElementById("music-list-title");
 var settings_btn = document.querySelector("#console .settings-btn");
 var to_display = document.getElementById("li-set-display");
+var to_tools = document.getElementById("li-set-tools");
 var to_about = document.getElementById("li-set-about");
 // var to_wallpaper = document.querySelector("#li-set-wallpaper .setting-next");
 var setting_info1 = document.getElementById("console-setting-info1");
-var setting_title1 = document.querySelector("#console-setting-info1 .setting-title");
+var setting_title1 = setting_info1.querySelector(".setting-title");
 var setting_info2 = document.getElementById("console-setting-info2");
-var setting_title2 = document.querySelector("#console-setting-info2 .setting-title");
-// var setting_info3 = document.getElementById("console-setting-info3");
-// var setting_title3 = document.querySelector("#console-setting-info3 .setting-title");
+var setting_title2 = setting_info2.querySelector(".setting-title");
+var setting_info3 = document.getElementById("console-setting-info3");
+var setting_title3 = setting_info3.querySelector(".setting-title");
 music_list_switch.addEventListener("click", () => {
     // document.getElementById("console-music-item-main").classList.remove("item-show");
     document.getElementById("console-music-item-list").classList.add("item-show");
@@ -1314,6 +1334,10 @@ to_about.addEventListener("click", () => {
     document.querySelector("#console-setting-info2 .set-box-normal:nth-child(4) .setting-detail").innerHTML = tools.getOSInfo();
     document.querySelector("#console-setting-info2 .set-box-normal:nth-child(5) .setting-detail").innerHTML = tools.detectBrowser().name + " " + tools.detectBrowser().version;
     setting_info2.classList.add("item-show");
+});
+to_tools.addEventListener("click", () => {
+    setting_title3.innerHTML = "辅助功能";
+    setting_info3.classList.add("item-show");
 });
 // to_wallpaper.addEventListener("click", () => {
 //     setting_title3.innerHTML = "桌面和壁纸";
@@ -1384,6 +1408,10 @@ set_fps.addEventListener("change", () => {
         document.getElementById("fps-box").style.display = 'none';
     }
 });
+
+document.getElementById('jsDebugInput').addEventListener('input', ()=>{
+    document.getElementById('jsDebugOutput').value = '';
+})
 
 // 歌单列表监听器
 const songsheets = [
