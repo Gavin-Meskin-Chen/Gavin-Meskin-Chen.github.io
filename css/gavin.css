@@ -2157,7 +2157,7 @@ h6 {
 
 @media screen and (min-width: 900px) {
     #aside-content {
-        padding-right: 20px;
+        padding-right: 0;
     }
 }
 
@@ -4024,6 +4024,7 @@ a.article-meta__categories:hover {
     padding-left: 5%;
     padding-right: 5%;
     max-width: 1600px !important;
+    gap: 20px;
 }
 
 @media screen and (max-width: 1300px) {
@@ -5725,6 +5726,45 @@ progress::-webkit-progress-value {
 .theme-color-3 .theme-color-bottom {
     height: 50%;
     background: rgb(255,190,0);
+}
+
+/* 设置 - 侧边栏位置 */
+.setting-select-bar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    background: var(--gavin-switch-off);
+    height: 28px;
+    width: 96px;
+}
+
+.label-select {
+    width: 50%;
+    height: 100%;
+    line-height: 1;
+    z-index: 1;
+    font-size: 14px;
+    pointer-events: all;
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+.label-select.active {
+    color: #000;
+    pointer-events: none;
+    cursor: default;
+}
+
+.label-active {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 45px;
+    height: 22px;
+    background: #fff;
+    border-radius: 6px;
+    transition: .2s ease;
 }
 
 #li-set-login {

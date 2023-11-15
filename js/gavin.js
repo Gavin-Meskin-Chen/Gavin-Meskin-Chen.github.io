@@ -106,6 +106,9 @@ window.onload = function () {
     if (localStorage.getItem('theme-color') != null) {
         ctrl.changeThemeColor(localStorage.getItem('theme-color'))
     }
+    if (localStorage.getItem('aside-direction') != null) {
+        if (localStorage.getItem('aside-direction') == 'right') ctrl.asideContentDirection()
+    }
     if (set_sys_theme.checked) {
         const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
         const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches;
@@ -987,6 +990,27 @@ var ctrl = {
         localStorage.setItem('theme-color', i);
         // localStorage.setItem('theme-color-light', '129,78,250');
         // localStorage.setItem('theme-color-dark', '0,234,208');
+    },
+
+    asideContentDirection() {
+        var style = document.getElementById('asideContentDirection')
+        if (style) {
+            document.head.removeChild(style)
+            document.querySelector('#set-aside-direction .label-active').style.left = '3px'
+            document.querySelector('#set-aside-direction .right').classList.remove('active')
+            document.querySelector('#set-aside-direction .left').classList.add('active')
+            localStorage.setItem('aside-direction', 'left')
+        } else {
+            var styleTag = document.createElement('style')
+            styleTag.type = 'text/css'
+            styleTag.id = 'asideContentDirection'
+            styleTag.innerHTML = '#aside-content{order:2;}'
+            document.head.appendChild(styleTag)
+            document.querySelector('#set-aside-direction .label-active').style.left = '48px'
+            document.querySelector('#set-aside-direction .left').classList.remove('active')
+            document.querySelector('#set-aside-direction .right').classList.add('active')
+            localStorage.setItem('aside-direction', 'right')
+        }
     },
 
     // 显示应用中心

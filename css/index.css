@@ -6368,8 +6368,8 @@ blockquote.pullquote.right {
     width: 100px;
     border-radius: 20px;
     justify-content: center;
-    background: rgba(var(--op), .5);
-    color: var(--font-color);
+    background: rgba(255,255,255, .18);
+    color: #fff;
     display: flex;
     align-items: center;
     z-index: 1;
@@ -6386,8 +6386,8 @@ blockquote.pullquote.right {
   }
   
   .author-content-item .card-content .banner-button-group .banner-button:hover {
-    background: var(--f-0);
-    color: var(--dis-f-0);
+    background: var(--gavin-highlight-op-6);
+    /* color: var(--dis-f-0); */
     border-radius: 20px !important;
   }
   .author-content-item.personalities {
