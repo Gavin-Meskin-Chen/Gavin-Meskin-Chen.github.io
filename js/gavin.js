@@ -289,104 +289,80 @@ var tools = {
     },
 
     detectBrowser() {
-        const userAgent = navigator.userAgent;
+        const userAgent = navigator.userAgent.toLowerCase();
         let browserName, fullVersion, majorVersion;
         function getHard(str) {
             let str1 = str.substring(str.indexOf("("), str.indexOf(")"));
             return str1.substring(str1.lastIndexOf(";") + 2, str1.length);
         }
         let hard = getHard(userAgent);
-        if (/Firefox[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent)) {
+        if (/firefox[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent)) {
             // 检测Firefox
             browserName = "Firefox";
             fullVersion = RegExp.$1;
             majorVersion = parseInt(RegExp.$1, 10);
-        } else if (/Edge[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent)) {
-            // 检测Edge (Chromium)
+        } else if (/edge[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent) || /edg[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent) || /edga[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent) || /edgios[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent)) {
+            // 检测Edge
             browserName = "Edge";
             fullVersion = RegExp.$1;
             majorVersion = parseInt(RegExp.$1, 10);
-        } else if (/Edg[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent)) {
-            // 检测Edge (旧版)
-            browserName = "Edge";
-            fullVersion = RegExp.$1;
-            majorVersion = parseInt(RegExp.$1, 10);
-        } else if (/EdgA[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent)) {
-            // 检测Edge浏览器(移动端)
-            browserName = "Edge";
-            fullVersion = RegExp.$1;
-            majorVersion = parseInt(RegExp.$1, 10);
-        } else if (/HBPC[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent)) {
-            // 检测华为浏览器(PC)
+        } else if (/hbpc[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent) || /huaweibrowser[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent)) {
+            // 检测华为浏览器
             browserName = "HUAWEI Browser";
             fullVersion = RegExp.$1;
             majorVersion = parseInt(RegExp.$1, 10);
-        } else if (/HuaweiBrowser[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent)) {
-            // 检测华为浏览器(移动端)
-            browserName = "HUAWEI Browser";
-            fullVersion = RegExp.$1;
-            majorVersion = parseInt(RegExp.$1, 10);
-        } else if (/MiuiBrowser[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent)) {
+        } else if (/miuibrowser[\/\s](\d+\.\d+\.\d+)/.test(userAgent)) {
             // 检测小米浏览器
             browserName = "MIUI Browser";
             fullVersion = RegExp.$1;
             majorVersion = parseInt(RegExp.$1, 10);
-        } else if (/VivoBrowser[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent)) {
+        } else if (/vivobrowser[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent)) {
             // 检测vivo浏览器
             browserName = "vivo Browser";
-            fullVersion = RegExp.$1;UCBrowser
+            fullVersion = RegExp.$1;
             majorVersion = parseInt(RegExp.$1, 10);
-        } else if (/baiduboxapp[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent)) {
+        } else if (/baiduboxapp[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent) || /baidubrowser[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent)) {
             // 检测百度浏览器
             browserName = "Baidu Browser";
             fullVersion = RegExp.$1;
             majorVersion = parseInt(RegExp.$1, 10);
-        } else if (/UCBrowser[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent)) {
+        } else if (/ucbrowser[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent) || /ubrowser[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent)) {
             // 检测UC浏览器
             browserName = "UC Browser";
             fullVersion = RegExp.$1;
             majorVersion = parseInt(RegExp.$1, 10);
-        } else if (/Quark[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent)) {
+        } else if (/quark[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent)) {
             // 检测夸克浏览器
             browserName = "Quark Browser";
             fullVersion = RegExp.$1;
             majorVersion = parseInt(RegExp.$1, 10);
-        } else if (/MQQBrowser[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent)) {
+        } else if (/mqqbrowser[\/\s](\d+\.\d+\.\d+)/.test(userAgent) || /mqqbrowser[\/\s](\d+\.\d+)/.test(userAgent) || /qqbrowser[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent)) {
             // 检测QQ浏览器
             browserName = "QQ Browser";
             fullVersion = RegExp.$1;
             majorVersion = parseInt(RegExp.$1, 10);
-        } else if (/QQBrowser[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent)) {
-            // 检测QQ浏览器PC版
-            browserName = "QQ Browser(PC)";
-            fullVersion = RegExp.$1;
-            majorVersion = parseInt(RegExp.$1, 10);
-        } else if (/MicroMessenger[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent)) {
+        } else if (/micromessenger[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent)) {
             // 检测微信浏览器
             browserName = "Wechat Browser";
             fullVersion = RegExp.$1;
             majorVersion = parseInt(RegExp.$1, 10);
-        } else if (/CriOS[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent)) {
-            // 检测Chrome(iPad版)
-            browserName = "Chrome(Safari)";
-            fullVersion = RegExp.$1;
-            majorVersion = parseInt(RegExp.$1, 10);
-        } else if (/OPR[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent)) {
+        } else if (/opr[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent)) {
             // 检测Opera
             browserName = "Opera";
             fullVersion = RegExp.$1;
             majorVersion = parseInt(RegExp.$1, 10);
-        } else if (/Chrome[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent)) {
+        } else if (/crios[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent) || /chrome[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent)) {
             // 检测Chrome
             browserName = "Chrome";
             fullVersion = RegExp.$1;
             majorVersion = parseInt(RegExp.$1, 10);
-        } else if (/Safari[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent)) {
+        } else if (/safari[\/\s](\d+\.\d+\.\d+)/.test(userAgent)) {
             // 检测Safari
+            /version[\/\s](\d+\.\d+)/.test(userAgent);
             browserName = "Safari";
             fullVersion = RegExp.$1;
             majorVersion = parseInt(RegExp.$1, 10);
-        } else if (/MSIE (\d+\.\d+);/.test(userAgent) || /Trident[\/\s](\d+\.\d+)/.test(userAgent)) {
+        } else if (/msie (\d+\.\d+);/.test(userAgent) || /trident[\/\s](\d+\.\d+)/.test(userAgent)) {
             // 检测IE
             browserName = "Internet Explorer";
             fullVersion = RegExp.$1;
