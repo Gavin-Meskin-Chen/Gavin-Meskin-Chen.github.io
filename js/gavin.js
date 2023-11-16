@@ -289,80 +289,108 @@ var tools = {
     },
 
     detectBrowser() {
-        const userAgent = navigator.userAgent.toLowerCase();
+        const userAgent = navigator.userAgent;
         let browserName, fullVersion, majorVersion;
         function getHard(str) {
             let str1 = str.substring(str.indexOf("("), str.indexOf(")"));
             return str1.substring(str1.lastIndexOf(";") + 2, str1.length);
         }
-        let hard = getHard(userAgent);
-        if (/firefox[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent)) {
+        let h = userAgent.substring(userAgent.indexOf("(") + 1, userAgent.indexOf(")")).toLowerCase();
+        let hard;
+        if (h.indexOf("hmscore") != -1 || h.indexOf("huawei") != -1 || h.indexOf("harmonyos") != -1) {
+            hard = 'HarmonyOS设备'
+        } else if (h.indexOf("windows") != -1) {
+            hard = 'PC'
+        } else if (h.indexOf("iphone") != -1) {
+            hard = 'iPhone'
+        } else if (h.indexOf("ipad") != -1) {
+            hard = 'iPad'
+        } else if (h.indexOf("macintosh") != -1) {
+            hard = 'Mac'
+        } else if (h.indexOf("android") != -1) {
+            hard = 'Android';
+        } else if (h.indexOf("cros") != -1) {
+            hard = 'ChromeOS设备';
+        } else if (h.indexOf("playstation") != -1) {
+            hard = 'PlayStation';
+        } else if (h.indexOf("symbian") != -1) {
+            hard = 'Symbian';
+        } else if (h.indexOf("linux") != -1) {
+            hard = 'Linux';
+        }
+        let u = userAgent.toLowerCase();
+        if (/firefox[\/\s](\d+\.\d+\.\d+\.\d+)/.test(u)) {
             // 检测Firefox
             browserName = "Firefox";
             fullVersion = RegExp.$1;
             majorVersion = parseInt(RegExp.$1, 10);
-        } else if (/edge[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent) || /edg[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent) || /edga[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent) || /edgios[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent)) {
+        } else if (/edge[\/\s](\d+\.\d+\.\d+\.\d+)/.test(u) || /edg[\/\s](\d+\.\d+\.\d+\.\d+)/.test(u) || /edga[\/\s](\d+\.\d+\.\d+\.\d+)/.test(u) || /edgios[\/\s](\d+\.\d+\.\d+\.\d+)/.test(u)) {
             // 检测Edge
             browserName = "Edge";
             fullVersion = RegExp.$1;
             majorVersion = parseInt(RegExp.$1, 10);
-        } else if (/hbpc[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent) || /huaweibrowser[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent)) {
+        } else if (/hbpc[\/\s](\d+\.\d+\.\d+\.\d+)/.test(u) || /huaweibrowser[\/\s](\d+\.\d+\.\d+\.\d+)/.test(u)) {
             // 检测华为浏览器
             browserName = "HUAWEI Browser";
             fullVersion = RegExp.$1;
             majorVersion = parseInt(RegExp.$1, 10);
-        } else if (/miuibrowser[\/\s](\d+\.\d+\.\d+)/.test(userAgent)) {
+        } else if (/miuibrowser[\/\s](\d+\.\d+\.\d+)/.test(u)) {
             // 检测小米浏览器
             browserName = "MIUI Browser";
             fullVersion = RegExp.$1;
             majorVersion = parseInt(RegExp.$1, 10);
-        } else if (/vivobrowser[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent)) {
+        } else if (/vivobrowser[\/\s](\d+\.\d+\.\d+\.\d+)/.test(u)) {
             // 检测vivo浏览器
             browserName = "vivo Browser";
             fullVersion = RegExp.$1;
             majorVersion = parseInt(RegExp.$1, 10);
-        } else if (/baiduboxapp[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent) || /baidubrowser[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent)) {
+        } else if (/heytapbrowser[\/\s](\d+\.\d+\.\d+\.\d+)/.test(u)) {
+            // 检测vivo浏览器
+            browserName = "OPPO Browser";
+            fullVersion = RegExp.$1;
+            majorVersion = parseInt(RegExp.$1, 10);
+        } else if (/baiduboxapp[\/\s](\d+\.\d+\.\d+\.\d+)/.test(u) || /baidubrowser[\/\s](\d+\.\d+\.\d+\.\d+)/.test(u)) {
             // 检测百度浏览器
             browserName = "Baidu Browser";
             fullVersion = RegExp.$1;
             majorVersion = parseInt(RegExp.$1, 10);
-        } else if (/ucbrowser[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent) || /ubrowser[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent)) {
+        } else if (/ucbrowser[\/\s](\d+\.\d+\.\d+\.\d+)/.test(u) || /ubrowser[\/\s](\d+\.\d+\.\d+\.\d+)/.test(u)) {
             // 检测UC浏览器
             browserName = "UC Browser";
             fullVersion = RegExp.$1;
             majorVersion = parseInt(RegExp.$1, 10);
-        } else if (/quark[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent)) {
+        } else if (/quark[\/\s](\d+\.\d+\.\d+\.\d+)/.test(u)) {
             // 检测夸克浏览器
             browserName = "Quark Browser";
             fullVersion = RegExp.$1;
             majorVersion = parseInt(RegExp.$1, 10);
-        } else if (/mqqbrowser[\/\s](\d+\.\d+\.\d+)/.test(userAgent) || /mqqbrowser[\/\s](\d+\.\d+)/.test(userAgent) || /qqbrowser[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent)) {
+        } else if (/mqqbrowser[\/\s](\d+\.\d+\.\d+)/.test(u) || /mqqbrowser[\/\s](\d+\.\d+)/.test(u) || /qqbrowser[\/\s](\d+\.\d+\.\d+\.\d+)/.test(u)) {
             // 检测QQ浏览器
             browserName = "QQ Browser";
             fullVersion = RegExp.$1;
             majorVersion = parseInt(RegExp.$1, 10);
-        } else if (/micromessenger[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent)) {
+        } else if (/micromessenger[\/\s](\d+\.\d+\.\d+\.\d+)/.test(u)) {
             // 检测微信浏览器
             browserName = "Wechat Browser";
             fullVersion = RegExp.$1;
             majorVersion = parseInt(RegExp.$1, 10);
-        } else if (/opr[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent)) {
+        } else if (/opr[\/\s](\d+\.\d+\.\d+\.\d+)/.test(u)) {
             // 检测Opera
             browserName = "Opera";
             fullVersion = RegExp.$1;
             majorVersion = parseInt(RegExp.$1, 10);
-        } else if (/crios[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent) || /chrome[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent)) {
+        } else if (/crios[\/\s](\d+\.\d+\.\d+\.\d+)/.test(u) || /chrome[\/\s](\d+\.\d+\.\d+\.\d+)/.test(u)) {
             // 检测Chrome
             browserName = "Chrome";
             fullVersion = RegExp.$1;
             majorVersion = parseInt(RegExp.$1, 10);
-        } else if (/safari[\/\s](\d+\.\d+\.\d+)/.test(userAgent)) {
+        } else if (/safari[\/\s](\d+\.\d+\.\d+)/.test(u) || /safari[\/\s](\d+\.\d+)/.test(u)) {
             // 检测Safari
-            /version[\/\s](\d+\.\d+)/.test(userAgent);
+            /version[\/\s](\d+\.\d+)/.test(u);
             browserName = "Safari";
             fullVersion = RegExp.$1;
             majorVersion = parseInt(RegExp.$1, 10);
-        } else if (/msie (\d+\.\d+);/.test(userAgent) || /trident[\/\s](\d+\.\d+)/.test(userAgent)) {
+        } else if (/msie (\d+\.\d+);/.test(u) || /trident[\/\s](\d+\.\d+)/.test(u)) {
             // 检测IE
             browserName = "Internet Explorer";
             fullVersion = RegExp.$1;
@@ -408,6 +436,9 @@ var tools = {
             } else if (navigator.userAgent.indexOf("Windows NT 5.0") != -1) {
                 osVersion = "2000";
             }
+        } else if (navigator.userAgent.indexOf("iPhone OS") != -1) {
+            osName = "iOS";
+            osVersion = navigator.userAgent.match(/OS\s([\d_]+)/)[1].replace(/_/g, '.');
         } else if (navigator.userAgent.indexOf("Mac OS X") != -1) {
             osName = "macOS";
             osVersion = navigator.userAgent.match(/Mac OS X\s([\d_]+)/)[1].replace(/_/g, '.');
@@ -420,9 +451,6 @@ var tools = {
         } else if (navigator.userAgent.indexOf("Android") != -1) {
             osName = "Android";
             osVersion = navigator.userAgent.match(/Android\s([\d.]+)/)[1];
-        } else if (navigator.userAgent.indexOf("iOS") != -1) {
-            osName = "iOS";
-            osVersion = navigator.userAgent.match(/OS\s([\d_]+)/)[1].replace(/_/g, '.');
         } else if (navigator.userAgent.indexOf("Linux") != -1) {
             osName = "Linux";
         }
