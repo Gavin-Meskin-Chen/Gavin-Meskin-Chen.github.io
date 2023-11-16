@@ -419,35 +419,42 @@ var tools = {
     getOSInfo() {
         let osName = "unknown";
         let osVersion = "unknown";
-        if (navigator.userAgent.indexOf("Windows") != -1) {
+        let u = navigator.userAgent;
+        if (u.indexOf("Windows") != -1) {
             osName = "Windows";
-            if (navigator.userAgent.indexOf("Windows NT 10.0") != -1) {
+            if (u.indexOf("Windows NT 10.0") != -1) {
                 osVersion = "10";
-            } else if (navigator.userAgent.indexOf("Windows NT 6.3") != -1) {
+            } else if (u.indexOf("Windows NT 6.3") != -1) {
                 osVersion = "8.1";
-            } else if (navigator.userAgent.indexOf("Windows NT 6.2") != -1) {
+            } else if (u.indexOf("Windows NT 6.2") != -1) {
                 osVersion = "8";
-            } else if (navigator.userAgent.indexOf("Windows NT 6.1") != -1) {
+            } else if (u.indexOf("Windows NT 6.1") != -1) {
                 osVersion = "7";
-            } else if (navigator.userAgent.indexOf("Windows NT 6.0") != -1) {
+            } else if (u.indexOf("Windows NT 6.0") != -1) {
                 osVersion = "Vista";
-            } else if (navigator.userAgent.indexOf("Windows NT 5.1") != -1) {
+            } else if (u.indexOf("Windows NT 5.1") != -1) {
                 osVersion = "XP";
-            } else if (navigator.userAgent.indexOf("Windows NT 5.0") != -1) {
+            } else if (u.indexOf("Windows NT 5.0") != -1) {
                 osVersion = "2000";
             }
-        } else if (navigator.userAgent.indexOf("iPhone OS") != -1) {
+        } else if (u.indexOf("iPhone OS") != -1) {
             osName = "iOS";
-            osVersion = navigator.userAgent.match(/OS\s([\d_]+)/)[1].replace(/_/g, '.');
-        } else if (navigator.userAgent.indexOf("Mac OS X") != -1) {
+            osVersion = u.match(/OS\s([\d_]+)/)[1].replace(/_/g, '.');
+        } else if (u.indexOf("iPad") != -1) {
+            osName = "iPadOS";
+            osVersion = u.match(/CPU OS\s([\d_]+)/)[1].replace(/_/g, '.');
+        } else if (u.indexOf("Mac OS X") != -1) {
             osName = "macOS";
-            osVersion = navigator.userAgent.match(/Mac OS X\s([\d_]+)/)[1].replace(/_/g, '.');
-        } else if (navigator.userAgent.indexOf("Android 11") != -1 && navigator.userAgent.indexOf("Huawei") != -1 || navigator.userAgent.indexOf("Android 11") != -1 && navigator.userAgent.indexOf("HUAWEI") != -1 || navigator.userAgent.indexOf("Android 11") != -1 && navigator.userAgent.indexOf("HarmonyOS") != -1 || navigator.userAgent.indexOf("Android 11") != -1 && navigator.userAgent.indexOf("HMSCore") != -1) {
-            osName = "HarmonyOS";
-            osVersion = 2;
-        } else if (navigator.userAgent.indexOf("Android 11") != -1 && navigator.userAgent.indexOf("Huawei") != -1 || navigator.userAgent.indexOf("Android 12") != -1 && navigator.userAgent.indexOf("HUAWEI") != -1 || navigator.userAgent.indexOf("Android 12") != -1 && navigator.userAgent.indexOf("HarmonyOS") != -1 || navigator.userAgent.indexOf("Android 12") != -1 && navigator.userAgent.indexOf("HMSCore") != -1) {
+            osVersion = u.match(/Mac OS X\s([\d_]+)/)[1].replace(/_/g, '.');
+        } else if (u.indexOf("Android 10") != -1 && (u.toLowerCase.indexOf("huawei") != -1 || u.indexOf("HarmonyOS") != -1 || u.indexOf("HMSCore") != -1)) {
             osName = "HarmonyOS";
             osVersion = 3;
+        } else if (u.indexOf("Android 11") != -1 && (u.toLowerCase.indexOf("huawei") != -1 || u.indexOf("HarmonyOS") != -1 || u.indexOf("HMSCore") != -1)) {
+            osName = "HarmonyOS";
+            osVersion = 3;
+        } else if (u.indexOf("Android 12") != -1 && (u.toLowerCase.indexOf("huawei") != -1 || u.indexOf("HarmonyOS") != -1 || u.indexOf("HMSCore") != -1)) {
+            osName = "HarmonyOS";
+            osVersion = 4;
         } else if (navigator.userAgent.indexOf("Android") != -1) {
             osName = "Android";
             osVersion = navigator.userAgent.match(/Android\s([\d.]+)/)[1];
