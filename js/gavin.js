@@ -55,6 +55,7 @@ const marqueeContainer1 = document.getElementById('console-music-title');
 const marqueeContent1 = document.getElementById('console-music-title-text');
 const marqueeContainer2 = document.getElementById('console-music-author');
 const marqueeContent2 = document.getElementById('console-music-author-text');
+var userInfo;
 var ipAddress = '';
 var frameCount = 0;
 var startTime = performance.now();
@@ -292,50 +293,125 @@ var tools = {
         let browserName, fullVersion, majorVersion;
         function getHard(str) {
             let str1 = str.substring(str.indexOf("("), str.indexOf(")"));
-            return str1.substring(str1.lastIndexOf(";") + 2, str1.length)
+            return str1.substring(str1.lastIndexOf(";") + 2, str1.length);
         }
         let hard = getHard(userAgent);
-        if (/Firefox[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent)) {// 检测Firefox
-            browserName = 'Firefox';
+        if (/Firefox[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent)) {
+            // 检测Firefox
+            browserName = "Firefox";
             fullVersion = RegExp.$1;
             majorVersion = parseInt(RegExp.$1, 10);
-        } else if (/Edge[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent)) {// 检测Edge
-            browserName = 'Edge (Chromium)';
+        } else if (/Edge[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent)) {
+            // 检测Edge (Chromium)
+            browserName = "Edge";
             fullVersion = RegExp.$1;
             majorVersion = parseInt(RegExp.$1, 10);
-        } else if (/Edg[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent)) {// 检测Edge (旧版)
-            browserName = 'Edge';
+        } else if (/Edg[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent)) {
+            // 检测Edge (旧版)
+            browserName = "Edge";
             fullVersion = RegExp.$1;
             majorVersion = parseInt(RegExp.$1, 10);
-        } else if (/OPR[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent)) {// 检测Opera
-            browserName = 'Opera';
+        } else if (/EdgA[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent)) {
+            // 检测Edge浏览器(移动端)
+            browserName = "Edge";
             fullVersion = RegExp.$1;
             majorVersion = parseInt(RegExp.$1, 10);
-        } else if (/Chrome[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent)) {// 检测Chrome
-            browserName = 'Chrome';
+        } else if (/HBPC[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent)) {
+            // 检测华为浏览器(PC)
+            browserName = "HUAWEI Browser";
             fullVersion = RegExp.$1;
             majorVersion = parseInt(RegExp.$1, 10);
-        } else if (/Safari[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent)) {// 检测Safari
-            browserName = 'Safari';
+        } else if (/HuaweiBrowser[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent)) {
+            // 检测华为浏览器(移动端)
+            browserName = "HUAWEI Browser";
             fullVersion = RegExp.$1;
             majorVersion = parseInt(RegExp.$1, 10);
-        } else if (/MSIE (\d+\.\d+);/.test(userAgent) || /Trident[\/\s](\d+\.\d+)/.test(userAgent)) {// 检测IE
-            browserName = 'Internet Explorer';
+        } else if (/MiuiBrowser[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent)) {
+            // 检测小米浏览器
+            browserName = "MIUI Browser";
             fullVersion = RegExp.$1;
             majorVersion = parseInt(RegExp.$1, 10);
-        } else {// 无法检测浏览器
-            browserName = 'Unknown';
-            fullVersion = 'Unknown';
+        } else if (/VivoBrowser[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent)) {
+            // 检测vivo浏览器
+            browserName = "vivo Browser";
+            fullVersion = RegExp.$1;UCBrowser
+            majorVersion = parseInt(RegExp.$1, 10);
+        } else if (/baiduboxapp[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent)) {
+            // 检测百度浏览器
+            browserName = "Baidu Browser";
+            fullVersion = RegExp.$1;
+            majorVersion = parseInt(RegExp.$1, 10);
+        } else if (/UCBrowser[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent)) {
+            // 检测UC浏览器
+            browserName = "UC Browser";
+            fullVersion = RegExp.$1;
+            majorVersion = parseInt(RegExp.$1, 10);
+        } else if (/Quark[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent)) {
+            // 检测夸克浏览器
+            browserName = "Quark Browser";
+            fullVersion = RegExp.$1;
+            majorVersion = parseInt(RegExp.$1, 10);
+        } else if (/MQQBrowser[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent)) {
+            // 检测QQ浏览器
+            browserName = "QQ Browser";
+            fullVersion = RegExp.$1;
+            majorVersion = parseInt(RegExp.$1, 10);
+        } else if (/QQBrowser[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent)) {
+            // 检测QQ浏览器PC版
+            browserName = "QQ Browser(PC)";
+            fullVersion = RegExp.$1;
+            majorVersion = parseInt(RegExp.$1, 10);
+        } else if (/MicroMessenger[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent)) {
+            // 检测微信浏览器
+            browserName = "Wechat Browser";
+            fullVersion = RegExp.$1;
+            majorVersion = parseInt(RegExp.$1, 10);
+        } else if (/CriOS[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent)) {
+            // 检测Chrome(iPad版)
+            browserName = "Chrome(Safari)";
+            fullVersion = RegExp.$1;
+            majorVersion = parseInt(RegExp.$1, 10);
+        } else if (/OPR[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent)) {
+            // 检测Opera
+            browserName = "Opera";
+            fullVersion = RegExp.$1;
+            majorVersion = parseInt(RegExp.$1, 10);
+        } else if (/Chrome[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent)) {
+            // 检测Chrome
+            browserName = "Chrome";
+            fullVersion = RegExp.$1;
+            majorVersion = parseInt(RegExp.$1, 10);
+        } else if (/Safari[\/\s](\d+\.\d+\.\d+\.\d+)/.test(userAgent)) {
+            // 检测Safari
+            browserName = "Safari";
+            fullVersion = RegExp.$1;
+            majorVersion = parseInt(RegExp.$1, 10);
+        } else if (/MSIE (\d+\.\d+);/.test(userAgent) || /Trident[\/\s](\d+\.\d+)/.test(userAgent)) {
+            // 检测IE
+            browserName = "Internet Explorer";
+            fullVersion = RegExp.$1;
+            majorVersion = parseInt(RegExp.$1, 10);
+        } else {
+            // 无法检测浏览器
+            browserName = "Unknown";
+            fullVersion = "Unknown";
             majorVersion = 0;
         }
         return {
-            name: browserName, //浏览器名称
-            version: fullVersion, //浏览器详细版本号
-            majorVersion: majorVersion, //主版本号
-            hard: hard //硬件平台
+            name: browserName, // 浏览器名称
+            version: fullVersion, // 浏览器详细版本号
+            majorVersion: majorVersion, // 主版本号
+            hard: hard // 硬件平台
         };
     },
-
+    // 帮我改进以上的代码，目前有几个识别错误：
+    // 第一个是PC端华为浏览器，userAgent的值是：Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.84 Safari/537.36 HBPC/12.1.3.306。可以增加对HBPC字段的匹配，识别为华为浏览器PC版，版本号为12.1.3.306，硬件平台是x64；
+    // 第二个是移动端华为浏览器，userAgent的值是：Mozilla/5.0 (Linux; Android 12; HarmonyOS; NOH-AN00; HMSCore 6.12.2.302) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.88 HuaweiBrowser/14.0.3.340 Mobile Safari/537.36。可以增加对HuaweiBrowser字段的匹配，识别为华为浏览器，版本号为14.0.3.340，硬件平台是NOH-AN00；
+    // 第三个是手机端的Edge浏览器，userAgent的值是：Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Mobile Safari/537.36 EdgA/118.0.2088.66。可以增加对EdgA字段的匹配，识别为Edge浏览器，版本号为118.0.2088.66，硬件平台是K；
+    // 第四个是PC端的Edge浏览器，userAgent的值是：'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 Edg/119.0.0.0'。增加对Edg字段的匹配，识别为Edge浏览器，版本号为119.0.0.0，硬件平台是x64；
+    // 第五个是iPad端的Safari浏览器，userAgent的值是：Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.2 Safari/605.1.15，应该识别到Safari浏览器，版本号为17.2，硬件平台是iPad；
+    // 第六个是iPad端的Chrome浏览器，userAgent的值是：Mozilla/5.0 (iPad; CPU OS 17_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/119.0.6045.109 Mobile/15E148 Safari/604.1。增加对CriOS字段的匹配，识别为Chrome（iPad版）浏览器，版本号为119.0.6045.109，硬件平台是iPad。
+    // 第七个是手机端的小米浏览器，Mozilla/5.0 (Linux; U; Android 13; zh-cn; 22127RK46C Build/TKQ1.220905.001) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/100.0.4896.127 Mobile Safari/537.36 XiaoMi/MiuiBrowser/17.6.70714 swan-mibrowser。增加对MiuiBrowser字段的匹配，识别为小米浏览器，版本号为17.6.70714。
     getOSInfo() {
         let osName = "unknown";
         let osVersion = "unknown";
@@ -359,22 +435,25 @@ var tools = {
         } else if (navigator.userAgent.indexOf("Mac OS X") != -1) {
             osName = "macOS";
             osVersion = navigator.userAgent.match(/Mac OS X\s([\d_]+)/)[1].replace(/_/g, '.');
-        } else if (navigator.userAgent.indexOf("Linux; Android 11") != -1) {
+        } else if (navigator.userAgent.indexOf("Android 11") != -1 && navigator.userAgent.indexOf("Huawei") != -1 || navigator.userAgent.indexOf("Android 11") != -1 && navigator.userAgent.indexOf("HUAWEI") != -1 || navigator.userAgent.indexOf("Android 11") != -1 && navigator.userAgent.indexOf("HarmonyOS") != -1 || navigator.userAgent.indexOf("Android 11") != -1 && navigator.userAgent.indexOf("HMSCore") != -1) {
             osName = "HarmonyOS";
             osVersion = 2;
-        } else if (navigator.userAgent.indexOf("Linux; Android 12") != -1) {
+        } else if (navigator.userAgent.indexOf("Android 11") != -1 && navigator.userAgent.indexOf("Huawei") != -1 || navigator.userAgent.indexOf("Android 12") != -1 && navigator.userAgent.indexOf("HUAWEI") != -1 || navigator.userAgent.indexOf("Android 12") != -1 && navigator.userAgent.indexOf("HarmonyOS") != -1 || navigator.userAgent.indexOf("Android 12") != -1 && navigator.userAgent.indexOf("HMSCore") != -1) {
             osName = "HarmonyOS";
             osVersion = 3;
-        } else if (navigator.userAgent.indexOf("Linux") != -1) {
-            osName = "Linux";
         } else if (navigator.userAgent.indexOf("Android") != -1) {
             osName = "Android";
             osVersion = navigator.userAgent.match(/Android\s([\d.]+)/)[1];
         } else if (navigator.userAgent.indexOf("iOS") != -1) {
             osName = "iOS";
             osVersion = navigator.userAgent.match(/OS\s([\d_]+)/)[1].replace(/_/g, '.');
+        } else if (navigator.userAgent.indexOf("Linux") != -1) {
+            osName = "Linux";
         }
-        return `${osName} ${osVersion}`;
+        return {
+            name: osName,
+            version: osVersion
+        };
     },
 
     getMemoryUsage() {
@@ -406,9 +485,11 @@ var tools = {
     },
 
     getIp() {
-        fetch('https://api.ipify.org?format=json')
+        // https://ip.jackjyq.com/json
+        fetch('https://api.ipify.org/?format=json')
             .then(response => response.json())
             .then(data => {
+                // userInfo = data;
                 ipAddress = data.ip;
                 console.log('您的 IP 地址：' + ipAddress);
             })
@@ -1331,8 +1412,11 @@ to_display.addEventListener("click", () => {
 to_about.addEventListener("click", () => {
     setting_title2.innerHTML = "关于本机";
     document.querySelector("#console-setting-info2 .set-box-normal:nth-child(3) .setting-detail").innerHTML = tools.detectBrowser().hard;
-    document.querySelector("#console-setting-info2 .set-box-normal:nth-child(4) .setting-detail").innerHTML = tools.getOSInfo();
+    document.querySelector("#console-setting-info2 .set-box-normal:nth-child(4) .setting-detail").innerHTML = tools.getOSInfo().name + " " + tools.getOSInfo().version;
     document.querySelector("#console-setting-info2 .set-box-normal:nth-child(5) .setting-detail").innerHTML = tools.detectBrowser().name + " " + tools.detectBrowser().version;
+    // document.querySelector("#console-setting-info2 .set-box-normal:nth-child(3) .setting-detail").innerHTML = userInfo.device;
+    // document.querySelector("#console-setting-info2 .set-box-normal:nth-child(4) .setting-detail").innerHTML = tools.getOSInfo().name == 'unknown' || tools.getOSInfo().version == 'unknown' ? userInfo.os : tools.getOSInfo().name + " " + tools.getOSInfo().version;
+    // document.querySelector("#console-setting-info2 .set-box-normal:nth-child(5) .setting-detail").innerHTML = tools.detectBrowser().name == 'unknown' || tools.detectBrowser().version == 'unknown' ? userInfo.browser : tools.detectBrowser().name + " " + tools.detectBrowser().version;
     setting_info2.classList.add("item-show");
 });
 to_tools.addEventListener("click", () => {
