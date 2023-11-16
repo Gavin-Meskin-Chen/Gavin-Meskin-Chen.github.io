@@ -6199,8 +6199,7 @@ progress::-webkit-progress-value {
     background: var(--card-bg);
 }
 
-.encryption .inner,
-.encryption .outer {
+#winboxForApps textarea {
     margin: 20px 0 0;
     width: 100%;
     padding: 10px;
@@ -6213,22 +6212,21 @@ progress::-webkit-progress-value {
     transition: background .5s, color .5s;
 }
 
-.encryption .outer {
+#winboxForApps .outer {
     margin: 10px 0 0;
 }
 
-.encryption .outer.lock {
+#winboxForApps .outer.lock {
     background: var(--gavin-widget-bg2);
     cursor: no-drop;
 }
 
-.encryption .inner:focus,
-.encryption .outer:focus {
+#winboxForApps textarea:focus {
     outline: 6px solid var(--gavin-highlight-op);
     border-color: var(--gavin-highlight);
 }
 
-.encryption .select-items {
+#winboxForApps .select-items {
     width: 100%;
     gap: 10px;
     display: flex;
@@ -6236,7 +6234,7 @@ progress::-webkit-progress-value {
     flex-wrap: wrap;
 }
 
-.encryption .select-item {
+#winboxForApps .select-item {
     border-radius: 6px;
     height: 35px;
     padding: 0 6px;
@@ -6248,21 +6246,25 @@ progress::-webkit-progress-value {
     transition: background .5s, color .5s;
 }
 
-.encryption .select-item.hide {
+#winboxForApps .select-item.hide {
     display: none;
 }
 
-.encryption .select-item.lock {
+#winboxForApps .select-item.lock {
     cursor: no-drop;
     background: var(--gavin-widget-bg2);
 }
 
-.encryption .select-item:focus {
+#winboxForApps .select-item:focus {
     outline: 6px solid var(--gavin-highlight-op);
     border-color: var(--gavin-highlight);
 }
 
-.encryption .btns {
+#winboxForApps input::placeholder {
+    color: var(--gavin-note-font-color);
+}
+
+#winboxForApps .btns {
     margin: 10px 0 0;
     width: 100%;
     display: flex;
@@ -6272,41 +6274,40 @@ progress::-webkit-progress-value {
     filter: brightness(1) !important;
 }
 
-.encryption .btns .btn {
+#winboxForApps .btns .btn {
     border-radius: 6px;
-    padding: 8px 12px;
+    padding: 8px 16px;
     font-size: 14px;
     height: 35px;
-    width: 60px;
     transition: .5s;
 }
 
-.btns .btn.blue {
+#winboxForApps .btns .btn.blue {
     color: var(--gavin-blue2);
     background: rgba(0, 136, 255, .24);
 }
 
-.btns .btn.blue:hover {
+#winboxForApps .btns .btn.blue:hover {
     color: #fff;
     background: var(--gavin-blue2);
 }
 
-.btns .btn.green {
+#winboxForApps .btns .btn.green {
     color: rgba(103, 194, 58, 1);
     background: rgba(103, 194, 58, .24);
 }
 
-.btns .btn.green:hover {
+#winboxForApps .btns .btn.green:hover {
     color: #fff;
     background: rgba(103, 194, 58, 1);
 }
 
-.btns .btn.red {
+#winboxForApps .btns .btn.red {
     color: rgba(245, 108, 108, 1);
     background: rgba(245, 108, 108, .24);
 }
 
-.btns .btn.red:hover {
+#winboxForApps .btns .btn.red:hover {
     color: #fff;
     background: rgba(245, 108, 108, 1);
 }

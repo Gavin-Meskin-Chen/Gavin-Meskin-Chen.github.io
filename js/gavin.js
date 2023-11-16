@@ -446,13 +446,13 @@ var tools = {
         } else if (u.indexOf("Mac OS X") != -1) {
             osName = "macOS";
             osVersion = u.match(/Mac OS X\s([\d_]+)/)[1].replace(/_/g, '.');
-        } else if (u.indexOf("Android 10") != -1 && (u.toLowerCase.indexOf("huawei") != -1 || u.indexOf("HarmonyOS") != -1 || u.indexOf("HMSCore") != -1)) {
+        } else if (u.indexOf("Android 10") != -1 && (u.toLowerCase().indexOf("huawei") != -1 || u.indexOf("HarmonyOS") != -1 || u.indexOf("HMSCore") != -1)) {
             osName = "HarmonyOS";
             osVersion = 3;
-        } else if (u.indexOf("Android 11") != -1 && (u.toLowerCase.indexOf("huawei") != -1 || u.indexOf("HarmonyOS") != -1 || u.indexOf("HMSCore") != -1)) {
+        } else if (u.indexOf("Android 11") != -1 && (u.toLowerCase().indexOf("huawei") != -1 || u.indexOf("HarmonyOS") != -1 || u.indexOf("HMSCore") != -1)) {
             osName = "HarmonyOS";
             osVersion = 3;
-        } else if (u.indexOf("Android 12") != -1 && (u.toLowerCase.indexOf("huawei") != -1 || u.indexOf("HarmonyOS") != -1 || u.indexOf("HMSCore") != -1)) {
+        } else if (u.indexOf("Android 12") != -1 && (u.toLowerCase().indexOf("huawei") != -1 || u.indexOf("HarmonyOS") != -1 || u.indexOf("HMSCore") != -1)) {
             osName = "HarmonyOS";
             osVersion = 4;
         } else if (navigator.userAgent.indexOf("Android") != -1) {
@@ -1081,6 +1081,7 @@ var ctrl = {
         document.documentElement.style.setProperty('--gavin-theme-color-light', colors[i-1][0]);
         document.documentElement.style.setProperty('--gavin-theme-color-dark', colors[i-1][1]);
         localStorage.setItem('theme-color', i);
+        if (set_notice.checked) tools.showMessage("主题色已刷新", "success", 2);
         // localStorage.setItem('theme-color-light', '129,78,250');
         // localStorage.setItem('theme-color-dark', '0,234,208');
     },
@@ -1094,6 +1095,7 @@ var ctrl = {
             document.querySelector('#set-aside-direction .right').classList.remove('active')
             document.querySelector('#set-aside-direction .left').classList.add('active')
             localStorage.setItem('aside-direction', 'left')
+            if (set_notice.checked) tools.showMessage("侧边栏已靠左", "success", 2);
         } else {
             var styleTag = document.createElement('style')
             styleTag.type = 'text/css'
@@ -1104,6 +1106,7 @@ var ctrl = {
             document.querySelector('#set-aside-direction .left').classList.remove('active')
             document.querySelector('#set-aside-direction .right').classList.add('active')
             localStorage.setItem('aside-direction', 'right')
+            if (set_notice.checked) tools.showMessage("侧边栏已靠右", "success", 2);
         }
     },
 
@@ -1216,14 +1219,16 @@ var ctrl = {
                     `;
                 document.head.appendChild(Object.assign(document.createElement("script"), { src: "https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/crypto-js/4.1.1/crypto-js.min.js", id: "crypto-js" }));
                 break;
-            case "transColor": 
-                title = '参星阁 - 色值转换器';
-                className = 'transColor';
+            case "clipboard": 
+                title = '参星阁 - 云剪贴板-Beta';
+                className = 'clipboard';
                 html = `
-                    <div class='color-selections'>
-                        <div>
-                        </div>
-                    </div>
+                <input type="text" class="select-item id" placeholder="请输入对接暗号">
+                <textarea autocomplete="off" rows="12" placeholder="发送/接收文本区域" style="min-height: 32.6px;"></textarea>
+                <div class="btns">
+                    <button class="btn blue" type="button" onclick="sendTextToClipboard()">我要发送</button>
+                    <button class="btn green" type="button" onclick="getTextFromClipboard()">我要接收</button>
+                </div>
                 `;
                 break;
             default:
@@ -1249,6 +1254,7 @@ var ctrl = {
         ctrl.resizeWinbox();
         window.addEventListener('resize', ctrl.resizeWinbox);
         winbox.body.innerHTML = html;
+        // https://cdn.cbd.int/cansin-blogdata@latest
         document.head.appendChild(Object.assign(document.createElement("script"), { src: "https://cdn.cbd.int/cansin-blogdata@latest/js/" + className + ".min.js", id: "appScript" }));
         document.querySelector('.wb-header .wb-close').addEventListener('click', ()=>{
             var script = document.getElementById('appScript');
@@ -1497,10 +1503,12 @@ set_fps.addEventListener("change", () => {
         localStorage.setItem('fps_state', true);
         tools.updateFPS();
         document.getElementById("fps-box").style.display = 'flex';
+        if (set_notice.checked) tools.showMessage("实时帧率已打开", "success", 2);
     } else {
         localStorage.setItem('fps_state', false);
         cancelAnimationFrame(animationId);
         document.getElementById("fps-box").style.display = 'none';
+        if (set_notice.checked) tools.showMessage("实时帧率已关闭", "success", 2);
     }
 });
 
