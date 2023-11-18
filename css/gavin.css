@@ -5795,12 +5795,15 @@ progress::-webkit-progress-value {
     line-height: 1;
     z-index: 1;
     font-size: 14px;
-    pointer-events: all;
-    cursor: pointer;
     transition: .2s ease;
 }
 
-.label-select.active {
+.console-mainbox.item-show .label-select {
+    pointer-events: all;
+    cursor: pointer;
+}
+
+.console-mainbox.item-show .label-select.active {
     color: #000;
     pointer-events: none;
     cursor: default;
@@ -6287,7 +6290,7 @@ progress::-webkit-progress-value {
     background: rgba(0, 136, 255, .24);
 }
 
-#winboxForApps .btns .btn.blue:hover {
+#winboxForApps .btns .btn.blue:active {
     color: #fff;
     background: var(--gavin-blue2);
 }
@@ -6297,7 +6300,7 @@ progress::-webkit-progress-value {
     background: rgba(103, 194, 58, .24);
 }
 
-#winboxForApps .btns .btn.green:hover {
+#winboxForApps .btns .btn.green:active {
     color: #fff;
     background: rgba(103, 194, 58, 1);
 }
@@ -6307,9 +6310,26 @@ progress::-webkit-progress-value {
     background: rgba(245, 108, 108, .24);
 }
 
-#winboxForApps .btns .btn.red:hover {
+#winboxForApps .btns .btn.red:active {
     color: #fff;
     background: rgba(245, 108, 108, 1);
+}
+
+@media screen and (min-width: 768px) {
+    #winboxForApps .btns .btn.blue:hover {
+        color: #fff;
+        background: var(--gavin-blue2);
+    }
+
+    #winboxForApps .btns .btn.green:hover {
+        color: #fff;
+        background: rgba(103, 194, 58, 1);
+    }
+
+    #winboxForApps .btns .btn.red:hover {
+        color: #fff;
+        background: rgba(245, 108, 108, 1);
+    }
 }
 
 .sidebar-apps {

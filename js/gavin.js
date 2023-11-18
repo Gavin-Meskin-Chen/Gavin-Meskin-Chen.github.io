@@ -1081,7 +1081,6 @@ var ctrl = {
         document.documentElement.style.setProperty('--gavin-theme-color-light', colors[i-1][0]);
         document.documentElement.style.setProperty('--gavin-theme-color-dark', colors[i-1][1]);
         localStorage.setItem('theme-color', i);
-        if (set_notice.checked) tools.showMessage("主题色已刷新", "success", 2);
         // localStorage.setItem('theme-color-light', '129,78,250');
         // localStorage.setItem('theme-color-dark', '0,234,208');
     },
@@ -1095,7 +1094,6 @@ var ctrl = {
             document.querySelector('#set-aside-direction .right').classList.remove('active')
             document.querySelector('#set-aside-direction .left').classList.add('active')
             localStorage.setItem('aside-direction', 'left')
-            if (set_notice.checked) tools.showMessage("侧边栏已靠左", "success", 2);
         } else {
             var styleTag = document.createElement('style')
             styleTag.type = 'text/css'
@@ -1106,7 +1104,6 @@ var ctrl = {
             document.querySelector('#set-aside-direction .left').classList.remove('active')
             document.querySelector('#set-aside-direction .right').classList.add('active')
             localStorage.setItem('aside-direction', 'right')
-            if (set_notice.checked) tools.showMessage("侧边栏已靠右", "success", 2);
         }
     },
 
