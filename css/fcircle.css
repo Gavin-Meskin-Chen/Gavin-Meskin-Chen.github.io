@@ -278,7 +278,7 @@ Last Modified time : 20220211 98:00 by https://immmmm.com
   gap: 20px;
   max-height: 260px;
   overflow: hidden;
-  transition: .3s ease-in-out;
+  transition: .5s ease-in-out;
   padding-bottom: 10px;
 }
 #我的收藏 {
