@@ -3672,6 +3672,11 @@ button.wv-top-button {
     border-radius: 50%;
     background-image: url(https://cdn.cbd.int/cansin-blogdata@latest/img/202311051012837.webp);
     background-size: 100% 100%;
+    z-index: 1;
+}
+
+.tk-admin.__show {
+    z-index: 1;
 }
 
 .tk-actions {
