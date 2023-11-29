@@ -813,9 +813,10 @@ ul.menus_item_child {
 
 header a,
 header span,
-header h1,
-header div,
-header img {
+header time,
+header nav,
+header img,
+#head-cover {
     user-select: none;
 }
 
@@ -1345,7 +1346,7 @@ center#name-container {
 
 /* ******************************************************************微调************************************************************ */
 a {
-    color: var(--font-color);
+    color: var(--dis-f-0);
 }
 
 /* 
@@ -1694,7 +1695,7 @@ a.aside-list-item-head {
 
 /* 文章图片 */
 #article-container img {
-    border-radius: 12px;
+    border-radius: 5px;
 }
 
 /* 文章图片底部注释 */
@@ -2007,14 +2008,16 @@ input.toPageInput::placeholder {
 
 /* 文章页链接样式 */
 #post #article-container a,
-.tk-comment .tk-content a:not(.tk-ruser) {
+.tk-comment .tk-content a:not(.tk-ruser),
+.timeline-item-content a {
     /* color: var(--dis-f-0); */
     font-weight: bold;
     border-bottom: 2px solid var(--gavin-highlight);
 }
 
 #post #article-container a:hover,
-.tk-comment .tk-content a:not(.tk-ruser):hover {
+.tk-comment .tk-content a:not(.tk-ruser):hover,
+.timeline-item-content a:hover {
     color: var(--gavin-highlight);
     text-decoration: none;
 }
@@ -2180,9 +2183,9 @@ h6 {
 }
 
 /* note标签弧度 */
-.note {
+/* .note {
     border-radius: 8px;
-}
+} */
 
 .hbe-input {
     min-width: unset !important;

@@ -1445,7 +1445,7 @@ table thead {
 table th,
 table td {
   padding: 6px 12px;
-  border: 1px solid var(--light-grey);
+  border: 1px solid var(--gavin-border-color);
   vertical-align: middle;
 }
 *::selection {
@@ -4080,9 +4080,6 @@ h1.page-title + .tag-cloud-list {
 #article-container {
   word-wrap: break-word;
   overflow-wrap: break-word;
-}
-#article-container a:hover {
-  text-decoration: underline;
 }
 #article-container img {
   display: block;
