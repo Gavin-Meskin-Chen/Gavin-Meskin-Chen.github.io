@@ -100,12 +100,12 @@
     --gavin-item-bg: rgba(60, 175, 250, 0.2);
     --gavin-item-border: rgba(50, 150, 250, .9);
     /* --gavin-border-color: #ddd; */
-    --gavin-border-color: rgb(220, 224, 232);
+    --gavin-border-color: rgb(227, 232, 240);
     --gavin-border-hover-color: var(--gavin-blue3);
     --gavin-note-font-color: rgb(102, 102, 102);
     --gavin-hover-font-color: rgba(0, 0, 0, 1);
     /* --gavin-background: rgb(241, 243, 245); */
-    --gavin-background: rgb(247, 248, 250);
+    --gavin-background: rgb(246, 247, 249);
     --gavin-widget-bg1: rgb(242, 243, 245);
     --gavin-widget-bg2: rgb(227, 228, 230);
     --gavin-widget-bg3: rgb(206, 207, 209);

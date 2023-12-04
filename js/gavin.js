@@ -62,7 +62,7 @@ var startTime = performance.now();
 let animationId;
 var winbox = '';
 
-if ('paintWorklet' in CSS) { CSS.paintWorklet.addModule('https://cdn.cbd.int/cansin-blogdata@latest/js/paint.min.js'); }
+if ('paintWorklet' in CSS) { CSS.paintWorklet.addModule('https://registry.npmmirror.com/cansin-blogdata/latest/files/js/paint.min.js'); }
 
 window.onload = function () {
     var set_music = document.querySelector("#set-switch-music input");
@@ -1252,7 +1252,7 @@ var ctrl = {
         window.addEventListener('resize', ctrl.resizeWinbox);
         winbox.body.innerHTML = html;
         // https://cdn.cbd.int/cansin-blogdata@latest
-        document.head.appendChild(Object.assign(document.createElement("script"), { src: "https://cdn.cbd.int/cansin-blogdata@latest/js/" + className + ".min.js", id: "appScript" }));
+        document.head.appendChild(Object.assign(document.createElement("script"), { src: "https://registry.npmmirror.com/cansin-blogdata/latest/files/js/" + className + ".min.js", id: "appScript" }));
         document.querySelector('.wb-header .wb-close').addEventListener('click', ()=>{
             var script = document.getElementById('appScript');
             if (script) document.head.removeChild(script);
