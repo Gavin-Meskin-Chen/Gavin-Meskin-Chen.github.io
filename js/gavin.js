@@ -1291,15 +1291,15 @@ function categoryBarMask() {
 
 // 分类条
 function categoriesBarActive() {
-    if (document.querySelector('#category-bar')) {
-        $(".category-bar-item").removeClass("select")
+    if (document.getElementById('category-bar')) {
+        document.querySelector(".category-bar-item").classList.remove("select")
     }
     var urlinfo = window.location.pathname;
     urlinfo = decodeURIComponent(urlinfo)
     // console.log(urlinfo);
     // 判断是否是首页
     if (urlinfo == '/') {
-        if (document.querySelector('#category-bar')) {
+        if (document.getElementById('category-bar')) {
             document.getElementById('首页').classList.add("select")
         }
     } else {
@@ -1313,7 +1313,7 @@ function categoriesBarActive() {
             // console.log(valuegroup[2]);
             // 获取当前分类
             var nowCategorie = valuegroup[2];
-            if (document.querySelector('#category-bar')) {
+            if (document.getElementById('category-bar')) {
                 document.getElementById(nowCategorie).classList.add("select");
             }
         }

@@ -1180,14 +1180,14 @@ center#name-container {
     color: rgba(255, 255, 255, .8) !important;
 } */
 
-#body-wrap.home #page-header:not(.is-top-bar) #nav #he-plugin-simple,
+#body-wrap.home #page-header:not(.is-top-bar) #nav #he-plugin-simple div,
 #body-wrap.home #page-header:not(.is-top-bar) #nav .back-home-button,
 #body-wrap.home #page-header:not(.is-top-bar) #nav .site-page.group,
 #body-wrap.home #page-header:not(.is-top-bar) #nav #site-name,
 #body-wrap.home #page-header:not(.is-top-bar) #nav #page-name,
 #body-wrap.home #page-header:not(.is-top-bar) #nav #toggle-menu a,
 #body-wrap.home #page-header:not(.is-top-bar) #nav .nav-button a,
-#body-wrap.post #page-header:not(.is-top-bar) #nav #he-plugin-simple,
+#body-wrap.post #page-header:not(.is-top-bar) #nav #he-plugin-simple div,
 #body-wrap.post #page-header:not(.is-top-bar) #nav .back-home-button,
 #body-wrap.post #page-header:not(.is-top-bar) #nav .site-page.group,
 #body-wrap.post #page-header:not(.is-top-bar) #nav #site-name,
@@ -3354,8 +3354,15 @@ button.wv-top-button {
 .twikoo .el-input__inner,
 .twikoo .el-textarea__inner,
 .tk-preview-container {
-    background-color: rgba(144, 147, 153, 0.08);
+    background-color: var(--card-bg);
+    box-shadow: var(--gavin-shadow-1);
     border-radius: 6px;
+    transition: background-color .5s;
+}
+
+.tk-admin-container .el-input__inner,
+.tk-admin-container .el-textarea__inner {
+    background-color: rgba(144,147,153,.16);
 }
 
 .twikoo .el-button--mini,
@@ -3399,8 +3406,13 @@ button.wv-top-button {
 
 .twikoo .el-input-group__append,
 .twikoo .el-input-group__prepend {
-    background-color: var(--gavin-widget-bg3);
-    border-right: 1px solid rgba(144, 147, 153, 0.31);
+    background-color: var(--gavin-widget-bg1);
+    border-right: 1px solid rgba(144, 147, 153, 0.32);
+}
+
+.tk-admin-container .el-input-group__append,
+.tk-admin-container .el-input-group__prepend {
+    background-color: rgba(144, 147, 153, 0.64);
 }
 
 .twikoo .el-input-group {
