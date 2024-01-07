@@ -2546,13 +2546,13 @@ span.separator {
 
 /* 窄屏不显示天气 */
 @media screen and (max-width: 850px) {
-    #nav .s-sticker {
-        display: none;
+    #he-plugin-simple .s-sticker {
+        display: none!important;
     }
 }
 
 /* 修复窄屏显示但无法选中的bug */
-#he-plugin-simple[data-v-41ba7e2c] {
+#he-plugin-simple {
     z-index: 1;
 }
 
