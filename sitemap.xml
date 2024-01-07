@@ -551,13 +551,6 @@
   </url>
   
   <url>
-    <loc>https://gavin-chen.top/tags/%E6%95%B0%E7%94%B5/</loc>
-    <lastmod>2024-01-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://gavin-chen.top/tags/node-js/</loc>
     <lastmod>2024-01-07</lastmod>
     <changefreq>weekly</changefreq>
@@ -565,7 +558,7 @@
   </url>
   
   <url>
-    <loc>https://gavin-chen.top/tags/CSS/</loc>
+    <loc>https://gavin-chen.top/tags/%E6%95%B0%E7%94%B5/</loc>
     <lastmod>2024-01-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -579,6 +572,13 @@
   </url>
   
   <url>
+    <loc>https://gavin-chen.top/tags/CSS/</loc>
+    <lastmod>2024-01-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://gavin-chen.top/tags/%E6%95%B0%E7%A0%81/</loc>
     <lastmod>2024-01-07</lastmod>
     <changefreq>weekly</changefreq>
@@ -586,14 +586,14 @@
   </url>
   
   <url>
-    <loc>https://gavin-chen.top/tags/%E5%88%86%E4%BA%AB/</loc>
+    <loc>https://gavin-chen.top/tags/JavaScript/</loc>
     <lastmod>2024-01-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://gavin-chen.top/tags/JavaScript/</loc>
+    <loc>https://gavin-chen.top/tags/%E5%88%86%E4%BA%AB/</loc>
     <lastmod>2024-01-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
