@@ -1616,7 +1616,7 @@ a.aside-list-item-head {
 }
 
 /* 侧边栏个人信息卡片 */
-#aside-content .card-info .author-info__name {
+/* #aside-content .card-info .author-info__name {
     font-weight: bold;
     position: relative;
     z-index: 1;
@@ -1680,6 +1680,170 @@ a.aside-list-item-head {
 
 [data-theme=dark] #aside-content>.card-info {
     background: var(--card-bg);
+} */
+
+/*********** 侧边栏个人信息卡片（新版） **************/
+
+#aside-content>.card-info {
+    height: 200px;
+}
+
+.card-info .card-info-bg {
+    height: 95px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+.card-info .card-info-bg img {
+    width: 100%;
+    position: absolute;
+    top: -64px;
+}
+
+.card-info .author-avatar {
+    width: 80px;
+    height: 80px;
+    position: relative;
+    top: 25px;
+    left: 10px;
+    border: 3px solid var(--card-bg);
+    border-radius: 50%;
+}
+
+.card-info .author-avatar::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-image: url(https://registry.npmmirror.com/cansin-blogdata/latest/files/img/202311051012837.webp);
+    background-size: 100% 100%;
+    z-index: 1;
+}
+
+.card-info .author-avatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.card-info .author-info-name {
+    font-size: 24px;
+    line-height: 35px;
+    color: #fff;
+    text-shadow: 0 0 2px rgba(0,0,0,.7);
+    font-weight: bold;
+    position: absolute;
+    top: 55px;
+    left: 120px;
+}
+
+.card-info .author-info-desc {
+    font-size: 16px;
+    line-height: 24px;
+    color: grey;
+    position: absolute;
+    top: 120px;
+    left: 20px;
+}
+
+.card-info .blog-info {
+    position: absolute;
+    top: 98px;
+    left: 120px;
+    gap: 15px;
+}
+
+.card-info .blog-info .blog-info-headline {
+    font-size: 14px;
+    line-height: 18px;
+    margin-left: 2px;
+    color: grey;
+}
+
+.card-info .blog-info .blog-info-num {
+    font-size: 14px;
+    line-height: 18px;
+    color: var(--dis-f-0);
+}
+
+.card-info .card-btns {
+    position: absolute;
+    top: 150px;
+    left: 20px;
+    width: calc(100% - 40px);
+    gap: 10px;
+}
+
+.card-info .card-btns .btn-left {
+    border-radius: 5px;
+    background-color: var(--gavin-blue2);
+    color: #fff;
+    height: 30px;
+    width: 100%;
+    font-size: 15px;
+}
+
+.card-info .card-btns .btn-right {
+    border-radius: 5px;
+    border: 1px solid var(--gavin-blue2);
+    color: var(--gavin-blue2);
+    height: 30px;
+    width: 100%;
+    font-size: 15px;
+}
+
+.card-info .card-btns .btn-left:hover {
+    background-color: var(--gavin-blue3);
+}
+
+.card-info .card-btns .btn-right:hover {
+    border-color: var(--gavin-blue3);
+    color: var(--gavin-blue3);
+}
+
+.card-info .card-btns a span {
+    margin-left: 6px;
+}
+
+.card-info .author-info-social {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    display: flex;
+    gap: 5px;
+}
+
+.card-info .more-info i {
+    font-size: 18px;
+}
+
+.card-info .author-info-social a {
+    background: rgba(255,255,255,.36);
+    backdrop-filter: blur(12px);
+    color: #fff;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.card-info .author-info-social .social-icons {
+    opacity: 0;
+    pointer-events: none;
+    transition: .3s;
+    display: flex;
+    gap: 5px;
+}
+
+.card-info .author-info-social .social-icons.show {
+    opacity: 1;
+    pointer-events: all;
 }
 
 /* 打赏 */
@@ -3677,8 +3841,6 @@ button.wv-top-button {
 
 .tk-master .tk-avatar::before {
     content: '';
-    font-size: 10px;
-    line-height: 1;
     position: absolute;
     bottom: 0;
     right: 0px;
@@ -3896,8 +4058,8 @@ button.wv-top-button {
 
 /* 首页文章标题加粗 */
 #recent-posts>.recent-post-item>.recent-post-info>.article-title {
-    -webkit-line-clamp: 2;
-    color: var(--text-highlight-color);
+    /* -webkit-line-clamp: 2; */
+    /* color: var(--text-highlight-color); */
     font-size: 1.2em;
     line-height: 1.3;
     font-weight: bold;
@@ -3961,7 +4123,7 @@ span.article-meta.tags {
 a.article-links {
     position: absolute;
     width: 100%;
-    height: 196px;
+    height: 226px;
     bottom: 0;
     left: 0;
     z-index: 1;
@@ -3971,7 +4133,7 @@ a.article-links {
 #recent-posts>.recent-post-item>.recent-post-info {
     margin-top: 0;
     padding: 10px 7%;
-    height: 150px;
+    height: 180px;
     width: 100% !important;
 }
 
@@ -4026,7 +4188,7 @@ a.article-meta__categories:hover {
 .article-meta-middle {
     position: absolute;
     width: calc(100% - 20px);
-    bottom: 150px;
+    bottom: 180px;
     font-size: 13px;
     display: flex;
     align-items: center;
@@ -4054,7 +4216,7 @@ a.article-meta__categories:hover {
 /* 文章描述 */
 .recent-post-item .content {
     line-height: 1.3;
-    font-size: 15px;
+    font-size: 1rem;
     opacity: 0.6;
 }
 
@@ -5250,9 +5412,9 @@ a#music-list-title {
     padding: 10px !important;
 }
 
-.card-widget.card-info {
+/* .card-widget.card-info {
     padding-top: 1rem !important;
-}
+} */
 
 .card-times a {
     color: var(--font-color);

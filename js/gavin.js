@@ -239,7 +239,7 @@ function cardTimes() {
         ganzhiYear = chineseLunar.format(lunar, "T").slice(0, -1); //天干地支
         lunarMon = chineseLunar.format(lunar, "M"); //月份
         lunarDay = chineseLunar.format(lunar, "d"); //日期
-        asideTime = new Date("2023/01/01 00:00:00");	// 侧边栏倒计时
+        asideTime = new Date(new Date().getFullYear() + "/01/01 00:00:00");	// 侧边栏倒计时
         asideDay = (now - asideTime) / 1e3 / 60 / 60 / 24;
         asideDayNum = Math.floor(asideDay);
         var asideWeekNum = ((week - asideDayNum % 7) >= 0) ? (Math.ceil(asideDayNum / 7)) : (Math.ceil(asideDayNum / 7) + 1);
@@ -990,6 +990,10 @@ var ctrl = {
             .catch(error => {
                 console.error('获取 IP 地址失败:', error);
             });
+    },
+
+    toggleSocial() {
+        document.querySelector('.author-info-social .social-icons').classList.toggle('show');
     },
 
     // 表情放大
