@@ -1709,6 +1709,7 @@ a.aside-list-item-head {
     position: relative;
     top: 25px;
     left: 10px;
+    background: var(--card-bg);
     border: 3px solid var(--card-bg);
     border-radius: 50%;
 }
@@ -1824,7 +1825,11 @@ a.aside-list-item-head {
 }
 
 .card-info .author-info-social a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background: rgba(255,255,255,.36);
+    -webkit-backdrop-filter: blur(12px);
     backdrop-filter: blur(12px);
     color: #fff;
     width: 30px;
@@ -2478,6 +2483,8 @@ h6 {
 #sidebar-menus .avatar-img img {
     height: 90px;
     width: 90px;
+    border-radius: 50%;
+    border: 3px solid #fff;
 }
 
 #sidebar-menus .avatar-img span.author-name {
@@ -2723,6 +2730,10 @@ span.separator {
 #he-plugin-simple a:hover {
     background: unset !important;
     background-color: unset !important;
+}
+
+#he-plugin-simple a.s-sticker:hover{
+    color: var(--font-color)!important;
 }
 
 #he-plugin-simple>div:last-child>div {
