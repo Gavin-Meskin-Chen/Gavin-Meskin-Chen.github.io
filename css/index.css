@@ -274,9 +274,9 @@ hr:before,
 #pagination .prev-post:hover img,
 #pagination .next-post:hover img,
 .relatedPosts > .relatedPosts-list > div:hover img {
-  opacity: 0.8;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
-  filter: alpha(opacity=80);
+  opacity: 0.4;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
+  filter: alpha(opacity=40);
   -webkit-transform: scale(1.1);
   -moz-transform: scale(1.1);
   -o-transform: scale(1.1);
@@ -290,9 +290,9 @@ hr:before,
   position: absolute;
   width: 100%;
   height: 100%;
-  opacity: 0.4;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
-  filter: alpha(opacity=40);
+  opacity: 0.8;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+  filter: alpha(opacity=80);
   -webkit-transition: all 0.6s, filter 375ms ease-in 0.2s;
   -moz-transition: all 0.6s, filter 375ms ease-in 0.2s;
   -o-transition: all 0.6s, filter 375ms ease-in 0.2s;
@@ -4308,7 +4308,7 @@ h1.page-title + .tag-cloud-list {
   display: inline-block;
   padding: 4px 12px;
   background: #f00;
-  color: #d2d2d2;
+  color: #fafafa;
   cursor: pointer;
   pointer-events: all;
 }
@@ -4337,7 +4337,7 @@ h1.page-title + .tag-cloud-list {
   display: inline-block;
   padding: 4px 12px;
   background: var(--gavin-blue3);
-  color: #d2d2d2;
+  color: #fafafa;
   cursor: pointer;
 }
 .post-reward .reward-button:hover {

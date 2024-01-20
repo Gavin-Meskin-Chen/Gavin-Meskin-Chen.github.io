@@ -2224,17 +2224,23 @@ h6 {
 }
 
 #article-container.post-content h2 {
-    line-height: 1.6rem;
-    font-size: 1.6rem;
-    padding-bottom: 1rem;
+    line-height: 1.8em;
+    font-size: 1.6em;
+    /* padding-bottom: 0.4em; */
     border-bottom: 1px dashed var(--gavin-border-color);
-    margin: 2rem 0;
+    margin: 0.8em 0;
 }
 
 #article-container.post-content h3 {
     line-height: 1.4em;
-    font-size: 1.4em;
-    margin: 1.5rem 0;
+    font-size: 1.3em;
+    margin: 0.7em 0;
+}
+
+#article-container.post-content h4 {
+    line-height: 1.2em;
+    font-size: 1.1em;
+    margin: 0.6em 0;
 }
 
 #article-container .headerlink::before {
@@ -4047,6 +4053,12 @@ button.wv-top-button {
     height: 200px;
     margin: 10px 0 0;
     border-radius: 9px;
+}
+
+@media screen and (max-width:768px) {
+    #recent-posts>.recent-post-item .post_cover {
+        height: 160px;
+    }
 }
 
 #recent-posts>.recent-post-item .post_cover img.post_bg {
