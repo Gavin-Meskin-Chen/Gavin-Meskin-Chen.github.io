@@ -525,12 +525,13 @@ a:hover {
 }
 
 hr {
-    border: 1px dashed var(--dis-f-0);
+    /* border: 1px dashed var(--dis-f-0); */
+    border-width: 0;
 }
-
+/* 
 hr::before {
     content: "";
-}
+} */
 
 #page-header #site-title {
     font-family: xiaozhuan;
@@ -1509,10 +1510,10 @@ a {
     /* font-size: 0.9rem; */
 }
 
-.search-dialog hr {
+/* .search-dialog hr {
     border-color: var(--font-color);
     border-width: 0;
-}
+} */
 
 .search-dialog-title {
     color: var(--font-color);
