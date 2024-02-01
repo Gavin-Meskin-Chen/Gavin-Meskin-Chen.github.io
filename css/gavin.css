@@ -1544,6 +1544,7 @@ a {
 }
 
 #algolia-hits>div {
+    scrollbar-width: none;
     -webkit-mask-image: linear-gradient(0deg, transparent, #fff 7px, #fff calc(100% - 7px), transparent);
     mask-image: linear-gradient(0deg, transparent, #fff 7px, #fff calc(100% - 7px), transparent);
 }
@@ -2468,6 +2469,7 @@ h6 {
 }
 
 #sidebar #sidebar-menus .menus_items {
+    scrollbar-width: none;
     padding: 10px 0;
     max-height: calc(100% - 300px);
     overflow: scroll;
@@ -4587,6 +4589,7 @@ a.categoryButton:after {
     width: 100%;
     border-radius: 8px;
     gap: 7px;
+    scrollbar-width: none;
 }
 
 .category-bar-items::-webkit-scrollbar {
@@ -4652,6 +4655,7 @@ a.categoryButton:after {
     gap: 8px;
     max-height: 32px;
     overflow-y: scroll;
+    scrollbar-width: none;
     transition: all 0.3s ease-in-out;
 }
 
@@ -4849,6 +4853,10 @@ html.hide-aside .layout>div:first-child {
     display: flex;
     gap: 15px;
     flex-wrap: wrap;
+}
+
+.card_mask span {
+    scrollbar-width: none;
 }
 
 .card_mask span::-webkit-scrollbar {
@@ -5206,6 +5214,7 @@ html.hide-aside .layout>div:first-child {
     padding: 0;
     border-top: 1px solid var(--vercel-border-color);
     border-bottom: 1px solid var(--vercel-border-color);
+    scrollbar-width: none;
     transition: .5s;
 }
 
@@ -5223,6 +5232,14 @@ html.hide-aside .layout>div:first-child {
     /*消除序号*/
     padding-inline-start: 0;
     overflow-y: auto;
+    scrollbar-width: none;
+}
+
+/* 隐藏滚动条 */
+#console-settings-list::-webkit-scrollbar,
+#console-music-list::-webkit-scrollbar,
+#console-songsheet-list::-webkit-scrollbar {
+    display: none;
 }
 
 #console-music-list li {
@@ -5233,11 +5250,6 @@ html.hide-aside .layout>div:first-child {
 
 #console-music-list li:hover {
     background-color: var(--vercel-hover-bg);
-}
-
-/* 隐藏滚动条 */
-#console-music-list::-webkit-scrollbar {
-    display: none;
 }
 
 #console-music-list li:not(:first-child) div.list-music-info2 {
@@ -5333,11 +5345,6 @@ a#music-list-title {
     justify-content: center;
     cursor: pointer;
     height: 3rem;
-}
-
-/* 取消滚动条 */
-#console-songsheet-list::-webkit-scrollbar {
-    display: none
 }
 
 #console-songsheet-list li:hover {
@@ -5752,11 +5759,6 @@ progress::-webkit-progress-value {
 #li-set-about:hover {
     cursor: pointer;
     background: var(--vercel-hover-bg);
-}
-
-/* 取消滚动条 */
-#console-settings-list::-webkit-scrollbar {
-    display: none
 }
 
 .setting-info1 {
