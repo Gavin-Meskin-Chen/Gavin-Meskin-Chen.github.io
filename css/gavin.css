@@ -541,7 +541,7 @@ hr::before {
 
 #article-container {
     /* font-family: Jinbu; */
-    font-size: 1.1em;
+    font-size: 1em;
     display: flex;
     flex-direction: column;
 }
@@ -551,9 +551,9 @@ hr::before {
         font-size: 3.6em;
     }
 
-    #article-container {
+    /* #article-container {
         font-size: 1rem;
-    }
+    } */
 }
 
 /* #aside-content .card-info .card-info-data {
@@ -5441,6 +5441,7 @@ a#music-list-title {
 /* .card-widget.card-times {}*/
 .card-widget {
     padding: 10px !important;
+    max-height: calc(100vh - 100px);
 }
 
 /* .card-widget.card-info {

@@ -2951,10 +2951,10 @@ h1.page-title + .tag-cloud-list {
   #aside-content #card-toc {
     position: fixed;
     right: -100%;
-    bottom: 30px;
+    bottom: 240px;
     z-index: 100;
     max-width: 380px;
-    max-height: calc(100% - 60px);
+    max-height: calc(100vh - 310px);
     width: calc(100% - 80px);
     opacity: 0;
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
@@ -2982,10 +2982,12 @@ h1.page-title + .tag-cloud-list {
   overflow-y: scroll;
   overflow-y: overlay;
   max-height: calc(100vh - 120px);
+  display: block !important;
+  scrollbar-width: none;
 }
 @media screen and (max-width: 900px) {
   #aside-content #card-toc .toc-content {
-    max-height: calc(100vh - 140px);
+    max-height: calc(100vh - 330px);
   }
 }
 #aside-content #card-toc .toc-content > * > .toc-item > .toc-child {
