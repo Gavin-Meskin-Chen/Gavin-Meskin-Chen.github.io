@@ -47,8 +47,8 @@ function createtime() {
     var seconds = (now - grt) / 1e3 - 86400 * dnum - 3600 * hnum - 60 * mnum,
         snum = Math.round(seconds);
     1 == String(snum).length && (snum = "0" + snum);
-    var a_t_r = document.getElementById("aside-time-right");
-    if (a_t_r) a_t_r.innerHTML = now.getHours().toString().padStart(2, '0') + ":" + now.getMinutes().toString().padStart(2, '0') + ":" + now.getSeconds().toString().padStart(2, '0');
+    // var a_t_r = document.getElementById("aside-time-right");
+    // if (a_t_r) a_t_r.innerHTML = now.getHours().toString().padStart(2, '0') + ":" + now.getMinutes().toString().padStart(2, '0') + ":" + now.getSeconds().toString().padStart(2, '0');
     let currentTimeHtml = "";
     (currentTimeHtml =
         hnum < 18 && hnum >= 9

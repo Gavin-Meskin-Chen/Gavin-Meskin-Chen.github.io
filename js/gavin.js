@@ -183,18 +183,18 @@ function cardTimes() {
             default: console.log("异常情况");
         }
         switch (month) {
-            case 0: monthStr = "一月"; dates = 31; break;
-            case 1: monthStr = "二月"; dates = year_flag ? 29 : 28; break;
-            case 2: monthStr = "三月"; dates = 31; break;
-            case 3: monthStr = "四月"; dates = 30; break;
-            case 4: monthStr = "五月"; dates = 31; break;
-            case 5: monthStr = "六月"; dates = 30; break;
-            case 6: monthStr = "七月"; dates = 31; break;
-            case 7: monthStr = "八月"; dates = 31; break;
-            case 8: monthStr = "九月"; dates = 30; break;
-            case 9: monthStr = "十月"; dates = 31; break;
-            case 10: monthStr = "十一月"; dates = 30; break;
-            case 11: monthStr = "十二月"; dates = 31; break;
+            case 0: monthStr = "1月"; dates = 31; break;
+            case 1: monthStr = "2月"; dates = year_flag ? 29 : 28; break;
+            case 2: monthStr = "3月"; dates = 31; break;
+            case 3: monthStr = "4月"; dates = 30; break;
+            case 4: monthStr = "5月"; dates = 31; break;
+            case 5: monthStr = "6月"; dates = 30; break;
+            case 6: monthStr = "7月"; dates = 31; break;
+            case 7: monthStr = "8月"; dates = 31; break;
+            case 8: monthStr = "9月"; dates = 30; break;
+            case 9: monthStr = "10月"; dates = 31; break;
+            case 10: monthStr = "11月"; dates = 30; break;
+            case 11: monthStr = "12月"; dates = 31; break;
             default: console.log("异常情况");
         }
         var week_first = (week + 8 - date % 7) % 7;
@@ -207,10 +207,10 @@ function cardTimes() {
         var calendar = cardWidgetCalendar.querySelector("#calendar-main");
         var gap = cardWidgetCalendar.querySelector("#calendar-date");
         switch (rows) {
-            case 4: gap.style.marginBottom = ""; break;
-            case 5: gap.style.marginBottom = "1.2rem"; break;
-            case 6: gap.style.marginBottom = "2.4rem"; break;
-            default: gap.style.marginBottom = "2.4rem";
+            case 4: gap.style.fontSize = "36px"; break;
+            case 5: gap.style.fontSize = "48px"; break;
+            case 6: gap.style.fontSize = "64px"; break;
+            default: gap.style.fontSize = "64px";
         }
         for (let r = 0; r < rows; r++) {
             if (calendar.querySelector(".calendar-r" + r) == null) {
@@ -239,16 +239,17 @@ function cardTimes() {
         ganzhiYear = chineseLunar.format(lunar, "T").slice(0, -1); //天干地支
         lunarMon = chineseLunar.format(lunar, "M"); //月份
         lunarDay = chineseLunar.format(lunar, "d"); //日期
+        var anniversary = new Date("2024/12/20 08:30:00");
+        var countDown = Math.floor((anniversary - now) / 1e3 / 60 / 60 / 24);
         asideTime = new Date(new Date().getFullYear() + "/01/01 00:00:00");	// 侧边栏倒计时
         asideDay = (now - asideTime) / 1e3 / 60 / 60 / 24;
         asideDayNum = Math.floor(asideDay);
         var asideWeekNum = ((week - asideDayNum % 7) >= 0) ? (Math.ceil(asideDayNum / 7)) : (Math.ceil(asideDayNum / 7) + 1);
-        cardWidgetCalendar.querySelector("#calendar-month").innerHTML = monthStr; //月份
-        cardWidgetCalendar.querySelector("#calendar-week").innerHTML = weekStr; //星期
+        cardWidgetCalendar.querySelector("#calendar-week").innerHTML = "第" + asideWeekNum + "周&nbsp;" + weekStr; //星期
         cardWidgetCalendar.querySelector("#calendar-date").innerHTML = date.toString().padStart(2, '0'); //日期
-        cardWidgetCalendar.querySelector("#calendar-animal").innerHTML = ganzhiYear + animalYear + "年"; //年份
-        cardWidgetCalendar.querySelector("#calendar-lunar").innerHTML = lunarMon + lunarDay; //农历
-        cardWidgetCalendar.querySelector("#aside-time-left").innerHTML = year + "&nbsp;&nbsp;<a style='font-size:1.1rem;font-weight:bold;'>第</a>&nbsp;" + asideWeekNum + "&nbsp;<a style='font-size:1.1rem;font-weight:bold;'>周</a>";
+        cardWidgetCalendar.querySelector("#calendar-solar").innerHTML = year + "年" + monthStr + "&nbsp;第" + asideDay.toFixed(0) + "天"; //年份
+        cardWidgetCalendar.querySelector("#calendar-lunar").innerHTML = ganzhiYear + animalYear + "年&nbsp;" + lunarMon + lunarDay; //农历
+        document.getElementById("schedule-days").innerHTML = countDown; //农历
     }
 }
 

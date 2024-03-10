@@ -3753,13 +3753,14 @@ button.wv-top-button {
 }
 
 .tk-expand {
+    width: 100px;
+    margin: 12px 0 0 calc(50% - 50px);
+    padding: 0.25em 0.75em;
     border-radius: 8px;
     border: 1px solid var(--gavin-border-color);
     background-color: var(--card-bg);
-    /* background-color: rgba(136, 136, 136, 0.13); */
     color: var(--gavin-note-font-color);
     box-shadow: var(--gavin-shadow-1);
-    margin-top: 0.5rem;
     transition: 0.3s;
 }
 
@@ -5434,113 +5435,80 @@ a#music-list-title {
 } */
 
 /* ***********侧边栏日历************ */
-/* .card-widget.card-times .item-headline {
-    display: none;
-} */
 
-/* .card-widget.card-times {}*/
 .card-widget {
     padding: 10px !important;
     max-height: calc(100vh - 100px);
 }
 
-/* .card-widget.card-info {
-    padding-top: 1rem !important;
-} */
-
 .card-times a {
     color: var(--font-color);
 }
 
-#aside-calendar {
-    height: fit-content;
+#card-widget-calendar .item-content {
     display: flex;
-}
-
-#aside-calendar,
-#aside-schedule {
-    background: var(--gavin-widget-bg1);
-    border-radius: 8px;
-    mask-image: paint(smooth-corners);
-    -webkit-mask-image: paint(smooth-corners);
-    --smooth-level: 10;
-    /*曲率连续圆角*/
-    padding: 8px;
-}
-
-#aside-calendar {
-    margin-top: 8px;
-}
-
-#aside-area-top {
-    display: flex;
-}
-
-#aside-time-right,
-#aside-time-left {
-    background: var(--gavin-widget-bg1);
-    border-radius: 8px;
-    mask-image: paint(smooth-corners);
-    -webkit-mask-image: paint(smooth-corners);
-    --smooth-level: 10;
-    /*曲率连续圆角*/
-    padding: 8px;
-    display: flex;
-    justify-content: center;
-    /* font-weight: bold; */
-    font-size: 1.3rem;
-    line-height: 2rem;
-}
-
-#aside-time-left {
-    width: 64%;
-}
-
-#aside-time-right {
-    width: 36%;
-    margin-left: 0.5rem;
 }
 
 #calendar-area-left {
-    height: 100%;
-    width: 32%;
+    width: 45%;
 }
 
 #calendar-area-right {
-    height: 100%;
-    width: 68%;
+    width: 55%;
 }
 
-#calendar-month,
+#calendar-area-left,
+#calendar-area-right {
+    height: 100%;
+    padding: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#calendar-main {
+    width: 100%;
+}
+
 #calendar-week {
-    height: 1.1rem;
-    font-size: 1.1rem;
-    color: var(--gavin-highlight);
+    height: 1.2rem;
+    font-size: 14px;
+    letter-spacing: 1px;
     font-weight: bold;
-    margin-bottom: 0.5rem;
     align-items: center;
     display: flex;
-}
-
-#calendar-month {
-    margin-left: calc(7.14% - 0.5rem);
 }
 
 #calendar-date {
     height: 3rem;
-    font-size: 3rem;
+    line-height: 1.3;
+    font-size: 64px;
+    letter-spacing: 3px;
+    color: var(--gavin-highlight);
     font-weight: bold;
-    margin-bottom: 1.2rem;
     align-items: center;
     display: flex;
+    position: absolute;
+    top: calc(50% - 2.1rem);
 }
 
-#calendar-animal,
+#calendar-solar,
 #calendar-lunar {
-    height: 1.5rem;
-    font-size: 0.9rem;
+    height: 1rem;
+    font-size: 12px;
     align-items: center;
     display: flex;
+    position: absolute;
+}
+
+#calendar-solar {
+    bottom: 2.1rem;
+}
+
+#calendar-lunar {
+    bottom: 1rem;
+    color: rgba(var(--op-dis),.4);
 }
 
 #calendar-main a {
@@ -5560,7 +5528,7 @@ a#music-list-title {
 }
 
 #calendar-main .calendar-rh a {
-    color: var(--gavin-note-font-color);
+    color: rgba(var(--op-dis),.4);
 }
 
 .calendar-rh,
@@ -5581,60 +5549,27 @@ a#music-list-title {
 .calendar-d4,
 .calendar-d5,
 .calendar-d6 {
-    width: 14.28%;
+    width: calc(100% / 7);
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* 任务进度条 */
-progress::-webkit-progress-bar {
-    background-color: var(--gavin-widget-bg2);
-    border-radius: 0.4rem;
-    mask-image: paint(smooth-corners);
-    -webkit-mask-image: paint(smooth-corners);
-    --smooth-level: 7;
-    /*曲率连续圆角*/
-    padding: 0.2rem;
-    transition: 0.3s;
-}
-
-progress::-webkit-progress-value {
-    background-color: var(--gavin-highlight-op);
-    border-radius: 0.3rem;
-    mask-image: paint(smooth-corners);
-    -webkit-mask-image: paint(smooth-corners);
-    --smooth-level: 5;
-    /*曲率连续圆角*/
-}
-
-.aside-span1 {
-    height: 1rem;
-    font-size: 12px;
-    z-index: 1;
-    margin-left: 0.5rem;
-    align-items: center;
+#card-widget-schedule .item-content {
     display: flex;
-    position: absolute;
 }
 
-.aside-span2 {
-    height: 1rem;
-    font-size: 12px;
-    z-index: 1;
-    right: 1.8rem;
-    align-items: center;
+#schedule-area-left {
+    width: 30%;
     display: flex;
-    position: absolute;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-#pBar_year,
-#pBar_month,
-#pBar_week {
-    width: calc(100% - 4.8rem);
-    border-radius: 0.4rem;
-    height: 1.6rem;
-    position: absolute;
+#schedule-area-right {
+    width: 70%;
+    padding: 0 5px;
 }
 
 .schedule-r0,
@@ -5646,17 +5581,85 @@ progress::-webkit-progress-value {
 }
 
 .schedule-d0 {
-    /* width: 3rem; */
-    margin-right: 0.5rem;
-    align-items: center;
-    justify-content: center;
-    display: flex;
+    width: 30px;
+    margin-right: 5px;
+    text-align: center;
+    font-size: 13px;
 }
 
 .schedule-d1 {
-    width: calc(100% - 3rem);
+    width: calc(100% - 35px);
+    height: 1.5rem;
     align-items: center;
     display: flex;
+}
+
+progress::-webkit-progress-bar {
+    background-color: rgba(0,0,0,0);
+}
+
+progress::-webkit-progress-value {
+    background-color: var(--gavin-highlight-op);
+    border-radius: 0.3rem;
+    mask-image: paint(smooth-corners);
+    -webkit-mask-image: paint(smooth-corners);
+    --smooth-level: 5;
+}
+
+.aside-span1 {
+    height: 1rem;
+    font-size: 12px;
+    z-index: 1;
+    margin-left: 5px;
+    align-items: center;
+    display: flex;
+    position: absolute;
+}
+
+.aside-span2 {
+    height: 1rem;
+    font-size: 12px;
+    z-index: 1;
+    right: 20px;
+    align-items: center;
+    display: flex;
+    position: absolute;
+}
+
+#pBar_year,
+#pBar_month,
+#pBar_week {
+    width: 100%;
+    border-radius: 5px;
+    height: 100%;
+}
+
+#schedule-title,
+#schedule-days,
+#schedule-date {
+    display: flex;
+    align-items: center;
+}
+
+#schedule-title {
+    height: 25px;
+    line-height: 1;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#schedule-days {
+    height: 40px;
+    line-height: 1;
+    font-size: 30px;
+    font-weight: 900;
+    color: var(--gavin-highlight);
+}
+
+#schedule-date {
+    height: 20px;
+    line-height: 1;
+    font-size: 12px;
 }
 
 /* ********通知样式********* */
