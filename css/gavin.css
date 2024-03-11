@@ -8,9 +8,9 @@
 
     /* --gavin-theme-color: var(--gavin-blue2); */
     --gavin-highlight: rgb(var(--gavin-theme-color));
-    --gavin-highlight-op: rgb(var(--gavin-theme-color), .18);
-    --gavin-highlight-op-1: rgb(var(--gavin-theme-color), .1);
-    --gavin-highlight-op-6: rgb(var(--gavin-theme-color), .6);
+    --gavin-highlight-op: rgba(var(--gavin-theme-color), .18);
+    --gavin-highlight-op-1: rgba(var(--gavin-theme-color), .1);
+    --gavin-highlight-op-6: rgba(var(--gavin-theme-color), .6);
     --gavin-theme-color-light: 129, 78, 250;
     --gavin-theme-color-dark: 0, 234, 208;
     /* --gavin-theme-color-dark: 26, 251, 255; 亮蓝 */
@@ -125,7 +125,8 @@
     --vercel-border-color: rgb(197, 202, 217);
     --vercel-hover-bg: rgba(234, 234, 234, 1);
     /* --font-color: #2e2e2e; */
-    --font-color: rgb(45, 45, 45);
+    --font-color: #323232;
+    /* rgb(45, 45, 45); */
     --search-bg: rgba(255, 255, 255, .64);
     --text-bg-hover: var(--gavin-blue1);
     --card-bg: #fff;
@@ -250,7 +251,8 @@
     --btn-hover-color: rgb(80, 80, 80);
     --card-link-bg: rgba(240, 240, 240, .1);
     --card-link-border: rgba(240, 240, 240, .3);
-    --font-color: rgb(210, 210, 210);
+    --font-color: #F7F7FA;
+    /* rgb(210, 210, 210); */
     --search-bg: rgba(0, 0, 0, .64);
     --system-logo: url(https://registry.npmmirror.com/cansin-blogdata/latest/files/img/f1olM.webp);
     --web-bg: rgba(0, 0, 0, 0.25);
@@ -1390,7 +1392,7 @@ a {
     top: -0.1em;
     position: relative;
     opacity: .4;
-    margin-right: 0.1em;
+    margin-right: 0.15em;
     font-size: 70%;
     font-family: "Font Awesome 6 Free";
 }
@@ -1986,16 +1988,6 @@ a.post-meta-categories:hover {
     align-items: center;
 }
 
-.post-meta-tag-list a::before {
-    content: '\f292';
-    top: -0.1em;
-    position: relative;
-    opacity: .4;
-    margin-right: 0.1em;
-    font-size: 70%;
-    font-family: "Font Awesome 6 Free";
-}
-
 .post-meta-tag-list,
 #post-info #post-meta {
     display: flex;
@@ -2003,10 +1995,32 @@ a.post-meta-categories:hover {
     flex-wrap: wrap;
 }
 
+@media screen and (max-width: 768px) {
+    .post-meta-tag-list {
+        display: none;
+    }
+
+    a.post-meta-categories {
+        font-size: 85%;
+        padding: 5px 10px;
+        border-radius: 6px;
+    }
+}
+
 .post-meta-tag-list a {
     margin-right: 10px;
     font-size: 1.1em;
     color: rgba(255, 255, 255, .7);
+}
+
+.post-meta-tag-list a::before {
+    content: '\f292';
+    top: -0.1em;
+    position: relative;
+    opacity: .4;
+    margin-right: 0.15em;
+    font-size: 70%;
+    font-family: "Font Awesome 6 Free";
 }
 
 .post-meta-tag-list a:hover {
@@ -2399,13 +2413,13 @@ h6 {
     top: -0.1em;
     position: relative;
     opacity: .4;
-    margin-right: 0.1em;
+    margin-right: 0.15em;
     font-size: 70%;
     font-family: "Font Awesome 6 Free";
 }
 
 .card-tag-cloud a sup {
-    opacity: .6;
+    opacity: .5;
     margin-left: 0.1em;
 }
 
@@ -2587,8 +2601,8 @@ span.separator {
     background-color: rgba(var(--op), .3);
     -webkit-background-clip: border-box;
     background-clip: border-box;
-    -webkit-backdrop-filter: saturate(180%) blur(20px);
-    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(50px);
+    backdrop-filter: saturate(180%) blur(50px);
     /* transform: translateZ(0); */
 }
 
@@ -2746,7 +2760,7 @@ span.separator {
 }
 
 #he-plugin-simple>div:last-child>div {
-    top: 60px !important;
+    top: 58px !important;
 }
 
 .wv-top-select,
@@ -4103,7 +4117,7 @@ a.article-meta__tags::before {
     top: -0.1em;
     position: relative;
     opacity: .4;
-    margin-right: 0.1em;
+    margin-right: 0.15em;
     font-size: 70%;
     font-family: "Font Awesome 6 Free";
 }
@@ -4195,7 +4209,7 @@ a.article-meta__categories:hover {
 }
 
 .recent-post-item .article-title {
-    color: var(--font-color) !important;
+    color: var(--dis-f-0) !important;
 }
 
 /* #recent-posts>.recent-post-item>.recent-post-info>.article-title:hover {
@@ -4692,7 +4706,7 @@ a.categoryButton:after {
     top: -0.1em;
     position: relative;
     opacity: .4;
-    margin-right: 0.1em;
+    margin-right: 0.15em;
     font-size: 70%;
     font-family: "Font Awesome 6 Free";
 }
@@ -5441,8 +5455,9 @@ a#music-list-title {
     max-height: calc(100vh - 100px);
 }
 
-.card-times a {
-    color: var(--font-color);
+.card-times a,
+.card-times div {
+    color: var(--dis-f-0);
 }
 
 #card-widget-calendar .item-content {
@@ -5559,12 +5574,17 @@ a#music-list-title {
     display: flex;
 }
 
-#schedule-area-left {
-    width: 30%;
+#schedule-area-left,
+#schedule-area-right {
+    height: 100px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+#schedule-area-left {
+    width: 30%;
 }
 
 #schedule-area-right {
@@ -5576,6 +5596,7 @@ a#music-list-title {
 .schedule-r1,
 .schedule-r2 {
     height: 2rem;
+    width: 100%;
     align-items: center;
     display: flex;
 }
@@ -5584,7 +5605,7 @@ a#music-list-title {
     width: 30px;
     margin-right: 5px;
     text-align: center;
-    font-size: 13px;
+    font-size: 12px;
 }
 
 .schedule-d1 {
@@ -5595,35 +5616,39 @@ a#music-list-title {
 }
 
 progress::-webkit-progress-bar {
-    background-color: rgba(0,0,0,0);
+    /* background-color: rgba(0,0,0,0); */
+    /* background-color: rgba(var(--op-dis),.03); */
+    background: linear-gradient(to right, rgba(var(--gavin-theme-color), .03), rgba(var(--gavin-theme-color), .05), rgba(var(--gavin-theme-color), .12));
+    border-radius: 5px;
+    overflow: hidden;
 }
 
 progress::-webkit-progress-value {
-    background-color: var(--gavin-highlight-op);
-    border-radius: 0.3rem;
-    mask-image: paint(smooth-corners);
-    -webkit-mask-image: paint(smooth-corners);
-    --smooth-level: 5;
+    background: rgba(var(--gavin-theme-color), .24);
+    border-radius: 5px;
 }
 
-.aside-span1 {
-    height: 1rem;
-    font-size: 12px;
-    z-index: 1;
-    margin-left: 5px;
-    align-items: center;
-    display: flex;
-    position: absolute;
-}
-
+.aside-span1,
 .aside-span2 {
     height: 1rem;
     font-size: 12px;
     z-index: 1;
-    right: 20px;
-    align-items: center;
     display: flex;
+    align-items: center;
     position: absolute;
+}
+
+.aside-span1 {
+    margin-left: 5px;
+}
+
+.aside-span2 {
+    right: 20px;
+    color: rgba(var(--op-dis),.5);
+}
+
+.aside-span2 a {
+    margin: 0 3px;
 }
 
 #pBar_year,
@@ -5660,6 +5685,7 @@ progress::-webkit-progress-value {
     height: 20px;
     line-height: 1;
     font-size: 12px;
+    color: rgba(var(--op-dis),.5);
 }
 
 /* ********通知样式********* */
