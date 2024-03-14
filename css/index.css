@@ -2245,7 +2245,7 @@ figure.highlight pre .javascript .function {
   }
 }
 .layout > div:first-child {
-  width: 74%;
+  width: calc(74% - 20px);
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
   -o-transition: all 0.3s;
@@ -2759,7 +2759,7 @@ h1.page-title + .tag-cloud-list {
 }
 #aside-content .card-tag-cloud a {
   display: inline-block;
-  font-size: 1rem !important;
+  font-size: 0.95rem !important;
   padding: 0 6px;
   border-radius: 0.4rem;
   color: var(--font-color) !important;
@@ -2820,12 +2820,12 @@ h1.page-title + .tag-cloud-list {
 #aside-content .aside-list > .aside-list-item .content > .name {
   display: block;
   color: #858585;
-  font-size: 85%;
+  font-size: 80%;
 }
 #aside-content .aside-list > .aside-list-item .content > .title,
 #aside-content .aside-list > .aside-list-item .content > .comment {
   color: var(--font-color);
-  font-size: 95%;
+  font-size: 90%;
   line-height: 1.2;
   -webkit-line-clamp: 2;
 }
@@ -2864,6 +2864,7 @@ h1.page-title + .tag-cloud-list {
   -o-transition: all 0.4s;
   -ms-transition: all 0.4s;
   transition: all 0.4s;
+  font-size: 95%;
 }
 #aside-content .card-archives ul.card-archive-list > .card-archive-list-item a:hover,
 #aside-content .card-categories ul.card-category-list > .card-category-list-item a:hover {
@@ -2927,6 +2928,7 @@ h1.page-title + .tag-cloud-list {
   -webkit-align-items: center;
   align-items: center;
   padding: 2px 10px 0;
+  font-size: 95%;
 }
 #aside-content .card-webinfo .webinfo .webinfo-item div:first-child {
   -webkit-box-flex: 1;

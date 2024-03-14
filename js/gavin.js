@@ -919,6 +919,16 @@ var ctrl = {
         }
     },
 
+    scrollBackground() {
+        const u = window.location.pathname;
+        if (u == '/' || /^\/page\/\d+\/$/.test(u)) {
+            const h0 = window.innerHeight - 80;
+            const h1 = window.scrollY;
+            const op = h1 / h0 > 1 ? 1 : h1 / h0;
+            document.getElementById('body-wrap').style.background = `rgba(var(--gavin-bg),${op})`;
+        } else document.getElementById('body-wrap').style.background = 'var(--gavin-background)';
+    },
+
     refreshLikeCount() {
         var p = window.location.pathname
         var q = p.substring(1,5)

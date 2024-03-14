@@ -55,7 +55,8 @@ document.addEventListener('DOMContentLoaded', function () {
   const scrollDownInIndex = () => {
     const $scrollDownEle = document.getElementById('scroll-down')
     $scrollDownEle && $scrollDownEle.addEventListener('click', function () {
-      btf.scrollToDest(document.getElementById('content-inner').offsetTop, 300)
+      if (window.innerWidth < 768) btf.scrollToDest(document.getElementById('content-inner').offsetTop - 60, 300)
+      else btf.scrollToDest(document.getElementById('content-inner').offsetTop - 40, 300)
     })
   }
 

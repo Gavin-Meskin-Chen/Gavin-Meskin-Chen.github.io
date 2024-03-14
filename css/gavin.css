@@ -13,6 +13,7 @@
     --gavin-highlight-op-6: rgba(var(--gavin-theme-color), .6);
     --gavin-theme-color-light: 129, 78, 250;
     --gavin-theme-color-dark: 0, 234, 208;
+    --gavin-background: rgb(var(--gavin-bg));
     /* --gavin-theme-color-dark: 26, 251, 255; 亮蓝 */
 
     --rightside-bg: rgba(var(--op), .1);
@@ -72,6 +73,7 @@
 [data-theme="light"] {
     --op: 255, 255, 255;
     --op-dis: 0, 0, 0;
+    --gavin-bg: 246, 247, 249;
     --f-0: #fff;
     --dis-f-0: #000;
     --gavin-op-1: rgba(255, 255, 255, .1);
@@ -105,7 +107,6 @@
     --gavin-note-font-color: rgb(102, 102, 102);
     --gavin-hover-font-color: rgba(0, 0, 0, 1);
     /* --gavin-background: rgb(241, 243, 245); */
-    --gavin-background: rgb(246, 247, 249);
     --gavin-widget-bg1: rgb(242, 243, 245);
     --gavin-widget-bg2: rgb(227, 228, 230);
     --gavin-widget-bg3: rgb(206, 207, 209);
@@ -189,6 +190,8 @@
 [data-theme="dark"] {
     --op: 0, 0, 0;
     --op-dis: 255, 255, 255;
+    --gavin-bg: 17, 18, 20;
+    /* --gavin-background: rgb(0, 0, 0); */
     --f-0: #000;
     --dis-f-0: #fff;
     --gavin-op-1: rgba(0, 0, 0, .1);
@@ -220,8 +223,6 @@
     --gavin-border-hover-color: var(--gavin-blue3);
     --gavin-note-font-color: rgb(136, 136, 136);
     --gavin-hover-font-color: rgba(255, 255, 255, .9);
-    /* --gavin-background: rgb(0, 0, 0); */
-    --gavin-background: rgb(17, 18, 20);
     /*17,17,17*/
     --gavin-widget-bg1: rgb(45, 46, 48);
     /*38, 38, 38; rgb(46, 48, 51)*/
@@ -1921,6 +1922,14 @@ img#post-cover {
 [data-theme='dark'] img#post-cover {
     filter: none;
 }
+/* 
+.home img#post-cover {
+    opacity: 0;
+}
+
+#page-header::before {
+    background: transparent !important;
+} */
 
 #page-header #post-info {
     top: 0;
@@ -2645,16 +2654,18 @@ span.separator {
 /* 控制中心界面功能按钮样式 */
 #console {
     z-index: 999;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#console .eject-mask {
+    min-height: 650px;
 }
 
 #console .console-btn-group {
     display: flex;
-    position: fixed;
-    top: 34.5rem;
-    /*相对于音乐卡片位置*/
-    margin: 1rem auto 0 auto;
-    /* justify-content: center;
-    width: 20rem; */
+    position: absolute;
+    top: 565px;
     justify-content: space-between;
     width: 290px;
     opacity: 0;
@@ -2760,7 +2771,7 @@ span.separator {
 }
 
 #he-plugin-simple>div:last-child>div {
-    top: 58px !important;
+    top: 57px !important;
 }
 
 .wv-top-select,
@@ -3936,7 +3947,7 @@ button.wv-top-button {
 
 /* *******************星空背景**************** */
 /* 背景宇宙星光  */
-#universe {
+/* #universe {
     display: block;
     position: fixed;
     margin: 0;
@@ -3949,7 +3960,7 @@ button.wv-top-button {
     height: 100%;
     pointer-events: none;
     z-index: 0;
-}
+} */
 
 #body-wrap {
     background: var(--gavin-background);
@@ -4104,6 +4115,7 @@ button.wv-top-button {
     font-size: 1.2em;
     line-height: 1.3;
     font-weight: bold;
+    margin: 5px 0;
 }
 
 /* 主页文章卡片样式 */
@@ -4257,7 +4269,7 @@ a.article-meta__categories:hover {
 /* 文章描述 */
 .recent-post-item .content {
     line-height: 1.3;
-    font-size: 1rem;
+    font-size: 0.9em;
     opacity: 0.6;
 }
 
@@ -4290,26 +4302,20 @@ a.article-meta__categories:hover {
     }
 }
 
-/* 侧边卡片栏宽度 */
-#aside-content {
-    max-width: 320px;
-    /* 318, 388 */
-    min-width: 300px;
-}
-
-.layout>div:first-child {
-    width: calc(100% - 300px);
-}
 
 /* 平板尺寸自适应(不启用侧边栏宽度限制) */
-@media screen and (max-width: 900px) {
-    #aside-content {
-        max-width: none !important;
+@media screen and (min-width: 900px) {
+    .page.home .layout>div:first-child {
+        max-width: calc(100% - 320px);
+        min-width: calc(100% - 340px);
     }
 
-    /* #body-wrap:not(.home) #aside-content {
-        padding: 0 1rem;
-    } */
+    /* 侧边卡片栏宽度 */
+    #aside-content {
+        max-width: 320px;
+        /* 318, 388 */
+        min-width: 300px;
+    }
 }
 
 /* 智能区分主页和分页，除了首页以外其他页面隐藏侧边栏，并采用宽屏显示 */
@@ -4956,7 +4962,7 @@ html.hide-aside .layout>div:first-child {
 }
 
 #console .console-mainbox {
-    margin: 1rem auto 0 auto;
+    /* margin: 1rem auto 0 auto; */
     width: 290px;
     height: 485px;
     border-radius: 30px;
@@ -4966,9 +4972,9 @@ html.hide-aside .layout>div:first-child {
     /*曲率连续圆角*/
     /* border: var(--style-border); */
     background: var(--f-0);
-    position: fixed;
+    position: absolute;
     overflow: hidden;
-    top: 3.5rem;
+    top: 70px;
     opacity: 0;
     pointer-events: none;
     transition: all 0.5s ease;
@@ -6303,30 +6309,18 @@ progress::-webkit-progress-value {
     display: none;
 }
 
-#page-header::before {
+.page.home #page-header::before {
     background: transparent !important;
-}
-
-#web_bg::after {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    background: rgba(0,0,0,0.15);
-    content: '';
 }
 
 #web_bg::before {
     position: absolute;
     width: 100%;
     height: 100%;
-    background: var(--web-bg)!important;
+    z-index: -1;
+    background: rgba(0,0,0,0.15);
     content: '';
 } */
-
-[data-theme='dark'] #web_bg:before {
-    background-color: transparent;
-}
 
 /* **************************************应用软件******************************** */
 
