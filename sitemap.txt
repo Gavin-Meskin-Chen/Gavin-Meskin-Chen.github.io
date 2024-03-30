@@ -1,8 +1,8 @@
+https://gavin-chen.top/log/index.html
 https://gavin-chen.top/categories/index.html
 https://gavin-chen.top/tags/index.html
 https://gavin-chen.top/about/index.html
 https://gavin-chen.top/messageboard/index.html
-https://gavin-chen.top/log/index.html
 https://gavin-chen.top/link/index.html
 https://gavin-chen.top/movies/index.html
 https://gavin-chen.top/fcircle/index.html
@@ -67,8 +67,8 @@ https://gavin-chen.top/tags/%E5%93%B2%E5%AD%A6/
 https://gavin-chen.top/tags/node-js/
 https://gavin-chen.top/tags/%E6%95%B0%E7%94%B5/
 https://gavin-chen.top/tags/CSS/
-https://gavin-chen.top/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/
 https://gavin-chen.top/tags/%E6%95%B0%E7%A0%81/
+https://gavin-chen.top/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/
 https://gavin-chen.top/tags/JavaScript/
 https://gavin-chen.top/tags/%E5%88%86%E4%BA%AB/
 https://gavin-chen.top/categories/%E7%94%9F%E6%B4%BB%E6%97%A5%E5%B8%B8/
