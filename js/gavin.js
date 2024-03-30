@@ -1340,7 +1340,14 @@ function categoriesBarActive() {
 // 标签条
 function tagsBarActive() {
     if (document.getElementById("tag-bar-items")) {
-        var j = document.querySelector(".article-sort-title").innerText.slice(5);
+        var urlinfo = window.location.pathname;
+        urlinfo = decodeURIComponent(urlinfo);
+        var pattern = /\/tags\/.*?\//;
+        // var patbool = pattern.test(urlinfo);
+        var valuegroup = urlinfo.split("/");
+        var j = valuegroup[2];
+        console.log(j);
+        // var j = document.querySelector(".article-sort-title").innerText.slice(5);
         document.getElementById(j).classList.add("select");
     }
 }

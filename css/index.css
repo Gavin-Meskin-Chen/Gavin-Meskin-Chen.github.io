@@ -3974,7 +3974,7 @@ h1.page-title + .tag-cloud-list {
   }
 }
 #pagination .pagination {
-  margin-top: 20px;
+  margin-top: 40px;
   text-align: center;
 }
 #pagination .page-number.current {
