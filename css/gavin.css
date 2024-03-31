@@ -1408,7 +1408,7 @@ a {
 }
 
 .tag-cloud-list a sup {
-    opacity: .6;
+    opacity: .5;
     margin-left: 0.1em;
 }
 
@@ -4742,7 +4742,7 @@ a.categoryButton:after {
 }
 
 #tag-bar-items a sup {
-    opacity: .6;
+    opacity: .5;
     margin-left: 0.1em;
 }
 
@@ -4781,6 +4781,13 @@ a.categoryButton:after {
     padding-bottom: 0;
     font-size: 1.7rem;
     font-weight: bold;
+    display: flex;
+}
+
+.article-sort-title .sup {
+    margin-left: 0.25em;
+    font-size: 70%;
+    opacity: 0.5;
 }
 
 /* 把时间轴去掉 */

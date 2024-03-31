@@ -256,25 +256,27 @@ function cardTimes() {
 // 侧边公告卡片
 function asideNote() {
     var noteCard = document.querySelector(".card-widget.card-announcement");
-    var noteArea = document.querySelector(".card-widget.card-announcement .announcement_content");
-    if (date == dates) {
-        noteCard.style.display = "";
-        noteArea.innerHTML = "<p align='center'>今天月末，做好总结</p>";
-        // if (set_notice.checked) tools.showNote("今天月末，做好总结", "warning", 5)
-    } else if (date == 1) {
-        noteCard.style.display = "";
-        noteArea.innerHTML = "<p align='center'>今天月初，做好规划</p>";
-        // if (set_notice.checked) tools.showNote("今天月初，做好规划", "warning", 5)
-    } else {
-        switch (lunarDay) {
-            case "十六":
-                noteCard.style.display = "";
-                noteArea.innerHTML = "<p align='center'>今晚月圆</p>";
-                // if (set_notice.checked) tools.showNote("今晚月圆", "success", 5)
-                break;
-            default: noteCard.style.display = "none";
+    if (noteCard) {
+        var noteArea = document.querySelector(".card-widget.card-announcement .announcement_content");
+        if (date == dates) {
+            noteCard.style.display = "";
+            noteArea.innerHTML = "<p align='center'>今天月末，做好总结</p>";
+            // if (set_notice.checked) tools.showNote("今天月末，做好总结", "warning", 5)
+        } else if (date == 1) {
+            noteCard.style.display = "";
+            noteArea.innerHTML = "<p align='center'>今天月初，做好规划</p>";
+            // if (set_notice.checked) tools.showNote("今天月初，做好规划", "warning", 5)
+        } else {
+            switch (lunarDay) {
+                case "十六":
+                    noteCard.style.display = "";
+                    noteArea.innerHTML = "<p align='center'>今晚月圆</p>";
+                    // if (set_notice.checked) tools.showNote("今晚月圆", "success", 5)
+                    break;
+                default: noteCard.style.display = "none";
+            }
         }
-    }
+    } 
 }
 
 // ***************************************************** 工具模块 ***************************************************************
