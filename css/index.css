@@ -2245,7 +2245,7 @@ figure.highlight pre .javascript .function {
   }
 }
 .layout > div:first-child {
-  width: calc(74% - 20px);
+  width: calc(100% - 340px);
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
   -o-transition: all 0.3s;
@@ -2651,7 +2651,7 @@ h1.page-title + .tag-cloud-list {
   text-align: left;
 }
 #aside-content {
-  width: 26%;
+  width: 320px;
 }
 @media screen and (min-width: 900px) {
   #aside-content {

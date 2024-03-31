@@ -876,7 +876,7 @@ var ctrl = {
     },
 
     getCurrentPage() {
-        if (window.innerWidth <= 768 && (document.querySelector("#body-wrap.page.home") || document.getElementById("tag") || document.getElementById("category") || document.getElementById("archive"))) {
+        if (window.innerWidth <= 768 && (document.getElementById("recent-posts") || document.getElementById("tag") || document.getElementById("category") || document.getElementById("archive"))) {
             var currentPage = document.querySelector(".pagination .page-number.current").innerHTML;
             if (currentPage) {
                 var toPage = document.querySelector(".pagination .toPageInput");
@@ -1343,7 +1343,6 @@ function tagsBarActive() {
         var urlinfo = window.location.pathname;
         urlinfo = decodeURIComponent(urlinfo);
         var pattern = /\/tags\/.*?\//;
-        // var patbool = pattern.test(urlinfo);
         var valuegroup = urlinfo.split("/");
         var j = valuegroup[2];
         console.log(j);

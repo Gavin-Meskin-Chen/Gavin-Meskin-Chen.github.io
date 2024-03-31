@@ -154,18 +154,6 @@
     --twitter-item-hover: rgba(0, 0, 0, 0.03);
     --twitter-item-active: rgba(0, 0, 0, 0.07);
 
-    /* animation: slide-in .6s .4s backwards;
-    @keyframes slide-in{
-        0% {
-            transform: translateY(20px);
-            opacity: 0;
-        }
-        100% {
-            transform: translateY(0);
-            opacity: 1;
-        }
-    }
-     */
 
     /* 以下是安知鱼/Heo颜色 */
     --gavin-card-bg: #fff;
@@ -397,6 +385,17 @@
 
     100% {
         object-position: calc(50% - 75px);
+    }
+}
+
+@keyframes slide-in{
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
     }
 }
 
@@ -4061,7 +4060,7 @@ button.wv-top-button {
     align-content: flex-start;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between
+    justify-content: space-between;
 }
 
 #recent-posts>.recent-post-item {
@@ -4072,7 +4071,8 @@ button.wv-top-button {
     width: calc(50% - 10px);
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
-    flex-direction: column
+    flex-direction: column;
+    /* animation: slide-in .6s .4s backwards; */
 }
 
 @media screen and (min-width: 900px) and (max-width: 1050px) {
@@ -4084,6 +4084,10 @@ button.wv-top-button {
 @media screen and (max-width:768px) {
     #recent-posts>.recent-post-item {
         width: 100%
+    }
+
+    #recent-posts {
+        padding: 0 1rem !important;
     }
 }
 
@@ -4285,11 +4289,13 @@ a.article-meta__categories:hover {
 
 /* ***************************宽屏适配************************ */
 /* 全局宽度、左右padding */
-.layout {
-    padding-left: 5%;
-    padding-right: 5%;
-    max-width: 1600px !important;
-    gap: 20px;
+@media screen and (min-width: 768px) {
+    .layout {
+        padding-left: 5%;
+        padding-right: 5%;
+        max-width: 1600px !important;
+        gap: 20px;
+    }
 }
 
 @media screen and (max-width: 1300px) {
@@ -4309,42 +4315,40 @@ a.article-meta__categories:hover {
 
     #body-wrap.post .layout,
     #body-wrap .layout.hide-aside {
-        padding-left: 0;
-        padding-right: 0;
+        padding-left: 5px;
+        padding-right: 5px;
     }
 }
 
 
 /* 平板尺寸自适应(不启用侧边栏宽度限制) */
-@media screen and (min-width: 900px) {
+/* @media screen and (min-width: 900px) {
     .layout:not(.hide-aside) > div:first-child {
         max-width: calc(100% - 320px);
         min-width: calc(100% - 340px);
     }
 
-    /* 侧边卡片栏宽度 */
     #aside-content {
         max-width: 320px;
-        /* 318, 388 */
         min-width: 300px;
     }
-}
+} */
 
 /* 智能区分主页和分页，除了首页以外其他页面隐藏侧边栏，并采用宽屏显示 */
+#archive, 
 #page {
     width: 100%;
     padding: 0 40px;
 }
 
-#archive,
 #category,
 #tag {
-    width: 100%;
+    /* width: 100%; */
     padding: 0;
 }
 
 /* 除了目录，其它都隐藏 */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 900px) {
     #aside-content .card-widget:not(#card-toc) {
         display: none;
     }
@@ -5481,6 +5485,7 @@ a#music-list-title {
 .card-widget {
     padding: 10px !important;
     max-height: calc(100vh - 100px);
+    /* animation: slide-in .6s .4s backwards; */
 }
 
 .card-times a,
