@@ -3776,8 +3776,8 @@ h1.page-title + .tag-cloud-list {
   width: max-content;
   border-radius: 5px;
   background-color: var(--sidebar-bg);
-  -webkit-box-shadow: 0 5px 20px -4px rgba(0,0,0,0.5);
-  box-shadow: 0 5px 20px -4px rgba(0,0,0,0.5);
+  -webkit-box-shadow: 0 5px 20px -4px rgba(0,0,0,0.24);
+  box-shadow: 0 5px 20px -4px rgba(0,0,0,0.24);
 }
 #nav .menus_items .menus_item .menus_item_child:before {
   position: absolute;
@@ -4337,6 +4337,7 @@ h1.page-title + .tag-cloud-list {
   width: calc(33.333% - 10px);
   height: 200px;
   background: #000;
+  border: 1px solid var(--gavin-border-color);
   vertical-align: bottom;
 }
 @media screen and (max-width: 768px) {

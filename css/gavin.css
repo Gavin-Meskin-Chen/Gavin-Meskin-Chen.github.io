@@ -2302,8 +2302,8 @@ h6 {
 /* 字间距 */
 #article-container p,
 #article-container li {
-    letter-spacing: 0.7px;
-    line-height: 1.7;
+    letter-spacing: 0.5px;
+    line-height: 1.83;
 }
 
 #article-container ol,
@@ -2311,6 +2311,7 @@ h6 {
     padding-inline-start: 1.8em;
     list-style: none;
     counter-reset: li 0;
+    margin: 0.5em 0;
 }
 
 /* 序号 */
