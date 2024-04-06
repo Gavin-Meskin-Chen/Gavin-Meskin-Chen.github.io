@@ -2299,11 +2299,16 @@ h6 {
     opacity: 1;
 }
 
+#article-container .line-right {
+    text-align: right;
+}
+
 /* 字间距 */
 #article-container p,
 #article-container li {
-    letter-spacing: 0.5px;
+    /* letter-spacing: 0.5px; */
     line-height: 1.83;
+    text-align: justify;
 }
 
 #article-container ol,

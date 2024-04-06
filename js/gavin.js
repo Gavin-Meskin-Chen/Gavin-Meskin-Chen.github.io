@@ -279,6 +279,264 @@ function asideNote() {
     } 
 }
 
+
+
+
+
+
+
+
+
+
+// <link rel="stylesheet" href="https://registry.npmmirror.com/cansin-blogdata/latest/files/css/fcircle.min.css">
+
+// <h2 id="我的收藏">
+//     我的收藏
+//     <a class="refresh" onclick="localStorage.removeItem('savedArticles');location.reload();">
+//         <i class="blogfont icon-refresh"></i>
+//     </a>
+//     <a class="fold" onclick="foldSavedArticles()">
+//         <i class="blogfont icon-arrow-down"></i>
+//     </a>
+// </h2>
+
+// <div id="cf-saved-post">
+// </div>
+
+// <h2 id="最新文章">
+//     最新文章
+// </h2>
+
+// <div class="post-content">
+//     <div id="cf-container">
+//         与主机通讯中……
+//     </div>
+// </div>
+
+// <div class="inputBoxMain eject c-c" id="fcircleInputBox">
+//   <div class="inputBox">
+//     <div class="content-body">
+//       <span class="title"></span>
+//       <span class="tips">请输入密码以验证您的身份</span>
+//       <input class="input-password" type="password" placeholder="密码">
+//     </div>
+//     <div class="content-bottom">
+//       <span class="btn close" onclick="switchSecretInput()">取消</span>
+//       <span class="btn" onclick="sendSubscribeInfo()">确认</span>
+//     </div>
+//   </div>
+//   <div class="noteBox hide">
+//     <a class="icon">
+//       <!-- <i class="blogfont icon-loading6 fa-spin" style="font-size:48px;"></i> -->
+//       <i class="spinner"></i>
+//     </a>
+//     <span class="tips">请稍候 ...</span>
+//   </div>
+//   <div class="eject-mask"></div>
+// </div>
+
+// <script type="text/javascript">
+//     var fdataUser = {
+//       apiurl: 'https://flink.gavin-chen.top/'
+//     };
+//     var article_index = '',
+//         article_title = '',
+//         article_link = '',
+//         article_author = '',
+//         article_avatar = '',
+//         article_time = '',
+//         article_pwd = '';
+//     var savedArticlesIndex = '';
+//     var catchNowTime = Date.now();
+//     var updateTime = localStorage.getItem("updateTime");
+//     updateTime == null || catchNowTime - updateTime < 2419200000 ? null : localStorage.removeItem("savedArticles");//每隔1星期刷新一次本地缓存
+//     var savedArticles = localStorage.getItem("savedArticles");
+//     if (savedArticles != null) {
+//         console.log("内存读取成功");
+//         var savedArticlesJson = JSON.parse(savedArticles)
+//         // console.log(savedArticlesJson);
+//         addArticleCard(savedArticlesJson);
+//         savedArticlesIndex = savedArticlesJson.map(item => item.index);
+//         // checkStared(savedArticlesIndex);
+//     } else {
+//         fetch("https://apis.gavin-chen.top/getsavedtitles?mode=all&column=&value=&output=jsonp")
+//             .then(response => response.json())
+//             .then(data => {
+//                 if (data.code == 200) {
+//                     console.log('获取收藏夹成功');
+//                     savedArticles = data.content;
+//                     localStorage.setItem("updateTime", catchNowTime);
+//                     localStorage.setItem("savedArticles", JSON.stringify(savedArticles));
+//                     // console.log(savedArticles);
+//                     addArticleCard(savedArticles);
+//                     savedArticlesIndex = savedArticles.map(item => item.index);
+//                     // console.log(savedArticlesIndex);
+//                     checkStared(savedArticlesIndex);
+//                 } else {
+//                     console.log('获取收藏夹失败')
+//                 }
+//             })
+//             .catch(error => {
+//                 console.error('获取收藏夹失败', error);
+//             })
+//     }
+//     function checkStared(s) {
+//         for (let i = 0; i < s.length; i++) {
+//             var j = document.querySelector("#cf-container ." + s[i] + " .cf-star");
+//             if (j) {
+//                 j.classList.contains("saved") ? null : j.classList.add("saved");
+//             }
+//         }
+//     }
+//     function addArticleCard(a) {
+//         var container = '';
+//         for (let i=0; i<a.length; i++) {
+//             var item = a[i];
+//             container += `
+//             <div class="cf-article ${item.index}">
+//                 <a class="cf-article-title" href="${item.link}" target="_blank" rel="noopener nofollow" data-title="${item.title}">${item.title}</a>
+//                 <a class="cf-star saved" onclick="switchSecretInput(event)"><i class="fa-regular fa-star"></i></a>
+//                 <div class="cf-article-avatar no-lightbox flink-item-icon">
+//                     <img class="cf-img-avatar avatar" src="${item.avatar}" alt="avatar" onerror="this.src=''; this.onerror = null;">
+//                     <a class="" target="_blank" rel="noopener nofollow"><span class="cf-article-author">${item.author}</span></a>
+//                 </div>
+//                 <span class="cf-article-time">
+//                     <span class="cf-time-created">${item.time}</span>
+//                 </span>
+//             </div>
+//             `;
+//         }
+//         document.getElementById("cf-saved-post").insertAdjacentHTML('beforeend', container);
+//     }
+//     function switchSecretInput(event) {
+//         const a = document.getElementById("fcircleInputBox");
+//         const b = a.querySelector(".input-password");
+//         const f = a.querySelector(".content-body .title");
+//         function c(e) { article_pwd = e.target.value; }
+//         if (a.classList.contains("show")) {
+//             a.classList.remove("show");
+//             b.removeEventListener('input', c);
+//             article_index = '';
+//             article_title = '';
+//             article_link = '';
+//             article_author = '';
+//             article_avatar = '';
+//             article_time = '';
+//         } else {
+//             a.classList.add("show");
+//             b.addEventListener('input', c);
+//             var d = '';
+//             if (event.target.nodeName.toUpperCase() == "A") {
+//                 if (event.target.classList.contains("saved")) {
+//                     sendMode = 1;
+//                     f.innerHTML = "移出收藏";
+//                 } else {
+//                     sendMode = 0;
+//                     f.innerHTML = "添加收藏";
+//                 }
+//                 d = event.target.parentElement.querySelector(".cf-article-title");
+//                 article_author = event.target.parentElement.querySelector(".cf-article-avatar .cf-article-author").innerText;
+//                 article_avatar = event.target.parentElement.querySelector(".cf-article-avatar .cf-img-avatar").src;
+//                 article_time = event.target.parentElement.querySelector(".cf-article-time .cf-time-created").innerText;
+//             } else if (event.target.nodeName.toUpperCase() == "I") {
+//                 if (event.target.parentElement.classList.contains("saved")) {
+//                     sendMode = 1;
+//                     f.innerHTML = "移出收藏";
+//                 } else {
+//                     sendMode = 0;
+//                     f.innerHTML = "添加收藏";
+//                 }
+//                 d = event.target.parentElement.parentElement.querySelector(".cf-article-title");
+//                 article_author = event.target.parentElement.parentElement.querySelector(".cf-article-avatar .cf-article-author").innerText;
+//                 article_avatar = event.target.parentElement.parentElement.querySelector(".cf-article-avatar .cf-img-avatar").src;
+//                 article_time = event.target.parentElement.parentElement.querySelector(".cf-article-time .cf-time-created").innerText;
+//             }
+//             article_title = d.innerText;
+//             article_link = d.getAttribute("href");
+//             article_index = "cf-" + CryptoJS.MD5(article_link).toString();
+//         }
+//     }
+//     function sendSubscribeInfo() {
+//         var key = CryptoJS.SHA256(article_pwd);
+//         var url = sendMode == 1
+//             ? "https://apis.gavin-chen.top/delsavedtitles?key=" + key + "&index=" + article_index
+//             : "https://apis.gavin-chen.top/subscribe?key=" + key + "&index=" + article_index + "&title=" + article_title + "&link=" + article_link + "&author=" + article_author + "&avatar=" + article_avatar + "&time=" + article_time;
+//         var inputBox = document.querySelector("#fcircleInputBox .inputBox");
+//         var noteBox = document.querySelector("#fcircleInputBox .noteBox");
+//         inputBox.classList.add("hide");
+//         noteBox.classList.remove("hide");
+//         fetch(url)
+//             .then(response => response.json())
+//             .then(data => {
+//                 if (data.code == 200) {
+//                     // console.log(data.message);
+//                     var a = document.querySelector("#cf-saved-post ." + article_index);
+//                     if (a) { a.outerHTML = ""; }
+//                     var b = document.querySelector("." + article_index + " .cf-star");
+//                     if (typeof savedArticlesIndex != 'undefined') savedArticlesIndex = savedArticlesIndex.filter(element => element !== article_index);
+//                     if (b) {b.classList.contains("saved") ? b.classList.remove("saved") : b.classList.add("saved");}
+//                     if (sendMode == 0) {
+//                         var container = `
+//                             <div class="cf-article ${article_index}">
+//                                 <a class="cf-article-title" href="${article_link}" target="_blank" rel="noopener nofollow" data-title="${article_title}">${article_title}</a>
+//                                 <a class="cf-star saved" onclick="switchSecretInput(event)"><i class="fa-regular fa-star"></i></a>
+//                                 <div class="cf-article-avatar no-lightbox flink-item-icon">
+//                                     <img class="cf-img-avatar avatar" src="${article_avatar}" alt="avatar" onerror="this.src=''; this.onerror = null;">
+//                                     <a class="" target="_blank" rel="noopener nofollow"><span class="cf-article-author">${article_author}</span></a>
+//                                 </div>
+//                                 <span class="cf-article-time">
+//                                     <span class="cf-time-created">${article_time}</span>
+//                                 </span>
+//                             </div>
+//                             `;
+//                         document.getElementById("cf-saved-post").insertAdjacentHTML('beforeend', container);
+//                     }
+//                     tools.showMessage(data.message, "success", 2);
+//                     localStorage.removeItem("savedArticles");
+//                     inputBox.classList.remove("hide");
+//                     noteBox.classList.add("hide");
+//                     document.querySelector("#fcircleInputBox .btn.close").click();
+//                 } else {
+//                     // console.log(data.message);
+//                     tools.showMessage(data.message, "error", 2);
+//                     inputBox.classList.remove("hide");
+//                     noteBox.classList.add("hide");
+//                     document.querySelector("#fcircleInputBox .btn.close").click();
+//                 }
+//             })
+//             .catch(error => {
+//                 console.error('收藏失败:', error);
+//             })
+//     }
+//     function foldSavedArticles() {
+//         var a = document.getElementById("cf-saved-post")
+//         var b = document.querySelector("#我的收藏 .fold i");
+//         if (b.style.transform == "rotate(180deg)") {
+//             a.style.maxHeight = "260px"
+//             b.style.transform = ""
+//         } else {
+//             a.style.maxHeight = typeof savedArticlesIndex != 'undefined' ? (savedArticlesIndex.length * 130 - 20) + "px" : "fit-content"
+//             b.style.transform = "rotate(180deg)"
+//         }
+//     }
+
+// </script>
+
+// <script type="text/javascript" src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/crypto-js/4.1.1/crypto-js.min.js"></script>
+// <script type="text/javascript" src="https://registry.npmmirror.com/cansin-blogdata/latest/files/js/fcircle.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
 // ***************************************************** 工具模块 ***************************************************************
 
 var tools = {
