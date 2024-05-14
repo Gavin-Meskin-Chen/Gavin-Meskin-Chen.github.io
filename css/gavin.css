@@ -1743,11 +1743,13 @@ a.aside-list-item-head {
     position: absolute;
     bottom: 0;
     right: 0;
-    width: 20px;
-    height: 20px;
+    width: 23px;
+    height: 23px;
     border-radius: 50%;
-    background-image: url(https://registry.npmmirror.com/cansin-blogdata/latest/files/img/202311051012837.webp);
+    background-image: url(https://registry.npmmirror.com/cansin-blogdata/latest/files/img/202311060926243.webp);
     background-size: 100% 100%;
+    border: 3px solid var(--card-bg);
+    box-sizing: border-box;
     z-index: 1;
 }
 
@@ -2209,6 +2211,7 @@ input.toPageInput::placeholder {
     background: var(--gavin-nav-hover) !important;
     border-color: var(--gavin-highlight);
     color: #fff !important;
+    box-shadow: 0 4px 12px -3px var(--gavin-highlight-op);
 }
 
 #pagination .pagination>* {
@@ -3737,22 +3740,21 @@ button.wv-top-button {
 }
 
 /* 评论区 */
+.tk-admin {
+    -webkit-backdrop-filter: blur(5px);
+}
+
 .tk-extra {
-    border: 1px solid var(--gavin-border-color);
-    padding: 4px;
-    margin: 4px 4px 0 0;
-    border-radius: 5px;
+    /* border: 1px solid var(--gavin-border-color); */
+    /* padding: 0 4px; */
+    margin: 4px 10px 0 0;
+    /* border-radius: 5px; */
     font-size: 11px;
 }
 
 @media screen and (max-width: 768px) {
     .twikoo .el-textarea__inner {
         min-height: 6.4rem !important;
-    }
-
-    .tk-extra {
-        border: 0;
-        padding: 0 4px;
     }
 
     .tk-extra:last-child {
@@ -3783,9 +3785,17 @@ button.wv-top-button {
     border-top: 1px dashed var(--gavin-border-color);
 }
 
-@media screen and (min-width: 768px) {
-    #body-wrap:not(.post) #twikoo .tk-comments-container>.tk-comment {
-        padding: 15px;
+#body-wrap:not(.post) #twikoo .tk-comments-container>.tk-comment {
+    padding: 24px;
+    background: var(--card-bg);
+    border: 1px solid var(--gavin-border-color);
+    box-shadow: var(--gavin-shadow-1);
+    border-radius: 13px;
+}
+
+@media screen and (max-width: 768px) {
+    #twikoo .tk-comments-container>.tk-comment {
+        padding: 16px!important;
         /* background: var(--vercel-background); */
         background: var(--card-bg);
         border: 1px solid var(--gavin-border-color);
@@ -3793,13 +3803,6 @@ button.wv-top-button {
         border-radius: 13px;
     }
 }
-
-/* #twikoo .tk-comments-container>.tk-comment {
-    padding: 1rem;
-    background: var(--vercel-background);
-    border: 1px solid var(--gavin-border-color);
-    border-radius: 1rem;
-} */
 
 #twikoo .tk-comments-container>.tk-expand {
     margin-top: 12px;
@@ -3826,8 +3829,12 @@ button.wv-top-button {
     color: var(--f-0);
 }
 
-.tk-meta strong {
-    color: var(--gavin-highlight);
+.tk-meta {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px;
 }
 
 .tk-comment .tk-content a.tk-ruser {
@@ -3851,6 +3858,7 @@ button.wv-top-button {
 .tk-time {
     color: var(--gavin-note-font-color);
     font-size: 11px;
+    line-height: 1;
     display: inline-block;
 }
 
@@ -3875,12 +3883,20 @@ button.wv-top-button {
     height: 2.5rem;
 }
 
-.tk-replies .tk-nick-link {
-    font-size: 1em;
+.tk-nick {
+    line-height: 1;
+    font-size: 1.1em;
+    color: var(--gavin-highlight);
 }
 
-.tk-main .tk-row:not(.actions) {
-    margin-top: 3px;
+.tk-replies .tk-nick {
+    font-size: 1.1em;
+    line-height: 1;
+}
+
+.tk-main > .tk-row {
+    height: 2.5rem;
+    align-items: center;
 }
 
 .tk-row.actions {
@@ -3908,12 +3924,55 @@ button.wv-top-button {
     overflow: unset;
 }
 
+#body-wrap:not(.post) #twikoo .tk-comments-container > .tk-comment > .tk-avatar {
+    position: absolute;
+}
+
+#body-wrap:not(.post) #twikoo .tk-comments-container > .tk-comment > .tk-main > .tk-row {
+    margin: 0 0 0 50px;
+}
+
+#body-wrap:not(.post) #twikoo .tk-comments-container > .tk-comment > .tk-main > .tk-content {
+    margin: 10px 0 5px;
+}
+
+@media screen and (max-width: 768px) {
+    #body-wrap.post #twikoo .tk-comments-container > .tk-comment > .tk-avatar {
+        position: absolute;
+    }
+    
+    #body-wrap.post #twikoo .tk-comments-container > .tk-comment > .tk-main > .tk-row {
+        margin: 0 0 0 50px;
+    }
+    
+    #body-wrap.post #twikoo .tk-comments-container > .tk-comment > .tk-main > .tk-content {
+        margin: 10px 0 5px;
+    }    
+}
+
 .tk-avatar .tk-avatar-img {
     border-radius: 50%;
     border: 1px solid var(--gavin-border-color);
 }
 
 .tk-master .tk-avatar::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-image: url(https://registry.npmmirror.com/cansin-blogdata/latest/files/img/202311060926243.webp);
+    background-size: 100% 100%;
+    border: 1px solid var(--card-bg);
+    box-sizing: border-box;
+    z-index: 1;
+}
+
+.tk-avatar[nick='TeacherDu']::before,
+.tk-avatar[nick='Leonus']::before,
+.tk-avatar[nick='Heo']::before {
     content: '';
     position: absolute;
     bottom: 0;
@@ -3932,7 +3991,8 @@ button.wv-top-button {
 
 .tk-actions {
     margin-left: 0;
-    font-size: 12px;
+    font-size: 11px;
+    line-height: 1;
 }
 
 .twikoo .el-button--primary.is-disabled,
