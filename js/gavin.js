@@ -62,7 +62,7 @@ var startTime = performance.now();
 let animationId;
 var winbox = '';
 
-if ('paintWorklet' in CSS) { CSS.paintWorklet.addModule('https://registry.npmmirror.com/cansin-blogdata/latest/files/js/paint.min.js'); }
+if ('paintWorklet' in CSS) { CSS.paintWorklet.addModule('https://registry.npmmirror.com/cansin-blogdata/3.0.51/files/js/paint.min.js'); }
 
 window.onload = function () {
     var set_music = document.querySelector("#set-switch-music input");
@@ -129,6 +129,7 @@ window.onload = function () {
     }
     // new Vue().$mount('#aside-system')
     // if (set_notice.checked) tools.showNote("欢迎来到参星阁！", "success", 5);
+    console.clear();
     console.log("\n %cGC音频控制器 v1.3.2 参星阁出品%c https://gavin-chen.top \n", "color: #fadfa3; background: #030307; padding:5px 0;", "background: #fadfa3; padding:5px 0;")
     console.log(`Welcome to:\n%c参星阁:%c https://gavin-chen.top%c\nThis site has been running stably for %c${Math.round(((new Date).getTime() - new Date("2023/01/04 20:53:58").getTime()) / 864e5)} %c days`, "border:1px #888 solid;border-right:0;border-radius:5px 0 0 5px;padding: 5px 10px;color:white;background:#4976f5;margin:10px 0", "border:1px #888 solid;border-left:0;border-radius:0 5px 5px 0;padding: 5px 10px;", "", "color:#4976f5", "")
 }
@@ -1270,7 +1271,7 @@ var ctrl = {
         window.addEventListener('resize', ctrl.resizeWinbox);
         winbox.body.innerHTML = html;
         // https://cdn.cbd.int/cansin-blogdata@latest
-        document.head.appendChild(Object.assign(document.createElement("script"), { src: "https://registry.npmmirror.com/cansin-blogdata/latest/files/js/" + className + ".min.js", id: "appScript" }));
+        document.head.appendChild(Object.assign(document.createElement("script"), { src: "https://registry.npmmirror.com/cansin-blogdata/3.0.51/files/js/" + className + ".min.js", id: "appScript" }));
         document.querySelector('.wb-header .wb-close').addEventListener('click', ()=>{
             var script = document.getElementById('appScript');
             if (script) document.head.removeChild(script);

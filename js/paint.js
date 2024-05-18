@@ -17,7 +17,11 @@ class SmoothCorners {
         ctx.fill(path);
     }
 }
-registerPaint('smooth-corners', SmoothCorners);
+try {
+    registerPaint('smooth-corners', SmoothCorners);
+} catch (e) {
+    ;
+}
 
 class SmoothCorners3 {
     static get inputProperties() {
@@ -42,4 +46,8 @@ class SmoothCorners3 {
         ctx.fill(path);
     }
 }
-registerPaint('smooth-corners-3', SmoothCorners3);
+try {
+    registerPaint('smooth-corners-3', SmoothCorners3);
+} catch (e) {
+    ;
+}

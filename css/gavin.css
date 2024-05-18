@@ -135,7 +135,7 @@
     --card-bg: #fff;
     --card-link-bg: rgba(0, 150, 255, .1);
     --card-link-border: rgba(0, 150, 255, .3);
-    --system-logo: url(https://registry.npmmirror.com/cansin-blogdata/latest/files/img/f15BG.webp);
+    --system-logo: url(https://registry.npmmirror.com/cansin-blogdata/3.0.51/files/img/f15BG.webp);
     --web-bg: rgba(241, 243, 245, 0);
     --hl-bg: rgb(44, 48, 54);
     --hlnumber-bg: rgb(44, 48, 54);
@@ -255,7 +255,7 @@
     --font-color: #F7F7FA;
     /* rgb(210, 210, 210); */
     --search-bg: rgba(0, 0, 0, .64);
-    --system-logo: url(https://registry.npmmirror.com/cansin-blogdata/latest/files/img/f1olM.webp);
+    --system-logo: url(https://registry.npmmirror.com/cansin-blogdata/3.0.51/files/img/f1olM.webp);
     --web-bg: rgba(0, 0, 0, 0.25);
     --hl-bg: rgb(40, 44, 48);
     --hlnumber-bg: rgb(40, 44, 48);
@@ -1202,14 +1202,14 @@ center#name-container {
     color: rgba(255, 255, 255, .8) !important;
 } */
 
-#body-wrap.home #page-header:not(.is-top-bar) #nav #he-plugin-simple div,
+/* #body-wrap.home #page-header:not(.is-top-bar) #nav #he-plugin-simple div, */
 #body-wrap.home #page-header:not(.is-top-bar) #nav .back-home-button,
 #body-wrap.home #page-header:not(.is-top-bar) #nav .site-page.group,
 #body-wrap.home #page-header:not(.is-top-bar) #nav #site-name,
 #body-wrap.home #page-header:not(.is-top-bar) #nav #page-name,
 #body-wrap.home #page-header:not(.is-top-bar) #nav #toggle-menu a,
 #body-wrap.home #page-header:not(.is-top-bar) #nav .nav-button a,
-#body-wrap.post #page-header:not(.is-top-bar) #nav #he-plugin-simple div,
+/* #body-wrap.post #page-header:not(.is-top-bar) #nav #he-plugin-simple div, */
 #body-wrap.post #page-header:not(.is-top-bar) #nav .back-home-button,
 #body-wrap.post #page-header:not(.is-top-bar) #nav .site-page.group,
 #body-wrap.post #page-header:not(.is-top-bar) #nav #site-name,
@@ -1236,8 +1236,8 @@ center#name-container {
     background: rgba(255, 255, 255, .15) !important;
 }
 
-#body-wrap #nav .back-home-button,
-#he-plugin-simple {
+/* #he-plugin-simple, */
+#body-wrap #nav .back-home-button {
     transition: 0.3s;
 }
 
@@ -1699,7 +1699,7 @@ a.aside-list-item-head {
 }
 
 #aside-content>.card-info {
-    background: #fff url(https://registry.npmmirror.com/cansin-blogdata/latest/files/img/SOTIX.webp) top center / 100% 60% no-repeat;
+    background: #fff url(https://registry.npmmirror.com/cansin-blogdata/3.0.51/files/img/SOTIX.webp) top center / 100% 60% no-repeat;
 }
 
 [data-theme=dark] #aside-content>.card-info {
@@ -1746,7 +1746,7 @@ a.aside-list-item-head {
     width: 23px;
     height: 23px;
     border-radius: 50%;
-    background-image: url(https://registry.npmmirror.com/cansin-blogdata/latest/files/img/202311060926243.webp);
+    background-image: url(https://registry.npmmirror.com/cansin-blogdata/3.0.51/files/img/202311060926243.webp);
     background-size: 100% 100%;
     border: 3px solid var(--card-bg);
     box-sizing: border-box;
@@ -2523,7 +2523,7 @@ h6 {
 
 #sidebar-menus .sidebar-head {
     padding: 20px 10px 10px;
-    background-image: url(https://registry.npmmirror.com/cansin-blogdata/latest/files/img/QEhcc.webp);
+    background-image: url(https://registry.npmmirror.com/cansin-blogdata/3.0.51/files/img/QEhcc.webp);
     background-size: cover;
     background-position: center;
     height: 250px;
@@ -2767,19 +2767,17 @@ span.separator {
 }
 
 /* ******************************和风天气*************************** */
-.s-sticker {
+/* .s-sticker {
     font-weight: 600;
     margin-left: 10px;
 }
 
-/* 窄屏不显示天气 */
 @media screen and (max-width: 850px) {
     #he-plugin-simple .s-sticker {
         display: none!important;
     }
 }
 
-/* 修复窄屏显示但无法选中的bug */
 #he-plugin-simple {
     z-index: 1;
 }
@@ -2801,7 +2799,7 @@ span.separator {
 button.wv-top-button {
     border-radius: 6px !important;
     height: 2.5em !important;
-}
+} */
 
 /* ******************************文章波浪*************************** */
 .main-hero-waves-area {
@@ -3887,6 +3885,10 @@ button.wv-top-button {
     line-height: 1;
     font-size: 1.1em;
     color: var(--gavin-highlight);
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
 }
 
 .tk-replies .tk-nick {
@@ -3947,7 +3949,11 @@ button.wv-top-button {
     
     #body-wrap.post #twikoo .tk-comments-container > .tk-comment > .tk-main > .tk-content {
         margin: 10px 0 5px;
-    }    
+    }
+
+    .tk-submit-action-icon.__markdown {
+        display: none;
+    }
 }
 
 .tk-avatar .tk-avatar-img {
@@ -3963,7 +3969,7 @@ button.wv-top-button {
     width: 15px;
     height: 15px;
     border-radius: 50%;
-    background-image: url(https://registry.npmmirror.com/cansin-blogdata/latest/files/img/202311060926243.webp);
+    background-image: url(https://registry.npmmirror.com/cansin-blogdata/3.0.51/files/img/202311060926243.webp);
     background-size: 100% 100%;
     border: 1px solid var(--card-bg);
     box-sizing: border-box;
@@ -3980,7 +3986,7 @@ button.wv-top-button {
     width: 14px;
     height: 14px;
     border-radius: 50%;
-    background-image: url(https://registry.npmmirror.com/cansin-blogdata/latest/files/img/202311051012837.webp);
+    background-image: url(https://registry.npmmirror.com/cansin-blogdata/3.0.51/files/img/202311051012837.webp);
     background-size: 100% 100%;
     z-index: 1;
 }
@@ -4957,7 +4963,7 @@ html.hide-aside .layout>div:first-child {
 
 /* ************************加载动画*************************** */
 .loading-img {
-    background: url(https://registry.npmmirror.com/cansin-blogdata/latest/files/img/GZRKN.jpg) no-repeat center center;
+    background: url(https://registry.npmmirror.com/cansin-blogdata/3.0.51/files/img/GZRKN.jpg) no-repeat center center;
     background-size: cover;
 }
 
@@ -6704,7 +6710,7 @@ progress::-webkit-progress-value {
     background: rgba(255, 255, 255, .2);
 }
 
-.sidebar-weather {
+/* .sidebar-weather {
     position: absolute;
     left: 10px;
     top: 10px;
@@ -6738,4 +6744,4 @@ progress::-webkit-progress-value {
 
 .sidebar-weather i {
     padding-bottom: 2px;
-}
+} */
