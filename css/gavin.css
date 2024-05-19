@@ -135,7 +135,7 @@
     --card-bg: #fff;
     --card-link-bg: rgba(0, 150, 255, .1);
     --card-link-border: rgba(0, 150, 255, .3);
-    --system-logo: url(https://registry.npmmirror.com/cansin-blogdata/3.0.51/files/img/f15BG.webp);
+    --system-logo: url(https://cdn.cbd.int/cansin-blogdata@3.0.52/img/f15BG.webp);
     --web-bg: rgba(241, 243, 245, 0);
     --hl-bg: rgb(44, 48, 54);
     --hlnumber-bg: rgb(44, 48, 54);
@@ -255,7 +255,7 @@
     --font-color: #F7F7FA;
     /* rgb(210, 210, 210); */
     --search-bg: rgba(0, 0, 0, .64);
-    --system-logo: url(https://registry.npmmirror.com/cansin-blogdata/3.0.51/files/img/f1olM.webp);
+    --system-logo: url(https://cdn.cbd.int/cansin-blogdata@3.0.52/img/f1olM.webp);
     --web-bg: rgba(0, 0, 0, 0.25);
     --hl-bg: rgb(40, 44, 48);
     --hlnumber-bg: rgb(40, 44, 48);
@@ -1699,7 +1699,7 @@ a.aside-list-item-head {
 }
 
 #aside-content>.card-info {
-    background: #fff url(https://registry.npmmirror.com/cansin-blogdata/3.0.51/files/img/SOTIX.webp) top center / 100% 60% no-repeat;
+    background: #fff url(https://cdn.cbd.int/cansin-blogdata@3.0.52/img/SOTIX.webp) top center / 100% 60% no-repeat;
 }
 
 [data-theme=dark] #aside-content>.card-info {
@@ -1746,7 +1746,7 @@ a.aside-list-item-head {
     width: 23px;
     height: 23px;
     border-radius: 50%;
-    background-image: url(https://registry.npmmirror.com/cansin-blogdata/3.0.51/files/img/202311060926243.webp);
+    background-image: url(https://cdn.cbd.int/cansin-blogdata@3.0.52/img/202311060926243.webp);
     background-size: 100% 100%;
     border: 3px solid var(--card-bg);
     box-sizing: border-box;
@@ -2523,7 +2523,7 @@ h6 {
 
 #sidebar-menus .sidebar-head {
     padding: 20px 10px 10px;
-    background-image: url(https://registry.npmmirror.com/cansin-blogdata/3.0.51/files/img/QEhcc.webp);
+    background-image: url(https://cdn.cbd.int/cansin-blogdata@3.0.52/img/QEhcc.webp);
     background-size: cover;
     background-position: center;
     height: 250px;
@@ -3969,7 +3969,7 @@ button.wv-top-button {
     width: 15px;
     height: 15px;
     border-radius: 50%;
-    background-image: url(https://registry.npmmirror.com/cansin-blogdata/3.0.51/files/img/202311060926243.webp);
+    background-image: url(https://cdn.cbd.int/cansin-blogdata@3.0.52/img/202311060926243.webp);
     background-size: 100% 100%;
     border: 1px solid var(--card-bg);
     box-sizing: border-box;
@@ -3986,7 +3986,7 @@ button.wv-top-button {
     width: 14px;
     height: 14px;
     border-radius: 50%;
-    background-image: url(https://registry.npmmirror.com/cansin-blogdata/3.0.51/files/img/202311051012837.webp);
+    background-image: url(https://cdn.cbd.int/cansin-blogdata@3.0.52/img/202311051012837.webp);
     background-size: 100% 100%;
     z-index: 1;
 }
@@ -4963,7 +4963,7 @@ html.hide-aside .layout>div:first-child {
 
 /* ************************加载动画*************************** */
 .loading-img {
-    background: url(https://registry.npmmirror.com/cansin-blogdata/3.0.51/files/img/GZRKN.jpg) no-repeat center center;
+    background: url(https://cdn.cbd.int/cansin-blogdata@3.0.52/img/GZRKN.jpg) no-repeat center center;
     background-size: cover;
 }
 
