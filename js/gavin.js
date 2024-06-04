@@ -915,7 +915,7 @@ var ctrl = {
         var e = document.getElementById("tag-bar-items")
             , t = document.querySelector(".tag-bar-more i");
         if (t.style.transform == "rotate(180deg)") {
-            e.style.maxHeight = window.innerWidth <= 768 ? "111px" : "32px";
+            e.style.maxHeight = window.innerWidth <= 768 ? "105px" : "32px";
             t.style.transform = ""
         } else {
             e.style.maxHeight = "calc(100vh - 155px)"
