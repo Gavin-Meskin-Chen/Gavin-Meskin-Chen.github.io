@@ -1476,15 +1476,18 @@ img[data-lazy-src].error {
   text-decoration: none !important;
 }
 blockquote {
-  margin: 0 0 20px;
-  padding: 12px 15px;
-  border-left: 3px solid #49b1f5;
-  background-color: var(--blockquote-bg);
-  color: var(--blockquote-color);
+  margin: 1rem 0 1rem;
+  padding: 12px 16px;
+  border: 1px solid var(--gavin-border-color);
+  background-color: var(--gavin-widget-bg1);
+  border-radius: 8px;
 }
 blockquote footer cite:before {
   padding: 0 5px;
   content: '—';
+}
+blockquote > :first-child {
+  margin-top: 0 !important;
 }
 blockquote > :last-child {
   margin-bottom: 0 !important;
@@ -2093,7 +2096,7 @@ figure.highlight pre .javascript .function {
 }
 .article-sort-item-title {
   color: var(--font-color);
-  font-size: 1.1em;
+  font-size: 1em;
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
   -o-transition: all 0.3s;
@@ -2544,6 +2547,7 @@ figure.highlight pre .javascript .function {
 #recent-posts > .recent-post-item >.recent-post-info > .article-title {
   color: var(--text-highlight-color);
   font-size: 1.2em;
+  word-break: break-all;
   line-height: 1.4;
   margin: 0.3em 0;
   font-weight: bold;
@@ -4070,7 +4074,7 @@ h1.page-title + .tag-cloud-list {
   transition: filter 375ms ease-in 0.2s;
 }
 #article-container p {
-  margin: 0 0 16px;
+  margin: 1rem 0 1rem;
 }
 #article-container iframe {
   margin: 0 0 20px;
@@ -4102,7 +4106,7 @@ h1.page-title + .tag-cloud-list {
 }
 #article-container ol p,
 #article-container ul p {
-  margin: 0 0 8px;
+  margin: 8px 0 8px;
 }
 #article-container > :last-child {
   margin-bottom: 0 !important;

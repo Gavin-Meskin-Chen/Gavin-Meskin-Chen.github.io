@@ -559,7 +559,7 @@ hr::before {
 
 #article-container {
     /* font-family: Jinbu; */
-    font-size: 1em;
+    font-size: 1.1em;
     display: flex;
     flex-direction: column;
 }
@@ -569,9 +569,9 @@ hr::before {
         font-size: 3.6em;
     }
 
-    /* #article-container {
-        font-size: 1rem;
-    } */
+    #article-container {
+        font-size: 1em;
+    }
 }
 
 /* #aside-content .card-info .card-info-data {
@@ -1593,12 +1593,14 @@ a {
     --smooth-level: 14; */
 }
 
-.cardHover:hover,
-.error404 #error-wrap .error-content:hover,
-#recent-posts>.recent-post-item:hover,
-.layout>.recent-posts .pagination>*:not(.space):hover {
-    box-shadow: 0 8px 12px -3px var(--gavin-highlight-op);
-    border-color: var(--gavin-highlight);
+@media screen and (min-width: 768px) {
+    .cardHover:hover,
+    .error404 #error-wrap .error-content:hover,
+    #recent-posts>.recent-post-item:hover,
+    .layout>.recent-posts .pagination>*:not(.space):hover {
+        box-shadow: 0 8px 12px -3px var(--gavin-highlight-op);
+        border-color: var(--gavin-highlight);
+    }
 }
 
 #aside-content .card-widget:hover,
@@ -2202,13 +2204,15 @@ input.toPageInput::placeholder {
     background-color: var(--card-bg);
 }
 
-#pagination .pagination>*:not(.space):hover {
-    background-color: var(--card-bg);
-    color: var(--gavin-highlight);
-    /* box-shadow: var(--card-hover-box-shadow); */
-    /* box-shadow: unset; */
-    box-shadow: 0 4px 12px -3px var(--gavin-highlight-op);
-    border-color: var(--gavin-highlight);
+@media screen and (min-width: 768px) {
+    #pagination .pagination>*:not(.space):hover {
+        background-color: var(--card-bg);
+        color: var(--gavin-highlight);
+        /* box-shadow: var(--card-hover-box-shadow); */
+        /* box-shadow: unset; */
+        box-shadow: 0 4px 12px -3px var(--gavin-highlight-op);
+        border-color: var(--gavin-highlight);
+    }
 }
 
 #pagination .page-number.current {
@@ -2285,13 +2289,13 @@ h6 {
 #article-container.post-content h3 {
     line-height: 1.4em;
     font-size: 1.3em;
-    margin: 0.7em 0;
+    margin: 0.4em 0;
 }
 
 #article-container.post-content h4 {
     line-height: 1.2em;
     font-size: 1.1em;
-    margin: 0.6em 0;
+    margin: 0.2em 0;
 }
 
 #article-container .headerlink::before {
@@ -2319,7 +2323,7 @@ h6 {
 #article-container p,
 #article-container li {
     /* letter-spacing: 0.5px; */
-    line-height: 1.83;
+    line-height: 1.9rem;
     text-align: justify;
     word-break: break-all;
 }
@@ -2330,6 +2334,24 @@ h6 {
     list-style: none;
     counter-reset: li 0;
     margin: 0.5em 0;
+}
+
+#article-container blockquote p {
+    opacity: 0.7;
+    font-size: 90%;
+    line-height: 1.6rem;
+    margin: 0.5rem 0 0.5rem;
+}
+
+@media screen and (max-width: 768px) {
+    #article-container p {
+        margin: 0.75rem 0 0.75rem;
+        line-height: 1.6rem;
+    }
+
+    #article-container li {
+        line-height: 1.6rem;
+    }
 }
 
 /* 序号 */
@@ -2390,6 +2412,10 @@ h6 {
 #article-container .note code {
     color: unset;
 }
+
+/* #article-container p strong {
+    color: var(--gavin-highlight);
+} */
 
 /* 主页侧边栏sticky的bug */
 #aside-content .sticky_layout {
@@ -3325,6 +3351,7 @@ button.wv-top-button {
 
 #article-container a.link-card p.url {
     color: var(--dis-f-0);
+    font-weight: 500;
     opacity: .4;
 }
 
@@ -3356,6 +3383,7 @@ button.wv-top-button {
 #article-container a.link-card .end p {
     width: 50%;
     font-size: 12px;
+    font-weight: 500;
     line-height: 1.2rem;
     color: var(--dis-f-0);
     opacity: .4;
@@ -3482,6 +3510,7 @@ button.wv-top-button {
 
 .post-copyright>div {
     z-index: 1;
+    line-height: 1.75;
     position: relative;
 }
 
@@ -3497,11 +3526,13 @@ button.wv-top-button {
 
 #post .post-copyright .post-copyright-info {
     color: var(--font-color);
+    word-break: break-all;
 }
 
 #post .post-copyright .post-copyright-info a {
     color: var(--dis-f-0);
     /* font-weight: bold; */
+    word-break: break-all;
     text-decoration: none;
     border-bottom: 2px solid var(--gavin-highlight);
 }
@@ -4985,9 +5016,11 @@ a.categoryButton:after {
     cursor: pointer;
 }
 
-.article-sort-item:not(.year):hover {
-    border-color: var(--gavin-highlight);
-    box-shadow: 0 4px 12px -3px var(--gavin-highlight-op);
+@media screen and (min-width: 768px) {
+    .article-sort-item:not(.year):hover {
+        border-color: var(--gavin-highlight);
+        box-shadow: 0 4px 12px -3px var(--gavin-highlight-op);
+    }
 }
 
 .article-sort-item:not(.year):hover .article-sort-item-title {
