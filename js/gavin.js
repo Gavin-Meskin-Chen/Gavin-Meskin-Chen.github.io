@@ -682,15 +682,15 @@ var ctrl = {
         var a = document.querySelector("#music-Switch i");
         var b = document.querySelector("#music-ctrl-btn-center i");
         if (music_state) {
-            a.classList.remove("fa-play");
-            a.classList.add("fa-pause");
-            b.classList.remove("fa-play");
-            b.classList.add("fa-pause");
+            a.classList.remove("icon-play");
+            a.classList.add("icon-pause");
+            b.classList.remove("icon-play");
+            b.classList.add("icon-pause");
         } else {
-            a.classList.remove("fa-pause");
-            a.classList.add("fa-play");
-            b.classList.remove("fa-pause");
-            b.classList.add("fa-play");
+            a.classList.remove("icon-pause");
+            a.classList.add("icon-play");
+            b.classList.remove("icon-pause");
+            b.classList.add("icon-play");
         }
         document.querySelector("meting-js.global-music").aplayer.toggle();
     },
@@ -777,15 +777,15 @@ var ctrl = {
         var a = document.querySelector("#music-Switch i");
         var b = document.querySelector("#music-ctrl-btn-center i");
         if (music_state) {
-            a.classList.remove("fa-pause");
-            a.classList.add("fa-play");
-            b.classList.remove("fa-pause");
-            b.classList.add("fa-play");
+            a.classList.remove("icon-pause");
+            a.classList.add("icon-play");
+            b.classList.remove("icon-pause");
+            b.classList.add("icon-play");
         } else {
-            a.classList.remove("fa-play");
-            a.classList.add("fa-pause");
-            b.classList.remove("fa-play");
-            b.classList.add("fa-pause");
+            a.classList.remove("icon-play");
+            a.classList.add("icon-pause");
+            b.classList.remove("icon-play");
+            b.classList.add("icon-pause");
         }
     },
 

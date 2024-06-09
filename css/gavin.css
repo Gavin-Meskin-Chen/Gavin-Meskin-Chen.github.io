@@ -564,6 +564,12 @@ hr::before {
     flex-direction: column;
 }
 
+/* 加密文章适配 */
+.hbe-container > div {
+    display: flex;
+    flex-direction: column;
+}
+
 @media screen and (max-width: 768px) {
     #page-header #site-title {
         font-size: 3.6em;
@@ -588,16 +594,19 @@ hr::before {
 
 .fs-1 {
     font-size: 1.05em;
+    line-height: 1;
     font-weight: 200;
 }
 
 .fs-2 {
     font-size: 1.15em;
+    line-height: 1;
     font-weight: 200;
 }
 
 .fs-3 {
     font-size: 1.25em;
+    line-height: 1;
     font-weight: 200;
 }
 
@@ -667,17 +676,9 @@ hr::before {
     align-items: center;
 }
 
-#page-header #nav .nav-button a {
-    height: 35px;
-    width: 35px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 /* 导航栏字体大小 */
 #nav .site-page {
-    font-size: 0.9em;
+    font-size: 0.85em;
     padding-bottom: 0px;
     text-shadow: none;
 }
@@ -707,15 +708,16 @@ hr::before {
 #site-name i {
     opacity: 0;
     position: absolute;
-    /* transition: 0.2s ease-out; */
+    transition: opacity 0.2s ease-out;
 }
 
 #site-name .title {
     font-family: 'logo';
-    font-size: 27px;
+    font-size: 25px;
     letter-spacing: -1px;
     opacity: 1;
-    /* transition: 0.2s ease-out; */
+    padding: 0 4px;
+    transition: opacity 0.2s ease-out;
 }
 
 #site-name:hover .title {
@@ -884,61 +886,10 @@ header img,
     align-items: center;
 }
 
-/* 修复隐藏导航按钮bug */
-/* #nav div#toggle-menu {
-        padding: 2px 0 4px 6px;
-      } */
-#nav.hide-menu #toggle-menu .site-page {
-    height: 35px;
-    width: 35px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#nav-totop .totopbtn i {
-    position: absolute;
-    display: flex;
-    opacity: 0;
-}
-
-/* 取消向上按钮 */
-/* #page-name::before {
-    font-size: 18px;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 8px;
-    color: white !important;
-    top: 0;
-    left: 0;
-    content: "";
-    background-color: var(--anzhiyu-theme);
-    transition: all 0.3s;
-    -webkit-transition: all 0.3s;
-    -moz-transition: all 0.3s;
-    -ms-transition: all 0.3s;
-    -o-transition: all 0.3s;
-    opacity: 0;
-    box-shadow: 0 0 3px var(--anzhiyu-theme);
-    line-height: 45px;
-} */
-
-/*如果垂直位置不居中可以微调此值，也可以删了*/
-/* #page-name:hover:before {
-    opacity: 1;
-    opacity: 0;
-    background-color: rgba(0, 0, 0, 0);
-} */
-
-/* 鼠标放上去文字会放大 */
-/* #name-container:hover {
-        transform: translateX(-50%) scale(1.03);
-      } */
 #page-name {
     position: relative;
     /* padding: 10px 30px; */
-    font-size: 0.9em;
+    font-size: 18px;
     /* font-weight: 600; */
 }
 
@@ -1003,11 +954,6 @@ center#name-container {
     display: none;
 }
 
-/* 导航栏搜索图标大小修复 */
-#nav #search-button {
-    font-size: 1.3em;
-}
-
 /* 左上角6点（菜单）按钮样式 */
 .back-home-button:hover {
     background: var(--gavin-nav-hover);
@@ -1018,101 +964,15 @@ center#name-container {
     display: flex;
     width: 35px;
     height: 35px;
-    padding: 0 !important;
     align-items: center;
     justify-content: center;
-    margin-right: 4px;
     transition: 0.3s;
     border-radius: 8px;
-    font-size: 1.25em;
-    cursor: pointer;
     position: relative;
 }
 
 #nav.hide-menu .back-home-button {
     display: none;
-}
-
-/* 6点 */
-.back-home-button:hover .back-menu-list-groups {
-    display: flex;
-    opacity: 1;
-    transition: 0.3s;
-    top: 55px;
-    pointer-events: auto;
-    left: 0;
-}
-
-/* 6点标题颜色bug解决 */
-/* .back-home-button .back-menu-list-group:hover .back-menu-list-title {
-      color: var();
-    } */
-
-.back-home-button .back-menu-list-groups {
-    position: absolute;
-    top: 65px;
-    left: 0;
-    background: var(--gavin-nav-bg);
-    border-radius: 12px;
-    border: var(--style-border);
-    flex-direction: column;
-    font-size: 12px;
-    box-shadow: var(--gavin-shadow-1);
-    transition: 0s;
-    opacity: 0;
-    pointer-events: none;
-    padding-bottom: 5px;
-    -webkit-backdrop-filter: saturate(180%) blur(20px);
-    backdrop-filter: saturate(180%) blur(20px);
-}
-
-.back-home-button .back-menu-list-group {
-    display: flex;
-    flex-direction: column;
-}
-
-.back-home-button .back-menu-list {
-    display: flex;
-    flex-direction: column;
-}
-
-.back-home-button .back-menu-list::before {
-    position: absolute;
-    top: -22px;
-    left: 0px;
-    width: 100%;
-    height: 25px;
-    content: "";
-}
-
-.back-home-button .back-menu-list-group:hover .back-menu-list-title {
-    color: var(--gavin-highlight);
-}
-
-.back-home-button .back-menu-list-group .back-menu-list-title {
-    margin: 8px 0 0 16px;
-    transition: 0.3s;
-    color: var(--gavin-note-font-color);
-}
-
-/* .back-home-button .back-menu-list-groups:hover {
-    border: 1px solid var(--gavin-highlight);
-} */
-
-.back-home-button .back-menu-list .back-menu-item {
-    display: flex;
-    align-items: center;
-    margin: 4px 8px;
-    padding: 4px 8px !important;
-    transition: 0.3s;
-    border-radius: 8px;
-}
-
-.back-home-button .back-menu-list .back-menu-item .back-menu-item-text {
-    font-size: var(--global-font-size);
-    margin-left: 0.5rem;
-    color: var(--font-color);
-    white-space: nowrap;
 }
 
 #nav #blog_name {
@@ -1124,51 +984,29 @@ center#name-container {
     transition: 0.3s;
 }
 
-.back-home-button .back-menu-list .back-menu-item .back-menu-item-icon {
-    width: 24px;
-    height: 24px;
-    border-radius: 24px;
-    background: var(--f-0);
-}
-
 /* @media screen and (min-width: 1300px) {
     #nav a:hover {
         transform: scale(1.03);
     }
 } */
 
-.back-home-button .back-menu-list .back-menu-item:hover .back-menu-item-text {
-    color: #fff;
-}
-
-.back-menu-item-icon.loading img {
-    width: 25px;
-}
-
-#page-header #nav #menus .nav-button.long a.totopbtn,
-#page-header #nav #menus .nav-button.long,
-#page-header #nav #menus .nav-button.long a.totopbtn span {
-    width: 70px;
-}
-
-#page-header #nav #menus .nav-button.long a.totopbtn span {
-    border-radius: 35px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: 0.3s;
-    white-space: nowrap;
-}
-
-#page-header #nav #menus .nav-button.long a.totopbtn:hover {
-    border-radius: 35px;
-    height: 30px;
-}
-
 #page-header #nav .nav-button {
-    margin-left: 4px;
+    margin: 0 2px;
     padding: 0;
     cursor: pointer;
+}
+
+#page-header #nav .nav-button a {
+    height: 35px;
+    width: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#page-header #nav .nav-button i {
+    font-size: 24px;
+    line-height: 1;
 }
 
 #page-header:not(.is-top-bar) #nav-totop a {
@@ -1238,11 +1076,6 @@ center#name-container {
 #body-wrap.post #page-header:not(.is-top-bar) #nav .nav-button a:hover,
 #body-wrap.post #page-header:not(.is-top-bar) #nav .menus_item:hover>a.site-page {
     background: rgba(255, 255, 255, .15) !important;
-}
-
-/* #he-plugin-simple, */
-#body-wrap #nav .back-home-button {
-    transition: 0.3s;
 }
 
 /* 导航栏标题样式（nav-fixed下） */
@@ -5312,9 +5145,8 @@ html.hide-aside .layout>div:first-child {
 }
 
 /* 字色和字号 */
-.console-music-ctrl-btn:not(#music-ctrl-btn-center) i {
-    font-size: 20px;
-    font-weight: 900;
+.console-music-ctrl-btn i {
+    line-height: 1;
 }
 
 .console-mainbox a {
@@ -5322,9 +5154,21 @@ html.hide-aside .layout>div:first-child {
     /*#99a9bf*/
 }
 
-#music-ctrl-btn-center {
+#music-ctrl-btn-center i {
     color: var(--dis-f-0);
     font-size: 26px;
+    transition: .5s ease;
+}
+
+#music-ctrl-btn-left i,
+#music-ctrl-btn-right i {
+    font-size: 26px;
+}
+
+#music-ctrl-btn-first i,
+#music-ctrl-btn-end i {
+    font-size: 21px;
+    opacity: 0.72;
 }
 
 .console-music-ctrl-btn:hover {
