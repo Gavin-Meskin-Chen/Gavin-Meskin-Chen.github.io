@@ -3735,9 +3735,6 @@ h1.page-title + .tag-cloud-list {
   display: inline-block;
   padding: 0 0 0 14px;
 }
-#nav .menus_items .menus_item:hover .menus_item_child {
-  display: block;
-}
 #nav .menus_items .menus_item:hover > a > i:last-child {
   -webkit-transform: rotate(180deg);
   -moz-transform: rotate(180deg);
@@ -3777,17 +3774,9 @@ h1.page-title + .tag-cloud-list {
 #nav .menus_items .menus_item .menus_item_child li:hover {
   background: var(--text-bg-hover);
 }
-#nav .menus_items .menus_item .menus_item_child li:first-child {
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-}
-#nav .menus_items .menus_item .menus_item_child li:last-child {
-  border-bottom-right-radius: 5px;
-  border-bottom-left-radius: 5px;
-}
 #nav .menus_items .menus_item .menus_item_child li a {
-  display: inline-block;
-  padding: 8px 16px;
+  display: block;
+  padding: 0 16px;
   width: 100%;
   color: var(--font-color) !important;
   text-shadow: none !important;
@@ -4074,7 +4063,7 @@ h1.page-title + .tag-cloud-list {
   transition: filter 375ms ease-in 0.2s;
 }
 #article-container p {
-  margin: 1rem 0 1rem;
+  margin: 0.85rem 0 0.85rem;
 }
 #article-container iframe {
   margin: 0 0 20px;

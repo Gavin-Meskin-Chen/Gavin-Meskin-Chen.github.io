@@ -699,7 +699,7 @@ hr::before {
 
 #site-name {
     height: 35px;
-    line-height: 1;
+    line-height: 35px;
     padding: 0 5px;
     position: relative;
     transition: 0.3s;
@@ -753,11 +753,15 @@ ul.menus_item_child {
     /* 弧度微调 */
     border-radius: 12px;
     border: 1px solid var(--gavin-border-color);
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    box-sizing: content-box;
     /* -webkit-backdrop-filter: saturate(180%) blur(20px);
     backdrop-filter: saturate(180%) blur(20px);
     background: var(--gavin-nav-bg); */
     background: var(--card-bg);
-    padding: 6px 4px;
+    padding: 5px;
     transform: translateY(-10px) scale(0.8);
     opacity: 0;
     pointer-events: none;
@@ -765,20 +769,13 @@ ul.menus_item_child {
 }
 
 #nav .menus_items .menus_item:hover .menus_item_child {
-    display: block;
     transform: translateX(-50%);
     /* right: auto;
     left: auto !important; */
-    box-sizing: content-box;
     /* line-height: 35px; */
     transform: translateY(0px) scale(1);
     opacity: 1;
     pointer-events: all;
-}
-
-/* 顶栏修改 */
-#nav .menus_items .menus_item .menus_item_child li a {
-    padding: 0 16px;
 }
 
 #nav .menus_items .menus_item .menus_item_child li:hover a {
@@ -786,11 +783,10 @@ ul.menus_item_child {
 }
 
 #nav .menus_items .menus_item .menus_item_child li {
-    margin: 6px;
-    border-radius: 9px !important;
+    /* border-radius: 9px;
+    overflow: hidden; */
     transition: all 0.3s;
     display: inline-block;
-    margin: 0 3px;
 }
 
 #nav .menus_items .menus_item .menus_item_child:before {
@@ -2116,7 +2112,7 @@ h6 {
     font-size: 1.6em;
     /* padding-bottom: 0.4em; */
     border-bottom: 1px dashed var(--gavin-border-color);
-    margin: 0.8em 0;
+    margin: 1.6em 0 .8em;
 }
 
 #article-container.post-content h3 {
@@ -2156,7 +2152,7 @@ h6 {
 #article-container p,
 #article-container li {
     /* letter-spacing: 0.5px; */
-    line-height: 1.9rem;
+    line-height: 1.95rem;
     text-align: justify;
     word-break: break-all;
 }
@@ -2176,14 +2172,18 @@ h6 {
     margin: 0.5rem 0 0.5rem;
 }
 
+#article-container p strong {
+    color: var(--gavin-highlight);
+}
+
 @media screen and (max-width: 768px) {
     #article-container p {
-        margin: 0.75rem 0 0.75rem;
-        line-height: 1.6rem;
+        margin: 0.66rem 0 0.66rem;
+        line-height: 1.66rem;
     }
 
     #article-container li {
-        line-height: 1.6rem;
+        line-height: 1.66rem;
     }
 }
 
