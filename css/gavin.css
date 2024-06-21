@@ -705,13 +705,29 @@ hr::before {
     transition: 0.3s;
 }
 
-#site-name i {
+#site-name .site-logo {
+    font-size: 21px!important;
+    opacity: 1;
+    padding: 0 4px;
+    transition: opacity 0.2s ease-out;
+}
+
+#site-name i:not(.site-logo) {
     opacity: 0;
     position: absolute;
     transition: opacity 0.2s ease-out;
 }
 
-#site-name .title {
+#site-name:hover .site-logo {
+    opacity: 0;
+}
+
+#site-name:hover i:not(.site-logo) {
+    opacity: 1;
+    color: #fff;
+}
+
+/* #site-name .title {
     font-family: 'logo';
     font-size: 25px;
     letter-spacing: -1px;
@@ -726,9 +742,8 @@ hr::before {
 
 #site-name:hover i {
     opacity: 1;
-    /* transform: scale(1.01); */
     color: #fff;
-}
+} */
 
 /* 圆角隐藏 */
 ul.menus_item_child {
@@ -2485,12 +2500,13 @@ span.separator {
 /* 歌词框的高度 */
 .global-music .aplayer .aplayer-lrc {
     padding: 0 !important;
-    /* height: 50px !important; */
     height: calc(3rem + 20px) !important;
-    border-radius: 20px;
-    mask-image: paint(smooth-corners);
+    border-radius: 21px;
+    box-shadow: 0 0 36px -9px rgba(0, 0, 0, .25);
+    border: 1px solid rgba(var(--op-dis), .05);
+    /* mask-image: paint(smooth-corners);
     -webkit-mask-image: paint(smooth-corners);
-    --smooth-level: 24;
+    --smooth-level: 24; */
     /* border: 10px solid #00000000; */
     /* border-image: 0%; */
     /* -webkit-border-image: 0%; */
