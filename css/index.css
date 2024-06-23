@@ -1476,7 +1476,7 @@ img[data-lazy-src].error {
   text-decoration: none !important;
 }
 blockquote {
-  margin: 1rem 0 1rem;
+  margin: 0.66rem 0 0.66rem;
   padding: 12px 16px;
   border: 1px solid var(--gavin-border-color);
   background-color: var(--gavin-widget-bg1);
@@ -1754,7 +1754,7 @@ figure.highlight pre .javascript .function {
   border: none;
 }
 #article-container figure.highlight {
-  margin: 0 0 24px;
+  margin: 12px 0 12px;
   border-radius: 7px;
   -webkit-box-shadow: 0 5px 10px 0 rgba(0,0,0,0.4);
   box-shadow: 0 5px 10px 0 rgba(0,0,0,0.4);
@@ -5251,7 +5251,7 @@ blockquote.pullquote.right {
 }
 .note {
   position: relative;
-  margin: 0 0 20px;
+  margin: 12px 0 12px;
   padding: 15px;
   border-radius: 3px;
 }
@@ -5573,6 +5573,22 @@ blockquote.pullquote.right {
 }
 .note.danger:not(.no-icon):not(.modern)::before {
   color: #d9534f;
+}
+#article-container blockquote.green {
+  border-color: rgba(103,194,58,0.5);
+  background-color: rgba(103,194,58,0.13);
+}
+#article-container blockquote.red {
+  border-color: rgba(245,108,108,0.5);
+  background-color: rgba(245,108,108,0.13);
+}
+#article-container blockquote.blue {
+  border-color: rgba(0,136,255,0.5);
+  background-color: rgba(0,136,255,0.13);
+}
+#article-container blockquote.orange {
+  border-color: rgba(230,162,60,0.5);
+  background-color: rgba(230,162,60,0.13);
 }
 #article-container .tabs {
   position: relative;
