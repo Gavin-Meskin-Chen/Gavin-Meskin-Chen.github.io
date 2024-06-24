@@ -1390,7 +1390,10 @@ hr {
 }
 .table-wrap {
   overflow-x: scroll;
-  margin: 0 0 20px;
+  scrollbar-width: none;
+  margin: 12px 0 12px;
+  border-radius: 8px;
+  border: 1px solid var(--gavin-border-color);
 }
 table {
   display: table;
@@ -1607,7 +1610,7 @@ figure.highlight pre .javascript .function {
 #article-container pre,
 #article-container figure.highlight {
   overflow: auto;
-  margin: 0 0 20px;
+  margin: 12px 0 12px;
   padding: 0;
   background: var(--hl-bg);
   color: var(--hl-color);

@@ -1740,7 +1740,7 @@ a.aside-list-item-head {
 
 /* 文章图片 */
 #article-container img {
-    border-radius: 5px;
+    border-radius: 8px;
 }
 
 /* 文章图片底部注释 */
@@ -2351,6 +2351,26 @@ h6 {
 #body-wrap.post .card-widget.card-recent-post {
     display: block;
 }
+
+/* 表格样式 */
+.table-wrap table thead tr th {
+    border-top-width: 0;
+}
+
+.table-wrap table thead tr th:first-child,
+.table-wrap table tbody tr td:first-child {
+    border-left-width: 0;
+}
+
+.table-wrap table thead tr th:last-child,
+.table-wrap table tbody tr td:last-child {
+    border-right-width: 0;
+}
+
+.table-wrap table tbody tr:last-child td {
+    border-bottom-width: 0;
+}
+
 
 /* *****************************************************sidebar侧滑导航栏修改**************************************************************** */
 /* 手机端 侧边导航颜色和圆弧 */
@@ -3799,7 +3819,7 @@ button.wv-top-button {
 
 .tk-replies .tk-nick {
     font-size: 1.1em;
-    line-height: 1;
+    line-height: 1.3;
 }
 
 .tk-main > .tk-row {
