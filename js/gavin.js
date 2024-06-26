@@ -129,7 +129,7 @@ window.onload = function () {
     }
     // new Vue().$mount('#aside-system')
     // if (set_notice.checked) tools.showNote("欢迎来到参星阁！", "success", 5);
-    console.clear();
+    // console.clear();
     console.log("\n %cGC音频控制器 v1.3.2 参星阁出品%c https://gavin-chen.top \n", "color: #fadfa3; background: #030307; padding:5px 0;", "background: #fadfa3; padding:5px 0;")
     console.log(`Welcome to:\n%c参星阁:%c https://gavin-chen.top%c\nThis site has been running stably for %c${Math.round(((new Date).getTime() - new Date("2023/01/04 20:53:58").getTime()) / 864e5)} %c days`, "border:1px #888 solid;border-right:0;border-radius:5px 0 0 5px;padding: 5px 10px;color:white;background:#4976f5;margin:10px 0", "border:1px #888 solid;border-left:0;border-radius:0 5px 5px 0;padding: 5px 10px;", "", "color:#4976f5", "")
 }
@@ -614,26 +614,28 @@ var ctrl = {
     // 菜单返回
     consoleBackBtn() {
         var top_item = document.querySelectorAll(".item-show");
-        if (top_item.length == 1) {
-            switch (top_item[0].id) {
-                case 'console-music-item-mini': break;
-                case 'console-music-item-main': ctrl.hideConsole(); break;
-                case 'console-music-item-list':
-                    top_item[0].classList.remove("item-show");
-                    document.getElementById("console-music-item-main").classList.add("item-show");
-                    break;
-                case 'console-songsheet-item-list':
-                    top_item[0].classList.remove("item-show");
-                    document.getElementById("console-music-item-list").classList.add("item-show");
-                    break;
-                default: console.log("异常情况");
+        if (top_item.length > 0) {
+            if (top_item.length == 1) {
+                switch (top_item[0].id) {
+                    case 'console-music-item-mini': break;
+                    case 'console-music-item-main': ctrl.hideConsole(); break;
+                    case 'console-music-item-list':
+                        top_item[0].classList.remove("item-show");
+                        document.getElementById("console-music-item-main").classList.add("item-show");
+                        break;
+                    case 'console-songsheet-item-list':
+                        top_item[0].classList.remove("item-show");
+                        document.getElementById("console-music-item-list").classList.add("item-show");
+                        break;
+                    default: console.log("异常情况");
+                }
+            } else {
+                top_item[top_item.length - 1].classList.remove("item-show");
+                // if (top_item.length == 2) {
+                //     document.querySelector("#console .console-btn-group").style.opacity = 1;
+                //     document.querySelector("#console .console-btn-group").style.pointerEvents = 'all';            
+                // }
             }
-        } else {
-            top_item[top_item.length - 1].classList.remove("item-show");
-            // if (top_item.length == 2) {
-            //     document.querySelector("#console .console-btn-group").style.opacity = 1;
-            //     document.querySelector("#console .console-btn-group").style.pointerEvents = 'all';            
-            // }
         }
     },
 
@@ -786,6 +788,52 @@ var ctrl = {
             a.classList.add("icon-pause");
             b.classList.remove("icon-play");
             b.classList.add("icon-pause");
+        }
+    },
+
+    clearConsoleMusicList() {
+        document.getElementById("console-music-list").innerHTML = ''
+    },
+
+    addMusicToList(title, author, url, pic, lrc) {
+        var ap = document.querySelector("meting-js.global-music").aplayer;
+        ctrl.clearConsoleMusicList();
+        // ap.list.clear();
+        ap.list.add([{"title": title, "author": author, "url": url, "pic": pic, "lrc": lrc}]);
+        ap.list.switch(ap.list.audios.length - 1)
+    },
+
+    mcToggleMusic(id, url) {
+        var mc = document.getElementById(id)
+        if (mc) {
+            if (!mc.querySelector(".content").classList.contains("canplay")) {
+                mc.querySelector(".audio").src = url
+                mc.querySelector(".content").classList.add("canplay")
+            }
+            var mc_audio = mc.querySelector(".audio")
+            var mc_play = mc.querySelector(".play i")
+            if (mc_audio.paused) {
+                mc_audio.play()
+                mc_play.classList.remove("icon-play-circle")
+                mc_play.classList.add("icon-pause-circle")
+            } else {
+                mc_audio.pause()
+                mc_play.classList.remove("icon-pause-circle")
+                mc_play.classList.add("icon-play-circle")
+            }
+        }
+    },
+
+    mcRefreshTime(id) {
+        var mc = document.getElementById(id)
+        if (mc) {
+            var mc_audio = mc.querySelector(".audio")
+            var t0 = mc_audio.currentTime
+            var t1 = mc_audio.duration
+            var _t0 = tools.secToTime(t0)
+            var _t1 = tools.secToTime(t1)
+            mc.querySelector(".time").innerHTML = `${_t0}&nbsp;/&nbsp;${_t1}`
+            mc.querySelector(".mc-progressbar").style.width = mc.offsetWidth * (t0 / t1) + "px";
         }
     },
 
@@ -1555,6 +1603,7 @@ songsheets.forEach((songsheet, index) => {
         global_music_flag = songsheet.flag;
         songsheet.func();
         document.getElementById("music-list-title").innerHTML = songsheet.text;
+        ctrl.consoleBackBtn();
     });
 });
 
@@ -1762,7 +1811,32 @@ document.ontouchend = function () {
 
 
 
-
+// var progress = mc.querySelector(".mc-progress")
+// var progressbar = mc.querySelector(".mc-progressbar")
+// var mc_l0 = 0
+// var mc_l1 = progress.offsetWidth
+// progress.addEventListener("mousedown", function (e) {
+//     mc.classList.add("seeking")
+//     mcSeekFlag = 1
+//     let x = e.pageX
+//     let l0 = progressbar.offsetWidth
+//     l1 = progress.offsetWidth
+//     document.onmousemove = function (e) {
+//         let bias = x - e.pageX
+//         mc_l0 = l0 - bias
+//         if (mc_l0 < 0) {
+//             mc_l0 = 0;
+//         } else if (mc_l0 > l1) {
+//             mc_l0 = l1;
+//         }
+//         progressbar.style.width = mc_l0 + "px"
+//         let t1 = mc.querySelector(".audio").duration
+//         let t0 = (mc_l0 / l1) * t1
+//         let _t0 = tools.secToTime(t0)
+//         let _t1 = tools.secToTime(t1)
+//         mc.querySelector(".time").innerHTML = _t0 + "&nbsp;/&nbsp;" + _t1
+//     }
+// })
 
 
 

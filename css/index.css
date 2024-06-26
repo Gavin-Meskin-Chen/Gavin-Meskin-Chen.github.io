@@ -5252,6 +5252,230 @@ blockquote.pullquote.right {
 .hl-label.green {
   background-color: #5cb85c;
 }
+.music-card {
+  border-radius: 21px;
+  border: 1px solid var(--gavin-border-color);
+  background-color: var(--gavin-widget-bg1);
+  -webkit-box-shadow: var(--gavin-shadow-1);
+  box-shadow: var(--gavin-shadow-1);
+  height: 80px;
+  width: 100%;
+  max-width: 320px;
+  margin: 1em 0;
+  overflow: hidden;
+}
+.music-card .content {
+  position: relative;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -o-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.music-card .content .mc-progress {
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-pack: left;
+  -moz-box-pack: left;
+  -o-box-pack: left;
+  -ms-flex-pack: left;
+  -webkit-justify-content: left;
+  justify-content: left;
+}
+.music-card .content .mc-progress .mc-progressbar {
+  height: 100%;
+  width: 0;
+  background-color: var(--gavin-highlight-op-1);
+}
+.music-card .content .cover {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  width: 60px;
+  height: 60px;
+  background-color: var(--gavin-secondbg);
+  border: 1px solid var(--gavin-border-color);
+  border-radius: 10px;
+  overflow: hidden;
+  z-index: 11;
+}
+.music-card .content .cover .play {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -o-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -o-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+}
+.music-card .content .cover .play i {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -o-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -o-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  font-size: 35px;
+  color: rgba(255,255,255,0.8);
+}
+.music-card .content:hover .play {
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+}
+.music-card .content.canplay a img {
+  filter: brightness(0.8) !important;
+}
+.music-card .content.canplay .play {
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+}
+.music-card .content .text-info {
+  position: absolute;
+  left: 80px;
+  max-width: calc(100% - 150px);
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -o-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  text-align: left;
+  z-index: 9;
+}
+.music-card .content .text-info .title {
+  font-size: 16px;
+  line-height: 1.3;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+.music-card .content .text-info .author {
+  font-size: 13px;
+  line-height: 1.3;
+  opacity: 0.8;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+  filter: alpha(opacity=80);
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+.music-card .content .text-info .time {
+  font-size: 10px;
+  line-height: 1.4;
+  opacity: 0.6;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+  filter: alpha(opacity=60);
+}
+.music-card .content .add {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--gavin-op-dis-05);
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -o-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -o-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 11;
+}
+.music-card .content .add:hover {
+  background-color: var(--gavin-op-dis-1);
+}
+.music-card .content .add i {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -o-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -o-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  font-size: 21px;
+}
 .note {
   position: relative;
   margin: 12px 0 12px;

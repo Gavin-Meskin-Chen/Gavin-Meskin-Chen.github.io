@@ -82,6 +82,7 @@
     --gavin-op-3: rgba(255, 255, 255, .3);
     --gavin-op-5: rgba(255, 255, 255, .5);
     --gavin-op-7: rgba(255, 255, 255, .7);
+    --gavin-op-dis-05: rgba(0, 0, 0, .05);
     --gavin-op-dis-15: rgba(0, 0, 0, .15);
     --gavin-op-dis-1: rgba(0, 0, 0, .1);
     --gavin-op-dis-2: rgba(0, 0, 0, .2);
@@ -200,6 +201,7 @@
     --gavin-op-3: rgba(0, 0, 0, .3);
     --gavin-op-5: rgba(0, 0, 0, .5);
     --gavin-op-7: rgba(0, 0, 0, .7);
+    --gavin-op-dis-05: rgba(255, 255, 255, .05);
     --gavin-op-dis-15: rgba(255, 255, 255, .15);
     --gavin-op-dis-1: rgba(255, 255, 255, .1);
     --gavin-op-dis-2: rgba(255, 255, 255, .2);
@@ -2562,6 +2564,13 @@ span.separator {
     z-index: 99;
 }
 
+iframe #player .player {
+    box-shadow: unset;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: var(--gavin-widget-bg4);
+}
+
 /* ********************************************************新控制中心***************************************************************** */
 /* 控制中心按钮样式 */
 #console-switch {
@@ -3377,7 +3386,8 @@ button.wv-top-button {
 @media screen and (max-width: 768px) {
     #post .post-copyright,
     #post .tag_share .post-meta__tags,
-    #pagination .prev-post a, #pagination .next-post a {
+    #pagination .prev-post a, #pagination .next-post a,
+    .music-card {
         background-color: var(--card-bg);
     }
 }
@@ -5500,7 +5510,7 @@ a#music-list-title {
     width: 48px;
     height: 48px;
     position: fixed;
-    top: 50%;
+    top: calc(70px + 60px + 395px/2 - 48px/2);
     display: flex;
     align-items: center;
     justify-content: center;

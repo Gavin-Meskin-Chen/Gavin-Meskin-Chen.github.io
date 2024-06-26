@@ -10,6 +10,8 @@ var year, month, week, date, dates, weekStr, monthStr;
 var asideTime, asideDay, asideDayNum;
 var animalYear, ganzhiYear, lunarMon, lunarDay;
 const colorSchemeQuery = window.matchMedia('(prefers-color-scheme: dark)');
+var mcSeekFlag = 0
+var newMusicId = 0
 
 // cardTimes();
 // asideNote();
@@ -74,10 +76,10 @@ setInterval(() => {
         var ap = document.querySelector("meting-js.global-music").aplayer;
         ap.on('play', function () {
             ctrl.getMusicInfo();
-            document.querySelector("#music-Switch i").classList.remove("fa-play");// 更新播放/暂停键
-            document.querySelector("#music-Switch i").classList.add("fa-pause");
-            document.querySelector("#music-ctrl-btn-center i").classList.remove("fa-play");
-            document.querySelector("#music-ctrl-btn-center i").classList.add("fa-pause");
+            document.querySelector("#music-Switch i").classList.remove("icon-play");// 更新播放/暂停键
+            document.querySelector("#music-Switch i").classList.add("icon-pause");
+            document.querySelector("#music-ctrl-btn-center i").classList.remove("icon-play");
+            document.querySelector("#music-ctrl-btn-center i").classList.add("icon-pause");
             old_music_id = now_music_id;// 更新列表标志
             now_music_id = ap.list.index;
             var ids = document.querySelectorAll("#console-music-list .list-music-id");
@@ -97,10 +99,10 @@ setInterval(() => {
             }
         });
         ap.on('pause', function () {
-            document.querySelector("#music-Switch i").classList.remove("fa-pause");
-            document.querySelector("#music-Switch i").classList.add("fa-play");
-            document.querySelector("#music-ctrl-btn-center i").classList.remove("fa-pause");
-            document.querySelector("#music-ctrl-btn-center i").classList.add("fa-play");
+            document.querySelector("#music-Switch i").classList.remove("icon-pause");
+            document.querySelector("#music-Switch i").classList.add("icon-play");
+            document.querySelector("#music-ctrl-btn-center i").classList.remove("icon-pause");
+            document.querySelector("#music-ctrl-btn-center i").classList.add("icon-play");
         });
         // 播放模式按钮监听（循环 / 随机）
         var play_mode = document.getElementById("music-ctrl-btn-first");
@@ -185,7 +187,7 @@ setInterval(() => {
         // });
         // 歌单切换监听
         ap.on("listclear", function () {
-            document.getElementById("console-music-list").innerHTML = "";
+            ctrl.clearConsoleMusicList();
         });
         ap.on("listadd", function () {
             var current_len = ap.list.audios.length;
@@ -202,12 +204,12 @@ setInterval(() => {
                     clearInterval(t_load);
                     document.getElementById("console-loading-icon").classList.remove("show");
                     if (set_notice.checked) tools.showMessage("歌单导入成功！", "success", 1);
-                    ctrl.consoleBackBtn();
+                    // ctrl.consoleBackBtn();
                 }
             }, 50);
         });
         listener = 1;
     };
     //音乐进度更新
-    if (meting_load == 0 && global_music_flag == 0 && document.querySelector("#music-Switch i.fa-pause") != null) ctrl.refreshProgress();
+    if (meting_load == 0 && global_music_flag == 0 && document.querySelector("#music-Switch i.icon-pause") != null) ctrl.refreshProgress();
 }, 500);
