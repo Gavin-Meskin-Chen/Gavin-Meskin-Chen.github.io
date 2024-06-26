@@ -184,9 +184,7 @@
                     let intervalId;
                     mc_audio.addEventListener('play', function() {
                         intervalId = setInterval(function() {
-                            if (mcSeekFlag != 1) {
-                                ctrl.mcRefreshTime(id)
-                            }
+                            ctrl.mcRefreshTime(id)
                         }, 500);
                     })
                     mc_audio.addEventListener('pause', function() {

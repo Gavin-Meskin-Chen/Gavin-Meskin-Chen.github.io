@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://gavin-chen.top/post/37b27065.html</loc>
+    
+    <lastmod>2024-06-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://gavin-chen.top/log/index.html</loc>
+    
+    <lastmod>2024-06-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://gavin-chen.top/post/bb0feb8e.html</loc>
     
     <lastmod>2024-06-26</lastmod>
@@ -14,15 +32,6 @@
     <loc>https://gavin-chen.top/messageboard/index.html</loc>
     
     <lastmod>2024-06-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://gavin-chen.top/post/37b27065.html</loc>
-    
-    <lastmod>2024-06-25</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -221,15 +230,6 @@
     <loc>https://gavin-chen.top/post/bb918626.html</loc>
     
     <lastmod>2024-04-05</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://gavin-chen.top/log/index.html</loc>
-    
-    <lastmod>2024-03-30</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
