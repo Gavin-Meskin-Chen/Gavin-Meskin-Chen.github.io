@@ -2256,12 +2256,12 @@ h6 {
 /* 引用高亮 */
 #article-container code {
     /* background: rgba(255, 136, 0, 1); */
-    background: var(--gavin-highlight-op) !important;
-    color: var(--gavin-highlight);
-    border-radius: 4px;
-    font-size: 1em;
-    font-weight: bold;
+    background: var(--gavin-widget-bg2) !important;
+    color: var(--dis-f-0);
+    border-radius: 6px;
+    font-size: 85%;
     margin: 0 4px;
+    padding: 0.2em 0.4em;
 }
 
 #article-container .note code {
@@ -5294,8 +5294,9 @@ html.hide-aside .layout>div:first-child {
 
 #p_bar,
 #v_bar {
-    width: 0;
+    width: 100%;
     height: 100%;
+    transform: translateX(-100%);
     border-radius: 0.4rem;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
