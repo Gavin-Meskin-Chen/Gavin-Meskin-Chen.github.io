@@ -5982,7 +5982,7 @@ blockquote.pullquote.right {
 }
 #article-container .timeline {
   margin: 0 0 20px 10px;
-  padding: 14px 20px 5px;
+  padding: 14px 0 5px 20px;
   border-left: 2px solid var(--timeline-color, #08f);
 }
 #article-container .timeline.blue {
@@ -6600,7 +6600,7 @@ blockquote.pullquote.right {
   #about-page .about-statistic {
     min-height: 380px;
     width: calc(50% - 0.5rem);
-    background: url(https://cdn.cbd.int/cansin-blogdata@3.0.52/img/202311151434510.webp) no-repeat top;
+    background: url(https://cdn.cbd.int/cansin-blogdata@3.0.64/img/202311151434510.webp) no-repeat top;
     background-size: cover;
     color: #fff;
     overflow: hidden;
@@ -7126,7 +7126,7 @@ blockquote.pullquote.right {
   }
   
   .author-content-item.like-technology {
-    background: url(https://cdn.cbd.int/cansin-blogdata@3.0.52/img/OxvZXD.webp) no-repeat;
+    background: url(https://cdn.cbd.int/cansin-blogdata@3.0.64/img/OxvZXD.webp) no-repeat;
     background-size: cover;
     min-height: 230px;
     color: #fff;

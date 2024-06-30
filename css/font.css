@@ -2,20 +2,20 @@
 /* 首页logo小篆体 */
 @font-face {
   font-family: 'xiaozhuan';
-  src: url(https://cdn.cbd.int/cansin-blogdata@3.0.52/font/参星阁.woff2);
+  src: url(https://cdn.cbd.int/cansin-blogdata@3.0.64/font/参星阁.woff2);
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
 /* 导航栏logo刀隶体 */
-@font-face {
+/* @font-face {
   font-family: "logo";
   font-weight: 400;
   src: url("//at.alicdn.com/wf/webfont/Bq3pwkkdaCYJ/SLY5QZPrtKs4.woff2") format("woff2"),
       url("//at.alicdn.com/wf/webfont/Bq3pwkkdaCYJ/bDtLnBjA4DJt.woff") format("woff");
   font-display: swap;
-}
+} */
 
 /* 全局鸿蒙字体 */
 @font-face {
