@@ -27,6 +27,7 @@
     --vercel-btn-border: var(--dis-f-0);
     --hr-border: var(--gavin-blue2);
     --hr-before-color: var(--gavin-blue2);
+    --article-card: var(--gavin-widget-bg1);
 
 
 
@@ -334,6 +335,12 @@
     --anzhiyu-shadow-light2black: 0 5px 12px -5px rgba(102, 68, 68, 0); */
 
 
+}
+
+@media screen and (max-width: 768px) {
+    :root {
+        --article-card: var(--card-bg);
+    }
 }
 
 /* border-radius: 0;
@@ -1737,6 +1744,7 @@ a.aside-list-item-head {
 
 .post-reward .reward-main .reward-all {
     border-radius: 12px;
+    box-shadow: var(--gavin-shadow-4);
     border: 1px solid var(--gavin-border-color);
 }
 
@@ -2098,19 +2106,36 @@ input.toPageInput:focus::placeholder {
 }
 
 /* 文章引用和参考文献样式 */
-#article-container .reference a {
-    font-size: 1rem;
+/* #article-container .reference a {
+    font-size: 75%;
+    margin: 0 3px;
     border: none !important;
-    color: var(--gavin-blue2) !important;
+    color: var(--gavin-highlight) !important;
 }
 
-#article-container .reference-source a {
-    font-size: 1.1rem;
+#article-container .reference-source {
+    line-height: 1.5;
+}
+
+#article-container .reference-source a,
+#article-container .reference-source span {
+    font-size: 85%;
+    font-weight: 500!important;
+    border-bottom: unset!important;
+    color: var(--gavin-note-font-color);
+}
+
+#article-container .reference-source a.reference-link {
+    text-decoration: underline!important;
+}
+
+#article-container .reference-source .reference-anchor {
+    margin-right: 5px;
 }
 
 .reference-title {
     display: none;
-}
+} */
 
 /* 文本选中样式 */
 *::selection {
@@ -2197,6 +2222,12 @@ h6 {
 /* #article-container p strong {
     color: var(--gavin-highlight);
 } */
+
+#article-container u {
+    color: var(--font-color);
+    text-decoration: none;
+    border-bottom: 1px solid var(--dis-f-0);
+}
 
 #article-container p highlight {
     color: var(--gavin-highlight);
@@ -3384,7 +3415,7 @@ button.wv-top-button {
 #post .post-copyright {
     /* background-color:rgba(70, 160, 250, 0.3); */
     /* background-color: rgba(0, 150, 255, 0.2); */
-    background-color: var(--gavin-widget-bg1);
+    background-color: var(--article-card);
     border-radius: 12px;
     /* border-color: rgba(5, 109, 232, 0.8); */
     /* border-color: var(--gavin-blue1); */
@@ -3393,14 +3424,14 @@ button.wv-top-button {
     transition: all 0.3s ease-in-out;
 }
 
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) {
     #post .post-copyright,
     #post .tag_share .post-meta__tags,
     #pagination .prev-post a, #pagination .next-post a,
     .music-card {
         background-color: var(--card-bg);
     }
-}
+} */
 
 .post-copyright>div {
     z-index: 1;
