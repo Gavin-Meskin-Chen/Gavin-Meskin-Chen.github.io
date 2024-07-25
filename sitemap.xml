@@ -290,7 +290,7 @@
   </url>
   
   <url>
-    <loc>https://gavin-chen.top/post/5038508d.html</loc>
+    <loc>https://gavin-chen.top/post/bffa3bb3.html</loc>
     
     <lastmod>2024-06-30</lastmod>
     
@@ -299,7 +299,7 @@
   </url>
   
   <url>
-    <loc>https://gavin-chen.top/post/bffa3bb3.html</loc>
+    <loc>https://gavin-chen.top/post/5038508d.html</loc>
     
     <lastmod>2024-06-30</lastmod>
     
@@ -326,15 +326,6 @@
   </url>
   
   <url>
-    <loc>https://gavin-chen.top/categories/index.html</loc>
-    
-    <lastmod>2024-06-30</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://gavin-chen.top/about/index.html</loc>
     
     <lastmod>2024-06-30</lastmod>
@@ -344,7 +335,7 @@
   </url>
   
   <url>
-    <loc>https://gavin-chen.top/link/index.html</loc>
+    <loc>https://gavin-chen.top/categories/index.html</loc>
     
     <lastmod>2024-06-30</lastmod>
     
@@ -353,7 +344,7 @@
   </url>
   
   <url>
-    <loc>https://gavin-chen.top/messageboard/index.html</loc>
+    <loc>https://gavin-chen.top/link/index.html</loc>
     
     <lastmod>2024-06-30</lastmod>
     
@@ -372,6 +363,15 @@
   
   <url>
     <loc>https://gavin-chen.top/photos/illustration/index.html</loc>
+    
+    <lastmod>2024-06-30</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://gavin-chen.top/messageboard/index.html</loc>
     
     <lastmod>2024-06-30</lastmod>
     
@@ -425,7 +425,7 @@
   </url>
   
   <url>
-    <loc>https://gavin-chen.top/tools/index.html</loc>
+    <loc>https://gavin-chen.top/secret/index.html</loc>
     
     <lastmod>2024-06-30</lastmod>
     
@@ -434,7 +434,7 @@
   </url>
   
   <url>
-    <loc>https://gavin-chen.top/secret/index.html</loc>
+    <loc>https://gavin-chen.top/tools/index.html</loc>
     
     <lastmod>2024-06-30</lastmod>
     
@@ -653,6 +653,13 @@
   </url>
   
   <url>
+    <loc>https://gavin-chen.top/tags/JavaScript/</loc>
+    <lastmod>2024-07-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://gavin-chen.top/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
     <lastmod>2024-07-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -661,13 +668,6 @@
   
   <url>
     <loc>https://gavin-chen.top/tags/%E6%95%B0%E7%A0%81/</loc>
-    <lastmod>2024-07-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://gavin-chen.top/tags/JavaScript/</loc>
     <lastmod>2024-07-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
