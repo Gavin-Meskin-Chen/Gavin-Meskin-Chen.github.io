@@ -62,7 +62,7 @@ var startTime = performance.now();
 let animationId;
 var winbox = '';
 
-if ('paintWorklet' in CSS) { CSS.paintWorklet.addModule('https://registry.npmmirror.com/cansin-blogdata/3.0.69/files/js/paint.min.js'); }
+if ('paintWorklet' in CSS) { CSS.paintWorklet.addModule('https://cdn.jsdmirror.com/npm/cansin-blogdata@3.0.70/js/paint.min.js'); }
 
 window.onload = function () {
     var set_music = document.querySelector("#set-switch-music input");
@@ -501,17 +501,22 @@ var tools = {
     },
 
     getIp() {
-        // https://ip.jackjyq.com/json
-        fetch('https://api.ipify.org/?format=json')
-            .then(response => response.json())
-            .then(data => {
-                // userInfo = data;
-                ipAddress = data.ip;
-                console.log('您的 IP 地址：' + ipAddress);
-            })
-            .catch(error => {
-                console.error('获取 IP 地址失败:', error);
-            });
+        // https://ip.jackjyq.com/json, https://2024.ipchaxun.com, https://api.ipify.org/?format=json
+        if (localStorage.getItem('ipAddress') == null) {
+            fetch(ipAPI)
+                .then(response => response.json())
+                .then(data => {
+                    // userInfo = data;
+                    ipAddress = data.ip;
+                    localStorage.setItem('ipAddress', ipAddress);
+                    console.log('您的 IP 地址：' + ipAddress);
+                })
+                .catch(error => {
+                    console.error('获取 IP 地址失败:', error);
+                });
+        } else {
+            ipAddress = localStorage.getItem('ipAddress');
+        }
     },
 
     showNote(text, style, delay) {
@@ -1319,7 +1324,7 @@ var ctrl = {
         window.addEventListener('resize', ctrl.resizeWinbox);
         winbox.body.innerHTML = html;
         // https://cdn.cbd.int/cansin-blogdata@latest
-        document.head.appendChild(Object.assign(document.createElement("script"), { src: "https://registry.npmmirror.com/cansin-blogdata/3.0.69/files/js/" + className + ".min.js", id: "appScript" }));
+        document.head.appendChild(Object.assign(document.createElement("script"), { src: "https://cdn.jsdmirror.com/npm/cansin-blogdata@3.0.70/js/" + className + ".min.js", id: "appScript" }));
         document.querySelector('.wb-header .wb-close').addEventListener('click', ()=>{
             var script = document.getElementById('appScript');
             if (script) document.head.removeChild(script);
