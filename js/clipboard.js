@@ -2,7 +2,7 @@
 function sendTextToClipboard() {
     var _id = document.querySelector(".clipboard .select-item.id").value,
         _text = document.querySelector(".clipboard textarea").value;
-    fetch(`https://apis.gavin-chen.top/clipboard?mode=send&id=${_id}&content=${encodeURIComponent(_text)}`)
+    fetch(`https://apis.cansin.top/clipboard?mode=send&id=${_id}&content=${encodeURIComponent(_text)}`)
         .then(response => response.json()).then(data => {
             if (data.code == 200) {
                 if (set_notice.checked) tools.showMessage(data.message, "success", 2);
@@ -17,7 +17,7 @@ function sendTextToClipboard() {
 function getTextFromClipboard() {
     var _id = document.querySelector(".clipboard .select-item.id").value,
         _text = document.querySelector(".clipboard textarea");
-    fetch(`https://apis.gavin-chen.top/clipboard?mode=get&id=${_id}&content=`)
+    fetch(`https://apis.cansin.top/clipboard?mode=get&id=${_id}&content=`)
         .then(response => response.json()).then(data => {
             if (data.code == 200) {
                 _text.value = data.content[0].content;

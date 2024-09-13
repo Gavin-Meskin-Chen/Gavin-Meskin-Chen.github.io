@@ -62,7 +62,7 @@ var startTime = performance.now();
 let animationId;
 var winbox = '';
 
-if ('paintWorklet' in CSS) { CSS.paintWorklet.addModule('https://cdn.cbd.int/cansin-blogdata@3.0.67/js/paint.min.js'); }
+if ('paintWorklet' in CSS) { CSS.paintWorklet.addModule('https://registry.npmmirror.com/cansin-blogdata/3.0.69/files/js/paint.min.js'); }
 
 window.onload = function () {
     var set_music = document.querySelector("#set-switch-music input");
@@ -748,7 +748,7 @@ var ctrl = {
     // 歌单切换
     changeMusicList(Music_id, Music_server) {
         var ap = document.querySelector("meting-js.global-music").aplayer;
-        var music_list_url_str = "https://metingjs.gavin-chen.top/api?server=" + Music_server + "&type=playlist" + "&id=" + Music_id;
+        var music_list_url_str = "https://metingjs.cansin.top/api?server=" + Music_server + "&type=playlist" + "&id=" + Music_id;
         ap.list.clear();
         fetch(music_list_url_str).then(response => response.json()).then(data => {
             // 在这里使用返回的JSON数据
@@ -986,7 +986,7 @@ var ctrl = {
         var q = p.substring(1,5)
         if (q == 'post') {
             var i = p.substring(6,14)
-            fetch(`https://apis.gavin-chen.top/likecount?mode=get&id=${i}`)
+            fetch(`https://apis.cansin.top/likecount?mode=get&id=${i}`)
                 .then(response => response.json())
                 .then(data => {
                     if (data.code == 200) {
@@ -1005,7 +1005,7 @@ var ctrl = {
         if (!a.classList.contains("loading")) {
             var i = window.location.pathname.substring(6,14)
             a.classList.add("loading")
-            fetch(`https://apis.gavin-chen.top/likecount?mode=add&id=${i}&ip=${ipAddress}`)
+            fetch(`https://apis.cansin.top/likecount?mode=add&id=${i}&ip=${ipAddress}`)
                 .then(response => response.json())
                 .then(data => {
                     if (data.code == 200) {
@@ -1035,7 +1035,7 @@ var ctrl = {
             .then(data => {
                 ipAddress = data.ip;
                 console.log("IP 地址：" + ipAddress);
-                fetch('https://apis.gavin-chen.top/weather?ip=' + ipAddress + '&output=jsonp')
+                fetch('https://apis.cansin.top/weather?ip=' + ipAddress + '&output=jsonp')
                     .then(response => response.json())
                     .then(data => {
                         console.log(data);
@@ -1319,7 +1319,7 @@ var ctrl = {
         window.addEventListener('resize', ctrl.resizeWinbox);
         winbox.body.innerHTML = html;
         // https://cdn.cbd.int/cansin-blogdata@latest
-        document.head.appendChild(Object.assign(document.createElement("script"), { src: "https://cdn.cbd.int/cansin-blogdata@3.0.67/js/" + className + ".min.js", id: "appScript" }));
+        document.head.appendChild(Object.assign(document.createElement("script"), { src: "https://registry.npmmirror.com/cansin-blogdata/3.0.69/files/js/" + className + ".min.js", id: "appScript" }));
         document.querySelector('.wb-header .wb-close').addEventListener('click', ()=>{
             var script = document.getElementById('appScript');
             if (script) document.head.removeChild(script);
