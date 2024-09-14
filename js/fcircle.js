@@ -76,7 +76,7 @@ function loadStatistical(sdata) {
         <br>
         Designed by <a target="_blank" href="https://immmmm.com" target="_blank">林木木</a>
         <br>
-        Adapted by <a target="_blank" href="https://gavin-chen.top" target="_blank">南方嘉木</a>
+        Adapted by <a target="_blank" href="https://blog.cancin.cn" target="_blank">南方嘉木</a>
       </div>
       <div id="cf-overlay" class="cf-new-add" onclick="closeShow()"></div>
       <div id="cf-overshow" class="cf-new-add"></div>

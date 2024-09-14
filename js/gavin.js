@@ -62,7 +62,7 @@ var startTime = performance.now();
 let animationId;
 var winbox = '';
 
-if ('paintWorklet' in CSS) { CSS.paintWorklet.addModule('https://cdn.jsdmirror.com/npm/cansin-blogdata@3.0.70/js/paint.min.js'); }
+if ('paintWorklet' in CSS) { CSS.paintWorklet.addModule(CDNURL + '/js/paint.min.js'); }
 
 window.onload = function () {
     var set_music = document.querySelector("#set-switch-music input");
@@ -130,8 +130,8 @@ window.onload = function () {
     // new Vue().$mount('#aside-system')
     // if (set_notice.checked) tools.showNote("欢迎来到参星阁！", "success", 5);
     // console.clear();
-    console.log("\n %cGC音频控制器 v1.3.2 参星阁出品%c https://gavin-chen.top \n", "color: #fadfa3; background: #030307; padding:5px 0;", "background: #fadfa3; padding:5px 0;")
-    console.log(`Welcome to:\n%c参星阁:%c https://gavin-chen.top%c\nThis site has been running stably for %c${Math.round(((new Date).getTime() - new Date("2023/01/04 20:53:58").getTime()) / 864e5)} %c days`, "border:1px #888 solid;border-right:0;border-radius:5px 0 0 5px;padding: 5px 10px;color:white;background:#4976f5;margin:10px 0", "border:1px #888 solid;border-left:0;border-radius:0 5px 5px 0;padding: 5px 10px;", "", "color:#4976f5", "")
+    console.log("\n %cGC音频控制器 v1.3.2 参星阁出品%c https://blog.cancin.cn \n", "color: #fadfa3; background: #030307; padding:5px 0;", "background: #fadfa3; padding:5px 0;")
+    console.log(`Welcome to:\n%c参星阁:%c https://blog.cancin.cn%c\nThis site has been running stably for %c${Math.round(((new Date).getTime() - new Date("2023/01/04 20:53:58").getTime()) / 864e5)} %c days`, "border:1px #888 solid;border-right:0;border-radius:5px 0 0 5px;padding: 5px 10px;color:white;background:#4976f5;margin:10px 0", "border:1px #888 solid;border-left:0;border-radius:0 5px 5px 0;padding: 5px 10px;", "", "color:#4976f5", "")
 }
 
 // 页面百分比
@@ -753,7 +753,7 @@ var ctrl = {
     // 歌单切换
     changeMusicList(Music_id, Music_server) {
         var ap = document.querySelector("meting-js.global-music").aplayer;
-        var music_list_url_str = "https://metingjs.cansin.top/api?server=" + Music_server + "&type=playlist" + "&id=" + Music_id;
+        var music_list_url_str = "https://metingjs.cancin.cn/api?server=" + Music_server + "&type=playlist" + "&id=" + Music_id;
         ap.list.clear();
         fetch(music_list_url_str).then(response => response.json()).then(data => {
             // 在这里使用返回的JSON数据
@@ -991,7 +991,7 @@ var ctrl = {
         var q = p.substring(1,5)
         if (q == 'post') {
             var i = p.substring(6,14)
-            fetch(`https://apis.cansin.top/likecount?mode=get&id=${i}`)
+            fetch(`https://apis.cancin.cn/likecount?mode=get&id=${i}`)
                 .then(response => response.json())
                 .then(data => {
                     if (data.code == 200) {
@@ -1010,7 +1010,7 @@ var ctrl = {
         if (!a.classList.contains("loading")) {
             var i = window.location.pathname.substring(6,14)
             a.classList.add("loading")
-            fetch(`https://apis.cansin.top/likecount?mode=add&id=${i}&ip=${ipAddress}`)
+            fetch(`https://apis.cancin.cn/likecount?mode=add&id=${i}&ip=${ipAddress}`)
                 .then(response => response.json())
                 .then(data => {
                     if (data.code == 200) {
@@ -1040,7 +1040,7 @@ var ctrl = {
             .then(data => {
                 ipAddress = data.ip;
                 console.log("IP 地址：" + ipAddress);
-                fetch('https://apis.cansin.top/weather?ip=' + ipAddress + '&output=jsonp')
+                fetch('https://apis.cancin.cn/weather?ip=' + ipAddress + '&output=jsonp')
                     .then(response => response.json())
                     .then(data => {
                         console.log(data);
@@ -1324,7 +1324,7 @@ var ctrl = {
         window.addEventListener('resize', ctrl.resizeWinbox);
         winbox.body.innerHTML = html;
         // https://cdn.cbd.int/cansin-blogdata@latest
-        document.head.appendChild(Object.assign(document.createElement("script"), { src: "https://cdn.jsdmirror.com/npm/cansin-blogdata@3.0.70/js/" + className + ".min.js", id: "appScript" }));
+        document.head.appendChild(Object.assign(document.createElement("script"), { src: CDNURL + "/js/" + className + ".min.js", id: "appScript" }));
         document.querySelector('.wb-header .wb-close').addEventListener('click', ()=>{
             var script = document.getElementById('appScript');
             if (script) document.head.removeChild(script);
