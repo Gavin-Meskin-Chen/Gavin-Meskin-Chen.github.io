@@ -6980,7 +6980,7 @@ blockquote.pullquote.right {
   #about-page .about-statistic {
     min-height: 380px;
     width: calc(50% - 0.5rem);
-    background: url(https://cdn.jsdmirror.com/npm/cansin-blogdata@3.0.70/img/202311151434510.webp) no-repeat top;
+    background: url(https://registry.npmmirror.com/cansin-blogdata/3.0.73/files/img/202311151434510.webp) no-repeat top;
     background-size: cover;
     color: #fff;
     overflow: hidden;
@@ -7506,7 +7506,7 @@ blockquote.pullquote.right {
   }
   
   .author-content-item.like-technology {
-    background: url(https://cdn.jsdmirror.com/npm/cansin-blogdata@3.0.70/img/OxvZXD.webp) no-repeat;
+    background: url(https://registry.npmmirror.com/cansin-blogdata/3.0.73/files/img/OxvZXD.webp) no-repeat;
     background-size: cover;
     min-height: 230px;
     color: #fff;
