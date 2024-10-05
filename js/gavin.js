@@ -927,7 +927,7 @@ var ctrl = {
                 Number(e.value) < 1 && (e.value = "")
         }),
             e.addEventListener("keyup", t => {
-                "Enter" == t.key && "" != e.value && "0" != e.value && pjax.loadUrl("1" == e.value ? k(e.value)[0] : k(e.value)[1])
+                ("Enter" == t.key || t.keyCode == 13) && "" != e.value && "0" != e.value && pjax.loadUrl("1" == e.value ? k(e.value)[0] : k(e.value)[1])
             })
         )
     },
