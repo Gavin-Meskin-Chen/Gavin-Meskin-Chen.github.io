@@ -2047,6 +2047,10 @@ input.toPageInput:focus::placeholder {
     opacity: 0;
 }
 
+input.toPageInput::-webkit-search-cancel-button {  
+    display: none;  
+}
+
 #pagination .pagination {
     position: relative;
     display: flex;
@@ -2219,7 +2223,7 @@ h6 {
     opacity: 0.7;
     font-size: 90%;
     line-height: 1.6rem;
-    margin: 0.75rem 0 0.75rem;
+    margin: 0.85rem 0 0.85rem;
 }
 
 /* #article-container p strong {
@@ -4281,9 +4285,11 @@ a.article-meta__categories {
     border-radius: 6px;
 }
 
-a.article-meta__categories:hover {
-    color: var(--f-0);
-    background: var(--gavin-highlight);
+@media screen and (min-width: 768px) {
+    a.article-meta__categories:hover {
+        color: #fff;
+        background: var(--gavin-highlight);
+    }
 }
 
 /* 颜色更改（标签更改在themes\butterfly\layout\includes\mixins\post-ui.pug中改）rgba(5,109,232,0.8) */

@@ -2338,6 +2338,8 @@ figure.highlight pre .javascript .function {
 #article-container .flink .flink-list > .flink-list-item:hover {
   background: var(--gavin-highlight-op-1);
   border-color: var(--gavin-highlight);
+  -webkit-box-shadow: 0 8px 12px -4px var(--gavin-highlight-op);
+  box-shadow: 0 8px 12px -4px var(--gavin-highlight-op);
 }
 #article-container .flink .flink-list > .flink-list-item:hover .flink-item-icon {
   border-color: var(--gavin-highlight);
@@ -2389,7 +2391,7 @@ figure.highlight pre .javascript .function {
   width: 70px;
   height: 70px;
   padding: 4px;
-  border: 1px dashed var(--gavin-op-dis-5);
+  border: 1px dashed var(--gavin-op-dis-2);
   border-radius: 50%;
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
