@@ -170,6 +170,7 @@ function cardTimes() {
     month = now.getMonth();
     week = now.getDay();
     date = now.getDate();
+    hours = now.getHours();
     var cardWidgetCalendar = document.getElementById("card-widget-calendar");
     if (cardWidgetCalendar) {
         var year_flag = year % 4 == 0 && year % 100 != 0 || year % 400 == 0 ? true : false;
@@ -240,9 +241,10 @@ function cardTimes() {
         ganzhiYear = chineseLunar.format(lunar, "T").slice(0, -1); //天干地支
         lunarMon = chineseLunar.format(lunar, "M"); //月份
         lunarDay = chineseLunar.format(lunar, "d"); //日期
-        var anniversary = new Date("2024/12/20 08:30:00");
+        const t_y = new Date().getFullYear();
+        var anniversary = new Date(t_y + "/12/20 08:30:00");
         var countDown = Math.floor((anniversary - now) / 1e3 / 60 / 60 / 24);
-        asideTime = new Date(new Date().getFullYear() + "/01/01 00:00:00");	// 侧边栏倒计时
+        asideTime = new Date(t_y + "/01/01 00:00:00");	// 侧边栏倒计时
         asideDay = (now - asideTime) / 1e3 / 60 / 60 / 24;
         asideDayNum = Math.floor(asideDay);
         var asideWeekNum = ((week - asideDayNum % 7) >= 0) ? (Math.ceil(asideDayNum / 7)) : (Math.ceil(asideDayNum / 7) + 1);

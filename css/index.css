@@ -4555,7 +4555,7 @@ h1.page-title + .tag-cloud-list {
   border-color: var(--gavin-highlight);
   -webkit-box-shadow: 0 0 16px -4px var(--gavin-highlight);
   box-shadow: 0 0 16px -4px var(--gavin-highlight);
-  color: var(--f-0);
+  color: #fff;
 }
 #rightside #mobile-toc-button {
   display: none;
