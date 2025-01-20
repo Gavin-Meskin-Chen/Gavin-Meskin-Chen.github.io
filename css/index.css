@@ -2606,8 +2606,39 @@ figure.highlight pre .javascript .function {
     -webkit-line-clamp: 3;
   }
 }
+.tag-cloud-list {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-lines: multiple;
+  -moz-box-lines: multiple;
+  -o-box-lines: multiple;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -o-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
 .tag-cloud-list a {
-  display: inline-block;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -o-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
   padding: 0 8px;
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
@@ -2747,7 +2778,18 @@ h1.page-title + .tag-cloud-list {
   gap: 2px;
 }
 #aside-content .card-tag-cloud a {
-  display: inline-block;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -o-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
   font-size: 0.95rem !important;
   padding: 0 6px;
   border-radius: 0.4rem;
@@ -2808,7 +2850,9 @@ h1.page-title + .tag-cloud-list {
 #aside-content .aside-list > .aside-list-item .content > time,
 #aside-content .aside-list > .aside-list-item .content > .name {
   display: block;
-  color: #858585;
+  opacity: 60%;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=6000%)";
+  filter: alpha(opacity=6000%);
   font-size: 80%;
 }
 #aside-content .aside-list > .aside-list-item .content > .title,
@@ -2817,6 +2861,11 @@ h1.page-title + .tag-cloud-list {
   font-size: 90%;
   line-height: 1.2;
   -webkit-line-clamp: 2;
+  -webkit-transition: color 0s;
+  -moz-transition: color 0s;
+  -o-transition: color 0s;
+  -ms-transition: color 0s;
+  transition: color 0s;
 }
 #aside-content .aside-list > .aside-list-item .content > .title:hover,
 #aside-content .aside-list > .aside-list-item .content > .comment:hover {

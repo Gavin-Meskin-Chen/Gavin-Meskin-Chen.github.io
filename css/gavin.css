@@ -1267,7 +1267,6 @@ a {
 /* Tag页、Category页标签样式 */
 .tag-cloud-list a::before {
     content: '\f292';
-    top: -0.1em;
     position: relative;
     opacity: .4;
     margin-right: 0.15em;
@@ -1755,6 +1754,7 @@ a.aside-list-item-head {
 /* 文章图片 */
 #article-container img {
     border-radius: 8px;
+    max-height: 300px;
 }
 
 /* 文章图片底部注释 */
@@ -1903,12 +1903,13 @@ span.post-meta-categories {
 .post-meta-tag-list a {
     margin-right: 10px;
     font-size: 1.1em;
+    display: flex;
+    align-items: center;
     color: rgba(255, 255, 255, .7);
 }
 
 .post-meta-tag-list a::before {
     content: '\f292';
-    top: -0.1em;
     position: relative;
     opacity: .4;
     margin-right: 0.15em;
@@ -2391,7 +2392,6 @@ h6 {
 /* 侧边栏标签加 #  */
 .card-tag-cloud a::before {
     content: '\f292';
-    top: -0.1em;
     position: relative;
     opacity: .4;
     margin-right: 0.15em;
@@ -4206,7 +4206,6 @@ a.article-meta__tags {
 
 a.article-meta__tags::before {
     content: '\f292';
-    top: -0.1em;
     position: relative;
     opacity: .4;
     margin-right: 0.15em;
@@ -4232,6 +4231,9 @@ span.article-meta.tags {
     position: absolute;
     bottom: 1.2rem;
     z-index: 1;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .article-meta-wrap span {
@@ -4313,6 +4315,8 @@ a.article-meta__categories {
 
 #recent-posts>.recent-post-item>.recent-post-info>.article-meta-wrap a {
     color: var(--font-color);
+    display: flex;
+    align-items: center;
 }
 
 .article-meta-middle {
@@ -4829,7 +4833,8 @@ a.categoryButton:after {
 }
 
 #tag-bar-items .tag-bar-item a {
-    display: block;
+    display: flex;
+    align-items: center;
     padding: 8px 8px;
     border-radius: 8px;
     color: var(--font-color);
@@ -4843,7 +4848,6 @@ a.categoryButton:after {
 
 #tag-bar-items a::before {
     content: '\f292';
-    top: -0.1em;
     position: relative;
     opacity: .4;
     margin-right: 0.15em;
