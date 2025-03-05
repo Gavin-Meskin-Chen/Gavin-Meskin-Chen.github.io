@@ -687,7 +687,7 @@ var ctrl = {
 
     // 导航栏音乐
     musicSwitch() {
-        var music_state = document.querySelector("meting-js.global-music").aplayer.audio.paused;
+        var music_state = document.querySelector(".global-music").aplayer.audio.paused;
         var a = document.querySelector("#music-Switch i");
         var b = document.querySelector("#music-ctrl-btn-center i");
         if (music_state) {
@@ -701,27 +701,27 @@ var ctrl = {
             b.classList.remove("icon-pause");
             b.classList.add("icon-play");
         }
-        document.querySelector("meting-js.global-music").aplayer.toggle();
+        document.querySelector(".global-music").aplayer.toggle();
     },
 
     musicForward() {
-        document.querySelector("meting-js.global-music").aplayer.skipForward();
+        document.querySelector(".global-music").aplayer.skipForward();
         ctrl.getMusicInfo();
     },
 
     musicBackward() {
-        document.querySelector("meting-js.global-music").aplayer.skipBack();
+        document.querySelector(".global-music").aplayer.skipBack();
         ctrl.getMusicInfo();
     },
 
     // 获取歌曲信息
     getMusicInfo() {
-        var music_id = document.querySelector("meting-js.global-music").aplayer.list.index; // 当前曲目的id
-        var music_cover = document.querySelector("meting-js.global-music").aplayer.list.audios[music_id].cover;
-        // var music_author = document.querySelector("meting-js.global-music").aplayer.list.audios[music_id].author;
-        var music_author = document.querySelector("meting-js.global-music").aplayer.list.audios[music_id].artist;
-        // var music_title = document.querySelector("meting-js.global-music").aplayer.list.audios[music_id].title;
-        var music_title = document.querySelector("meting-js.global-music").aplayer.list.audios[music_id].name;
+        var music_id = document.querySelector(".global-music").aplayer.list.index; // 当前曲目的id
+        var music_cover = document.querySelector(".global-music").aplayer.list.audios[music_id].cover;
+        var music_author = document.querySelector(".global-music").aplayer.list.audios[music_id].author;
+        // var music_author = document.querySelector(".global-music").aplayer.list.audios[music_id].artist;
+        var music_title = document.querySelector(".global-music").aplayer.list.audios[music_id].title;
+        // var music_title = document.querySelector(".global-music").aplayer.list.audios[music_id].name;
         document.getElementById("console-music-cover").innerHTML = "<img src='" + music_cover + "'>";// 歌曲信息
         document.querySelector("#console-music-item-main .cover-shadow").style.background =  "url('" + music_cover + "') center center / 100% 100% no-repeat";
         document.getElementById("console-music-title-text").innerHTML = music_title;
@@ -730,10 +730,10 @@ var ctrl = {
     },
 
     refreshProgress() {
-        var nowTime = document.querySelector("meting-js.global-music").aplayer.audio.currentTime;// 当前时间
+        var nowTime = document.querySelector(".global-music").aplayer.audio.currentTime;// 当前时间
         if (isNaN(nowTime)) nowTime = 0;
         var nowTimeString = tools.secToTime(nowTime);
-        var allTime = document.querySelector("meting-js.global-music").aplayer.audio.duration;// 总时间
+        var allTime = document.querySelector(".global-music").aplayer.audio.duration;// 总时间
         if (isNaN(allTime)) allTime = 0; // 无歌曲时会返回NaN
         var allTimeString = tools.secToTime(allTime);
         document.getElementById("progress-low-btn").innerHTML = nowTimeString;// 进度条时间
@@ -743,7 +743,7 @@ var ctrl = {
 
     // 导入歌单
     importMusicList() {
-        var audios = document.querySelector("meting-js.global-music").aplayer.list.audios;
+        var audios = document.querySelector(".global-music").aplayer.list.audios;
         var list_html;
         for (let i = 0; i < audios.length; i++) {
             list_html = document.getElementById("console-music-list").innerHTML;
@@ -754,7 +754,7 @@ var ctrl = {
 
     // 歌单切换
     changeMusicList(Music_id, Music_server) {
-        var ap = document.querySelector("meting-js.global-music").aplayer;
+        var ap = document.querySelector(".global-music").aplayer;
         var music_list_url_str = "https://metingjs.cancin.cn/api?server=" + Music_server + "&type=playlist" + "&id=" + Music_id;
         ap.list.clear();
         fetch(music_list_url_str).then(response => response.json()).then(data => {
@@ -767,14 +767,14 @@ var ctrl = {
     },
 
     JayMusicList() {
-        var ap = document.querySelector("meting-js.global-music").aplayer;
+        var ap = document.querySelector(".global-music").aplayer;
         ap.list.clear();
         console.log("本专辑有" + JaySongsheet.length + "首歌曲");
         ap.list.add(JaySongsheet);
     },
 
     JokerMusicList() {
-        var ap = document.querySelector("meting-js.global-music").aplayer;
+        var ap = document.querySelector(".global-music").aplayer;
         ap.list.clear();
         console.log("本专辑有" + QianSongsheet.length + "首歌曲");
         ap.list.add(QianSongsheet);
@@ -782,7 +782,7 @@ var ctrl = {
 
     // 音乐状态检测（已添加事件监听器，修复点击aplayer后导航栏和控制中心不同步的问题）
     musicState() {
-        var music_state = document.querySelector("meting-js.global-music").aplayer.audio.paused;
+        var music_state = document.querySelector(".global-music").aplayer.audio.paused;
         var a = document.querySelector("#music-Switch i");
         var b = document.querySelector("#music-ctrl-btn-center i");
         if (music_state) {
@@ -803,10 +803,10 @@ var ctrl = {
     },
 
     addMusicToList(title, author, url, pic, lrc) {
-        var ap = document.querySelector("meting-js.global-music").aplayer;
+        var ap = document.querySelector(".global-music").aplayer;
         ctrl.clearConsoleMusicList();
         // ap.list.clear();
-        ap.list.add([{"title": title, "author": author, "url": url, "pic": pic, "lrc": lrc}]);
+        ap.list.add([{title: title, author: author, url: url, pic: pic, lrc: lrc}]);
         ap.list.switch(ap.list.audios.length - 1)
     },
 
@@ -876,7 +876,7 @@ var ctrl = {
         // console_musicCover.style.height = console_musicCover.offsetWidth + "px";
         // console_musicBody.style.height = (console_musicCover.offsetWidth + 236) + "px"; //(12rem + 1.3rem + 1.3rem) * 16 = 233.6px
         ctrl.getMusicInfo();
-        var nowVolume = document.querySelector("meting-js.global-music").aplayer.audio.volume;// 当前音量
+        var nowVolume = document.querySelector(".global-music").aplayer.audio.volume;// 当前音量
         document.getElementById("v_bar").style.transform = "translateX(-" + (1 - nowVolume) * 100 + "%)";// 音量条进度
         saveToLocal.get('theme') == 'light' ? document.querySelector("#set-theme-light input").checked = true : document.querySelector("#set-theme-dark input").checked = true;
     },
@@ -1595,12 +1595,12 @@ document.getElementById('jsDebugInput').addEventListener('input', ()=>{
 
 // 歌单列表监听器
 const songsheets = [
-    { id: "songsheet-1", text: "周杰伦", flag: 1, func: () => ctrl.JayMusicList() },
-    { id: "songsheet-2", text: "薛之谦/李荣浩", flag: 1, func: () => ctrl.JokerMusicList() },
-    { id: "songsheet-3", text: "纯音乐", flag: 1, func: () => ctrl.changeMusicList("8167030216", "netease") },
-    { id: "songsheet-4", text: "外语", flag: 1, func: () => ctrl.changeMusicList("8658340188", "netease") },
-    { id: "songsheet-5", text: "古风", flag: 1, func: () => ctrl.changeMusicList("8167066222", "netease") },
-    { id: "songsheet-6", text: "默认歌单", flag: 1, func: () => ctrl.changeMusicList("8086610771", "netease") }
+    { id: "songsheet-1", text: "<i class='blogfont icon-spinner'></i> 周杰伦", flag: 1, func: () => ctrl.JayMusicList() },
+    { id: "songsheet-2", text: "<i class='blogfont icon-spinner'></i> 薛之谦/李荣浩", flag: 1, func: () => ctrl.JokerMusicList() },
+    { id: "songsheet-3", text: "<i class='blogfont icon-spinner'></i> 纯音乐", flag: 1, func: () => ctrl.changeMusicList("8167030216", "netease") },
+    { id: "songsheet-4", text: "<i class='blogfont icon-spinner'></i> 外语", flag: 1, func: () => ctrl.changeMusicList("8658340188", "netease") },
+    { id: "songsheet-5", text: "<i class='blogfont icon-spinner'></i> 古风", flag: 1, func: () => ctrl.changeMusicList("8167066222", "netease") },
+    { id: "songsheet-6", text: "<i class='blogfont icon-spinner'></i> 默认歌单", flag: 1, func: () => ctrl.changeMusicList("8086610771", "netease") }
 ];
 songsheets.forEach((songsheet, index) => {
     const element = document.getElementById(songsheet.id);
@@ -1625,7 +1625,7 @@ addSongsheet.addEventListener("click", () => {
 var console_music_list = document.getElementById("console-music-list");
 var music_id = null;
 console_music_list.addEventListener('click', function (e) {
-    var ap = document.querySelector("meting-js.global-music").aplayer
+    var ap = document.querySelector(".global-music").aplayer
     if (e.target && e.target.nodeName.toUpperCase() == "LI") {
         music_id = parseInt(e.target.querySelector(".list-music-id").innerHTML);
         ap.list.switch(music_id - 1);
@@ -1664,7 +1664,7 @@ music_volumebar.addEventListener("mousedown", function (e) { //添加监听事�
     v_bar_bg_Len = v_bar_bg.offsetWidth;
     let newVolume = (x - v_bar_bg.getBoundingClientRect().left) / v_bar_bg_Len;
     v_bar.style.transform = "translateX(-" + (1 - newVolume) * 100 + "%)"; // 按下时重新设置进度条
-    const v = document.querySelector("meting-js.global-music");
+    const v = document.querySelector(".global-music");
     v.aplayer.volume(newVolume, true); // 更改音量
     document.onmousemove = function (e) { // 拖动需要写到down里面
         let diff = x - e.clientX; // 获取移动的距离
@@ -1692,7 +1692,7 @@ music_volumebar.addEventListener("touchstart", function (e) { //添加监听事�
     v_bar_bg_Len = v_bar_bg.offsetWidth;
     let newVolume = (x - v_bar_bg.getBoundingClientRect().left) / v_bar_bg_Len;
     v_bar.style.transform = "translateX(-" + (1 - newVolume) * 100 + "%)"; // 按下时重新设置进度条
-    const v = document.querySelector("meting-js.global-music");
+    const v = document.querySelector(".global-music");
     v.aplayer.volume(newVolume, true); // 更改音量
     document.ontouchmove = function (e) { // 拖动需要写到down里面
         let diff = x - e.targetTouches[0].pageX; // 获取移动的距离
@@ -1741,7 +1741,7 @@ music_progressbar.addEventListener("mousedown", function (e) { //添加监听事
             p_bar_Len_New = p_bar_bg_Len;
         }
         p_bar.style.transform = "translateX(-" + (1 - (p_bar_Len_New / p_bar_bg_Len)) * 100 + "%)"; // 更改进度条Width
-        let all_Time = document.querySelector("meting-js.global-music").aplayer.audio.duration;
+        let all_Time = document.querySelector(".global-music").aplayer.audio.duration;
         let current_time = (p_bar_Len_New / p_bar_bg_Len) * all_Time;
         document.getElementById("progress-low-btn").innerHTML = tools.secToTime(current_time);
     }
@@ -1768,7 +1768,7 @@ music_progressbar.addEventListener("touchstart", function (e) { //添加监听�
             p_bar_Len_New = p_bar_bg_Len;
         }
         p_bar.style.transform = "translateX(-" + (1 - (p_bar_Len_New / p_bar_bg_Len)) * 100 + "%)"; // 更改进度条Width
-        let all_Time = document.querySelector("meting-js.global-music").aplayer.audio.duration;
+        let all_Time = document.querySelector(".global-music").aplayer.audio.duration;
         let current_time = (p_bar_Len_New / p_bar_bg_Len) * all_Time;
         document.getElementById("progress-low-btn").innerHTML = tools.secToTime(current_time);
     }
@@ -1785,9 +1785,9 @@ document.onmouseup = function () { //当鼠标弹起的时候，不做任何操�
     p_low.style.color = "var(--font-color)";
     p_high.style.color = "var(--font-color)";
     if (ctrl_flag == 0 && mousemove_flag == 0) {
-        let all_Time = document.querySelector("meting-js.global-music").aplayer.audio.duration;
+        let all_Time = document.querySelector(".global-music").aplayer.audio.duration;
         let new_Time = (p_bar_Len_New / p_bar_bg_Len) * all_Time;
-        document.querySelector("meting-js.global-music").aplayer.seek(new_Time); //更改进度
+        document.querySelector(".global-music").aplayer.seek(new_Time); //更改进度
     }
     global_music_flag = 0;
     ctrl_flag = 1;
@@ -1806,9 +1806,9 @@ document.ontouchend = function () {
     p_low.style.color = "var(--font-color)";
     p_high.style.color = "var(--font-color)";
     if (ctrl_flag == 0 && mousemove_flag == 0) {
-        let all_Time = document.querySelector("meting-js.global-music").aplayer.audio.duration;
+        let all_Time = document.querySelector(".global-music").aplayer.audio.duration;
         let new_Time = (p_bar_Len_New / p_bar_bg_Len) * all_Time;
-        document.querySelector("meting-js.global-music").aplayer.seek(new_Time); //更改进度
+        document.querySelector(".global-music").aplayer.seek(new_Time); //更改进度
     }
     global_music_flag = 0;
     ctrl_flag = 1;
