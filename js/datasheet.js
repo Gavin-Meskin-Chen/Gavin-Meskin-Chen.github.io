@@ -536,12 +536,6 @@ var QianSongsheet = [
 
 var Defaultsheet = [
     {
-        title:'BINGBIAN病变(Remix)',
-        author:'鞠文娴',
-        url:'https://m7.music.126.net/20250305185538/7bd141a7289ba74021de12a671b9d45e/ymusic/wysGYuYfJqdAtkRTCvrYvg==/509951162912677483?vuutv=JLpOsbD7lDVw1TGyVHaGkgwJS+k2ngAk5Vko1rXh/1x9WbICVI3yjSTPjvWfgpjsmY8BuYKX/h+c35nEOvnjqNm4RFY4jjEHcIMadjWeylc=',
-        pic:'https://p1.music.126.net/YgXZdyinWMmDtyeLL-N2nQ==/109951163112601473.jpg?param=250y250',
-        lrc:'https://registry.npmmirror.com/cansin-blogdata/latest/files/lrc/病变.lrc'
-    }, {
         title:'我记得',
         author:'赵雷',
         url:'https://music.163.com/song/media/outer/url?id=1974443814.mp3',
@@ -673,12 +667,6 @@ var Defaultsheet = [
         url:'https://music.163.com/song/media/outer/url?id=1357999894.mp3',
         pic:'https://p2.music.126.net/H6dt7IgvXNWhRM_w7XbcqQ==/109951163990575387.jpg?param=250y250',
         lrc:'https://registry.npmmirror.com/cansin-blogdata/latest/files/lrc/归去来兮.lrc'
-    }, {
-        title:'典狱司',
-        author:'音频怪物',
-        url:'https://music.163.com/song/media/outer/url?id=422790454.mp3',
-        pic:'https://p1.music.126.net/3GrZ8ci8RfoSXKi0hb1j_Q==/109951167999141643.jpg?param=250y250',
-        lrc:'https://registry.npmmirror.com/cansin-blogdata/latest/files/lrc/典狱司.lrc'
     }, {
         title:'鸳鸯债',
         author:'Uri / 喵☆酱',
