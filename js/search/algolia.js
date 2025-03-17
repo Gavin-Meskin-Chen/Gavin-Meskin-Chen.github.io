@@ -2,7 +2,7 @@ window.addEventListener('load', () => {
   const openSearch = () => {
     const bodyStyle = document.body.style
     bodyStyle.width = '100%'
-    bodyStyle.overflow = 'hidden'
+    if(!set_scroll.checked || localStorage.getItem('scroll_state') === 'false')bodyStyle.overflow = 'hidden'
     btf.animateIn(document.getElementById('search-mask'), 'to_show 0.5s')
     btf.animateIn(document.querySelector('#algolia-search .search-dialog'), 'titleScale 0.5s')
     setTimeout(() => { document.querySelector('#algolia-search .ais-SearchBox-input').focus() }, 100)

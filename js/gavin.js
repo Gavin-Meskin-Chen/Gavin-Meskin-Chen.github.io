@@ -98,6 +98,9 @@ window.onload = function () {
     if (localStorage.getItem('fps_state') != null) {
         set_fps.checked = localStorage.getItem('fps_state') == 'true' ? true : false;
     }
+    if (localStorage.getItem('scroll_state') != null) {
+        set_fps.checked = localStorage.getItem('scroll_state') == 'true' ? true : false;
+    }
     if (localStorage.getItem('lrc_state') != null) {
         localStorage.getItem('lrc_state') == 'true' ? document.getElementById("lrcSwitchBtn").click() : null;
     }
@@ -606,7 +609,7 @@ var ctrl = {
     showConsole() {
         document.getElementById("console-music-item-main").classList.add("item-show");
         document.getElementById("console").classList.add("show");
-        document.body.style.overflow = 'hidden';
+        if(!set_scroll.checked || localStorage.getItem('scroll_state') === 'false')document.body.style.overflow = 'hidden';
         ctrl.initConsoleState();
     },
 
@@ -1200,7 +1203,7 @@ var ctrl = {
     // 显示应用中心
     showAPPs() {
         document.getElementById("apps").classList.add("show");
-        document.body.style.overflow = 'hidden';
+        if(!set_scroll.checked || localStorage.getItem('scroll_state') === 'false')document.body.style.overflow = 'hidden';
     },
 
     // 隐藏应用中心
@@ -1573,6 +1576,19 @@ set_font_size.addEventListener("change", () => {
     document.documentElement.style.setProperty('--global-font-size', set_font_size.value + 'px');
 });
 
+// 滚动条显示
+var set_scroll = document.querySelector("#set-switch-scroll input");
+set_scroll.addEventListener("change", () => {
+    if (set_scroll.checked) {
+        localStorage.setItem('scroll_state', true);
+        if (set_notice.checked) tools.showMessage("滚动条显示已打开", "success", 2);
+    } else {
+        localStorage.setItem('scroll_state', false);
+        if (set_notice.checked) tools.showMessage("滚动条显示已关闭", "success", 2);
+    }
+});
+
+// 帧率显示
 var set_fps = document.querySelector("#set-switch-fps input");
 set_fps.addEventListener("change", () => {
     if (set_fps.checked) {

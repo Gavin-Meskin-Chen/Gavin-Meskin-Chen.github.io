@@ -793,7 +793,9 @@ ul.menus_item_child {
     transition: .3s;
 }
 
-#nav .menus_items .menus_item:hover .menus_item_child {
+
+/* 加上.nav-visible, 修复上滑时菜单仍然显示的bug */
+.nav-visible #nav .menus_items .menus_item:hover .menus_item_child {
     transform: translateX(-50%);
     /* right: auto;
     left: auto !important; */
@@ -4716,7 +4718,7 @@ a.categoryButton:after {
     display: flex;
     width: 100%;
     border-radius: 8px;
-    gap: 7px;
+    gap: 9px;
     scrollbar-width: none;
 }
 

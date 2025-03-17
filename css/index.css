@@ -2090,7 +2090,9 @@ figure.highlight pre .javascript .function {
   border-color: var(--pseudo-hover);
 }
 .article-sort-item-time {
-  color: #858585;
+  opacity: 50%;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=5000%)";
+  filter: alpha(opacity=5000%);
   font-size: 85%;
 }
 .article-sort-item-time time {
@@ -2391,7 +2393,7 @@ figure.highlight pre .javascript .function {
   width: 70px;
   height: 70px;
   padding: 4px;
-  border: 1px dashed var(--gavin-op-dis-2);
+  background-color: var(--gavin-widget-bg1);
   border-radius: 50%;
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
@@ -2850,9 +2852,9 @@ h1.page-title + .tag-cloud-list {
 #aside-content .aside-list > .aside-list-item .content > time,
 #aside-content .aside-list > .aside-list-item .content > .name {
   display: block;
-  opacity: 60%;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=6000%)";
-  filter: alpha(opacity=6000%);
+  opacity: 50%;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=5000%)";
+  filter: alpha(opacity=5000%);
   font-size: 80%;
 }
 #aside-content .aside-list > .aside-list-item .content > .title,
