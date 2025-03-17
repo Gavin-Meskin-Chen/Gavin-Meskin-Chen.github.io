@@ -99,7 +99,7 @@ window.onload = function () {
         set_fps.checked = localStorage.getItem('fps_state') == 'true' ? true : false;
     }
     if (localStorage.getItem('scroll_state') != null) {
-        set_fps.checked = localStorage.getItem('scroll_state') == 'true' ? true : false;
+        set_scroll.checked = localStorage.getItem('scroll_state') == 'true' ? true : false;
     }
     if (localStorage.getItem('lrc_state') != null) {
         localStorage.getItem('lrc_state') == 'true' ? document.getElementById("lrcSwitchBtn").click() : null;
