@@ -5341,9 +5341,6 @@ details.folding-tag summary>h6 {
 }
 #article-container .fj-gallery {
   margin: 0 0 16px;
-  opacity: 0;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-  filter: alpha(opacity=0);
 }
 #article-container .fj-gallery .img-alt {
   display: none;
