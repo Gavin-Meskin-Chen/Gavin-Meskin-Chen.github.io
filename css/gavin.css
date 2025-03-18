@@ -2162,6 +2162,7 @@ h5,
 h6 {
     padding-left: 0 !important;
     color: var(--dis-f-0);
+    transition: .3s;
 }
 
 #article-container.post-content h2 {
@@ -2239,7 +2240,7 @@ h6 {
     border-bottom: 1px solid var(--dis-f-0);
 }
 
-#article-container p highlight {
+#article-container highlight {
     color: var(--gavin-highlight);
     font-weight: bold;
 }
