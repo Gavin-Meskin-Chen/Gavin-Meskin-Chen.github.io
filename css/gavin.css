@@ -6566,6 +6566,24 @@ progress::-webkit-progress-value {
     user-select: none;
 }
 
+#apps .app-mark {
+    position: absolute;
+    right: -4px;
+    top: -8px;
+    padding: 5px;
+    border-radius: 50%;
+    background-color: var(--gavin-blue3);
+    box-shadow: 0 4px 12px -4px var(--gavin-blue3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#apps .app-mark i {
+    line-height: 1;
+    font-size: 14px;
+}
+
 @media screen and (max-width: 1100px) {
     #apps .apps-content {
         column-gap: calc((70vw - 70px * 7) / 6);
