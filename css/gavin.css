@@ -6572,6 +6572,7 @@ progress::-webkit-progress-value {
     top: -8px;
     padding: 5px;
     border-radius: 50%;
+    color: #fff;
     background-color: var(--gavin-blue3);
     box-shadow: 0 4px 12px -4px var(--gavin-blue3);
     display: flex;
