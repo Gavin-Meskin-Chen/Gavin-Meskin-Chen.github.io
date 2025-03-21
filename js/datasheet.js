@@ -581,6 +581,12 @@ var Defaultsheet = [
         pic: 'https://p1.music.126.net/QWn2SVLVezVb5huFA15mYQ==/109951165589250087.jpg?param=250y250',
         lrc: u4 + '人间蜉蝣.lrc'
     }, {
+        title: '倾尽天下',
+        author: '河图',
+        url: u3 + '27571867.mp3',
+        pic: 'https://p2.music.126.net/nlocSgc4D7T-h6S3f6IybQ==/6003333487842277.jpg?param=250y250',
+        lrc: u4 + '倾尽天下.lrc'
+    }, {
         title: '恋恋故人难',
         author: '黄诗扶 / 王敬轩（妖扬）',
         url: u3 + '1376873330.mp3',
