@@ -7,7 +7,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://registry.npmmirror.com/cansin-blogdata/3.0.73/files/img/OAn1bj.jpg">
 <meta property="article:published_time" content="2023-07-17T07:45:29.000Z">
-<meta property="article:modified_time" content="2024-10-07T03:50:18.545Z">
+<meta property="article:modified_time" content="2025-03-21T01:46:03.627Z">
 <meta property="article:author" content="南方嘉木">
 <meta property="article:tag" content="参星阁">
 <meta name="twitter:card" content="summary">
@@ -60,7 +60,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2024-10-07 11:50:18'
+  postUpdate: '2025-03-21 09:46:03'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -228,6 +228,7 @@
                 if (data.code == 200) {
                     console.log('获取收藏夹成功');
                     savedArticles = data.content;
+                    savedArticles.sort((a, b) => b.id - a.id);
                     localStorage.setItem("updateTime", catchNowTime);
                     localStorage.setItem("savedArticles", JSON.stringify(savedArticles));
                     // console.log(savedArticles);
@@ -269,7 +270,7 @@
             </div>
             `;
         }
-        document.getElementById("cf-saved-post").insertAdjacentHTML('beforeend', container);
+        document.getElementById("cf-saved-post").insertAdjacentHTML('afterbegin', container);
     }
     function switchSecretInput(event) {
         const a = document.getElementById("fcircleInputBox");
