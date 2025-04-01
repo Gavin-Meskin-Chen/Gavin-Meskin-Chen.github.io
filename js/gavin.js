@@ -750,7 +750,7 @@ var ctrl = {
         for (let i = 0; i < audios.length; i++) {
             list_html = document.getElementById("console-music-list").innerHTML;
             // document.getElementById("console-music-list").innerHTML = list_html + "<li class='music-list-item'><div class='list-music-info1'><a class='list-music-id' data-pjax-state=''>" + (i + 1) + "</a><a class='list-music-state' data-pjax-state=''><i class='iconfont icon-waveform'></i></a></div><div class='list-music-info2'><a class='list-music-title' data-pjax-state=''>" + audios[i].title + "</a><a class='list-music-author' data-pjax-state=''>&nbsp;-&nbsp;" + audios[i].author + "</a></div></li>";
-            document.getElementById("console-music-list").innerHTML = list_html + "<li class='music-list-item'><div class='list-music-info1'><a class='list-music-id' data-pjax-state=''>" + (i + 1) + "</a><a class='list-music-state' data-pjax-state=''><i class='iconfont icon-waveform'></i></a></div><div class='list-music-info2'><a class='list-music-title' data-pjax-state=''>" + audios[i].name + "</a><a class='list-music-author' data-pjax-state=''>&nbsp;-&nbsp;" + audios[i].artist + "</a></div></li>";
+            document.getElementById("console-music-list").innerHTML = list_html + "<li class='music-list-item'><div class='list-music-info1'><a class='list-music-id' data-pjax-state=''>" + (i + 1) + "</a><a class='list-music-state' data-pjax-state=''><i class='blogfont icon-waveform'></i></a></div><div class='list-music-info2'><a class='list-music-title' data-pjax-state=''>" + audios[i].name + "</a><a class='list-music-author' data-pjax-state=''>&nbsp;-&nbsp;" + audios[i].artist + "</a></div></li>";
         }
     },
 
