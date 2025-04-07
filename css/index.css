@@ -4293,7 +4293,7 @@ h1.page-title + .tag-cloud-list {
 }
 #post .post-copyright {
   position: relative;
-  margin: 40px 0 10px;
+  margin: 20px 0 0;
   padding: 10px 16px;
   border: 1px solid var(--gavin-border-color);
   -webkit-transition: box-shadow 0.3s ease-in-out;
