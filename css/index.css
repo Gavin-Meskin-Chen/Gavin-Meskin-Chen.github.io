@@ -4179,7 +4179,7 @@ h1.page-title + .tag-cloud-list {
   -webkit-justify-content: space-between;
   justify-content: space-between;
   gap: 20px;
-  margin: 20px 0;
+  margin: 40px 0 0;
 }
 #post .tag_share .post-meta__tag-list {
   display: -webkit-box;
@@ -5486,25 +5486,16 @@ blockquote.pullquote.right {
   transition: all 0.3s;
 }
 #article-container a.link-card:hover {
-  color: var(--dis-f-0) !important;
-  background-color: var(--gavin-highlight-op-1) !important;
-  border-color: var(--gavin-highlight-op-6) !important;
-}
-#article-container a.link-card:hover p {
-  color: var(--dis-f-0) !important;
-}
-#article-container a.link-card:hover .main i {
-  color: var(--gavin-highlight-op-6);
+  background-color: var(--gavin-highlight-op-1);
 }
 #article-container a.link-card:hover .end {
-  border-color: var(--gavin-highlight-op-6);
+  border-color: var(--gavin-op-dis-1);
 }
 #article-container a.link-card div.left {
   width: 48px;
   height: 48px;
   margin: 0.8rem;
   border-radius: 7px;
-  border: 1px solid var(--gavin-border-color);
   overflow: hidden;
   position: relative;
 }
