@@ -1148,6 +1148,10 @@ var ctrl = {
         // a.parentElement.querySelector('.el-input__count').innerHTML = '62/1000'
     },
 
+    commentQuote(comment) {// 引用评论
+        document.querySelector('#twikoo .tk-comments > .tk-submit .el-textarea textarea').value = comment
+    },
+
     // 更改主题色
     changeThemeColor(i) {
         var colors = [['0,100,255','0,150,255'], ['129,78,250', '0,234,208'], ['66,90,239', '255,190,0']]

@@ -1149,27 +1149,27 @@ center#name-container {
 }
 
 /* ************************************************************滚动条样式********************************************************** */
-::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+*::-webkit-scrollbar {
+    width: 9px;
+    height: 6px;
 }
 
-::-webkit-scrollbar-track {
-    border-radius: 2em;
+*::-webkit-scrollbar-track {
+    background-color: var(--gavin-background);
 }
 
-::-webkit-scrollbar-thumb {
+*::-webkit-scrollbar-thumb {
     /* --gavin-scroll-bg */
-    background-color: rgba(var(--gavin-theme-color), .4) !important;
+    background-color: rgba(var(--gavin-theme-color), .4);
     border-radius: 2em;
-    border: 1px solid var(--f-0); /* 可以留有空隙 */
+    border: 2px solid var(--gavin-background); /* 可以留有空隙 */
 }
 
-::-webkit-scrollbar-thumb:hover {
+*::-webkit-scrollbar-thumb:hover {
     background-color: var(--gavin-highlight) !important;
 }
 
-::-webkit-scrollbar-corner {
+*::-webkit-scrollbar-corner {
     background-color: transparent;
 }
 
@@ -3860,7 +3860,7 @@ button.wv-top-button {
 }
 
 .tk-content p {
-    margin: 0;
+    margin: 0.5rem 0;
 }
 
 .tk-owo-emotion {
@@ -4027,15 +4027,24 @@ button.wv-top-button {
     border-color: rgba(var(--gavin-theme-color), 1);
 }
 
+#post-comment pre {
+    background-color: var(--gavin-background);
+}
+
+#post-comment blockquote {
+    background-color: var(--article-card);
+    border: 1px solid var(--gavin-border-color);
+}
+
 #post-comment pre,
 #post-comment blockquote {
-    background-color: var(--gavin-background);
     /* width: fit-content; */
     overflow: auto;
     min-width: 100%;
     margin: 10px 0 0;
+    padding: 12px 16px;
     border-radius: 8px;
-    transition: all 0.5s;
+    transition: 0.3s;
 }
 
 /* *******************星空背景**************** */
@@ -5026,14 +5035,24 @@ html.hide-aside .layout>div:first-child {
     display: none !important;
 }
 
-/* 影视页 */
-.stars_box {
+/* 好物页面，我的装备 */
+.goods_box {
+    margin: 20px 0;
     display: flex;
-    gap: 15px;
+    gap: 20px;
     flex-wrap: wrap;
 }
 
-.card_mask span {
+/* 影视页 */
+.stars_box {
+    --cardmovie-gap: 15px;
+    margin: 20px 0;
+    display: flex;
+    gap: var(--cardmovie-gap);
+    flex-wrap: wrap;
+}
+
+/* .card_mask span {
     scrollbar-width: none;
 }
 
@@ -5048,9 +5067,9 @@ html.hide-aside .layout>div:first-child {
     margin: 0px !important;
     box-shadow: var(--gavin-shadow-2);
     transition: 0.3s;
-}
+} */
 
-@media screen and (max-width: 1300px) {
+/* @media screen and (max-width: 1300px) {
     .stars_box .card_box {
         --w: calc(100% / 5 - 12px);
     }
@@ -5059,26 +5078,30 @@ html.hide-aside .layout>div:first-child {
 @media screen and (max-width: 1000px) {
     .stars_box .card_box {
         --w: calc(100% / 4 - 12px);
+        padding: 13px;
     }
 }
 
 @media screen and (max-width: 810px) {
     .stars_box .card_box {
         --w: calc(100% / 3 - 10px);
+        padding: 12px;
     }
 }
 
 @media screen and (max-width: 520px) {
     .stars_box .card_box {
         --w: calc(100% / 2 - 8px);
+        padding: 10px;
     }
 }
 
 @media screen and (max-width: 350px) {
     .stars_box .card_box {
         --w: 100%;
+        padding: 20px;
     }
-}
+} */
 
 /* ******************导航栏音乐******************** */
 #nav-music-ctrl {

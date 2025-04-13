@@ -43,7 +43,7 @@ Last Modified time : 20220211 98:00 by https://immmmm.com
   .cf-article:hover{transition:all .3s;/*-webkit-transform:scale(1.03);transform:scale(1.03);*/border-color: var(--gavin-highlight);background:rgba(var(--gavin-theme-color),.1);}
   .cf-article-avatar{display:flex;align-items:center;position:absolute;bottom:8px;left:15px;}
   .cf-img-avatar {align-self:center;text-align:center;display:inline-block !important;width:22px;height:22px;border-radius:50%!important;margin:0!important;background: #fff;}
-  .cf-article-author{line-height: 35px;font-size:14px;font-weight: 400;margin-left:5px;align-self:center;text-align:center;height:40px;white-space:nowrap;overflow:hidden;}
+  .cf-article-author{line-height: 35px;font-size:14px;font-weight: 400;margin-left:5px;white-space:nowrap;overflow:hidden;}
   /* .cf-article-floor{position: absolute;top: 0.6rem;right:0.6rem;font-style: italic;font-size: 3rem;line-height: 1.5rem;z-index:1;font-weight: 400;display:none;} */
   .cf-article-title{color: var(--lmm-fontcolor)!important;font-weight: 500;position: relative;z-index:2;width:fit-content;max-width:calc(100% - 30px);display: -webkit-box;/*letter-spacing:1.5px;*/font-size:18px;align-self:start;text-align:left;line-height:1.3;padding:0;margin:5px 0;transition:0.3s;overflow:hidden;/*white-space: nowrap;text-overflow: ellipsis;*/-webkit-box-orient:vertical;-webkit-line-clamp:2;}
   .cf-article-time {font-size:14px;text-align:right;float:right;font-weight:400;position:absolute;right:17px;bottom:17px;line-height:1;}
