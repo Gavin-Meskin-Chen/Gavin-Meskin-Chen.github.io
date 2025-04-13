@@ -1150,6 +1150,7 @@ var ctrl = {
 
     commentQuote(comment) {// 引用评论
         document.querySelector('#twikoo .tk-comments > .tk-submit .el-textarea textarea').value = comment
+        document.getElementById('twikoo').scrollIntoView({ behavior: 'smooth' })
     },
 
     // 更改主题色
