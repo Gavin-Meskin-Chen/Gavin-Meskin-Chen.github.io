@@ -5191,7 +5191,7 @@ span.mathjax-overflow {
   height: var(--cardmovie-star-h);
   background-size: auto 100%;
   background-repeat: repeat;
-  background-image: url("/img/star_blank.svg");
+  background-image: url("https://registry.npmmirror.com/cansin-blogdata/latest/files/img/star_blank.svg");
 }
 .cardmovie_box .cardmovie_content > div .cardmovie_star_top {
   position: absolute;
@@ -5199,7 +5199,7 @@ span.mathjax-overflow {
   height: 100%;
   background-size: auto 100%;
   background-repeat: repeat;
-  background-image: url("/img/star_fill.svg");
+  background-image: url("https://registry.npmmirror.com/cansin-blogdata/latest/files/img/star_fill.svg");
 }
 .cardmovie_box .cardmovie_content > div .cardmovie_score {
   font-weight: 500;
