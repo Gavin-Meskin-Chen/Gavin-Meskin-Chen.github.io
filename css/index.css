@@ -7337,7 +7337,7 @@ blockquote.pullquote.right {
   }
   #statistic div span:first-child {
     opacity: 0.8;
-    font-size: 0.6rem;
+    font-size: 0.8rem;
   }
   #statistic div span:last-child {
     font-weight: 700;
@@ -7499,7 +7499,7 @@ blockquote.pullquote.right {
   }
   .author-content-item.selfInfo .selfInfo-title {
     opacity: 0.8;
-    font-size: 0.6rem;
+    font-size: 0.8rem;
     line-height: 1;
     margin-bottom: 8px;
   }
@@ -7716,7 +7716,7 @@ blockquote.pullquote.right {
   }
   .author-content-item .author-content-item-tips {
     opacity: 0.8;
-    font-size: 0.6rem;
+    font-size: 0.8rem;
     margin-bottom: 0.5rem;
   }
   .author-content-item.maxim .maxim-title {
