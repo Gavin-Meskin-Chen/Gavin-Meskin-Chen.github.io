@@ -1145,6 +1145,7 @@ var ctrl = {
         var a = document.querySelector('#twikoo .tk-comments > .tk-submit .el-textarea textarea')
         a.value = '```YML\n- name: \n  link: \n  avatar: \n  descr: \n  siteshot: \n```'
         a.style.height = '159px'
+        // ctrl.commentQuote('```YML\n- name: \n  link: \n  avatar: \n  descr: \n  siteshot: \n```')
         // a.parentElement.querySelector('.el-input__count').innerHTML = '62/1000'
     },
 
