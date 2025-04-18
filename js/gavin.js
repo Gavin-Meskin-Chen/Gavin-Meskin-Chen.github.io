@@ -21,6 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
         tools.updateFPS();
         document.getElementById("fps-box").style.display = 'flex';
     }
+    ctrl.setupMediaSessionHandlers(document.querySelector(".global-music").aplayer);
 }); //第一次
 
 document.addEventListener("pjax:complete", () => {
@@ -843,6 +844,84 @@ var ctrl = {
             var _t1 = tools.secToTime(t1)
             mc.querySelector(".time").innerHTML = `${_t0}&nbsp;/&nbsp;${_t1}`
             mc.querySelector(".mc-progressbar").style.transform = "translateX(-" + ((1 - (t0 / t1)) * 100) + "%)"
+        }
+    },
+
+    // 刷新 Media Session 元数据
+    setMediaMetadata: function (aplayerObj, isSongPlaying) {
+        const audio = aplayerObj.list.audios[aplayerObj.list.index]
+        const coverUrl = audio.cover || './img/avatar.webp';
+        const currentLrcContent = document.querySelector(".global-music").querySelector(".aplayer-lrc-current").textContent;
+        let songName, songArtist;
+        if ('mediaSession' in navigator) {
+            if (isSongPlaying && currentLrcContent) {
+                songName = currentLrcContent;
+                songArtist = `${audio.artist} | ${audio.name}`;
+            } else {
+                songName = audio.name;
+                songArtist = audio.artist;
+            }
+            navigator.mediaSession.metadata = new MediaMetadata({
+                title: songName,
+                artist: songArtist,
+                album: audio.album,
+                artwork: [
+                    { src: coverUrl, sizes: '96x96', type: 'image/jpeg' },
+                    { src: coverUrl, sizes: '128x128', type: 'image/jpeg' },
+                    { src: coverUrl, sizes: '192x192', type: 'image/jpeg' },
+                    { src: coverUrl, sizes: '256x256', type: 'image/jpeg' },
+                    { src: coverUrl, sizes: '384x384', type: 'image/jpeg' },
+                    { src: coverUrl, sizes: '512x512', type: 'image/jpeg' }
+                ]
+            });
+        } else {
+            console.log('当前浏览器不支持 Media Session API');
+            document.title = `${audio.name} - ${audio.artist}`;
+        }
+    },
+
+    // 响应 Media Session 标准媒体交互
+    setupMediaSessionHandlers: function (aplayer) {
+        if ('mediaSession' in navigator) {
+            navigator.mediaSession.setActionHandler('play', () => {
+                aplayer.play();
+            });
+            navigator.mediaSession.setActionHandler('pause', () => {
+                aplayer.pause();
+            });
+            navigator.mediaSession.setActionHandler('seekbackward', null);// 移除快进快退按钮
+            navigator.mediaSession.setActionHandler('seekforward', null);
+            navigator.mediaSession.setActionHandler('previoustrack', () => {// 设置上一曲下一曲按钮
+                aplayer.skipBack();
+            });
+            navigator.mediaSession.setActionHandler('nexttrack', () => {
+                aplayer.skipForward();
+            });
+            navigator.mediaSession.setActionHandler('seekto', (details) => {// 响应进度条拖动
+                if (details.fastSeek && 'fastSeek' in aplayer.audio) {
+                    aplayer.audio.fastSeek(details.seekTime);
+                } else {
+                    aplayer.audio.currentTime = details.seekTime;
+                }
+            });
+            aplayer.on('loadeddata', () => {// 更新 Media Session 元数据
+                ctrl.setMediaMetadata(aplayer, false);
+            });
+            aplayer.on('play', () => {// 更新播放状态
+                if ('mediaSession' in navigator) {
+                    navigator.mediaSession.playbackState = 'playing';
+                    ctrl.setMediaMetadata(aplayer, true);
+                }
+            });
+            aplayer.on('pause', () => {
+                if ('mediaSession' in navigator) {
+                    navigator.mediaSession.playbackState = 'paused';
+                    ctrl.setMediaMetadata(aplayer, false);
+                }
+            });
+            aplayer.on('timeupdate', () => {// 监听时间更新事件
+                ctrl.setMediaMetadata(aplayer, true);
+            });
         }
     },
 
