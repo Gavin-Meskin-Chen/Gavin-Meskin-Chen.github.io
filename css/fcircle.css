@@ -141,137 +141,7 @@ Last Modified time : 20220211 98:00 by https://immmmm.com
   font-weight: 900;
   color: orange;
 }
-/* 密码输入框 */
-#fcircleInputBox {
-  z-index: 999;
-}
-#fcircleInputBox .inputBox {
-  width: 300px;
-  height: 200px;
-  background: var(--gavin-bg-3);
-  border: 1px solid var(--gavin-border-color);
-  border-radius: 18px;
-  overflow: hidden;
-  position: absolute;
-  opacity: 0;
-  pointer-events: none;
-  transition: .5s ease;
-}
-#fcircleInputBox.show .inputBox:not(.hide) {
-  opacity: 1;
-  pointer-events: all;
-  user-select: none;
-  transition: .5s ease;
-}
-.content-body {
-  width: 100%;
-  height: 145px;
-  padding: 20px;
-  position: relative;
-}
-.content-body span.title {
-  display: block;
-  width: 100%;
-  font-size: 1.2rem;
-  font-weight: bold;
-  line-height: 1.3;
-  text-align: center;
-  margin: 0 0 8px;
-}
-.content-body span.tips {
-  display: block;
-  width: 100%;
-  font-size: 0.85rem;
-  line-height: 1.3;
-  text-align: center;
-  color: var(--gavin-note-font-color);
-}
-.content-body input.input-password {
-  display: block;
-  line-height: 1.3;
-  width: 260px;
-  border-radius: 6px;
-  height: 35px;
-  position: absolute;
-  bottom: 10px;
-  left: 20px;
-  padding: 4px 8px;
-  color: var(--font-color);
-  background: var(--f-0);
-  border: 1px solid var(--gavin-border-color);
-}
-.content-body input.input-password:focus {
-  outline: none;
-}
-.content-body input.input-password::placeholder {
-  color: var(--gavin-note-font-color);
-}
-.content-bottom {
-  width: 100%;
-  height: 55px;
-  border-top: 1px solid var(--gavin-border-color);
-  display: flex;
-}
-.content-bottom .btn {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  letter-spacing: 1px;
-  font-size: 1.1rem;
-  color: var(--gavin-blue2);
-  cursor: pointer;
-  /* background: none;
-  border: none; */
-}
-.content-bottom .btn:first-child {
-  border-right: 1px solid var(--gavin-border-color);
-}
-.content-bottom .btn:hover {
-  background-color: rgba(var(--op-dis), .1);
-}
-#fcircleInputBox .noteBox {
-  width: 150px;
-  height: 150px;
-  background: var(--gavin-bg-3);
-  border: 1px solid var(--gavin-border-color);
-  border-radius: 15px;
-  overflow: hidden;
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 1;
-  pointer-events: none;
-  transition: .5s ease;
-}
-#fcircleInputBox .noteBox.hide {
-  opacity: 0;
-  transition: .5s ease;
-}
-#fcircleInputBox .noteBox .icon {
-  width: 80px;
-  height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  top: 20px;
-  color: var(--font-color);
-  font-size: 48px;
-}
-#fcircleInputBox .noteBox .icon .spinner {
-  --spinner-w: 5px;
-  width: 48px;
-}
-#fcircleInputBox .noteBox .tips {
-  position: absolute;
-  bottom: 27px;
-  line-height: 1.3;
-  font-size: 1rem;
-  color: var(--font-color);
-  text-align: center;
-}
+
 #cf-saved-post {
   display: flex;
   flex-wrap: wrap;
@@ -285,8 +155,7 @@ Last Modified time : 20220211 98:00 by https://immmmm.com
   display: flex;
   align-items: center;
 }
-#我的收藏 .refresh,
-#我的收藏 .fold {
+#我的收藏 a {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -301,14 +170,16 @@ Last Modified time : 20220211 98:00 by https://immmmm.com
   background-color: var(--card-bg);
   transition: .3s;
 }
+#我的收藏 .add {
+  right: 96px;
+}
 #我的收藏 .refresh {
   right: 48px;
 }
 #我的收藏 .fold {
   right: 0;
 }
-#我的收藏 .refresh:hover,
-#我的收藏 .fold:hover {
+#我的收藏 a:hover {
   color: var(--gavin-highlight);
   border-color: var(--gavin-highlight);
   transition: .3s;

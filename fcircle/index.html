@@ -1,13 +1,13 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>订阅 | 参星阁</title><meta name="author" content="南方嘉木"><meta name="copyright" content="南方嘉木"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="我的收藏                                                 最新文章                 与主机通讯中……                              请输入密码以验证您的身份                        取消       确认">
+<!DOCTYPE html><html lang="zh-CN" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>订阅 | 参星阁</title><meta name="author" content="南方嘉木"><meta name="copyright" content="南方嘉木"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="我的收藏                                                                    最新文章                 与主机通讯中……               &#39;use strict&#39;;     var fdataUser &#x3D; {       apiurl: &#39;https:&#x2F;&#x2F;flink.cancin.cn&#x2F;&#39;">
 <meta property="og:type" content="website">
 <meta property="og:title" content="订阅">
 <meta property="og:url" content="https://blog.cancin.cn/fcircle/index.html">
 <meta property="og:site_name" content="参星阁">
-<meta property="og:description" content="我的收藏                                                 最新文章                 与主机通讯中……                              请输入密码以验证您的身份                        取消       确认">
+<meta property="og:description" content="我的收藏                                                                    最新文章                 与主机通讯中……               &#39;use strict&#39;;     var fdataUser &#x3D; {       apiurl: &#39;https:&#x2F;&#x2F;flink.cancin.cn&#x2F;&#39;">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://registry.npmmirror.com/cansin-blogdata/3.0.73/files/img/OAn1bj.jpg">
 <meta property="article:published_time" content="2023-07-17T07:45:29.000Z">
-<meta property="article:modified_time" content="2025-04-17T02:25:47.183Z">
+<meta property="article:modified_time" content="2025-04-24T13:16:36.440Z">
 <meta property="article:author" content="南方嘉木">
 <meta property="article:tag" content="参星阁">
 <meta name="twitter:card" content="summary">
@@ -60,7 +60,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2025-04-17 10:25:47'
+  postUpdate: '2025-04-24 21:16:36'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -155,6 +155,9 @@
 
 <h2 id="我的收藏">
     我的收藏
+    <a class="add" onclick="ctrl.addSavedArticle()">
+        <i class="blogfont icon-add"></i>
+    </a>
     <a class="refresh" onclick="localStorage.removeItem('savedArticles');location.reload();">
         <i class="blogfont icon-refresh"></i>
     </a>
@@ -176,29 +179,10 @@
     </div>
 </div>
 
-<div class="inputBoxMain eject c-c" id="fcircleInputBox">
-  <div class="inputBox">
-    <div class="content-body">
-      <span class="title"></span>
-      <span class="tips">请输入密码以验证您的身份</span>
-      <input class="input-password" type="password" placeholder="密码">
-    </div>
-    <div class="content-bottom">
-      <span class="btn close" onclick="switchSecretInput()">取消</span>
-      <span class="btn" onclick="sendSubscribeInfo()">确认</span>
-    </div>
-  </div>
-  <div class="noteBox hide">
-    <a class="icon">
-      <!-- <i class="blogfont icon-loading6 fa-spin" style="font-size:48px;"></i> -->
-      <i class="spinner"></i>
-    </a>
-    <span class="tips">请稍候 ...</span>
-  </div>
-  <div class="eject-mask"></div>
-</div>
+<div class="eject-mask" id="global-mask"></div>
 
 <script type="text/javascript">
+    'use strict';
     var fdataUser = {
       apiurl: 'https://flink.cancin.cn/'
     };
@@ -208,7 +192,8 @@
         article_author = '',
         article_avatar = '',
         article_time = '',
-        article_pwd = '';
+        article_pwd = '',
+        sendMode = 0;
     var savedArticlesIndex = '';
     var catchNowTime = Date.now();
     var updateTime = localStorage.getItem("updateTime");
@@ -273,21 +258,38 @@
         document.getElementById("cf-saved-post").insertAdjacentHTML('afterbegin', container);
     }
     function switchSecretInput(event) {
+        if(!document.getElementById("fcircleInputBox")) {
+            ctrl.createFormCard("fcircleInputBox","","请输入密码以验证您的身份",switchSecretInput,sendSubscribeInfo,
+            [{
+                type:"password",
+                placeholder:"密码"
+            }]
+            );
+        }
         const a = document.getElementById("fcircleInputBox");
         const b = a.querySelector(".input-password");
         const f = a.querySelector(".content-body .title");
         function c(e) { article_pwd = e.target.value; }
         if (a.classList.contains("show")) {
+            ctrl.toggleMask();
             a.classList.remove("show");
+            a.style.animation = 'to_hide 0.5s'
+            const handler = () => {
+                a.remove();
+                a.removeEventListener('animationend', handler); // ✅ 自动移除
+            };
+            a.addEventListener('animationend', handler);
             b.removeEventListener('input', c);
-            article_index = '';
-            article_title = '';
-            article_link = '';
-            article_author = '';
-            article_avatar = '';
-            article_time = '';
+            // article_index = '';
+            // article_title = '';
+            // article_link = '';
+            // article_author = '';
+            // article_avatar = '';
+            // article_time = '';
         } else {
+            ctrl.toggleMask();
             a.classList.add("show");
+            a.style.animation = 'to_show 0.5s'
             b.addEventListener('input', c);
             var d = '';
             if (event.target.nodeName.toUpperCase() == "A") {
@@ -322,13 +324,13 @@
     }
     function sendSubscribeInfo() {
         var key = CryptoJS.SHA256(article_pwd);
+        if(article_time.replace(/\s+/g, '') == '') article_time = tools.formatDate();
+        if(!article_avatar || article_avatar.replace(/\s+/g, '') == '') article_avatar = '/img/android-attach.png';
         var url = sendMode == 1
             ? "https://apis.cancin.cn/delsavedtitles?key=" + key + "&index=" + article_index
             : "https://apis.cancin.cn/subscribe?key=" + key + "&index=" + article_index + "&title=" + article_title + "&link=" + article_link + "&author=" + article_author + "&avatar=" + article_avatar + "&time=" + article_time;
-        var inputBox = document.querySelector("#fcircleInputBox .inputBox");
-        var noteBox = document.querySelector("#fcircleInputBox .noteBox");
-        inputBox.classList.add("hide");
-        noteBox.classList.remove("hide");
+        var f = document.querySelector(".inputBoxMain");
+        f.classList.add("loading");
         fetch(url)
             .then(response => response.json())
             .then(data => {
@@ -357,15 +359,13 @@
                     }
                     tools.showMessage(data.message, "success", 2);
                     localStorage.removeItem("savedArticles");
-                    inputBox.classList.remove("hide");
-                    noteBox.classList.add("hide");
-                    document.querySelector("#fcircleInputBox .btn.close").click();
+                    // f.classList.remove("loading");
+                    document.querySelector(".inputBoxMain .btn.close").click();
                 } else {
                     // console.log(data.message);
                     tools.showMessage(data.message, "error", 2);
-                    inputBox.classList.remove("hide");
-                    noteBox.classList.add("hide");
-                    document.querySelector("#fcircleInputBox .btn.close").click();
+                    // f.classList.remove("loading");
+                    document.querySelector(".inputBoxMain .btn.close").click();
                 }
             })
             .catch(error => {

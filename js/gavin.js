@@ -299,6 +299,13 @@ var tools = {
         return t;
     },
 
+    formatDate(date = new Date()) {
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const day = String(date.getDate()).padStart(2, '0');
+        return `${year}-${month}-${day}`;
+    },
+
     detectBrowser() {
         const userAgent = navigator.userAgent;
         let browserName, fullVersion, majorVersion;
@@ -1145,6 +1152,109 @@ var ctrl = {
 
     toggleSocial() {
         document.querySelector('.author-info-social .social-icons').classList.toggle('show');
+    },
+
+    toggleMask() {
+        document.getElementById("global-mask").classList.toggle('show');
+    },
+
+    createFormCard(id,title,descr,func1,func2,json) {
+        let div = `
+        <div class="inputBoxMain eject c-c" id="${id}">
+            <form class="inputBox">
+                <div class="content-body">
+                    <span class="title">${title}</span>
+                    <span class="tips">${descr}</span>`
+        json.forEach((item) => {
+            div += `<input class="input-${item.type} ${item.placeholder}" type="${item.type}" placeholder="${item.placeholder}"></input>`
+        });
+        div += `</div>
+                <div class="content-bottom">
+                    <button class="btn close" type="button">取消</button>
+                    <button class="btn" type="submit">确认</button>
+                </div>
+            </form>
+            <div class="noteBox">
+                <a class="icon">
+                    <i class="spinner"></i>
+                </a>
+                <span class="tips">请稍候 ...</span>
+            </div>
+        </div>
+        `
+        document.body.insertAdjacentHTML('beforeend', div);
+        const handler1 = (e) => {
+            e.preventDefault(); // 阻止默认提交
+            func1();
+            document.querySelector(`#${id} .close`).removeEventListener('click', handler1); // ✅ 自动移除
+        };
+        document.querySelector(`#${id} .close`).addEventListener('click', handler1);
+        const handler2 = (e) => {
+            e.preventDefault(); // 阻止默认提交
+            func2();
+            document.getElementById(id).removeEventListener('submit', handler2); // ✅ 自动移除
+        };
+        document.getElementById(id).addEventListener('submit', handler2);
+    },
+
+    addSavedArticle() {
+        if(!document.getElementById("articleInfoInputBox")) {
+            ctrl.createFormCard("articleInfoInputBox","添加自定义文章","请输入文章信息及通行密钥",ctrl.addSavedArticle,sendSubscribeInfo,
+            [{
+                type:"text",
+                placeholder:"标题"
+            },{
+                type:"text",
+                placeholder:"链接"
+            },{
+                type:"text",
+                placeholder:"作者"
+            },{
+                type:"text",
+                placeholder:"头像"
+            },{
+                type:"text",
+                placeholder:"时间"
+            },{
+                type:"password",
+                placeholder:"密码"
+            }]
+            );
+        }
+        const a = document.getElementById("articleInfoInputBox");
+        const b = a.querySelector(".标题");
+        const c = a.querySelector(".链接");
+        const d = a.querySelector(".作者");
+        const e = a.querySelector(".头像");
+        const f = a.querySelector(".时间");
+        const g = a.querySelector(".密码");
+        if (a.classList.contains("show")) {
+            ctrl.toggleMask();
+            a.classList.remove("show");
+            a.style.animation = 'to_hide 0.5s'
+            const handler = () => {
+                a.remove();
+                a.removeEventListener('animationend', handler); // ✅ 自动移除
+            };
+            a.addEventListener('animationend', handler);
+            b.removeEventListener('input', (e)=>{article_title = e.target.value});
+            c.removeEventListener('input', (e)=>{article_link = e.target.value;article_index = "cf-" + CryptoJS.MD5(article_link).toString()});
+            d.removeEventListener('input', (e)=>{article_author = e.target.value});
+            e.removeEventListener('input', (e)=>{article_avatar = e.target.value});
+            f.removeEventListener('input', (e)=>{article_time = e.target.value});
+            g.removeEventListener('input', (e)=>{article_pwd = e.target.value});
+        } else {
+            ctrl.toggleMask();
+            a.classList.add("show");
+            a.style.animation = 'to_show 0.5s'
+            b.addEventListener('input', (e)=>{article_title = e.target.value});
+            c.addEventListener('input', (e)=>{article_link = e.target.value;article_index = "cf-" + CryptoJS.MD5(article_link).toString()});
+            d.addEventListener('input', (e)=>{article_author = e.target.value});
+            e.addEventListener('input', (e)=>{article_avatar = e.target.value});
+            f.addEventListener('input', (e)=>{article_time = e.target.value});
+            g.addEventListener('input', (e)=>{article_pwd = e.target.value});
+            sendMode = 0;
+        }
     },
 
     // 表情放大

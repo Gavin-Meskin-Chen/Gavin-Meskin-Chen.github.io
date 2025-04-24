@@ -403,7 +403,7 @@
     }
 }
 
-@keyframes slide-in{
+@keyframes slide-in {
     0% {
         transform: translateY(20px);
         opacity: 0;
@@ -432,6 +432,33 @@
     animation: spinner 1.5s infinite linear;
 }
 
+
+@keyframes fadeIn {
+    from { 
+        opacity: 0;
+        pointer-events: none;
+    }
+    to { 
+        opacity: 1;
+        pointer-events: all;
+    }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+.fade-in {
+    animation: fadeIn 0.3s ease-in forwards;
+    transform: translateZ(0)
+}
+
+.fade-out {
+    animation: fadeOut 0.3s ease-in backwards;
+}
+
+
 /* ******************通用CSS库******************** */
 .eject {
     position: fixed;
@@ -450,13 +477,13 @@
 
 .eject-mask {
     background: var(--gavin-mask);
-    -webkit-backdrop-filter: blur(0px);
-    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(7px);
+    backdrop-filter: blur(7px);
     width: 100vw;
     height: 100vh;
     top: 0;
     left: 0;
-    position: absolute;
+    position: fixed;
     z-index: -1;
     opacity: 0;
     transition: 0.5s ease;
@@ -468,8 +495,8 @@
 }
 
 .show .eject-mask {
-    -webkit-backdrop-filter: blur(7px);
-    backdrop-filter: blur(7px);
+    /* -webkit-backdrop-filter: blur(7px);
+    backdrop-filter: blur(7px); */
     opacity: 1;
     transform: translateZ(0);
 }
@@ -518,6 +545,12 @@
     font-size: 35px;
 }
 
+#global-mask.show {
+    z-index: 998;
+    opacity: 1;
+    transform: translateZ(0);
+}
+
 @media screen and (max-width: 768px) {
     .eject-head {
         top: 15px;
@@ -546,6 +579,160 @@
     align-items: center;
     justify-content: center;
 }
+
+/* 密码输入框 */
+/* 密码输入框 */
+.inputBoxMain {
+    z-index: 999;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.inputBoxMain.show {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.inputBoxMain .inputBox {
+    width: 300px;
+    height: auto;
+    background: var(--gavin-bg-3);
+    border: 1px solid var(--gavin-border-color);
+    border-radius: 18px;
+    overflow: hidden;
+    position: absolute;
+    user-select: none;
+    opacity: 1;
+    pointer-events: all;
+    transition: .5s ease;
+}
+
+.inputBoxMain.loading .inputBox {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.inputBoxMain .content-body {
+    width: 100%;
+    height: auto;
+    padding: 20px 20px 15px;
+    position: relative;
+}
+
+.inputBoxMain .content-body span.title {
+    display: block;
+    width: 100%;
+    font-size: 1.2rem;
+    font-weight: bold;
+    line-height: 1.3;
+    text-align: center;
+    margin: 0 0 8px;
+}
+
+.inputBoxMain .content-body span.tips {
+    display: block;
+    width: 100%;
+    margin: 0 0 20px;
+    font-size: 0.85rem;
+    line-height: 1.3;
+    text-align: center;
+    color: var(--gavin-note-font-color);
+}
+
+.inputBoxMain .content-body input {
+    display: block;
+    line-height: 1.3;
+    width: 260px;
+    height: 35px;
+    border-radius: 6px;
+    margin: 10px 0 0;
+    padding: 4px 8px;
+    color: var(--font-color);
+    background: var(--f-0);
+    border: 1px solid var(--gavin-border-color);
+}
+
+.inputBoxMain .content-body input:focus {
+    outline: none;
+}
+
+.inputBoxMain .content-body input::placeholder {
+    color: var(--gavin-note-font-color);
+}
+
+.inputBoxMain .content-bottom {
+    width: 100%;
+    height: 55px;
+    border-top: 1px solid var(--gavin-border-color);
+    display: flex;
+}
+
+.inputBoxMain .content-bottom .btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 1px;
+    font-size: 1.1rem;
+    color: var(--gavin-blue2);
+    cursor: pointer;
+}
+
+.inputBoxMain .content-bottom .btn:first-child {
+    border-right: 1px solid var(--gavin-border-color);
+}
+
+.inputBoxMain .content-bottom .btn:hover {
+    background-color: rgba(var(--op-dis), .1);
+}
+
+.inputBoxMain .noteBox {
+    width: 150px;
+    height: 150px;
+    background: var(--gavin-bg-3);
+    border: 1px solid var(--gavin-border-color);
+    border-radius: 15px;
+    overflow: hidden;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: .5s ease;
+}
+
+.inputBoxMain.loading .noteBox {
+    opacity: 1;
+    transition: .5s ease;
+}
+
+.inputBoxMain .noteBox .icon {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 20px;
+    color: var(--font-color);
+    font-size: 48px;
+}
+
+.inputBoxMain .noteBox .icon .spinner {
+    --spinner-w: 5px;
+    width: 48px;
+}
+
+.inputBoxMain .noteBox .tips {
+    position: absolute;
+    bottom: 27px;
+    line-height: 1.3;
+    font-size: 1rem;
+    color: var(--font-color);
+    text-align: center;
+}
+
 
 a:hover {
     color: var(--gavin-highlight);
@@ -1040,9 +1227,9 @@ center#name-container {
     display: none;
 }
 
-#aside-content .sticky_layout {
+/* #aside-content .sticky_layout {
     top: 80px;
-}
+} */
 
 /* 导航栏置顶后透明 */
 #body-wrap #page-header:not(.is-top-bar) #nav {
