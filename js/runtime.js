@@ -28,8 +28,8 @@ function cardRefreshTimes() {
         cardWidgetSchedule.querySelector("#pBar_month").max = dates;
         cardWidgetSchedule.querySelector("#p_span_month").innerHTML = ((date - 1 + hours / 24) / dates * 100).toFixed(2) + "%";
         cardWidgetSchedule.querySelector(".schedule-r1 .schedule-d1 .aside-span2").innerHTML = "还剩<a> " + (dates - date) + " </a>天";
-        cardWidgetSchedule.querySelector("#pBar_week").value = week == 0 ? (7 - 1) : (week - 1) + hours / 24;
-        cardWidgetSchedule.querySelector("#p_span_week").innerHTML = ((week == 0 ? (7 - 1) : (week - 1) + hours / 24) / 7 * 100).toFixed(2) + "%";
+        cardWidgetSchedule.querySelector("#pBar_week").value = (week == 0 ? (7 - 1) : (week - 1)) + hours / 24;
+        cardWidgetSchedule.querySelector("#p_span_week").innerHTML = (((week == 0 ? (7 - 1) : (week - 1)) + hours / 24) / 7 * 100).toFixed(2) + "%";
         cardWidgetSchedule.querySelector(".schedule-r2 .schedule-d1 .aside-span2").innerHTML = "还剩<a> " + (7 - (week == 0 ? 7 : week)) + " </a>天";
     }
 }
