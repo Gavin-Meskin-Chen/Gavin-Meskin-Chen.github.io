@@ -40,6 +40,7 @@ function createtime() {
     var grt = new Date("2023/01/04 20:53:58");	// 网站诞生时间
     var days = (now - grt) / 1e3 / 60 / 60 / 24,
         dnum = Math.floor(days),
+        ynum = Math.floor(dnum / 365),
         hours = (now - grt) / 1e3 / 60 / 60 - 24 * dnum,
         hnum = Math.floor(hours);
     1 == String(hnum).length && (hnum = "0" + hnum);
@@ -54,8 +55,8 @@ function createtime() {
     let currentTimeHtml = "";
     (currentTimeHtml =
         hnum < 18 && hnum >= 9
-            ? `<div>参星阁历 ${dnum} 天 ${hnum} 小时 ${mnum} 分 ${snum} 秒</div>`
-            : `<div>参星阁历 ${dnum} 天 ${hnum} 小时 ${mnum} 分 ${snum} 秒</div>`),
+            ? `<div>参星阁历 ${ynum} 年 ${dnum-ynum*365} 天 ${hnum} 小时 ${mnum} 分 ${snum} 秒</div>`
+            : `<div>参星阁历 ${ynum} 年 ${dnum-ynum*365} 天 ${hnum} 小时 ${mnum} 分 ${snum} 秒</div>`),
         document.getElementById("count-time") &&
         (document.getElementById("count-time").innerHTML = currentTimeHtml);
 }

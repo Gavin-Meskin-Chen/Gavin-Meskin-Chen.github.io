@@ -762,6 +762,10 @@ hr::before {
 }
 
 /* 加密文章适配 */
+.hbe-container {
+    margin: 0!important;
+}
+
 .hbe-container > div {
     display: flex;
     flex-direction: column;
@@ -2291,8 +2295,8 @@ input.toPageInput::-webkit-search-cancel-button {
 .tk-comment .tk-content a:not(.tk-ruser),
 .timeline-item-content a {
     /* color: var(--dis-f-0); */
-    font-weight: bold;
-    border-bottom: 2px solid var(--gavin-highlight);
+    /* font-weight: bold; */
+    border-bottom: 2px dashed var(--gavin-highlight);
 }
 
 #post #article-container a:hover,
@@ -2363,13 +2367,46 @@ h6 {
 #article-container.post-content h3 {
     line-height: 1.4em;
     font-size: 1.3em;
-    margin: 0.4em 0;
+    margin: 1em 0;
 }
 
 #article-container.post-content h4 {
     line-height: 1.2em;
     font-size: 1.1em;
-    margin: 0.2em 0;
+    margin: 0.8em 0;
+}
+
+#article-container.post-content {
+    counter-reset: h2-counter;
+    /* 初始化计数器 */
+}
+
+#article-container.post-content h2 {
+    counter-reset: h3-counter;
+    /* 每个h2重置h3计数器 */
+}
+
+#article-container.post-content h3 {
+    counter-reset: h4-counter;
+    /* 每个h3重置h4计数器 */
+}
+
+#article-container.post-content h2::before {
+    counter-increment: h2-counter;
+    content: counter(h2-counter) ". ";
+    /* 显示格式：1. */
+}
+
+#article-container.post-content h3::before {
+    counter-increment: h3-counter;
+    content: counter(h2-counter) "." counter(h3-counter) " ";
+    /* 显示格式：1.1 */
+}
+
+#article-container.post-content h4::before {
+    counter-increment: h4-counter;
+    content: counter(h2-counter) "." counter(h3-counter) "." counter(h4-counter) " ";
+    /* 显示格式：1.1.1 */
 }
 
 #article-container .headerlink::before {
@@ -2404,7 +2441,7 @@ h6 {
 
 #article-container ol,
 #article-container ul {
-    padding-inline-start: 1.8em;
+    padding-inline-start: 1.6em;
     list-style: none;
     counter-reset: li 0;
     margin: 0.5em 0;
@@ -2428,7 +2465,12 @@ h6 {
 }
 
 #article-container highlight {
-    color: var(--gavin-highlight);
+    color: var(--gavin-highlight)!important;
+    font-weight: bold;
+}
+
+#article-container highlight * {
+    color: var(--gavin-highlight)!important;
     font-weight: bold;
 }
 
@@ -2461,12 +2503,12 @@ h6 {
 #article-container ol li::before,
 #article-container ul li::before {
     position: absolute;
-    background: var(--gavin-highlight);
+    background: var(--gavin-note-font-color);
     transition: all .3s ease-out 0s;
 }
 
 #article-container ol>li::before {
-    content: counter(li);
+    /* content: counter(li);
     counter-increment: li 1;
     top: 0.32em;
     left: -2.3em;
@@ -2479,15 +2521,27 @@ h6 {
     font-weight: bold;
     line-height: 1.36em;
     color: var(--gavin-highlight);
-    background: var(--gavin-highlight-op);
+    background: var(--gavin-highlight-op); */
+    content: counter(li) ".";
+    counter-increment: li 1;
+    left: -1.6em;
+    width: 1.6em;
+    border-radius: 50%;
+    text-align: center;
+    font-weight: 600;
+    justify-content: center;
+    flex-wrap: nowrap;
+    display: flex;
+    color: var(--gavin-note-font-color);
+    background: unset;
 }
 
 #article-container ul>li:not(.tab)::before {
     content: "";
-    top: 0.45em;
-    left: -1.4em;
-    width: 0.8em;
-    height: 0.8em;
+    top: 0.7em;
+    left: -1em;
+    width: 0.4em;
+    height: 0.4em;
     border-radius: 50%;
     line-height: .8em;
 }
@@ -4030,6 +4084,13 @@ button.wv-top-button {
     font-size: 11px;
 }
 
+.tk-tag-purple {
+    background-color: rgba(152, 95, 255, 0.13);
+    border: 1px solid rgba(152, 95, 255, 0.50);
+    color: #985fff;
+}
+
+.tk-tag-purple,
 .tk-tag-green,
 .tk-tag-red,
 .tk-tag-yellow,
@@ -4037,6 +4098,7 @@ button.wv-top-button {
     border-radius: 5px;
     line-height: 1;
     padding: 4px;
+    border: none;
 }
 
 .tk-time {
