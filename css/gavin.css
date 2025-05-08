@@ -4033,7 +4033,7 @@ button.wv-top-button {
 
 @media screen and (max-width: 768px) {
     #twikoo .tk-comments-container>.tk-comment {
-        padding: 16px!important;
+        padding: 12px!important;
         /* background: var(--vercel-background); */
         background: var(--card-bg);
         border: 1px solid var(--gavin-border-color);
@@ -4085,9 +4085,9 @@ button.wv-top-button {
 }
 
 .tk-tag-purple {
-    background-color: rgba(152, 95, 255, 0.13);
-    border: 1px solid rgba(152, 95, 255, 0.50);
-    color: #985fff;
+    background-color: rgba(170, 118, 246, 0.2);
+    border: 1px solid rgba(170, 118, 246, 0.50);
+    color: #AA76F6;
 }
 
 .tk-tag-purple,
@@ -4099,6 +4099,16 @@ button.wv-top-button {
     line-height: 1;
     padding: 4px;
     border: none;
+}
+
+@media screen and (max-width: 768px){
+    .tk-tag {
+        font-size: 11px;
+    }
+
+    .tk-nick{
+        font-size: 1em!important;
+    }
 }
 
 .tk-time {

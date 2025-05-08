@@ -12285,24 +12285,32 @@ e = this, t = function () {
                             rel: "noopener noreferrer"
                         }
                     }, [t("strong", [e._v(e._s(e.comment.nick))])]) : e._e(), e._v(" "), 
+                    
                     e.comment.master ? t("span", {
                         staticClass: "tk-tag tk-tag-green"
-                    }, [e._v(e._s(e.config.MASTER_TAG || e.t("COMMENT_MASTER_TAG")))]) : e._e(), e._v(" "), 
-                    e.comment.nick == 'Heo' ? t("span", {
+                    }, [e._v(e._s(e.config.MASTER_TAG || e.t("COMMENT_MASTER_TAG")))]) : (
+                    e.comment.mailMd5 == 'd0c536c701e0f333db83c1ced5d2b8cd' ? t("span", {
                         staticClass: "tk-tag tk-tag-purple"
-                    }, [e._v(e._s('洪哥'))]) : e._e(), e._v(" "),
-                    e.comment.nick == 'TeacherDu' ? t("span", {
+                    }, [e._v(e._s('洪哥'))]) : (
+                    e.comment.mailMd5 == '28b57baa4e8f13fe4292ccb2de267e30' || e.comment.mailMd5 == '1c03767b0691f80231895255661bcf42eceab95dc8b493ee80c835b07f577f49' ? t("span", {
                         staticClass: "tk-tag tk-tag-purple"
-                    }, [e._v(e._s('杜老师'))]) : e._e(), e._v(" "),
-                    e.comment.nick == 'Kouseki' ? t("span", {
+                    }, [e._v(e._s('杜老师'))]) : (
+                    e.comment.mailMd5 == '138c5fd747cad7830d085986a11882f1' || e.comment.mailMd5 == '3e879eec4d1c7214c81b092fa067a2c4c2bb25d30abd181d0063fee629d216e7' ? t("span", {
                         staticClass: "tk-tag tk-tag-purple"
-                    }, [e._v(e._s('石头'))]) : e._e(), e._v(" "),
-                    e.comment.nick == 'LiuShen' ? t("span", {
+                    }, [e._v(e._s('石头喵'))]) : (
+                    e.comment.mailMd5 == 'ba2379bacf88f17ea461137906bd127d' || e.comment.mailMd5 == '4123fba78500cef71d4d15fa3be2c4917ed9c94cbae8d86092790af6cfbafe81' ? t("span", {
                         staticClass: "tk-tag tk-tag-purple"
-                    }, [e._v(e._s('清羽飞扬'))]) : e._e(), e._v(" "),
-                    e.comment.nick == 'Leonus' ? t("span", {
+                    }, [e._v(e._s('唐志远'))]) : (
+                    e.comment.mailMd5 == '92c15d4a1d99a8ee04b986a14a5f7e009e574b3383fc575005947988ccf205e2' ? t("span", {
                         staticClass: "tk-tag tk-tag-purple"
-                    }, [e._v(e._s('纳斯'))]) : e._e(), e._v(" "),
+                    }, [e._v(e._s('清羽飞扬'))]) : (
+                    e.comment.mailMd5 == '4b3a2ba0f7b67fcb1320aae6ff8e76438053781b22fe0159bb23545cf869de2a' ? t("span", {
+                        staticClass: "tk-tag tk-tag-purple"
+                    }, [e._v(e._s('纳斯'))]) : t("span", {
+                        staticClass: "tk-tag tk-tag-blue"
+                    }, [e._v(e._s('道友'))])                        
+                    )))))), e._v(" "),
+
                     e.comment.top ? t("span", {
                         staticClass: "tk-tag tk-tag-red"
                     }, [e._v(e._s(e.t("COMMENT_TOP_TAG")))]) : e._e(), e._v(" "), 
@@ -19153,7 +19161,7 @@ e = this, t = function () {
                     i = n.n(r),
                     o = n(9067),
                     a = n.n(o)()(i());
-                a.push([e.id, "\n.tk-main {\n  flex: 1;\n  width: 0;\n}\n.tk-row {\n  flex: 1;\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n}\n.tk-nick-link {\n  color: inherit;\n  text-decoration: none;\n}\n.tk-replies .tk-nick-link {\n  font-size: .9em;\n}\n.tk-nick-link:hover {\n  color: #409eff;\n}\n.tk-actions {\n  display: none;\n  margin-left: 1em;\n}\n.tk-comment:hover .tk-actions {\n  display: inline;\n}\n.tk-extras {\n  color: #999999;\n  font-size: 0.875em;\n  display: flex;\n  flex-wrap: wrap;\n}\n.tk-extra {\n  margin-top: 0.5rem;\n  margin-right: 0.75rem;\n  display: flex;\n  align-items: center;\n}\n.tk-icon.__comment {\n  height: 1em;\n  width: 1em;\n  line-height: 1;\n}\n.tk-extra-text {\n  line-height: 1;\n}\n.tk-tag {\n  display: inline-block;\n  padding: 0 0.5em;\n  font-size: 0.75em;\n  background-color: #f2f6fc;\n}\n.tk-tag-green {\n  background-color: rgba(103,194,58,0.13);\n  border: 1px solid rgba(103,194,58,0.50);\n  border-radius: 2px;\n  color: #67c23a;\n}\n.tk-tag-yellow {\n  background-color: rgba(230,162,60,0.13);\n  border: 1px solid rgba(230,162,60,0.50);\n  border-radius: 2px;\n  color: #e6a23c;\n}\n.tk-tag-blue {\n  background-color: rgba(64,158,255,0.13);\n  border: 1px solid rgba(64,158,255,0.50);\n  border-radius: 2px;\n  color: #409eff;\n}\n.tk-tag-red {\n  background-color: rgba(245,108,108,0.13);\n  border: 1px solid rgba(245,108,108,0.50);\n  border-radius: 2px;\n  color: #f56c6c;\n}\n.tk-comment {\n  margin-top: 1rem;\n  display: flex;\n  flex-direction: row;\n  word-break: break-all;\n}\n.tk-content {\n  margin-top: 0.5rem;\n  overflow: hidden;\n  max-height: 500px;\n  position: relative;\n}\n.tk-content-expand {\n  max-height: none;\n}\n.tk-replies .tk-content {\n  font-size: .9em;\n}\n.tk-comment .vemoji {\n  max-height: 2em;\n  vertical-align: middle;\n}\n.tk-replies {\n  max-height: 200px;\n  overflow: hidden;\n  position: relative;\n}\n.tk-replies-expand {\n  max-height: none;\n  overflow: unset;\n}\n.tk-submit {\n  margin-top: 1rem;\n}\n.tk-expand {\n  font-size: 0.75em;\n}\n.tk-lightbox {\n  display: block;\n  position: fixed;\n  background-color: rgba(0, 0, 0, 0.3);\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  z-index: 999;\n}\n.tk-lightbox-image {\n  min-width: 100px;\n  min-height: 30px;\n  width: auto;\n  height: auto;\n  max-width: 95%;\n  max-height: 95%;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  background: linear-gradient(90deg, #eeeeee 50%, #e3e3e3 0);\n  background-size: 40px 100%;\n}\n", ""]), t["default"] = a
+                a.push([e.id, "\n.tk-main {\n  flex: 1;\n  width: 0;\n}\n.tk-row {\n  flex: 1;\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n}\n.tk-nick-link {\n  color: inherit;\n  text-decoration: none;\n}\n.tk-replies .tk-nick-link {\n  font-size: .9em;\n}\n.tk-nick-link:hover {\n  color: #409eff;\n}\n.tk-actions {\n  display: none;\n  margin-left: 1em;\n}\n.tk-comment:hover .tk-actions {\n  display: inline;\n}\n.tk-extras {\n  color: #999999;\n  font-size: 0.875em;\n  display: flex;\n  flex-wrap: wrap;\n}\n.tk-extra {\n  margin-top: 0.5rem;\n  margin-right: 0.75rem;\n  display: flex;\n  align-items: center;\n}\n.tk-icon.__comment {\n  height: 1em;\n  width: 1em;\n  line-height: 1;\n}\n.tk-extra-text {\n  line-height: 1;\n}\n.tk-tag {\n  display: inline-block;\n  padding: 0 0.5em;\n  font-size: 0.75em;\n  background-color: #f2f6fc;\n}\n.tk-tag-green {\n  background-color: rgba(103,194,58,0.2);\n  border: 1px solid rgba(103,194,58,0.50);\n  border-radius: 2px;\n  color: #67c23a;\n}\n.tk-tag-yellow {\n  background-color: rgba(230,162,60,0.2);\n  border: 1px solid rgba(230,162,60,0.50);\n  border-radius: 2px;\n  color: #e6a23c;\n}\n.tk-tag-blue {\n  background-color: rgba(64,158,255,0.2);\n  border: 1px solid rgba(64,158,255,0.50);\n  border-radius: 2px;\n  color: #409eff;\n}\n.tk-tag-red {\n  background-color: rgba(245,108,108,0.2);\n  border: 1px solid rgba(245,108,108,0.50);\n  border-radius: 2px;\n  color: #f56c6c;\n}\n.tk-comment {\n  margin-top: 1rem;\n  display: flex;\n  flex-direction: row;\n  word-break: break-all;\n}\n.tk-content {\n  margin-top: 0.5rem;\n  overflow: hidden;\n  max-height: 500px;\n  position: relative;\n}\n.tk-content-expand {\n  max-height: none;\n}\n.tk-replies .tk-content {\n  font-size: .9em;\n}\n.tk-comment .vemoji {\n  max-height: 2em;\n  vertical-align: middle;\n}\n.tk-replies {\n  max-height: 200px;\n  overflow: hidden;\n  position: relative;\n}\n.tk-replies-expand {\n  max-height: none;\n  overflow: unset;\n}\n.tk-submit {\n  margin-top: 1rem;\n}\n.tk-expand {\n  font-size: 0.75em;\n}\n.tk-lightbox {\n  display: block;\n  position: fixed;\n  background-color: rgba(0, 0, 0, 0.3);\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  z-index: 999;\n}\n.tk-lightbox-image {\n  min-width: 100px;\n  min-height: 30px;\n  width: auto;\n  height: auto;\n  max-width: 95%;\n  max-height: 95%;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  background: linear-gradient(90deg, #eeeeee 50%, #e3e3e3 0);\n  background-size: 40px 100%;\n}\n", ""]), t["default"] = a
             },
             3650: function (e, t, n) {
                 "use strict";
