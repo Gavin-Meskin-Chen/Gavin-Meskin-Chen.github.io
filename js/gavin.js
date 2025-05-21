@@ -1257,6 +1257,61 @@ var ctrl = {
         }
     },
 
+    card_archive_calendar_prev() {
+        let a = document.querySelector(".card-archive-calendar-years")
+        let b = document.querySelector(".card-archive-calendar-pages")
+        let count = a.childElementCount
+        let prev = document.querySelector(".card-archive-calendar-left")
+        let next = document.querySelector(".card-archive-calendar-right")
+        let t = a.style.transform
+        if (t) {
+            let m = parseFloat(t.match(/translateX\((-?\d+\.?\d*)(px|%)?\)/)[1])
+            let n = m / 100
+            if (n > 0 && n < count - 2) {
+                a.style.transform = "translateX(" + 100 * (n+1) + "px)"
+                b.style.transform = "translateX(" + 298 * (n+1) + "px)"
+            } else if (n == count - 2) {
+                a.style.transform = "translateX(" + 100 * (n+1) + "px)"
+                b.style.transform = "translateX(" + 298 * (n+1) + "px)"
+                prev.classList.add("no-event")
+            } else if (n == 0) {
+                a.style.transform = "translateX(" + 100 + "px)"
+                b.style.transform = "translateX(" + 298 + "px)"
+                if (count == 2) {
+                    prev.classList.add("no-event")
+                    next.classList.remove("no-event")
+                } else if (count > 2) {
+                    next.classList.remove("no-event")
+                }
+            }
+        }
+    },
+
+    card_archive_calendar_next() {
+        let a = document.querySelector(".card-archive-calendar-years")
+        let b = document.querySelector(".card-archive-calendar-pages")
+        let count = a.childElementCount
+        let prev = document.querySelector(".card-archive-calendar-left")
+        let next = document.querySelector(".card-archive-calendar-right")
+        let t = a.style.transform
+        if (t) {
+            let m = parseFloat(t.match(/translateX\((-?\d+\.?\d*)(px|%)?\)/)[1])
+            let n = m / 100
+            if (n > 1 && n < count - 1) {
+                a.style.transform = "translateX(" + 100 * (n-1) + "px)"
+                b.style.transform = "translateX(" + 298 * (n-1) + "px)"
+            } else if (n == count - 1) {
+                a.style.transform = "translateX(" + 100 * (n-1) + "px)"
+                b.style.transform = "translateX(" + 298 * (n-1) + "px)"
+                prev.classList.remove("no-event")
+            } else if (n == 1) {
+                a.style.transform = "translateX(0px)"
+                b.style.transform = "translateX(0px)"
+                next.classList.add("no-event")
+            }
+        }
+    },
+
     // 表情放大
     owoBig() {
         let flag = 1, // 设置节流阀
