@@ -5401,6 +5401,7 @@ html.hide-aside .layout>div:first-child {
 /* 窄屏不显示音乐控制键 */
 @media screen and (max-width: 850px) {
 
+    #nav-travel,
     #music-Switch,
     #music-Forward,
     #music-Backward {
@@ -7179,8 +7180,16 @@ progress::-webkit-progress-value {
 }
 
 .sidebar-apps {
-    position: absolute;
     right: 10px;
+}
+
+.sidebar-travel {
+    left: 10px;
+}
+
+.sidebar-travel,
+.sidebar-apps {
+    position: absolute;
     top: 10px;
     z-index: 2;
     cursor: pointer;
@@ -7193,8 +7202,10 @@ progress::-webkit-progress-value {
     justify-content: center;
 }
 
+.sidebar-travel:hover,
 .sidebar-apps:hover {
     background: rgba(255, 255, 255, .2);
+    color: #fff;
 }
 
 /* .sidebar-weather {
