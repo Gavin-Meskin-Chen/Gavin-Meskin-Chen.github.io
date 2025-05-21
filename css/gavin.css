@@ -6216,11 +6216,12 @@ progress::-webkit-progress-value {
     align-items: center;
     justify-content: center;
     width: 100px;
+    font-size: 14px;
 }
 
-.card-archive-calendar-year {
+/* .card-archive-calendar-year {
     font-weight: bold;
-}
+} */
 
 .card-archive-calendar-year-count {
     margin-left: 5px;
@@ -6228,8 +6229,8 @@ progress::-webkit-progress-value {
 
 .card-archive-calendar-year-count,
 .card-archive-calendar-month-count {
-    font-size: 85%;
-    font-weight: bold;
+    /* font-size: 85%; */
+    /* font-weight: bold; */
     opacity: .4;
 }
 
@@ -6254,7 +6255,7 @@ progress::-webkit-progress-value {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 5px 2px;
     margin: 0 5px;
 }
 
@@ -6263,12 +6264,13 @@ progress::-webkit-progress-value {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: calc((100% - 30px) / 4);
-    height: 50px;
+    width: calc((100% - 10px) / 6);
+    height: 45px;
     cursor: pointer;
-    background: var(--gavin-widget-bg1);
+    /* background: var(--gavin-widget-bg1); */
     border-radius: 8px;
-    font-weight: bold;
+    font-size: 14px;
+    /* font-weight: bold; */
 }
 
 .card-archive-calendar-month-item:hover {
@@ -7200,11 +7202,13 @@ progress::-webkit-progress-value {
     display: flex;
     align-items: center;
     justify-content: center;
+    background: rgba(255, 255, 255, .15);
+    transition: .3s;
 }
 
 .sidebar-travel:hover,
 .sidebar-apps:hover {
-    background: rgba(255, 255, 255, .2);
+    background: rgba(255, 255, 255, .3);
     color: #fff;
 }
 
