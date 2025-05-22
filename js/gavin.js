@@ -1259,17 +1259,22 @@ var ctrl = {
 
     card_archive_calendar_prev(e) {
         let f = null
+        let w = 0
         if (e.target && e.target.nodeName.toUpperCase() == "BUTTON") {
             if (e.target.parentElement.parentElement.parentElement.parentElement.classList.contains("open")) {
                 f = document.getElementById("sidebar-menus")
+                w = 270
             } else if (e.target.parentElement.parentElement.parentElement.parentElement.classList.contains("sticky_layout")) {
                 f = document.getElementById("aside-content")
+                w = 298
             }
         } else if (e.target && e.target.nodeName.toUpperCase() == "I") {
             if (e.target.parentElement.parentElement.parentElement.parentElement.parentElement.classList.contains("open")) {
                 f = document.getElementById("sidebar-menus")
+                w = 270
             } else if (e.target.parentElement.parentElement.parentElement.parentElement.parentElement.classList.contains("sticky_layout")) {
                 f = document.getElementById("aside-content")
+                w = 298
             }
         }
         let a = f.querySelector(".card-archive-calendar-years")
@@ -1283,14 +1288,14 @@ var ctrl = {
             let n = m / 100
             if (n > 0 && n < count - 2) {
                 a.style.transform = "translateX(" + 100 * (n+1) + "px)"
-                b.style.transform = "translateX(" + 298 * (n+1) + "px)"
+                b.style.transform = "translateX(" + w * (n+1) + "px)"
             } else if (n == count - 2) {
                 a.style.transform = "translateX(" + 100 * (n+1) + "px)"
-                b.style.transform = "translateX(" + 298 * (n+1) + "px)"
+                b.style.transform = "translateX(" + w * (n+1) + "px)"
                 prev.classList.add("no-event")
             } else if (n == 0) {
                 a.style.transform = "translateX(" + 100 + "px)"
-                b.style.transform = "translateX(" + 298 + "px)"
+                b.style.transform = "translateX(" + w + "px)"
                 if (count == 2) {
                     prev.classList.add("no-event")
                     next.classList.remove("no-event")
@@ -1303,17 +1308,22 @@ var ctrl = {
 
     card_archive_calendar_next(e) {
         let f = null
+        let w = 0
         if (e.target && e.target.nodeName.toUpperCase() == "BUTTON") {
             if (e.target.parentElement.parentElement.parentElement.parentElement.classList.contains("open")) {
                 f = document.getElementById("sidebar-menus")
+                w = 270
             } else if (e.target.parentElement.parentElement.parentElement.parentElement.classList.contains("sticky_layout")) {
                 f = document.getElementById("aside-content")
+                w = 298
             }
         } else if (e.target && e.target.nodeName.toUpperCase() == "I") {
             if (e.target.parentElement.parentElement.parentElement.parentElement.parentElement.classList.contains("open")) {
                 f = document.getElementById("sidebar-menus")
+                w = 270
             } else if (e.target.parentElement.parentElement.parentElement.parentElement.parentElement.classList.contains("sticky_layout")) {
                 f = document.getElementById("aside-content")
+                w = 298
             }
         }
         let a = f.querySelector(".card-archive-calendar-years")
@@ -1327,10 +1337,10 @@ var ctrl = {
             let n = m / 100
             if (n > 1 && n < count - 1) {
                 a.style.transform = "translateX(" + 100 * (n-1) + "px)"
-                b.style.transform = "translateX(" + 298 * (n-1) + "px)"
+                b.style.transform = "translateX(" + w * (n-1) + "px)"
             } else if (n == count - 1) {
                 a.style.transform = "translateX(" + 100 * (n-1) + "px)"
-                b.style.transform = "translateX(" + 298 * (n-1) + "px)"
+                b.style.transform = "translateX(" + w * (n-1) + "px)"
                 prev.classList.remove("no-event")
             } else if (n == 1) {
                 a.style.transform = "translateX(0px)"

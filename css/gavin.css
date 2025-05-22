@@ -951,6 +951,12 @@ ul.menus_item_child {
     border-radius: 5px;
 }
 
+/* 隐藏图标 */
+#menus .site-page.child i:first-child,
+#menus .site-page.group i:first-child {
+    display: none;
+}
+
 /* 一级菜单居中 */
 #nav .menus_items {
     position: absolute;
@@ -2696,12 +2702,6 @@ h6 {
     margin: 2px 0;
 }
 
-/* 侧边导航宽度重设 */
-#sidebar #sidebar-menus {
-    left: -270px;
-    width: 270px;
-}
-
 /* 修复侧边导航图标不对齐问题 */
 #nav #toggle-menu {
     padding: 0;
@@ -2729,7 +2729,7 @@ h6 {
 #sidebar #sidebar-menus .menus_items {
     scrollbar-width: none;
     padding: 10px 0;
-    max-height: calc(100% - 415px);
+    max-height: calc(100% - 377px);
     overflow: scroll;
     -webkit-mask-image: linear-gradient(0deg, transparent, #fff 10px, #fff calc(100% - 10px), transparent);
     mask-image: linear-gradient(0deg, transparent, #fff 10px, #fff calc(100% - 10px), transparent);
@@ -2775,7 +2775,7 @@ h6 {
 }
 
 .sidebar-foot {
-    height: 50px;
+    height: 40px;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -2784,7 +2784,7 @@ h6 {
     background: var(--f-0);
     bottom: 0;
     padding: 5px 15px;
-    font-size: 90%;
+    font-size: 80%;
 }
 
 span.separator {
@@ -6288,10 +6288,40 @@ progress::-webkit-progress-value {
 }
 
 #sidebar-menus .card-archives {
-    padding: 10px;
+    padding: 5px;
     position: absolute;
-    bottom: 50px;
+    bottom: 40px;
     width: 100%;
+}
+
+#sidebar-menus .card-archive-calendar-head button {
+    height: 25px;
+    width: 25px;
+    border-radius: 6px;
+}
+
+#sidebar-menus .card-archive-calendar-center {
+    height: 25px;
+    border-radius: 6px;
+}
+
+#sidebar-menus .card-archive-calendar-year-item {
+    font-size: 12px;
+}
+
+#sidebar-menus .card-archive-calendar-month-item {
+    /* width: calc((100% - 6px) / 4); */
+    font-size: 12px;
+    border-radius: 6px;
+}
+
+#sidebar-menus .card-archive-calendar-page {
+    width: calc(270px - 10px);
+    gap: 2px;
+}
+
+#sidebar-menus .card-archive-calendar-month-item {
+    height: 40px;
 }
 
 /* ********通知样式********* */
