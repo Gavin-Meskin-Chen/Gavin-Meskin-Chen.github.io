@@ -1257,12 +1257,26 @@ var ctrl = {
         }
     },
 
-    card_archive_calendar_prev() {
-        let a = document.querySelector(".card-archive-calendar-years")
-        let b = document.querySelector(".card-archive-calendar-pages")
+    card_archive_calendar_prev(e) {
+        let f = null
+        if (e.target && e.target.nodeName.toUpperCase() == "BUTTON") {
+            if (e.target.parentElement.parentElement.parentElement.parentElement.classList.contains("open")) {
+                f = document.getElementById("sidebar-menus")
+            } else if (e.target.parentElement.parentElement.parentElement.parentElement.classList.contains("sticky_layout")) {
+                f = document.getElementById("aside-content")
+            }
+        } else if (e.target && e.target.nodeName.toUpperCase() == "I") {
+            if (e.target.parentElement.parentElement.parentElement.parentElement.parentElement.classList.contains("open")) {
+                f = document.getElementById("sidebar-menus")
+            } else if (e.target.parentElement.parentElement.parentElement.parentElement.parentElement.classList.contains("sticky_layout")) {
+                f = document.getElementById("aside-content")
+            }
+        }
+        let a = f.querySelector(".card-archive-calendar-years")
+        let b = f.querySelector(".card-archive-calendar-pages")
         let count = a.childElementCount
-        let prev = document.querySelector(".card-archive-calendar-left")
-        let next = document.querySelector(".card-archive-calendar-right")
+        let prev = f.querySelector(".card-archive-calendar-left")
+        let next = f.querySelector(".card-archive-calendar-right")
         let t = a.style.transform
         if (t) {
             let m = parseFloat(t.match(/translateX\((-?\d+\.?\d*)(px|%)?\)/)[1])
@@ -1287,12 +1301,26 @@ var ctrl = {
         }
     },
 
-    card_archive_calendar_next() {
-        let a = document.querySelector(".card-archive-calendar-years")
-        let b = document.querySelector(".card-archive-calendar-pages")
+    card_archive_calendar_next(e) {
+        let f = null
+        if (e.target && e.target.nodeName.toUpperCase() == "BUTTON") {
+            if (e.target.parentElement.parentElement.parentElement.parentElement.classList.contains("open")) {
+                f = document.getElementById("sidebar-menus")
+            } else if (e.target.parentElement.parentElement.parentElement.parentElement.classList.contains("sticky_layout")) {
+                f = document.getElementById("aside-content")
+            }
+        } else if (e.target && e.target.nodeName.toUpperCase() == "I") {
+            if (e.target.parentElement.parentElement.parentElement.parentElement.parentElement.classList.contains("open")) {
+                f = document.getElementById("sidebar-menus")
+            } else if (e.target.parentElement.parentElement.parentElement.parentElement.parentElement.classList.contains("sticky_layout")) {
+                f = document.getElementById("aside-content")
+            }
+        }
+        let a = f.querySelector(".card-archive-calendar-years")
+        let b = f.querySelector(".card-archive-calendar-pages")
         let count = a.childElementCount
-        let prev = document.querySelector(".card-archive-calendar-left")
-        let next = document.querySelector(".card-archive-calendar-right")
+        let prev = f.querySelector(".card-archive-calendar-left")
+        let next = f.querySelector(".card-archive-calendar-right")
         let t = a.style.transform
         if (t) {
             let m = parseFloat(t.match(/translateX\((-?\d+\.?\d*)(px|%)?\)/)[1])

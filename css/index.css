@@ -1502,6 +1502,7 @@ blockquote > :last-child {
 }
 figure.highlight table {
   scrollbar-color: var(--hlscrollbar-bg) transparent;
+  scrollbar-width: thin;
 }
 figure.highlight table::-webkit-scrollbar-thumb {
   background: var(--hlscrollbar-bg);
@@ -1583,12 +1584,39 @@ figure.highlight pre .javascript .function {
 }
 #article-container figure.highlight table {
   display: block;
-  overflow: auto;
+  overflow: hidden;
   border: none;
 }
-#article-container figure.highlight table td {
+#article-container figure.highlight table tbody {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+}
+#article-container figure.highlight table tbody tr {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  width: 100%;
+}
+#article-container figure.highlight table tbody tr td {
   padding: 0;
   border: none;
+}
+#article-container figure.highlight table tbody tr .code {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -o-box-flex: 1;
+  box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  overflow: auto;
 }
 #article-container figure.highlight .gutter pre {
   padding-right: 10px;
@@ -1601,6 +1629,7 @@ figure.highlight pre .javascript .function {
   padding-right: 10px;
   padding-left: 10px;
   width: 100%;
+  scrollbar-width: thin;
 }
 #article-container pre,
 #article-container figure.highlight {
@@ -2692,7 +2721,7 @@ h1.page-title + .tag-cloud-list {
   position: relative;
   overflow: hidden;
   margin-top: 20px;
-  padding: 20px 24px;
+  padding: 10px;
 }
 #aside-content .card-info .author-info__name {
   font-weight: 500;
@@ -3133,7 +3162,6 @@ h1.page-title + .tag-cloud-list {
 .site-data > a .length-num {
   margin-top: -0.32em;
   color: var(--text-highlight-color);
-  font-size: 1.4em;
 }
 @media screen and (min-width: 900px) {
   html.hide-aside .layout {
@@ -4659,6 +4687,8 @@ h1.page-title + .tag-cloud-list {
 }
 #sidebar #sidebar-menus .sidebar-site-data {
   padding: 0 10px;
+  font-size: 95%;
+  line-height: 1.5;
 }
 #sidebar #sidebar-menus hr {
   margin: 20px auto;
@@ -4668,10 +4698,21 @@ h1.page-title + .tag-cloud-list {
 }
 #sidebar #sidebar-menus .menus_items .site-page {
   position: relative;
-  display: block;
-  padding: 6px 30px 6px 22px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -o-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  padding: 3px 30px 3px 18px;
   color: var(--font-color);
-  font-size: 1em;
+  font-size: 95%;
 }
 #sidebar #sidebar-menus .menus_items .site-page:hover {
   background: var(--text-bg-hover);
@@ -4680,9 +4721,11 @@ h1.page-title + .tag-cloud-list {
   width: 15%;
   text-align: left;
 }
+#sidebar #sidebar-menus .menus_items .site-page i:first-child.hide {
+  display: none;
+}
 #sidebar #sidebar-menus .menus_items .site-page.group > i:last-child {
   position: absolute;
-  top: 0.88em;
   right: 18px;
   -webkit-transition: -webkit-transform 0.3s;
   -moz-transition: -moz-transform 0.3s;

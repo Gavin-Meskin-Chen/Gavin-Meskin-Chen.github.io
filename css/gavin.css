@@ -2729,16 +2729,18 @@ h6 {
 #sidebar #sidebar-menus .menus_items {
     scrollbar-width: none;
     padding: 10px 0;
-    max-height: calc(100% - 300px);
+    max-height: calc(100% - 415px);
     overflow: scroll;
+    -webkit-mask-image: linear-gradient(0deg, transparent, #fff 10px, #fff calc(100% - 10px), transparent);
+    mask-image: linear-gradient(0deg, transparent, #fff 10px, #fff calc(100% - 10px), transparent);
 }
 
 #sidebar-menus .sidebar-head {
-    padding: 20px 10px 10px;
+    padding: 25px 10px 10px;
     background-image: url(https://registry.npmmirror.com/cansin-blogdata/3.0.73/files/img/QEhcc.webp);
     background-size: cover;
     background-position: center;
-    height: 250px;
+    height: 200px;
 }
 
 .sidebar-head .site-data>a .headline,
@@ -2748,14 +2750,14 @@ h6 {
 }
 
 #sidebar-menus .avatar-img img {
-    height: 90px;
-    width: 90px;
+    height: 70px;
+    width: 70px;
     border-radius: 50%;
     border: 3px solid #fff;
 }
 
 #sidebar-menus .avatar-img span.author-name {
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     font-weight: bold;
     line-height: 1;
     color: #fff;
@@ -2764,7 +2766,7 @@ h6 {
 #sidebar #sidebar-menus .avatar-img {
     margin: 0;
     width: 100%;
-    height: 150px;
+    height: 120px;
     border-radius: 0;
     display: flex;
     flex-direction: column;
@@ -2777,10 +2779,12 @@ h6 {
     width: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
     position: absolute;
     background: var(--f-0);
     bottom: 0;
     padding: 5px 15px;
+    font-size: 90%;
 }
 
 span.separator {
@@ -5925,7 +5929,6 @@ a#music-list-title {
 /* ***********侧边栏日历************ */
 
 .card-widget {
-    padding: 10px !important;
     max-height: calc(100vh - 100px);
     /* animation: slide-in .6s .4s backwards; */
 }
@@ -6282,6 +6285,13 @@ progress::-webkit-progress-value {
 .card-archive-calendar-month-item.no-link {
     opacity: 0.3;
     pointer-events: none;
+}
+
+#sidebar-menus .card-archives {
+    padding: 10px;
+    position: absolute;
+    bottom: 50px;
+    width: 100%;
 }
 
 /* ********通知样式********* */
