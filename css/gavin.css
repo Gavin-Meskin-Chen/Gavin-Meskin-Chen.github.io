@@ -1445,8 +1445,10 @@ a {
 }
 
 #aside-content #card-toc .toc-content .toc-link:not(.active):hover {
-    background-color: var(--gavin-nav-hover);
-    color: #fff;
+    /* background-color: var(--gavin-nav-hover);
+    color: #fff; */
+    background-color: var(--gavin-highlight-op-1);
+    color: var(--gavin-highlight);
 }
 
 /* Follow Me按钮弧度 */
