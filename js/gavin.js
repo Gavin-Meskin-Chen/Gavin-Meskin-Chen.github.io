@@ -246,17 +246,19 @@ function cardTimes() {
         lunarMon = chineseLunar.format(lunar, "M"); //月份
         lunarDay = chineseLunar.format(lunar, "d"); //日期
         const t_y = new Date().getFullYear();
-        var anniversary = new Date(t_y + "/12/20 08:30:00");
+        var anniversary = chineseLunar.lunarToSolar(t_y+1,1,1);
         var countDown = Math.floor((anniversary - now) / 1e3 / 60 / 60 / 24);
         asideTime = new Date(t_y + "/01/01 00:00:00");	// 侧边栏倒计时
         asideDay = (now - asideTime) / 1e3 / 60 / 60 / 24;
         asideDayNum = Math.floor(asideDay);
         var asideWeekNum = ((week - asideDayNum % 7) >= 0) ? (Math.ceil(asideDayNum / 7)) : (Math.ceil(asideDayNum / 7) + 1);
-        cardWidgetCalendar.querySelector("#calendar-week").innerHTML = "第" + asideWeekNum + "周&nbsp;" + weekStr; //星期
-        cardWidgetCalendar.querySelector("#calendar-date").innerHTML = date.toString().padStart(2, '0'); //日期
-        cardWidgetCalendar.querySelector("#calendar-solar").innerHTML = year + "年" + monthStr + "&nbsp;第" + asideDay.toFixed(0) + "天"; //年份
-        cardWidgetCalendar.querySelector("#calendar-lunar").innerHTML = ganzhiYear + animalYear + "年&nbsp;" + lunarMon + lunarDay; //农历
-        document.getElementById("schedule-days").innerHTML = countDown; //农历
+        cardWidgetCalendar.querySelector("#calendar-week").innerHTML = "第" + asideWeekNum + "周&nbsp;" + weekStr; // 星期
+        cardWidgetCalendar.querySelector("#calendar-date").innerHTML = date.toString().padStart(2, '0'); // 日期
+        cardWidgetCalendar.querySelector("#calendar-solar").innerHTML = year + "年" + monthStr + "&nbsp;第" + asideDay.toFixed(0) + "天"; // 年份
+        cardWidgetCalendar.querySelector("#calendar-lunar").innerHTML = ganzhiYear + animalYear + "年&nbsp;" + lunarMon + lunarDay; // 农历
+        document.getElementById("schedule-title").innerHTML = "距离春节"; // 标题
+        document.getElementById("schedule-days").innerHTML = countDown; // 倒计时
+        document.getElementById("schedule-date").innerHTML = anniversary.toISOString().split('T')[0]; // 或者用.slice(0,10) //春节日期 2025-01-29
     }
 }
 

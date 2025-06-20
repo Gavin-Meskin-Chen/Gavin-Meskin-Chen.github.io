@@ -5179,8 +5179,8 @@ span.mathjax-overflow {
 }
 .cardmovie_box .cardmovie_mask a {
   text-align: center;
-  background: #eee;
-  color: #000 !important;
+  background: rgba(255,255,255,0.24);
+  color: #fff !important;
   font-size: 15px;
   border-radius: 6px;
   position: absolute;
