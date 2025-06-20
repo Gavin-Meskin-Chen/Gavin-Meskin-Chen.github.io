@@ -12312,31 +12312,6 @@ e = this, t = function () {
                     })(), e._v(" "),
                     
                     
-                    // e.comment.master ? t("span", {
-                    //     staticClass: "tk-tag tk-tag-green"
-                    // }, [e._v(e._s(e.config.MASTER_TAG || e.t("COMMENT_MASTER_TAG")))]) : (
-                    // e.comment.mailMd5 == 'd0c536c701e0f333db83c1ced5d2b8cd' || e.comment.mailMd5 == '2dbb3f37c116504761d2103a6938f5f7871ebdd840ab5c4cd006d67c90fd18a0' ? t("span", {
-                    //     staticClass: "tk-tag tk-tag-purple"
-                    // }, [e._v(e._s('洪哥'))]) : (
-                    // e.comment.mailMd5 == '28b57baa4e8f13fe4292ccb2de267e30' || e.comment.mailMd5 == '1c03767b0691f80231895255661bcf42eceab95dc8b493ee80c835b07f577f49' ? t("span", {
-                    //     staticClass: "tk-tag tk-tag-purple"
-                    // }, [e._v(e._s('杜老师'))]) : (
-                    // e.comment.mailMd5 == '138c5fd747cad7830d085986a11882f1' || e.comment.mailMd5 == '3e879eec4d1c7214c81b092fa067a2c4c2bb25d30abd181d0063fee629d216e7' ? t("span", {
-                    //     staticClass: "tk-tag tk-tag-purple"
-                    // }, [e._v(e._s('石头喵'))]) : (
-                    // e.comment.mailMd5 == 'ba2379bacf88f17ea461137906bd127d' || e.comment.mailMd5 == '4123fba78500cef71d4d15fa3be2c4917ed9c94cbae8d86092790af6cfbafe81' ? t("span", {
-                    //     staticClass: "tk-tag tk-tag-purple"
-                    // }, [e._v(e._s('唐志远'))]) : (
-                    // e.comment.mailMd5 == '92c15d4a1d99a8ee04b986a14a5f7e009e574b3383fc575005947988ccf205e2' ? t("span", {
-                    //     staticClass: "tk-tag tk-tag-purple"
-                    // }, [e._v(e._s('清羽飞扬'))]) : (
-                    // e.comment.mailMd5 == '4b3a2ba0f7b67fcb1320aae6ff8e76438053781b22fe0159bb23545cf869de2a' ? t("span", {
-                    //     staticClass: "tk-tag tk-tag-purple"
-                    // }, [e._v(e._s('纳斯'))]) : t("span", {
-                    //     staticClass: "tk-tag tk-tag-blue"
-                    // }, [e._v(e._s('道友'))])                        
-                    // )))))), e._v(" "),
-
                     e.comment.top ? t("span", {
                         staticClass: "tk-tag tk-tag-red"
                     }, [e._v(e._s(e.t("COMMENT_TOP_TAG")))]) : e._e(), e._v(" "), 
