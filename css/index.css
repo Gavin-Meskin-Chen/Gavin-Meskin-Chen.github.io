@@ -3850,7 +3850,7 @@ h1.page-title + .tag-cloud-list {
 }
 #nav .menus_items .menus_item .menus_item_child li a {
   display: block;
-  padding: 0 16px;
+  padding: 0 14px;
   width: 100%;
   color: var(--font-color) !important;
   text-shadow: none !important;
