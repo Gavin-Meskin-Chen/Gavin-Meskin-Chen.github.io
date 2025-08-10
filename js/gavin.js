@@ -1580,7 +1580,7 @@ var ctrl = {
                         <button class="btn red" type="button" onclick="clearTranscode()">清空</button>
                     </div>
                     `;
-                document.head.appendChild(Object.assign(document.createElement("script"), { src: "https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/crypto-js/4.1.1/crypto-js.min.js", id: "crypto-js" }));
+                document.head.appendChild(Object.assign(document.createElement("script"), { src: "https://registry.npmmirror.com/cansin-blogdata/latest/files/js/crypto-js.min.js", id: "crypto-js" }));
                 break;
             case "clipboard": 
                 title = '参星阁 - 云剪贴板-Beta';
