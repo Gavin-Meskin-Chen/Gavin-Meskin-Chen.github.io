@@ -368,7 +368,7 @@
 			if (inc <= 0) {
 				run = false;
 				month = year == lunar.year ? count + inc : count + inc - month;
-			}else {
+			} else {
 				year++;
 				month = 1;
 			}
