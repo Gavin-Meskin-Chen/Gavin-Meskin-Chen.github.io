@@ -1,0 +1,570 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>【CVPR2025】低光图像增强HVI-CIDNet | 参星阁</title><meta name="author" content="南方嘉木"><meta name="copyright" content="南方嘉木"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="论文标题：HVI: A New Color Space for Low-light Image EnhancementDOI：https:&#x2F;&#x2F;doi.org&#x2F;10.48550&#x2F;arXiv.2502.20272代码地址：https:&#x2F;&#x2F;github.com&#x2F;Fediory&#x2F;HVI-CIDNet收录：CVPR2025  研究背景在光照不足条件下拍摄的图像通常存在亮度不足、对比度低、细节模糊及噪声干扰等">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【CVPR2025】低光图像增强HVI-CIDNet">
+<meta property="og:url" content="https://blog.cancin.cn/post/98e97756.html">
+<meta property="og:site_name" content="参星阁">
+<meta property="og:description" content="论文标题：HVI: A New Color Space for Low-light Image EnhancementDOI：https:&#x2F;&#x2F;doi.org&#x2F;10.48550&#x2F;arXiv.2502.20272代码地址：https:&#x2F;&#x2F;github.com&#x2F;Fediory&#x2F;HVI-CIDNet收录：CVPR2025  研究背景在光照不足条件下拍摄的图像通常存在亮度不足、对比度低、细节模糊及噪声干扰等">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://registry.npmmirror.com/cansin-blogdata/latest/files/img/cover/%E6%B0%B4-1.webp">
+<meta property="article:published_time" content="2025-10-18T15:53:42.000Z">
+<meta property="article:modified_time" content="2025-10-18T16:46:10.450Z">
+<meta property="article:author" content="南方嘉木">
+<meta property="article:tag" content="安大">
+<meta property="article:tag" content="论文">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://registry.npmmirror.com/cansin-blogdata/latest/files/img/cover/%E6%B0%B4-1.webp"><link rel="shortcut icon" href="https://registry.npmmirror.com/cansin-blogdata/latest/files/img/GZRKN.jpg"><link rel="canonical" href="https://blog.cancin.cn/post/98e97756"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="baidu-site-verification" content="codeva-3nWiaOAyUL"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://registry.npmmirror.com/@fortawesome/fontawesome-free/6.2.0/files/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://registry.npmmirror.com/@fancyapps/ui/4.0.31/files/dist/fancybox.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?a7a8da99a5eed58f9f37537ccf3cd660";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: {"appId":"YTKKDYQO3P","apiKey":"9d33f90f2fc9d69edb380a42da37ed02","indexName":"MyBlog","hits":{"per_page":6},"languages":{"input_placeholder":"搜索文章","hits_empty":"找不到您查询的内容：${query}","hits_stats":"找到 ${hits} 条结果，用时 ${time} 毫秒"}},
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":300},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":200,"languages":{"author":"作者: 南方嘉木","link":"链接: ","source":"来源: 参星阁","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://registry.npmmirror.com/flickr-justified-gallery/2.1.2/files/dist/fjGallery.min.js',
+      css: 'https://registry.npmmirror.com/flickr-justified-gallery/2.1.2/files/dist/fjGallery.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: true,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '【CVPR2025】低光图像增强HVI-CIDNet',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-10-19 00:46:10'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="https://cdn2.codesign.qq.com/icons/rzm5q0XWky9RBb6/latest/iconfont.css" media="defer" onload="this.media='all'"><link rel="stylesheet" type="text/css" href="https://registry.npmmirror.com/cansin-blogdata/latest/files/css/font.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://registry.npmmirror.com/cansin-blogdata/latest/files/css/APlayer.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/element-ui@2.15.6/lib/theme-chalk/index.css"  media="defer" onload="this.media='all'"><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="参星阁" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="参星阁" type="application/rss+xml">
+</head><body><link rel="stylesheet" href="/css/gavin.css"/><script src="https://npm.elemecdn.com/pace-js@1.2.4/pace.min.js"></script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><a class="sidebar-travel" href="https://www.travellings.cn/go.html" title="开往" target="_blank" rel="noopener nofollow" one-link-mark="yes"><i class="fas fa-train-subway"></i></a><div class="sidebar-apps" onclick="document.getElementById('menu-mask').click();ctrl.showAPPs();" title="应用程序" href="javascript:void(0);" rel="external nofollow" data-pjax-state="external" tabindex="-1"><i class="blogfont icon-view-grid fs-3"></i></div><div class="sidebar-head"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://registry.npmmirror.com/cansin-blogdata/latest/files/img/GZRKN.jpg" onerror="onerror=null;src='/img/loading.svg'" alt="avatar"/><span class="author-name">南方嘉木</span></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">50</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">23</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div></div><div class="menus_items"><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw hide"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw hide"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw hide"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw hide"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw hide"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/goods/"><i class="fa-fw hide"></i><span> 好物</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw hide"></i><span> 影视</span></a></li><li><a class="site-page child" href="/xiangsheng/"><i class="fa-fw hide"></i><span> 相声</span></a></li></ul></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw hide"></i><span> 发现</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/fcircle/"><i class="fa-fw hide"></i><span> 订阅</span></a></li><li><a class="site-page child" href="/link/"><i class="fa-fw hide"></i><span> 友链</span></a></li></ul></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw hide"></i><span> 关于</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw hide"></i><span> 站长</span></a></li><li><a class="site-page child" href="/messageboard/"><i class="fa-fw hide"></i><span> 留言</span></a></li><li><a class="site-page child" href="/log/"><i class="fa-fw hide"></i><span> 日志</span></a></li></ul></div></div><div class="card-widget card-archives"><div class="card-archive-calendar">
+    <div class="card-archive-calendar-head">
+      <button class="card-archive-calendar-left" onclick="ctrl.card_archive_calendar_prev(event)">
+        <i class="fas fa-angle-left"></i>
+      </button>
+      <div class="card-archive-calendar-center">
+        <div class="card-archive-calendar-years" style="transform: translateX(0px);"><a class="card-archive-calendar-year-item" href="/archives/2023/">
+              <span class="card-archive-calendar-year">2023</span>
+              <span class="card-archive-calendar-year-count">[27]</span>
+            </a><a class="card-archive-calendar-year-item" href="/archives/2024/">
+              <span class="card-archive-calendar-year">2024</span>
+              <span class="card-archive-calendar-year-count">[7]</span>
+            </a><a class="card-archive-calendar-year-item" href="/archives/2025/">
+              <span class="card-archive-calendar-year">2025</span>
+              <span class="card-archive-calendar-year-count">[16]</span>
+            </a></div>
+      </div>
+      <button class="card-archive-calendar-right no-event" onclick="ctrl.card_archive_calendar_next(event)">
+        <i class="fas fa-angle-right"></i>
+      </button>
+    </div>
+    <div class="card-archive-calendar-body">
+      <div class="card-archive-calendar-pages" style="transform: translateX(0px);"><div class="card-archive-calendar-page"><a class="card-archive-calendar-month-item" href="/archives/2023/01/"><span class="card-archive-calendar-month">一月</span>
+                <span class="card-archive-calendar-month-count">7篇</span>
+              </a><a class="card-archive-calendar-month-item" href="/archives/2023/02/"><span class="card-archive-calendar-month">二月</span>
+                <span class="card-archive-calendar-month-count">2篇</span>
+              </a><a class="card-archive-calendar-month-item" href="/archives/2023/03/"><span class="card-archive-calendar-month">三月</span>
+                <span class="card-archive-calendar-month-count">2篇</span>
+              </a><a class="card-archive-calendar-month-item no-link"><span class="card-archive-calendar-month">四月</span>
+                <span class="card-archive-calendar-month-count">0篇</span>
+              </a><a class="card-archive-calendar-month-item" href="/archives/2023/05/"><span class="card-archive-calendar-month">五月</span>
+                <span class="card-archive-calendar-month-count">1篇</span>
+              </a><a class="card-archive-calendar-month-item no-link"><span class="card-archive-calendar-month">六月</span>
+                <span class="card-archive-calendar-month-count">0篇</span>
+              </a><a class="card-archive-calendar-month-item" href="/archives/2023/07/"><span class="card-archive-calendar-month">七月</span>
+                <span class="card-archive-calendar-month-count">9篇</span>
+              </a><a class="card-archive-calendar-month-item" href="/archives/2023/08/"><span class="card-archive-calendar-month">八月</span>
+                <span class="card-archive-calendar-month-count">3篇</span>
+              </a><a class="card-archive-calendar-month-item" href="/archives/2023/09/"><span class="card-archive-calendar-month">九月</span>
+                <span class="card-archive-calendar-month-count">2篇</span>
+              </a><a class="card-archive-calendar-month-item" href="/archives/2023/10/"><span class="card-archive-calendar-month">十月</span>
+                <span class="card-archive-calendar-month-count">1篇</span>
+              </a><a class="card-archive-calendar-month-item no-link"><span class="card-archive-calendar-month">十一月</span>
+                <span class="card-archive-calendar-month-count">0篇</span>
+              </a><a class="card-archive-calendar-month-item no-link"><span class="card-archive-calendar-month">十二月</span>
+                <span class="card-archive-calendar-month-count">0篇</span>
+              </a></div><div class="card-archive-calendar-page"><a class="card-archive-calendar-month-item" href="/archives/2024/01/"><span class="card-archive-calendar-month">一月</span>
+                <span class="card-archive-calendar-month-count">4篇</span>
+              </a><a class="card-archive-calendar-month-item no-link"><span class="card-archive-calendar-month">二月</span>
+                <span class="card-archive-calendar-month-count">0篇</span>
+              </a><a class="card-archive-calendar-month-item no-link"><span class="card-archive-calendar-month">三月</span>
+                <span class="card-archive-calendar-month-count">0篇</span>
+              </a><a class="card-archive-calendar-month-item no-link"><span class="card-archive-calendar-month">四月</span>
+                <span class="card-archive-calendar-month-count">0篇</span>
+              </a><a class="card-archive-calendar-month-item no-link"><span class="card-archive-calendar-month">五月</span>
+                <span class="card-archive-calendar-month-count">0篇</span>
+              </a><a class="card-archive-calendar-month-item" href="/archives/2024/06/"><span class="card-archive-calendar-month">六月</span>
+                <span class="card-archive-calendar-month-count">1篇</span>
+              </a><a class="card-archive-calendar-month-item no-link"><span class="card-archive-calendar-month">七月</span>
+                <span class="card-archive-calendar-month-count">0篇</span>
+              </a><a class="card-archive-calendar-month-item no-link"><span class="card-archive-calendar-month">八月</span>
+                <span class="card-archive-calendar-month-count">0篇</span>
+              </a><a class="card-archive-calendar-month-item" href="/archives/2024/09/"><span class="card-archive-calendar-month">九月</span>
+                <span class="card-archive-calendar-month-count">2篇</span>
+              </a><a class="card-archive-calendar-month-item no-link"><span class="card-archive-calendar-month">十月</span>
+                <span class="card-archive-calendar-month-count">0篇</span>
+              </a><a class="card-archive-calendar-month-item no-link"><span class="card-archive-calendar-month">十一月</span>
+                <span class="card-archive-calendar-month-count">0篇</span>
+              </a><a class="card-archive-calendar-month-item no-link"><span class="card-archive-calendar-month">十二月</span>
+                <span class="card-archive-calendar-month-count">0篇</span>
+              </a></div><div class="card-archive-calendar-page"><a class="card-archive-calendar-month-item" href="/archives/2025/01/"><span class="card-archive-calendar-month">一月</span>
+                <span class="card-archive-calendar-month-count">2篇</span>
+              </a><a class="card-archive-calendar-month-item" href="/archives/2025/02/"><span class="card-archive-calendar-month">二月</span>
+                <span class="card-archive-calendar-month-count">1篇</span>
+              </a><a class="card-archive-calendar-month-item" href="/archives/2025/03/"><span class="card-archive-calendar-month">三月</span>
+                <span class="card-archive-calendar-month-count">1篇</span>
+              </a><a class="card-archive-calendar-month-item" href="/archives/2025/04/"><span class="card-archive-calendar-month">四月</span>
+                <span class="card-archive-calendar-month-count">3篇</span>
+              </a><a class="card-archive-calendar-month-item" href="/archives/2025/05/"><span class="card-archive-calendar-month">五月</span>
+                <span class="card-archive-calendar-month-count">3篇</span>
+              </a><a class="card-archive-calendar-month-item" href="/archives/2025/06/"><span class="card-archive-calendar-month">六月</span>
+                <span class="card-archive-calendar-month-count">1篇</span>
+              </a><a class="card-archive-calendar-month-item" href="/archives/2025/07/"><span class="card-archive-calendar-month">七月</span>
+                <span class="card-archive-calendar-month-count">1篇</span>
+              </a><a class="card-archive-calendar-month-item" href="/archives/2025/08/"><span class="card-archive-calendar-month">八月</span>
+                <span class="card-archive-calendar-month-count">1篇</span>
+              </a><a class="card-archive-calendar-month-item" href="/archives/2025/09/"><span class="card-archive-calendar-month">九月</span>
+                <span class="card-archive-calendar-month-count">1篇</span>
+              </a><a class="card-archive-calendar-month-item" href="/archives/2025/10/"><span class="card-archive-calendar-month">十月</span>
+                <span class="card-archive-calendar-month-count">2篇</span>
+              </a><a class="card-archive-calendar-month-item no-link"><span class="card-archive-calendar-month">十一月</span>
+                <span class="card-archive-calendar-month-count">0篇</span>
+              </a><a class="card-archive-calendar-month-item no-link"><span class="card-archive-calendar-month">十二月</span>
+                <span class="card-archive-calendar-month-count">0篇</span>
+              </a></div></div>
+      </div>
+    </div></div><div class="sidebar-foot"><a class="sidebar-link" href="https://blogdrive.gavin-chen.top" title="藏兵谷" target="_blank" rel="noopener nofollow" one-link-mark="yes">藏兵谷</a><span class="separator">|</span><a class="sidebar-link" href="https://status.cancin.cn" title="天机" target="_blank" rel="noopener nofollow" one-link-mark="yes">天机</a><span class="separator">|</span><a class="sidebar-link" href="https://qqmusic.cancin.cn" title="幻音坊" target="_blank" rel="noopener nofollow" one-link-mark="yes">幻音坊</a></div></div></div><div class="post" id="body-wrap"><header class="post-bg nav-fixed nav-visible" id="page-header"><img id="post-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://registry.npmmirror.com/cansin-blogdata/latest/files/img/cover/水-1.webp" alt="cover"><nav id="nav"><div id="fps-box"><span>FPS</span><span class="fps-text"></span></div><span id="blog_name"><div class="nav-button" id="toggle-menu"><a class="site-page"><i class="blogfont icon-drawer"></i></a></div><div class="back-home-button nav-button" onclick="ctrl.showAPPs()" title="应用程序" href="javascript:void(0);" rel="external nofollow" data-pjax-state="external" tabindex="-1"><i class="back-home-button-icon el-icon-menu"></i></div><a class="c-c nav-button" id="site-name" href="/"><i class="blogfont icon-cxg_dl site-logo"></i><i class="blogfont icon-home-filled"></i></a></span><div class="mask-name-container"><center id="name-container"><a id="page-name" href="javascript:btf.scrollToDest(0, 500)">PAGE_NAME</a></center></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw hide"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw hide"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw hide"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw hide"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw hide"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/goods/"><i class="fa-fw hide"></i><span> 好物</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw hide"></i><span> 影视</span></a></li><li><a class="site-page child" href="/xiangsheng/"><i class="fa-fw hide"></i><span> 相声</span></a></li></ul></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw hide"></i><span> 发现</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/fcircle/"><i class="fa-fw hide"></i><span> 订阅</span></a></li><li><a class="site-page child" href="/link/"><i class="fa-fw hide"></i><span> 友链</span></a></li></ul></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw hide"></i><span> 关于</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw hide"></i><span> 站长</span></a></li><li><a class="site-page child" href="/messageboard/"><i class="fa-fw hide"></i><span> 留言</span></a></li><li><a class="site-page child" href="/log/"><i class="fa-fw hide"></i><span> 日志</span></a></li></ul></div></div></div><div id="nav-music-ctrl"><div class="nav-button" id="music-Backward"><a class="aplayer-icon-play" onclick="ctrl.musicBackward()" title="上一曲" href="javascript:void(0);" rel="external nofollow" data-pjax-state="external"><i class="blogfont icon-play-next gc-180"></i></a></div><div class="nav-button" id="music-Switch"><a class="aplayer-icon-play" onclick="ctrl.musicSwitch()" title="音乐开关" href="javascript:void(0);" rel="external nofollow" data-pjax-state="external"><i class="blogfont icon-play"></i></a></div><div class="nav-button" id="music-Forward"><a class="aplayer-icon-play" onclick="ctrl.musicForward()" title="下一曲" href="javascript:void(0);" rel="external nofollow" data-pjax-state="external"><i class="blogfont icon-play-next"></i></a></div></div><div class="nav-button" id="search-button"><a class="site-page social-icon search"><i class="blogfont icon-search"></i><span> 搜索</span></a></div><div class="nav-button" id="nav-travel"><a href="https://www.travellings.cn/go.html" title="开往" target="_blank" rel="noopener nofollow" one-link-mark="yes"><i class="fas fa-train-subway" style="font-size: 20px;"></i></a></div><div class="nav-button" id="console-switch"><a class="console-switch-btn" onclick="ctrl.showConsole()" title="控制中心" href="javascript:void(0);" rel="external nofollow" data-pjax-state="external"><i class="blogfont icon-tune" id="console-switch-icon"></i></a></div></nav><div id="post-info"><div id="post-meta-top"><span class="post-meta-categories"><a class="post-meta-categories" href="/categories/%E6%96%87%E7%8C%AE%E9%80%9F%E8%AF%BB/">文献速读</a></span><div class="post-meta-tag-list"><a class="post-meta-tags" href="/tags/%E5%AE%89%E5%A4%A7/">安大</a><a class="post-meta-tags" href="/tags/%E8%AE%BA%E6%96%87/">论文</a></div></div><h1 class="post-title">【CVPR2025】低光图像增强HVI-CIDNet</h1><div id="post-meta"><div class="post-meta-bottom"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><time class="post-meta-date-created" datetime="2025-10-18T15:53:42.000Z" title="发表于 2025-10-18 23:53:42">2025-10-18</time></div><div class="post-meta-bottom"><i class="fas fa-history fa-fw post-meta-icon"></i><time class="post-meta-date-updated" datetime="2025-10-18T16:46:10.450Z" title="更新于 2025-10-19 00:46:10">2025-10-19</time></div><div class="post-meta-bottom"><i class="fa fa-location-dot fa-fw post-meta-icon"></i><span>合肥</span></div><div class="post-meta-bottom"><i class="fa fa-cloud-rain fa-fw post-meta-icon"></i><span>小雨</span></div><div class="post-meta-bottom"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="word-count">2k</span></div><div class="post-meta-bottom"><i class="far fa-clock fa-fw post-meta-icon"></i><span>6分钟</span></div><div class="post-meta-bottom"><span class="post-meta-pv-cv" id="" data-flag-title="【CVPR2025】低光图像增强HVI-CIDNet"><i class="far fa-eye fa-fw post-meta-icon"></i><span id="busuanzi_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div><a class="post-meta-bottom post-meta-commentcount" href="/post/98e97756.html#post-comment"><i class="far fa-comment-dots fa-fw post-meta-icon"></i><span id="twikoo-count"><i class="fa-solid fa-spinner fa-spin"></i></span></a></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><blockquote class=""><p><strong>论文标题</strong>：HVI: A New Color Space for Low-light Image Enhancement<br><strong>DOI</strong>：<a target="_blank" rel="noopener" href="https://doi.org/10.48550/arXiv.2502.20272">https://doi.org/10.48550/arXiv.2502.20272</a><br><strong>代码地址</strong>：<a target="_blank" rel="noopener" href="https://github.com/Fediory/HVI-CIDNet">https://github.com/Fediory/HVI-CIDNet</a><br><strong>收录</strong>：CVPR2025</p>
+</blockquote>
+<h2 id="研究背景"><a href="#研究背景" class="headerlink" title="研究背景"></a>研究背景</h2><p>在光照不足条件下拍摄的图像通常存在亮度不足、对比度低、细节模糊及噪声干扰等问题，通过 LLIE（低光图像增强）算法可以使其更接近人眼在正常光照下的感知效果，满足后续视觉任务（如目标检测、语义分割）的高质量输入需求。</p>
+<p>LLIE 算法主要面临以下难点：</p>
+<ul>
+<li>光照不足导致的细节丢失：低光图像中暗部区域信息模糊，难以恢复真实细节。</li>
+<li>噪声干扰：在增强亮度时，图像噪声（如高斯噪声、椒盐噪声）会被放大，影响视觉质量和算法鲁棒性。</li>
+<li>动态范围限制：相机传感器在低光下的动态范围有限，导致图像过暗或过亮区域失真。</li>
+<li>色彩失真：增强过程中可能破坏图像原有的色彩平衡，出现色偏或伪影。</li>
+</ul>
+<h2 id="颜色空间"><a href="#颜色空间" class="headerlink" title="颜色空间"></a>颜色空间</h2><p>常见的 LLIE 算法多基于 sRGB 空间或者 HSV 空间。</p>
+<p><strong>sRGB</strong>（Standard Red Green Blue）即标准红、绿、蓝颜色空间，代表算法有 ZeroDCE、EnlightenGAN。缺点是亮度与 RGB 三通道色彩强耦合（high color sensitivity），牵一发而动全身，在增强的过程中容易导致失真，比如调整亮度引发颜色偏移，优化颜色导致亮度失真。</p>
+<p><strong>HSV</strong>（Hue Saturation Value）即色相、饱和度、明度颜色空间，代表算法有 RetinexNet、CoLIE。缺点是虽然解耦了亮度与色彩，但同时引入了红色不连续噪声和黑色平面噪声，这两种噪声会在以红色为主或极暗图像的增强过程中产生严重的伪影。</p>
+<p><strong>YCbCr</strong>，即亮度轴（Y）+反射色平面（CbCr）。Y 轴仍与 CbCr 平面存在部分耦合，从而导致严重的色偏。</p>
+<h2 id="HVI（Horizontal-Vertical-Intensity）"><a href="#HVI（Horizontal-Vertical-Intensity）" class="headerlink" title="HVI（Horizontal/Vertical-Intensity）"></a>HVI（Horizontal/Vertical-Intensity）</h2><p>HVI 是基于 HSV 优化而来，其核心是确保相似颜色具有更小的欧氏距离，通过两大技术解决 HSV 噪声问题：</p>
+<ul>
+<li>一是极化 HS 映射，通过极坐标约束红色坐标距离，来消除红色不连续噪声。</li>
+<li>二是可学习压缩函数 C_k，动态压缩低光区域的强度分布，来消除黑色平面噪声。</li>
+</ul>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://blog-hexo-img.oss-cn-shanghai.aliyuncs.com/20251019004055591.webp" alt=""></p>
+<h3 id="极化-HS-映射"><a href="#极化-HS-映射" class="headerlink" title="极化 HS 映射"></a>极化 HS 映射</h3><p>首先根据 Max-RGB 理论计算每个像素的 Intensity，构建 I-map，这里可以反映图像的全局光照水平。</p>
+<script type="math/tex; mode=display">
+I_\max(x)=max(c∈{R,G,B})⁡(I_c(x))=max⁡(I_R(x),I_G(x),I_B(x))</script><p>然后根据 I-map，可以计算出 S-map 和 H-map。</p>
+<script type="math/tex; mode=display">
+s=\begin{cases}0, & I_{max} = 0\\\frac{\Delta}{I_{max}}, & I_{max}\neq0\end{cases},\Delta = I_{max}-\min(I_{c})</script><script type="math/tex; mode=display">
+h=\begin{cases}0, & if\ s = 0\\\frac{I_G - I_B}{\Delta}\bmod{6}, & if\ I_{max}=I_R\\2+\frac{I_B - I_R}{\Delta}, & if\ I_{max}=I_G\\4+\frac{I_R - I_G}{\Delta}, & if\ I_{max}=I_B\end{cases}</script><p>这里不难发现，在 HSV 空间中，红色在色相端点（h=0和h=6）上间断，进而导致增强后出现红色不连续噪声。因此我们只需要将色相轴 h 极化，将其映射到两个新的正交分量 h=cos⁡(πh/3)、v=sin⁡(πh/3)，即可使得红色在 h-v平面连续。</p>
+<h3 id="C-k-函数"><a href="#C-k-函数" class="headerlink" title="C_k 函数"></a>C_k 函数</h3><p>针对黑色平面噪声问题，需要缩小低光区域的同时保留高光区域。但是，这个压缩程度在不同的数据集和网络中是不同的。因此，这里就需要一个可信息的自适应的压缩函数 C_k。</p>
+<script type="math/tex; mode=display">
+C_k=\sqrt[k]{\sin\left(\frac{\pi I_{max}(x)}{2}\right)+\varepsilon}</script><p>其中，k是一个可训练参数，用于控制暗色点密度；ε=10^(-8) 避免根号里为0，用于避免梯度爆炸。</p>
+<p>本质上，C_k 起到半径映射函数的作用，较小的 C_k 对应较小的半径或较低的强度值。因此，随着 C_k 的减小，暗色点会聚集在一起。</p>
+<p>最后整合色彩与强度信息，定义水平 <script type="math/tex">\widehat{H}</script> 图和垂直 <script type="math/tex">\widehat{V}</script> 图为：</p>
+<script type="math/tex; mode=display">
+\widehat{H} = C_k \odot S \odot H\\
+\widehat{V} = C_k \odot S \odot V</script><p>其中，h∈H，v∈V，⨀ 表示元素级乘法。<script type="math/tex">\widehat{H}</script>、<script type="math/tex">\widehat{V}</script>、I_max 可以拼接形成 HVI 图像。</p>
+<h2 id="CIDNet（Color-and-Intensity-Decoupling-Network）"><a href="#CIDNet（Color-and-Intensity-Decoupling-Network）" class="headerlink" title="CIDNet（Color and Intensity Decoupling Network）"></a>CIDNet（Color and Intensity Decoupling Network）</h2><p>即颜色和强度解耦网络，用于分别对 HVI 空间中的 HV 平面和 I 轴信息进行建模。</p>
+<p>CIDNet 整体分为三个步骤——HVI 变换、双分支增强网络、感知逆 HVI 变换（PHVIT）。</p>
+<p>首先通过 HVI 变换将 sRGB 图像映射到 HVI 颜色空间，有效分离亮度与色彩，得到 Intensity Map 和 HV Color Map。</p>
+<p>随后在 HVI 空间中通过双分支网络进行增强，其中 HV 分支用来抑制暗部的噪声和色度，利用 I 分支来估计整个图像的照度，进行亮度增强。两分支通过 LCA 模块进行交互，避免全局色偏。</p>
+<p>最后通过感知逆 HVI 变换（PHVIT）将增强结果映射回 sRGB 空间，得到无色偏、无伪影的增强图像。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://blog-hexo-img.oss-cn-shanghai.aliyuncs.com/20251019004110356.webp" alt=""></p>
+<p>可以看到，中间这个双分支网络基于 Unet 架构构建，包含1个编码器和1个解码器，有3个下采样层和3个上采样层，每层都配备了1个轻量交叉注意力（LCA）模块，以及多个跳跃连接。</p>
+<p>这样的设计打破了单分支自注意力局限，利用 “光照与噪声负相关” 特性，引导 HV-branch 针对性降噪（高光区少降噪、低光区多降噪），同时将 HV-branch 降噪后的信息反馈给 I-branch，避免亮度过度增强。</p>
+<p>双分支分别优化色彩与强度，LCA 模块实现特征互导，确保色彩降噪与亮度增强同步优化，避免各自为战导致的色偏或亮度伪影。</p>
+<h2 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h2><p>为了对 CIDNet 的训练提供全面监督，我们从两个关键角度指导增强过程，包括 sRGB 空间中的真实值（GroundTruth）和 HVI 空间中的 HVI 图。</p>
+<script type="math/tex; mode=display">
+L=\lambda l(\hat{I}_{HVI},I_{HVI})+l(\hat{I},I)</script><p>其中，λ 是一个加权超参数，用于平衡两个不同颜色空间中的损失。</p>
+<script type="math/tex; mode=display">
+l(\hat{X}_{HVI},X_{HVI})=\lambda_1\cdot L_1(\hat{X}_{HVI},X_{HVI})+\lambda_d\cdot L_d(\hat{X}_{HVI},X_{HVI})+\lambda_e\cdot L_e(\hat{X}_{HVI},X_{HVI})+\lambda_p\cdot L_p(\hat{X}_{HVI},X_{HVI})</script><p>该设计以双空间混合框架打通 “低光噪声抑制” 与 “像素细节保留” 的协同路径，以多损失项组合覆盖 “客观误差 - 结构 - 边缘 - 感知” 的全维度监督需求。</p>
+<h2 id="数据集"><a href="#数据集" class="headerlink" title="数据集"></a>数据集</h2><p>采用了七个常用的低光图像增强基准数据集进行评估，包括 LOLv1、LOLv2、DICM、LIME、MEF、NPE 和 VV。（DICM、LIME、MEF、NPE 和 VV 为非配对数据集）</p>
+<p>同时还在两个极端数据集上进行了进一步的实验，分别是 SICE（包含混合测试集和梯度测试集）和 SID（索尼全暗）。</p>
+<h2 id="实验效果"><a href="#实验效果" class="headerlink" title="实验效果"></a>实验效果</h2><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://blog-hexo-img.oss-cn-shanghai.aliyuncs.com/20251019004146208.webp" alt=""></p>
+<h3 id="HVI插件"><a href="#HVI插件" class="headerlink" title="HVI插件"></a>HVI插件</h3><p>HVI 作为插件使用，显著提升 SOTA 算法性能。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://blog-hexo-img.oss-cn-shanghai.aliyuncs.com/20251019004230823.webp" alt=""></p>
+<h3 id="消融实验"><a href="#消融实验" class="headerlink" title="消融实验"></a>消融实验</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://blog-hexo-img.oss-cn-shanghai.aliyuncs.com/20251019004237610.webp" alt=""></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
+<li>实验证明 HVI + CIDNet 在 10 个数据集上超越现有 SOTA 方法，同时参数量小（1.88M）且计算量低（7.57 GFLOPs）；</li>
+<li>跨方法泛化：HVI 与不同网络架构兼容，可将其作为插件模块使用，能解决各类方法的共性噪声问题；</li>
+<li>跨任务泛化：HVI 不仅适用于 LLIE，还可扩展至低光去模糊、图像降噪，证明其在低层级视觉任务中的通用价值。</li>
+</ul>
+<h2 id="不足"><a href="#不足" class="headerlink" title="不足"></a>不足</h2><ul>
+<li>未探索比正弦函数更优的 C_k 表达式；</li>
+<li>未验证 HVI 在目标检测、分割等高层视觉任务的适用性；</li>
+<li>仅采用监督训练，未探索无监督或半监督范式。</li>
+</ul>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%AE%89%E5%A4%A7/">安大</a><a class="post-meta__tags" href="/tags/%E8%AE%BA%E6%96%87/">论文</a></div><div class="post_share"></div></div><div class="post-copyright"><div class="post-copyright__title"><span class="post-copyright-meta">文章标题: </span><span class="post-copyright-info">【CVPR2025】低光图像增强HVI-CIDNet</span></div><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://blog.cancin.cn">南方嘉木</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://blog.cancin.cn/post/98e97756.html">https://blog.cancin.cn/post/98e97756.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://blog.cancin.cn" target="_blank">参星阁</a>！</span></div></div><div class="post-reward"><div class="like-button" onclick="ctrl.sendArticleLike()"><i class="fas fa-thumbs-up"></i> 赞 <span class="like-count">0</span><span class="load"><i class="fas fa-spinner fa-spin"></i></span></div><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏<div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://registry.npmmirror.com/cansin-blogdata/latest/files/img/Gy9bG.webp" data-fancybox="gallery" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://registry.npmmirror.com/cansin-blogdata/latest/files/img/Gy9bG.webp" alt="支付宝Alipay"/></a><div class="post-qr-code-desc">支付宝Alipay</div></li><li class="reward-item"><a href="https://registry.npmmirror.com/cansin-blogdata/latest/files/img/Gyf6M.webp" data-fancybox="gallery" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://registry.npmmirror.com/cansin-blogdata/latest/files/img/Gyf6M.webp" alt="微信WeChat"/></a><div class="post-qr-code-desc">微信WeChat</div></li></ul></div></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/post/9417439c.html"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">2025年10月记事</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/post/9417439c.html" title="2025年10月记事"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://registry.npmmirror.com/cansin-blogdata/latest/files/img/202309241321061.webp" alt="cover"><div class="content is-center"><div class="title">2025年10月记事</div><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-10-02</div></div></a></div><div><a href="/post/d70b5175.html" title="2025年9月记事"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://registry.npmmirror.com/cansin-blogdata/latest/files/img/202309241321061.webp" alt="cover"><div class="content is-center"><div class="title">2025年9月记事</div><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-09-01</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comment-dots fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-bg"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://registry.npmmirror.com/cansin-blogdata/3.0.73/files/img/QEhcc.webp" onerror="this.onerror=null;this.src='/img/loading.svg'" alt="作者卡片背景图"/></div><div class="author-avatar"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://registry.npmmirror.com/cansin-blogdata/latest/files/img/GZRKN.jpg" onerror="this.onerror=null;this.src='/img/loading.svg'" alt="avatar"/></div><div class="author-info-name">南方嘉木</div><div class="author-info-desc">不畏将来，不念过往。</div><div class="blog-info c-c"><a class="c-c" href="/archives/"><span class="blog-info-num">50</span><span class="blog-info-headline">文章</span></a><a class="c-c" href="/tags/"><span class="blog-info-num">23</span><span class="blog-info-headline">标签</span></a><a class="c-c" href="/categories/"><span class="blog-info-num">8</span><span class="blog-info-headline">分类</span></a></div><div class="card-btns c-c"><a class="btn-left c-c" target="_blank" rel="noopener" href="https://github.com/Gavin-Meskin-Chen"><i class="blogfont icon-github"></i><span>Follow</span></a><a class="btn-right c-c" href="mailto:gavin.meskin.chen@gmail.com"><i class="blogfont icon-Mail"></i><span>Email</span></a></div><div class="author-info-social"><div class="social-icons"><a class="social-icon" href="http://wpa.qq.com/msgrd?v=3&amp;uin=2443518835&amp;site=qq&amp;menu=yes" target="_blank" title="QQ：2443518835"><i class="blogfont icon-qq"></i></a><a class="social-icon" href="https://space.bilibili.com/358549836" target="_blank" title="哔哩哔哩：参星阁主"><i class="blogfont icon-bilibili"></i></a><a class="social-icon" href="https://weibo.com/gavinmeskinchen" target="_blank" title="新浪微博：参星阁主"><i class="blogfont icon-weibo"></i></a><a class="social-icon" href="https://steamcommunity.com/profiles/76561199141083255/myworkshopfiles/" target="_blank" title="Steam：南方嘉木"><i class="blogfont icon-steam"></i></a></div><a class="more-info c-c" onclick="ctrl.toggleSocial()"><i class="blogfont icon-more-1"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content"><p align="center">暂无公告</p></div></div><div class="card-widget card-times" id="card-widget-calendar"><div class="item-headline"><i></i><span></span></div><div class="item-content"><div id="calendar-area-left"> <div id="calendar-week"></div> <div id="calendar-date"></div> <div id="calendar-solar"></div> <div id="calendar-lunar"></div> </div> <div id="calendar-area-right"> <div id="calendar-main"> <div class="calendar-rh"> <div class="calendar-d0"><a>日</a></div> <div class="calendar-d1"><a>一</a></div> <div class="calendar-d2"><a>二</a></div> <div class="calendar-d3"><a>三</a></div> <div class="calendar-d4"><a>四</a></div> <div class="calendar-d5"><a>五</a></div> <div class="calendar-d6"><a>六</a></div> </div> </div> </div></div></div><div class="card-widget card-times" id="card-widget-schedule"><div class="item-headline"><i></i><span></span></div><div class="item-content"><div id="schedule-area-left"> <div id="schedule-title">距离XX</div> <div id="schedule-days">000</div> <div id="schedule-date">0000-00-00</div> </div> <div id="schedule-area-right"> <div class="schedule-r0"> <div class="schedule-d0">本年</div> <div class="schedule-d1"> <span id="p_span_year" class="aside-span1"></span> <span class="aside-span2"></span> <progress max="365" value="54" id="pBar_year"></progress> </div> </div> <div class="schedule-r1"> <div class="schedule-d0">本月</div> <div class="schedule-d1"> <span id="p_span_month" class="aside-span1"></span> <span class="aside-span2"></span> <progress max="30" value="17" id="pBar_month"></progress> </div> </div> <div class="schedule-r2"> <div class="schedule-d0">本周</div> <div class="schedule-d1"> <span id="p_span_week" class="aside-span1"></span> <span class="aside-span2"></span> <progress max="7" value="1" id="pBar_week"></progress> </div> </div> </div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A0%94%E7%A9%B6%E8%83%8C%E6%99%AF"><span class="toc-number">1.</span> <span class="toc-text">研究背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%9C%E8%89%B2%E7%A9%BA%E9%97%B4"><span class="toc-number">2.</span> <span class="toc-text">颜色空间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HVI%EF%BC%88Horizontal-Vertical-Intensity%EF%BC%89"><span class="toc-number">3.</span> <span class="toc-text">HVI（Horizontal&#x2F;Vertical-Intensity）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%81%E5%8C%96-HS-%E6%98%A0%E5%B0%84"><span class="toc-number">3.1.</span> <span class="toc-text">极化 HS 映射</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C-k-%E5%87%BD%E6%95%B0"><span class="toc-number">3.2.</span> <span class="toc-text">C_k 函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CIDNet%EF%BC%88Color-and-Intensity-Decoupling-Network%EF%BC%89"><span class="toc-number">4.</span> <span class="toc-text">CIDNet（Color and Intensity Decoupling Network）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0"><span class="toc-number">5.</span> <span class="toc-text">损失函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="toc-number">6.</span> <span class="toc-text">数据集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E6%95%88%E6%9E%9C"><span class="toc-number">7.</span> <span class="toc-text">实验效果</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HVI%E6%8F%92%E4%BB%B6"><span class="toc-number">7.1.</span> <span class="toc-text">HVI插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B6%88%E8%9E%8D%E5%AE%9E%E9%AA%8C"><span class="toc-number">7.2.</span> <span class="toc-text">消融实验</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">8.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8D%E8%B6%B3"><span class="toc-number">9.</span> <span class="toc-text">不足</span></a></li></ol></div></div><div class="card-widget card-archives"><div class="card-archive-calendar">
+    <div class="card-archive-calendar-head">
+      <button class="card-archive-calendar-left" onclick="ctrl.card_archive_calendar_prev(event)">
+        <i class="fas fa-angle-left"></i>
+      </button>
+      <div class="card-archive-calendar-center">
+        <div class="card-archive-calendar-years" style="transform: translateX(0px);"><a class="card-archive-calendar-year-item" href="/archives/2023/">
+              <span class="card-archive-calendar-year">2023</span>
+              <span class="card-archive-calendar-year-count">[27]</span>
+            </a><a class="card-archive-calendar-year-item" href="/archives/2024/">
+              <span class="card-archive-calendar-year">2024</span>
+              <span class="card-archive-calendar-year-count">[7]</span>
+            </a><a class="card-archive-calendar-year-item" href="/archives/2025/">
+              <span class="card-archive-calendar-year">2025</span>
+              <span class="card-archive-calendar-year-count">[16]</span>
+            </a></div>
+      </div>
+      <button class="card-archive-calendar-right no-event" onclick="ctrl.card_archive_calendar_next(event)">
+        <i class="fas fa-angle-right"></i>
+      </button>
+    </div>
+    <div class="card-archive-calendar-body">
+      <div class="card-archive-calendar-pages" style="transform: translateX(0px);"><div class="card-archive-calendar-page"><a class="card-archive-calendar-month-item" href="/archives/2023/01/"><span class="card-archive-calendar-month">一月</span>
+                <span class="card-archive-calendar-month-count">7篇</span>
+              </a><a class="card-archive-calendar-month-item" href="/archives/2023/02/"><span class="card-archive-calendar-month">二月</span>
+                <span class="card-archive-calendar-month-count">2篇</span>
+              </a><a class="card-archive-calendar-month-item" href="/archives/2023/03/"><span class="card-archive-calendar-month">三月</span>
+                <span class="card-archive-calendar-month-count">2篇</span>
+              </a><a class="card-archive-calendar-month-item no-link"><span class="card-archive-calendar-month">四月</span>
+                <span class="card-archive-calendar-month-count">0篇</span>
+              </a><a class="card-archive-calendar-month-item" href="/archives/2023/05/"><span class="card-archive-calendar-month">五月</span>
+                <span class="card-archive-calendar-month-count">1篇</span>
+              </a><a class="card-archive-calendar-month-item no-link"><span class="card-archive-calendar-month">六月</span>
+                <span class="card-archive-calendar-month-count">0篇</span>
+              </a><a class="card-archive-calendar-month-item" href="/archives/2023/07/"><span class="card-archive-calendar-month">七月</span>
+                <span class="card-archive-calendar-month-count">9篇</span>
+              </a><a class="card-archive-calendar-month-item" href="/archives/2023/08/"><span class="card-archive-calendar-month">八月</span>
+                <span class="card-archive-calendar-month-count">3篇</span>
+              </a><a class="card-archive-calendar-month-item" href="/archives/2023/09/"><span class="card-archive-calendar-month">九月</span>
+                <span class="card-archive-calendar-month-count">2篇</span>
+              </a><a class="card-archive-calendar-month-item" href="/archives/2023/10/"><span class="card-archive-calendar-month">十月</span>
+                <span class="card-archive-calendar-month-count">1篇</span>
+              </a><a class="card-archive-calendar-month-item no-link"><span class="card-archive-calendar-month">十一月</span>
+                <span class="card-archive-calendar-month-count">0篇</span>
+              </a><a class="card-archive-calendar-month-item no-link"><span class="card-archive-calendar-month">十二月</span>
+                <span class="card-archive-calendar-month-count">0篇</span>
+              </a></div><div class="card-archive-calendar-page"><a class="card-archive-calendar-month-item" href="/archives/2024/01/"><span class="card-archive-calendar-month">一月</span>
+                <span class="card-archive-calendar-month-count">4篇</span>
+              </a><a class="card-archive-calendar-month-item no-link"><span class="card-archive-calendar-month">二月</span>
+                <span class="card-archive-calendar-month-count">0篇</span>
+              </a><a class="card-archive-calendar-month-item no-link"><span class="card-archive-calendar-month">三月</span>
+                <span class="card-archive-calendar-month-count">0篇</span>
+              </a><a class="card-archive-calendar-month-item no-link"><span class="card-archive-calendar-month">四月</span>
+                <span class="card-archive-calendar-month-count">0篇</span>
+              </a><a class="card-archive-calendar-month-item no-link"><span class="card-archive-calendar-month">五月</span>
+                <span class="card-archive-calendar-month-count">0篇</span>
+              </a><a class="card-archive-calendar-month-item" href="/archives/2024/06/"><span class="card-archive-calendar-month">六月</span>
+                <span class="card-archive-calendar-month-count">1篇</span>
+              </a><a class="card-archive-calendar-month-item no-link"><span class="card-archive-calendar-month">七月</span>
+                <span class="card-archive-calendar-month-count">0篇</span>
+              </a><a class="card-archive-calendar-month-item no-link"><span class="card-archive-calendar-month">八月</span>
+                <span class="card-archive-calendar-month-count">0篇</span>
+              </a><a class="card-archive-calendar-month-item" href="/archives/2024/09/"><span class="card-archive-calendar-month">九月</span>
+                <span class="card-archive-calendar-month-count">2篇</span>
+              </a><a class="card-archive-calendar-month-item no-link"><span class="card-archive-calendar-month">十月</span>
+                <span class="card-archive-calendar-month-count">0篇</span>
+              </a><a class="card-archive-calendar-month-item no-link"><span class="card-archive-calendar-month">十一月</span>
+                <span class="card-archive-calendar-month-count">0篇</span>
+              </a><a class="card-archive-calendar-month-item no-link"><span class="card-archive-calendar-month">十二月</span>
+                <span class="card-archive-calendar-month-count">0篇</span>
+              </a></div><div class="card-archive-calendar-page"><a class="card-archive-calendar-month-item" href="/archives/2025/01/"><span class="card-archive-calendar-month">一月</span>
+                <span class="card-archive-calendar-month-count">2篇</span>
+              </a><a class="card-archive-calendar-month-item" href="/archives/2025/02/"><span class="card-archive-calendar-month">二月</span>
+                <span class="card-archive-calendar-month-count">1篇</span>
+              </a><a class="card-archive-calendar-month-item" href="/archives/2025/03/"><span class="card-archive-calendar-month">三月</span>
+                <span class="card-archive-calendar-month-count">1篇</span>
+              </a><a class="card-archive-calendar-month-item" href="/archives/2025/04/"><span class="card-archive-calendar-month">四月</span>
+                <span class="card-archive-calendar-month-count">3篇</span>
+              </a><a class="card-archive-calendar-month-item" href="/archives/2025/05/"><span class="card-archive-calendar-month">五月</span>
+                <span class="card-archive-calendar-month-count">3篇</span>
+              </a><a class="card-archive-calendar-month-item" href="/archives/2025/06/"><span class="card-archive-calendar-month">六月</span>
+                <span class="card-archive-calendar-month-count">1篇</span>
+              </a><a class="card-archive-calendar-month-item" href="/archives/2025/07/"><span class="card-archive-calendar-month">七月</span>
+                <span class="card-archive-calendar-month-count">1篇</span>
+              </a><a class="card-archive-calendar-month-item" href="/archives/2025/08/"><span class="card-archive-calendar-month">八月</span>
+                <span class="card-archive-calendar-month-count">1篇</span>
+              </a><a class="card-archive-calendar-month-item" href="/archives/2025/09/"><span class="card-archive-calendar-month">九月</span>
+                <span class="card-archive-calendar-month-count">1篇</span>
+              </a><a class="card-archive-calendar-month-item" href="/archives/2025/10/"><span class="card-archive-calendar-month">十月</span>
+                <span class="card-archive-calendar-month-count">2篇</span>
+              </a><a class="card-archive-calendar-month-item no-link"><span class="card-archive-calendar-month">十一月</span>
+                <span class="card-archive-calendar-month-count">0篇</span>
+              </a><a class="card-archive-calendar-month-item no-link"><span class="card-archive-calendar-month">十二月</span>
+                <span class="card-archive-calendar-month-count">0篇</span>
+              </a></div></div>
+      </div>
+    </div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="aside-list-item-head" href="/post/98e97756.html" title="【CVPR2025】低光图像增强HVI-CIDNet"></a><a class="thumbnail" href="/post/98e97756.html" title="【CVPR2025】低光图像增强HVI-CIDNet"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://registry.npmmirror.com/cansin-blogdata/latest/files/img/cover/水-1.webp" onerror="this.onerror=null;this.src='/img/loading.svg'" alt="【CVPR2025】低光图像增强HVI-CIDNet"/></a><div class="content"><a class="title" href="/post/98e97756.html" title="【CVPR2025】低光图像增强HVI-CIDNet">【CVPR2025】低光图像增强HVI-CIDNet</a><time datetime="2025-10-18T15:53:42.000Z" title="发表于 2025-10-18 23:53:42">2025-10-18</time></div></div><div class="aside-list-item"><a class="aside-list-item-head" href="/post/9417439c.html" title="2025年10月记事"></a><a class="thumbnail" href="/post/9417439c.html" title="2025年10月记事"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://registry.npmmirror.com/cansin-blogdata/latest/files/img/202309241321061.webp" onerror="this.onerror=null;this.src='/img/loading.svg'" alt="2025年10月记事"/></a><div class="content"><a class="title" href="/post/9417439c.html" title="2025年10月记事">2025年10月记事</a><time datetime="2025-10-02T08:06:49.000Z" title="发表于 2025-10-02 16:06:49">2025-10-02</time></div></div><div class="aside-list-item"><a class="aside-list-item-head" href="/post/d70b5175.html" title="2025年9月记事"></a><a class="thumbnail" href="/post/d70b5175.html" title="2025年9月记事"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://registry.npmmirror.com/cansin-blogdata/latest/files/img/202309241321061.webp" onerror="this.onerror=null;this.src='/img/loading.svg'" alt="2025年9月记事"/></a><div class="content"><a class="title" href="/post/d70b5175.html" title="2025年9月记事">2025年9月记事</a><time datetime="2025-09-01T15:50:44.000Z" title="发表于 2025-09-01 23:50:44">2025-09-01</time></div></div><div class="aside-list-item"><a class="aside-list-item-head" href="/post/38c93a4b.html" title="2025年8月记事"></a><a class="thumbnail" href="/post/38c93a4b.html" title="2025年8月记事"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://registry.npmmirror.com/cansin-blogdata/latest/files/img/202309241321061.webp" onerror="this.onerror=null;this.src='/img/loading.svg'" alt="2025年8月记事"/></a><div class="content"><a class="title" href="/post/38c93a4b.html" title="2025年8月记事">2025年8月记事</a><time datetime="2025-08-01T14:57:54.000Z" title="发表于 2025-08-01 22:57:54">2025-08-01</time></div></div><div class="aside-list-item"><a class="aside-list-item-head" href="/post/c9c261c6.html" title="2025年7月记事"></a><a class="thumbnail" href="/post/c9c261c6.html" title="2025年7月记事"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://registry.npmmirror.com/cansin-blogdata/latest/files/img/202309241321061.webp" onerror="this.onerror=null;this.src='/img/loading.svg'" alt="2025年7月记事"/></a><div class="content"><a class="title" href="/post/c9c261c6.html" title="2025年7月记事">2025年7月记事</a><time datetime="2025-07-01T00:48:33.000Z" title="发表于 2025-07-01 08:48:33">2025-07-01</time></div></div><div class="aside-list-item"><a class="aside-list-item-head" href="/post/26000af8.html" title="2025年6月记事"></a><a class="thumbnail" href="/post/26000af8.html" title="2025年6月记事"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://registry.npmmirror.com/cansin-blogdata/latest/files/img/202309241321061.webp" onerror="this.onerror=null;this.src='/img/loading.svg'" alt="2025年6月记事"/></a><div class="content"><a class="title" href="/post/26000af8.html" title="2025年6月记事">2025年6月记事</a><time datetime="2025-06-01T14:49:53.000Z" title="发表于 2025-06-01 22:49:53">2025-06-01</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="footer-box" id="footer-left"><div class="copyright">Copyright &copy; 2023 - 2025 By 南方嘉木. All rights reserved.</div><div class="footer_custom_text"><a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/#/Integrated/index"><span>皖ICP备2023010407号-1</span></a><span class="footer-separator">|</span><a href="https://icp.gov.moe/?keyword=20230107" target="_blank"><span>萌ICP备20230107号</span></a></div></div><div class="footer-box" id="footer-right"><div id="count-time" title="已运行时长"></div><div class="framework-info"><a target="_blank" rel="noopener" href="https://status.cancin.cn" title="监控">天机</a><span class="footer-separator">|</span><a href="/atom.xml" title="订阅">RSS</a><span class="footer-separator">|</span><a target="_blank" rel="noopener" href="https://hexo.io" title="框架">Hexo</a><span class="footer-separator">|</span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly" title="主题">Butterfly</a></div></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"></div><div id="rightside-config-show"><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comment-dots"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i><span id="percent">0</span></button><button id="go-down" type="button" title="直达底部" onclick="btf.scrollToDest(document.body.scrollHeight, 500)"><i class="fas fa-arrow-down"></i></button></div></div><div class="eject c-c" id="console"><div class="eject-head"><span>控制中心</span><div class="eject-head-btns c-c"><div class="settings-btn"><i class="blogfont icon-settings"></i></div><div class="close-btn" onclick="ctrl.hideConsole()"><i class="blogfont icon-list-delete-color"></i></div></div></div><div class="console-mainbox" id="console-music-item-main"><div class="cover-shadow"></div><div id="console-music-cover"></div><div id="console-music-title"><a id="console-music-title-text" style="display:inline-block;">曲名</a></div><div id="console-music-author"><a id="console-music-author-text" style="display:inline-block;">作者</a></div><div class="console-progressbar-div"><div id="progress-low"><a id="progress-low-btn">--:--</a></div><div id="music-progressbar"><div id="p_bar_bg"><div id="p_bar"></div></div></div><div id="progress-high"><a id="progress-high-btn">--:--</a></div></div><div id="console-music-ctrl-btns"><div id="music-ctrl-first"><a class="console-music-ctrl-btn" id="music-ctrl-btn-first" title="随机/顺序"><i class="blogfont icon-loop-play"></i></a></div><div id="music-ctrl-left"><a class="console-music-ctrl-btn" id="music-ctrl-btn-left" onclick="ctrl.musicBackward()" title="上一曲" href="javascript:void(0);" rel="external nofollow" data-pjax-state="external"><i class="blogfont icon-play-back"></i></a></div><div id="music-ctrl-center"><a class="console-music-ctrl-btn" id="music-ctrl-btn-center" onclick="ctrl.musicSwitch()" title="播放/暂停" href="javascript:void(0);" rel="external nofollow" data-pjax-state="external"><i class="blogfont icon-play"></i></a></div><div id="music-ctrl-right"><a class="console-music-ctrl-btn" id="music-ctrl-btn-right" onclick="ctrl.musicForward()" title="下一曲" href="javascript:void(0);" rel="external nofollow" data-pjax-state="external"><i class="blogfont icon-play-forward"></i></a></div><div id="music-ctrl-end"><a class="console-music-ctrl-btn" id="music-ctrl-btn-end" title="歌单"><i class="blogfont icon-view-list"></i></a></div></div><div class="console-progressbar-div"><div id="volume-low"><a id="volume-low-btn"><i class="blogfont icon-volume-down"></i></a></div><div id="music-volumebar"><div id="v_bar_bg"><div id="v_bar"></div></div></div><div id="volume-high"><a id="volume-high-btn"><i class="blogfont icon-volume-high"></i></a></div></div></div><div class="console-mainbox" id="console-music-item-list"><div class="console-list-head"><a class="headline">当前歌单</a><a class="footline" id="music-list-title"><i class="blogfont icon-spinner"></i>&nbsp;幻音坊</a></div><div class="console-list-body"><ol id="console-music-list"></ol></div><div class="console-list-foot"></div></div><div class="console-mainbox" id="console-songsheet-item-list"><div class="console-list-head"><a class="headline">歌单列表</a><a class="footline" id="songsheet-title"><i class="blogfont icon-music"></i></a></div><div class="console-list-body"><ol id="console-songsheet-list"><li id="songsheet-1"><div class="songsheet-info1"><a class="list-music-id">1</a></div><div class="songsheet-info2"><img class="list-songsheet-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://registry.npmmirror.com/cansin-blogdata/3.0.73/files/img/dWNfb.webp" alt="album cover"><a class="list-songsheet-title">周杰伦</a></div></li><li id="songsheet-2"><div class="songsheet-info1"><a class="list-music-id">2</a></div><div class="songsheet-info2"><img class="list-songsheet-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://p1.music.126.net/XsH_ayA3tMyEB6W1fBDvgw==/109951168224569553.jpg?param=200y200" alt="album cover"><a class="list-songsheet-title">薛之谦/李荣浩</a></div></li><li id="songsheet-3"><div class="songsheet-info1"><a class="list-music-id">3</a></div><div class="songsheet-info2"><img class="list-songsheet-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://p1.music.126.net/gBheo3gxKcBkHvM2yHHong==/83562883724662.jpg?param=200y200" alt="album cover"><a class="list-songsheet-title">纯音乐</a></div></li><li id="songsheet-4"><div class="songsheet-info1"><a class="list-music-id">4</a></div><div class="songsheet-info2"><img class="list-songsheet-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://p1.music.126.net/NntpAwdmeoD1szHvaNiGDA==/109951163650014211.jpg?param=200y200" alt="album cover"><a class="list-songsheet-title">外语</a></div></li><li id="songsheet-5"><div class="songsheet-info1"><a class="list-music-id">5</a></div><div class="songsheet-info2"><img class="list-songsheet-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="http://p2.music.126.net/XE1XFkkDYrEW_eXFFlsSYQ==/109951164202821890.jpg?param=130y130" alt="album cover"><a class="list-songsheet-title">古风</a></div></li><li id="songsheet-6"><div class="songsheet-info1"><a class="list-music-id">6</a></div><div class="songsheet-info2"><img class="list-songsheet-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://p1.music.126.net/jf9AKdBNTc1fR5PNQmqe8g==/109951166234023197.jpg?param=200y200" alt="album cover"><a class="list-songsheet-title">默认歌单</a></div></li><li id="songsheet-add"><a><i class="blogfont icon-add"></i></a></li></ol></div><div class="console-list-foot"></div></div><div id="console-loading-icon"><i class="spinner"></i></div><div class="console-mainbox" id="console-settings"><div class="console-list-head"><a class="headline">设置</a><a class="footline"></a></div><div class="console-list-body"><ol id="console-settings-list"><li id="li-set-notice"><div class="setting-info1"><a class="setting-icon"><i class="blogfont icon-ring-on"></i></a></div><div class="setting-info2"><a class="setting-name">通知</a><div class="setting-switch"><label class="gavin-switch" id="set-switch-notice"><input type="checkbox" checked></label></div></div></li><li id="li-set-music"><div class="setting-info1"><a class="setting-icon"><i class="blogfont icon-music"></i></a></div><div class="setting-info2"><a class="setting-name">在线音乐</a><div class="setting-switch"><label class="gavin-switch" id="set-switch-music"><input type="checkbox"></label></div></div></li><li id="li-set-display"><div class="setting-info1"><a class="setting-icon"><i class="blogfont icon-eye"></i></a></div><div class="setting-info2"><a class="setting-name">显示和文本</a><a class="setting-next"><i class="blogfont icon-arrow-right"></i></a></div></li><li id="li-set-tools"><div class="setting-info1"><a class="setting-icon"><i class="blogfont icon-quickstart"></i></a></div><div class="setting-info2"><a class="setting-name">辅助功能</a><a class="setting-next"><i class="blogfont icon-arrow-right"></i></a></div></li><li id="li-set-about"><div class="setting-info1"><a class="setting-icon"><i class="blogfont icon-detail"></i></a></div><div class="setting-info2"><a class="setting-name">关于本机</a><a class="setting-next"><i class="blogfont icon-arrow-right"></i></a></div></li></ol></div><div class="console-list-foot"></div></div><div class="console-mainbox" id="console-setting-info1"><div class="console-list-head"><a class="headline">设置</a><a class="footline setting-title"></a></div><div class="console-list-body"><div class="set-box-large"><a id="set-theme-light"><img class="set-theme-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://registry.npmmirror.com/cansin-blogdata/3.0.73/files/img/fxkHr.webp" alt="浅色模式"><text>浅色</text><input type="radio" name="set-theme"></a><a id="set-theme-dark"><img class="set-theme-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://registry.npmmirror.com/cansin-blogdata/3.0.73/files/img/fxb1c.webp" alt="深色模式"><text>深色</text><input type="radio" name="set-theme" checked></a></div><div class="set-box-normal"><a class="setting-name">跟随系统</a><div class="setting-switch"><label class="gavin-switch" id="set-switch-systheme"><input type="checkbox" checked></label></div></div><div class="set-box-normal"><a class="setting-name">主题色</a><div class="setting-right"><div class="theme-color-1 checked" onclick="ctrl.changeThemeColor(1);if(set_notice.checked)tools.showMessage('主题色已刷新','success',2);" title="默认"><div class="theme-color-top"></div><div class="theme-color-bottom"></div></div><div class="theme-color-2" onclick="ctrl.changeThemeColor(2);if(set_notice.checked)tools.showMessage('主题色已刷新','success',2);" title="Logi"><div class="theme-color-top"></div><div class="theme-color-bottom"></div></div><div class="theme-color-3" onclick="ctrl.changeThemeColor(3);if(set_notice.checked)tools.showMessage('主题色已刷新','success',2);" title="iOS"><div class="theme-color-top"></div><div class="theme-color-bottom"></div></div></div></div><div class="set-box-normal"><a class="setting-name">侧边栏位置</a><div class="setting-select-bar" id="set-aside-direction"><div class="label-select c-c left active" onclick="ctrl.asideContentDirection();if(set_notice.checked)tools.showMessage(&quot;侧边栏已靠左&quot;,&quot;success&quot;,2);">左</div><div class="label-select c-c right" onclick="ctrl.asideContentDirection();if(set_notice.checked)tools.showMessage(&quot;侧边栏已靠右&quot;,&quot;success&quot;,2);">右</div><div class="label-active"></div></div></div><div class="set-box-medium"><a class="setting-name-1">字体大小</a><div class="gavin-slider" id="set-font-size"><a>小</a><input type="range" min="14" max="18" value="16" step="1"><a>大</a></div></div></div><div class="console-list-foot"></div></div><div class="console-mainbox" id="console-setting-info2"><div class="console-list-head"><a class="headline">设置</a><a class="footline setting-title"></a></div><div class="console-list-body"><div id="set-sys-logo"></div><div class="set-box-normal"><a class="setting-name-2">软件版本</a><a class="setting-detail">参星阁 4.0</a></div><div class="set-box-normal"><a class="setting-name-2">设备信息</a><a class="setting-detail"></a></div><div class="set-box-normal"><a class="setting-name-2">系统版本</a><a class="setting-detail"></a></div><div class="set-box-normal"><a class="setting-name-2">内核版本</a><a class="setting-detail"></a></div></div><div class="console-list-foot"></div></div><div class="console-mainbox" id="console-setting-info3"><div class="console-list-head"><a class="headline">设置</a><a class="footline setting-title"></a></div><div class="console-list-body"><div class="set-box-normal"><a class="setting-name">实时帧率</a><div class="setting-switch"><label class="gavin-switch" id="set-switch-fps"><input type="checkbox"></label></div></div><div class="set-box-normal"><a class="setting-name">滚动条显示</a><div class="setting-switch"><label class="gavin-switch" id="set-switch-scroll"><input type="checkbox"></label></div></div><div class="set-box-medium"><a class="setting-name-1">JavaScript调试</a><textarea class="gavin-textarea" id="jsDebugInput" rows="6" placeholder="输入JavaScript代码，Enter运行" onkeydown="ctrl.jsDebug(event)"></textarea><textarea class="gavin-textarea" id="jsDebugOutput" rows="6" placeholder="运行结果" disabled></textarea></div></div><div class="console-list-foot"></div></div><div class="console-btn-group"><div class="console-btn-item" id="darkItem"><a class="switchButton" id="darkSwitchBtn" onclick="ctrl.switchDarkMode()" title="深色模式" href="javascript:void(0);" rel="external nofollow" data-pjax-state="external"><i class="blogfont icon-darkmode" id="iconDarkMode"></i></a></div><div class="console-btn-item" id="charItem"><a class="switchButton" id="charSwitchBtn" type="button" title="簡/繁" href="javascript:void(0);" rel="external nofollow" data-pjax-state="external"><i class="fas" id="iconCharMode" style="font-size:1.5rem;">繁</i></a></div><div class="console-btn-item" id="lrcItem"><a class="switchButton" id="lrcSwitchBtn" onclick="ctrl.lrcShowHide()" title="桌面歌词" href="javascript:void(0);" rel="external nofollow" data-pjax-state="external"><i class="fas" id="iconLrcMode" style="font-size:1.5rem;">词</i></a></div><div class="console-btn-item" id="asideItem"><a class="switchButton" id="asideSwitchBtn" onclick="ctrl.hideAsideBtn()" title="侧边栏" href="javascript:void(0);" rel="external nofollow" data-pjax-state="external"><i class="blogfont icon-aside" id="iconAside"></i></a></div></div><div class="eject-mask" onclick="ctrl.consoleBackBtn()" href="javascript:void(0);" rel="external nofollow"></div></div><div class="eject c-c" id="apps"><div class="eject-head"><span>应用中心</span><div class="eject-head-btns c-c"><div class="close-btn" onclick="ctrl.hideAPPs()" href="javascript:void(0);"><i class="blogfont icon-list-delete-color"></i></div></div></div><div class="apps-content" onclick="ctrl.hideAPPs()" href="javascript:void(0);"><div class="app-box"><div class="app-icon" style="background:url(https://registry.npmmirror.com/cansin-blogdata/latest/files/img/logo%E5%8A%A0%E5%AF%86%E5%B7%A5%E5%85%B7.webp) no-repeat 100% / cover;"><a class="app-link" onclick="ctrl.toggleWinbox(&quot;encryption&quot;)" title="加密工具" target="_blank" rel="noopener nofollow" one-link-mark="yes"></a></div><span class="app-name">加密工具</span></div><div class="app-box"><div class="app-icon" style="background:url(https://registry.npmmirror.com/cansin-blogdata/latest/files/img/logo云剪贴板.webp) no-repeat 100% / cover;"><a class="app-link" onclick="ctrl.toggleWinbox(&quot;clipboard&quot;)" title="云剪贴板" target="_blank" rel="noopener nofollow" one-link-mark="yes"></a></div><span class="app-name">云剪贴板</span></div><div class="app-box"><div class="app-icon" style="background:url(https://registry.npmmirror.com/cansin-blogdata/latest/files/img/CANCIN-0-200.svg) no-repeat 100% / cover;"><a class="app-link" href="https://blog.cancin.cn" title="主线路" target="_blank" one-link-mark="yes"></a></div><span class="app-name">主线路</span><div class="app-mark"><i class="blogfont icon-gallery_set"></i></div></div><div class="app-box"><div class="app-icon" style="background:url(https://registry.npmmirror.com/cansin-blogdata/latest/files/img/CAN-CIN-f-200.svg) no-repeat 100% / cover;"><a class="app-link" href="https://blog.cancin.net" title="国际线路" target="_blank" one-link-mark="yes"></a></div><span class="app-name">国际线路</span><div class="app-mark"><i class="blogfont icon-gallery_set"></i></div></div><div class="app-box"><div class="app-icon" style="background:url(https://registry.npmmirror.com/cansin-blogdata/latest/files/img/logoQQ%E9%9F%B3%E4%B9%90.webp) no-repeat 100% / cover;"><a class="app-link" href="https://qqmusic.cancin.cn" title="幻音坊" target="_blank" rel="noopener nofollow" one-link-mark="yes"></a></div><span class="app-name">幻音坊</span><div class="app-mark"><i class="blogfont icon-gallery_set"></i></div></div><div class="app-box"><div class="app-icon" style="background:url(https://registry.npmmirror.com/cansin-blogdata/latest/files/img/dxfZL.webp) no-repeat 100% / cover;"><a class="app-link" href="https://blogdrive.gavin-chen.top" title="藏兵谷" target="_blank" rel="noopener nofollow" one-link-mark="yes"></a></div><span class="app-name">藏兵谷</span><div class="app-mark"><i class="blogfont icon-gallery_set"></i></div></div><div class="app-box"><div class="app-icon" style="background:url(https://registry.npmmirror.com/cansin-blogdata/latest/files/img/logo哔哩哔哩.webp) no-repeat 100% / cover;"><a class="app-link" href="https://space.bilibili.com/358549836" title="哔哩哔哩" target="_blank" one-link-mark="yes"></a></div><span class="app-name">哔哩哔哩</span><div class="app-mark"><i class="blogfont icon-gallery_set"></i></div></div><div class="app-box"><div class="app-icon" style="background:url(https://registry.npmmirror.com/cansin-blogdata/latest/files/img/logoimagestool.webp) no-repeat 100% / cover;"><a class="app-link" href="https://imagestool.com/zh_CN/" title="imagestool" target="_blank" one-link-mark="yes"></a></div><span class="app-name">imagestool</span><div class="app-mark"><i class="blogfont icon-gallery_set"></i></div></div><div class="app-box"><div class="app-icon" style="background:url(https://registry.npmmirror.com/cansin-blogdata/latest/files/img/logosteam.webp) no-repeat 100% / cover;"><a class="app-link" href="https://steamcommunity.com/profiles/76561199141083255/myworkshopfiles/" title="steam" target="_blank" one-link-mark="yes"></a></div><span class="app-name">steam</span><div class="app-mark"><i class="blogfont icon-gallery_set"></i></div></div><div class="app-box"><div class="app-icon" style="background:url(https://registry.npmmirror.com/cansin-blogdata/latest/files/img/logosina.webp) no-repeat 100% / cover;"><a class="app-link" href="https://weibo.com/gavinmeskinchen" title="新浪微博" target="_blank" one-link-mark="yes"></a></div><span class="app-name">新浪微博</span><div class="app-mark"><i class="blogfont icon-gallery_set"></i></div></div></div><div class="eject-mask" onclick="ctrl.hideAPPs()" href="javascript:void(0);" rel="external nofollow"></div></div><div id="algolia-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="search-wrap"><div id="algolia-search-input"></div><hr/><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-info"><div class="algolia-stats"></div><div class="algolia-poweredBy"></div></div></div></div></div><div id="search-mask"></div></div><div><script src="https://registry.npmmirror.com/cansin-blogdata/latest/files/js/utils.js"></script><script src="https://registry.npmmirror.com/cansin-blogdata/latest/files/js/main.js"></script><script defer src="https://registry.npmmirror.com/cansin-blogdata/latest/files/js/tw_cn.js"></script><script defer src="https://registry.npmmirror.com/@fancyapps/ui/4.0.31/files/dist/fancybox.umd.js"></script><script src="https://registry.npmmirror.com/vanilla-lazyload/17.8.3/files/dist/lazyload.iife.min.js"></script><script defer src="https://registry.npmmirror.com/algoliasearch/4.14.2/files/dist/algoliasearch-lite.umd.js"></script><script defer src="https://registry.npmmirror.com/instantsearch.js/4.49.0/files/dist/instantsearch.production.min.js"></script><script defer src="/js/search/algolia.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        insertScript: [200, () => {
+          document.querySelectorAll('mjx-container').forEach(node => {
+            if (node.hasAttribute('display')) {
+              btf.wrap(node, 'div', { class: 'mathjax-overflow' })
+            } else {
+              btf.wrap(node, 'span', { class: 'mathjax-overflow' })
+            }
+          });
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://registry.npmmirror.com/mathjax/3.2.2/files/es5/tex-mml-chtml.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script><script>(()=>{
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'https://twikoo.cancin.cn/',
+      region: '',
+      onCommentLoaded: function () {
+        btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      }
+    }, null))
+  }
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://twikoo.cancin.cn/',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(function (res) {
+      countELement.innerText = res[0].count
+    }).catch(function (err) {
+      console.error(err);
+    });
+  }
+
+  const runFn = () => {
+    init()
+    GLOBAL_CONFIG_SITE.isPost && getCount()
+  }
+
+  const loadTwikoo = () => {
+    if (typeof twikoo === 'object') {
+      setTimeout(runFn,0)
+      return
+    } 
+    getScript('https://registry.npmmirror.com/cansin-blogdata/latest/files/js/twikoo.all.min.js').then(runFn)
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo()
+  } else {
+    window.loadOtherComment = () => {
+      loadTwikoo()
+    }
+  }
+})()</script></div><script defer src="https://registry.npmmirror.com/jquery/3.6.0/files/dist/jquery.min.js" data-pjax></script><script defer src="https://registry.npmmirror.com/vue/2.6.14/files/dist/vue.min.js"></script><script defer src="https://npm.elemecdn.com/element-ui@2.15.6/lib/index.js"></script><script defer src="https://registry.npmmirror.com/cansin-blogdata/latest/files/js/lunar.min.js"></script><script defer>var ipAPI='https://2025.ipchaxun.com'; var CDNURL='https://registry.npmmirror.com/cansin-blogdata/latest/files';</script><script defer src="https://registry.npmmirror.com/cansin-blogdata/latest/files/js/gavin.min.js"></script><script defer src="https://registry.npmmirror.com/cansin-blogdata/latest/files/js/runtime.min.js"></script><script defer src="https://registry.npmmirror.com/cansin-blogdata/latest/files/js/datasheet.min.js"></script><script async src="https://registry.npmmirror.com/cansin-blogdata/latest/files/js/paint.min.js"></script><script async src="https://cdn2.codesign.qq.com/icons/rzm5q0XWky9RBb6/latest/iconfont.js"></script><script defer src="https://registry.npmmirror.com/cansin-blogdata/latest/files/js/APlayer.min.js" data-pjax></script><script data-pjax>var meting_api='https://api.i-meto.com/meting/api?server=:server&type=:type&id=:id&auth=:auth&r=:r';</script><script async src="https://registry.npmmirror.com/cansin-blogdata/latest/files/js/winbox.bundle.min.js"></script><div class="global-music"> <div class="aplayer"> </div> </div><script> document.addEventListener('DOMContentLoaded', () => { const ap = new APlayer({ container:document.querySelector(".global-music .aplayer"), fixed:true, lrcType:3, volume:0.7, mutex:true, audio:Defaultsheet }); document.querySelector(".global-music").aplayer = ap; }); </script><script async src="https://webapi.amap.com/loader.js"></script><link rel="stylesheet" href="https://registry.npmmirror.com/cansin-blogdata/latest/files/css/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://registry.npmmirror.com/cansin-blogdata/latest/files/js/APlayer.min.js"></script><script src="https://registry.npmmirror.com/cansin-blogdata/latest/files/js/Meting.min.js"></script><script src="https://lib.baomitu.com/pjax/0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//jsd.onmicrosoft.cn/npm/penndu@17.0.0/bsz.js"></script></div></body></html>

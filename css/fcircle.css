@@ -16,12 +16,14 @@ Last Modified time : 20220211 98:00 by https://immmmm.com
     --lmm-background: #fff;
     --lmm-floorcolor: #a9a9b3;
     --gavin-bg-3: rgb(248,248,248);
+    --dis-f-0: #000;
   }
   [data-theme=dark] {
     --lmm-fontcolor: #a9a9b3;
     --lmm-background: #202224;
     --lmm-floorcolor: #454545;
     --gavin-bg-3: rgb(7,7,7);
+    --dis-f-0: #fff;
   }
   /* 基本信息 */
   #cf-state {font-size:16px;border-radius:13px;border: 1px solid var(--gavin-border-color);box-shadow:var(--gavin-shadow-1);margin:0 0 20px;overflow:hidden;display:flex;flex-direction:row;flex-wrap:wrap;padding:8px 0;}
@@ -164,7 +166,7 @@ Last Modified time : 20220211 98:00 by https://immmmm.com
   height: 36px;
   position: absolute;
   cursor: pointer;
-  color: var(--font-color);
+  color: var(--dis-f-0);
   border: 1px solid var(--gavin-border-color);
   box-shadow: var(--gavin-shadow-1);
   background-color: var(--card-bg);

@@ -2124,7 +2124,7 @@ figure.highlight pre .javascript .function {
   cursor: default;
 }
 .article-sort-item-title {
-  color: var(--font-color);
+  color: var(--dis-f-0);
   font-size: 1em;
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
@@ -2169,7 +2169,7 @@ figure.highlight pre .javascript .function {
   padding-inline-start: 0;
 }
 .category-lists .category-list a {
-  color: var(--font-color);
+  color: var(--dis-f-0);
 }
 .category-lists .category-list a:hover {
   color: var(--gavin-highlight);
@@ -2395,7 +2395,7 @@ figure.highlight pre .javascript .function {
   transition: all 0.3s;
 }
 #article-container .flink .flink-list > .flink-list-item a {
-  color: var(--font-color);
+  color: var(--dis-f-0);
   text-decoration: none;
   display: -webkit-box;
   display: -moz-box;
@@ -2819,7 +2819,7 @@ h1.page-title + .tag-cloud-list {
   font-size: 0.95rem !important;
   padding: 0 6px;
   border-radius: 0.4rem;
-  color: var(--font-color) !important;
+  color: var(--dis-f-0) !important;
 }
 #aside-content .card-tag-cloud a:hover {
   background-color: var(--gavin-nav-hover);
@@ -2883,7 +2883,7 @@ h1.page-title + .tag-cloud-list {
 }
 #aside-content .aside-list > .aside-list-item .content > .title,
 #aside-content .aside-list > .aside-list-item .content > .comment {
-  color: var(--font-color);
+  color: var(--dis-f-0);
   font-size: 90%;
   line-height: 1.2;
   -webkit-line-clamp: 2;
@@ -2993,6 +2993,7 @@ h1.page-title + .tag-cloud-list {
   align-items: center;
   padding: 2px 10px 0;
   font-size: 95%;
+  color: var(--dis-f-0);
 }
 #aside-content .card-webinfo .webinfo .webinfo-item div:first-child {
   -webkit-box-flex: 1;
@@ -3157,7 +3158,7 @@ h1.page-title + .tag-cloud-list {
   color: var(--gavin-highlight) !important;
 }
 .site-data > a .headline {
-  color: var(--font-color);
+  color: var(--dis-f-0);
 }
 .site-data > a .length-num {
   margin-top: -0.32em;
@@ -3393,6 +3394,7 @@ h1.page-title + .tag-cloud-list {
   vertical-align: middle;
   font-weight: 700;
   font-size: 1.43em;
+  color: var(--dis-f-0);
 }
 #post-comment .comment-head #comment-switch {
   display: inline-block;
@@ -3644,7 +3646,7 @@ h1.page-title + .tag-cloud-list {
 #page-header.nav-fixed #nav a,
 #page-header.nav-fixed #nav #site-name,
 #page-header.nav-fixed #nav #toggle-menu {
-  color: var(--font-color);
+  color: var(--dis-f-0);
   text-shadow: none;
 }
 #page-header.nav-visible #nav {
@@ -3687,7 +3689,7 @@ h1.page-title + .tag-cloud-list {
 }
 #post-info .post-title {
   margin-bottom: 8px;
-  color: var(--white);
+  color: #fff;
   font-weight: normal;
   font-size: 2.5em;
   line-height: 1.5;
@@ -3852,7 +3854,7 @@ h1.page-title + .tag-cloud-list {
   display: block;
   padding: 0 14px;
   width: 100%;
-  color: var(--font-color) !important;
+  color: var(--dis-f-0) !important;
   text-shadow: none !important;
 }
 #nav.hide-menu #toggle-menu {
@@ -4034,7 +4036,7 @@ h1.page-title + .tag-cloud-list {
 }
 #pagination .prev_info,
 #pagination .next_info {
-  color: var(--font-color);
+  color: var(--dis-f-0);
   font-weight: 700;
 }
 #pagination .next-post .pagination-info {
@@ -4140,7 +4142,7 @@ h1.page-title + .tag-cloud-list {
   transition: filter 375ms ease-in 0.2s;
 }
 #article-container p {
-  margin: 0.85rem 0 0.85rem;
+  margin: 1rem 0 1rem;
 }
 #article-container iframe {
   margin: 0 0 20px;
@@ -4168,11 +4170,11 @@ h1.page-title + .tag-cloud-list {
 }
 #article-container ol li,
 #article-container ul li {
-  margin: 4px 0;
+  margin: 0.5rem 0;
 }
 #article-container ol p,
 #article-container ul p {
-  margin: 8px 0 8px;
+  margin: 0.5rem 0 0.5rem;
 }
 #article-container > :last-child {
   margin-bottom: 0 !important;
@@ -4377,6 +4379,7 @@ h1.page-title + .tag-cloud-list {
   margin-bottom: 5px;
   font-weight: 700;
   font-size: 1.43em;
+  color: var(--dis-f-0);
 }
 .relatedPosts > .relatedPosts-list > div {
   position: relative;
@@ -4710,7 +4713,7 @@ h1.page-title + .tag-cloud-list {
   -webkit-align-items: center;
   align-items: center;
   padding: 3px 30px 3px 18px;
-  color: var(--font-color);
+  color: var(--dis-f-0);
   font-size: 95%;
 }
 #sidebar #sidebar-menus .menus_items .site-page.child {
@@ -6516,21 +6519,71 @@ blockquote.pullquote.right {
   border-color: rgba(103,194,58,0.5);
   background-color: rgba(103,194,58,0.13);
 }
+#article-container blockquote.green p,
+#article-container blockquote.green a {
+  color: rgba(103,194,58,0.85);
+}
+#article-container blockquote.green p b,
+#article-container blockquote.green a b,
+#article-container blockquote.green p strong,
+#article-container blockquote.green a strong {
+  color: #67c23a;
+}
 #article-container blockquote.red {
   border-color: rgba(255,48,55,0.5);
   background-color: rgba(255,48,55,0.13);
+}
+#article-container blockquote.red p,
+#article-container blockquote.red a {
+  color: rgba(255,48,55,0.85);
+}
+#article-container blockquote.red p b,
+#article-container blockquote.red a b,
+#article-container blockquote.red p strong,
+#article-container blockquote.red a strong {
+  color: #ff3037;
 }
 #article-container blockquote.blue {
   border-color: rgba(0,136,255,0.5);
   background-color: rgba(0,136,255,0.13);
 }
+#article-container blockquote.blue p,
+#article-container blockquote.blue a {
+  color: rgba(0,136,255,0.85);
+}
+#article-container blockquote.blue p b,
+#article-container blockquote.blue a b,
+#article-container blockquote.blue p strong,
+#article-container blockquote.blue a strong {
+  color: #08f;
+}
 #article-container blockquote.orange {
   border-color: rgba(255,181,55,0.5);
   background-color: rgba(255,181,55,0.13);
 }
+#article-container blockquote.orange p,
+#article-container blockquote.orange a {
+  color: rgba(255,181,55,0.85);
+}
+#article-container blockquote.orange p b,
+#article-container blockquote.orange a b,
+#article-container blockquote.orange p strong,
+#article-container blockquote.orange a strong {
+  color: #ffb537;
+}
 #article-container blockquote.purple {
   border-color: rgba(169,94,210,0.5);
   background-color: rgba(169,94,210,0.13);
+}
+#article-container blockquote.purple p,
+#article-container blockquote.purple a {
+  color: rgba(169,94,210,0.85);
+}
+#article-container blockquote.purple p b,
+#article-container blockquote.purple a b,
+#article-container blockquote.purple p strong,
+#article-container blockquote.purple a strong {
+  color: #a95ed2;
 }
 #article-container .reference a {
   font-size: 75%;
@@ -8693,7 +8746,7 @@ blockquote.pullquote.right {
   padding: 0;
 }
 #algolia-search .search-dialog .ais-Hits-list a {
-  color: var(--search-result-title);
+  color: var(--dis-f-0);
   font-weight: bold;
   display: inline-block;
   line-height: 1.5;
