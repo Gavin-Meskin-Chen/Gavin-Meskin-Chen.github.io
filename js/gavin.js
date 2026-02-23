@@ -6,7 +6,9 @@ document.addEventListener("DOMContentLoaded", () => {
     asideNote();
     cardRefreshTimes();
     percent();
-    tools.getIp();
+    tools.getOSInfo();
+    tools.getGeoInfo();
+    tools.getUUID();
     ctrl.toPageJump();
     ctrl.getCurrentPage();
     ctrl.refreshLikeCount();
@@ -57,7 +59,9 @@ const marqueeContent1 = document.getElementById('console-music-title-text');
 const marqueeContainer2 = document.getElementById('console-music-author');
 const marqueeContent2 = document.getElementById('console-music-author-text');
 var userInfo;
-var ipAddress = '';
+var OSInfo = '';
+var UUID = '';
+var geoInfo = '';
 var frameCount = 0;
 var startTime = performance.now();
 let animationId;
@@ -435,14 +439,26 @@ var tools = {
     // 第五个是iPad端的Safari浏览器，userAgent的值是：Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.2 Safari/605.1.15，应该识别到Safari浏览器，版本号为17.2，硬件平台是iPad；
     // 第六个是iPad端的Chrome浏览器，userAgent的值是：Mozilla/5.0 (iPad; CPU OS 17_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/119.0.6045.109 Mobile/15E148 Safari/604.1。增加对CriOS字段的匹配，识别为Chrome（iPad版）浏览器，版本号为119.0.6045.109，硬件平台是iPad。
     // 第七个是手机端的小米浏览器，Mozilla/5.0 (Linux; U; Android 13; zh-cn; 22127RK46C Build/TKQ1.220905.001) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/100.0.4896.127 Mobile Safari/537.36 XiaoMi/MiuiBrowser/17.6.70714 swan-mibrowser。增加对MiuiBrowser字段的匹配，识别为小米浏览器，版本号为17.6.70714。
-    getOSInfo() {
+    async getOSInfo() {
         let osName = "unknown";
         let osVersion = "unknown";
         let u = navigator.userAgent;
         if (u.indexOf("Windows") != -1) {
             osName = "Windows";
             if (u.indexOf("Windows NT 10.0") != -1) {
-                osVersion = "10";
+                osVersion = "10"; // 先默认为 10
+                if (navigator.userAgentData && navigator.userAgentData.getHighEntropyValues) {
+                    try {
+                        const hints = await navigator.userAgentData.getHighEntropyValues(["platformVersion"]);
+                        if (hints.platform === "Windows") {
+                            const majorVersion = parseInt(hints.platformVersion.split('.')[0]);
+                            if (majorVersion >= 13) { // 微软规定：Win11 的 platformVersion 始于 13.0.0
+                                osVersion = "11";
+                            }
+                        }
+                    } catch (e) {
+                    }
+                }
             } else if (u.indexOf("Windows NT 6.3") != -1) {
                 osVersion = "8.1";
             } else if (u.indexOf("Windows NT 6.2") != -1) {
@@ -465,25 +481,34 @@ var tools = {
         } else if (u.indexOf("Mac OS X") != -1) {
             osName = "macOS";
             osVersion = u.match(/Mac OS X\s([\d_]+)/)[1].replace(/_/g, '.');
-        } else if (u.indexOf("Android 10") != -1 && (u.toLowerCase().indexOf("huawei") != -1 || u.indexOf("HarmonyOS") != -1 || u.indexOf("HMSCore") != -1)) {
+        } else if (u.indexOf("HarmonyOS") !== -1 || u.indexOf("OpenHarmony") !== -1) {
             osName = "HarmonyOS";
-            osVersion = 3;
-        } else if (u.indexOf("Android 11") != -1 && (u.toLowerCase().indexOf("huawei") != -1 || u.indexOf("HarmonyOS") != -1 || u.indexOf("HMSCore") != -1)) {
-            osName = "HarmonyOS";
-            osVersion = 3;
-        } else if (u.indexOf("Android 12") != -1 && (u.toLowerCase().indexOf("huawei") != -1 || u.indexOf("HarmonyOS") != -1 || u.indexOf("HMSCore") != -1)) {
-            osName = "HarmonyOS";
-            osVersion = 4;
-        } else if (navigator.userAgent.indexOf("Android") != -1) {
+            const match = u.match(/HarmonyOS[\s\/]([\d.]+)/i);
+            if (match) {
+                osVersion = match[1];
+            } else {
+                if (u.indexOf("Android 12") !== -1) osVersion = "4";
+                else if (u.indexOf("Android 11") !== -1 || u.indexOf("Android 10") !== -1) osVersion = "3";
+                else osVersion = "unknown";
+            }
+        }
+        //  else if (u.indexOf("Android 10") != -1 && (u.toLowerCase().indexOf("huawei") != -1 || u.indexOf("HarmonyOS") != -1 || u.indexOf("HMSCore") != -1)) {
+        //     osName = "HarmonyOS";
+        //     osVersion = 3;
+        // } else if (u.indexOf("Android 11") != -1 && (u.toLowerCase().indexOf("huawei") != -1 || u.indexOf("HarmonyOS") != -1 || u.indexOf("HMSCore") != -1)) {
+        //     osName = "HarmonyOS";
+        //     osVersion = 3;
+        // } else if (u.indexOf("Android 12") != -1 && (u.toLowerCase().indexOf("huawei") != -1 || u.indexOf("HarmonyOS") != -1 || u.indexOf("HMSCore") != -1)) {
+        //     osName = "HarmonyOS";
+        //     osVersion = 4;
+        // }
+         else if (u.indexOf("Android") != -1) {
             osName = "Android";
-            osVersion = navigator.userAgent.match(/Android\s([\d.]+)/)[1];
-        } else if (navigator.userAgent.indexOf("Linux") != -1) {
+            osVersion = u.match(/Android\s([\d.]+)/)[1];
+        } else if (u.indexOf("Linux") != -1) {
             osName = "Linux";
         }
-        return {
-            name: osName,
-            version: osVersion
-        };
+        OSInfo = osName + " " + osVersion;
     },
 
     getMemoryUsage() {
@@ -514,23 +539,85 @@ var tools = {
         }
     },
 
-    getIp() {
-        // https://ip.jackjyq.com/json, https://2024.ipchaxun.com, https://api.ipify.org/?format=json, https://api.ipquery.io/, https://ip9.com.cn/get
-        if (localStorage.getItem('ipAddress') == null) {
-            fetch(ipAPI)
+    generateUUID() {
+        // 1. 默认原生 API (HTTPS 下可用)
+        if (typeof crypto !== 'undefined' && crypto.randomUUID) {
+            return crypto.randomUUID();
+        }
+        // 2. 兼容方案：加密级随机数 (CSPRNG)
+        const cryptoObj = (typeof window !== 'undefined' && (window.crypto || window.msCrypto));
+        if (cryptoObj && cryptoObj.getRandomValues) {
+            return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, c =>
+                (c ^ cryptoObj.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
+            );
+        }
+        // 3. 保底兼容方案：Math.random + 时间戳 + 高精度计时
+        let d = new Date().getTime();
+        let d2 = (typeof performance !== 'undefined' && performance.now && (performance.now() * 1000)) || 0;
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
+            let r = Math.random() * 16;
+            if (d > 0) {
+                r = (d + r) % 16 | 0;
+                d = Math.floor(d / 16);
+            } else {
+                r = (d2 + r) % 16 | 0;
+                d2 = Math.floor(d2 / 16);
+            }
+            return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+        });
+    },
+
+    getUUID() {
+        if (localStorage.getItem('UUID') == null) {
+            UUID = tools.generateUUID();
+            localStorage.setItem('UUID', UUID);
+            console.log('您的 UUID 为：' + UUID);
+        } else {
+            UUID = localStorage.getItem('UUID');
+            console.log('您的 UUID 为：' + UUID);
+        }
+    },
+
+    getGeoInfo() {
+        // https://api-ipv4.ip.sb/geoip, https://api.ip.sb/geoip, https://ip.jackjyq.com/json, https://2024.ipchaxun.com, https://api.ipify.org/?format=json, https://api.ipquery.io/, https://ip9.com.cn/get
+        // if (localStorage.getItem('geoInfo') == null) {
+        //     fetch('https://api.ip.sb/geoip')
+        //         .then(response => response.json())
+        //         .then(data => {
+        //             geoInfo = data;
+        //             localStorage.setItem('geoInfo', JSON.stringify(geoInfo));
+        //             console.log('您的 IP 地址：' + geoInfo.ip);
+        //         })
+        //         .catch(error => {
+        //             console.error('获取 IP 地址失败:', error);
+        //         });
+        // } else {
+        //     geoInfo = JSON.parse(localStorage.getItem('geoInfo'));
+        //     console.log('您的 IP 地址：' + geoInfo.ip);
+        // }
+        if (!geoInfo) {
+            fetch('https://api.ip.sb/geoip')
                 .then(response => response.json())
                 .then(data => {
-                    // userInfo = data;
-                    ipAddress = data.ip;
-                    localStorage.setItem('ipAddress', ipAddress);
-                    console.log('您的 IP 地址：' + ipAddress);
+                    geoInfo = data;
+                    console.log('您的 IP 地址：' + geoInfo.ip);
                 })
                 .catch(error => {
                     console.error('获取 IP 地址失败:', error);
                 });
         } else {
-            ipAddress = localStorage.getItem('ipAddress');
-            console.log('您的 IP 地址：' + ipAddress);
+            console.log('您的 IP 地址：' + geoInfo.ip);
+        }
+    },
+
+    getAvatar(mail) {
+        const cleanEmail = mail.trim().toLowerCase();
+        const qqMatch = cleanEmail.match(/^(\d+)@(qq\.com|vip\.qq\.com)$/i);
+        if (qqMatch) {
+            return `https://thirdqq.qlogo.cn/g?b=sdk&nk=${qqMatch[1]}&s=140`;
+        } else {
+            const hash = CryptoJS.MD5(cleanEmail).toString();
+            return `https://weavatar.com/avatar/${hash}`;
         }
     },
 
@@ -1102,7 +1189,8 @@ var ctrl = {
         if (!a.classList.contains("loading")) {
             var i = window.location.pathname.substring(6,14)
             a.classList.add("loading")
-            fetch(`https://apis.cancin.cn/likecount?mode=add&id=${i}&ip=${ipAddress}`)
+            // fetch(`https://apis.cancin.cn/likecount?mode=add&id=${i}&ip=${geoInfo.ip}`)
+            fetch(`https://apis.cancin.cn/likecount?mode=add&id=${i}&ip=${UUID}`)
                 .then(response => response.json())
                 .then(data => {
                     if (data.code == 200) {
@@ -1126,31 +1214,31 @@ var ctrl = {
         }
     },
 
-    getLocationWeather() {
-        fetch('https://api.ipify.org?format=json')
-            .then(response => response.json())
-            .then(data => {
-                ipAddress = data.ip;
-                console.log("IP 地址：" + ipAddress);
-                fetch('https://apis.cancin.cn/weather?ip=' + ipAddress + '&output=jsonp')
-                    .then(response => response.json())
-                    .then(data => {
-                        console.log(data);
-                        var day0 = data.weatherJson.daily[0];
-                        var day1 = data.weatherJson.daily[1];
-                        var day2 = data.weatherJson.daily[2];
-                        var district = data.locationJson.result.ad_info.district;
-                        var city = data.locationJson.result.ad_info.city;
-                        var province = data.locationJson.result.ad_info.province;
-                    })
-                    .catch(error => {
-                        console.error('获取天气信息失败:', error);
-                    })
-            })
-            .catch(error => {
-                console.error('获取 IP 地址失败:', error);
-            });
-    },
+    // getLocationWeather() {
+    //     fetch('https://api.ipify.org?format=json')
+    //         .then(response => response.json())
+    //         .then(data => {
+    //             ipAddress = data.ip;
+    //             console.log("IP 地址：" + ipAddress);
+    //             fetch('https://apis.cancin.cn/weather?ip=' + ipAddress + '&output=jsonp')
+    //                 .then(response => response.json())
+    //                 .then(data => {
+    //                     console.log(data);
+    //                     var day0 = data.weatherJson.daily[0];
+    //                     var day1 = data.weatherJson.daily[1];
+    //                     var day2 = data.weatherJson.daily[2];
+    //                     var district = data.locationJson.result.ad_info.district;
+    //                     var city = data.locationJson.result.ad_info.city;
+    //                     var province = data.locationJson.result.ad_info.province;
+    //                 })
+    //                 .catch(error => {
+    //                     console.error('获取天气信息失败:', error);
+    //                 })
+    //         })
+    //         .catch(error => {
+    //             console.error('获取 IP 地址失败:', error);
+    //         });
+    // },
 
     toggleSocial() {
         document.querySelector('.author-info-social .social-icons').classList.toggle('show');
@@ -1787,6 +1875,42 @@ music_list_title.addEventListener("click", () => {
     document.getElementById("console-songsheet-item-list").classList.add("item-show");
 });
 settings_btn.addEventListener("click", () => {
+    const loginInfo = JSON.parse(localStorage.getItem("twikoo"));
+    if (loginInfo) {
+        document.querySelector("#li-set-login .login-avatar").innerHTML = `<img src="${tools.getAvatar(loginInfo.mail)}" alt="${loginInfo.nick}">`;
+        document.querySelector("#li-set-login .login-info .name").innerHTML = loginInfo.nick;
+        document.querySelector("#li-set-login .login-info .desc").innerHTML = geoInfo.city + ", " + (geoInfo.country == 'China' ? geoInfo.region : geoInfo.country);
+        const userTags = {
+            'd0c536c701e0f333db83c1ced5d2b8cd': '洪哥',
+            '2dbb3f37c116504761d2103a6938f5f7871ebdd840ab5c4cd006d67c90fd18a0': '洪哥',
+            '28b57baa4e8f13fe4292ccb2de267e30': '杜老师',
+            '1c03767b0691f80231895255661bcf42eceab95dc8b493ee80c835b07f577f49': '杜老师',
+            '138c5fd747cad7830d085986a11882f1': '石头喵',
+            '3e879eec4d1c7214c81b092fa067a2c4c2bb25d30abd181d0063fee629d216e7': '石头喵',
+            'f70ba6af82502b20fbd0bb8d53c7f1ae5dd101c3b90673d25cca60b0f6286518': '石头喵',
+            'ba2379bacf88f17ea461137906bd127d': '唐志远',
+            '4123fba78500cef71d4d15fa3be2c4917ed9c94cbae8d86092790af6cfbafe81': '唐志远',
+            '92c15d4a1d99a8ee04b986a14a5f7e009e574b3383fc575005947988ccf205e2': '清羽飞扬',
+            '4b3a2ba0f7b67fcb1320aae6ff8e76438053781b22fe0159bb23545cf869de2a': '纳斯'
+        };
+        const hash = CryptoJS.SHA256(loginInfo.mail.trim().toLowerCase()).toString();
+        const tag = document.querySelector("#li-set-login .login-tag");
+        if(loginInfo.mail == "2443518835@qq.com"){
+            tag.classList.add("green");
+            tag.innerHTML = "阁主";
+        } else if(hash in userTags) {
+            tag.classList.add("purple");
+            tag.innerHTML = "" + userTags[hash] + "";
+        } else {
+            tag.classList.add("grey");
+            tag.innerHTML = "道友";
+        }
+    } else {
+        // document.querySelector("#li-set-login .login-info .name").innerHTML = geoInfo.ip;
+        // document.querySelector("#li-set-login .login-info .name").title = geoInfo.ip;
+        document.querySelector("#li-set-login .login-info .desc").innerHTML = geoInfo.city + ", " + (geoInfo.country == 'China' ? geoInfo.region : geoInfo.country);
+        document.querySelector("#li-set-login .login-tag").classList.add("grey")
+    }
     // document.querySelector("#console .console-btn-group").style.opacity = 0;
     // document.querySelector("#console .console-btn-group").style.pointerEvents = 'none';
     document.getElementById("console-settings").classList.add("item-show");
@@ -1798,8 +1922,10 @@ to_display.addEventListener("click", () => {
 to_about.addEventListener("click", () => {
     setting_title2.innerHTML = "关于本机";
     document.querySelector("#console-setting-info2 .set-box-normal:nth-child(3) .setting-detail").innerHTML = tools.detectBrowser().hard;
-    document.querySelector("#console-setting-info2 .set-box-normal:nth-child(4) .setting-detail").innerHTML = tools.getOSInfo().name + " " + tools.getOSInfo().version;
+    document.querySelector("#console-setting-info2 .set-box-normal:nth-child(4) .setting-detail").innerHTML = OSInfo;
     document.querySelector("#console-setting-info2 .set-box-normal:nth-child(5) .setting-detail").innerHTML = tools.detectBrowser().name + " " + tools.detectBrowser().version;
+    document.querySelector("#console-setting-info2 .set-box-normal:nth-child(6) .setting-detail").innerHTML = geoInfo.ip;
+    document.querySelector("#console-setting-info2 .set-box-normal:nth-child(6) .setting-detail").title = geoInfo.ip;
     // document.querySelector("#console-setting-info2 .set-box-normal:nth-child(3) .setting-detail").innerHTML = userInfo.device;
     // document.querySelector("#console-setting-info2 .set-box-normal:nth-child(4) .setting-detail").innerHTML = tools.getOSInfo().name == 'unknown' || tools.getOSInfo().version == 'unknown' ? userInfo.os : tools.getOSInfo().name + " " + tools.getOSInfo().version;
     // document.querySelector("#console-setting-info2 .set-box-normal:nth-child(5) .setting-detail").innerHTML = tools.detectBrowser().name == 'unknown' || tools.detectBrowser().version == 'unknown' ? userInfo.browser : tools.detectBrowser().name + " " + tools.detectBrowser().version;
@@ -1809,6 +1935,7 @@ to_tools.addEventListener("click", () => {
     setting_title3.innerHTML = "辅助功能";
     setting_info3.classList.add("item-show");
 });
+
 // to_wallpaper.addEventListener("click", () => {
 //     setting_title3.innerHTML = "桌面和壁纸";
 //     setting_info3.classList.add("item-show");

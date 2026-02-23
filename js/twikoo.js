@@ -12304,6 +12304,13 @@ e = this, t = function () {
                             '4b3a2ba0f7b67fcb1320aae6ff8e76438053781b22fe0159bb23545cf869de2a': '纳斯'
                         };
                         const tag = userTags[e.comment.mailMd5];
+                        // if(tag) {
+                        //     localStorage.setItem('userTag', tag);
+                        //     return t("span", {staticClass: "tk-tag tk-tag-purple"}, [e._v(e._s(tag))]);
+                        // } else {
+                        //     localStorage.setItem('userTag', '道友');
+                        //     return t("span", {staticClass: "tk-tag tk-tag-grey"}, [e._v(e._s('道友'))]);
+                        // }
                         return tag ? t("span", {
                             staticClass: "tk-tag tk-tag-purple"
                         }, [e._v(e._s(tag))]) : t("span", {
