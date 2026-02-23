@@ -515,7 +515,7 @@ var tools = {
     },
 
     getIp() {
-        // https://ip.jackjyq.com/json, https://2024.ipchaxun.com, https://api.ipify.org/?format=json
+        // https://ip.jackjyq.com/json, https://2024.ipchaxun.com, https://api.ipify.org/?format=json, https://api.ipquery.io/, https://ip9.com.cn/get
         if (localStorage.getItem('ipAddress') == null) {
             fetch(ipAPI)
                 .then(response => response.json())
@@ -530,6 +530,7 @@ var tools = {
                 });
         } else {
             ipAddress = localStorage.getItem('ipAddress');
+            console.log('您的 IP 地址：' + ipAddress);
         }
     },
 
