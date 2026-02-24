@@ -2261,7 +2261,7 @@ figure.highlight pre .javascript .function {
   }
 }
 .layout > div:first-child {
-  width: calc(100% - 340px);
+  width: calc(100% - 320px - var(--card-gap));
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
   -o-transition: all 0.3s;
@@ -2325,13 +2325,13 @@ figure.highlight pre .javascript .function {
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: var(--card-gap);
 }
 #article-container .flink .flink-list > .flink-list-item {
   position: relative;
   float: left;
   overflow: hidden;
-  width: calc(100% / 4 - 60px / 4);
+  width: calc(100% / 4 - var(--card-gap) * 3 / 4);
   height: 90px;
   border-radius: 13px;
   border: 1px solid var(--gavin-border-color);
@@ -2348,12 +2348,12 @@ figure.highlight pre .javascript .function {
 }
 @media screen and (max-width: 1200px) {
   #article-container .flink .flink-list > .flink-list-item {
-    width: calc(100% / 3 - 40px / 3) !important;
+    width: calc(100% / 3 - var(--card-gap) * 2 / 3) !important;
   }
 }
 @media screen and (max-width: 900px) {
   #article-container .flink .flink-list > .flink-list-item {
-    width: calc(100% / 2 - 20px / 2) !important;
+    width: calc(100% / 2 - var(--card-gap) / 2) !important;
   }
 }
 @media screen and (max-width: 600px) {
@@ -2499,7 +2499,7 @@ figure.highlight pre .javascript .function {
   font-size: 1.5em;
 }
 #recent-posts > .recent-post-item:not(:first-child) {
-  margin-top: 20px;
+  margin-top: var(--card-gap);
 }
 #recent-posts > .recent-post-item {
   display: -webkit-box;
@@ -2720,7 +2720,7 @@ h1.page-title + .tag-cloud-list {
 #aside-content .card-widget {
   position: relative;
   overflow: hidden;
-  margin-top: 20px;
+  margin-top: var(--card-gap);
   padding: 10px;
 }
 #aside-content .card-info .author-info__name {
@@ -3662,7 +3662,7 @@ h1.page-title + .tag-cloud-list {
   transform: translate3d(0, 100%, 0);
 }
 #page-header.nav-visible + .layout > .aside-content > .sticky_layout {
-  top: 80px;
+  top: calc(var(--nav-height) + var(--card-gap));
   -webkit-transition: top 0.5s;
   -moz-transition: top 0.5s;
   -o-transition: top 0.5s;
@@ -4930,7 +4930,6 @@ span.mathjax-overflow {
   border: 1px solid var(--gavin-border-color);
   overflow: hidden;
   position: relative;
-  --cardgoods-gap: 20px;
   --cardgoods-width: calc((100% - 3 * var(--cardgoods-gap)) / 4);
   width: var(--cardgoods-width);
   -webkit-box-shadow: var(--gavin-shadow-2);

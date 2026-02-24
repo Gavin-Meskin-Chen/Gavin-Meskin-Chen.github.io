@@ -61,7 +61,7 @@ const marqueeContent2 = document.getElementById('console-music-author-text');
 var userInfo;
 var OSInfo = '';
 var UUID = '';
-var geoInfo = '';
+window.geoInfo = '';
 var frameCount = 0;
 var startTime = performance.now();
 let animationId;
@@ -314,10 +314,10 @@ var tools = {
     detectBrowser() {
         const userAgent = navigator.userAgent;
         let browserName, fullVersion, majorVersion;
-        function getHard(str) {
-            let str1 = str.substring(str.indexOf("("), str.indexOf(")"));
-            return str1.substring(str1.lastIndexOf(";") + 2, str1.length);
-        }
+        // function getHard(str) {
+        //     let str1 = str.substring(str.indexOf("("), str.indexOf(")"));
+        //     return str1.substring(str1.lastIndexOf(";") + 2, str1.length);
+        // }
         let h = userAgent.substring(userAgent.indexOf("(") + 1, userAgent.indexOf(")")).toLowerCase();
         let hard;
         if (h.indexOf("hmscore") != -1 || h.indexOf("huawei") != -1 || h.indexOf("harmonyos") != -1) {
@@ -368,7 +368,7 @@ var tools = {
             fullVersion = RegExp.$1;
             majorVersion = parseInt(RegExp.$1, 10);
         } else if (/heytapbrowser[\/\s](\d+\.\d+\.\d+\.\d+)/.test(u)) {
-            // 检测vivo浏览器
+            // 检测oppo浏览器
             browserName = "OPPO Browser";
             fullVersion = RegExp.$1;
             majorVersion = parseInt(RegExp.$1, 10);
@@ -595,18 +595,18 @@ var tools = {
         //     geoInfo = JSON.parse(localStorage.getItem('geoInfo'));
         //     console.log('您的 IP 地址：' + geoInfo.ip);
         // }
-        if (!geoInfo) {
+        if (!window.geoInfo) {
             fetch('https://api.ip.sb/geoip')
                 .then(response => response.json())
                 .then(data => {
-                    geoInfo = data;
-                    console.log('您的 IP 地址：' + geoInfo.ip);
+                    window.geoInfo = data;
+                    console.log('您的 IP 地址：' + window.geoInfo.ip);
                 })
                 .catch(error => {
                     console.error('获取 IP 地址失败:', error);
                 });
         } else {
-            console.log('您的 IP 地址：' + geoInfo.ip);
+            console.log('您的 IP 地址：' + window.geoInfo.ip);
         }
     },
 
@@ -1876,10 +1876,10 @@ music_list_title.addEventListener("click", () => {
 });
 settings_btn.addEventListener("click", () => {
     const loginInfo = JSON.parse(localStorage.getItem("twikoo"));
-    if (loginInfo) {
+    if (loginInfo && loginInfo.mail) {
         document.querySelector("#li-set-login .login-avatar").innerHTML = `<img src="${tools.getAvatar(loginInfo.mail)}" alt="${loginInfo.nick}">`;
         document.querySelector("#li-set-login .login-info .name").innerHTML = loginInfo.nick;
-        document.querySelector("#li-set-login .login-info .desc").innerHTML = geoInfo.city + ", " + (geoInfo.country == 'China' ? geoInfo.region : geoInfo.country);
+        document.querySelector("#li-set-login .login-info .desc").innerHTML = window.geoInfo.city + ", " + (window.geoInfo.country == 'China' ? window.geoInfo.region : window.geoInfo.country);
         const userTags = {
             'd0c536c701e0f333db83c1ced5d2b8cd': '洪哥',
             '2dbb3f37c116504761d2103a6938f5f7871ebdd840ab5c4cd006d67c90fd18a0': '洪哥',
@@ -1908,7 +1908,7 @@ settings_btn.addEventListener("click", () => {
     } else {
         // document.querySelector("#li-set-login .login-info .name").innerHTML = geoInfo.ip;
         // document.querySelector("#li-set-login .login-info .name").title = geoInfo.ip;
-        document.querySelector("#li-set-login .login-info .desc").innerHTML = geoInfo.city + ", " + (geoInfo.country == 'China' ? geoInfo.region : geoInfo.country);
+        document.querySelector("#li-set-login .login-info .desc").innerHTML = window.geoInfo.city + ", " + (window.geoInfo.country == 'China' ? window.geoInfo.region : window.geoInfo.country);
         document.querySelector("#li-set-login .login-tag").classList.add("grey")
     }
     // document.querySelector("#console .console-btn-group").style.opacity = 0;
@@ -1924,8 +1924,8 @@ to_about.addEventListener("click", () => {
     document.querySelector("#console-setting-info2 .set-box-normal:nth-child(3) .setting-detail").innerHTML = tools.detectBrowser().hard;
     document.querySelector("#console-setting-info2 .set-box-normal:nth-child(4) .setting-detail").innerHTML = OSInfo;
     document.querySelector("#console-setting-info2 .set-box-normal:nth-child(5) .setting-detail").innerHTML = tools.detectBrowser().name + " " + tools.detectBrowser().version;
-    document.querySelector("#console-setting-info2 .set-box-normal:nth-child(6) .setting-detail").innerHTML = geoInfo.ip;
-    document.querySelector("#console-setting-info2 .set-box-normal:nth-child(6) .setting-detail").title = geoInfo.ip;
+    document.querySelector("#console-setting-info2 .set-box-normal:nth-child(6) .setting-detail").innerHTML = window.geoInfo.ip;
+    document.querySelector("#console-setting-info2 .set-box-normal:nth-child(6) .setting-detail").title = window.geoInfo.ip;
     // document.querySelector("#console-setting-info2 .set-box-normal:nth-child(3) .setting-detail").innerHTML = userInfo.device;
     // document.querySelector("#console-setting-info2 .set-box-normal:nth-child(4) .setting-detail").innerHTML = tools.getOSInfo().name == 'unknown' || tools.getOSInfo().version == 'unknown' ? userInfo.os : tools.getOSInfo().name + " " + tools.getOSInfo().version;
     // document.querySelector("#console-setting-info2 .set-box-normal:nth-child(5) .setting-detail").innerHTML = tools.detectBrowser().name == 'unknown' || tools.detectBrowser().version == 'unknown' ? userInfo.browser : tools.detectBrowser().name + " " + tools.detectBrowser().version;
