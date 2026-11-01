@@ -6,7 +6,7 @@
   <link href="https://blog.cancin.cn/atom.xml" rel="self"/>
   
   <link href="https://blog.cancin.cn/"/>
-  <updated>2026-11-01T11:07:11.373Z</updated>
+  <updated>2026-11-01T11:07:46.015Z</updated>
   <id>https://blog.cancin.cn/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://blog.cancin.cn/post/6aa842db.html"/>
     <id>https://blog.cancin.cn/post/6aa842db.html</id>
     <published>2026-11-01T10:49:43.000Z</published>
-    <updated>2026-11-01T11:07:11.373Z</updated>
+    <updated>2026-11-01T11:07:46.015Z</updated>
     
     <content type="html"><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试。" data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容。">  <script id="hbeData" type="hbeData" data-hmacdigest="d1c1659c99e8ca4c75f9500c9049d8e1d9be1c06fc5b8616f7178cb5602d99d0">6405dad55b8e7c84fb21a453d26223c182cf738f4107e6e9b41a09556055da8841c4b8ca3aeb303b817cc3c022e805c0d7ce3750db8296a7dab7977f914b2bfc0b53e357286603d225b11ef5d3a2668d8c32040287a6e5f951bc978902a6ea1cb6603d71076f23da4ab9acb23f595fd385e6f65cc04369bdcb6676717ca4a19e097fc7851c39b5232e6039d71c294d3ba5d89fc56ee322165ba86e7ee59b94c208cbe004ac815f9202a2c3fa1d78901c7e5b3ddef00b28712d98c2c927207f718d6baf424026846db18737d3ec7c8bb1365111a1f7da98af6eb0f9efbd02eeeccf9b95d70ca7ea63d2b2822d8d0ca329a0d1908e7a72ca672233a2beb2d82faa40b0f39f3047513db7dc429a58bfa407ce0eb2b0c6c5646c60991af5d3dd79697064ecf566d9ac657d690d44368dbefb89f2949313a1818a2a52a5f424fba358661b997fb5be6366580d7175f2bd11af</script>  <div class="hbe hbe-content">    <div class="hbe hbe-input hbe-input-flip">      <input class="hbe hbe-input-field hbe-input-field-flip" type="password" id="hbePass">      <label class="hbe hbe-input-label hbe-input-label-flip" for="hbePass">        <span class="hbe hbe-input-label-content hbe-input-label-content-flip" data-content="您好, 这里需要密码。">您好, 这里需要密码。</span>      </label>    </div>  </div></div><script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
     
@@ -473,9 +473,9 @@
     
     <category term="日记" scheme="https://blog.cancin.cn/tags/%E6%97%A5%E8%AE%B0/"/>
     
-    <category term="集训" scheme="https://blog.cancin.cn/tags/%E9%9B%86%E8%AE%AD/"/>
-    
     <category term="研究生" scheme="https://blog.cancin.cn/tags/%E7%A0%94%E7%A9%B6%E7%94%9F/"/>
+    
+    <category term="集训" scheme="https://blog.cancin.cn/tags/%E9%9B%86%E8%AE%AD/"/>
     
   </entry>
   

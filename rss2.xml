@@ -9,7 +9,7 @@
     <atom:link href="https://blog.cancin.cn/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>南方嘉木的博客</description>
-    <pubDate>Sun, 01 Nov 2026 11:07:11 GMT</pubDate>
+    <pubDate>Sun, 01 Nov 2026 11:07:46 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -504,9 +504,9 @@
       
       <category domain="https://blog.cancin.cn/tags/%E6%97%A5%E8%AE%B0/">日记</category>
       
-      <category domain="https://blog.cancin.cn/tags/%E9%9B%86%E8%AE%AD/">集训</category>
-      
       <category domain="https://blog.cancin.cn/tags/%E7%A0%94%E7%A9%B6%E7%94%9F/">研究生</category>
+      
+      <category domain="https://blog.cancin.cn/tags/%E9%9B%86%E8%AE%AD/">集训</category>
       
       
       <comments>https://blog.cancin.cn/post/d5f63bc.html#disqus_thread</comments>

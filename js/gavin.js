@@ -244,7 +244,9 @@ function cardTimes() {
                 if (count_flag) count_days += 1;
             }
         }
-        const lunar = chineseLunar.solarToLunar(now);
+        const lunar = chineseLunar.solarToLunar(
+            new Date(now.getFullYear(), now.getMonth(), now.getDate())
+        );
         animalYear = chineseLunar.format(lunar, "A"); //生肖属相
         ganzhiYear = chineseLunar.format(lunar, "T").slice(0, -1); //天干地支
         lunarMon = chineseLunar.format(lunar, "M"); //月份
