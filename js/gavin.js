@@ -252,7 +252,7 @@ function cardTimes() {
         lunarMon = chineseLunar.format(lunar, "M"); //月份
         lunarDay = chineseLunar.format(lunar, "d"); //日期
         const anniversary = chineseLunar.lunarToSolar(lunar.year + 1 , 1, 1);
-        const countDown = Math.floor((anniversary - now) / 1e3 / 60 / 60 / 24);
+        const countDown = Math.ceil((anniversary - now) / 1e3 / 60 / 60 / 24);
         firstDay = new Date(now.getFullYear() + "/01/01 00:00:00");	// 侧边栏倒计时
         asideDay = (now - firstDay) / 1e3 / 60 / 60 / 24;
         asideDayNum = Math.floor(asideDay);
@@ -263,7 +263,7 @@ function cardTimes() {
         cardWidgetCalendar.querySelector("#calendar-lunar").innerHTML = ganzhiYear + animalYear + "年&nbsp;" + lunarMon + lunarDay; // 农历
         document.getElementById("schedule-title").innerHTML = "距离春节"; // 标题
         document.getElementById("schedule-days").innerHTML = countDown; // 倒计时
-        document.getElementById("schedule-date").innerHTML = anniversary.toISOString().split('T')[0]; // 或者用.slice(0,10) //春节日期 2025-01-29
+        document.getElementById("schedule-date").innerHTML = anniversary.toLocaleDateString("sv-SE"); // 自动按当地时区显示
     }
 }
 
